@@ -1,0 +1,10 @@
+*.pdf
+*.o
+*.jpg
+*.eps
+*.png
+*.jpeg
+*.gif
+*.C
+*.aux
+*.toc
