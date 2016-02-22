@@ -1,0 +1,35 @@
+#!/bin/bash
+if [ "$#" -ne 1 ]; then
+	echo "Please, type in the name of the slcio file! (e.g. Sim.slcio)"
+	exit 1
+fi
+
+path_filename=$1
+filename=$(basename "$1")
+SteeringFile="SiD_SteeringFile.xml"
+
+if [ ! -f "$path_filename" ]; then
+	echo $path_filename" not found!"
+	exit 1
+fi
+if [ ! -f "$SteeringFile" ]; then
+	echo "$SteeringFile"" not found!"
+	exit 1
+fi
+echo "Marlin will be executed for the file "$path_filename
+
+path_filename_withBackSlashes=${path_filename//'/'/'\/'}
+extension="${filename##*.}"
+filename="${filename%.*}"
+
+chmod +w "$SteeringFile"
+perl -pi -e "s/\/PATHTO\/ToBeReplaced/"$path_filename_withBackSlashes"/g" "$SteeringFile"
+
+export MARLIN_DLL=$MARLIN_DLL:/space/vol1/SiD_background_event_PROCESSOR/lib/libSiD_bkg_Processor.so
+Marlin SiD_SteeringFile.xml
+
+new_extension=".root"
+mv Sim.root $filename$new_extension
+
+perl -pi -e "s/"$path_filename_withBackSlashes"/\/PATHTO\/ToBeReplaced/g" "$SteeringFile"
+chmod -w "$SteeringFile"

@@ -1,0 +1,35 @@
+<marlin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ilcsoft.desy.de/marlin/marlin.xsd">
+ <execute>
+   <processor name="SiD_bkg_Processor"/>  
+ </execute>
+
+ <global>
+  <parameter name="LCIOInputFiles"> /afs/desy.de/user/s/schuea/nfs/SiD_background_event_PROCESSOR/merged_outfile_Full_bunchcrossing_crossingAngle.slcio </parameter>
+  <!-- limit the number of processed records (run+evt): -->  
+  <parameter name="MaxRecordNumber" value="20000001" />  
+  <parameter name="SkipNEvents" value="0" />  
+  <parameter name="SupressCheck" value="false" />  
+  <parameter name="GearXMLFile"> </parameter>  
+  <parameter name="Verbosity" options="DEBUG0-4,MESSAGE0-4,WARNING0-4,ERROR0-4,SILENT"> SILENT </parameter> 
+ </global>
+
+ <processor name="SiD_bkg_Processor" type="SiD_bkg_Processor">
+  <parameter name="InputCollectionName" type="string" lcioInType="MCParticle"> MCParticle </parameter>
+  <parameter name="InputCollectionName2" type="string" lcioInType="SimTrackerHit"> SiVertexEndcapHits </parameter>
+  <parameter name="InputCollectionName3" type="string" lcioInType="SimTrackerHit"> SiTrackerEndcapHits </parameter>
+  <parameter name="InputCollectionName4" type="string" lcioInType="SimTrackerHit"> SiVertexBarrelHits </parameter>
+  <parameter name="InputCollectionName5" type="string" lcioInType="SimTrackerHit"> SiTrackerForwardHits </parameter>
+  <parameter name="InputCollectionName6" type="string" lcioInType="SimTrackerHit"> SiTrackerBarrelHits </parameter>
+  <parameter name="InputCollectionName7" type="string" lcioInType="SimCalorimeterHit"> EcalTrackerBarrelHits </parameter>
+  <parameter name="InputCollectionName8" type="string" lcioInType="SimCalorimeterHit"> MuonEndcapHits </parameter>
+  <parameter name="InputCollectionName9" type="string" lcioInType="SimCalorimeterHit"> HcalEndcapHits </parameter>
+  <parameter name="InputCollectionName10" type="string" lcioInType="SimCalorimeterHit"> MuonBarrelHits </parameter>
+  <parameter name="InputCollectionName11" type="string" lcioInType="SimCalorimeterHit"> LumiCalHits </parameter>
+  <parameter name="InputCollectionName12" type="string" lcioInType="SimCalorimeterHit"> HcalEndcapHits </parameter>
+  <parameter name="InputCollectionName13" type="string" lcioInType="SimCalorimeterHit"> EcalEndcapHits </parameter>
+  <parameter name="InputCollectionName14" type="string" lcioInType="SimCalorimeterHit"> BeamCalHits </parameter>
+
+  <parameter name="OutputCollectionName" type="string" lcioOutType="MCParticle"> MCParticlePhotonSource </parameter>
+ </processor>
+
+</marlin>
