@@ -1,0 +1,9 @@
+This folder contains two small converters for the short form HEPEvt format, and the longform hepevt format. The main difference between the two formats is the inclusion of the production vertex and the proper lifetime of the particles. The hepevtStdhepConverter is used for the long form, and the HepEVTStdhepGenerator is used for the short form.
+
+Both programs can be compiled easily with the java compiler. 
+source setup.sh
+javac hepevtStdhepConverter.java 
+or
+javac HepEVTStdhepGenerator.java 
+
+The input for both of them is a text file which contains the list of hepevt/HEPEvt files for conversion to stdhep.
