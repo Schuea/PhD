@@ -89,7 +89,6 @@ int main(int const argc, char const * const * const argv) {
 				<< std::endl;
 		exit(1);
 	}
-	Time passedbytime;
 
 	std::vector<Subdetector*> * SubDetectors = new std::vector<Subdetector*>();
 	std::string* subdetector_name = new std::string("");
@@ -101,10 +100,11 @@ int main(int const argc, char const * const * const argv) {
 	float rmax = sqrt(pow(range_array[5], 2) + pow(range_array[8], 2));
 	float rmin = 0.;
 	float rrange = rmax - rmin;
-	float zmax = 3500;//range_array[2];
+	float zmax = 3500;
+	//float zmax = range_array[2];
 	float zmin = -zmax;
 	float zrange = rmax - zmin;
-	std::array<float, 6> axis_vector = { float(zrange / 8.0), zmin, zmax, float(rrange / 20.0), rmin, 400};
+	std::array<float, 6> axis_vector = { float(zrange / 8.0), zmin, zmax, float(rrange / 20.0), rmin, rmax};
 
 	//Make histogram for storing the information
 	std::string const title1 = "Time < 10ns, Hit maps of particle origins for those particles hitting subdetector "
@@ -144,9 +144,7 @@ int main(int const argc, char const * const * const argv) {
 			tree->SetBranchAddress("HitMotherVertex_z", &vertex_z);
 
 			std::array<double, 3> vertex;
-			float absolutetime = 0.;
 			std::pair<int, int> Number_train_bunch = Set_train_bunch_number(file_iterator);
-			passedbytime.Calculate_passedbytime(Number_train_bunch.first, Number_train_bunch.second);
 
 			//Now we loop through the tree
 			//Combine the two Cell ID's into a single new Cell ID
@@ -155,11 +153,10 @@ int main(int const argc, char const * const * const argv) {
 			long long int const entries = tree->GetEntries();
 			for (long long int i = 0; i < entries; ++i) {
 				tree->GetEntry(i);
-				absolutetime = actualtime + passedbytime.Get_passedbytime();
 				vertex = { vertex_x, vertex_y, vertex_z };
-				if (absolutetime < 10.0) histo1->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
-				else if (absolutetime >= 10.0 && absolutetime < 20.0) histo2->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
-				else if (absolutetime >= 20.0 && absolutetime < 50.0) histo3->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
+				if (actualtime < 10.0) histo1->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
+				else if (actualtime >= 10.0 && actualtime < 20.0) histo2->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
+				else if (actualtime >= 20.0 && actualtime < 50.0) histo3->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
 			}
 			file->Close();
 		}
