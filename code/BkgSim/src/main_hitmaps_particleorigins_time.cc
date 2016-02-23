@@ -3,6 +3,7 @@
 #include "TCanvas.h"
 #include "TH2D.h"
 #include "TStyle.h"
+#include "TROOT.h"
 
 #include <bitset>
 #include <iostream>
@@ -16,9 +17,14 @@
 #include "GeneralFunctions_SiDBkgSim.h"
 #include "Time_class.h"
 
+#include "Style.h"
+
 using namespace std;
 
 int main(int const argc, char const * const * const argv) {
+	//UsePhDStyle();
+	SetAtlasStyle();
+
 	//ConfigReaderAnalysis config(argv[1]);
 	//config.setUp();
 	//cout << config.getConfigName() << endl;
@@ -108,15 +114,15 @@ int main(int const argc, char const * const * const argv) {
 
 	//Make histogram for storing the information
 	std::string const title1 = "Time < 10ns, Hit maps of particle origins for those particles hitting subdetector "
-			+ subdetectornames + ";z [mm]; r [mm]";
+			+ subdetectornames + ";z [mm];r [mm];# of origins";
 	TH2D* histo1 = new TH2D("histo1", title1.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 			axis_vector[4], axis_vector[5]);
 	std::string const title2 = "10ns <= Time < 20ns, Hit maps of particle origins for those particles hitting subdetector "
-			+ subdetectornames + ";z [mm]; r [mm]";
+			+ subdetectornames + ";z [mm];r [mm];# of origins";
 	TH2D* histo2 = new TH2D("histo2", title2.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 			axis_vector[4], axis_vector[5]);
 	std::string const title3 = "20ns <= Time < 50ns, Hit maps of particle origins for those particles hitting subdetector "
-			+ subdetectornames + ";z [mm]; r [mm]";
+			+ subdetectornames + ";z [mm];r [mm];# of origins";
 	TH2D* histo3 = new TH2D("histo3", title3.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 			axis_vector[4], axis_vector[5]);
 
@@ -162,17 +168,23 @@ int main(int const argc, char const * const * const argv) {
 		}
 	}
 
-	gStyle->SetOptStat(11111);
 	//Plot the histogram and save it
-	TCanvas *canvas1 = new TCanvas("canvas", "canvas", 800, 600);
+	
+	TCanvas *canvas1 = new TCanvas("canvas1", "canvas", 800, 600);
+	TCanvas *canvas2 = new TCanvas("canvas2", "canvas", 800, 600);
+	TCanvas *canvas3 = new TCanvas("canvas3", "canvas", 800, 600);
+
+	canvas1->cd();
 	histo1->Draw("colz");
 	canvas1->Print("output/hitmaps_particleorigins_time1.pdf");
 	canvas1->Print("output/hitmaps_particleorigins_time1.cxx");
-	TCanvas *canvas2 = new TCanvas("canvas", "canvas", 800, 600);
+
+	canvas2->cd();
 	histo2->Draw("colz");
 	canvas2->Print("output/hitmaps_particleorigins_time2.pdf");
 	canvas2->Print("output/hitmaps_particleorigins_time2.cxx");
-	TCanvas *canvas3 = new TCanvas("canvas", "canvas", 800, 600);
+
+	canvas3->cd();
 	histo3->Draw("colz");
 	canvas3->Print("output/hitmaps_particleorigins_time3.pdf");
 	canvas3->Print("output/hitmaps_particleorigins_time3.cxx");

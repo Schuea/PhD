@@ -155,25 +155,46 @@ int main(int const argc, char const * const * const argv) {
 	//Plot the histogram and save it
 	TCanvas *canvas = new TCanvas("canvas", "canvas", 800, 600);
 
-	TStyle* myPhDStyle = new TStyle("myPhDStyle","");
+	TStyle* myPhDStyle = new TStyle("myPhDStyle","PhD style");
+	
+	Int_t stat = 1111;
+	Int_t fit = 1111;
+	myPhDStyle->SetOptStat(stat);  
+	myPhDStyle->SetOptFit(fit);  
+	
+	Int_t font = 42; //Helvetica
+	Int_t fontsize = 0.05; //Helvetica
 	myPhDStyle->SetPalette(1,0); // avoid horrible default color scheme 
-	myPhDStyle->SetOptStat(0);  
-	myPhDStyle->SetLabelSize(0.03,"xyz");  
-	myPhDStyle->SetTitleSize(0.035,"xyz");  
-	myPhDStyle->SetTitleFont(22,"xyz");  
-	myPhDStyle->SetLabelFont(22,"xyz");  
-	myPhDStyle->SetTitleOffset(1.6,"y");  
+	myPhDStyle->SetLabelSize(fontsize,"xyz");  
+	myPhDStyle->SetTitleSize(fontsize,"xyz");  
+	myPhDStyle->SetTitleFont(font,"xyz");  
+	myPhDStyle->SetLabelFont(font,"xyz");  
+	myPhDStyle->SetTitleXOffset(1.6);  
+	myPhDStyle->SetTitleYOffset(1.6);  
 
-	myPhDStyle->SetCanvasDefW(800);  
-	myPhDStyle->SetCanvasDefH(600);  
-	myPhDStyle->SetCanvasColor(0);  
-	//myPhDStyle->SetCanvasBorderMode(0);  
-	myPhDStyle->SetCanvasBorderSize(0);  
-	myPhDStyle->SetPadBottomMargin(0.1);  
-	myPhDStyle->SetPadTopMargin(0.1);  
-	myPhDStyle->SetPadLeftMargin(0.1);  
-	myPhDStyle->SetPadRightMargin(0.5);  
-	myPhDStyle->SetFrameBorderMode(0);  
+	myPhDStyle->SetMarkerStyle(20);
+	myPhDStyle->SetMarkerSize(1.2);
+	myPhDStyle->SetHistLineWidth(2.);
+	myPhDStyle->SetLineStyleString(2,"[12 12]");
+
+	//myPhDStyle->SetCanvasDefW(800);  
+	//myPhDStyle->SetCanvasDefH(600);  
+	Int_t color = 0; //white
+	myPhDStyle->SetCanvasBorderMode(color);  
+	myPhDStyle->SetCanvasColor(color);  
+	myPhDStyle->SetFrameBorderMode(color);  
+	myPhDStyle->SetFrameFillColor(color);  
+	myPhDStyle->SetPadBorderMode(color);  
+	myPhDStyle->SetPadColor(color);  
+	myPhDStyle->SetStatColor(color);  
+
+	myPhDStyle->SetPaperSize(20,26);
+
+	//myPhDStyle->SetCanvasBorderSize(0);  
+	myPhDStyle->SetPadBottomMargin(0.16);  
+	myPhDStyle->SetPadTopMargin(0.05);  
+	myPhDStyle->SetPadLeftMargin(0.16);  
+	myPhDStyle->SetPadRightMargin(0.05);  
 	gROOT->SetStyle("myPhDStyle");
 	canvas->Update();
 //	//Set label size to 25 pixels:
