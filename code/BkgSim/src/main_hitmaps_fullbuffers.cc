@@ -2,6 +2,8 @@
 #include "TTree.h"
 #include "TCanvas.h"
 #include "TH2D.h"
+#include "TStyle.h"
+#include "TROOT.h"
 
 #include <bitset>
 #include <iostream>
@@ -137,7 +139,7 @@ int main(int const argc, char const * const * const argv) {
 	}
 
 	//Make histogram for storing the information
-	std::string const title = "Hit maps of cells with full buffer for subdetector " + subdetectornames + ";x [mm]; y [mm]";
+	std::string const title = "Hit maps of cells with full buffer for subdetector " + subdetectornames + ";x [mm]; y [mm];# of hits";
 	TH2D *histo = new TH2D("histo", title.c_str(), range_array[0], range_array[1], range_array[2], range_array[3], range_array[4], range_array[5]);
 
 	for (size_t allcellhits = 0; allcellhits < AllCellHits.size(); ++allcellhits) {
@@ -152,10 +154,47 @@ int main(int const argc, char const * const * const argv) {
 
 	//Plot the histogram and save it
 	TCanvas *canvas = new TCanvas("canvas", "canvas", 800, 600);
+
+	TStyle* myPhDStyle = new TStyle("myPhDStyle","");
+	myPhDStyle->SetPalette(1,0); // avoid horrible default color scheme 
+	myPhDStyle->SetOptStat(0);  
+	myPhDStyle->SetLabelSize(0.03,"xyz");  
+	myPhDStyle->SetTitleSize(0.035,"xyz");  
+	myPhDStyle->SetTitleFont(22,"xyz");  
+	myPhDStyle->SetLabelFont(22,"xyz");  
+	myPhDStyle->SetTitleOffset(1.6,"y");  
+
+	myPhDStyle->SetCanvasDefW(800);  
+	myPhDStyle->SetCanvasDefH(600);  
+	myPhDStyle->SetCanvasColor(0);  
+	//myPhDStyle->SetCanvasBorderMode(0);  
+	myPhDStyle->SetCanvasBorderSize(0);  
+	myPhDStyle->SetPadBottomMargin(0.1);  
+	myPhDStyle->SetPadTopMargin(0.1);  
+	myPhDStyle->SetPadLeftMargin(0.1);  
+	myPhDStyle->SetPadRightMargin(0.5);  
+	myPhDStyle->SetFrameBorderMode(0);  
+	gROOT->SetStyle("myPhDStyle");
+	canvas->Update();
+//	//Set label size to 25 pixels:
+//	float textsize = 25/(canvas->GetWh()*canvas->GetAbsHNDC());
+//	TAxis *xaxis = histo->GetXaxis();
+//	TAxis *yaxis = histo->GetYaxis();
+//	TAxis *zaxis = histo->GetZaxis();
+//	xaxis->SetLabelSize(textsize);
+//	yaxis->SetLabelSize(textsize);
+//	xaxis->SetLabelOffset(0.03,"xyz");
+//	yaxis->SetLabelOffset(0.03,"xyz");
+//	//Set axis title size and offset to axis:
+//	xaxis->SetTitleSize(0.035,"xyz");
+//	yaxis->SetTitleSize(0.035,"xyz");
+//	zaxis->SetTitleSize(0.035,"xyz");
+//	xaxis->SetTitleOffset(1.0);
+//	yaxis->SetTitleOffset(1.0);
+
 	histo->Draw("colz");
-	canvas->Print("output/hitmaps_fullbuffers.pdf");
-	canvas->Print("output/hitmaps_fullbuffers.cxx");
+	canvas->Print("output/hitmaps_fullbuffers_bufferdepth4.pdf");
+	canvas->Print("output/hitmaps_fullbuffers_bufferdepth4.cxx");
 
 	return 0;
 }
-
