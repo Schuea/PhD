@@ -153,8 +153,8 @@ int main(int const argc, char const * const * const argv) {
 	//Plot the histogram and save it
 	TCanvas *canvas = new TCanvas("canvas", "canvas", 800, 600);
 	histo->Draw("colz");
-	canvas->Print("../output/hitmaps_fullbuffers.pdf");
-	canvas->Print("../output/hitmaps_fullbuffers.C");
+	canvas->Print("output/hitmaps_fullbuffers.pdf");
+	canvas->Print("output/hitmaps_fullbuffers.cxx");
 
 	return 0;
 }

@@ -169,16 +169,16 @@ int main(int const argc, char const * const * const argv) {
 	//Plot the histogram and save it
 	TCanvas *canvas1 = new TCanvas("canvas", "canvas", 800, 600);
 	histo1->Draw("colz");
-	canvas1->Print("../output/hitmaps_particleorigins_time1.pdf");
-	canvas1->Print("../output/hitmaps_particleorigins_time1.C");
+	canvas1->Print("output/hitmaps_particleorigins_time1.pdf");
+	canvas1->Print("output/hitmaps_particleorigins_time1.cxx");
 	TCanvas *canvas2 = new TCanvas("canvas", "canvas", 800, 600);
 	histo2->Draw("colz");
-	canvas2->Print("../output/hitmaps_particleorigins_time2.pdf");
-	canvas2->Print("../output/hitmaps_particleorigins_time2.C");
+	canvas2->Print("output/hitmaps_particleorigins_time2.pdf");
+	canvas2->Print("output/hitmaps_particleorigins_time2.cxx");
 	TCanvas *canvas3 = new TCanvas("canvas", "canvas", 800, 600);
 	histo3->Draw("colz");
-	canvas3->Print("../output/hitmaps_particleorigins_time3.pdf");
-	canvas3->Print("../output/hitmaps_particleorigins_time3.C");
+	canvas3->Print("output/hitmaps_particleorigins_time3.pdf");
+	canvas3->Print("output/hitmaps_particleorigins_time3.cxx");
 
 	return 0;
 }

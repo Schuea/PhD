@@ -151,8 +151,8 @@ int main(int const argc, char const * const * const argv) {
 	canvas->SetLogy(1);
 	histo->SetMinimum(0.0000001);
 	histo->Draw();
-	canvas->Print("../output/buffer_depth.pdf");
-	canvas->Print("../output/buffer_depth.C");
+	canvas->Print("output/buffer_depth.pdf");
+	canvas->Print("output/buffer_depth.cxx");
 
 	return 0;
 }
