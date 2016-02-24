@@ -1,136 +1,88 @@
 #include "TStyle.h"
 #include "TROOT.h"
+#include "TGaxis.h"
 
 #include "Style.h"
 
-void UsePhDStyle(){
-
-static TStyle* myPhDStyle = new TStyle("myPhDStyle","PhD style");
-Int_t stat = 1111;
-Int_t fit = 1111;
-myPhDStyle->SetOptStat(stat);  
-myPhDStyle->SetOptFit(fit);  
-
-Int_t font = 42; //Helvetica
-Int_t fontsize = 0.05; //Helvetica
-myPhDStyle->SetPalette(1,0); // avoid horrible default color scheme 
-myPhDStyle->SetLabelSize(fontsize,"xyz");  
-myPhDStyle->SetTitleSize(fontsize,"xyz");  
-myPhDStyle->SetTitleFont(font,"xyz");  
-myPhDStyle->SetLabelFont(font,"xyz");  
-myPhDStyle->SetTitleOffset(1.2,"xyz");  
-
-myPhDStyle->SetMarkerStyle(20);
-myPhDStyle->SetMarkerSize(1.2);
-myPhDStyle->SetHistLineWidth(2.);
-myPhDStyle->SetLineStyleString(2,"[12 12]");
-
-//myPhDStyle->SetCanvasDefW(800);  
-//myPhDStyle->SetCanvasDefH(600);  
-Int_t color = 0; //white
-myPhDStyle->SetCanvasBorderMode(color);  
-myPhDStyle->SetCanvasColor(color);  
-myPhDStyle->SetFrameBorderMode(color);  
-myPhDStyle->SetFrameFillColor(color);  
-myPhDStyle->SetPadBorderMode(color);  
-myPhDStyle->SetPadColor(color);  
-myPhDStyle->SetStatColor(color);  
-
-myPhDStyle->SetPaperSize(20,26);
-
-//myPhDStyle->SetCanvasBorderSize(0);  
-myPhDStyle->SetPadBottomMargin(0.16);  
-myPhDStyle->SetPadTopMargin(0.05);  
-myPhDStyle->SetPadLeftMargin(0.16);  
-myPhDStyle->SetPadRightMargin(0.1);  
-gROOT->SetStyle("myPhDStyle");
-gROOT->ForceStyle();
-
-}
-
-
-void SetAtlasStyle ()
+void UsePhDStyle ()
 {
-  static TStyle* atlasStyle = 0;
-  //std::cout << "\nApplying ATLAS style settings...\n" << std::endl ;
-  if ( atlasStyle==0 ) atlasStyle = AtlasStyle();
-  gROOT->SetStyle("ATLAS");
+  static TStyle* myPhDStyle = 0;
+  if ( myPhDStyle==0 ) myPhDStyle = PhDStyle();
+  gROOT->SetStyle("PhD");
   gROOT->ForceStyle();
 }
 
-TStyle* AtlasStyle() 
+TStyle* PhDStyle() 
 {
-  TStyle *atlasStyle = new TStyle("ATLAS","Atlas style");
+  TStyle *myPhDStyle = new TStyle("PhD","PhD style");
 
   // use plain black on white colors
   Int_t icol=0; // WHITE
-  atlasStyle->SetFrameBorderMode(icol);
-  atlasStyle->SetFrameFillColor(icol);
-  atlasStyle->SetCanvasBorderMode(icol);
-  atlasStyle->SetCanvasColor(icol);
-  atlasStyle->SetPadBorderMode(icol);
-  atlasStyle->SetPadColor(icol);
-  atlasStyle->SetStatColor(icol);
-  //atlasStyle->SetFillColor(icol); // don't use: white fill color for *all* objects
+  myPhDStyle->SetFrameBorderMode(icol);
+  myPhDStyle->SetFrameFillColor(icol);
+  myPhDStyle->SetCanvasBorderMode(icol);
+  myPhDStyle->SetCanvasColor(icol);
+  myPhDStyle->SetPadBorderMode(icol);
+  myPhDStyle->SetPadColor(icol);
+  myPhDStyle->SetStatColor(icol);
 
   // set the paper & margin sizes
-  atlasStyle->SetPaperSize(20,26);
+  myPhDStyle->SetPaperSize(20,26);
 
   // set margin sizes
-  atlasStyle->SetPadTopMargin(0.05);
-  atlasStyle->SetPadRightMargin(0.05);
-  atlasStyle->SetPadBottomMargin(0.16);
-  atlasStyle->SetPadLeftMargin(0.16);
+  myPhDStyle->SetPadTopMargin(0.12);
+  myPhDStyle->SetPadRightMargin(0.18);
+  myPhDStyle->SetPadBottomMargin(0.11);
+  myPhDStyle->SetPadLeftMargin(0.16);
 
   // set title offsets (for axis label)
-  atlasStyle->SetTitleXOffset(1.4);
-  atlasStyle->SetTitleYOffset(1.4);
+  myPhDStyle->SetTitleOffset(1.3,"xyz"); //The offset has to be set for all axis first, because there is no SetTitleZOffset function
+  myPhDStyle->SetTitleXOffset(1.05); //Then set the offset of the titles for the x- and y-axis separetly
+  myPhDStyle->SetTitleYOffset(1.4);
 
   // use large fonts
-  //Int_t font=72; // Helvetica italics
   Int_t font=42; // Helvetica
   Double_t tsize=0.05;
-  atlasStyle->SetTextFont(font);
+  myPhDStyle->SetTextFont(font);
 
-  atlasStyle->SetTextSize(tsize);
-  atlasStyle->SetLabelFont(font,"x");
-  atlasStyle->SetTitleFont(font,"x");
-  atlasStyle->SetLabelFont(font,"y");
-  atlasStyle->SetTitleFont(font,"y");
-  atlasStyle->SetLabelFont(font,"z");
-  atlasStyle->SetTitleFont(font,"z");
+  myPhDStyle->SetTextSize(tsize);
+  myPhDStyle->SetLabelFont(font,"x");
+  myPhDStyle->SetTitleFont(font,"x");
+  myPhDStyle->SetLabelFont(font,"y");
+  myPhDStyle->SetTitleFont(font,"y");
+  myPhDStyle->SetLabelFont(font,"z");
+  myPhDStyle->SetTitleFont(font,"z");
   
-  atlasStyle->SetLabelSize(tsize,"x");
-  atlasStyle->SetTitleSize(tsize,"x");
-  atlasStyle->SetLabelSize(tsize,"y");
-  atlasStyle->SetTitleSize(tsize,"y");
-  atlasStyle->SetLabelSize(tsize,"z");
-  atlasStyle->SetTitleSize(tsize,"z");
+  myPhDStyle->SetLabelSize(tsize,"x");
+  myPhDStyle->SetTitleSize(tsize,"x");
+  myPhDStyle->SetLabelSize(tsize,"y");
+  myPhDStyle->SetTitleSize(tsize,"y");
+  myPhDStyle->SetLabelSize(tsize,"z");
+  myPhDStyle->SetTitleSize(tsize,"z");
+
+	//Force scientific notation with exponent
+	TGaxis::SetMaxDigits(4);
 
   // use bold lines and markers
-  atlasStyle->SetMarkerStyle(20);
-  atlasStyle->SetMarkerSize(1.2);
-  atlasStyle->SetHistLineWidth(2.);
-  atlasStyle->SetLineStyleString(2,"[12 12]"); // postscript dashes
+  myPhDStyle->SetMarkerStyle(20);
+  myPhDStyle->SetMarkerSize(1.2);
+  myPhDStyle->SetHistLineWidth(2.);
+  myPhDStyle->SetLineStyleString(2,"[12 12]"); // postscript dashes
 
   // get rid of X error bars 
-  //atlasStyle->SetErrorX(0.001);
+  //myPhDStyle->SetErrorX(0.001);
   // get rid of error bar caps
-  atlasStyle->SetEndErrorSize(0.);
+  myPhDStyle->SetEndErrorSize(0.);
 
-  // do not display any of the standard histogram decorations
-  atlasStyle->SetOptTitle(0);
-  //atlasStyle->SetOptStat(1111);
-  atlasStyle->SetOptStat(0);
-  //atlasStyle->SetOptFit(1111);
-  atlasStyle->SetOptFit(0);
+  myPhDStyle->SetOptStat(1111);
+  myPhDStyle->SetOptFit(1111);
 
   // put tick marks on top and RHS of plots
-  atlasStyle->SetPadTickX(1);
-  atlasStyle->SetPadTickY(1);
+  myPhDStyle->SetPadTickX(1);
+  myPhDStyle->SetPadTickY(1);
 
-  atlasStyle->SetPalette(53);
+  myPhDStyle->SetPalette(53); //Black body color scale
 
-  return atlasStyle;
+  return myPhDStyle;
 
 }

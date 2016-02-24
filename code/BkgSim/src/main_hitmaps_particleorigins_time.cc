@@ -4,6 +4,7 @@
 #include "TH2D.h"
 #include "TStyle.h"
 #include "TROOT.h"
+#include "TPaveStats.h"
 
 #include <bitset>
 #include <iostream>
@@ -22,8 +23,7 @@
 using namespace std;
 
 int main(int const argc, char const * const * const argv) {
-	//UsePhDStyle();
-	SetAtlasStyle();
+	UsePhDStyle();
 
 	//ConfigReaderAnalysis config(argv[1]);
 	//config.setUp();
@@ -167,6 +167,7 @@ int main(int const argc, char const * const * const argv) {
 			file->Close();
 		}
 	}
+	gStyle->SetOptStat(111111);
 
 	//Plot the histogram and save it
 	
@@ -176,16 +177,37 @@ int main(int const argc, char const * const * const argv) {
 
 	canvas1->cd();
 	histo1->Draw("colz");
+	canvas1->Update();
+	TPaveStats *st1 = (TPaveStats*)histo1->GetListOfFunctions()->FindObject("stats");
+	st1->SetX1NDC(0.65); //new x start position
+	st1->SetX2NDC(0.85); //new x end position
+	st1->SetY1NDC(0.6); //new x start position
+	st1->SetY2NDC(0.9); //new x end position
+
 	canvas1->Print("output/hitmaps_particleorigins_time1.pdf");
 	canvas1->Print("output/hitmaps_particleorigins_time1.cxx");
 
 	canvas2->cd();
 	histo2->Draw("colz");
+	canvas2->Update();
+	TPaveStats *st2 = (TPaveStats*)histo2->GetListOfFunctions()->FindObject("stats");
+	st2->SetX1NDC(0.65); //new x start position
+	st2->SetX2NDC(0.85); //new x end position
+	st2->SetY1NDC(0.6); //new x start position
+	st2->SetY2NDC(0.9); //new x end position
+
 	canvas2->Print("output/hitmaps_particleorigins_time2.pdf");
 	canvas2->Print("output/hitmaps_particleorigins_time2.cxx");
 
 	canvas3->cd();
 	histo3->Draw("colz");
+	canvas3->Update();
+	TPaveStats *st3 = (TPaveStats*)histo3->GetListOfFunctions()->FindObject("stats");
+	st3->SetX1NDC(0.65); //new x start position
+	st3->SetX2NDC(0.85); //new x end position
+	st3->SetY1NDC(0.6); //new x start position
+	st3->SetY2NDC(0.9); //new x end position
+
 	canvas3->Print("output/hitmaps_particleorigins_time3.pdf");
 	canvas3->Print("output/hitmaps_particleorigins_time3.cxx");
 
