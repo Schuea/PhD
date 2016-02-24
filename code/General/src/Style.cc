@@ -82,6 +82,7 @@ TStyle* PhDStyle()
   myPhDStyle->SetPadTickY(1);
 
   myPhDStyle->SetPalette(53); //Black body color scale
+  myPhDStyle->SetNumberContours(100); //How many colors in color scale
 
   return myPhDStyle;
 
