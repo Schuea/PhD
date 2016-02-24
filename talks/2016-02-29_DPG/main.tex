@@ -302,32 +302,33 @@ In the EcalEndcaps only, there are about 200 hits per bunch crossing.\\
 The mean number of hits per layer is between 15 and 25 hits, per full bunch crossing!
 \end{frame}
 
-\begin{frame}{Hit maps of the inner most EcalEndcap layer}
-\sidlogo
-\begin{columns}[T]
-\begin{column}[b]{0.5\textwidth}
- \begin{figure}
-\centering
-\includegraphics[height=0.5\textheight]{figures/sidloi3_pairs_1312_EcalEndcap_Hits_EcalEndcap_Hits_2D_EcalEndcap_Layer_0-eps-converted-to.pdf}
-\caption{\small 2D hit map of the hits from a full pair background train in the EcalEndcap layer 0.}
-\end{figure}
-\end{column}
-\begin{column}[b]{0.5\textwidth}
- \begin{figure}
-\centering
-\includegraphics[height=0.5\textheight]{figures/Hits_3D_EcalEndcap_Layer_0.png}
-\caption{\small 3D hit map of the hits from a full pair background train in the EcalEndcap layer 0.}
-\end{figure}
-\end{column}
-\end{columns}
-Most of the hits are around the beam pipe $\rightarrow$ Ring of fire
-\end{frame}
+%\begin{frame}{Hit maps of the inner most EcalEndcap layer}
+%\sidlogo
+%\begin{columns}[T]
+%\begin{column}[b]{0.5\textwidth}
+% \begin{figure}
+%\centering
+%\includegraphics[height=0.5\textheight]{figures/sidloi3_pairs_1312_EcalEndcap_Hits_EcalEndcap_Hits_2D_EcalEndcap_Layer_0-eps-converted-to.pdf}
+%\caption{\small 2D hit map of the hits from a full pair background train in the EcalEndcap layer 0.}
+%\end{figure}
+%\end{column}
+%\begin{column}[b]{0.5\textwidth}
+% \begin{figure}
+%\centering
+%\includegraphics[height=0.5\textheight]{figures/Hits_3D_EcalEndcap_Layer_0.png}
+%\caption{\small 3D hit map of the hits from a full pair background train in the EcalEndcap layer 0.}
+%\end{figure}
+%\end{column}
+%\end{columns}
+%Most of the hits are around the beam pipe $\rightarrow$ Ring of fire
+%\end{frame}
 
 \begin{frame}[t]{3D hit map animation of the EcalEndcaps}
 \sidlogo
 \begin{center}
   \animategraphics[portait,loop,height=7cm]{2}{figures/3Danimation_EcalEndcap/Hits_3D_EcalEndcap_Layer_}{0}{30}
 \end{center}
+Most of the hits are around the beam pipe $\rightarrow$ Ring of fire
 \end{frame}
 
 \begin{frame}{Pair background origins}
@@ -370,17 +371,25 @@ The pair background particles don't arrive all at the same time.\\
 The second smaller peak of particles are backscatter particles.
 \end{frame}
 
-\begin{frame}{Interception}
-\ilclogo
- \begin{center}
-  There are many more really interesting and important things to study...\\
-  \vspace*{1cm}
-  \textit{How does the solenoid field affect the background?\\
-  Do background particles backscatter more than once?\\
-  With all background sources modeled, how many cell buffers will be filled - already only by the background?}
- \end{center}
- \vspace*{1cm}
-  But I will tell you now about my next project!
+\subsection{FLUKA simulation of the ILC Beam Dump}
+\begin{frame}{FLUKA simulation of the ILC Beam Dump}
+\flukalogo
+\begin{columns}[T]
+\begin{column}[b]{0.5\textwidth}
+ \begin{figure}
+ \centering
+\includegraphics[height=0.5\textheight]{figures/FLUKA_quadrupole_model.png}
+\caption{\small FLUKA simulation model of one of the ILC lattice quadrupoles.}
+\end{figure}
+\end{column}
+\begin{column}[b]{0.5\textwidth}
+The beam is dumped after collision into a water tank.\\
+Neutrons are emitted that radiate the surroundings\\
+and also fly back towards the detectors.\\
+There are efforts to plug the real extraction line lattice into FLUKA.\\
+Realistic simulation of the interaction between the neutrons and the lattice and the detectors.
+\end{column}
+\end{columns}
 \end{frame}
 
 
