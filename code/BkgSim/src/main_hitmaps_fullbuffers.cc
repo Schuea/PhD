@@ -4,6 +4,7 @@
 #include "TH2D.h"
 #include "TStyle.h"
 #include "TROOT.h"
+#include "TPaveStats.h"
 
 #include <bitset>
 #include <iostream>
@@ -155,12 +156,20 @@ int main(int const argc, char const * const * const argv) {
 		}
 	}
 
-	NormalizeHistogram(histo, 1.0);
+	//NormalizeHistogram(histo, 1.0);
 
 	//Plot the histogram and save it
 	TCanvas *canvas = new TCanvas("canvas", "canvas", 800, 600);
 	
 	histo->Draw("colz");
+	
+	canvas->Update();
+	TPaveStats *st1 = (TPaveStats*)histo->GetListOfFunctions()->FindObject("stats");
+	st1->SetX1NDC(0.65); //new x start position
+	st1->SetX2NDC(0.85); //new x end position
+	st1->SetY1NDC(0.6); //new x start position
+	st1->SetY2NDC(0.9); //new x end position
+	
 	canvas->Print("output/hitmaps_fullbuffers_bufferdepth4.pdf");
 	canvas->Print("output/hitmaps_fullbuffers_bufferdepth4.cxx");
 
