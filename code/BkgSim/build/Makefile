@@ -23,6 +23,7 @@ MAIN_HITMAPSORIGINSTIME = ../objects/main_hitmaps_particleorigins_time.o
 CONFIG = ../objects/ConfigReader.o ../objects/ConfigReaderAnalysis.o
 USEFUL = ../objects/UsefulFunctions.o
 STYLE = ../objects/Style.o
+STYLEUTILS = ../objects/Style_Utils.o
 GENERALFUNCTIONS = ../objects/GeneralFunctions_SiDBkgSim.o
 SUBDETECTOR = ../objects/Subdetector_class.o
 CELLHITS = ../objects/CellHits_class.o
@@ -31,7 +32,7 @@ TIME = ../objects/Time_class.o
 
 INCLUDES = -I ../include/ -I ../test/include/ -I ../../General/include/
 
-OBJECTS = $(CONFIG) $(USEFUL) $(STYLE) $(GENERALFUNCTIONS) $(SUBDETECTOR) $(CELLHITS) $(LAYERCODE) $(TIME)
+OBJECTS = $(CONFIG) $(USEFUL) $(STYLE) $(STYLEUTILS) $(GENERALFUNCTIONS) $(SUBDETECTOR) $(CELLHITS) $(LAYERCODE) $(TIME)
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -111,6 +112,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/Style.o : ../../General/src/Style.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/Style_Utils.o : ../../General/src/Style_Utils.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/GeneralFunctions_SiDBkgSim.o : ../src/GeneralFunctions_SiDBkgSim.cc
