@@ -54,12 +54,36 @@
    \includegraphics[width=40pt,height=26pt]{figures/ILC.jpeg}
   \end{textblock}
 } 
+\newcommand{\flukalogo}{
+  \setlength{\TPHorizModule}{1pt}
+  \setlength{\TPVertModule}{1pt}
+   % textblock{}{x,y}: pos(x) = rightUpperCorner + (x * \TPHorizModule), pos(y) = leftUpperCorner - (y * \TPVertModule)
+  \begin{textblock}{1}(315,12)
+   \includegraphics[width=60pt,height=26pt]{figures/fluka_logo.png}
+  \end{textblock}
+} 
 \newcommand{\ejadelogo}{
   \setlength{\TPHorizModule}{1pt}
   \setlength{\TPVertModule}{1pt}
    % textblock{}{x,y}: pos(x) = rightUpperCorner + (x * \TPHorizModule), pos(y) = leftUpperCorner - (y * \TPVertModule)
   \begin{textblock}{1}(323,12)
    \includegraphics[width=40pt,height=26pt]{figures/EJADE.jpeg}
+  \end{textblock}
+} 
+\newcommand{\BDSsymbol}{
+  \setlength{\TPHorizModule}{1pt}
+  \setlength{\TPVertModule}{1pt}
+   % textblock{}{x,y}: pos(x) = rightUpperCorner + (x * \TPHorizModule), pos(y) = leftUpperCorner - (y * \TPVertModule)
+  \begin{textblock}{1}(0,39)
+   \includegraphics[width=60pt,height=40pt]{figures/Highlight_BDS.png}
+  \end{textblock}
+} 
+\newcommand{\EXTsymbol}{
+  \setlength{\TPHorizModule}{1pt}
+  \setlength{\TPVertModule}{1pt}
+   % textblock{}{x,y}: pos(x) = rightUpperCorner + (x * \TPHorizModule), pos(y) = leftUpperCorner - (y * \TPVertModule)
+  \begin{textblock}{1}(0,39)
+   \includegraphics[width=60pt,height=40pt]{figures/Highlight_EXT.png}
   \end{textblock}
 } 
 
@@ -96,14 +120,33 @@
 \begin{frame}{The layout of the ILC}
 \ilclogo
 
-e$^+$e$^-$ linear collider with adjustable center-of-mass energy, and polarized beams\\
+e$^+$e$^-$ linear collider:
+\begin{itemize}
+ \item \SI{30}{\kilo\metre} long
+ \item adjustable center-of-mass energy
+ \item polarized beams
+\end{itemize}
 \begin{center}
 \includegraphics[width=\textwidth]{figures/ILC_schematic_layout.png}
 \end{center}
-\begin{flushright}
- \href{https://www.youtube.com/watch?v=ep5496vdEFI}{\beamergotobutton{\begin{CJK}{UTF8}{min}国際リニアコライダー\end{CJK}}}
-\end{flushright}
+\end{frame}
 
+\subsection{The site}
+\begin{frame}{The site of the ILC - The Kitakami mountains}
+\ilclogo
+\begin{center}
+\begin{minipage}[t]{0.49\textwidth}
+\centering
+ \includegraphics[width=\textwidth]{figures/japan-map.jpg}
+\end{minipage}
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+   \includegraphics[width=\textwidth]{figures/Kitakami_site.jpg}
+\end{minipage}
+\begin{block}{}
+ The ILC is under consideration by the Japanese government!
+\end{block}
+\end{center}
 \end{frame}
 
 \subsection{The detectors}
@@ -124,12 +167,11 @@ The two detectors can be swapped in the so-called \textbf{push-pull-system}.
 \item Superconducting solenoid field: \SI{5}{\tesla}
 \item Full silicon tracker
 \end{itemize}
-
 \includegraphics[width=0.5\textwidth]{figures/SiDmodel.jpg}
 }
+The SiD is a compact detector, designed for unlimate precision.
 \end{center}
 \end{column}
-
 \begin{column}{0.48\textwidth}
 \begin{center}
 \visible<2->{\alert{ILD - International Large Detector}
@@ -139,7 +181,6 @@ The two detectors can be swapped in the so-called \textbf{push-pull-system}.
 \item Superconducting solenoid field: \SI{3.5}{\tesla}
 \item TPC
 \end{itemize}
-
 \includegraphics[width=0.5\textwidth]{figures/ILDmodel.jpg}
 }
 \end{center}
@@ -153,7 +194,7 @@ The two detectors can be swapped in the so-called \textbf{push-pull-system}.
 \begin{frame}{The physics motivation of the ILC - Summary}
 \ilclogo
 \visible<2->{ 
-\alert{\MakeUppercase{Precise measurements:}}\\
+\alert{\MakeUppercase{Precision measurements:}}\\
 }
 \visible<3->{
 \begin{itemize}
@@ -167,7 +208,6 @@ The two detectors can be swapped in the so-called \textbf{push-pull-system}.
 }
 \visible<5->{
 \begin{itemize}
-\item Due to polarization of both beams, background can be 'switched off'.
 \item Small background and no underlying events or out-of-time pileup.
 \end{itemize}
 }
@@ -177,14 +217,18 @@ The two detectors can be swapped in the so-called \textbf{push-pull-system}.
 \visible<7->{
 \begin{itemize}
 \item The reactions will be measured and reconstructed in completeness. No theoretical assumptions have to be taken into account.
-\item New physics and BSM physics are accessible.
+\item New physics and BSM physics, which are not measurable at the LHC, are accessible.
 \end{itemize}
 }
 \end{frame}
 
 \section{Background simulation and Final-Focus optimization}
+\subsection{Motivation for my Ph.D}
 \begin{frame}{Background simulation \& Final-Focus optimization}
 \ilclogo
+\begin{center}
+ \alert{The motivation for my Ph.D}
+\end{center}
 \begin{block}{}
 \centering The ILC will be a \textcolor{Periwinkle}{high luminosity} particle accelerator \\with \textcolor{JungleGreen}{extraordinary precision}.
 \end{block}
@@ -197,9 +241,6 @@ The two detectors can be swapped in the so-called \textbf{push-pull-system}.
 \subsection{SiD detector}
 \begin{frame}{SiD detector}
 \sidlogo
- I am in the SiD-Optimization group.\\
- Marcel Stanitzki is currently the SiD co-spokesperson.\\
-  \visible<2->{
 \begin{figure}[T]
 \centering
 \begin{subfigure}[b]{0.49\textwidth}
@@ -212,7 +253,7 @@ The two detectors can be swapped in the so-called \textbf{push-pull-system}.
 \end{subfigure}
 \caption{\small SiD detector model: Vertex detector (red), ECAL (green), HCAL (pink), Muon system (blue)}
 \end{figure}
-}
+The SiD detector concept is designed for Particle Flow.
 \end{frame}
 
 \subsection{Background simulations}
@@ -263,15 +304,16 @@ Per bunch, there are about \num{200000} pair background particles, in the whole 
 \visible<2->{
 \begin{center}
  In comparison:\\
-e$^+$e$^-\rightarrow$\,W$^+$W$^-$ $\sim$ 1000/hour 
-\hspace*{0.5cm}
-e$^+$e$^-\rightarrow$\,HX $\sim$ 10/hour
+e$^+$e$^-\rightarrow$\,Z H 4 jets: $\sim$300 particles
+%e$^+$e$^-\rightarrow$\,W$^+$W$^-$ $\sim$ 1000/hour 
+%\hspace*{0.5cm}
+%e$^+$e$^-\rightarrow$\,HX $\sim$ 10/hour
 \end{center}
 }
 \end{frame}
 
 
-\begin{frame}{Hits in the SiD - EcalEndcaps}
+\begin{frame}[label=HitsEcalEndcaps]{Hits in the SiD - EcalEndcaps}
 \sidlogo
 \begin{columns}
 \begin{column}[T]{0.5\textwidth}
@@ -282,51 +324,31 @@ e$^+$e$^-\rightarrow$\,HX $\sim$ 10/hour
 \end{figure}
 \end{column}
 \begin{column}[T]{0.5\textwidth}
-\only<1>{
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{figures/sidloi3_pairs_1312_EcalEndcap_Hits_EcalEndcap_HitsPerLayer_EcalEndcap_Layer_0-4.png}
-\caption{\small Comparison of the number of hits in the first 5 layers of the EcalEndcaps.}
-\end{figure}
-}
-\only<2>{
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{figures/sidloi3_pairs_1312_EcalEndcap_Hits_EcalEndcap_MeanHits_0-4.png}
 \caption{\small Comparison of the MEAN number of hits in the first 5 layers of the EcalEndcaps.}
 \end{figure}
-}
 \end{column}
 \end{columns}
 In the EcalEndcaps only, there are about 200 hits per bunch crossing.\\
-The mean number of hits per layer is between 15 and 25 hits, per full bunch crossing!
+\only<1>{
+The mean number of hits per layer is between 15 and 25 hits, per full bunch crossing!\\
+}
+\only<2>{
+\vspace*{0.2cm}
+\begin{center}
+ In comparison:\\
+e$^+$e$^-\rightarrow$\,ZH\,$\rightarrow$\,4 jets: $\sim$ \num{2100} hits in the EcalEndcaps
+\hyperlink{ZH_event_display}{\beamergotobutton{Go to event display}}
+\end{center}
+}
 \end{frame}
-
-%\begin{frame}{Hit maps of the inner most EcalEndcap layer}
-%\sidlogo
-%\begin{columns}[T]
-%\begin{column}[b]{0.5\textwidth}
-% \begin{figure}
-%\centering
-%\includegraphics[height=0.5\textheight]{figures/sidloi3_pairs_1312_EcalEndcap_Hits_EcalEndcap_Hits_2D_EcalEndcap_Layer_0-eps-converted-to.pdf}
-%\caption{\small 2D hit map of the hits from a full pair background train in the EcalEndcap layer 0.}
-%\end{figure}
-%\end{column}
-%\begin{column}[b]{0.5\textwidth}
-% \begin{figure}
-%\centering
-%\includegraphics[height=0.5\textheight]{figures/Hits_3D_EcalEndcap_Layer_0.png}
-%\caption{\small 3D hit map of the hits from a full pair background train in the EcalEndcap layer 0.}
-%\end{figure}
-%\end{column}
-%\end{columns}
-%Most of the hits are around the beam pipe $\rightarrow$ Ring of fire
-%\end{frame}
 
 \begin{frame}[t]{3D hit map animation of the EcalEndcaps}
 \sidlogo
 \begin{center}
-  \animategraphics[portait,loop,height=7cm]{2}{figures/3Danimation_EcalEndcap/Hits_3D_EcalEndcap_Layer_}{0}{30}
+  \animategraphics[portait,autoplay,loop,height=6cm]{2}{figures/3Danimation_EcalEndcap/Hits_3D_EcalEndcap_Layer_}{0}{30}
 \end{center}
 Most of the hits are around the beam pipe $\rightarrow$ Ring of fire
 \end{frame}
@@ -350,78 +372,61 @@ Most of the background particles are coming from the IP as expected.\\
 But there are a lot of particles backscattering from the tracker layers and the BeamCal.
 \end{frame}
 
-
-\begin{frame}{Absolute time of hits in the EcalEndcaps}
-\sidlogo
-\only<1>{
-\begin{figure}
-\centering
-\includegraphics[height=0.55\textheight]{figures/3_sidloi3_EcalEndcap_Hits_EcalEndcap_HitsTime_EcalEndcap_Layer_all.pdf}
-\caption{\small Number of particles arriving at the EcalEndcaps as a function of the absolute time.}
-\end{figure}
-}
-\only<2>{
-\begin{figure}
-\centering
-\includegraphics[height=0.6\textheight]{figures/3_sidloi3_EcalEndcap_Hits_EcalEndcap_HitsTime_rtime_2D_EcalEndcap_Layer_all-biggerdots.pdf}
-\caption{\small The radial position of the particles arriving at the EcalEndcaps.}
-\end{figure}
-}
-The pair background particles don't arrive all at the same time.\\
-The second smaller peak of particles are backscatter particles.
-\end{frame}
-
 \subsection{FLUKA simulation of the ILC Beam Dump}
 \begin{frame}{FLUKA simulation of the ILC Beam Dump}
 \flukalogo
+\EXTsymbol
 \begin{columns}[T]
-\begin{column}[b]{0.5\textwidth}
+\begin{column}[b]{0.4\textwidth}
  \begin{figure}
  \centering
-\includegraphics[height=0.5\textheight]{figures/FLUKA_quadrupole_model.png}
+\includegraphics[height=0.45\textheight]{figures/FLUKA_quadrupole_model.png}
 \caption{\small FLUKA simulation model of one of the ILC lattice quadrupoles.}
 \end{figure}
 \end{column}
-\begin{column}[b]{0.5\textwidth}
-The beam is dumped after collision into a water tank.\\
-Neutrons are emitted that radiate the surroundings\\
-and also fly back towards the detectors.\\
-There are efforts to plug the real extraction line lattice into FLUKA.\\
-Realistic simulation of the interaction between the neutrons and the lattice and the detectors.
+\begin{column}[b]{0.6\textwidth}
+\begin{itemize}
+ \item The beam is dumped into a water tank after collision.
+ \item Neutrons are emitted that radiate the surroundings.
+ \item Neutrons fly back towards the detectors.
+\end{itemize}
+\vspace*{0.5cm}
+\visible<2->{
+\begin{block}{Simulation}
+ Pluging the real extraction line lattice into FLUKA\\
+Realistic simulation of the interaction between the neutrons,the lattice and the detectors.
+\end{block}
+}
 \end{column}
 \end{columns}
 \end{frame}
 
-
-\subsection{ATF2}
-\begin{frame}{Accelerator Test Facility 2}
-ATF2
-\begin{itemize}
-\item Extension of the Accelerator Test Facility (ATF) at KEK in Japan
-\item Test bench for the Final-Focus system of the ILC $\rightarrow$ very close to the ILC 500
-\item Achieving \SI{42}{\nano\metre} beam size (goal: \SI{39}{\nano\metre})
-\end{itemize}
-\vspace*{0.3cm}
-\begin{center}
- 	\includegraphics[width=0.8\textwidth]{figures/ATF.jpg}
+\subsection{Final-Focus system as a background source}
+\BDSsymbol
+\begin{frame}{Beam Halo collimators}
+ \begin{center}
+\includegraphics[width=0.65\textwidth]{figures/ATF2_beamhalo_collimator.pdf}
 \end{center}
+By driving collimator blocks into the beam:\\
+\begin{itemize}
+ \item The beam halo is cut off.
+ \item New background is produced.
+\end{itemize}
 
 \end{frame}
 
-\begin{frame}{Beam time in March}
+\begin{frame}{Beam time at ATF2 in March}
 \ejadelogo
-As the E-JADE program {\tiny(www.e-jade.eu)} is funding a two months trip to Japan for me,
-I will be able to join the beam time at ATF2 in March:
+I will be joining ATF2 in March, thanks to the E-JADE program {\tiny(www.e-jade.eu)}.\\
+\vspace*{0.3cm}
+ATF2 is the ILC Final-Focus test bench at KEK in Japan, where the March beam time is dedicated to:
 \begin{itemize}
-\item Operating the ATF beam
 \item Installing a new beam halo collimator
 \item Measuring the beam size and the beam halo
-\item Wakefield measurements
 \item Studies of the generated background with Cherenkov detectors
 \end{itemize}
-%\vspace*{0.5cm}
 \begin{center}
-\includegraphics[width=0.65\textwidth]{figures/ATF2_beamhalo_collimator.pdf}
+ 	\includegraphics[width=0.8\textwidth]{figures/ATF.jpg}
 \end{center}
 
 \end{frame}
@@ -435,13 +440,9 @@ I will be able to join the beam time at ATF2 in March:
 \begin{frame}
 \ilclogo
 \begin{center}
- If you are now interested in SiD and keen on working for the ILC, \\
-if you like working in a very international environment, \\
-or if you love Japan,\\
-there are lots of possible Master's and Ph.D topics.\\
-\vspace*{1cm}
 \textcolor{RubineRed}{
 	\LARGE Thanks!\\
+	\vspace*{0.5cm}
 	\begin{CJK}{UTF8}{min}
 	どうもありがとうございます。
 	\end{CJK}
@@ -481,21 +482,6 @@ EPL (Europhysics Letters) 101, no. 5 (March 1, 2013): 51001. \url{http://dx.doi.
 \end{frame}
 
 \section{ILC}
-\subsection{The site}
-\begin{frame}{The site of the ILC - The Kitakami mountains}
-\ilclogo
-\begin{center}
-\begin{minipage}[t]{0.49\textwidth}
-\centering
- \includegraphics[width=\textwidth]{figures/japan-map.jpg}
-\end{minipage}
-\begin{minipage}[t]{0.48\textwidth}
-\centering
-   \includegraphics[width=\textwidth]{figures/Kitakami_site.jpg}
-\end{minipage}
-
-\end{center}
-\end{frame}
 
 \subsection{Why linear?}
 \begin{frame}{Why linear?}
@@ -635,6 +621,12 @@ In pp: \num{e-9}, in e$^+$e$^-$: \num{e-2} $\approx$ 1\%
 }
 \end{frame}
 
+\begin{frame}[label=ZH_event_display]
+ \includegraphics[width=0.7\textwidth]{figures/Higgs_Coupling_Precision_2013.pdf}
+ \hyperlink{HitsEcalEndcaps}{\beamergotobutton{Go back}}
+\end{frame}
+
+
 \subsection{Basic accelerating structure}
 \begin{frame}{Basic accelerating structure}
 \ilclogo
@@ -679,22 +671,6 @@ The cavities are also developed, built and tested at DESY.
 
 \end{frame}
 
-\section{The Final-Focus system}
-\begin{frame}{The Final-Focus system}
- \ilclogo
- The Final-Focus (FF) uses:
-\begin{itemize}
- \item Strong compact superconducting quadrupoles to focus the
-beam at the IP (single collision point with a 14 mrad beam-crossing angle)
-\item Sextupoles providing local chromaticity correction
-\item Two superconducting octupole doublets, which use nonlinear
-focusing to reduce the amplitude of beam-halo particles while leaving the beam core untouched $\rightarrow$ permitting larger collimation amplitude
-\item Collimators and spoilers to prevent the beam halo and background particles from entering the detectors
-\end{itemize}
-
-\end{frame}
-
-
 \section{Additional SiD simulation plots}
 \subsection{Simulation tools}
 \begin{frame}{Simulation tools}
@@ -718,6 +694,49 @@ The background events are then simulated in a \alert{full detector simulation} w
 \end{figure}
 \end{frame}
 
+\subsection{Hit maps of the EcalEndcap}
+\begin{frame}{Hit maps of the inner most EcalEndcap layer}
+\sidlogo
+\begin{columns}[T]
+\begin{column}[b]{0.5\textwidth}
+ \begin{figure}
+\centering
+\includegraphics[height=0.5\textheight]{figures/sidloi3_pairs_1312_EcalEndcap_Hits_EcalEndcap_Hits_2D_EcalEndcap_Layer_0-eps-converted-to.pdf}
+\caption{\small 2D hit map of the hits from a full pair background train in the EcalEndcap layer 0.}
+\end{figure}
+\end{column}
+\begin{column}[b]{0.5\textwidth}
+ \begin{figure}
+\centering
+\includegraphics[height=0.5\textheight]{figures/Hits_3D_EcalEndcap_Layer_0.png}
+\caption{\small 3D hit map of the hits from a full pair background train in the EcalEndcap layer 0.}
+\end{figure}
+\end{column}
+\end{columns}
+Most of the hits are around the beam pipe $\rightarrow$ Ring of fire
+\end{frame}
+
+\subsection{Absolute time of hits}
+\begin{frame}{Absolute time of hits in the EcalEndcaps}
+\sidlogo
+\only<1>{
+\begin{figure}
+\centering
+\includegraphics[height=0.55\textheight]{figures/3_sidloi3_EcalEndcap_Hits_EcalEndcap_HitsTime_EcalEndcap_Layer_all.pdf}
+\caption{\small Number of particles arriving at the EcalEndcaps as a function of the absolute time.}
+\end{figure}
+}
+\only<2>{
+\begin{figure}
+\centering
+\includegraphics[height=0.6\textheight]{figures/3_sidloi3_EcalEndcap_Hits_EcalEndcap_HitsTime_rtime_2D_EcalEndcap_Layer_all-biggerdots.pdf}
+\caption{\small The radial position of the particles arriving at the EcalEndcaps.}
+\end{figure}
+}
+The pair background particles don't arrive all at the same time.\\
+The second smaller peak of particles are backscatter particles.
+\end{frame} 
+
 \subsection{Hit energy deposition}
 \begin{frame}{Energy deposition of hits in SiD-EcalEndcaps}
 \sidlogo
@@ -729,5 +748,34 @@ The background events are then simulated in a \alert{full detector simulation} w
 The distributions reach up to about \SI{8}{\mega\electronvolt}.
 \end{frame}
 
+\section{The Final-Focus system}
+\begin{frame}{The Final-Focus system}
+ \ilclogo
+ The Final-Focus (FF) uses:
+\begin{itemize}
+ \item Strong compact superconducting quadrupoles to focus the
+beam at the IP (single collision point with a 14 mrad beam-crossing angle)
+\item Sextupoles providing local chromaticity correction
+\item Two superconducting octupole doublets, which use nonlinear
+focusing to reduce the amplitude of beam-halo particles while leaving the beam core untouched $\rightarrow$ permitting larger collimation amplitude
+\item Collimators and spoilers to prevent the beam halo and background particles from entering the detectors
+\end{itemize}
+
+\end{frame}
+
+\subsection{ATF2}
+\begin{frame}{Accelerator Test Facility 2}
+ATF2
+\begin{itemize}
+\item Extension of the Accelerator Test Facility (ATF) at KEK in Japan
+\item Test bench for the Final-Focus system of the ILC $\rightarrow$ very close to the ILC 500
+\item Achieving \SI{42}{\nano\metre} beam size (goal: \SI{39}{\nano\metre})
+\end{itemize}
+\vspace*{0.3cm}
+\begin{center}
+ 	\includegraphics[width=0.8\textwidth]{figures/ATF.jpg}
+\end{center}
+
+\end{frame}
 
 \end{document}
