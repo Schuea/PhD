@@ -151,7 +151,7 @@ int main(int const argc, char const * const * const argv) {
 
 	for (size_t allcellhits = 0; allcellhits < AllCellHits.size(); ++allcellhits) {
 		for (size_t hitcount = 0; hitcount < AllCellHits.at(allcellhits)->Get_HitCount().size(); ++hitcount) {
-			if (AllCellHits.at(allcellhits)->Get_HitCount().at(hitcount) >= 6){
+			if (AllCellHits.at(allcellhits)->Get_HitCount().at(hitcount) >= 5){
 				histo->Fill(AllCellHits.at(allcellhits)->Get_Layer().at(hitcount));
 			}
 		}
@@ -170,8 +170,8 @@ int main(int const argc, char const * const * const argv) {
 //	st1->SetY1NDC(0.6); //new x start position
 //	st1->SetY2NDC(0.9); //new x end position
 
-	canvas->Print("output/Histo_fullbuffers_perLayer_bufferdepth6.pdf");
-	canvas->Print("output/Histo_fullbuffers_perLayer_bufferdepth6.cxx");
+	canvas->Print("output/Histo_fullbuffers_perLayer_bufferdepth4.pdf");
+	canvas->Print("output/Histo_fullbuffers_perLayer_bufferdepth4.cxx");
 
 	return 0;
 }
