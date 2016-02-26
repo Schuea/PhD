@@ -1,10 +1,10 @@
 {
 //=========Macro generated from canvas: canvas/canvas
-//=========  (Wed Feb 24 16:53:04 2016) by ROOT version5.34/05
+//=========  (Fri Feb 26 17:23:00 2016) by ROOT version5.34/05
    TCanvas *canvas = new TCanvas("canvas", "canvas",0,0,800,600);
    gStyle->SetOptFit(1);
    canvas->SetHighLightColor(2);
-   canvas->Range(-7.272727,-42.15,38.18182,341.0318);
+   canvas->Range(-7.272727,-9.9,38.18182,80.1);
    canvas->SetFillColor(0);
    canvas->SetBorderMode(0);
    canvas->SetBorderSize(2);
@@ -17,32 +17,23 @@
    canvas->SetFrameBorderMode(0);
    
    TH1D *histo = new TH1D("histo","Number of cells with full buffer per layer for subdetector EcalEndcap",30,0,30);
-   histo->SetBinContent(1,24);
-   histo->SetBinContent(2,195);
-   histo->SetBinContent(3,281);
-   histo->SetBinContent(4,250);
-   histo->SetBinContent(5,193);
-   histo->SetBinContent(6,146);
-   histo->SetBinContent(7,101);
-   histo->SetBinContent(8,72);
-   histo->SetBinContent(9,45);
-   histo->SetBinContent(10,34);
-   histo->SetBinContent(11,17);
-   histo->SetBinContent(12,11);
-   histo->SetBinContent(13,6);
-   histo->SetBinContent(14,8);
-   histo->SetBinContent(15,5);
-   histo->SetBinContent(16,4);
-   histo->SetBinContent(17,4);
-   histo->SetBinContent(18,3);
-   histo->SetBinContent(19,2);
-   histo->SetBinContent(20,2);
-   histo->SetBinContent(21,2);
-   histo->SetBinContent(22,1);
-   histo->SetBinContent(23,1);
-   histo->SetBinContent(24,2);
-   histo->SetBinContent(25,3);
-   histo->SetEntries(1412);
+   histo->SetBinContent(1,1);
+   histo->SetBinContent(2,33);
+   histo->SetBinContent(3,66);
+   histo->SetBinContent(4,48);
+   histo->SetBinContent(5,36);
+   histo->SetBinContent(6,19);
+   histo->SetBinContent(7,14);
+   histo->SetBinContent(8,10);
+   histo->SetBinContent(9,5);
+   histo->SetBinContent(10,1);
+   histo->SetBinContent(11,2);
+   histo->SetBinContent(14,3);
+   histo->SetBinContent(15,1);
+   histo->SetBinContent(17,1);
+   histo->SetBinContent(21,1);
+   histo->SetBinContent(25,2);
+   histo->SetEntries(243);
    
    TPaveStats *ptstats = new TPaveStats(0.78,0.715,0.98,0.995,"brNDC");
    ptstats->SetName("stats");
@@ -51,9 +42,9 @@
    ptstats->SetTextAlign(12);
    TText *text = ptstats->AddText("histo");
    text->SetTextSize(0.06439999);
-   text = ptstats->AddText("Entries = 1412   ");
-   text = ptstats->AddText("Mean  =  4.088");
-   text = ptstats->AddText("RMS   =  3.194");
+   text = ptstats->AddText("Entries = 243    ");
+   text = ptstats->AddText("Mean  =  3.737");
+   text = ptstats->AddText("RMS   =  3.203");
    ptstats->SetOptStat(1111);
    ptstats->SetOptFit(1111);
    ptstats->Draw();
@@ -62,12 +53,13 @@
    histo->SetLineWidth(2);
    histo->SetMarkerStyle(20);
    histo->SetMarkerSize(1.2);
-   histo->GetXaxis()->SetTitle("Layer ; Number of dead cells");
+   histo->GetXaxis()->SetTitle("Layer number");
    histo->GetXaxis()->SetLabelFont(42);
    histo->GetXaxis()->SetLabelSize(0.05);
    histo->GetXaxis()->SetTitleSize(0.05);
    histo->GetXaxis()->SetTitleOffset(1.05);
    histo->GetXaxis()->SetTitleFont(42);
+   histo->GetYaxis()->SetTitle("Number of dead cells");
    histo->GetYaxis()->SetLabelFont(42);
    histo->GetYaxis()->SetLabelSize(0.05);
    histo->GetYaxis()->SetTitleSize(0.05);

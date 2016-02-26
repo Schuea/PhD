@@ -150,7 +150,7 @@ int main(int const argc, char const * const * const argv) {
 
 	for (size_t allcellhits = 0; allcellhits < AllCellHits.size(); ++allcellhits) {
 		for (size_t positions = 0; positions < AllCellHits.at(allcellhits)->Get_CellPosition().size(); ++positions) {
-			if (AllCellHits.at(allcellhits)->Get_HitCount().at(positions) >= 4){
+			if (AllCellHits.at(allcellhits)->Get_HitCount().at(positions) >= 5){
 				histo->Fill(AllCellHits.at(allcellhits)->Get_CellPosition().at(positions).first,AllCellHits.at(allcellhits)->Get_CellPosition().at(positions).second);
 			}
 		}
