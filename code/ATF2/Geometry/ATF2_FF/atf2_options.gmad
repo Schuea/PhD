@@ -1,0 +1,28 @@
+! Sat, 13 Jun 2015 07:10:06 +0000
+! pybdsim.Builder 
+! OPTIONS DEFINITION 
+
+option,	
+        tunnelRadius=1*m,
+	outerDiameter=50*cm,
+	beampipeThickness=2*mm,
+	beampipeRadius=12*mm,
+	beampipeMaterial="stainlesssteel",
+	ngenerate=100000;
+
+option, magnetGeometryType="polesfacetcrop";
+
+!physics
+option, physicsList="em_standard",
+!option, physicsList="standard",
+	chordStepMinimum    = 0.0000000000001 * m,
+        deltaIntersection   = 0.000000000001 * m,
+        deltaChord          = 0.0000000001 * m,
+       ! thresholdCutCharged = 1000 * MeV,
+       ! thresholdCutPhotons = 1000* MeV,
+
+       ! defaultRangeCut=30*cm,	
+	prodCutPositrons=1*cm,
+	prodCutElectrons=1*cm,
+	prodCutPhotons=2*cm;
+	

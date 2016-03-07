@@ -1,0 +1,49 @@
+! cavity bpms
+cbpm_length = 12*mm;
+cbpm_beampipethickness = 3*mm;
+
+MQD10X: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper";
+MQF11X: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper";
+MQD12X: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper";
+MQD16X: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper";
+MQF17X: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper";
+MQD18X: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper";
+MQF19X: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper";
+MQD20X: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper"; 
+MQF21X: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper";
+
+MQM16FF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper=10*mm;
+
+MQM15FF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+MQM14FF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+MFB2FF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+MQM13FF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+MQM12FF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+MQM11FF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+
+MQD10BFF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+MQD10AFF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+MQF9BFF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+MSF6FF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+MQF9AFF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+MQD8FF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+MQF7FF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+MQD6FF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+MQF5BFF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+MSF5FF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+MQF5AFF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+MQD4BFF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+MSD4FF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+MQD4AFF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+MQF3FF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+MQD2BFF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+MQD2AFF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=10*mm;
+MSF1FF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=20.5*mm;
+!MQF1FF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=20.5*mm;
+MSD0FF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=20.5*mm;
+!MQD0FF: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper", apertureType="circular",aper1=20.5*mm;
+MPREIP: drift, l=cbpm_length, beampipeThickness=cbpm_beampipethickness, material="copper";
+!IPBPMA
+!IPBPMB
+!IPBPMC
+
