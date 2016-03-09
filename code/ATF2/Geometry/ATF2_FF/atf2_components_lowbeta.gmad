@@ -1,0 +1,264 @@
+! Sun, 14 Jun 2015 09:55:26 +0000
+! pybdsim.Builder Lattice 
+! COMPONENT DEFINITION                                      
+
+include atf2_components_cbpm.gmad;
+
+! OTR Screens, model as drift with very small radius
+! get parameters from Glen:
+!OTRSCREEN: drift, l=2*um, beampipeMaterial="aluminium", beampipeRadius=0.1*nm, beampipeThickness=8*mm;
+
+! YAG screen, parameters from Naito-san:
+! YAGSCREEN: 
+
+! factor
+betafactor = 1.0;
+
+
+L200: drift, l=0.019755;
+!QM16FF: quadrupole, k1=-0.0, l=0.099245, apertureType="circular", aper1=16*mm;
+!QM16FF_1: quadrupole, k1=-0.0, l=0.099245, apertureType="circular", aper1=16*mm;
+QM16FF: quadrupole, k1=-0.0, l=0.099245;
+QM16FF_1: quadrupole, k1=-0.0, l=0.099245;
+L201A: drift, l=0.76315;
+ZH1FF: hkick, angle=0.0, l=0.11921, apertureType="circular", aper=14*mm;
+L201B: drift, l=0.1353245;
+ZV1FF: vkick, angle=0.0, l=0.128141, apertureType="circular", aper=14*mm;
+L201C: drift, l=0.1556845;
+!QM15FF: quadrupole, k1=-3.22369558063*betafactor, l=0.099245;
+!QM15FF_1: quadrupole, k1=-3.22369558063*betafactor, l=0.099245;
+QM15FF: quadrupole, k1=-3.330230724*betafactor, l=0.099245,apertureType="circular", aper=16*mm;
+QM15FF_1: quadrupole, k1=-3.330230724*betafactor, l=0.099245,apertureType="circular", aper=16*mm;
+L202A: drift, l=0.019755;
+L202B: drift, l=1.281755-cbpm_length;
+!QM14FF: quadrupole, k1=7.63829097688*betafactor, l=0.099245;
+!QM14FF_1: quadrupole, k1=7.63829097688*betafactor, l=0.099245;
+QM14FF: quadrupole, k1=9.126266413*betafactor, l=0.099245,apertureType="circular", aper=16*mm;
+QM14FF_1: quadrupole, k1=9.126266413*betafactor, l=0.099245,apertureType="circular", aper=16*mm;
+L203A: drift, l=0.019755;
+L203B: drift, l=0.557455-cbpm_length;
+L203C: drift, l=0.0215;
+L203D: drift, l=0.0215;
+L203E: drift, l=0.2035-cbpm_length;
+L203F: drift, l=0.4778;
+QM13FF: quadrupole, k1=-4.859239804*betafactor, l=0.099245,apertureType="circular", aper=16*mm;
+QM13FF_1: quadrupole, k1=-4.859239804*betafactor, l=0.099245,apertureType="circular", aper=16*mm;
+L204A: drift, l=0.019755;
+L204B: drift, l=1.281755-cbpm_length;
+!QM12FF: quadrupole, k1=1.17311121769*betafactor, l=0.099245;
+!QM12FF_1: quadrupole, k1=1.17311121769*betafactor, l=0.099245;
+QM12FF: quadrupole, k1=1.655370119*betafactor, l=0.099245,apertureType="circular", aper=16*mm;
+QM12FF_1: quadrupole, k1=1.655370119*betafactor, l=0.099245,apertureType="circular", aper=16*mm;
+L205A: drift, l=0.019755;
+L205B: drift, l=0.715755-cbpm_length;
+L205C: drift, l=0.666;
+!QM11FF: quadrupole, k1=-0.806158153862*betafactor, l=0.099245;
+!QM11FF_1: quadrupole, k1=-0.806158153862*betafactor, l=0.099245;
+QM11FF: quadrupole, k1=-1.098607587*betafactor, l=0.099245,apertureType="circular", aper=16*mm;
+QM11FF_1: quadrupole, k1=-1.098607587*betafactor, l=0.099245,apertureType="circular", aper=16*mm;
+L206A: drift, l=0.019755;
+L206BA: drift, l=1.0408775-cbpm_length-0.240;
+COLLBY: ecol, l=0.240, xsize=12*mm, ysize=5*mm, outerDiameter=26*mm, material="copper";
+!COLLBY: marker;
+L206BB: drift, l=0.2408775;
+!QD10BFF: quadrupole, k1=1.46112817472, l=0.099245;
+!QD10BFF_1: quadrupole, k1=1.46112817472, l=0.099245;
+QD10BFF: quadrupole, k1=1.461128174991, l=0.099245, aper=16*mm;
+QD10BFF_1: quadrupole, k1=1.461128174991, l=0.099245, aper=16*mm;
+L207A: drift, l=0.019755;
+
+! collimator drift for now, to get the right shape. Should be changed to tapered collimator
+!COLL: ecol, l=0.094, xsize=8*mm, ysize=8*mm, material="stainlesssteel";
+COLL: drift, l=0.094, aper1=8*mm, apertureType="circular",beampipeThickness=8*mm,material="stainlesssteel";
+!COLL: drift, l=0.094, aper1=12*mm, apertureType="circular";
+
+L207B: drift, l=0.477-0.094-cbpm_length;
+!L207B: drift, l=0.477-cbpm_length;
+
+CREF3: drift, l=0.10, aper1=8*mm, apertureType="circular",beampipeThickness=19.07*mm-8*mm,material="copper";
+
+L207C: drift, l=0.204755-0.10;
+!QD10AFF: quadrupole, k1=1.46112817472, l=0.099245;
+!QD10AFF_1: quadrupole, k1=1.46112817472, l=0.099245;
+QD10AFF: quadrupole, k1=1.461128174991, l=0.099245,apertureType="circular", aper=16*mm;
+QD10AFF_1: quadrupole, k1=1.461128174991, l=0.099245,apertureType="circular", aper=16*mm;
+L208A: drift, l=0.019755;
+L208B: drift, l=0.289-cbpm_length;
+L208C: drift, l=0.792755;
+!QF9BFF: quadrupole, k1=-1.90765261625, l=0.099245;
+!QF9BFF_1: quadrupole, k1=-1.90765261625, l=0.099245;
+QF9BFF: quadrupole, k1=-1.907652615915, l=0.099245,apertureType="circular", aper=16*mm;
+QF9BFF_1: quadrupole, k1=-1.907652615915, l=0.099245,apertureType="circular", aper=16*mm;
+L209A: drift, l=0.019755;
+L209B: drift, l=0.390960984-cbpm_length;
+SF6FF: sextupole, k2=-112.1469151, l=0.050039016, apertureType="circular", aper=80*mm;
+SF6FF_1: sextupole, k2=-112.1469151, l=0.050039016,apertureType="circular", aper=80*mm;
+!SF6FF: sextupole, k2=-0.0, l=0.050039016,apertureType="circular", aper=80*mm;
+!SF6FF_1: sextupole, k2=-0.0, l=0.050039016,apertureType="circular", aper=80*mm;
+
+L210A: drift, l=0.099791984;
+L210B: drift, l=0.310924-cbpm_length;
+!QF9AFF: quadrupole, k1=-1.907652615915, l=0.099245;
+!QF9AFF_1: quadrupole, k1=-1.907652615915, l=0.099245;
+QF9AFF: quadrupole, k1=-1.90765261625, l=0.099245,apertureType="circular", aper=16*mm;
+QF9AFF_1: quadrupole, k1=-1.90765261625, l=0.099245,apertureType="circular", aper=16*mm;
+L211A: drift, l=0.019755;
+L211B: drift, l=0.266-cbpm_length;
+SK4FF: sextupole, k2=-0.6147354844, l=0.115,apertureType="circular", aper=80*mm;
+SK4FF_1: sextupole, k2=-0.6147354844, l=0.115,apertureType="circular", aper=80*mm;
+
+L211C0: drift, l=0.33;
+!RHUL cerenkov detector 1
+RHUL_detector1: marker;
+L211C: drift, l=1.085755-0.33;
+
+!QD8FF: quadrupole, k1=3.04476496851, l=0.099245;
+!QD8FF_1: quadrupole, k1=3.04476496851, l=0.099245;
+QD8FF: quadrupole, k1=3.044764968558, l=0.099245,apertureType="circular", aper=16*mm;
+QD8FF_1: quadrupole, k1=3.044764968558, l=0.099245,apertureType="circular", aper=16*mm;
+L212A: drift, l=0.019755;
+L212B: drift, l=1.681755-cbpm_length;
+!QF7FF: quadrupole, k1=-2.77173579022, l=0.099245;
+!QF7FF_1: quadrupole, k1=-2.77173579022, l=0.099245;
+QF7FF: quadrupole, k1=-2.771735789763, l=0.09924,apertureType="circular", aper=16*mm;
+QF7FF_1: quadrupole, k1=-2.771735789763, l=0.09924,apertureType="circular", aper=16*mm;
+
+L213A: drift, l=0.019755;
+L213B: drift, l=0.4246097102-cbpm_length;
+B5FFA: sbend, k1=0.0, angle=0.02494796661, l=0.3064317863,apertureType="rectangular", aper1=40*mm, aper2=17.25*mm;
+B5FFB: sbend, k1=0.0, angle=0.02494796661, l=0.3064317863,apertureType="rectangular", aper1=40*mm, aper2=17.25*mm;
+
+
+!RHUL cerenkov detector 2, old laserwire location
+RHUL_detector2: marker;
+
+L214: drift, l=0.6443647102;
+!QD6FF: quadrupole, k1=3.03454688901, l=0.099245;
+!QD6FF_1: quadrupole, k1=3.03454688901, l=0.099245;
+QD6FF: quadrupole, k1=3.034546888634, l=0.099245,apertureType="circular", aper=16*mm;
+QD6FF_1: quadrupole, k1=3.034546888634, l=0.099245,apertureType="circular", aper=16*mm;
+
+L215A: drift, l=0.019755;
+L215B: drift, l=1.066-cbpm_length;
+SK3FF: sextupole, k2=-0.3759297167, l=0.115,apertureType="circular", aper=80*mm;
+SK3FF_1: sextupole, k2=-0.3759297167, l=0.115,apertureType="circular", aper=80*mm;
+L215C: drift, l=0.285755;
+!QF5BFF: quadrupole, k1=-1.89458730616, l=0.099245;
+!QF5BFF_1: quadrupole, k1=-1.89458730616, l=0.099245;
+QF5BFF: quadrupole, k1=-1.894587305708, l=0.099245,apertureType="circular", aper=16*mm;
+QF5BFF_1: quadrupole, k1=-1.894587305708, l=0.099245,apertureType="circular", aper=16*mm;
+L216A: drift, l=0.019755;
+L216B: drift, l=0.390960984-cbpm_length;
+SF5FF: sextupole, k2=12.85788838, l=0.050039016, apertureType="circular", aper=21*mm;
+SF5FF_1: sextupole, k2=12.85788838, l=0.050039016, apertureType="circular", aper=21*mm;
+!SF5FF: sextupole, k2=0.0, l=0.050039016, apertureType="circular", aper=21*mm;
+!SF5FF_1: sextupole, k2=0.0, l=0.050039016, apertureType="circular", aper=21*mm;
+
+L217A: drift, l=0.099791984;
+L217B: drift, l=0.310924-cbpm_length;
+!QF5AFF: quadrupole, k1=-1.89458730616, l=0.099245;
+!QF5AFF_1: quadrupole, k1=-1.89458730616, l=0.099245;
+QF5AFF: quadrupole, k1=-1.894587305708, l=0.099245, apertureType="circular", aper=16*mm;
+QF5AFF_1: quadrupole, k1=-1.894587305708, l=0.099245, apertureType="circular", aper=16*mm;
+
+L218A: drift, l=0.019755;
+L218B: drift, l=0.223-cbpm_length;
+L218C: drift, l=0.858755;
+!QD4BFF: quadrupole, k1=1.49525050935, l=0.099245;
+!QD4BFF_1: quadrupole, k1=1.49525050935, l=0.099245;
+QD4BFF: quadrupole, k1=1.495250509431, l=0.099245, apertureType="circular", aper=16*mm;
+QD4BFF_1: quadrupole, k1=1.495250509431, l=0.099245, apertureType="circular", aper=16*mm;
+
+L219A: drift, l=0.019755;
+L219B: drift, l=0.390960984-cbpm_length;
+SD4FF: sextupole, k2=-149.4505263, l=0.050039016,apertureType="circular", aper=21*mm;
+SD4FF_1: sextupole, k2=-149.4505263, l=0.050039016,apertureType="circular", aper=21*mm;
+!SD4FF: sextupole, k2=0.0, l=0.050039016, apertureType="circular", aper=21*mm;
+!SD4FF_1: sextupole, k2=0.0, l=0.050039016, apertureType="circular", aper=21*mm;
+L220A: drift, l=0.099791984;
+L220B: drift, l=0.310924-cbpm_length;
+!QD4AFF: quadrupole, k1=1.49525050935, l=0.099245;
+!QD4AFF_1: quadrupole, k1=1.49525050935, l=0.099245;
+QD4AFF: quadrupole, k1=1.495250509431, l=0.099245, apertureType="circular", aper=16*mm;
+QD4AFF_1: quadrupole, k1=1.495250509431, l=0.099245, apertureType="circular", aper=16*mm;
+
+L221A: drift, l=0.019755;
+L221B: drift, l=0.266-cbpm_length;
+SK2FF: sextupole, k2=-1.186697543, l=0.115,apertureType="circular", aper=80*mm;
+SK2FF_1: sextupole, k2=-1.186697543, l=0.115,apertureType="circular", aper=80*mm;
+L221C: drift, l=1.028629871;
+B2FFA: sbend, k1=0.0, angle=0.01508793732, l=0.3064116254,apertureType="circular", aper=17.25*mm;
+B2FFB: sbend, k1=0.0, angle=0.01508793732, l=0.3064116254,apertureType="circular", aper=17.25*mm;
+L222: drift, l=0.444384871;
+!QF3FF: quadrupole, k1=-2.78462327372, l=0.099245;
+!QF3FF_1: quadrupole, k1=-2.78462327372, l=0.099245;
+QF3FF: quadrupole, k1=-2.78462327415, l=0.099245, apertureType="circular", aper=16*mm;
+QF3FF_1: quadrupole, k1=-2.78462327415, l=0.099245, apertureType="circular", aper=16*mm;
+
+L223A: drift, l=0.019755;
+L223B: drift, l=0.4246045352-cbpm_length;
+B1FFA: sbend, k1=0.0, angle=0.02690209037, l=0.3064369612,apertureType="circular", aper=17*mm;
+B1FFB: sbend, k1=0.0, angle=0.02690209037, l=0.3064369612,apertureType="circular", aper=17*mm;
+L224A: drift, l=0.2406045352;
+L224B: drift, l=0.203755;
+QD2BFF: quadrupole, k1=1.00112332571, l=0.099245, apertureType="circular", aper=16*mm;
+QD2BFF_1: quadrupole, k1=1.00112332571, l=0.099245, apertureType="circular", aper=16*mm;
+L225A: drift, l=0.019755;
+L225B: drift, l=0.354-cbpm_length;
+L225C: drift, l=0.137;
+L225D: drift, l=0.7235;
+L225E: drift, l=0.267255;
+!QD2AFF: quadrupole, k1=1.45966092095, l=0.099245;
+!QD2AFF_1: quadrupole, k1=1.45966092095, l=0.099245;
+QD2AFF: quadrupole, k1=1.459660920908, l=0.099245, apertureType="circular", aper=16*mm;
+QD2AFF_1: quadrupole, k1=1.459660920908, l=0.099245, apertureType="circular", aper=16*mm;
+L226A: drift, l=0.019755;
+L226B: drift, l=0.391-cbpm_length;
+L226C: drift, l=3.825;
+SK1FF: sextupole, k2=-0.01968756687, l=0.115,apertureType="circular", aper=80*mm;
+SK1FF_1: sextupole, k2=-0.01968756687, l=0.115,apertureType="circular", aper=80*mm;
+L226D: drift, l=0.161;
+L226E: drift, l=0.099;
+SF1FF: sextupole, k2=28.63222711, l=0.05,apertureType="circular", aper=27*mm;
+SF1FF_1: sextupole, k2=28.63222711, l=0.05,apertureType="circular", aper=27*mm;
+!SF1FF: sextupole, k2=0.0, l=0.05, apertureType="circular", aper=27*mm;
+!SF1FF_1: sextupole, k2=0.0, l=0.05, apertureType="circular", aper=27*mm;
+L227: drift, l=0.30295-cbpm_length;
+QF1FF: quadrupole, k1=-1.66400822788, l=0.22205, apertureType="circular", aper=50*mm;
+QF1FF_1: quadrupole, k1=-1.66400822788, l=0.22205, apertureType="circular", aper=50*mm;
+L228A: drift, l=0.12195;
+L228B: drift, l=0.297;
+L228C: drift, l=0.099;
+SD0FF: sextupole, k2=-43.36613476, l=0.05, apertureType="circular", aper=27*mm;
+SD0FF_1: sextupole, k2=-43.36613476, l=0.05, apertureType="circular", aper=27*mm;
+!SD0FF: sextupole, k2=0.0, l=0.05, apertureType="circular", aper=27*mm;
+!SD0FF_1: sextupole, k2=0.0, l=0.05, apertureType="circular", aper=27*mm;
+L229: drift, l=0.2875-cbpm_length;
+QD0FF: quadrupole, k1=2.86814891579, l=0.2375, apertureType="circular", aper=25*mm;
+QD0FF_1: quadrupole, k1=2.86814891579, l=0.2375, apertureType="circular", aper=25*mm;
+L230A: drift, l=0.1065;
+L230B: drift, l=0.286-cbpm_length;
+IPKICK: vkick, angle=0.0, l=0.12;
+L230C: drift, l=0.048;
+L230D: drift, l=0.2758;
+L230E: drift, l=0.081;
+L230F: drift, l=0.0702;
+IP: marker;
+L231: drift, l=0.0882;
+L301A: drift, l=0.3338;
+L301B: drift, l=0.203;
+L301C: drift, l=0.302;
+L301D: drift, l=0.573;
+BDUMPA: sbend, k1=0.0, angle=-0.1745329252, l=0.46600 ,apertureType="rectangular", aper1=28*mm, aper2=13*mm;
+!BDUMPB: sbend, k1=0.0, angle=-0.1745329252, l=0.678439164 ,apertureType="rectangular", aper1=28*mm, aper2=13*mm;
+!BDUMPC: marker;
+BDUMPB: sbend, k1=0.0, angle=-0.1745329252, l=0.46600 ,apertureType="rectangular", aper1=28*mm, aper2=13*mm;
+window: marker;
+BDUMPC: sbend, k1=0.0, angle=-0.1745329252, l=0.46600 ,apertureType="rectangular", aper1=28*mm, aper2=13*mm;
+L302A: drift, l=0.6345608359;
+L302B: drift, l=0.146;
+DS: marker;
+L302C: drift, l=1.219439164;
+DUMPH: drift, l=1.15;
+DUMPH_1: drift, l=1.15;
+theendoftheline: marker;
