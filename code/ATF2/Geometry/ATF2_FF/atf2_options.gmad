@@ -8,9 +8,10 @@ option,
 	beampipeThickness=2*mm,
 	beampipeRadius=12*mm,
 	beampipeMaterial="stainlesssteel",
-	ngenerate=100000;
+	ngenerate=1000;
 
 option, magnetGeometryType="polesfacetcrop";
+!option, nperfile=1000;
 
 !physics
 option, physicsList="em_standard",
@@ -22,7 +23,6 @@ option, physicsList="em_standard",
        ! thresholdCutPhotons = 1000* MeV,
 
        ! defaultRangeCut=30*cm,	
-	prodCutPositrons=1*cm,
-	prodCutElectrons=1*cm,
-	prodCutPhotons=2*cm;
-	
+	prodCutPositrons=10*cm,
+	prodCutElectrons=10*cm,
+	prodCutPhotons=20*cm;

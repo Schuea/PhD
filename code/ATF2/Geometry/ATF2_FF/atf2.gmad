@@ -2,5 +2,6 @@ include atf2_components.gmad;
 include atf2_sequence.gmad;
 
 include atf2_samplers_selection.gmad;
-include atf2_beam_halo.gmad;
+!include atf2_beam_halo.gmad;
+include atf2_beam.gmad;
 include atf2_options.gmad;

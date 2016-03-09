@@ -2,11 +2,11 @@
 ! pybdsim.Builder Lattice 
 ! SAMPLER DEFINITION
 
-sample, range=COLLBY;
+!sample, range=COLLBY;
 
 !sample, range=RHUL_detector1;
 !sample, range=RHUL_detector2;
 
-!sample, range=IP;
+sample, range=IP;
 !sample, range=window;
 !sample,range=DS;
