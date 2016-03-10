@@ -1,1 +1,8 @@
+*.log
+*.aux
+*.nav
+*.snm
+*.vrb
+*.backup
+*.out
 !*.tex
