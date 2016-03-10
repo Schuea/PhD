@@ -149,6 +149,7 @@
 \begin{frame}{Background sources}
 \ilclogo
 The main sources of background:
+\vspace*{0.5cm}
 \begin{columns}
  \begin{column}{0.55\textwidth}
  \only<1>{
@@ -205,9 +206,18 @@ The main sources of background:
   }
  \end{column}
  \begin{column}{0.45\textwidth}
+ \only<2>{
  \includegraphics[height=0.2\textheight]{figures/beamstrahlung_processes.png}\\
  \includegraphics[height=0.15\textheight]{figures/bhabha_scattering.pdf} 
  \includegraphics[height=0.15\textheight]{figures/gammagamma_hadrons.pdf}
+ }
+ \only<3>{
+ \includegraphics[height=0.45\textheight]{figures/FLUKA_quadrupole_model.png}
+ }
+ \only<4>{
+ \includegraphics[height=0.4\textheight]{figures/ATF2_beamhalo_collimator.png}\\
+ \includegraphics[height=0.4\textheight]{figures/Muons.png}
+ }
  \end{column}
 \end{columns}
 
@@ -355,8 +365,24 @@ Realistic simulation of the interaction between the neutrons,the lattice and the
 By driving collimator blocks into the beam:\\
 \begin{itemize}
  \item The beam halo is cut off.
+ \item Wakefields are induced.
  \item New background is produced.
 \end{itemize}
+
+\end{frame}
+\subsection{ATF2}
+\begin{frame}{Accelerator Test Facility 2}
+ATF2
+\begin{itemize}
+\item Extension of the Accelerator Test Facility (ATF) at KEK in Japan
+\item Test bench for the Final-Focus system of the ILC $\rightarrow$ very close to the ILC 500
+\item Achieving \SI{42}{\nano\metre} beam size (goal: \SI{39}{\nano\metre})
+\end{itemize}
+\vspace*{0.3cm}
+\begin{center}
+ \only<1>{\includegraphics[width=0.8\textwidth]{figures/kek_map.pdf}}
+ \only<2->{\includegraphics[width=0.8\textwidth]{figures/kek_map_stars.pdf}}
+\end{center}
 
 \end{frame}
 
@@ -399,19 +425,11 @@ ATF2 is the ILC Final-Focus test bench at KEK in Japan, where the March beam tim
 \section*{References}
 \begin{thebibliography}{9}
 \begin{frame}{References}
-\bibitem{TDR} T. Behnke, et al.
-\emph{The International Linear Collider - Technical Design Report}, 2013.
-\bibitem{LHC TDR} \emph{LHC - Design Report}, \url{http://ab-div.web.cern.ch/ab-div/Publications/LHC-DesignReport.html}
-\bibitem{IP beam parameters} ATLAS-CONF-2010-027. \emph{Characterization of Interaction-Point Beam Parameters Using the pp Event-Vertex Distribution Reconstructed in the ATLAS Detector at the LHC}, 2010. \url{http://cds.cern.ch/record/1277659/files/ATLAS-CONF-2010-027.pdf}
-\bibitem{ILCPAC2012} M. Peskin. \emph{Physics Motivation for the ILC}, 2012. \url{http://www.fnal.gov/directorate/ILCPAC/2012Dec/Physics-ILCPAC2012-Peskin.pdf}
-\end{frame}
-\begin{frame}{References}
-\bibitem{MIT2013} Klute, Markus, Rémi Lafaye, Tilman Plehn, Michael Rauch, and
-Dirk Zerwas. \emph{Measuring Higgs Couplings at a Linear Collider}
-EPL (Europhysics Letters) 101, no. 5 (March 1, 2013): 51001. \url{http://dx.doi.org/10.1209/0295-5075/101/51001}
+\bibitem{TDR} T. Behnke, et al. \emph{The International Linear Collider - Technical Design Report}, 2013.
 \bibitem{RHUL} Mark Thomson. \emph{Physics and Detectors at the ILC}, 2013. \url{https://www.royalholloway.ac.uk/physics/documents/pdf/events/particlephysicsseminars/13-14markthomson23oct2013.pdf}
 \bibitem{ATF2} Kuroda et al. \emph{A plan of KEK-ATF Final Focus Test Beam Line (ATF2)
 }. \url{http://icfa-nanobeam.web.cern.ch/icfa-nanobeam/paper/urakawa_ATF2-2.pdf}
+\bibitem{Muons} Lew Keller (SLAC)
 
 \end{frame}
 \end{thebibliography}
@@ -427,167 +445,6 @@ EPL (Europhysics Letters) 101, no. 5 (March 1, 2013): 51001. \url{http://dx.doi.
 \end{frame}
 
 \section{ILC}
-
-\subsection{Why linear?}
-\begin{frame}{Why linear?}
-\begin{columns}
- \begin{column}{0.6\textwidth}
-  Basic limitations of lepton synchrotons:
-\begin{itemize}
- \item \textcolor{Red}{Energy loss due to synchrotron radiation: $\sim$ E$^4$/R}
- \item \textcolor{Red}{Cost $\sim$ quadratically with energy}\\ \tiny{(B. Richter 
-1980)}
-\end{itemize}
-\vspace*{1cm}
-Therefore a linear collider:
-\begin{itemize}
- \item \textcolor{ForestGreen}{Not limited by synchrotron radiation}
- \item \textcolor{ForestGreen}{Cost $\sim$ linear with energy}
-\end{itemize}
- \end{column}
- \begin{column}{0.4\textwidth}
- \begin{block}{}
-  \begin{center}
-      \textcolor{Gray}{P$_S=\frac{e^2c}{6\pi\epsilon_0}\frac{1}{(m_0c^2)^4}\frac{E^4}{R^2}$\\
-  $\Delta$E$=\frac{e}{3\epsilon_0(m_0c^2)^4}\frac{E^4}{R}$}
-   \end{center}
- \end{block}
- \end{column}
-\end{columns}
-
-\end{frame}
-
-
-%------Definition for column color in table
-\definecolor{Gray}{gray}{0.9}
-\newcolumntype{g}{>{\columncolor{Gray}}r}
-%-----------------------------------------
-\subsection{The ILC beam parameters}
-\begin{frame}{The beam parameters of the ILC compared to LHC}
-\ilclogo
-
-\begin{table}[]
-\centering
-\begin{tabularx}{\textwidth}{ll|rrrg}
-\hline
-& & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Baseline 500}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Lumi Upgrade}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{TeV Upgrade}} & {\centering\textbf{LHC 25ns}} \\ 
-\hline
-\cline{1-6}
-\hline
-E$_{CM}$  &[\si{\GeV}] & 500  & 500  & \num{1000} & \num{14000}\\
-n$_b$ & & \num{1312} & \num{2625} & \num{2450} &  \num{2808} \\
-$\Delta t_b$ &[\si{\nano\second}] & 554  & 366   & 366 & 25 \\
-N & & \num{2.0e10}  & \num{2.0e10}  & \num{1.74e10}  & \num{11.5e10}\\
-q$_b$ &[\si{\nano\coulomb}] & 3.2  & 3.2  &  2.7 & 18.4 \\
-$\sigma_x^*$ &[\si{\nano\metre}] & 474  & 474  &  481 & \num{16700}\\
-$\sigma_y^*$ &[\si{\nano\metre}] & 5.9 &  5.9  &  2.8 & \num{16700}\\
-$\sigma_z$ &[\si{\milli\metre}] & 0.3  &  0.3  &  0.25 & 0.755\\
-L &[\si{\per\centi\metre\squared\per\second}] & \num{1.8e34} & \num{3.6e34} & \num{3.6e34} & \num{1.0e34}\\
-\hline
-\end{tabularx}
-\end{table}
-\end{frame}
-
-\begin{frame}{ILC baseline parameters}
-\ilclogo
-\centering
-	\includegraphics[width=\textwidth]{figures/ILCTDR-VOLUME_3-PART_II_ILCparameters.pdf}
-\end{frame}
-\begin{frame}{ILC parameters for the different upgrade stages}
-\ilclogo
-\centering
-	\includegraphics[width=0.8\textwidth]{figures/ILCTDR-VOLUME_3-PART_II_ILCparametersUpgrades.pdf}
-\end{frame}
-
-\subsection{ILC Physics motivation}
-\begin{frame}[fragile]{The physics motivation of the ILC}
-\ilclogo
-
-\begin{block}{}
-\centering
-\textcolor{JungleGreen}{Cleanliness} - \textcolor{WildStrawberry}{Democracy} - \textcolor{Periwinkle}{Calculability} - \textcolor{LimeGreen}{Detail}
-\end{block}
-
-\begin{columns}
-\begin{column}{0.24\textwidth}
-\begin{itemize}
-\color{JungleGreen}
-\item Small background
-\item Small detector occupancy
-\item Smaller energy range
-\item No out-of-time pileup or underlying events
-\end{itemize}
-\end{column}
-\begin{column}{0.26\textwidth}
-\begin{itemize}
-\color{WildStrawberry}
-\item Elementary coupling \textit{e} of \textgamma \, the same for all quarks \& leptons
-\item e$^+$e$^-$ annihilation produces pairs of all species, SM \& exotics, at similar rates
-\item No triggers
-\end{itemize}
-\end{column}
-\begin{column}{0.27\textwidth}
-\begin{itemize}
-\color{Periwinkle}
-\item Pointlike elementary particles in initial state
-\item Coupling only to EW interactions
-\item No sys. uncert. due to PDF uncertainties and QCD corrections
-\end{itemize}
-\end{column}
-\begin{column}{0.27\textwidth}
-\begin{itemize}
-\color{LimeGreen}
-\item Reconstruction of complete events
-\item Quark \& lepton momenta determined by kinematic fits
-\item Study of spin-dependence of production \& decay process
-\end{itemize}
-\end{column}
-\end{columns}
-
-\end{frame}
-\subsection{ILC as a Higgs factory}
-\begin{frame}{The physics motivation of the ILC - Higgs factory}
-\ilclogo
-\begin{itemize}
-\item Higgs factory\\
-Fraction of the total cross section for Higgs production:\\
-In pp: \num{e-9}, in e$^+$e$^-$: \num{e-2} $\approx$ 1\%
-\item Each individual Higgs coupling will be measured to a percent accuracy, and the global width of the Higgs can be measured directly:\\LHC experiments have to make a global fit to all Higgs signals (plus using theoretical assumptions of the width), in order to get the Higgs couplings $ \rightarrow$ can never be as precise as at the ILC
-\end{itemize}
-\visible<2->{
-\begin{columns}
- \begin{column}[t]{0.5\textwidth}
-   \includegraphics[width=0.85\textwidth]{figures/PhysicsMotivation-ILCPAC2012-Peskin_PrecisionHiggsCouplings.pdf}
- \end{column}
- \begin{column}[t]{0.5\textwidth}
-   \includegraphics[width=0.83\textwidth]{figures/Higgs_Coupling_Precision_2013.pdf}
- \end{column}
-\end{columns}
-}
-\end{frame}
-
-\begin{frame}[label=ZH_event_display]{e$^+$e$^-\rightarrow$\,ZH\,$\rightarrow$\,4 jets in the SiD detector}
- \begin{center}
-   \includegraphics[width=0.8\textwidth]{figures/Zhiggs_4jets_SiD.png}\\
- \hyperlink{HitsEcalEndcaps}{\beamergotobutton{Go back}}
- \end{center}
-\end{frame}
-
-
-\subsection{Basic accelerating structure}
-\begin{frame}{Basic accelerating structure}
-\ilclogo
-The main accelerating structures are the two 11km long LINACs.
-\begin{itemize}
-\item 9-cell superconducting RF cavities operating at 1.3 GHz 
-\item Accelerating gradient of >30 MV/m
-\item Electrons and positrons accelerated in RF standing waves in the cavities 
-\end{itemize}
-\begin{center}
-\includegraphics[width=0.45\textwidth]{figures/cavity.jpg}
-\end{center}
-The cavities are also developed, built and tested at DESY.
-\end{frame}
 
 \subsection{Some facts about the SiD detector}
 \begin{frame}{SiD detector}
@@ -707,22 +564,8 @@ beam at the IP (single collision point with a 14 mrad beam-crossing angle)
 focusing to reduce the amplitude of beam-halo particles while leaving the beam core untouched $\rightarrow$ permitting larger collimation amplitude
 \item Collimators and spoilers to prevent the beam halo and background particles from entering the detectors
 \end{itemize}
-
 \end{frame}
 
-\subsection{ATF2}
-\begin{frame}{Accelerator Test Facility 2}
-ATF2
-\begin{itemize}
-\item Extension of the Accelerator Test Facility (ATF) at KEK in Japan
-\item Test bench for the Final-Focus system of the ILC $\rightarrow$ very close to the ILC 500
-\item Achieving \SI{42}{\nano\metre} beam size (goal: \SI{39}{\nano\metre})
-\end{itemize}
-\vspace*{0.3cm}
-\begin{center}
- 	\includegraphics[width=0.8\textwidth]{figures/ATF.jpg}
-\end{center}
 
-\end{frame}
 
 \end{document}
