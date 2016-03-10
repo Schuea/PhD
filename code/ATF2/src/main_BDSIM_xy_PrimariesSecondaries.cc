@@ -18,7 +18,7 @@
 #include "Style.h"
 
 using namespace std;
-void Draw_Print_Beam(TH1* histo, TCanvas* canvas, std::string outputname);
+void Draw_Print_Beam(TH1* histo, TCanvas* canvas, std::string outputname, std::string PDFfilename);
 
 int main(int const argc, char const * const * const argv) {
   UsePhDStyle();
@@ -73,7 +73,7 @@ int main(int const argc, char const * const * const argv) {
       }
     }
     if (argv[i] == std::string("-s")) {
-      if (argv[i + 1] != NULL \
+      if (argv[i + 1] != NULL 
           && argv[i + 1] != std::string("-o")
           && argv[i + 1] != std::string("-n")
           && argv[i + 1] != std::string("-i")) {
@@ -179,23 +179,24 @@ int main(int const argc, char const * const * const argv) {
   }
 
   TCanvas* PDF_Canvas = new TCanvas(); 
-  std::string PDF_title1 = "output/" + outputfilename + "_all_xyDistributions.pdf[";
-  std::string PDF_title2 = "output/" + outputfilename + "_all_xyDistributions.pdf]";
+  std::string PDF_filename = "output/" + outputfilename + "_all_xyDistributions.pdf";
+  std::string PDF_title1 = PDF_filename + "[";
+  std::string PDF_title2 = PDF_filename + "]";
   PDF_Canvas->Print(PDF_title1.c_str());
- 
-  Draw_Print_Beam(histo_xy_Primaries, canvas, outputfilename + "_xy_Primaries");
-  Draw_Print_Beam(histo_x_Primaries, canvas, outputfilename + "_x_Primaries");
-  Draw_Print_Beam(histo_y_Primaries, canvas, outputfilename + "_y_Primaries");
-  Draw_Print_Beam(histo_xy_Secondaries, canvas, outputfilename + "_xy_Secondaries");
-  Draw_Print_Beam(histo_x_Secondaries, canvas, outputfilename + "_x_Secondaries");
-  Draw_Print_Beam(histo_y_Secondaries, canvas, outputfilename + "_y_Secondaries");
+
+  Draw_Print_Beam(histo_xy_Primaries, canvas, outputfilename + "_xy_Primaries", PDF_filename);
+  Draw_Print_Beam(histo_x_Primaries, canvas, outputfilename + "_x_Primaries", PDF_filename);
+  Draw_Print_Beam(histo_y_Primaries, canvas, outputfilename + "_y_Primaries", PDF_filename);
+  Draw_Print_Beam(histo_xy_Secondaries, canvas, outputfilename + "_xy_Secondaries", PDF_filename);
+  Draw_Print_Beam(histo_x_Secondaries, canvas, outputfilename + "_x_Secondaries", PDF_filename);
+  Draw_Print_Beam(histo_y_Secondaries, canvas, outputfilename + "_y_Secondaries", PDF_filename);
 
   PDF_Canvas->Print(PDF_title2.c_str());
   delete PDF_Canvas;
   return 0;
 }
 
-void Draw_Print_Beam(TH1* histo, TCanvas* canvas, std::string outputname){
+void Draw_Print_Beam(TH1* histo, TCanvas* canvas, std::string outputname, std::string PDFfilename){
   canvas->cd();
   histo->Draw("colz");
   canvas->Update();
@@ -211,4 +212,5 @@ void Draw_Print_Beam(TH1* histo, TCanvas* canvas, std::string outputname){
   std::string outputname_cxx = "output/" + outputname + ".cxx";
   canvas->Print(outputname_pdf.c_str());
   canvas->Print(outputname_cxx.c_str());
+  canvas->Print(PDFfilename.c_str());
 }
