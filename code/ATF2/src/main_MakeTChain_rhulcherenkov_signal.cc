@@ -37,13 +37,15 @@ int main(int const argc, char const * const * const argv){
     }
   }
 
-  float Coll_Aperture = 0.0;
+  float Beam_intensity = 0.0;
+  float Coll_aperture = 0.0;
   int voltage1 = 0;
   int signal1 = 0;
 
   TChain* ROOTChain = new TChain("Tree_Detector1");
 
-  ROOTChain->SetBranchAddress("CollAperture",&Coll_Aperture);
+  ROOTChain->SetBranchAddress("BeamIntensity",&Beam_intensity);
+  ROOTChain->SetBranchAddress("CollAperture",&Coll_aperture);
   ROOTChain->SetBranchAddress("Voltage",&voltage1);
   ROOTChain->SetBranchAddress("Signal",&signal1);
 
