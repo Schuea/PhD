@@ -1,2 +1,2 @@
-g++ -o ../MakeTTree_rhulcherenkov_signal.exe main_MakeTTree_rhulcherenkov_signal.cc `root-config --cflags --glibs`
-g++ -o ../MakeTChain_rhulcherenkov_signal.exe main_MakeTChain_rhulcherenkov_signal.cc `root-config --cflags --glibs`
+g++ -o ../MakeTTree_rhulcherenkov.exe main_MakeTTree_rhulcherenkov.cc `root-config --cflags --glibs`
+g++ -o ../MakeTChain_rhulcherenkov.exe main_MakeTChain_rhulcherenkov.cc `root-config --cflags --glibs`
