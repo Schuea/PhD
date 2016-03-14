@@ -53,6 +53,14 @@
    \includegraphics[width=40pt,height=26pt]{figures/ILC.jpeg}
   \end{textblock}
 } 
+\newcommand{\atflogo}{
+  \setlength{\TPHorizModule}{1pt}
+  \setlength{\TPVertModule}{1pt}
+   % textblock{}{x,y}: pos(x) = rightUpperCorner + (x * \TPHorizModule), pos(y) = leftUpperCorner - (y * \TPVertModule)
+  \begin{textblock}{1}(323,12)
+   \includegraphics[width=40pt,height=26pt]{figures/ATF_logo.jpg}
+  \end{textblock}
+}
 \newcommand{\flukalogo}{
   \setlength{\TPHorizModule}{1pt}
   \setlength{\TPVertModule}{1pt}
@@ -87,7 +95,7 @@
 } 
 
 
-\title[ILC \& Background Simulations]{\textbf{\alert{Mini-Workshop on ILC Infrastructure and CFS for Physics and Detectors} \\\LARGE The International Linear Collider \\ \small Background Simulations \& Optimizing the Final Focus Region}}
+\title[ILC \& Background Simulations]{\textbf{\alert{Mini-Workshop on ILC Infrastructure and CFS for Physics and Detectors} \\\LARGE The International Linear Collider \\ \normalsize IP Background Simulations}}
 \author{\textbf{Anne Sch\"utz}}
 \institute{\textbf{KIT, DESY}}
 \date{\textbf{15. March 2016}}
@@ -128,24 +136,9 @@
 \end{center}
 \end{frame}
 
-\section{Background simulation and Final-Focus optimization}
-\subsection{Motivation for my Ph.D}
-\begin{frame}{Background simulation \& Final-Focus optimization}
-\ilclogo
-\begin{center}
- \alert{\MakeUppercase{The motivation for my Ph.D}}
-\end{center}
-\begin{block}{}
-\centering The ILC will be a \textcolor{Periwinkle}{high luminosity} particle accelerator \\with \textcolor{JungleGreen}{extraordinary precision}.
-\end{block}
-\vspace*{1cm}
-\textcolor{JungleGreen}{The high precision depends on the cleanliness}, \textcolor{Periwinkle}{the high luminosity on the capability to focus the beam to nanometer size}.\\
-\vspace*{0.5cm}
-\visible<2->{In order to minimize the effect of the background on the detectors and the measurements, the different background sources need to be modeled in great detail, \\also with respect to a possible optimization of the Final-Focus layout.}
-\end{frame}
+\section{Background simulation}
 
-\subsection{Background simulations}
-
+\subsection{Background sources}
 \begin{frame}{Background sources}
 \ilclogo
 The main sources of background:
@@ -197,9 +190,22 @@ The main sources of background:
     \item Bhabha scattering
     \item \textgamma \textgamma $\rightarrow$ hadrons
     \item Neutrons from the beam dumps
-    \item \alert{\MakeUppercase{Background from Final-Focus system}}
+    \item \alert{Background from Final-Focus system}
     \begin{itemize}
      \item \alert{\MakeUppercase{Beam halo collimators}}
+     \item \alert{Muon spoilers}
+    \end{itemize}
+  \end{itemize}
+  }
+   \only<5>{
+  \begin{itemize}
+    \item Pair background
+    \item Bhabha scattering
+    \item \textgamma \textgamma $\rightarrow$ hadrons
+    \item Neutrons from the beam dumps
+    \item \alert{Background from Final-Focus system}
+    \begin{itemize}
+     \item \alert{Beam halo collimators}
      \item \alert{\MakeUppercase{Muon spoilers}}
     \end{itemize}
   \end{itemize}
@@ -215,15 +221,37 @@ The main sources of background:
  \includegraphics[height=0.45\textheight]{figures/FLUKA_quadrupole_model.png}
  }
  \only<4>{
- \includegraphics[height=0.4\textheight]{figures/ATF2_beamhalo_collimator.png}\\
- \includegraphics[height=0.4\textheight]{figures/Muons.png}
+ \includegraphics[height=0.45\textheight]{figures/ATF2_beamhalo_collimator.pdf}
+ }
+ \only<5>{
+ \includegraphics[height=0.45\textheight]{figures/Muons.png}
  }
  \end{column}
 \end{columns}
 
 \end{frame}
 
-\subsection{SiD detector}
+\subsection{Simulation tools}
+\begin{frame}{Simulation tools}
+Simulation tools used for the studied background sources:
+\vspace*{0.5cm}
+  \begin{itemize}
+    \item Pair background - \alert{GuineaPig}
+    \item Bhabha scattering - \alert{Pythia}
+    \item \textgamma \textgamma $\rightarrow$ hadrons - \alert{Pythia}
+    \item Neutrons from the beam dumps - \alert{FLUKA}
+    \item Beam halo collimators - \alert{BDSIM}
+    \item Muon spoilers - \alert{MUCARLO}
+  \end{itemize}
+\end{frame}
+
+\subsection{Pair background in the SiD detector}
+\begin{frame}
+ \begin{center}
+  \alert{\MakeUppercase{Pair background}}
+ \end{center}
+\end{frame}
+
 \begin{frame}{SiD detector}
 \sidlogo
 \begin{figure}[T]
@@ -303,7 +331,12 @@ e$^+$e$^-\rightarrow$\,ZH\,$\rightarrow$\,4 jets: $\sim$ \num{2100} hits in the 
 \begin{frame}[t]{3D hit map animation of the EcalEndcaps}
 \sidlogo
 \begin{center}
+\only<1>{
   \animategraphics[portait,autoplay,loop,height=6cm]{2}{figures/3Danimation_EcalEndcap/Hits_3D_EcalEndcap_Layer_}{0}{30}
+}
+\only<2->{
+  \includegraphics[height=6cm]{figures/3Danimation_EcalEndcap/Hits_3D_EcalEndcap_Layer_0.png}
+}
 \end{center}
 Most of the hits are around the beam pipe $\rightarrow$ Ring of fire
 \end{frame}
@@ -328,6 +361,12 @@ But there are a lot of particles backscattering from the tracker layers and the 
 \end{frame}
 
 \subsection{FLUKA simulation of the ILC Beam Dump}
+\begin{frame}
+ \begin{center}
+  \alert{\MakeUppercase{Neutrons from the beam dump}}
+ \end{center}
+\end{frame}
+
 \begin{frame}{FLUKA simulation of the ILC Beam Dump}
 \flukalogo
 \EXTsymbol
@@ -348,7 +387,7 @@ But there are a lot of particles backscattering from the tracker layers and the 
 \vspace*{0.5cm}
 \visible<2->{
 \begin{block}{Simulation}
- Pluging the real extraction line lattice into FLUKA\\
+With Benno List (DESY): Pluging the real extraction line lattice into FLUKA.\\
 Realistic simulation of the interaction between the neutrons,the lattice and the detectors.
 \end{block}
 }
@@ -357,8 +396,14 @@ Realistic simulation of the interaction between the neutrons,the lattice and the
 \end{frame}
 
 \subsection{Final-Focus system as a background source}
-\BDSsymbol
+\begin{frame}
+ \begin{center}
+  \alert{\MakeUppercase{Background from Beam Halo collimators}}
+ \end{center}
+\end{frame}
+
 \begin{frame}{Beam Halo collimators}
+\BDSsymbol
  \begin{center}
 \includegraphics[width=0.65\textwidth]{figures/ATF2_beamhalo_collimator.pdf}
 \end{center}
@@ -372,45 +417,90 @@ By driving collimator blocks into the beam:\\
 \end{frame}
 \subsection{ATF2}
 \begin{frame}{Accelerator Test Facility 2}
+\atflogo
+ATF2: Extension of the Accelerator Test Facility (ATF) at KEK
+\vspace*{0.3cm}
+\begin{center}
+ \only<1>{\includegraphics[width=0.7\textwidth]{figures/kek_map.pdf}}
+ \only<2->{\includegraphics[width=0.7\textwidth]{figures/kek_map_stars.pdf}}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Accelerator Test Facility 2}
+\atflogo
 ATF2
 \begin{itemize}
-\item Extension of the Accelerator Test Facility (ATF) at KEK in Japan
 \item Test bench for the Final-Focus system of the ILC $\rightarrow$ very close to the ILC 500
-\item Achieving \SI{42}{\nano\metre} beam size (goal: \SI{39}{\nano\metre})
+\item Achieving \SI{40}{\nano\metre} beam size (goal: \SI{37}{\nano\metre})
 \end{itemize}
 \vspace*{0.3cm}
 \begin{center}
- \only<1>{\includegraphics[width=0.8\textwidth]{figures/kek_map.pdf}}
- \only<2->{\includegraphics[width=0.8\textwidth]{figures/kek_map_stars.pdf}}
+ \includegraphics[width=0.8\textwidth]{figures/ATF.jpg}
 \end{center}
 
 \end{frame}
 
 \begin{frame}{Beam time at ATF2 in March}
 \ejadelogo
-I will be joining ATF2 in March, thanks to the E-JADE program {\tiny(www.e-jade.eu)}.\\
-\vspace*{0.3cm}
-ATF2 is the ILC Final-Focus test bench at KEK in Japan, where the March beam time is dedicated to:
+At the moment, I am joining the ATF2 beam time, thanks to the E-JADE program {\tiny(www.e-jade.eu)}.
 \begin{itemize}
-\item Installing a new beam halo collimator
-\item Measuring the beam size and the beam halo
-\item Studies of the generated background with Cherenkov detectors
+\item Measuring the background generated by the installed beam halo collimator with Cherenkov detector
+\item Simulating the background with BDSIM
 \end{itemize}
-\begin{center}
- 	\includegraphics[width=0.8\textwidth]{figures/ATF.jpg}
-\end{center}
-
+\begin{columns}[T]
+ \begin{column}[t]{0.75\textwidth}
+ \flushright
+  \includegraphics[width=0.67\textwidth]{figures/rhulcher1_20160311morning_signal_averagesignal_aperture.png}
+ \end{column}
+ \begin{column}[t]{0.25\textwidth}
+  \flushleft
+  \textcolor{RubineRed}{FIRST RESULTS}
+ \end{column}
+\end{columns}
 \end{frame}
 
 \subsection{Muon from spoilers}
-\begin{frame}{Muon from spoilers}
- Lewis Keller finished the MUCARLO simulation of the muon tracks in the BDS tunnel\\
- Numbers of muons at the IP for different scenarios\\
- 4-vectors of muons at IP available to simulate muons in detectors
+\begin{frame}
  \begin{center}
- 	\includegraphics[width=0.8\textwidth]{figures/muons.png}
+  \alert{\MakeUppercase{Muons from spoilers}}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Muon from spoilers}
+ Lewis Keller: MUCARLO simulation of the muon tracks in the BDS tunnel.\\
+ 4-vectors of muons at IP are available to simulate muons in detectors
+ \begin{center}
+ 	\includegraphics[width=0.7\textwidth]{figures/Muons.png}
   \end{center}
 \end{frame}
+
+\begin{frame}{Muons at IP}
+Number of the muons at the IP
+  \begin{center}
+ 	\includegraphics[width=0.9\textwidth]{figures/mucarlo_numbers.pdf}
+  \end{center}
+\end{frame}
+
+\section*{Summary}
+\begin{frame}{Summary}
+Current effort in simulating the background at the IP:
+ \begin{itemize}
+  \item Background from beam-beam interactions
+  \item Neutron background from the beam dump
+  \item Muon background from spoilers
+ \end{itemize}
+ 
+ \vspace*{0.5cm}
+ 
+ \begin{center}
+  \includegraphics[width=0.6\textwidth]{figures/ILC_LHC_eventdisplay_comparison.pdf}
+ \end{center}
+
+
+\end{frame}
+
+
 
 
 \section*{The end}
@@ -440,6 +530,7 @@ ATF2 is the ILC Final-Focus test bench at KEK in Japan, where the March beam tim
 \bibitem{RHUL} Mark Thomson. \emph{Physics and Detectors at the ILC}, 2013. \url{https://www.royalholloway.ac.uk/physics/documents/pdf/events/particlephysicsseminars/13-14markthomson23oct2013.pdf}
 \bibitem{ATF2} Kuroda et al. \emph{A plan of KEK-ATF Final Focus Test Beam Line (ATF2)
 }. \url{http://icfa-nanobeam.web.cern.ch/icfa-nanobeam/paper/urakawa_ATF2-2.pdf}
+\bibitem{Collimator} N. Fuster-Martínez, IFIC (CSIC-UV), et al. \emph{Design study and construction of a transverse Beam Halo Collimation system for ATF2}, 2015. \url{http://accelconf.web.cern.ch/AccelConf/IPAC2015/papers/wepmn059.pdf}
 \bibitem{Muons} Lew Keller (SLAC)
 
 \end{frame}
@@ -487,26 +578,15 @@ ATF2 is the ILC Final-Focus test bench at KEK in Japan, where the March beam tim
 \end{frame}
 
 \section{Additional SiD simulation plots}
-\subsection{Simulation tools}
-\begin{frame}{Simulation tools}
-\sidlogo
-The background is first modeled in different simulation tools:\\
-\begin{itemize}
-\item \alert{GuineaPig} (Generator of background events from beam-beam interactions)
-\item \alert{BDSIM} (Geant4 based extension toolkit for beam line simulations)
-\item \alert{FLUKA} (Fully integrated particle physics MonteCarlo simulation package)
-\end{itemize}
-\vspace*{0.5cm}
-The background events are then simulated in a \alert{full detector simulation} with a Geant4 toolkit.\\
-\vspace*{0.2cm}
-\begin{figure}
-	\begin{columns}
-        \column{0.7\linewidth} \flushright
-        \includegraphics[width=0.61\textwidth]{figures/Full_bunchcrossing_rhoz.png}
-        \column{0.3\linewidth}
-        \caption{\small The inner detector part of SiD. WIRED4 event display of the pair background of one bunch crossing.}
-      \end{columns}
-\end{figure}
+
+\subsection{Higgs event display}
+\begin{frame}[label=ZH_event_display]{e$^+$e$^-\rightarrow$\,ZH\,$\rightarrow$\,4 jets in the SiD detector}
+e$^+$e$^-\rightarrow$\,ZH\,$\rightarrow$\,4 jets in the SiD detector\\
+Displayed with WIRED4
+ \begin{center}
+   \includegraphics[width=0.8\textwidth]{figures/Zhiggs_4jets_SiD.png}\\
+ \hyperlink{HitsEcalEndcaps}{\beamergotobutton{Go back}}
+ \end{center}
 \end{frame}
 
 \subsection{Hit maps of the EcalEndcap}
