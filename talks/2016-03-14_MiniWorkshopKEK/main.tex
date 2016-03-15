@@ -69,6 +69,14 @@
    \includegraphics[width=60pt,height=26pt]{figures/fluka_logo.png}
   \end{textblock}
 } 
+\newcommand{\rhullogo}{
+  \setlength{\TPHorizModule}{1pt}
+  \setlength{\TPVertModule}{1pt}
+   % textblock{}{x,y}: pos(x) = rightUpperCorner + (x * \TPHorizModule), pos(y) = leftUpperCorner - (y * \TPVertModule)
+  \begin{textblock}{1}(295,12)
+   \includegraphics[width=70pt,height=26pt]{figures/rhul_logo.png}
+  \end{textblock}
+}
 \newcommand{\ejadelogo}{
   \setlength{\TPHorizModule}{1pt}
   \setlength{\TPVertModule}{1pt}
@@ -252,6 +260,40 @@ Simulation tools used for the studied background sources:
  \end{center}
 \end{frame}
 
+\begin{frame}{GuineaPig data}
+Accelerator parameters needed as input to GuineaPig are available for different ILC modes.\\
+Already simulated pair background files for >3900 bunches are on the Grid as service to the community.\cite{Grid}\\
+\visible<2->{
+One bunch has about 200,000 background particles:
+ \begin{figure}
+ 	\begin{columns}
+        \column[T]{0.75\linewidth} 
+        \begin{flushright}
+        \includegraphics[height=0.55\textheight]{figures/sidloi3_pairs_1312_EcalEndcap_HitsPerFile_Particles.png}
+        \end{flushright}
+        \column[T]{0.25\linewidth}
+        \begin{flushleft}
+        \caption{\small Distribution of number of pair background particles per bunch in a train of 1312.}
+        \end{flushleft}
+      \end{columns}
+\end{figure}
+}
+\end{frame}
+
+\begin{frame}{Pair background in the SiD detector}
+\sidlogo
+Specific studies:
+\begin{itemize}
+ \item Hit distribution in the subdetectors
+ \item Occupancy and buffer depth studies
+ \item Origins of the background particles induced by beam-beam interactions
+ \item Time of arrival of the background particles at the subdetectors wrt time of the bunch-crossing
+\end{itemize}
+\begin{center}
+ \includegraphics[height=4cm]{figures/3Danimation_EcalEndcap/Hits_3D_EcalEndcap_Layer_0.png}
+\end{center}
+\end{frame}
+
 \begin{frame}{SiD detector}
 \sidlogo
 \begin{figure}[T]
@@ -266,32 +308,6 @@ Simulation tools used for the studied background sources:
 \end{subfigure}
 \caption{\small SiD detector model: Vertex detector (red), ECAL (green), HCAL (pink), Muon system (blue)}
 \end{figure}
-\end{frame}
-
-\begin{frame}{Pair background}
-\sidlogo
- \begin{figure}
- 	\begin{columns}
-        \column[T]{0.75\linewidth} 
-        \begin{flushright}
-        \includegraphics[height=0.55\textheight]{figures/sidloi3_pairs_1312_EcalEndcap_HitsPerFile_Particles.png}
-        \end{flushright}
-        \column[T]{0.25\linewidth}
-        \begin{flushleft}
-        \caption{\small Distribution of number of pair background particles per bunch crossing hitting the detector.}
-        \end{flushleft}
-      \end{columns}
-\end{figure}
-Per bunch, there are about \num{200000} pair background particles, in the whole detector.\\
-\visible<2->{
-\begin{center}
- In comparison:\\
-e$^+$e$^-\rightarrow$\,ZH\,$\rightarrow$\,4 jets: $\sim$ 80 final state particles
-%e$^+$e$^-\rightarrow$\,W$^+$W$^-$ $\sim$ 1000/hour 
-%\hspace*{0.5cm}
-%e$^+$e$^-\rightarrow$\,HX $\sim$ 10/hour
-\end{center}
-}
 \end{frame}
 
 
@@ -335,7 +351,10 @@ e$^+$e$^-\rightarrow$\,ZH\,$\rightarrow$\,4 jets: $\sim$ \num{2100} hits in the 
   \animategraphics[portait,autoplay,loop,height=6cm]{2}{figures/3Danimation_EcalEndcap/Hits_3D_EcalEndcap_Layer_}{0}{30}
 }
 \only<2->{
-  \includegraphics[height=6cm]{figures/3Danimation_EcalEndcap/Hits_3D_EcalEndcap_Layer_0.png}
+  \includegraphics[height=0.4\textheight]{figures/3Danimation_EcalEndcap/Hits_3D_EcalEndcap_Layer_0.png}
+   \includegraphics[height=0.4\textheight]{figures/3Danimation_EcalEndcap/Hits_3D_EcalEndcap_Layer_5.png}\\
+    \includegraphics[height=0.4\textheight]{figures/3Danimation_EcalEndcap/Hits_3D_EcalEndcap_Layer_10.png}
+     \includegraphics[height=0.4\textheight]{figures/3Danimation_EcalEndcap/Hits_3D_EcalEndcap_Layer_20.png}
 }
 \end{center}
 Most of the hits are around the beam pipe $\rightarrow$ Ring of fire
@@ -413,18 +432,6 @@ By driving collimator blocks into the beam:\\
  \item Wakefields are induced.
  \item New background is produced.
 \end{itemize}
-
-\end{frame}
-\subsection{ATF2}
-\begin{frame}{Accelerator Test Facility 2}
-\atflogo
-ATF2: Extension of the Accelerator Test Facility (ATF) at KEK
-\vspace*{0.3cm}
-\begin{center}
- \only<1>{\includegraphics[width=0.7\textwidth]{figures/kek_map.pdf}}
- \only<2->{\includegraphics[width=0.7\textwidth]{figures/kek_map_stars.pdf}}
-\end{center}
-
 \end{frame}
 
 \begin{frame}{Accelerator Test Facility 2}
@@ -438,7 +445,17 @@ ATF2
 \begin{center}
  \includegraphics[width=0.8\textwidth]{figures/ATF.jpg}
 \end{center}
+\end{frame}
 
+\subsection{ATF2}
+\begin{frame}{Accelerator Test Facility 2}
+\atflogo
+ATF2: Extension of the Accelerator Test Facility (ATF) at KEK
+\vspace*{0.3cm}
+\begin{center}
+ \only<1>{\includegraphics[width=0.7\textwidth]{figures/kek_map.pdf}}
+ \only<2->{\includegraphics[width=0.7\textwidth]{figures/kek_map_stars.pdf}}
+\end{center}
 \end{frame}
 
 \begin{frame}{Beam time at ATF2 in March}
@@ -459,6 +476,30 @@ At the moment, I am joining the ATF2 beam time, thanks to the E-JADE program {\t
  \end{column}
 \end{columns}
 \end{frame}
+
+\begin{frame}{BDSIM}
+\rhullogo
+BDSIM is:
+\begin{itemize}
+ \item a Geant4 extension toolkit for simulation of particle transport in accelerator beamlines
+ \item developed at RHUL
+\end{itemize}
+ \begin{center}
+ \includegraphics[width=0.7\textwidth]{figures/atf_bdsim.png}
+\end{center}
+Accelerator descriptions from other tools such as MADX can be converted to BDSIM input. 
+\end{frame}
+
+
+\begin{frame}{Cultural experiences}
+Overnight stay in a traditional ryokan - \\ \flushright near the Snow Monkey park in Nagano.
+ \begin{center}
+ \includegraphics[width=0.55\textwidth]{figures/japanese_breakfast.jpg}
+ \hspace*{0.3cm}
+ \includegraphics[width=0.4\textwidth]{figures/snow_monkeys.jpg}
+\end{center}
+\end{frame}
+
 
 \subsection{Muon from spoilers}
 \begin{frame}
@@ -488,6 +529,7 @@ Current effort in simulating the background at the IP:
  \begin{itemize}
   \item Background from beam-beam interactions
   \item Neutron background from the beam dump
+  \item Background from Beam Halo collimators in the Final-Focus system
   \item Muon background from spoilers
  \end{itemize}
  
@@ -526,12 +568,11 @@ Current effort in simulating the background at the IP:
 \section*{References}
 \begin{thebibliography}{9}
 \begin{frame}{References}
+\bibitem{Grid} /ilc/user/a/aschuetz/GuineaPig
 \bibitem{TDR} T. Behnke, et al. \emph{The International Linear Collider - Technical Design Report}, 2013.
-\bibitem{RHUL} Mark Thomson. \emph{Physics and Detectors at the ILC}, 2013. \url{https://www.royalholloway.ac.uk/physics/documents/pdf/events/particlephysicsseminars/13-14markthomson23oct2013.pdf}
-\bibitem{ATF2} Kuroda et al. \emph{A plan of KEK-ATF Final Focus Test Beam Line (ATF2)
-}. \url{http://icfa-nanobeam.web.cern.ch/icfa-nanobeam/paper/urakawa_ATF2-2.pdf}
 \bibitem{Collimator} N. Fuster-Martínez, IFIC (CSIC-UV), et al. \emph{Design study and construction of a transverse Beam Halo Collimation system for ATF2}, 2015. \url{http://accelconf.web.cern.ch/AccelConf/IPAC2015/papers/wepmn059.pdf}
-\bibitem{Muons} Lew Keller (SLAC)
+\bibitem{Muons} MUCARLO simulations: Lewis Keller (SLAC)
+\bibitem{RHUL} Mark Thomson. \emph{Physics and Detectors at the ILC}, 2013. \url{https://www.royalholloway.ac.uk/physics/documents/pdf/events/particlephysicsseminars/13-14markthomson23oct2013.pdf}
 
 \end{frame}
 \end{thebibliography}
