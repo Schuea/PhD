@@ -8,6 +8,8 @@
 
 #include <iostream>
 
+float[n] GetAverageSignals(bool GetError, float beamintensity, float[n] apertures, TTree* tree, float beamintensity_branch, float collaperture_branch, float signal_branch, int voltage_branch);
+
 int main(int const argc, char const * const * const argv) {
   UsePhDStyle();
   //The input is a TTree ROOT file(s)
@@ -49,20 +51,6 @@ int main(int const argc, char const * const * const argv) {
     exit(1);
   }
 
-
-  std::string title1D = "RHUL cherenkov detector signal;Signal [a.u.];Count";
-  TH1D* Signal_CollAperture3mm = new TH1D("signal_3mm",title1D.c_str(),1000,0,10000);
-  TH1D* Signal_CollAperture4mm = new TH1D("signal_4mm",title1D.c_str(),1000,0,10000);
-  TH1D* Signal_CollAperture5mm = new TH1D("signal_5mm",title1D.c_str(),1000,0,10000);
-  TH1D* Signal_CollAperture6mm = new TH1D("signal_6mm",title1D.c_str(),1000,0,10000);
-  TH1D* Signal_CollAperture7mm = new TH1D("signal_7mm",title1D.c_str(),1000,0,10000);
-  TH1D* Signal_CollAperture8mm = new TH1D("signal_8mm",title1D.c_str(),1000,0,10000);
-  TH1D* Signal_CollAperture9mm = new TH1D("signal_9mm",title1D.c_str(),1000,0,10000);
-  TH1D* Signal_CollAperture10mm = new TH1D("signal_10mm",title1D.c_str(),1000,0,10000);
-  TH1D* Signal_CollAperture11mm = new TH1D("signal_11mm",title1D.c_str(),1000,0,10000);
-  TH1D* Signal_CollAperture12mm = new TH1D("signal_12mm",title1D.c_str(),1000,0,10000);
-
-
   TFile* inputfile = TFile::Open(inputfilename.c_str());
   TTree* Detector = nullptr;
   inputfile->GetObject("Tree_Detector1", Detector);
@@ -71,70 +59,44 @@ int main(int const argc, char const * const * const argv) {
   Detector->SetBranchStatus("*", 0);
   Detector->SetBranchStatus("BeamIntensity",1);
   Detector->SetBranchStatus("CollAperture",1);
-  Detector->SetBranchStatus("Signal",1);
+  Detector->SetBranchStatus("NoiseSubtractedSignal",1);
   Detector->SetBranchStatus("Voltage",1);
 
   float beamintensity = 0.0;
   float collaperture = 0.0;
-  int signal = 0;
+  float signal = 0;
   int voltage = 0;
 
   Detector->SetBranchAddress("BeamIntensity", &beamintensity);
   Detector->SetBranchAddress("CollAperture", &collaperture);
-  Detector->SetBranchAddress("Signal", &signal);
+  Detector->SetBranchAddress("NoiseSubtractedSignal", &signal);
   Detector->SetBranchAddress("Voltage", &voltage);
+ 
+  int n = 10; //Number of apertures that were recorded
+  float Aperture[n] = {3,4,5,6,7,8,9,10,11,12};
+  float ApertureError[n] = {0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04};
   
-  long long int const entries =  Detector->GetEntries();
-  for (long long int i = 0; i < entries; ++i){
-    Detector->GetEntry(i);
-    if(voltage > 0 &&
-        beamintensity > 0 && 
-        beamintensity < 0.48 && beamintensity > 0.40){
-       if(collaperture > 2.9 && collaperture < 3.1) Signal_CollAperture3mm->Fill(signal);
-       if(collaperture > 3.9 && collaperture < 4.1) Signal_CollAperture4mm->Fill(signal);
-       if(collaperture > 4.9 && collaperture < 5.1) Signal_CollAperture5mm->Fill(signal);
-       if(collaperture > 5.9 && collaperture < 6.1) Signal_CollAperture6mm->Fill(signal);
-       if(collaperture > 6.9 && collaperture < 7.1) Signal_CollAperture7mm->Fill(signal);
-       if(collaperture > 7.9 && collaperture < 8.1) Signal_CollAperture8mm->Fill(signal);
-       if(collaperture > 8.9 && collaperture < 9.1) Signal_CollAperture9mm->Fill(signal);
-       if(collaperture > 9.9 && collaperture < 10.1) Signal_CollAperture10mm->Fill(signal);
-       if(collaperture > 10.9 && collaperture < 11.1) Signal_CollAperture11mm->Fill(signal);
-       if(collaperture > 11.9 && collaperture < 12.1) Signal_CollAperture12mm->Fill(signal);
-    }
-  }
-
-  float SignalAverage[10];
-  float SignalAverageError[10];
-  SignalAverage[0] = Signal_CollAperture3mm->GetMean(1);  
-  SignalAverageError[0] = Signal_CollAperture3mm->GetRMS(1);  
-  SignalAverage[1] = Signal_CollAperture4mm->GetMean(1);  
-  SignalAverageError[1] = Signal_CollAperture4mm->GetRMS(1);  
-  SignalAverage[2] = Signal_CollAperture5mm->GetMean(1);  
-  SignalAverageError[2] = Signal_CollAperture5mm->GetRMS(1);  
-  SignalAverage[3] = Signal_CollAperture6mm->GetMean(1);  
-  SignalAverageError[3] = Signal_CollAperture6mm->GetRMS(1);  
-  SignalAverage[4] = Signal_CollAperture7mm->GetMean(1);  
-  SignalAverageError[4] = Signal_CollAperture7mm->GetRMS(1);  
-  SignalAverage[5] = Signal_CollAperture8mm->GetMean(1);  
-  SignalAverageError[5] = Signal_CollAperture8mm->GetRMS(1);  
-  SignalAverage[6] = Signal_CollAperture9mm->GetMean(1);  
-  SignalAverageError[6] = Signal_CollAperture9mm->GetRMS(1);  
-  SignalAverage[7] = Signal_CollAperture10mm->GetMean(1);  
-  SignalAverageError[7] = Signal_CollAperture10mm->GetRMS(1);  
-  SignalAverage[8] = Signal_CollAperture11mm->GetMean(1);  
-  SignalAverageError[8] = Signal_CollAperture11mm->GetRMS(1);  
-  SignalAverage[9] = Signal_CollAperture12mm->GetMean(1);  
-  SignalAverageError[9] = Signal_CollAperture11mm->GetRMS(1);  
-  float Aperture[10] = {3,4,5,6,7,8,9,10,11,12};
-  float ApertureError[10] = {0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04};
-
+  //Fill the arrays with the average and the RMS of the signals from the TTree for the different beam intensities:
+  float recorded_beamIntensity = 0.44;
+  float SignalAverage[n] = GetAverageSignals(false, Detector, recorded_beamIntensity, Aperture, beamintensity, collaperture, signal, voltage);
+  float SignalAverageError[n] = GetAverageSignals(true, Detector, recorded_beamIntensity, Aperture, beamintensity, collaperture, signal, voltage);
   TGraphErrors* AverageSignal_CollAperture = new TGraphErrors(10,Aperture,SignalAverage,ApertureError,SignalAverageError);
   AverageSignal_CollAperture->SetTitle("Average signal strength for different beam halo collimator apertures;Collimator aperture [mm];Average RHUL cherenkov signal [a.u.]");
   AverageSignal_CollAperture->SetMarkerColor(4);
   AverageSignal_CollAperture->SetMarkerStyle(8);
+  
+  float recorded_beamIntensity2 = 0.21;
+  float SignalAverage_secondIntensity[10] = GetAverageSignals(false, recorded_beamIntensity2, Aperture, Detector, beamintensity, collaperture, signal, voltage);
+  float SignalAverageError_secondIntensity[10] = GetAverageSignals(true, recorded_beamIntensity2, Aperture, Detector, beamintensity, collaperture, signal, voltage);
+  TGraphErrors* AverageSignal_secondIntensity_CollAperture = new TGraphErrors(10,Aperture,SignalAverage_secondIntensity,ApertureError,SignalAverageError_secondIntensity);
+  AverageSignal_secondIntensity_CollAperture->SetTitle("Average signal strength for different beam halo collimator apertures;Collimator aperture [mm];Average RHUL cherenkov signal [a.u.]");
+  AverageSignal_secondIntensity_CollAperture->SetMarkerColor(4);
+  AverageSignal_secondIntensity_CollAperture->SetMarkerStyle(8);
 
+  //Plot the TGraphErrors for the different intensities onto the same canvas:
   TCanvas* canvas = new TCanvas();
   AverageSignal_CollAperture->Draw("APE");
+  AverageSignal_secondIntensity_CollAperture->Draw("APE,SAME");
 
   std::string outputname1 = "output/" + outputfilename + ".pdf";
   std::string outputname2 = "output/" + outputfilename + ".cxx";
@@ -142,14 +104,44 @@ int main(int const argc, char const * const * const argv) {
   canvas->Print(outputname2.c_str());
 
   inputfile->Close();
-  delete Signal_CollAperture3mm;
-  delete Signal_CollAperture4mm;
-  delete Signal_CollAperture5mm;
-  delete Signal_CollAperture6mm;
-  delete Signal_CollAperture7mm;
-  delete Signal_CollAperture8mm;
-  delete Signal_CollAperture9mm;
-  delete Signal_CollAperture10mm;
-  delete Signal_CollAperture11mm;
-  delete Signal_CollAperture12mm;
 }  
+
+float[n] GetAverageSignals(bool GetError, float beamintensity, float[n] apertures, TTree* tree, float beamintensity_branch, float collaperture_branch, float signal_branch, int voltage_branch){
+  std::string title1D = "RHUL cherenkov detector signal;Signal [a.u.];Count";
+  std::vector<TH1D*> Signal_CollAperture = nullptr;
+  //Push back as many TH1 histograms as needed in order to have one for each aperture
+  for(size_t number_apertures; number_apertures < apertures.size(); ++number_apertures){
+    Signal_CollAperture.emplace_back(new TH1D("signal_3mm", title1D.c_str(),1000,0,10000));
+  }
+
+  long long int const entries =  tree->GetEntries();
+  for (long long int i = 0; i < entries; ++i){
+    tree->GetEntry(i);
+    if(voltage_branch > 0){
+      if(beamintensity_branch > beamintensity-0.1 && beamintensity_branch < beamintensity+0.1){
+        
+        for(size_t number_apertures; number_apertures < apertures.size(); ++number_apertures){
+          //Fill the TH1 in the vector with signals for an aperture, that corresponds to the desired apertures in the aperture vector:
+          if(collaperture_branch > aperture.at(number_apertures)-0.1 && collaperture_branch < aperture.at(number_apertures)+0.1){
+            Signal_CollAperture.at(number_apertures)->Fill(signal_branch);
+          }
+        }
+
+      }
+    }
+  }
+
+  float SignalAverage[n];
+  for(size_t iterator; iterator<Signal_CollAperture.size();++iterator){
+    //If the average signal is desired, get the mean from the signal distributions in the TH1 vector
+    if (GetError==false){
+      SignalAverage[iterator] = Signal_CollAperture.at(iterator)->GetMean(1);  
+    }
+    //If the RMS is desired, get the RMS from the signal distributions in the TH1 vector
+    else{
+      SignalAverage[iterator] = Signal_CollAperture.at(iterator)->GetRMS(1);  
+    }
+    delete Signal_CollAperture.at(iterator);
+  }
+  return SignalAverage;
+}
