@@ -20,36 +20,65 @@ int main(int const argc, char const * const * const argv) {
 
   std::string inputfilename;
   std::string outputfilename;
+  float recorded_beamIntensity1 = 0.0;
+  float recorded_beamIntensity2 = 0.0;
 
   bool inputfile_set = false;
   bool outputfile_set = false;
+  bool beamintensity1_set = false;
 
   for (int i = 1; i < argc; i++) {
     if (argv[i] == std::string("-i")){
       if (argv[i + 1] != std::string("-o")
+          && argv[i + 1] != std::string("-b1")
+          && argv[i + 1] != std::string("-b2")
           && argv[i + 1] != NULL) {
         inputfilename = argv[i + 1];
         inputfile_set = true;
       } else {
-        std::cerr << "You didn't give an argument for the inputfile(s)!"
+        std::cerr << "You didn't give an argument for the input filename!"
           << std::endl;
       }
     }
     if (argv[i] == std::string("-o")) {
       if (argv[i + 1] != NULL 
+          && argv[i + 1] != std::string("-b1")
+          && argv[i + 1] != std::string("-b2")
           && argv[i + 1] != std::string("-i")) {
         outputfilename = argv[i + 1];
         outputfile_set = true;
       } else {
-        std::cerr << "You didn't give an argument for the sample!"
+        std::cerr << "You didn't give an argument for the output filename!"
           << std::endl;
       }
     }
-
+    if (argv[i] == std::string("-b1")) {
+      if (argv[i + 1] != NULL 
+          && argv[i + 1] != std::string("-i")
+          && argv[i + 1] != std::string("-o")
+          && argv[i + 1] != std::string("-b2")) {
+        recorded_beamIntensity1 = argv[i + 1];
+        beamintensity1_set = true;
+      } else {
+        std::cerr << "You didn't give an argument for the beamintensity1!"
+          << std::endl;
+      }
+    }
+    if (argv[i] == std::string("-b2")) {
+      if (argv[i + 1] != NULL 
+          && argv[i + 1] != std::string("-i")
+          && argv[i + 1] != std::string("-o")
+          && argv[i + 1] != std::string("-b1")) {
+        recorded_beamIntensity2 = argv[i + 1];
+      } else {
+        std::cerr << "You didn't give an argument for the beamintensity2!"
+          << std::endl;
+      }
+    }
   }
-  if (!inputfile_set || !outputfile_set) {
+  if (!inputfile_set || !outputfile_set || !beamintensity1_set) {
     std::cerr
-      << "You didn't give the name for the inputfiles or the outfile. Please try again!"
+      << "You didn't give the name for the inputfiles, the outputfile, or the beamintensity1. Please try again!"
       << std::endl;
     exit(1);
   }
@@ -79,7 +108,6 @@ int main(int const argc, char const * const * const argv) {
   float ApertureError[n] = {0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04};
   
   //Fill the arrays with the average and the RMS of the signals from the TTree for the different beam intensities:
-  float recorded_beamIntensity = 0.44;
   float SignalAverage[n];
   GetAverageSignals(SignalAverage, false, &recorded_beamIntensity, Aperture, n, Detector, &beamintensity, &collaperture, &signal, &voltage);
   float SignalAverageError[n];
@@ -89,7 +117,6 @@ int main(int const argc, char const * const * const argv) {
   AverageSignal_CollAperture->SetMarkerColor(4);
   AverageSignal_CollAperture->SetMarkerStyle(8);
   
-  float recorded_beamIntensity2 = 0.21;
   float SignalAverage_secondIntensity[n];
   GetAverageSignals(SignalAverage_secondIntensity, false, &recorded_beamIntensity2, Aperture, n, Detector, &beamintensity, &collaperture, &signal, &voltage);
   float SignalAverageError_secondIntensity[n];
@@ -102,7 +129,7 @@ int main(int const argc, char const * const * const argv) {
   //Plot the TGraphErrors for the different intensities onto the same canvas:
   TCanvas* canvas = new TCanvas();
   AverageSignal_CollAperture->Draw("APE");
-  AverageSignal_secondIntensity_CollAperture->Draw("APE,SAME");
+  if(recorded_beamIntensity2 > 0.0) AverageSignal_secondIntensity_CollAperture->Draw("APE,SAME");
 
   std::string outputname1 = "output/" + outputfilename + ".pdf";
   std::string outputname2 = "output/" + outputfilename + ".cxx";
