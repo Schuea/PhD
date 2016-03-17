@@ -39,6 +39,8 @@ int main(int const argc, char const * const * const argv){
 
   float Beam_intensity = 0.0;
   float Coll_aperture = 0.0;
+  float Coll_UpperJaw_position = 0.0;
+  float Coll_LowerJaw_position = 0.0;
   int voltage1 = 0;
   int signal1 = 0;
 
@@ -46,6 +48,8 @@ int main(int const argc, char const * const * const argv){
 
   ROOTChain->SetBranchAddress("BeamIntensity",&Beam_intensity);
   ROOTChain->SetBranchAddress("CollAperture",&Coll_aperture);
+  ROOTChain->SetBranchAddress("CollUpperJawPosition",&Coll_UpperJaw_position);
+  ROOTChain->SetBranchAddress("CollLowerJawPosition",&Coll_LowerJaw_position);
   ROOTChain->SetBranchAddress("Voltage",&voltage1);
   ROOTChain->SetBranchAddress("Signal",&signal1);
 
