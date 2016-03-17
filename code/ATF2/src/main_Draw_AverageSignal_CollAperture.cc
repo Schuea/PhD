@@ -57,7 +57,7 @@ int main(int const argc, char const * const * const argv) {
           && argv[i + 1] != std::string("-i")
           && argv[i + 1] != std::string("-o")
           && argv[i + 1] != std::string("-b2")) {
-        recorded_beamIntensity1 = argv[i + 1];
+        recorded_beamIntensity1 = std::atoi(argv[i + 1])/100;
         beamintensity1_set = true;
       } else {
         std::cerr << "You didn't give an argument for the beamintensity1!"
@@ -69,7 +69,7 @@ int main(int const argc, char const * const * const argv) {
           && argv[i + 1] != std::string("-i")
           && argv[i + 1] != std::string("-o")
           && argv[i + 1] != std::string("-b1")) {
-        recorded_beamIntensity2 = argv[i + 1];
+        recorded_beamIntensity2 = std::atoi(argv[i + 1])/100;
       } else {
         std::cerr << "You didn't give an argument for the beamintensity2!"
           << std::endl;
@@ -82,6 +82,10 @@ int main(int const argc, char const * const * const argv) {
       << std::endl;
     exit(1);
   }
+  std::cout << "Inputfile: " << inputfilename << std::endl;
+  std::cout << "Output: " << outputfilename << std::endl;
+  std::cout << "Beam intensity 1: " << recorded_beamIntensity1 << std::endl;
+  std::cout << "Beam intensity 2: " << recorded_beamIntensity2 << std::endl;
 
   TFile* inputfile = TFile::Open(inputfilename.c_str());
   TTree* Detector = nullptr;
@@ -109,9 +113,9 @@ int main(int const argc, char const * const * const argv) {
   
   //Fill the arrays with the average and the RMS of the signals from the TTree for the different beam intensities:
   float SignalAverage[n];
-  GetAverageSignals(SignalAverage, false, &recorded_beamIntensity, Aperture, n, Detector, &beamintensity, &collaperture, &signal, &voltage);
+  GetAverageSignals(SignalAverage, false, &recorded_beamIntensity1, Aperture, n, Detector, &beamintensity, &collaperture, &signal, &voltage);
   float SignalAverageError[n];
-  GetAverageSignals(SignalAverageError, true, &recorded_beamIntensity, Aperture, n, Detector, &beamintensity, &collaperture, &signal, &voltage);
+  GetAverageSignals(SignalAverageError, true, &recorded_beamIntensity1, Aperture, n, Detector, &beamintensity, &collaperture, &signal, &voltage);
   TGraphErrors* AverageSignal_CollAperture = new TGraphErrors(n,Aperture,SignalAverage,ApertureError,SignalAverageError);
   AverageSignal_CollAperture->SetTitle("Average signal strength for different beam halo collimator apertures;Collimator aperture [mm];Average RHUL cherenkov signal [a.u.]");
   AverageSignal_CollAperture->SetMarkerColor(4);
@@ -123,8 +127,8 @@ int main(int const argc, char const * const * const argv) {
   GetAverageSignals(SignalAverageError_secondIntensity, true, &recorded_beamIntensity2, Aperture, n, Detector, &beamintensity, &collaperture, &signal, &voltage);
   TGraphErrors* AverageSignal_secondIntensity_CollAperture = new TGraphErrors(n,Aperture,SignalAverage_secondIntensity,ApertureError,SignalAverageError_secondIntensity);
   AverageSignal_secondIntensity_CollAperture->SetTitle("Average signal strength for different beam halo collimator apertures;Collimator aperture [mm];Average RHUL cherenkov signal [a.u.]");
-  AverageSignal_secondIntensity_CollAperture->SetMarkerColor(4);
-  AverageSignal_secondIntensity_CollAperture->SetMarkerStyle(8);
+  AverageSignal_secondIntensity_CollAperture->SetMarkerColor(2);
+  AverageSignal_secondIntensity_CollAperture->SetMarkerStyle(27);
 
   //Plot the TGraphErrors for the different intensities onto the same canvas:
   TCanvas* canvas = new TCanvas();
