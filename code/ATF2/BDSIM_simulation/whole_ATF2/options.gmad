@@ -1,0 +1,14 @@
+! standard options for runing bdsim
+
+option, beampipeRadius = 2 * cm,
+        outerDiameter = 40 * cm,
+        beampipeThickness   = 0.5 * cm,
+	prodCutPhotons      = 20*cm,
+	prodCutElectrons    = 20*cm,
+	prodCutPositrons    = 20*cm,
+	defaultRangeCut = 50*cm,
+	stopTracks = 0,
+	elossHistoBinWidth = 0.01*m;
+
+option,physicsList="em_standard";
+option,ngenerate=1000;

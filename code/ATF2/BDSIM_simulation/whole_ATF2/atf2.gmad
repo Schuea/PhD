@@ -1,0 +1,30 @@
+include ATF2lat_BX10BY1m.gmad;
+atf  : line = (atfdr, ext, ff, post);
+atf2 : line = (iex,ext,ff,post);
+use ,period=atf2;
+
+include options.gmad;
+
+beam,  particle="e-",
+       energy=1.3 * GeV,
+       distrType="gauss",
+       sigmaX=0.002*mm,
+       sigmaY=0.002*mm,
+       sigmaXp=0.09*0.005,
+       sigmaYp=0.09*0.004,
+       sigmaE = 0.0008,
+       sigmaT = 0.00000000003;
+!       sigmaXp=0.01,
+!       sigmaYp=0.01;
+!       sigmaXp=0.02*0.005,
+!       sigmaYp=0.02*0.004;
+
+include samplers.gmad;
+!NOTE you can only define samplers after defining the period
+
+!sample, range = iex;
+!sample, range = aqm14ff;
+!sample, range = aqm16ff;
+!sample, range = ip;
+
+option, ngenerate=100;
