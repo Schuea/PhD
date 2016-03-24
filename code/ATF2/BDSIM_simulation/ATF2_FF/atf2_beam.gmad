@@ -13,7 +13,7 @@ beam,	distrType="gausstwiss",
 	alfx=-0.7862388903*m, 
 	alfy=-3.285248127*m, 
 	bety=19.79462726*m,
-        sigmaE = 0.0008;
+  sigmaE = 0.0008;
 ! beam sizes at start location
 ! sqrt(emittancex) * sqrt(betax);
 ! sqrt(emittancex) * sqrt((1 + alphax^2)/betax);

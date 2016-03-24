@@ -16,8 +16,8 @@ option, magnetGeometryType="polesfacetcrop";
 !physics
 option, physicsList="em_standard",
 !option, physicsList="standard",
-	chordStepMinimum    = 0.0000000000001 * m,
-        deltaIntersection   = 0.000000000001 * m,
+      	chordStepMinimum    = 0.0000000001 * m,
+        deltaIntersection   = 0.00000000000001 * m,
         deltaChord          = 0.0000000001 * m,
        ! thresholdCutCharged = 1000 * MeV,
        ! thresholdCutPhotons = 1000* MeV,

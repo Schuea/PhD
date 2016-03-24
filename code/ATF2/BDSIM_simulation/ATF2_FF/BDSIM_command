@@ -1,1 +1,1 @@
-bdsim --file=atf2.gmad --output=rootdetailed --outfile=Core_Sampler_IP_GenerateIniBeamwithBDSIM --batch
+bdsim --file=atf2.gmad --output=rootdetailed --outfile=Core_Sampler_IP-DS-QF3FF_SignChangeBeningMagnets --batch
