@@ -10,7 +10,8 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include -g -Wall -Wextra -pthread -O2 -std=c++
 CXXFLAGS +=  $(shell root-config --glibs)
 
 # Executables produced by this Makefile
-RUN = ../BDSIM_ParticleCount_Plotter ../BDSIM_xy_PrimariesSecondaries_Plotter ../RHULcherenkov_AverageSignal_Aperture_Plotter
+RUN = ../BDSIM_ParticleCount_Plotter ../BDSIM_xy_PrimariesSecondaries_Plotter ../RHULcherenkov_AverageSignal_Aperture_Plotter ../RHULcherenkov_AverageNoise_Voltage_Plotter
+
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
@@ -21,6 +22,7 @@ MAIN_OCCUPANCY = ../objects/main_occupancy.o
 MAIN_PRIMESECOND = ../objects/main_BDSIM_ParticleCount.o
 MAIN_XY_PRIMESECOND = ../objects/main_BDSIM_xy_PrimariesSecondaries.o
 MAIN_RHUL_AVERSIGNAL = ../objects/main_Draw_AverageSignal_CollAperture.o
+MAIN_RHUL_AVERNOISE = ../objects/main_Draw_AverageNoise_Voltage.o
 USEFUL = ../objects/UsefulFunctions.o
 STYLE = ../objects/Style.o
 STYLEUTILS = ../objects/Style_Utils.o
@@ -88,6 +90,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 ../RHULcherenkov_AverageSignal_Aperture_Plotter : $(MAIN_RHUL_AVERSIGNAL) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
+../RHULcherenkov_AverageNoise_Voltage_Plotter : $(MAIN_RHUL_AVERNOISE) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
 ../objects/main_BDSIM_ParticleCount.o : ../src/main_BDSIM_ParticleCount.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
@@ -95,6 +100,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_Draw_AverageSignal_CollAperture.o : ../src/main_Draw_AverageSignal_CollAperture.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/main_Draw_AverageNoise_Voltage.o : ../src/main_Draw_AverageNoise_Voltage.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/UsefulFunctions.o : ../../General/src/UsefulFunctions.cc
