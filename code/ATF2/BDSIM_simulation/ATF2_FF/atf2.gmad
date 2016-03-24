@@ -1,5 +1,5 @@
 !include atf2_components.gmad;
-include atf2_components_SignChangeBendingMagnets.gmad;
+include atf2_components_correctNuria.gmad;
 include atf2_sequence.gmad;
 
 include atf2_samplers_selection.gmad;
