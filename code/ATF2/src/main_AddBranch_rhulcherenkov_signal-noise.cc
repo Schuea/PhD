@@ -94,7 +94,6 @@ int main(int const argc, char const * const * const argv){
   long long int entries = Detector->GetEntries();
   for (long long int i = 0; i < entries; ++i){
     Detector->GetEntry(i);
-    std::cout << "signal=" << signal << std::endl;
     if(voltage < 1) NoiseSubtracted_signal1 = signal - Noise_voltage0V->GetMean(1);
     if(voltage > 409 && voltage < 501) NoiseSubtracted_signal1 = signal - Noise_voltage500V->GetMean(1);
     if(voltage > 609 && voltage < 701) NoiseSubtracted_signal1 = signal - Noise_voltage700V->GetMean(1);
@@ -104,7 +103,6 @@ int main(int const argc, char const * const * const argv){
     if(voltage > 1009 && voltage < 1101) NoiseSubtracted_signal1 = signal - Noise_voltage1100V->GetMean(1);
     if(voltage > 1109 && voltage < 1201) NoiseSubtracted_signal1 = signal - Noise_voltage1200V->GetMean(1);
     if(voltage > 1209 && voltage < 1301) NoiseSubtracted_signal1 = signal - Noise_voltage1300V->GetMean(1);
-    std::cout << "NoiseSubtracted_signal1 = " << NoiseSubtracted_signal1 << std::endl;
     NoiseSubtracted_Signal->Fill();
   }
   Detector->Write("",TObject::kOverwrite);
