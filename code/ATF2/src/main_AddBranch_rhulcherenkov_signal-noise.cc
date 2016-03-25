@@ -91,16 +91,6 @@ int main(int const argc, char const * const * const argv){
   float NoiseSubtracted_signal1 = 0.0;
   TBranch* NoiseSubtracted_Signal = Detector->Branch("NoiseSubtractedSignal",&NoiseSubtracted_signal1, "NoiseSubtractedSignal/F");
   
-  std::cout << "Noise_voltage0V->GetMean(1): " << Noise_voltage0V->GetMean(1) << std::endl;
-  std::cout << "Noise_voltage500V->GetMean(1): " << Noise_voltage500V->GetMean(1) << std::endl;
-  std::cout << "Noise_voltage700V->GetMean(1): " << Noise_voltage700V->GetMean(1) << std::endl;
-  std::cout << "Noise_voltage800V->GetMean(1): " << Noise_voltage800V->GetMean(1) << std::endl;
-  std::cout << "Noise_voltage900V->GetMean(1): " << Noise_voltage900V->GetMean(1) << std::endl;
-  std::cout << "Noise_voltage1000V->GetMean(1): " << Noise_voltage1000V->GetMean(1) << std::endl;
-  std::cout << "Noise_voltage1100V->GetMean(1): " << Noise_voltage1100V->GetMean(1) << std::endl;
-  std::cout << "Noise_voltage1200V->GetMean(1): " << Noise_voltage1200V->GetMean(1) << std::endl;
-  std::cout << "Noise_voltage1300V->GetMean(1): " << Noise_voltage1300V->GetMean(1) << std::endl;
-
   long long int entries = Detector->GetEntries();
   for (long long int i = 0; i < entries; ++i){
     Detector->GetEntry(i);
