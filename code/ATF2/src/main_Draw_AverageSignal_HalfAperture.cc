@@ -17,7 +17,7 @@ float recorded_beamIntensity = 1.055;
 float HistoMax = 0.0; //To find the maximum entry to the histogram, so that the y-axis can be scaled appropriately.
 float HistoMin = 1000000.0; //To find the minimum entry to the histogram, so that the y-axis can be scaled appropriately.
 
-void GetAverageSignals(float* Average, bool GetError, const float* beamintensity, const float apertures[], const int num_apertures, TTree* tree, const float* beamintensity_branch, const float* collaperture_branch, const float* signal_branch, const int* voltage_branch);
+void GetAverageSignals(float* SignalAverage, bool GetError, const float* beamintensity, const float apertures[], const int num_apertures, TTree* tree, const float* beamintensity_branch, const float* firstjawposition_branch, const float* secondjawposition_branch, const float* signal_branch, const int* voltage_branch);
 
 int main(int const argc, char const * const * const argv) {
   UsePhDStyle();
@@ -95,9 +95,9 @@ int main(int const argc, char const * const * const argv) {
   std::vector< TGraphErrors*> All_TGraphErrors;
 
   float SignalAverage[n];
-  GetAverageSignals(SignalAverage, false, &recorded_beamIntensity, JawPosition, n, Detector, &beamintensity, &upperjawposition, &signal, &voltage);
+  GetAverageSignals(SignalAverage, false, &recorded_beamIntensity, JawPosition, n, Detector, &beamintensity, &upperjawposition, &lowerjawposition, &signal, &voltage);
   float SignalAverageError[n];
-  GetAverageSignals(SignalAverageError, true, &recorded_beamIntensity, JawPosition, n, Detector, &beamintensity, &upperjawposition, &signal, &voltage);
+  GetAverageSignals(SignalAverageError, true, &recorded_beamIntensity, JawPosition, n, Detector, &beamintensity, &upperjawposition, &lowerjawposition, &signal, &voltage);
 
   TGraphErrors* AverageSignal_CollAperture = new TGraphErrors(n,JawPosition,SignalAverage,JawPositionError,SignalAverageError);
   AverageSignal_CollAperture->SetTitle("Average signal strength for different beam halo collimator apertures;Collimator aperture [mm];Average RHUL cherenkov signal [a.u.]");
@@ -113,9 +113,9 @@ int main(int const argc, char const * const * const argv) {
   All_TGraphErrors.push_back(AverageSignal_CollAperture);
 
   float SignalAverage2[n];
-  GetAverageSignals(SignalAverage2, false, &recorded_beamIntensity, JawPosition, n, Detector, &beamintensity, &lowerjawposition, &signal, &voltage);
+  GetAverageSignals(SignalAverage2, false, &recorded_beamIntensity, JawPosition, n, Detector, &beamintensity, &lowerjawposition, &upperjawposition, &signal, &voltage);
   float SignalAverageError2[n];
-  GetAverageSignals(SignalAverageError2, true, &recorded_beamIntensity, JawPosition, n, Detector, &beamintensity, &lowerjawposition, &signal, &voltage);
+  GetAverageSignals(SignalAverageError2, true, &recorded_beamIntensity, JawPosition, n, Detector, &beamintensity, &lowerjawposition, &upperjawposition, &signal, &voltage);
 
   TGraphErrors* AverageSignal_CollAperture2 = new TGraphErrors(n,JawPosition,SignalAverage2,JawPositionError,SignalAverageError2);
   AverageSignal_CollAperture2->SetTitle("Average signal strength for different beam halo collimator apertures;Collimator aperture [mm];Average RHUL cherenkov signal [a.u.]");
@@ -161,7 +161,7 @@ int main(int const argc, char const * const * const argv) {
   inputfile->Close();
 }  
 
-void GetAverageSignals(float* SignalAverage, bool GetError, const float* beamintensity, const float apertures[], const int num_apertures, TTree* tree, const float* beamintensity_branch, const float* collaperture_branch, const float* signal_branch, const int* voltage_branch){
+void GetAverageSignals(float* SignalAverage, bool GetError, const float* beamintensity, const float apertures[], const int num_apertures, TTree* tree, const float* beamintensity_branch, const float* firstjawposition_branch, const float* secondjawposition_branch, const float* signal_branch, const int* voltage_branch){
   std::string title1D = "RHUL cherenkov detector signal;Signal [a.u.];Count";
   std::vector<TH1D*> Signal_CollAperture;
   //Push back as many TH1 histograms as needed in order to have one for each aperture
@@ -172,18 +172,17 @@ void GetAverageSignals(float* SignalAverage, bool GetError, const float* beamint
   long long int const entries =  tree->GetEntries();
   for (long long int i = 0; i < entries; ++i){
     tree->GetEntry(i);
-    if(*voltage_branch > 0){
-      if(*beamintensity_branch >= *beamintensity-0.04 && *beamintensity_branch <= *beamintensity+0.04){
+    if(*voltage_branch > 0
+        && *secondjawposition_branch >= 11.5 && *secondjawposition_branch <= 12.5 //one jaw was held on the open position, while the other one was moved
+        && *beamintensity_branch >= *beamintensity-0.04 && *beamintensity_branch <= *beamintensity+0.04){
 
         for(int number_apertures = 0; number_apertures < num_apertures; ++number_apertures){
           //Fill the TH1 in the vector with signals for an aperture, that corresponds to the desired apertures in the aperture vector:
-          if(*collaperture_branch > apertures[number_apertures]-0.1 && *collaperture_branch < apertures[number_apertures]+0.1){
+          if(*firstjawposition_branch > apertures[number_apertures]-0.1 && *firstjawposition_branch < apertures[number_apertures]+0.1){
             Signal_CollAperture.at(number_apertures)->Fill(*signal_branch);
           }
         }
 
-      }
-      else continue;
     }
     else continue;
   }
