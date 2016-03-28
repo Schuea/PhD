@@ -129,7 +129,7 @@ int main(int const argc, char const * const * const argv) {
 
   //Plot the TGraphErrors for the different intensities onto the same canvas:
   TCanvas* canvas = new TCanvas();
-  TLegend* legend = new TLegend(0.55,0.18,0.75,0.38);
+  TLegend* legend = new TLegend(0.45,0.2,0.75,0.38);
   std::stringstream legend_text_unit;
   legend_text_unit << "*10^10";
 
