@@ -122,10 +122,14 @@ int main(int const argc, char const * const * const argv) {
   AverageSignal_CollAperture2->SetMarkerColorAlpha(4 + 1,0.5);//change the color for every new graph
   AverageSignal_CollAperture2->SetMarkerSize(0.85);
   AverageSignal_CollAperture2->SetMarkerStyle(8);
+  
+  All_TGraphErrors.push_back(AverageSignal_CollAperture2);
+
+
 
   //Plot the TGraphErrors for the different intensities onto the same canvas:
   TCanvas* canvas = new TCanvas();
-  TLegend* legend = new TLegend(0.54,0.18,0.68,0.38);
+  TLegend* legend = new TLegend(0.55,0.18,0.75,0.38);
   std::stringstream legend_text_unit;
   legend_text_unit << "*10^10";
 
@@ -169,7 +173,7 @@ void GetAverageSignals(float* SignalAverage, bool GetError, const float* beamint
   for (long long int i = 0; i < entries; ++i){
     tree->GetEntry(i);
     if(*voltage_branch > 0){
-      if(*beamintensity_branch >= *beamintensity-0.02 && *beamintensity_branch <= *beamintensity+0.02){
+      if(*beamintensity_branch >= *beamintensity-0.04 && *beamintensity_branch <= *beamintensity+0.04){
 
         for(int number_apertures = 0; number_apertures < num_apertures; ++number_apertures){
           //Fill the TH1 in the vector with signals for an aperture, that corresponds to the desired apertures in the aperture vector:
