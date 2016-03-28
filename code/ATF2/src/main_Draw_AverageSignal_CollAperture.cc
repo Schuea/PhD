@@ -20,7 +20,6 @@ void GetAverageSignals(float* Average, bool GetError, const float* beamintensity
 
 int main(int const argc, char const * const * const argv) {
   UsePhDStyle();
-  gStyle->SetEndErrorSize(1.5);
   //The input is a TTree ROOT file(s)
   //The output is .pdf and .C files
 

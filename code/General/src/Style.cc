@@ -71,8 +71,7 @@ TStyle* PhDStyle()
 
   // get rid of X error bars 
   //myPhDStyle->SetErrorX(0.001);
-  // get rid of error bar caps
-  myPhDStyle->SetEndErrorSize(0.);
+  myPhDStyle->SetEndErrorSize(1.5);
 
   myPhDStyle->SetOptStat(1111);
   myPhDStyle->SetOptFit(1111);
