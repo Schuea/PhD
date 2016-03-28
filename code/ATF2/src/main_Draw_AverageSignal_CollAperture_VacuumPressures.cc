@@ -13,7 +13,7 @@
 #include <sstream>
 
 int const n = 14; //Number of apertures that were recorded
-float recorded_beamIntensity = 0.51;
+float recorded_beamIntensity = 0.50;
 
 float HistoMax = 0.0; //To find the maximum entry to the histogram, so that the y-axis can be scaled appropriately.
 float HistoMin = 1000000.0; //To find the minimum entry to the histogram, so that the y-axis can be scaled appropriately.
@@ -70,7 +70,7 @@ int main(int const argc, char const * const * const argv) {
   std::cout << "Inputfiles: " << std::endl;
 
   TCanvas* canvas = new TCanvas();
-  TLegend* legend = new TLegend(0.54,0.18,0.68,0.38);
+  TLegend* legend = new TLegend(0.45,0.2,0.78,0.33);
   std::vector< TGraphErrors*> All_TGraphErrors;
 
   for(int file_iterator = 0; file_iterator < inputfilenames.size(); ++file_iterator){
@@ -161,7 +161,7 @@ void GetAverageSignals(float* SignalAverage, bool GetError, const float* beamint
   for (long long int i = 0; i < entries; ++i){
     tree->GetEntry(i);
     if(*voltage_branch > 0){
-      if(*beamintensity_branch >= *beamintensity-0.02 && *beamintensity_branch <= *beamintensity+0.02){
+      if(*beamintensity_branch >= *beamintensity-0.03 && *beamintensity_branch <= *beamintensity+0.03){
         
         for(int number_apertures = 0; number_apertures < num_apertures; ++number_apertures){
           //Fill the TH1 in the vector with signals for an aperture, that corresponds to the desired apertures in the aperture vector:
