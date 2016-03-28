@@ -16,8 +16,7 @@ int main(int const argc, char const * const * const argv){
   for (int i = 1; i < argc; i++) {
     if (argv[i] == std::string("-s")) {
       if (argv[i + 1] != NULL 
-          && argv[i + 1] != std::string("-n")
-          && argv[i + 1] != std::string("-o")){
+          && argv[i + 1] != std::string("-n")){
         SIGNALinputfilename = argv[i + 1];
       } else {
         std::cerr << "You didn't give an argument for the SIGNALinputfilename!"
@@ -26,8 +25,7 @@ int main(int const argc, char const * const * const argv){
     }
     if (argv[i] == std::string("-n")) {
       if (argv[i + 1] != NULL 
-          && argv[i + 1] != std::string("-s")
-          && argv[i + 1] != std::string("-o")){
+          && argv[i + 1] != std::string("-s")){
         NOISEinputfilename = argv[i + 1];
       } else {
         std::cerr << "You didn't give an argument for the NOISEinputfilename!"
