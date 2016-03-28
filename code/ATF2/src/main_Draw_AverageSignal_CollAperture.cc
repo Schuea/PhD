@@ -136,7 +136,7 @@ int main(int const argc, char const * const * const argv) {
   
   //Plot the TGraphErrors for the different intensities onto the same canvas:
   TCanvas* canvas = new TCanvas();
-  TLegend* legend = new TLegend(0.5,0.8,0.65,0.93);
+  TLegend* legend = new TLegend(0.54,0.18,0.68,0.38);
   std::stringstream legend_text_unit;
   legend_text_unit << "*10^10";
   
@@ -175,7 +175,7 @@ void GetAverageSignals(float* SignalAverage, bool GetError, const float* beamint
   for (long long int i = 0; i < entries; ++i){
     tree->GetEntry(i);
     if(*voltage_branch > 0){
-      if(*beamintensity_branch >= *beamintensity-0.03 && *beamintensity_branch <= *beamintensity+0.03){
+      if(*beamintensity_branch >= *beamintensity-0.02 && *beamintensity_branch <= *beamintensity+0.02){
         
         for(int number_apertures = 0; number_apertures < num_apertures; ++number_apertures){
           //Fill the TH1 in the vector with signals for an aperture, that corresponds to the desired apertures in the aperture vector:
