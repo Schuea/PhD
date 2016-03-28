@@ -8,6 +8,7 @@
 
 #include "Style.h"
 
+#include "math.h"
 #include <vector>
 #include <array>
 #include <iostream>
@@ -85,28 +86,29 @@ int main(int const argc, char const * const * const argv) {
   
   TGraphErrors* AverageNoise_Voltage = new TGraphErrors(n,Voltages,NoiseAverage,VoltagesError,NoiseAverageError);
   AverageNoise_Voltage->SetTitle("Average noise signal for different PMT voltages;Voltage [V];Average RHUL cherenkov noise [a.u.]");
-  AverageNoise_Voltage->SetMarkerColor(4);
+  AverageNoise_Voltage->SetMarkerSize(0.85);
+  AverageNoise_Voltage->SetMarkerColorAlpha(4, 0.5);
   AverageNoise_Voltage->SetMarkerStyle(8);
 
   //Plot the TGraphErrors for the different intensities onto the same canvas:
   TCanvas* canvas = new TCanvas();
-  TF1 *linearfit = new TF1("fit","pol1",750,1350);
-  linearfit->SetParName(0,"NoiseOffset");
-  linearfit->SetParName(1,"Slope");
-  linearfit->SetLineColor(2);
-  gStyle->SetOptFit(0);
+  //TF1 *linearfit = new TF1("fit","pol1",750,1350);
+  //linearfit->SetParName(0,"NoiseOffset");
+  //linearfit->SetParName(1,"Slope");
+  //linearfit->SetLineColor(2);
+  //gStyle->SetOptFit(0);
   AverageNoise_Voltage->Draw("APE");
-  AverageNoise_Voltage->Fit("fit","RMEX0");
-  double Slopeval = linearfit->GetParameter(1);
-  double SlopeErrorval = linearfit->GetParError(1);
-  std::stringstream Slopeval_string (std::stringstream::in | std::stringstream::out);
-  Slopeval_string << "Slope: " << Slopeval << " #pm " << SlopeErrorval;
-  TLatex *t = new TLatex();
-  t->SetNDC();
-  t->SetTextAlign(13);
-  t->SetTextFont(63);
-  t->SetTextSizePixels(22);
-  t->DrawLatex(.3,.8,Slopeval_string.str().c_str());
+  //AverageNoise_Voltage->Fit("fit","RMEX0");
+  //double Slopeval = linearfit->GetParameter(1);
+  //double SlopeErrorval = linearfit->GetParError(1);
+  //std::stringstream Slopeval_string (std::stringstream::in | std::stringstream::out);
+  //Slopeval_string << "Slope: " << Slopeval << " #pm " << SlopeErrorval;
+  //TLatex *t = new TLatex();
+  //t->SetNDC();
+  //t->SetTextAlign(13);
+  //t->SetTextFont(63);
+  //t->SetTextSizePixels(22);
+  //t->DrawLatex(.3,.8,Slopeval_string.str().c_str());
 
   std::string outputname1 = "output/" + outputfilename + ".pdf";
   std::string outputname2 = "output/" + outputfilename + ".cxx";
@@ -142,9 +144,10 @@ void GetAverageSignals(float* NoiseAverage, bool GetError,  const float voltages
     if (GetError==false){
       NoiseAverage[iterator] = Noise_Voltage.at(iterator)->GetMean();  
     }
-    //If the RMS is desired, get the RMS from the signal distributions in the TH1 vector
+    //If the error is desired, get the RMS from the signal distributions in the TH1 vector, and divide it by the square root of number of entries
+    //Then you have the standard deviation of the mean
     else{
-      NoiseAverage[iterator] = Noise_Voltage.at(iterator)->GetRMS();  
+      NoiseAverage[iterator] = Noise_Voltage.at(iterator)->GetRMS()/std::sqrt(Noise_Voltage.at(iterator)->GetEntries());  
     }
     delete Noise_Voltage.at(iterator);
   }
