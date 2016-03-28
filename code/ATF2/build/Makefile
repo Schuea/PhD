@@ -10,7 +10,7 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include -g -Wall -Wextra -pthread -O2 -std=c++
 CXXFLAGS +=  $(shell root-config --glibs)
 
 # Executables produced by this Makefile
-RUN = ../BDSIM_ParticleCount_Plotter ../BDSIM_xy_PrimariesSecondaries_Plotter ../RHULcherenkov_AverageSignal_Aperture_Plotter ../RHULcherenkov_AverageSignal_Aperture_VacuumPressures_Plotter ../RHULcherenkov_AverageNoise_Voltage_Plotter
+RUN = ../BDSIM_ParticleCount_Plotter ../BDSIM_xy_PrimariesSecondaries_Plotter ../RHULcherenkov_AverageSignal_Aperture_Plotter ../RHULcherenkov_AverageSignal_HalfAperture_Plotter ../RHULcherenkov_AverageSignal_Aperture_VacuumPressures_Plotter ../RHULcherenkov_AverageNoise_Voltage_Plotter
 
 
 # All tests produced by this Makefile.  Remember to add new tests you
@@ -22,6 +22,7 @@ MAIN_OCCUPANCY = ../objects/main_occupancy.o
 MAIN_PRIMESECOND = ../objects/main_BDSIM_ParticleCount.o
 MAIN_XY_PRIMESECOND = ../objects/main_BDSIM_xy_PrimariesSecondaries.o
 MAIN_RHUL_AVERSIGNAL = ../objects/main_Draw_AverageSignal_CollAperture.o
+MAIN_RHUL_AVERSIGNAL_HALFAPERTURE = ../objects/main_Draw_AverageSignal_HalfAperture.o
 MAIN_RHUL_AVERSIGNAL_PRESSURE = ../objects/main_Draw_AverageSignal_CollAperture_VacuumPressures.o
 MAIN_RHUL_AVERNOISE = ../objects/main_Draw_AverageNoise_Voltage.o
 USEFUL = ../objects/UsefulFunctions.o
@@ -91,6 +92,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 ../RHULcherenkov_AverageSignal_Aperture_Plotter : $(MAIN_RHUL_AVERSIGNAL) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
+../RHULcherenkov_AverageSignal_HalfAperture_Plotter : $(MAIN_RHUL_AVERSIGNAL_HALFAPERTURE) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
 ../RHULcherenkov_AverageSignal_Aperture_VacuumPressures_Plotter : $(MAIN_RHUL_AVERSIGNAL_PRESSURE) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
@@ -104,6 +108,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_Draw_AverageSignal_CollAperture.o : ../src/main_Draw_AverageSignal_CollAperture.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/main_Draw_AverageSignal_HalfAperture.o : ../src/main_Draw_AverageSignal_HalfAperture.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_Draw_AverageSignal_CollAperture_VacuumPressures.o : ../src/main_Draw_AverageSignal_CollAperture_VacuumPressures.cc
