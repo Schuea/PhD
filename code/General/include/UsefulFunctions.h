@@ -19,6 +19,7 @@ int FindMin(int const value, int min);
 
 std::string Convert_FloatToString (float number);
 void NormalizeHistogram(TH1* histo, float size = 1.0);
+void PRINT(TCanvas* canvas, std::string title, std::string PDFtitle);
 
 template <class T, class Q>
 std::vector <T> operator* (const Q c, std::vector <T> A)
