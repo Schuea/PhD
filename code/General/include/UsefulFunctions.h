@@ -2,11 +2,10 @@
 #define USEFULFUNCTIONS
 
 #include "TH1.h"
-
-#include <algorithm>
-#include <utility>
+#include "TCanvas.h"
 #include <vector>
-#include <sstream>
+#include <string>
+#include <algorithm>
 
 float FindMax(float const value, float max);
 float FindMax(int const value, float max);

@@ -1,5 +1,13 @@
 #include "UsefulFunctions.h"
 
+#include "TH1.h"
+#include "TCanvas.h"
+
+#include <algorithm>
+#include <utility>
+#include <vector>
+#include <string>
+#include <sstream>
 #include <iostream>
 
 float FindMax(float const value, float max){
