@@ -1,0 +1,84 @@
+%% LaTeX2e class for student theses
+%% thesis.tex
+%% 
+%% Karlsruhe Institute of Technology
+%% Institute for Program Structures and Data Organization
+%% Chair for Software Design and Quality (SDQ)
+%%
+%% Dr.-Ing. Erik Burger
+%% burger@kit.edu
+%%
+%% Version 1.1, 2014-11-21
+
+%% Available languages: english,ngerman
+%% Available modes: draft,final (see README)
+\documentclass[english,draft]{sdqthesis}
+
+%% ---------------------------------
+%% | Information about the thesis  |
+%% ---------------------------------
+
+%% Name of the author
+\author{Anne Schütz}
+
+%% Title (and possibly subtitle) of the thesis
+\title{\LARGE Simulation of Particle Fluxes\\at the DESY-II Test Beam Facility}
+
+%% Type of the thesis 
+\thesistype{Master's Thesis}
+
+%% Change the institute here, ``IPD'' is default
+% \myinstitute{Institute for \dots}
+
+%% You can put a logo in the ``logos'' directory and include it here
+%% instead of the SDQ logo
+\grouplogo{DESY-Logo}
+%% Alternatively, you can disable the group logo
+% \nogrouplogo
+
+%% The reviewers are the professors that grade your thesis
+\reviewerone{Prof.~Dr.~G\"unter Quast}
+\reviewertwo{Prof.~Dr.~Eckhard Elsen (DESY)}
+
+%% The advisors
+\advisorone{Dr.~Marcel Stanitzki (DESY)}
+
+
+%% Please enter the start end end time of your thesis
+\editingtime{24. February 2014}{24. February 2015}
+
+\settitle
+
+%% --------------------------------
+%% | Settings for word separation |
+%% --------------------------------
+
+%% Describe separation hints here.
+%% For more details, see 
+%% http://en.wikibooks.org/wiki/LaTeX/Text_Formatting#Hyphenation
+\hyphenation{
+% me-ta-mo-del
+}
+
+%% ====================================
+%% ||                                ||
+%% || Beginning of the main document ||
+%% ||                                ||
+%% ====================================
+%% ====================================
+\begin{document}
+
+%% Set PDF metadata
+\setpdf
+
+%% Set the title
+\maketitle
+	
+%% The Preamble begins here
+\frontmatter
+
+\include{sections/declaration}
+
+
+
+\end{document}

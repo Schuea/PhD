@@ -1,0 +1,319 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%% here all macros and definitions concerning layout will be gathered
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% description label font
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% When using helvetic as font, the description labels become to
+%%% large, so let's use the standard text font and make it bold (which
+%%% i like better anyways...)
+\setkomafont{descriptionlabel}{\normalfont\bfseries}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% hyperlinks and bookmarks menu for online reading
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{bookmarksopen=true,
+bookmarksnumbered=true}
+
+%%% general unit is 1 cm
+%\setlength{\unitlength}{1cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% the abstract before each chapter telling the reader
+%%% what will be described here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{chapterabstract}{\itshape}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% the source file of an image
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\code}[1]{\texttt{\small{#1}}}
+\newcommand{\filename}[1]{\texttt{#1}}
+\newcommand{\sourcename}[1]{{\footnotesize Source:\\\filename{#1}}}
+
+\newcommand{\packagename}[1]{{\sffamily #1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% shortcuts to refer to environments and sections
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\citep}[2][]{\mbox{Refs.~\cite[#2]{#1}}}
+\newcommand{\pref}[1]{\mbox{page \pageref{#1}}}
+\newcommand{\Eqref}[1]{\mbox{Eq.~(\ref{#1})}}
+\newcommand{\eqrefp}[1]{\mbox{Eqs.~(\ref{#1})}}
+\newcommand{\tabref}[1]{\mbox{Tab.~\ref{#1}}}
+\newcommand{\tabrefp}[1]{\mbox{Tabs.~\ref{#1}}}
+\newcommand{\figref}[1]{\mbox{Fig.~\ref{#1}}}
+\newcommand{\figrefp}[1]{\mbox{Figs.~\ref{#1}}}
+\newcommand{\secref}[1]{\mbox{Sec.~\ref{#1}}}
+\newcommand{\secrefp}[1]{\mbox{Secs.~\ref{#1}}}
+\newcommand{\chapref}[1]{\mbox{Chap.~\ref{#1}}}
+\newcommand{\chaprefp}[1]{\mbox{Chaps.~\ref{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% layout for caption and captionlabels
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\captionfont}{\itshape}
+\renewcommand{\captionlabelfont}{\bfseries \upshape}
+\setlength{\captionmargin}{10pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% create boxed formulas within a math environment
+%%% carriage return is allowed in the source
+%%% (this is not the case when using the AMS command \boxed)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\mathbox}[1]{
+    \fbox{ $ \displaystyle #1 $ }
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% a single named theorem environment for the
+%%% bloch-floquet theorem
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem*{BlochFloquetTheorem}{Bloch-Floquet Theorem}
+\newtheorem{theorem}{Theorem}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% set the style of the bibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{unsrtnat}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% a general purpose width, set where needed and
+%%% helps typesetting mainly math equations where
+%%% equal box sizes are needed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newlength{\auxwidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% width for mode pictures,
+%%% which will be set side by side. this width is
+%%% set when needed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newlength{\modewidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% separator line widths
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setheadtopline{2pt}
+\setheadsepline{0.5pt}
+\setfootsepline{0.5pt}
+\setfootbotline{2pt}
+
+\delimitershortfall=-2pt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% width for one, two, three, four plots per line
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newlength{\plotwidthOne} 
+\setlength{\plotwidthOne}{0.975\textwidth} 
+\newlength{\plotwidthTwo} 
+\setlength{\plotwidthTwo}{0.477\textwidth} 
+\newlength{\plotwidthThree} 
+\setlength{\plotwidthThree}{0.31\textwidth} 
+\newlength{\plotwidthThreeTwo} 
+\setlength{\plotwidthThreeTwo}{0.642\textwidth} 
+\newlength{\plotwidthThreeOne} 
+\setlength{\plotwidthThreeOne}{0.31\textwidth} 
+\newlength{\plotwidthFour} 
+\setlength{\plotwidthFour}{0.227\textwidth} 
+
+\newcommand{\includesingleplot}[1]{
+  \parbox{\singleplotwidth}{
+    \includegraphics[width=\plotwidthTwo]{#1}\\
+    \sourcename{#1.agr}
+  }
+}
+\newcommand{\includedoubleplot}[1]{
+  \parbox{\doubleplotwidth}{
+    \includegraphics[width=\plotwidthOne]{#1}\\
+    \sourcename{#1.agr}
+  }
+}
+\newcommand{\includeannotatedplot}[3]{
+  \parbox{#1}{
+    \centering    
+    \includegraphics[width=#1]{#2}\\
+    #3
+  }
+}
+
+%%% define a new floating environment used for tables and figures side by side
+\newfloat{hybridfloat}{ht}{hybridfloat}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%                            %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%   color definitions            %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                             %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{greenyellow}   {cmyk}{0.15, 0   , 0.69, 0   }
+\definecolor{yellow}        {cmyk}{0   , 0   , 1   , 0   }
+\definecolor{goldenrod}     {cmyk}{0   , 0.10, 0.84, 0   }
+\definecolor{dandelion}     {cmyk}{0   , 0.29, 0.84, 0   }
+\definecolor{apricot}       {cmyk}{0   , 0.32, 0.52, 0   }
+\definecolor{peach}         {cmyk}{0   , 0.50, 0.70, 0   }
+\definecolor{melon}         {cmyk}{0   , 0.46, 0.50, 0   }
+\definecolor{yelloworange}  {cmyk}{0   , 0.42, 1   , 0   }
+\definecolor{orange}        {cmyk}{0   , 0.61, 0.87, 0   }
+\definecolor{burntorange}   {cmyk}{0   , 0.51, 1   , 0   }
+\definecolor{bittersweet}   {cmyk}{0   , 0.75, 1   , 0.24}
+\definecolor{redorange}     {cmyk}{0   , 0.77, 0.87, 0   }
+\definecolor{mahogany}      {cmyk}{0   , 0.85, 0.87, 0.35}
+\definecolor{maroon}        {cmyk}{0   , 0.87, 0.68, 0.32}
+\definecolor{brickred}      {cmyk}{0   , 0.89, 0.94, 0.28}
+\definecolor{red}           {cmyk}{0   , 1   , 1   , 0   }
+\definecolor{orangered}     {cmyk}{0   , 1   , 0.50, 0   }
+\definecolor{rubinered}     {cmyk}{0   , 1   , 0.13, 0   }
+\definecolor{wildstrawberry}{cmyk}{0   , 0.96, 0.39, 0   }
+\definecolor{salmon}        {cmyk}{0   , 0.53, 0.38, 0   }
+\definecolor{carnationpink} {cmyk}{0   , 0.63, 0   , 0   }
+\definecolor{magenta}       {cmyk}{0   , 1   , 0   , 0   }
+\definecolor{violetred}     {cmyk}{0   , 0.81, 0   , 0   }
+\definecolor{rhodamine}     {cmyk}{0   , 0.82, 0   , 0   }
+\definecolor{mulberry}      {cmyk}{0.34, 0.90, 0   , 0.02}
+\definecolor{redviolet}     {cmyk}{0.07, 0.90, 0   , 0.34}
+\definecolor{fuchsia}       {cmyk}{0.47, 0.91, 0   , 0.08}
+\definecolor{lavender}      {cmyk}{0   , 0.48, 0   , 0   }
+\definecolor{thistle}       {cmyk}{0.12, 0.59, 0   , 0   }
+\definecolor{orchid}        {cmyk}{0.32, 0.64, 0   , 0   }
+\definecolor{darkorchid}    {cmyk}{0.40, 0.80, 0.20, 0   }
+\definecolor{purple}        {cmyk}{0.45, 0.86, 0   , 0   }
+\definecolor{plum}          {cmyk}{0.50, 1   , 0   , 0   }
+\definecolor{violet}        {cmyk}{0.79, 0.88, 0   , 0   }
+\definecolor{royalpurple}   {cmyk}{0.75, 0.90, 0   , 0   }
+\definecolor{blueviolet}    {cmyk}{0.86, 0.91, 0   , 0.04}
+\definecolor{periwinkle}    {cmyk}{0.57, 0.55, 0   , 0   }
+\xdefinecolor{cadetblue}     {cmyk}{0.62, 0.57, 0.23, 0   }
+\xdefinecolor{cornflowerblue}{cmyk}{0.65, 0.13, 0   , 0   }
+\xdefinecolor{midnightblue}  {cmyk}{0.98, 0.13, 0   , 0.43}
+\xdefinecolor{navyblue}      {cmyk}{0.94, 0.54, 0   , 0   }
+\xdefinecolor{royalblue}     {cmyk}{1   , 0.50, 0   , 0   }
+\definecolor{blue}          {cmyk}{1   , 1   , 0   , 0   }
+\xdefinecolor{darkblue}     {cmyk}{1   , 1   , 0   , 0.5 }
+\definecolor{cerulean}      {cmyk}{0.94, 0.11, 0   , 0   }
+\definecolor{cyan}          {cmyk}{1   , 0   , 0   , 0   }
+\definecolor{processblue}   {cmyk}{0.96, 0   , 0   , 0   }
+\definecolor{skyblue}       {cmyk}{0.62, 0   , 0.12, 0   }
+\definecolor{turquoise}     {cmyk}{0.85, 0   , 0.20, 0   }
+\definecolor{tealblue}      {cmyk}{0.86, 0   , 0.34, 0.02}
+\definecolor{aquamarine}    {cmyk}{0.82, 0   , 0.30, 0   }
+\definecolor{bluegreen}     {cmyk}{0.85, 0   , 0.33, 0   }
+\definecolor{emerald}       {cmyk}{1   , 0   , 0.50, 0   }
+\definecolor{junglegreen}   {cmyk}{0.99, 0   , 0.52, 0   }
+\definecolor{seagreen}      {cmyk}{0.69, 0   , 0.50, 0   }
+\definecolor{green}         {cmyk}{1   , 0   , 1   , 0   }
+\definecolor{forestgreen}   {cmyk}{0.91, 0   , 0.88, 0.12}
+\definecolor{pinegreen}     {cmyk}{0.92, 0   , 0.59, 0.25}
+\definecolor{limegreen}     {cmyk}{0.50, 0   , 1   , 0   }
+\definecolor{yellowgreen}   {cmyk}{0.44, 0   , 0.74, 0   }
+\definecolor{springgreen}   {cmyk}{0.26, 0   , 0.76, 0   }
+\definecolor{olivegreen}    {cmyk}{0.64, 0   , 0.95, 0.40}
+\definecolor{rawsienna}     {cmyk}{0   , 0.72, 1   , 0.45}
+\definecolor{sepia}         {cmyk}{0   , 0.83, 1   , 0.70}
+\definecolor{brown}         {cmyk}{0   , 0.81, 1   , 0.60}
+\definecolor{tan}           {cmyk}{0.14, 0.42, 0.56, 0   }
+\definecolor{gray}          {cmyk}{0   , 0   , 0   , 0.50}
+\definecolor{black}         {cmyk}{0   , 0   , 0   , 1   }
+\definecolor{white}         {cmyk}{0   , 0   , 0   , 0   } 
+\definecolor{darkgray}      {cmyk}{0   , 0   , 0   , 0.75}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%                            %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%   chapter headings             %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                             %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% INFO: when using different fonts, the chapter headings may look
+%%% different and the given sizes do no longer apply!
+
+\colorlet{chapter}{darkblue}
+\addtokomafont{chapter}{\color{chapter}}
+
+\makeatletter% siehe De-TeX-FAQ
+\renewcommand*{\chapterformat}{%
+\begingroup% damit \unitlength-Änderung lokal bleibt
+\setlength{\unitlength}{1mm}%
+\begin{picture}(20,40)(0,5)%
+\setlength{\fboxsep}{0pt}%
+%\put(0,0){\framebox(20,30){}}%
+%\put(0,20){\makebox(20,20){\rule{20\unitlength}{20\unitlength}}}%
+\put(20,15){\line(1,0){\dimexpr
+\textwidth-20\unitlength\relax\@gobble}}%
+\put(0,0){\makebox(20,20)[r]{%
+\fontsize{28\unitlength}{1}\selectfont\thechapter
+%\kern-.04em% Ziffer in der Zeichenzelle nach rechts schieben
+}}%
+\put(20,15){\makebox(\dimexpr
+\textwidth-20\unitlength\relax\@gobble,\ht\strutbox\@gobble)[l]{%
+\ \normalsize\color{black}\chapapp~\thechapter\autodot
+}}%
+\end{picture} % <- Leerzeichen ist hier beabsichtigt!
+\endgroup
+}%
+\makeatother
+
+%%% end of chapter headings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%                            %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%   boxed equations             %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                             %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%
+\newcommand*\widefbox[1]{\fbox{\hspace{1em}#1\hspace{1em}}}
+
+%%% Simple box containing subequations
+\newcommand*{\boxedsubeq}[2]{%
+\begin{subequations}\label{#1}%
+\begin{empheq}[box=\widefbox]{align}%
+#2
+\end{empheq}%
+\end{subequations}
+}
+
+%%% Very fancy box containing subequations
+\definecolor{shadecolor}{cmyk}{0,0,0.21,0}%
+\definecolor{headercolor}{cmyk}{0,0,0.5,0}%{0.25,0,0,0}
+%\colorlet{shadecolor}{gray}
+
+\newsavebox{\mysaveboxM}
+\newsavebox{\mysaveboxT}
+
+\newcommand*{\fancyBoxedSubeq}[2][Example]{%
+ \sbox{\mysaveboxM}{#2}%
+ \sbox{\mysaveboxT}{\fcolorbox{black}{headercolor}{#1}}%
+ \sbox{\mysaveboxM}{%
+  \parbox[b][\ht\mysaveboxM+.5\ht\mysaveboxT+.5\dp\mysaveboxT][b]{%
+    \wd\mysaveboxM}{#2}%
+ }%
+\sbox{\mysaveboxM}{%
+  \fcolorbox{black}{shadecolor}{%
+     \makebox[\linewidth-5em]{\usebox{\mysaveboxM}}%
+  }%
+ }%
+  \usebox{\mysaveboxM}%
+  \makebox[0pt][r]{%
+    \makebox[\wd\mysaveboxM][c]{%
+       \raisebox{\ht\mysaveboxM-0.5\ht\mysaveboxT
+                 +0.5\dp\mysaveboxT-0.5\fboxrule}{\usebox{\mysaveboxT}}%
+    }%
+  }%
+}

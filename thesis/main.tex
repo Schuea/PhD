@@ -1,0 +1,183 @@
+\documentclass[
+%draft,           %use this for fast draft compilation with additional overfull boxes hint bars (also affects graphicx)
+a4paper,          %A4 paper size
+11pt,             %well readable for A4 printing
+cleardoubleempty, %nice left plain pages before chapters
+%chapterprefix,    %chapter X prefix before chapters
+%appendixprefix,   %appendix X prefix before appendices
+headsepline,      %lines in header
+headtopline,      %lines in header
+footbotline,      %lines in footer
+footsepline,      %lines in footer
+plainfootbotline, %lines in footer for scrplain page style
+plainfootsepline, %lines in footer for srcplain page style
+ilines,
+DIV18,            %adjust this value for more/less text on pages
+BCOR5mm]{scrbook}
+\usepackage[]{scrpage2} %%% koma script for nice layout
+\usepackage[english, ngerman]{babel}   %%% an english thesis usually has a german synopsis
+
+% \usepackage{scrltx}
+%\usepackage{layout}  %%% may be needed if i steal some more code from other thesises
+\usepackage{exscale} %%% for proportional sum and integral signs
+
+\usepackage[
+numbers, 
+square, 
+comma, 
+sort&compress]{natbib} % Order the citations
+
+%\usepackage{struktex} %%% create structograms
+\usepackage{booktabs} %%% scientific publication style tables
+\usepackage{empheq}   %%% for boxed equations and alike
+\usepackage{xcolor}   %%% for colored text and formulae
+\usepackage{amsmath}  %%% math symbols needed
+\usepackage{amsfonts} %%% math fonts needed
+\usepackage{amssymb}  %%% maths symbols needed 
+\usepackage{amsthm}   %%% theorem environments
+\usepackage{dsfont}   %%% for blackboard numbers and characters 
+%\usepackage{mathdots/mathdots}
+
+\usepackage{fancybox} %%% more types of boxes 
+
+\usepackage{graphicx}       %%% CUSTOMIZATION: include all pictures
+%\usepackage[draft]{graphicx} %%% choose draft option for faster compiling without pictures
+\graphicspath{{Figures/}}      %%% all pictures will reside there and in subdirs
+
+%\usepackage[rlft]{floatflt} %%% allows text wraping of floating figures 
+\usepackage{float}      %%% define custom float environments
+%\usepackage[plainpages=false,colorlinks]{hyperref} %%% CUSTOMIZATION use this package for the final compilation run for online publication, includes hyperlinks for sections/eqs/etc.
+\usepackage[]{hyperref} %%% CUSTOMIZATION use this package for the final compilation run for online publication, includes hyperlinks for sections/eqs/etc.
+%\usepackage{subfigure}  %%% nice captioning and referencing of subfigures
+\usepackage{subcaption}
+\usepackage{caption}    %%% (load after subfigure package) nicer layout for figure captions
+%\usepackage[notref,notcite]{showkeys} %%% show labels for equations and pictures on the margin(intended for development state) 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Selection of the fonts!!
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%ANNES PACKAGES
+\usepackage{siunitx}
+\usepackage[above]{placeins}
+\usepackage{stfloats}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italic]{hepnames}
+\usepackage[final]{pdfpages} %set to "final" in the end to show the pdf page
+\usepackage{multirow}
+\usepackage{verbatim}
+\usepackage{rotating}
+\usepackage{array} 
+\usepackage{pifont}
+\usepackage{setspace}
+\usepackage{textcomp}
+\usepackage{siunitx}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+\newcommand{\myparagraph}[1]{\thesubsubsection\ \alph{paragraph}{#1}\mbox{}\\}
+
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\redcomment}[1]{\ding{110}\ding{43}\textcolor{red}{#1}}
+
+\newcommand{\geant}{\textsc{Geant4}\xspace}
+\newcommand{\slic}{\textsc{SLIC}\xspace}
+\newcommand{\lcsim}{\texttt{org.lcsim}\xspace}
+\newcommand{\gdml}{\textsc{GDML}\xspace}
+\newcommand{\vrml}{\textsc{VRML}\xspace}
+\newcommand{\xml}{\textsc{XML}\xspace}
+\newcommand{\lcdd}{\textsc{LCDD}\xspace}
+\newcommand{\lcio}{\textsc{LCIO}\xspace}
+\newcommand{\ilcsoft}{\textsc{ILCSoft}\xspace}
+\newcommand{\marlin}{\textsc{Marlin}\xspace}
+\newcommand{\Root}{\textsc{ROOT}\xspace}
+\newcommand{\Cplusplus}{\texttt{C++}\xspace}
+
+%SIMONS COMMANDS FOR TITLEPAGE
+\usepackage{tikz}
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+\usepackage[absolute]{textpos}
+\newcommand{\changefont}[3]{
+\fontfamily{#1}\fontseries{#2}\fontshape{#3}\selectfont}
+
+\newcommand{\myname}{Anne Schütz}
+\newcommand{\mytitle}{Optimizing the design of the Final-Focus Region\\for the International Linear Collider}
+\newcommand{\myinstitute}{Institute of Experimental Nuclear Physics (IEKP)}
+\newcommand{\mydepartment}{Department of Physics}
+\newcommand{\myuniversity}{Karlsruhe Institute of Technology}
+
+\newcommand{\reviewerone}{Prof. Dr. Günter Quast (IEKP)}
+\newcommand{\reviewertwo}{Prof. Dr. Eckhard Elsen (DESY)}
+\newcommand{\advisor}{Dr. Marcel Stanitzki (DESY)}
+
+
+\newcommand{\timestart}{April 01, 2015}
+\newcommand{\timeend}{March 31, 2018}
+%\newcommand{\submissiontime}{DD. MM. 20XX}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% user defined abbreviations/commands/macros/layout commands
+
+\input{Macros/layout.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% the document starts here
+\begin{document}
+\frontmatter       %%% use different numbering format for pages
+\pagestyle{empty}  %%% for special pages, chose a simple layout
+
+\selectlanguage{english}
+\include{Misc/KIT_titlepage} %%% force a right side page with \include
+\cleardoublepage
+
+\pagestyle{scrheadings}    %%% for normal text, display section names in header line
+%\include{Misc/pruefungsexemplar}
+\include{Misc/declaration}
+\include{Misc/zusammenfassung}
+\include{Misc/abstract}
+
+%%% use english language from this point
+\selectlanguage{english}
+\tableofcontents         %%% create a TOC
+\listoffigures
+
+\mainmatter              %%% now the thesis really starts
+\include{Chapters/introduction}          %%% include all chapters in order
+\include{Chapters/StandardModel}
+\include{Chapters/LinearColliderPyhsics}
+\include{Chapters/ILC}
+\include{Chapters/BeamBeamInteractions}
+\include{Chapters/BDS_FF}
+\include{Chapters/BeamDumps}
+\include{Chapters/EffectOnDetectors}
+\include{Chapters/Results}
+\include{Chapters/Conclusion}
+
+\begin{appendix}                              %%% start the appendix for longer calculations/info
+\input{Appendix/appendix}
+\end{appendix}
+
+\cleardoublepage
+%\include{Misc/notation}            %%% list of all Your used notation
+\include{Misc/bibliography}        %%% list of all Your used sources
+\include{Misc/acknowledgements}
+
+
+\backmatter                                    %%% put here whatever You choose
+
+\end{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% TODO:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
