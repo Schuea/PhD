@@ -145,10 +145,13 @@ int main(int const argc, char const * const * const argv) {
   float JawPositionError[n] = {0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04};
 */
   TCanvas* PDFcanvas = new TCanvas();
+  std::string PDFTitle = outputfilename + "_AllPlots.pdf";
+  PDFcanvas->Print(("output/"+PDFTitle+"[").c_str());
+  
   TCanvas* canvas = new TCanvas();
+  
   std::string title = "Signal as a function of the upper and lower jaw position;Upper jaw position [mm];Lower jaw position [mm];Weighted signal strength [a.u.]";
   TH2D* AsymmetricScanProfile = new TH2D("AsymmetricScan",title.c_str(),40,2.3,5.7,40,2.3,5.7);
-  AsymmetricScanProfile->GetZaxis()->SetRangeUser(6200000,7150000);
   long long int const entries =  Detector->GetEntries();
   for (long long int i = 0; i < entries; ++i){
     Detector->GetEntry(i);
@@ -158,13 +161,20 @@ int main(int const argc, char const * const * const argv) {
       AsymmetricScanProfile->Fill(upperjawposition,lowerjawposition,signal);
     }
   }
-  AsymmetricScanProfile->Draw("colz");
   gStyle->SetOptStat(0);
   canvas->SetGrid();
- 
-  std::string PDFTitle = outputfilename + "_AllPlots.pdf";
-  PDFcanvas->Print(("output/"+PDFTitle+"[").c_str());
-  PRINT(canvas, outputfilename, PDFTitle);
+  
+  canvas->SetTheta(30);
+  canvas->SetPhi(40);
+  AsymmetricScanProfile->GetZaxis()->SetRangeUser(6200000,11500000);
+  AsymmetricScanProfile->Draw("lego 0");
+  PRINT(canvas, outputfilename+"_lego", PDFTitle);
+  AsymmetricScanProfile->GetZaxis()->SetRangeUser(6200000,7050000);
+  AsymmetricScanProfile->GetXaxis()->SetRangeUser(2.7,5.3);
+  AsymmetricScanProfile->GetYaxis()->SetRangeUser(2.7,5.3);
+  AsymmetricScanProfile->Draw("colz");
+  PRINT(canvas, outputfilename+"_colz", PDFTitle);
+  
   PDFcanvas->Print(("output/"+PDFTitle+"]").c_str());
   inputfile->Close();
 }  
