@@ -64,5 +64,5 @@ void PRINT(TCanvas* canvas, std::string title, std::string PDFtitle){
   std::string outputname2 = "output/" + title + ".cxx";
   canvas->Print(outputname1.c_str());
   canvas->Print(outputname2.c_str());
-  canvas->Print(PDFtitle.c_str());
+  canvas->Print(("output/" + PDFtitle).c_str());
 }
