@@ -9,6 +9,7 @@
 #include "UsefulFunctions.h"
 
 #include <vector>
+#include <map>
 #include <array>
 #include <iostream>
 #include <sstream>
@@ -26,7 +27,7 @@ int main(int const argc, char const * const * const argv) {
 
   std::string inputfilename;
   std::string outputfilename;
-  std::vector< float > recorded_beamIntensities;
+  float recorded_beamIntensity;
   float around_halfaperture = 0.0;
 
   bool around_halfaperture_set = false;
@@ -64,14 +65,7 @@ int main(int const argc, char const * const * const argv) {
           && argv[i + 1] != std::string("-a")
           && argv[i + 1] != std::string("-i")
           && argv[i + 1] != std::string("-o")) {
-        int j = 1;
-        while(argv[i + j] != NULL
-            && argv[i + j] != std::string("-a")
-            && argv[i + j] != std::string("-i")
-            && argv[i + j] != std::string("-o")) {
-          recorded_beamIntensities.push_back(std::stoi(argv[i + j]));
-          j++;
-        }
+        recorded_beamIntensity = std::stoi(argv[i + 1]);
         beamintensity_set = true;
       } else {
         std::cerr << "You didn't give an argument for the beamintensity!"
@@ -99,11 +93,8 @@ int main(int const argc, char const * const * const argv) {
   }
   std::cout << "Inputfile: " << inputfilename << std::endl;
   std::cout << "Output: " << outputfilename << std::endl;
-  std::cout << "Beam intensities [10^8]: " << std::endl;
-  for(int intensity_iterator = 0; intensity_iterator < recorded_beamIntensities.size(); ++intensity_iterator){
-    std::cout << recorded_beamIntensities.at(intensity_iterator) << std::endl;
-    recorded_beamIntensities.at(intensity_iterator) /= 100.0;//change back to a intensity unit of 10^10, as the intensity is given like this in the ROOT inputfiles
-  }
+  std::cout << "Beam intensity [10^8]: " << recorded_beamIntensity << std::endl;
+  recorded_beamIntensity /= 100.0;//change back to a intensity unit of 10^10, as the intensity is given like this in the ROOT inputfiles
 
 
   TFile* inputfile = TFile::Open(inputfilename.c_str());
@@ -150,28 +141,57 @@ int main(int const argc, char const * const * const argv) {
   
   TCanvas* canvas = new TCanvas();
   
-  std::string title = "Signal as a function of the upper and lower jaw position;Upper jaw position [mm];Lower jaw position [mm];Weighted signal strength [a.u.]";
-  TH2D* AsymmetricScanProfile = new TH2D("AsymmetricScan",title.c_str(),40,2.3,5.7,40,2.3,5.7);
+  std::map< int, std::vector<int> > AverageSignalMap;
+  std::string title = "Average signal as a function of the upper and lower jaw position;Upper jaw position [mm];Lower jaw position [mm];Average signal strength [a.u.]";
+  TH2D* AsymmetricScanProfile = new TH2D("AsymmetricScan",title.c_str(),40,2.3,7.5,40,2.3,7.5);
   long long int const entries =  Detector->GetEntries();
   for (long long int i = 0; i < entries; ++i){
     Detector->GetEntry(i);
     if(voltage > 0
         && collaperture >= 2*around_halfaperture-0.1 && collaperture <= 2*around_halfaperture+0.1
-        && beamintensity >= recorded_beamIntensities.at(0)-0.04 && beamintensity <= recorded_beamIntensities.at(0)+0.04){
-      AsymmetricScanProfile->Fill(upperjawposition,lowerjawposition,signal);
+        && beamintensity >= recorded_beamIntensity-0.03 && beamintensity <= recorded_beamIntensity+0.03){
+      //AsymmetricScanProfile->Fill(upperjawposition,lowerjawposition,signal);
+      if(signal > 0){
+        int global_bin = AsymmetricScanProfile->FindBin(upperjawposition,lowerjawposition);
+        AverageSignalMap[global_bin].push_back(signal);
+      }
     }
+  }
+  std::cout << "Map.size = " << AverageSignalMap.size() << std::endl;
+  for(const auto& map_iterator : AverageSignalMap){
+    float average = 0.0;
+    for(int vector_iterator = 0; vector_iterator < map_iterator.second.size(); ++vector_iterator){
+      average += map_iterator.second.at(vector_iterator);
+    }  
+    average /= (float)map_iterator.second.size();
+    std::cout << "map_iterator.first = " << map_iterator.first << std::endl;
+    std::cout << "map_iterator.second.size = " << map_iterator.second.size() << std::endl;
+    std::cout << "average = " << average << std::endl;
+    if(average>0) AsymmetricScanProfile->SetBinContent(map_iterator.first, average);
   }
   gStyle->SetOptStat(0);
   canvas->SetGrid();
   
   canvas->SetTheta(30);
   canvas->SetPhi(40);
-  AsymmetricScanProfile->GetZaxis()->SetRangeUser(6200000,11500000);
+  if(around_halfaperture == 4){
+    AsymmetricScanProfile->GetXaxis()->SetRangeUser(2.3,5.7);
+    AsymmetricScanProfile->GetYaxis()->SetRangeUser(2.3,5.7);
+  }
+  if(recorded_beamIntensity < 1) AsymmetricScanProfile->GetZaxis()->SetRangeUser(9000,15000);//beam intensity 0.84
+  if(recorded_beamIntensity > 1) AsymmetricScanProfile->GetZaxis()->SetRangeUser(11500,17000);//beam intensity 1.01
+  //AsymmetricScanProfile->GetZaxis()->SetRangeUser(6000,8400);//beam intensity 1.07, 4 mm
+  //AsymmetricScanProfile->GetZaxis()->SetRangeUser(9000,12500);//beam intensity 0.84, 4 mm
+  //AsymmetricScanProfile->GetZaxis()->SetRangeUser(12500,14700);//beam intensity 1.01, 4 mm
+  //AsymmetricScanProfile->GetZaxis()->SetRangeUser(6000,15000);//beam intensity 0.84, 5 mm
+  //AsymmetricScanProfile->GetZaxis()->SetRangeUser(9000,16900);//beam intensity 1.01, 5 mm
   AsymmetricScanProfile->Draw("lego 0");
   PRINT(canvas, outputfilename+"_lego", PDFTitle);
-  AsymmetricScanProfile->GetZaxis()->SetRangeUser(6200000,7050000);
-  AsymmetricScanProfile->GetXaxis()->SetRangeUser(2.7,5.3);
-  AsymmetricScanProfile->GetYaxis()->SetRangeUser(2.7,5.3);
+  //AsymmetricScanProfile->GetZaxis()->SetRangeUser(7100,7900);//beam intensity 1.07, 4 mm
+  //AsymmetricScanProfile->GetZaxis()->SetRangeUser(9700,11700);//beam intensity 0.84, 4 mm
+  //AsymmetricScanProfile->GetZaxis()->SetRangeUser(12800,13900);//beam intensity 1.01, 4 mm
+  //AsymmetricScanProfile->GetZaxis()->SetRangeUser(7000,15000);//beam intensity 0.84, 5 mm
+  //AsymmetricScanProfile->GetZaxis()->SetRangeUser(11000,17000);//beam intensity 1.01, 5 mm
   AsymmetricScanProfile->Draw("colz");
   PRINT(canvas, outputfilename+"_colz", PDFTitle);
   
