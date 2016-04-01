@@ -100,7 +100,7 @@ int main(int const argc, char const * const * const argv) {
   GetAverageSignals(SignalAverageError, true, &recorded_beamIntensity, JawPosition, n, Detector, &beamintensity, &upperjawposition, &lowerjawposition, &signal, &voltage);
 
   TGraphErrors* AverageSignal_CollAperture = new TGraphErrors(n,JawPosition,SignalAverage,JawPositionError,SignalAverageError);
-  AverageSignal_CollAperture->SetTitle("Average signal strength for different beam halo collimator apertures;Collimator aperture [mm];Average RHUL cherenkov signal [a.u.]");
+  AverageSignal_CollAperture->SetTitle("Average signal strength for different beam halo collimator apertures;Jaw position [mm];Average RHUL cherenkov signal [a.u.]");
   AverageSignal_CollAperture->SetMarkerColorAlpha(4,0.5);//change the color for every new graph
   AverageSignal_CollAperture->SetMarkerSize(0.85);
   AverageSignal_CollAperture->SetMarkerStyle(8);
