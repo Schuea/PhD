@@ -13,7 +13,7 @@ A vertical beam halo collimator was installed at the Accelerator Test Facility 2
 \subsection{Beam Halo Collimator}
 \label{Collimator}
 
-The vertical beam halo collimator, for which the design drawings are shown in Figure~\ref{fig:collimator}, was installed in ATF2 in the beginning of March 2016. The collimating jaws are inside a structure that is evacuated and connected to the beam pipe of the ATF2 beam line. The actual jaws are made of Copper, the rest of the components in the collimator structure are out of Stainless Steel.
+The vertical beam halo collimator, for which the design drawings are shown in Figure~\ref{fig:collimator}, was installed in ATF2 in the beginning of March 2016. The collimating jaws are inside a structure that is evacuated and connected to the beam pipe of the ATF2 beam line. The actual jaws are made of Copper, the rest of the components in the collimator structure are out of Stainless Steel. The jaws have a width of ?? and thickness of ??.
 %TODO: Add information about measurements of the jaws and the whole structure
 
 \begin{figure}
@@ -26,7 +26,12 @@ The vertical beam halo collimator, for which the design drawings are shown in Fi
 The two jaws can be moved individually to an arbitrary position, so that the edge of the jaw has a distance of between 2.6 and \SI{12}{\milli\metre} with respect to the centre. Therefore, the full aperture of the collimator structure can be between 5.2 and \SI{24}{\milli\metre}. The error on the position of the jaws is about \SI{0.04}{\milli\metre}.\\
 As every component in a beam line, especially for such small beam sizes, is affecting the electromagnetic field of the passing beam, the collimator is designed to minimize the effect of inducing large wakefield. The concern of wakefields induced by the collimator is addressed in \cite{NuriaCollimator2015}. This thesis chapter focusses exclusively on the effect on the background level.
 
-%TODO: Pictures of installed collimator
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{Installed_Collimator.jpg}
+\caption[Picture of the installed beam halo collimator]{A picture of the vertical beam halo collimator built into ATF2. The collimator jaws are within the evacuated structure. At the top and bottom of the structure, you can see the mover system for the two jaws.}
+\label{fig:installed_collimator}
+\end{figure}
 
 \subsection{The Accelerator Test Facility 2}
 \label{ATF2}
@@ -65,8 +70,27 @@ Accelerator descriptions from other tools such as MADX can be converted to \bdsi
 \subsubsection{RHUL Cherenkov detector}
 \label{RHUL}
 
-The RHUL Cherenkov detector was built by a group from the Royal Holloway University of London. It uses the Hamamatsu PMT, which was used for a laserwire sensor that was located at the same position before. The Cherenkov detector itself is using aerogel\footnote{SP15, index 1.015, 4 slices, 4 cm$^2$, 5 cm deep}. A light pipe, with a profile area of \SI{10}{\centi\metre\square} and a total length of \SI{35}{\centi\metre}, directs the light from the aerogel to the PMT.\\
-Pictures: setup\\
+The RHUL Cherenkov detector was built by a group from the Royal Holloway University of London. It uses the Hamamatsu PMT, which was used for a laserwire sensor that was located at the same position before. The Cherenkov detector itself is using aerogel\footnote{SP15, index 1.015, 4 slices, 4 cm$^2$, 5 cm deep}. A light pipe, with a profile area of \SI{10}{\centi\metre\square} and a total length of \SI{35}{\centi\metre}, directs the light from the aerogel to the PMT.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{drawing_CherenkovSetup.png}
+\caption[Schematic drawing of the RHUL Cherenkov detector setup]{A perspective schematic of the RHUL Cherenkov detector setup in ATF2. The electrons of the beam core are bent in the dipole magnet, and continue through the rectangular and circular beam pipes along the ATF2 beam line. The neutral particles on the other hand, which are not deflected in the magnetic field, are continuing on a straight line through the rectangular beam pipe, and enter the RHUL Cherenkov detector through the second window in the flange. The light signals are collected by the PMT.}
+\label{fig:RHUL_Cherenkov_Drawing}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\resizebox{.9\textwidth}{!}{%
+\includegraphics[height=0.35\textheight]{CherenkovDetector_inBeamLine1.jpg}%
+\quad
+\includegraphics[height=0.35\textheight]{CherenkovDetector_inBeamLine2.jpg}%
+}
+\caption[Pictures of the RHUL Cherenkov detector]{Pictures of the RHUL Cherenkov detector in ATF2. The aerogel detector and the light channel is positioned behind a flange that connects a rectangular beam pipe with a circular one. The flange has two openings, one for the circular beam pipe, another one covered by a plastic window through which the photons leave the rectangular beam pipe and enter the RHUL Cherencov detector.}
+\label{fig:RHUL_Cherenkov}
+\end{center}
+\end{figure}
+
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{AverageNoise_perVoltage.pdf}
@@ -97,7 +121,7 @@ Figure~\ref{fig:AverageSignal_Aperture_VacuumPressures} shows a plot of a measur
 \label{fig:AverageSignal_Aperture_VacuumPressures}
 \end{figure}
 
-\subsubsection{Test collimator alignment wrt beam position}
+\subsubsection{Test of the collimator alignment with respect to the beam position}
 \label{collimator_alignment}
 The next measurement sets are done to experimentally test whether the collimator is aligned in such a way that the beam is going through the centre between the jaws. The idea is that the background signal should be asymmetric if the beam is closer to one or the other side.\\Figure~\ref{fig:AverageSignal_HalfAperture} shows a plot of a measurement where one of the jaws was moved while the other jaw stayed in the fully extracted position. It is clear that moving the upper jaw shows the same characteristic background shape as before in the plots~\ref{fig:AverageSignal_Aperture_BeamIntensities} and \ref{fig:AverageSignal_Aperture_VacuumPressures}. But moving the lower jaw only shows no significant change in background. This leaves one with the possible conclusion that the beam is not in the centre between the two jaws but rather closer to the upper jaw. One could then say that also the background shape of the previous plots are only influenced by the upper jaw only. To confirm this conclusion, more measurements of this kind should be done to exclude a statistical fluctuation or simply a mistake in the process of data taking.
 \newline
