@@ -145,10 +145,10 @@ sort&compress]{natbib} % Order the citations
 %\cleardoublepage
 
 \pagestyle{scrheadings}    %%% for normal text, display section names in header line
-%\include{Misc/pruefungsexemplar}
-%\include{Misc/declaration}
-\include{Misc/zusammenfassung}
-\include{Misc/abstract}
+\selectlanguage{ngerman}
+%\include{Misc/zusammenfassung}
+\selectlanguage{english}
+%\include{Misc/abstract}
 
 %%% use english language from this point
 \selectlanguage{english}
@@ -156,9 +156,9 @@ sort&compress]{natbib} % Order the citations
 \listoffigures
 
 \mainmatter              %%% now the thesis really starts
-\include{Chapters/introduction}          %%% include all chapters in order
+\include{Chapters/Introduction}          %%% include all chapters in order
 \include{Chapters/StandardModel}
-\include{Chapters/LinearColliderPyhsics}
+\include{Chapters/LinearColliderPhysics}
 \include{Chapters/ILC}
 \include{Chapters/BeamBeamInteractions}
 \include{Chapters/BDS_FF}
@@ -168,7 +168,7 @@ sort&compress]{natbib} % Order the citations
 \include{Chapters/Conclusion}
 
 \begin{appendix}                              %%% start the appendix for longer calculations/info
-\input{Appendix/appendix}
+\include{Appendix/appendix}
 \end{appendix}
 
 \cleardoublepage
