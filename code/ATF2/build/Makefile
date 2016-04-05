@@ -10,7 +10,7 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include -g -Wall -Wextra -pthread -O2 -std=c++
 CXXFLAGS +=  $(shell root-config --glibs)
 
 # Executables produced by this Makefile
-RUN = ../BDSIM_ParticleCount_Plotter ../BDSIM_xy_PrimariesSecondaries_Plotter ../RHULcherenkov_AverageSignal_Aperture_Plotter ../RHULcherenkov_AverageSignal_AsymmAperture_Plotter ../RHULcherenkov_AverageSignal_HalfAperture_Plotter ../RHULcherenkov_AverageSignal_Aperture_VacuumPressures_Plotter ../RHULcherenkov_AverageNoise_Voltage_Plotter
+RUN = ../BDSIM_ParticleCount_Plotter ../BDSIM_xy_PrimariesSecondaries_Plotter ../RHULcherenkov_AverageSignal_Aperture_Plotter ../RHULcherenkov_AverageSignal_AsymmAperture_Plotter ../RHULcherenkov_AverageSignal_HalfAperture_Plotter ../RHULcherenkov_AverageSignal_Aperture_VacuumPressures_Plotter ../RHULcherenkov_AverageSignal_VoltageNormalization_Plotter ../RHULcherenkov_AverageNoise_Voltage_Plotter
 
 
 # All tests produced by this Makefile.  Remember to add new tests you
@@ -25,6 +25,7 @@ MAIN_RHUL_AVERSIGNAL = ../objects/main_Draw_AverageSignal_CollAperture.o
 MAIN_RHUL_AVERSIGNAL_HALFAPERTURE = ../objects/main_Draw_AverageSignal_HalfAperture.o
 MAIN_RHUL_AVERSIGNAL_ASYMMAPERTURE = ../objects/main_Draw_AverageSignal_AsymmAperture.o
 MAIN_RHUL_AVERSIGNAL_PRESSURE = ../objects/main_Draw_AverageSignal_CollAperture_VacuumPressures.o
+MAIN_RHUL_VOLTAGENORM = ../objects/main_Draw_AverageSignal_Voltage.o
 MAIN_RHUL_AVERNOISE = ../objects/main_Draw_AverageNoise_Voltage.o
 USEFUL = ../objects/UsefulFunctions.o
 STYLE = ../objects/Style.o
@@ -102,6 +103,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 ../RHULcherenkov_AverageSignal_Aperture_VacuumPressures_Plotter : $(MAIN_RHUL_AVERSIGNAL_PRESSURE) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
+../RHULcherenkov_AverageSignal_VoltageNormalization_Plotter : $(MAIN_RHUL_VOLTAGENORM) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
 ../RHULcherenkov_AverageNoise_Voltage_Plotter : $(MAIN_RHUL_AVERNOISE) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
@@ -121,6 +125,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_Draw_AverageSignal_CollAperture_VacuumPressures.o : ../src/main_Draw_AverageSignal_CollAperture_VacuumPressures.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/main_Draw_AverageSignal_Voltage.o : ../src/main_Draw_AverageSignal_Voltage.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_Draw_AverageNoise_Voltage.o : ../src/main_Draw_AverageNoise_Voltage.cc
