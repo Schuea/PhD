@@ -13,7 +13,6 @@
 #include <sstream>
 
 int const n = 9; //Number of apertures that were recorded
-float recorded_beamIntensity = 1.055;
 float HistoMax = 0.0; //To find the maximum entry to the histogram, so that the y-axis can be scaled appropriately.
 float HistoMin = 1000000.0; //To find the minimum entry to the histogram, so that the y-axis can be scaled appropriately.
 
@@ -26,6 +25,7 @@ int main(int const argc, char const * const * const argv) {
 
   std::string inputfilename;
   std::string outputfilename;
+  std::vector< float > recorded_beamIntensities;
 
   bool inputfile_set = false;
   bool outputfile_set = false;
@@ -54,8 +54,26 @@ int main(int const argc, char const * const * const argv) {
           << std::endl;
       }
     }
+    if (argv[i] == std::string("-b")) {
+      if (argv[i + 1] != NULL
+          && argv[i + 1] != std::string("-i")
+          && argv[i + 1] != std::string("-o")) {
+        int j = 1;
+        while(argv[i + j] != NULL
+            && argv[i + j] != std::string("-i")
+            && argv[i + j] != std::string("-o")) {
+          recorded_beamIntensities.push_back(std::stoi(argv[i + j]));
+          j++;
+        }
+        beamintensity_set = true;
+      } else {
+        std::cerr << "You didn't give an argument for the beamintensity!"
+          << std::endl;
+      }
+    }
+
   }
-  if (!inputfile_set || !outputfile_set) {
+  if (!inputfile_set || !outputfile_set || !beamintensity_set) {
     std::cerr
       << "You didn't give the name for the inputfile or the outputfile. Please try again!"
       << std::endl;
@@ -63,6 +81,11 @@ int main(int const argc, char const * const * const argv) {
   }
   std::cout << "Inputfile: " << inputfilename << std::endl;
   std::cout << "Output: " << outputfilename << std::endl;
+  std::cout << "Beam intensities [10^8]: " << std::endl;
+  for(int intensity_iterator = 0; intensity_iterator < recorded_beamIntensities.size(); ++intensity_iterator){
+    std::cout << recorded_beamIntensities.at(intensity_iterator) << std::endl;
+    recorded_beamIntensities.at(intensity_iterator) /= 100.0;//change back to a intensity unit of 10^10, as the intensity is given like this in the ROOT inputfiles
+  }
 
   TFile* inputfile = TFile::Open(inputfilename.c_str());
   TTree* Detector = nullptr;
@@ -93,58 +116,59 @@ int main(int const argc, char const * const * const argv) {
 
   //Fill the arrays with the average and the RMS/sqrt(N) of the signals from the TTree for the different beam intensities:
   std::vector< TGraphErrors*> All_TGraphErrors;
-
-  float SignalAverage[n];
-  GetAverageSignals(SignalAverage, false, &recorded_beamIntensity, JawPosition, n, Detector, &beamintensity, &upperjawposition, &lowerjawposition, &signal, &voltage);
-  float SignalAverageError[n];
-  GetAverageSignals(SignalAverageError, true, &recorded_beamIntensity, JawPosition, n, Detector, &beamintensity, &upperjawposition, &lowerjawposition, &signal, &voltage);
-
-  TGraphErrors* AverageSignal_CollAperture = new TGraphErrors(n,JawPosition,SignalAverage,JawPositionError,SignalAverageError);
-  AverageSignal_CollAperture->SetTitle("Average signal strength for different beam halo collimator apertures;Jaw position [mm];Average RHUL cherenkov signal [a.u.]");
-  AverageSignal_CollAperture->SetMarkerColorAlpha(4,0.5);//change the color for every new graph
-  AverageSignal_CollAperture->SetMarkerSize(0.85);
-  AverageSignal_CollAperture->SetMarkerStyle(8);
-
-  //for(int point_iterator = 0; point_iterator < n; ++point_iterator){
-  //  if(SignalAverage[point_iterator] < 0.1){
-  //    AverageSignal_CollAperture->RemovePoint(point_iterator);//Don't draw all points that are not filled (because data was not taken for all apertures)
-  //  }
-  //}
-  All_TGraphErrors.push_back(AverageSignal_CollAperture);
-
-  float SignalAverage2[n];
-  GetAverageSignals(SignalAverage2, false, &recorded_beamIntensity, JawPosition, n, Detector, &beamintensity, &lowerjawposition, &upperjawposition, &signal, &voltage);
-  float SignalAverageError2[n];
-  GetAverageSignals(SignalAverageError2, true, &recorded_beamIntensity, JawPosition, n, Detector, &beamintensity, &lowerjawposition, &upperjawposition, &signal, &voltage);
-
-  TGraphErrors* AverageSignal_CollAperture2 = new TGraphErrors(n,JawPosition,SignalAverage2,JawPositionError,SignalAverageError2);
-  AverageSignal_CollAperture2->SetTitle("Average signal strength for different beam halo collimator apertures;Collimator aperture [mm];Average RHUL cherenkov signal [a.u.]");
-  AverageSignal_CollAperture2->SetMarkerColorAlpha(4 + 1,0.5);//change the color for every new graph
-  AverageSignal_CollAperture2->SetMarkerSize(0.85);
-  AverageSignal_CollAperture2->SetMarkerStyle(8);
   
-  All_TGraphErrors.push_back(AverageSignal_CollAperture2);
+  for(int intensity_iterator = 0; intensity_iterator < recorded_beamIntensities.size(); ++intensity_iterator){
+    float SignalAverage[n];
+    GetAverageSignals(SignalAverage, false, &recorded_beamIntensities.at(intensity_iterator), JawPosition, n, Detector, &beamintensity, &upperjawposition, &lowerjawposition, &signal, &voltage);
+    float SignalAverageError[n];
+    GetAverageSignals(SignalAverageError, true, &recorded_beamIntensities.at(intensity_iterator), JawPosition, n, Detector, &beamintensity, &upperjawposition, &lowerjawposition, &signal, &voltage);
 
+    TGraphErrors* AverageSignal_CollAperture = new TGraphErrors(n,JawPosition,SignalAverage,JawPositionError,SignalAverageError);
+    AverageSignal_CollAperture->SetTitle("Average signal strength for different beam halo collimator apertures;Jaw position [mm];Average RHUL cherenkov signal [a.u.]");
+    AverageSignal_CollAperture->SetMarkerColorAlpha(4 + intensity_iterator,0.5);//change the color for every new graph
+    AverageSignal_CollAperture->SetMarkerSize(0.85);
+    AverageSignal_CollAperture->SetMarkerStyle(8);
+
+    All_TGraphErrors.push_back(AverageSignal_CollAperture);
+
+    float SignalAverage2[n];
+    GetAverageSignals(SignalAverage2, false, &recorded_beamIntensities.at(intensity_iterator), JawPosition, n, Detector, &beamintensity, &lowerjawposition, &upperjawposition, &signal, &voltage);
+    float SignalAverageError2[n];
+    GetAverageSignals(SignalAverageError2, true, &recorded_beamIntensities.at(intensity_iterator), JawPosition, n, Detector, &beamintensity, &lowerjawposition, &upperjawposition, &signal, &voltage);
+
+    TGraphErrors* AverageSignal_CollAperture2 = new TGraphErrors(n,JawPosition,SignalAverage2,JawPositionError,SignalAverageError2);
+    AverageSignal_CollAperture2->SetTitle("Average signal strength for different beam halo collimator apertures;Collimator aperture [mm];Average RHUL cherenkov signal [a.u.]");
+    AverageSignal_CollAperture2->SetMarkerColorAlpha(4 + intensity_iterator + 1,0.5);//change the color for every new graph
+    AverageSignal_CollAperture2->SetMarkerSize(0.85);
+    AverageSignal_CollAperture2->SetMarkerStyle(8);
+
+    All_TGraphErrors.push_back(AverageSignal_CollAperture2);
+  }
 
 
   //Plot the TGraphErrors for the different intensities onto the same canvas:
   TCanvas* canvas = new TCanvas();
-  TLegend* legend = new TLegend(0.45,0.2,0.75,0.38);
+  TLegend* legend = new TLegend(0.4,0.1,0.8,0.38);
   std::stringstream legend_text_unit;
   legend_text_unit << "*10^10";
 
   for(int graph_iterator = 0; graph_iterator < All_TGraphErrors.size(); ++graph_iterator){
     All_TGraphErrors.at(graph_iterator)->SetMaximum(HistoMax + 0.1*HistoMax);
     All_TGraphErrors.at(graph_iterator)->SetMinimum(1000);
-    //All_TGraphErrors.at(graph_iterator)->SetMinimum(HistoMin - 0.1*HistoMin);//will always be 0 because there are points with value 0!
 
-    std::stringstream legend_text, legend_text2;
-    legend_text << recorded_beamIntensity << legend_text_unit.str() << ", upper jaw moving";
-    legend_text2 << recorded_beamIntensity << legend_text_unit.str() << ", lower jaw moving";
+    std::stringstream legend_text1, legend_text2;
+    int intensity_iterator = std::floor(((float)graph_iterator)/2.0);//There are two graphs per intensity -> there are twice as many entries in the GraphVector as there are in the IntensityVector -> only count the intensity_iterator up for every number%2==0 basically
+    legend_text1 << recorded_beamIntensities.at(intensity_iterator) << legend_text_unit.str() << ", upper jaw moving";
+    legend_text2 << recorded_beamIntensities.at(intensity_iterator) << legend_text_unit.str() << ", lower jaw moving";
 
-    if(graph_iterator == 0){
+    //All even graphs are for the upper jaw with legend_text1, all odd graphs for the lower jaw with legend_text2:
+    if(graph_iterator == 0){//Specify the very first graph separately because here mustn't be written 'SAME' in drawing options
       All_TGraphErrors.at(graph_iterator)->Draw("AP");
-      legend->AddEntry(All_TGraphErrors.at(graph_iterator),legend_text.str().c_str(),"lep");
+      legend->AddEntry(All_TGraphErrors.at(graph_iterator),legend_text1.str().c_str(),"lep");
+    }
+    else if(graph_iterator > 0 && graph_iterator%2 == 0){
+      All_TGraphErrors.at(graph_iterator)->Draw("P SAME");
+      legend->AddEntry(All_TGraphErrors.at(graph_iterator),legend_text1.str().c_str(),"lep");
     }
     else{
       All_TGraphErrors.at(graph_iterator)->Draw("P SAME");
