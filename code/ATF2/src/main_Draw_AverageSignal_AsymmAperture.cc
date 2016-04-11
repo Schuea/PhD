@@ -65,7 +65,7 @@ int main(int const argc, char const * const * const argv) {
           && argv[i + 1] != std::string("-a")
           && argv[i + 1] != std::string("-i")
           && argv[i + 1] != std::string("-o")) {
-        recorded_beamIntensity = std::stoi(argv[i + 1]);
+        recorded_beamIntensity = std::stof(argv[i + 1]);
         beamintensity_set = true;
       } else {
         std::cerr << "You didn't give an argument for the beamintensity!"
@@ -77,7 +77,7 @@ int main(int const argc, char const * const * const argv) {
           && argv[i + 1] != std::string("-b")
           && argv[i + 1] != std::string("-o")
           && argv[i + 1] != std::string("-i")) {
-        around_halfaperture = std::stoi(argv[i + 1]);
+        around_halfaperture = std::stof(argv[i + 1]);
         around_halfaperture_set = true;
       } else {
         std::cerr << "You didn't give an argument for the half aperture around which the asymmetric scan was done!"
@@ -85,7 +85,7 @@ int main(int const argc, char const * const * const argv) {
       }
     }
   }
-  if (!inputfile_set || !outputfile_set || !beamintensity_set) {
+  if (!inputfile_set || !outputfile_set || !beamintensity_set || !around_halfaperture_set) {
     std::cerr
       << "You didn't give the name for the inputfile, the outputfile, or the beam intensity or the half aperture you're interested in. Please try again!"
       << std::endl;
@@ -93,6 +93,7 @@ int main(int const argc, char const * const * const argv) {
   }
   std::cout << "Inputfile: " << inputfilename << std::endl;
   std::cout << "Output: " << outputfilename << std::endl;
+  std::cout << "Half aperture scan point [mm]: " << around_halfaperture << std::endl;
   std::cout << "Beam intensity [10^8]: " << recorded_beamIntensity << std::endl;
   recorded_beamIntensity /= 100.0;//change back to a intensity unit of 10^10, as the intensity is given like this in the ROOT inputfiles
 
