@@ -126,11 +126,6 @@ int main(int const argc, char const * const * const argv) {
     AverageSignal_CollAperture->SetMarkerSize(0.85);
     AverageSignal_CollAperture->SetMarkerStyle(8);
    
-    //for(int point_iterator = 0; point_iterator < n; ++point_iterator){
-    //  if(SignalAverage[point_iterator] < 0.1){
-    //    AverageSignal_CollAperture->RemovePoint(point_iterator);//Don't draw all points that are not filled (because data was not taken for all apertures)
-    //  }
-    //}
     All_TGraphErrors.push_back(AverageSignal_CollAperture);
   }  
   
@@ -143,7 +138,6 @@ int main(int const argc, char const * const * const argv) {
   for(int intensity_iterator = 0; intensity_iterator < recorded_beamIntensities.size(); ++intensity_iterator){
     All_TGraphErrors.at(intensity_iterator)->SetMaximum(HistoMax + 0.1*HistoMax);
     All_TGraphErrors.at(intensity_iterator)->SetMinimum(1000);
-    //All_TGraphErrors.at(intensity_iterator)->SetMinimum(HistoMin - 0.1*HistoMin);//will always be 0 because there are points with value 0!
   
     std::stringstream legend_text;
     legend_text.str(std::string());
