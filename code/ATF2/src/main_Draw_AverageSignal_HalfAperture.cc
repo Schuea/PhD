@@ -62,7 +62,7 @@ int main(int const argc, char const * const * const argv) {
         while(argv[i + j] != NULL
             && argv[i + j] != std::string("-i")
             && argv[i + j] != std::string("-o")) {
-          recorded_beamIntensities.push_back(std::stoi(argv[i + j]));
+          recorded_beamIntensities.push_back(std::stof(argv[i + j]));
           j++;
         }
         beamintensity_set = true;
@@ -125,7 +125,7 @@ int main(int const argc, char const * const * const argv) {
 
     TGraphErrors* AverageSignal_CollAperture = new TGraphErrors(n,JawPosition,SignalAverage,JawPositionError,SignalAverageError);
     AverageSignal_CollAperture->SetTitle("Average signal strength for different beam halo collimator apertures;Jaw position [mm];Average RHUL cherenkov signal [a.u.]");
-    AverageSignal_CollAperture->SetMarkerColorAlpha(4 + intensity_iterator,0.5);//change the color for every new graph
+    AverageSignal_CollAperture->SetMarkerColorAlpha(4 + intensity_iterator*2,0.5);//change the color for every new graph
     AverageSignal_CollAperture->SetMarkerSize(0.85);
     AverageSignal_CollAperture->SetMarkerStyle(8);
 
@@ -138,7 +138,7 @@ int main(int const argc, char const * const * const argv) {
 
     TGraphErrors* AverageSignal_CollAperture2 = new TGraphErrors(n,JawPosition,SignalAverage2,JawPositionError,SignalAverageError2);
     AverageSignal_CollAperture2->SetTitle("Average signal strength for different beam halo collimator apertures;Collimator aperture [mm];Average RHUL cherenkov signal [a.u.]");
-    AverageSignal_CollAperture2->SetMarkerColorAlpha(4 + intensity_iterator + 1,0.5);//change the color for every new graph
+    AverageSignal_CollAperture2->SetMarkerColorAlpha(4 + intensity_iterator*2 + 1,0.5);//change the color for every new graph
     AverageSignal_CollAperture2->SetMarkerSize(0.85);
     AverageSignal_CollAperture2->SetMarkerStyle(8);
 
@@ -148,13 +148,13 @@ int main(int const argc, char const * const * const argv) {
 
   //Plot the TGraphErrors for the different intensities onto the same canvas:
   TCanvas* canvas = new TCanvas();
-  TLegend* legend = new TLegend(0.4,0.1,0.8,0.38);
+  TLegend* legend = new TLegend(0.43,0.13,0.8,0.36);
   std::stringstream legend_text_unit;
   legend_text_unit << "*10^10";
 
   for(int graph_iterator = 0; graph_iterator < All_TGraphErrors.size(); ++graph_iterator){
     All_TGraphErrors.at(graph_iterator)->SetMaximum(HistoMax + 0.1*HistoMax);
-    All_TGraphErrors.at(graph_iterator)->SetMinimum(1000);
+    All_TGraphErrors.at(graph_iterator)->SetMinimum(500);
 
     std::stringstream legend_text1, legend_text2;
     int intensity_iterator = std::floor(((float)graph_iterator)/2.0);//There are two graphs per intensity -> there are twice as many entries in the GraphVector as there are in the IntensityVector -> only count the intensity_iterator up for every number%2==0 basically
