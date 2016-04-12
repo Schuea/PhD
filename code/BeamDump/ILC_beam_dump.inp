@@ -1,0 +1,150 @@
+TITLE
+ILC_beam_dump
+* Set the defaults for precision simulations
+DEFAULTS                                                              NEUTRONS
+* Define the beam characteristics
+BEAM          -250.0  -0.00282          -2.4697E-4-3.0522E-6          ELECTRON
+* Define the beam position
+!@what.3=3999.0*mm
+BEAMPOS          0.0       0.0     399.9                              NEGATIVE
+GEOBEGIN                                                              COMBNAME
+    0    0          TDR beam dump
+!@what.1=-9000.0*mm
+!@what.2=12000.0*mm
+!@what.3=-4000.0*mm
+!@what.4=15000.0*mm
+!@what.5=-15000.0*mm
+!@what.6=12000.0*mm
+RPP void       -900. 1200. -400. 1500. -1500. 1200.
+!@what.1=-1150.0*mm
+!@what.2=4250.0*mm
+!@what.3=-2000.0*mm
+!@what.4=2000.0*mm
+!@what.5=-7750.0*mm
+!@what.6=4250.0*mm
+RPP airbox     -115. 425. -200. 200. -775. 425.
+!@what.1=-1650.0*mm
+!@what.2=4750.0*mm
+!@what.3=-2000.0*mm
+!@what.4=2500.0*mm
+!@what.5=-8250.0*mm
+!@what.6=4750.0*mm
+RPP IronShie   -165. 475. -200. 250. -825. 475.
+!@what.1=-3150.0*mm
+!@what.2=6250.0*mm
+!@what.3=-2000.0*mm
+!@what.4=4000.0*mm
+!@what.5=-9750.0*mm
+!@what.6=5250.0*mm
+RPP BorConcr   -315. 625. -200. 400. -975. 525.
+!@what.1=-3150.0*mm
+!@what.2=8250.0*mm
+!@what.3=-2000.0*mm
+!@what.4=6000.0*mm
+!@what.5=-11750.0*mm
+!@what.6=7250.0*mm
+RPP ConcShie   -315. 825. -200. 600. -1175. 725.
+!@what.1=1850.0*mm
+!@what.2=6000.0*mm
+!@what.3=8000.0*mm
+ZCC TombCeil   185. 600. 800.
+!@what.1=6000.0*mm
+XZP halfplTo   600.
+!@what.1=-13750.0*mm
+XYP endplTo    -1375.
+!@what.1=9250.0*mm
+XYP plTo       925.
+!@what.1=-6150.0*mm
+!@what.2=9850.0*mm
+!@what.3=-2000.0*mm
+!@what.4=6000.0*mm
+!@what.5=-13750.0*mm
+!@what.6=9250.0*mm
+RPP TombBox    -615. 985. -200. 600. -1375. 925.
+!@what.1=1850.0*mm
+!@what.2=6000.0*mm
+!@what.3=8500.0*mm
+ZCC TombCei2   185. 600. 850.
+!@what.1=-14250.0*mm
+XYP endplTo2   -1425.
+!@what.1=9750.0*mm
+XYP plTo2      975.
+!@what.1=-6650.0*mm
+!@what.2=10350.0*mm
+!@what.3=-2500.0*mm
+!@what.4=6000.0*mm
+!@what.5=-14250.0*mm
+!@what.6=9750.0*mm
+RPP TombBox2   -665. 1035. -250. 600. -1425. 975.
+!@what.3=750.0*mm
+ZCC TOuter     0.0 0.0 75.
+!@what.3=730.0*mm
+ZCC TInner     0.0 0.0 73.
+!@what.1=3250.0*mm
+XYP plOut      325.
+!@what.1=-3250.0*mm
+XYP endplOUT   -325.
+!@what.1=3230.0*mm
+XYP plIn       323.
+!@what.1=-3230.0*mm
+XYP endplIn    -323.
+END
+* Black hole
+BLKBODY      5 +void -(+TombBox2 | +( +TombCei2 -halfplTo ) +plTo2 -endplTo2 )
+Tomb         5 +(+TombBox -ConcShie )| +(+TombCeil -halfplTo ) +plTo -endplTo
+TombSurr     5 +( +TombBox2 -TombBox ) | +( +( +TombCei2 -(+TombCeil +plTo -endplTo ) -halfplTo ) +plTo2
+               -endplTo2 )
+Air          5 +airbox -( +TOuter +plOut -endplOUT )
+Tank         5 +(+TOuter +plOut -endplOUT )  -(+TInner +plIn -endplIn )
+Water        5 +TInner +plIn -endplIn
+IronShie     5 +IronShie -airbox
+BorConr      5 +BorConcr -IronShie
+ConcShie     5 +ConcShie -BorConcr
+END
+!@what.1=4000.0*mm
+!@what.2=4000.0*mm
+!@what.3=4000.0*mm
+!@what.4=-4000.0*mm
+!@what.5=-4000.0*mm
+!@what.6=-4000.0*mm
+GEOEND          400.      400.      400.     -400.     -400.     -400.DEBUG
+MATERIAL         24.                7.18                              CHROMIUM
+* Stainless-Steel (typical)
+* Stainless-Steel is produced with Cr content ranging from
+* 4 - 19 Atomic Percent, and with C content from 0 - 4 percent.
+MATERIAL                             8.0                              Stainles
+COMPOUND        18.0  CHROMIUM      74.0      IRON       8.0    NICKELStainles
+* Concrete
+* Concrete has a wide variation in density and composition. The above
+* description is for poured structural concrete with 10% moisture
+* content. Concrete block will have a density of about 2.05 g/cm3.
+* Ranges of concrete composition are : C (8-25%), O (38-60%), Si (8-18%).
+* Concrete composition can be analyzed cheaply by commercial laboratories.
+MATERIAL                            2.34                              Concrete
+COMPOUND        23.0    CARBON      40.0    OXYGEN      12.0   SILICONConcrete
+COMPOUND        12.0   CALCIUM      10.0  HYDROGEN       2.0  MAGNESIUConcrete
+* ..+....1....+....2....+....3....+....4....+....5....+....6....+....7..
+ASSIGNMA    BLCKHOLE   BLKBODY   BLKBODY                 0.0
+ASSIGNMA         AIR      Tomb      Tomb                 0.0
+ASSIGNMA    Concrete  TombSurr  TombSurr                 0.0
+ASSIGNMA         AIR       Air       Air                 0.0
+ASSIGNMA       WATER     Water     Water                 0.0
+ASSIGNMA    Stainles      Tank      Tank                 0.0
+ASSIGNMA        IRON  IronShie  IronShie                 0.0
+ASSIGNMA    Concrete   BorConr   BorConr                 0.0
+ASSIGNMA    Concrete  ConcShie   BorConr                 0.0
+!@what.4=1000.0*mm
+!@what.6=0.0*mm
+!@what.9=-1000.0*mm
+USRBIN           17.   NEUTRON      -44.      100.       0.0       0.0Neutrons
+USRBIN           0.0       0.0     -100.     200.0     100.0     200.0 &
+!@what.6=1000.0*mm
+USRBIN           11.    ENERGY      -43.     300.0       0.0      100.Energy
+USRBIN           0.0       0.0        1.     100.0     100.0     200.0 &
+* Set the random number seed
+RANDOMIZ          1.
+* Set the number of primary histories to be simulated in the run
+START            10.
+STOP
+DISCARD        MUONS
+STOP
