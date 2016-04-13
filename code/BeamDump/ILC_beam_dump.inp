@@ -90,10 +90,10 @@ RPP EXTunnel   -665. 235. -250. 250. -1900. -1375.
 !@what.5=-19000.0*mm
 !@what.6=-13750.0*mm
 RPP EXTunne2   -615. 185. -200. 200. -1900. -1375.
-!@what.3=750.0*mm
-ZCC TOuter     0.0 0.0 75.
-!@what.3=730.0*mm
-ZCC TInner     0.0 0.0 73.
+!@what.3=900.0*mm
+ZCC TOuter     0.0 0.0 90.
+!@what.3=880.0*mm
+ZCC TInner     0.0 0.0 88.
 !@what.1=3250.0*mm
 XYP plOut      325.
 !@what.1=-3250.0*mm
@@ -102,10 +102,10 @@ XYP endplOUT   -325.
 XYP plIn       323.
 !@what.1=-3230.0*mm
 XYP endplIn    -323.
-!@what.3=200.0*mm
-ZCC BeamPipe   0.0 0.0 20.
-!@what.3=180.0*mm
-ZCC BeamPip2   0.0 0.0 18.
+!@what.3=150.0*mm
+ZCC BeamPipe   0.0 0.0 15.
+!@what.3=130.0*mm
+ZCC BeamPip2   0.0 0.0 13.
 !@what.1=-19000.0*mm
 XYP plBeaPip   -1900.
 !@what.1=-3301.0*mm
