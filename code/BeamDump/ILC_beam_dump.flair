@@ -1,0 +1,165 @@
+#!/usr/local/flair/flair
+# FLUKA Project file
+Version: 2
+Title: ILC_beam_dump
+Input: ILC_beam_dump.inp
+Submit: *Default
+Notes:
+Beam pipe + window, tank + water, air, iron shielding, (boronated) concrete shielding, concrete shielding, EXT tunnel, beam dump tomb 
+According to drawings:
+- 0-TB-0067-300-00-A 'Water beam dump concept' by B. Smith, 29. Jan. 07
+- 0-TB-0067-210-00-A 'Water beam dump concept' by B. Smith, 24. Jan. 07
+- 0-TB-0067-404-00-A '10 ATM water dump layout' by B. Smith, 05. Dec. 06
+
+TDR Volume 3.2, chapter 8.8
+
+TODO:
+- Water pressure: 10 bar - Can that be added in FLUKA?!
+- Check if the pre-defined materials (stainless steel, concrete) are good enough.
+- The shielding (boronated condrete) is so far only made of the pre-defined concrete.
+Tabs: 0.1 0.32 0.56 0.81 1.0
+Page: Flair
+DefMain: True
+LinkPrg: lfluka
+F77bound: True
+F77dline: False
+
+# Run information
+Run: <default>
+	Prev:     0
+	Last:     5
+	Status:   0
+	Pid:      0
+	StartRun: 0
+End
+
+# Material
+Material: 
+	shine: 10.0
+	color: #101010
+	ior: 1.0
+	specular: 0.0
+	alpha: 0
+	fuzz: 0.0
+End
+
+# Material
+Material: Stainles
+	shine: 10.0
+	color: #40D0D0
+	ior: 1.0
+	specular: 0.0
+	alpha: 0
+	fuzz: 0.0
+End
+
+# Material
+Material: STAINLESS_STEEL
+	shine: 10.0
+	color: #801090
+	ior: 1.0
+	specular: 0.0
+	alpha: 0
+	fuzz: 0.0
+End
+
+# Material
+Material: Stainless
+	shine: 10.0
+	color: #A01050
+	ior: 1.0
+	specular: 0.0
+	alpha: 0
+	fuzz: 0.0
+End
+
+# Geometry Information
+Geometry:
+	Frame.bsplit: 0.5
+	Frame.tsplit: 0.5
+	Frame.vsplit: 0.5
+End
+
+# Pet
+Pet: pet
+End
+
+# Geometry plot "GeoViewer Red plot"
+Plot: Red
+	Format: .eps
+	Type:   Geometry
+	origin: 356.561 148.393 0
+	cbround: 0
+	xlog: 0
+	labels: 1
+	layer: Media
+	basisu: 1 0 0
+	basisv: 0 1 0
+	zlog: 0
+	cbcolors: 0
+	index: 0
+	title: GeoViewer Red plot
+	y2log: 0
+	boundaries: 1
+	extends: 2584.78 1387.58
+	ylog: 0
+	grid: 0
+	cbtics: 0
+	x2tics: 0
+	y2tics: 0
+	cpd: 0
+	cbpalette: FLUKA
+	coord: X-Y
+	subtype: Material
+	ztics: 0
+	x2log: 0
+	cblog: 0
+End
+
+# Geometry plot "GeoViewer Green plot"
+Plot: Green
+	Format: .eps
+	Type:   Geometry
+	origin: 313.488 -2.5981 -419.464
+	layer: Media
+	title: GeoViewer Green plot
+	labels: 1
+	coord: U-V
+	boundaries: 1
+	subtype: Material
+	extends: 2278.81 1224.86
+	basisu: -0.0158841 -0.00552747 0.999859
+	basisv: -0.999838 0.00853824 -0.0158366
+End
+
+# Geometry plot "GeoViewer Blue plot"
+Plot: Blue
+	Format: .eps
+	Type:   Geometry
+	origin: 0 0.051946 -336.974
+	layer: Media
+	title: GeoViewer Blue plot
+	labels: 1
+	coord: Z-Y
+	boundaries: 1
+	subtype: Material
+	extends: 2734.57 1464.58
+	basisu: 0 0 1
+	basisv: 0 1 0
+End
+
+# Geometry plot "GeoViewer Magenta plot"
+Plot: Magenta
+	Format: .eps
+	Type:   Geometry
+	origin: 49.9187 454.815 0
+	layer: Media
+	title: GeoViewer Magenta plot
+	labels: 1
+	coord: X-Y
+	boundaries: 1
+	subtype: Material
+	extends: 2218.61 1189.73
+	basisu: -1 0 0
+	basisv: 0 1 0
+End
