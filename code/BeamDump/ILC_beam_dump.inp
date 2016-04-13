@@ -108,8 +108,12 @@ ZCC BeamPipe   0.0 0.0 20.
 ZCC BeamPip2   0.0 0.0 18.
 !@what.1=-19000.0*mm
 XYP plBeaPip   -1900.
-!@what.1=-3250.0*mm
-XYP endplBea   -325.
+!@what.1=-3301.0*mm
+XYP plBeaPi1   -330.1
+!@what.1=-3300.0*mm
+XYP endplBe1   -330.
+!@what.1=-3230.0*mm
+XYP endplBea   -323.
 END
 * Black hole
 BLKBODY      5 +void -(+TombBox2 | +(+( +TombCei2 -halfplTo ) +plTo2 -endplTo2) | +EXTunnel  )
@@ -121,9 +125,10 @@ EXTunAir     5 +EXTunne2 -(+BeamPipe -plBeaPip +endplBea)
 EXTunSur     5 +EXTunnel -EXTunne2
 Air          5 +airbox -( +TOuter +plOut -endplOUT ) -(+BeamPipe -plBeaPip +endplBea)
 Tank         5 +(+TOuter +plOut -endplOUT )  -(+TInner +plIn -endplIn ) -(+BeamPipe -plBeaPip +endplBea)
-Water        5 +TInner +plIn -endplIn
-BeamPipe     5 +(+BeamPipe -BeamPip2) -plBeaPip +endplBea
-BeaPiVac     5 +BeamPip2 -plBeaPip +endplBea
+Water        5 +(+TInner +plIn -endplIn) | +(+BeamPip2 -endplBe1 +endplBea)
+BeamPipe     5 +(+(+BeamPipe -BeamPip2) -plBeaPip +plBeaPi1) | +(+(+BeamPipe -BeamPip2) -endplBe1 +endplBea)
+BeaPiVac     5 +BeamPip2 -plBeaPip +plBeaPi1
+Window       5 +BeamPipe -plBeaPi1 +endplBe1
 IronShie     5 +IronShie -airbox  -(+BeamPipe -plBeaPip +endplBea)
 BorConr      5 +BorConcr -IronShie  -(+BeamPipe -plBeaPip +endplBea)
 ConcShie     5 +ConcShie -BorConcr  -(+BeamPipe -plBeaPip +endplBea)
@@ -163,6 +168,7 @@ ASSIGNMA         AIR       Air       Air                 0.0
 ASSIGNMA       WATER     Water     Water                 0.0
 ASSIGNMA      VACUUM  BeaPiVac  BeaPiVac                 0.0
 ASSIGNMA    Stainles  BeamPipe  BeamPipe                 0.0
+ASSIGNMA    TITANIUM    Window    Window                 0.0
 ASSIGNMA    Stainles      Tank      Tank                 0.0
 ASSIGNMA        IRON  IronShie  IronShie                 0.0
 ASSIGNMA    Concrete   BorConr   BorConr                 0.0
@@ -175,7 +181,7 @@ ASSIGNMA         AIR  EXTunAir  EXTunAir                 0.0
 USRBIN           17.   NEUTRON      -44.      100.       0.0       0.0Neutrons
 USRBIN           0.0       0.0     -100.     200.0     100.0     200.0 &
 !@what.6=1000.0*mm
-USRBIN           11.    ENERGY      -43.     300.0       0.0      100.Energy
+USRBIN           17.    ENERGY      -43.     300.0       0.0      100.Energy
 USRBIN           0.0       0.0        1.     100.0     100.0     200.0 &
 * Set the random number seed
 RANDOMIZ          1.
