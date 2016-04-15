@@ -1,0 +1,207 @@
+#!/usr/local/flair/flair
+# FLUKA Project file
+Version: 2
+Title: simple_ILC_beam_dump
+Input: simple_ILC_beam_dump.inp
+Submit: *Default
+Tabs: 0.1 0.32 0.56 0.81 1.0
+Page: Input
+DefMain: True
+LinkPrg: lfluka
+F77bound: True
+F77dline: False
+
+# Run information
+Run: <default>
+	Prev:     0
+	Last:     5
+	Status:   3
+	Pid:      0
+	StartRun: 1460697746
+
+	# USRxxx data file: simple_ILC_beam_dump_50.bnn
+	Data: \I_\U.\e
+		Unit: 50
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+End
+
+# Material
+Material: Stainles
+	shine: 10.0
+	color: #40D0D0
+	ior: 1.0
+	specular: 0.0
+	alpha: 0
+	fuzz: 0.0
+End
+
+# Material
+Material: POTASSIU
+	shine: 10.0
+	color: #70B0B0
+	ior: 1.0
+	specular: 0.0
+	alpha: 0
+	fuzz: 0.0
+End
+
+# Material
+Material: Prostate
+	shine: 10.0
+	color: #907030
+	ior: 1.0
+	specular: 0.0
+	alpha: 0
+	fuzz: 0.0
+End
+
+# Geometry Information
+Geometry:
+	Frame.bsplit: 0.5
+	Frame.tsplit: 0.5
+	Frame.vsplit: 0.5
+End
+
+# Pet
+Pet: pet
+End
+
+# Geometry plot "GeoViewer Red plot"
+Plot: Red
+	Format: .eps
+	Type:   Geometry
+	labels: 1
+	cbcolors: 0
+	title: GeoViewer Red plot
+	extends: 743.008 924.879
+	grid: 0
+	cbpalette: FLUKA
+	coord: X-Y
+	x2log: 0
+	index: 0
+	subtype: Material
+	y2log: 0
+	boundaries: 1
+	ztics: 0
+	cblog: 0
+	origin: 112.309 0 0
+	cbround: 0
+	ylog: 0
+	zlog: 0
+	y2tics: 0
+	cbtics: 0
+	layer: Media
+	cpd: 0
+	xlog: 0
+	basisu: 1 0 0
+	basisv: 0 1 0
+	x2tics: 0
+End
+
+# Geometry plot "GeoViewer Green plot"
+Plot: Green
+	Format: .eps
+	Type:   Geometry
+	origin: -14.7571 0 -646.521
+	layer: Media
+	title: GeoViewer Green plot
+	labels: 1
+	coord: Z-X
+	boundaries: 1
+	subtype: Material
+	extends: 1848.84 2308.29
+	basisu: 0 0 1
+	basisv: 1 0 0
+End
+
+# Geometry plot "GeoViewer Blue plot"
+Plot: Blue
+	Format: .eps
+	Type:   Geometry
+	origin: 0 -1.77281 -331.455
+	layer: Media
+	title: GeoViewer Blue plot
+	labels: 1
+	coord: Z-Y
+	boundaries: 1
+	subtype: Material
+	extends: 13.4588 16.7532
+	basisu: 0 0 1
+	basisv: 0 1 0
+End
+
+# Geometry plot "GeoViewer Magenta plot"
+Plot: Magenta
+	Format: .eps
+	Type:   Geometry
+	labels: 1
+	cbcolors: 0
+	title: GeoViewer Magenta plot
+	extends: 743.008 927.648
+	grid: 0
+	cbpalette: FLUKA
+	coord: X-Y
+	x2log: 0
+	index: 0
+	subtype: Material
+	y2log: 0
+	boundaries: 1
+	ztics: 0
+	cblog: 0
+	origin: 0 0 0
+	cbround: 0
+	ylog: 0
+	zlog: 0
+	y2tics: 0
+	cbtics: 0
+	layer: Media
+	cpd: 0
+	xlog: 0
+	basisu: -1 0 0
+	basisv: 0 1 0
+	x2tics: 0
+End
+
+# USRBIN plot "USRBIN simple ILC beam dump 50"
+Plot: simple_ILC_beam_dump_50_plot
+	Format: .eps
+	Type:   USRBIN
+	lw.0: 0
+	cbcolors: 30
+	title: USRBIN simple ILC beam dump 50
+	swap: 0
+	grid: 0
+	geo: -Auto-
+	datafile: simple_ILC_beam_dump_50.bnn
+	cbpalette: FLUKA
+	x2log: 0
+	with.0: errorbars
+	index: 0
+	errors: 0
+	axes: Auto
+	y2log: 0
+	hist: 2D Projection
+	proj: Z
+	zrebin: 1
+	ztics: 0
+	cblog: 1
+	cbround: 0
+	ylog: 0
+	zlog: 0
+	xrebin: 1
+	ps.0: 0
+	yrebin: 1
+	y2tics: 0
+	cbtics: 1
+	det: 1
+	pt.0: 0
+	int: 249.99954128265375
+	cpd: 0
+	xlog: 0
+	min: 3.09658493E-03
+	max: 3.94885801E-03
+	x2tics: 0
+End
