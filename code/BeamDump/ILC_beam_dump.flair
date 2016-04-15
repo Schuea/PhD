@@ -18,7 +18,7 @@ TODO:
 - Check if the pre-defined materials (stainless steel, concrete) are good enough.
 - The shielding (boronated condrete) is so far only made of the pre-defined concrete.
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Plot
+Page: Input
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -28,9 +28,9 @@ F77dline: False
 Run: <default>
 	Prev:     0
 	Last:     5
-	Status:   3
-	Pid:      0
-	StartRun: 1460604349
+	Status:   5
+	Pid:      5113
+	StartRun: 1460692199
 
 	# USRxxx data file: ILC_beam_dump_43.bnn
 	Data: \I_\U.\e
@@ -104,46 +104,46 @@ End
 Plot: Red
 	Format: .eps
 	Type:   Geometry
-	labels: 1
-	cbcolors: 0
-	title: GeoViewer Red plot
-	extends: 2584.78 1387.58
-	grid: 0
-	cbpalette: FLUKA
-	coord: X-Y
-	y2tics: 0
-	x2log: 0
-	index: 0
-	subtype: Material
-	y2log: 0
-	boundaries: 1
-	ztics: 0
-	cblog: 0
-	origin: 356.561 148.393 0
+	origin: 248.418 439.74 0
 	cbround: 0
-	ylog: 0
-	zlog: 0
-	cbtics: 0
-	layer: Media
-	cpd: 0
 	xlog: 0
+	labels: 1
+	layer: Media
 	basisu: 1 0 0
 	basisv: 0 1 0
+	zlog: 0
+	cbcolors: 0
+	index: 0
+	title: GeoViewer Red plot
+	y2log: 0
+	boundaries: 1
+	extends: 1246.52 1551.64
+	ylog: 0
+	grid: 0
+	cbtics: 0
 	x2tics: 0
+	y2tics: 0
+	cpd: 0
+	cbpalette: FLUKA
+	coord: X-Y
+	subtype: Material
+	ztics: 0
+	x2log: 0
+	cblog: 0
 End
 
 # Geometry plot "GeoViewer Green plot"
 Plot: Green
 	Format: .eps
 	Type:   Geometry
-	origin: 313.488 -2.5981 -419.464
+	origin: 243.236 -2.5981 -475.253
 	layer: Media
 	title: GeoViewer Green plot
 	labels: 1
 	coord: Z-X
 	boundaries: 1
 	subtype: Material
-	extends: 2734.57 1387.8
+	extends: 1582.51 1975.76
 	basisu: 0 0 1
 	basisv: -1 0 0
 End
@@ -152,14 +152,14 @@ End
 Plot: Blue
 	Format: .eps
 	Type:   Geometry
-	origin: 0 553.452 -325.253
+	origin: 0 356.583 -395.223
 	layer: Media
 	title: GeoViewer Blue plot
 	labels: 1
 	coord: Z-Y
 	boundaries: 1
 	subtype: Material
-	extends: 1899.01 1017.07
+	extends: 1899.01 2363.84
 	basisu: 0 0 1
 	basisv: 0 1 0
 End
@@ -168,14 +168,14 @@ End
 Plot: Magenta
 	Format: .eps
 	Type:   Geometry
-	origin: 49.9187 454.815 0
+	origin: 211.465 507.147 0
 	layer: Media
 	title: GeoViewer Magenta plot
 	labels: 1
 	coord: X-Y
 	boundaries: 1
 	subtype: Material
-	extends: 2218.61 1189.73
+	extends: 1069.93 1335.81
 	basisu: -1 0 0
 	basisv: 0 1 0
 End
@@ -184,29 +184,29 @@ End
 Plot: ILC_beam_dump_geometry
 	Format: .eps
 	Type:   Geometry
-	labels: 0
-	cbcolors: 0
-	title: Beam Dump Geometry
-	extends: 2584.78 1387.58
-	grid: 0
-	cbpalette: FLUKA
-	coord: V-U
-	x2log: 0
-	index: 0
-	subtype: Material
-	y2log: 0
-	boundaries: 0
-	ztics: 0
-	cblog: 0
 	origin: 356.561 148.393 0
 	cbround: 0
-	ylog: 0
-	zlog: 0
-	y2tics: 0
-	cbtics: 0
-	cpd: 0
 	xlog: 0
+	labels: 0
+	ylog: 0
 	basisu: 0 1 0
 	basisv: 1 0 0
+	zlog: 0
+	cbcolors: 0
+	index: 0
+	title: Beam Dump Geometry
+	y2log: 0
+	boundaries: 0
+	extends: 2584.78 1387.58
+	grid: 0
+	cbtics: 0
 	x2tics: 0
+	y2tics: 0
+	cpd: 0
+	cbpalette: FLUKA
+	coord: V-U
+	subtype: Material
+	ztics: 0
+	x2log: 0
+	cblog: 0
 End

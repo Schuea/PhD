@@ -1,5 +1,6 @@
 TITLE
 ILC_beam_dump
+GLOBAL                                          1.        1.
 * Set the defaults for precision simulations
 DEFAULTS                                                              NEUTRONS
 * Define the beam characteristics
@@ -9,13 +10,13 @@ BEAM          -250.0  -0.00282          -2.4697E-4-3.0522E-6          ELECTRON
 BEAMPOS          0.0       0.0    -1900.
 GEOBEGIN                                                              COMBNAME
     0    0          TDR beam dump
-!@what.1=-9000.0*mm
-!@what.2=12000.0*mm
-!@what.3=-4000.0*mm
+!@what.1=-7000.0*mm
+!@what.2=10500.0*mm
+!@what.3=-3000.0*mm
 !@what.4=15000.0*mm
-!@what.5=-20000.0*mm
-!@what.6=12000.0*mm
-RPP void       -900. 1200. -400. 1500. -2000. 1200.
+!@what.5=-19500.0*mm
+!@what.6=10000.0*mm
+RPP void       -700. 1050. -300. 1500. -1950. 1000.
 !@what.1=-1150.0*mm
 !@what.2=4250.0*mm
 !@what.3=-2000.0*mm
@@ -139,7 +140,7 @@ END
 !@what.4=-4000.0*mm
 !@what.5=-4000.0*mm
 !@what.6=-4000.0*mm
-GEOEND          400.      400.      400.     -400.     -400.     -400.DEBUG
+GEOEND          400.      400.      400.     -400.     -400.     -400.
 MATERIAL         24.                7.18                              CHROMIUM
 * Stainless-Steel (typical)
 * Stainless-Steel is produced with Cr content ranging from
@@ -183,13 +184,12 @@ ASSIGNMA         AIR  EXTunAir  EXTunAir                 0.0
 !@what.9=-13000.0*mm
 USRBIN           10.    ENERGY      -50.      300.      200.      400.Energy
 USRBIN         -300.     -200.    -1300.     100.0     100.0     100.0 &
-USRCOLL          -1.   NEUTRON      -51.     Water       1.0     100.0Neutron
-USRCOLL         10.0     1E-09                                         &
+USRTRACK         -1.   NEUTRON      -51.     Water       1.0     100.0Neutron
+USRTRACK        20.0    0.0001                                         &
 RESNUCLE          3.      -52.                         Water       1.0BeamDump
 DISCARD        MUONS
 * Set the random number seed
 RANDOMIZ          1.
 * Set the number of primary histories to be simulated in the run
-START           100.                                            10000.
-STOP
+START           100.         .
 STOP
