@@ -5,7 +5,7 @@ Title: simple_ILC_beam_dump
 Input: simple_ILC_beam_dump.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Input
+Page: Geometry
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -17,7 +17,7 @@ Run: <default>
 	Last:     5
 	Status:   3
 	Pid:      0
-	StartRun: 1460697746
+	StartRun: 1460954530
 
 	# USRxxx data file: simple_ILC_beam_dump_50.bnn
 	Data: \I_\U.\e
@@ -76,10 +76,11 @@ Plot: Red
 	labels: 1
 	cbcolors: 0
 	title: GeoViewer Red plot
-	extends: 743.008 924.879
+	extends: 1540.7 827.093
 	grid: 0
 	cbpalette: FLUKA
 	coord: X-Y
+	y2tics: 0
 	x2log: 0
 	index: 0
 	subtype: Material
@@ -91,7 +92,6 @@ Plot: Red
 	cbround: 0
 	ylog: 0
 	zlog: 0
-	y2tics: 0
 	cbtics: 0
 	layer: Media
 	cpd: 0
@@ -112,7 +112,7 @@ Plot: Green
 	coord: Z-X
 	boundaries: 1
 	subtype: Material
-	extends: 1848.84 2308.29
+	extends: 3833.75 2060.64
 	basisu: 0 0 1
 	basisv: 1 0 0
 End
@@ -128,7 +128,7 @@ Plot: Blue
 	coord: Z-Y
 	boundaries: 1
 	subtype: Material
-	extends: 13.4588 16.7532
+	extends: 3194.8 1711.07
 	basisu: 0 0 1
 	basisv: 0 1 0
 End
@@ -140,10 +140,11 @@ Plot: Magenta
 	labels: 1
 	cbcolors: 0
 	title: GeoViewer Magenta plot
-	extends: 743.008 927.648
+	extends: 4600.51 2467.02
 	grid: 0
 	cbpalette: FLUKA
 	coord: X-Y
+	y2tics: 0
 	x2log: 0
 	index: 0
 	subtype: Material
@@ -155,7 +156,6 @@ Plot: Magenta
 	cbround: 0
 	ylog: 0
 	zlog: 0
-	y2tics: 0
 	cbtics: 0
 	layer: Media
 	cpd: 0
