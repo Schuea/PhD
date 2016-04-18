@@ -8,13 +8,13 @@ BEAM            250.  -0.00282          -2.4697E-4-3.0522E-6          ELECTRON
 BEAMPOS          0.0       0.0     -700.
 GEOBEGIN                                                              COMBNAME
     0    0          simple_ILC_beam_dump
-!@what.1=-6500.0*mm
-!@what.2=10000.0*mm
-!@what.3=-2500.0*mm
-!@what.4=6500.0*mm
-!@what.5=-19500.0*mm
+!@what.1=-6550.0*mm
+!@what.2=10250.0*mm
+!@what.3=-2400.0*mm
+!@what.4=6800.0*mm
+!@what.5=-19400.0*mm
 !@what.6=10000.0*mm
-RPP void       -650. 1000. -250. 650. -1950. 1000.
+RPP void       -655. 1025. -240. 680. -1940. 1000.
 !@what.1=-1150.0*mm
 !@what.2=4250.0*mm
 !@what.3=-2000.0*mm

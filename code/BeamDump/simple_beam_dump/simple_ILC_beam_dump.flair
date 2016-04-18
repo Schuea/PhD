@@ -5,7 +5,7 @@ Title: simple_ILC_beam_dump
 Input: simple_ILC_beam_dump.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Geometry
+Page: Input
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -17,7 +17,7 @@ Run: <default>
 	Last:     5
 	Status:   3
 	Pid:      0
-	StartRun: 1460954530
+	StartRun: 1460955083
 
 	# USRxxx data file: simple_ILC_beam_dump_50.bnn
 	Data: \I_\U.\e
@@ -69,14 +69,15 @@ End
 Pet: pet
 End
 
-# Geometry plot "GeoViewer Red plot"
+# Geometry plot "Geometry XY"
 Plot: Red
 	Format: .eps
 	Type:   Geometry
 	labels: 1
 	cbcolors: 0
-	title: GeoViewer Red plot
+	title: Geometry XY
 	extends: 1540.7 827.093
+	ylabel: Y [cm]
 	grid: 0
 	cbpalette: FLUKA
 	coord: X-Y
@@ -93,6 +94,7 @@ Plot: Red
 	ylog: 0
 	zlog: 0
 	cbtics: 0
+	xlabel: X [cm]
 	layer: Media
 	cpd: 0
 	xlog: 0
@@ -101,20 +103,40 @@ Plot: Red
 	x2tics: 0
 End
 
-# Geometry plot "GeoViewer Green plot"
+# Geometry plot "Geometry -XZ"
 Plot: Green
 	Format: .eps
 	Type:   Geometry
-	origin: -14.7571 0 -646.521
-	layer: Media
-	title: GeoViewer Green plot
-	labels: 1
+	labels: 0
+	cbcolors: 0
+	title: Geometry -XZ
+	extends: 550 400
+	ylabel: -X [cm]
+	grid: 0
+	cbpalette: FLUKA
 	coord: Z-X
-	boundaries: 1
+	x2log: 0
+	index: 0
 	subtype: Material
-	extends: 3833.75 2060.64
+	y2log: 0
+	boundaries: 0
+	ztics: 0
+	cblog: 0
+	origin: 0 0 75
+	cbround: 0
+	ylog: 0
+	zlog: 0
+	y2tics: 0
+	cbtics: 0
+	xlabel: Z [cm]
+	layer: Media
+	cpd: 0
+	xlog: 0
 	basisu: 0 0 1
 	basisv: 1 0 0
+	nu: 200
+	nv: 200
+	x2tics: 0
 End
 
 # Geometry plot "GeoViewer Blue plot"
