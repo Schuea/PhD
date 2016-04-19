@@ -12,7 +12,7 @@
 #include <iostream>
 #include <sstream>
 
-int const n = 9; //Number of apertures that were recorded
+int const n = 17; //Number of apertures that were recorded
 float HistoMax = 0.0; //To find the maximum entry to the histogram, so that the y-axis can be scaled appropriately.
 float HistoMin = 1000000.0; //To find the minimum entry to the histogram, so that the y-axis can be scaled appropriately.
 
@@ -111,8 +111,8 @@ int main(int const argc, char const * const * const argv) {
   Detector->SetBranchAddress("NoiseSubtractedSignal", &signal);
   Detector->SetBranchAddress("Voltage", &voltage);
 
-  float JawPosition[n] = {3,3.5,4,4.5,5,5.5,6,6.5,7};
-  float JawPositionError[n] = {0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04};
+  float JawPosition[n] = {2.6,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8,8.5,9,10,11,12};
+  float JawPositionError[n] = {0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04};
 
   //Fill the arrays with the average and the RMS/sqrt(N) of the signals from the TTree for the different beam intensities:
   std::vector< TGraphErrors*> All_TGraphErrors;
