@@ -5,6 +5,7 @@
 
 #include <bitset>
 #include <iostream>
+#include <sstream>
 #include <limits>
 #include <string>
 #include <vector>
@@ -135,24 +136,28 @@ int main(int const argc, char const * const * const argv) {
 	}
 
 	//Make histogram for storing the information
-	std::string const title = "Normalized buffer depth for subdetector " + subdetectornames;
+	std::string const title = "Occupancy for subdetector " + subdetectornames;
+	//std::string const title = "Normalized buffer depth for subdetector " + subdetectornames;
 	TH1D *histo = new TH1D("histo", title.c_str(), 20, 0, 20);
 
 	for (size_t allcellhits = 0; allcellhits < AllCellHits.size(); ++allcellhits) {
 		for (size_t hitcounts = 0; hitcounts < AllCellHits.at(allcellhits)->Get_HitCount().size(); ++hitcounts) {
+      if(AllCellHits.at(allcellhits)->Get_HitCount().at(hitcounts) > 0)
 			histo->Fill(AllCellHits.at(allcellhits)->Get_HitCount().at(hitcounts));
 		}
 	}
 
-	NormalizeHistogram(histo, 1.0);
+	//NormalizeHistogram(histo, 1.0);
 
 	//Plot the histogram and save it
 	TCanvas *canvas = new TCanvas("canvas", "canvas", 800, 600);
 	canvas->SetLogy(1);
 	histo->SetMinimum(0.0000001);
 	histo->Draw();
-	canvas->Print("output/buffer_depth.pdf");
-	canvas->Print("output/buffer_depth.cxx");
+  std::stringstream output;
+  output << "output/occupancy_" << subdetectornames;
+	canvas->Print((output.str() + ".pdf").c_str());
+	canvas->Print((output.str() + ".cxx").c_str());
 
 	return 0;
 }
