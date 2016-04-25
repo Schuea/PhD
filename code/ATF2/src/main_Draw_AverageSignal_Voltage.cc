@@ -14,7 +14,7 @@
 #include <iostream>
 #include <sstream>
 
-int const n = 6; //Number of voltages for which the signal was recorded
+int const n = 10; //Number of voltages for which the signal was recorded
 
 void GetAverageSignals(float* SignalAverage, bool GetError,  const float voltages[], const int num_voltages, TTree* tree, const int* signal_branch, const int* voltage_branch);
 
@@ -72,11 +72,12 @@ int main(int const argc, char const * const * const argv) {
   int signal = 0;
   int voltage = 0;
 
-  Detector->SetBranchAddress("NoiseSubtractedSignal", &signal);
+  Detector->SetBranchAddress("Signal", &signal);
+  //Detector->SetBranchAddress("NoiseSubtractedSignal", &signal);
   Detector->SetBranchAddress("Voltage", &voltage);
  
-  float Voltages[n] = {500,700,800,900,1000,1100};
-  float VoltagesError[n] = {2,2,2,2,2,2};
+  float Voltages[n] = {500,700,750,800,850,900,950,1000,1050,1100};
+  float VoltagesError[n] = {2,2,2,2,2,2,2,2,2,2};
   
   //Fill the arrays with the average and the RMS of the signals from the TTree for the different beam intensities:
   float SignalAverage[n];

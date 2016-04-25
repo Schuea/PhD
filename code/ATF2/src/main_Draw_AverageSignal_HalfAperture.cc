@@ -198,7 +198,8 @@ void GetAverageSignals(float* SignalAverage, bool GetError, const float* beamint
     tree->GetEntry(i);
     if(*voltage_branch > 0
         && *secondjawposition_branch >= 11.5 && *secondjawposition_branch <= 12.5 //one jaw was held on the open position, while the other one was moved
-        && *beamintensity_branch >= *beamintensity-0.04 && *beamintensity_branch <= *beamintensity+0.04){
+        && *beamintensity_branch >= *beamintensity-0.055 && *beamintensity_branch <= *beamintensity+0.055){
+        //&& *beamintensity_branch >= *beamintensity-0.04 && *beamintensity_branch <= *beamintensity+0.04){
 
         for(int number_apertures = 0; number_apertures < num_apertures; ++number_apertures){
           //Fill the TH1 in the vector with signals for an aperture, that corresponds to the desired apertures in the aperture vector:
