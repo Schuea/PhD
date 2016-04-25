@@ -106,16 +106,18 @@ int main(int const argc, char const * const * const argv) {
 
 			//Set the branches
 			tree->SetBranchStatus("*", 0);
-			tree->SetBranchStatus("HitCellID0", 1);
-			tree->SetBranchStatus("HitCellID1", 1);
+			tree->SetBranchStatus("HitCellID", 1);
+			//tree->SetBranchStatus("HitCellID0", 1);
+			//tree->SetBranchStatus("HitCellID1", 1);
 			tree->SetBranchStatus("HitPosition_x", 1);
 			tree->SetBranchStatus("HitPosition_y", 1);
 
 			int HitCellID0(0), HitCellID1(0);
-			float HitPosition_x(0.0), HitPosition_y(0.0);
+			double HitPosition_x(0.0), HitPosition_y(0.0);
 
-			tree->SetBranchAddress("HitCellID0", &HitCellID0);
-			tree->SetBranchAddress("HitCellID1", &HitCellID1);
+			tree->SetBranchAddress("HitCellID", &HitCellID0);
+			//tree->SetBranchAddress("HitCellID0", &HitCellID0);
+			//tree->SetBranchAddress("HitCellID1", &HitCellID1);
 			tree->SetBranchAddress("HitPosition_x", &HitPosition_x);
 			tree->SetBranchAddress("HitPosition_y", &HitPosition_y);
 
@@ -127,7 +129,8 @@ int main(int const argc, char const * const * const argv) {
 			for (long long int i = 0; i < entries; ++i) {
 				tree->GetEntry(i);
 				//Make a combined cell ID
-				long long int const combined_cell_id = (long long) HitCellID1 << 32 | HitCellID0;
+				//long long int const combined_cell_id = (long long) HitCellID1 << 32 | HitCellID0;
+				long long int const combined_cell_id = (long long) HitCellID0;
 				//Use the CellHits class for storing the hit cells and their hitcounts
 				HitCount->Check_CellID(combined_cell_id, HitPosition_x, HitPosition_y);
 			}
