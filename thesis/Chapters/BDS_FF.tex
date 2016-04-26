@@ -91,14 +91,51 @@ The RHUL Cherenkov detector was built by a group from the Royal Holloway Univers
 \end{center}
 \end{figure}
 
+\paragraph{PMT noise measurements}
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{AverageNoise_perVoltage.pdf}
-\caption[RHUL Cherenkov detector noise]{Average noise signal as a function of the voltage applied to the detector PMT. The noise was measured when the ATF beam was turned off. For each voltage, 500 or 1000 ADC pulses of noise were recorded, and the noise averaged over the number of pulses. The error bars to the mean values are the standard deviation of the mean.}
+\includegraphics[width=\textwidth]{AverageNoise_perVoltage_08April.pdf}
+\caption[RHUL Cherenkov detector noise]{Average PMT noise signal as a function of the voltage applied to the detector PMT. The noise was measured when the ATF beam was turned off. For each voltage, 500 or 1000 ADC pulses of noise were recorded, and the noise averaged over the number of pulses. The error bars to the mean values are the standard deviation of the mean.}
 \label{fig:AverageNoise}
 \end{figure}
 Figure ~\ref{fig:AverageNoise} shows the mean values of the noise measurements for different PMT voltages. For every point either 500 or 1000 ADC pulses were recorded and averaged. The error bars represent the standard deviation on the mean value calculated by $SD=\frac{\sigma}{\sqrt{N}}$, where $\sigma$ is the RMS of the noise distribution at each point and N the number of pulses.\\
 At around \SI{800}{\volt} the effect of dark current in the PMT starts getting prominent wherefore the noise rises exponentially. For the data shown in the following, the noise is already subtracted. As the data was taken only for these voltages, for which noise measurements were done, the mean value of noise is subtracted from every signal pulse appropriately. Therefore the rise in noise is automatically taken into account for higher voltages.
+
+\paragraph{PMT voltage calibration measurements}
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{VoltageNormalization.pdf}
+\caption[RHUL Cherenkov detector voltage calibration]{Average PMT signal as a function of the voltage applied to the detector PMT. The signal was measured when the ATF beam was stable at a beam intensity of \num{0.15}$\pm$\num{0.02e10}. For each voltage, 500 ADC pulses were recorded, and the signal averaged over the number of pulses. The error bars to the mean values are the standard deviation of the signal distributions measured for each voltage.}
+\label{fig:VoltageNormalization}
+\end{figure}
+
+In order to compare data sets that are taken at different PMT voltages, the signals have to be scaled. The rule of scaling the data is derived from the fit to the calibration measurements in Figure~\ref{fig:VoltageNormalization}. The data for this calibration is taken for stable beam conditions at a beam intensity of \num{0.15}$\pm$\num{0.02e10}, and then plotted in a log-log plot. The linearity of the data points show the behaviour of the PMT for different voltages according to Equation~\ref{eq:PMTgain}\cite{Hamamatsu}:
+\begin{equation}
+ \mu = A \cdot V^{kn} 
+ \label{eq:PMTgain}
+\end{equation}
+where \textmu is the PMT gain, V the applied voltage and n the number of anodes in the PMT. A and k are free parameters. This equation can be rewritten to:
+\begin{equation}
+ signal = par_1 \cdot V^{par_2}
+ \label{eq:PMTgain_simple}
+\end{equation}
+After taking the logarithmic of both sides, the equation can be written as:
+\begin{alignat}{4}
+ & log(signal) & = & log(par_1) & + & par_2 & \cdot &log(V) \label{eq:PMTgain_log} \\
+ & y & = & [1] & + & [0] & \cdot & x \label{eq:fit_function}
+\end{alignat}
+Equation~\ref{eq:PMTgain_log} proves the linearity of the graph in the log-log plot and verifies Equation~\ref{eq:PMTgain} from the literature. For the log-log plot, Equation~\ref{eq:fit_function} is the derived fit function with the fit parameters that are obtained by applying the fit to the data in Figure~\ref{fig:VoltageNormalization}. The original signal function is therefore:
+\begin{equation}
+ signal = 10^{[1]} \cdot V^{[0]}
+ \label{eq:PMTgain_simple_fitparameters}
+\end{equation}
+with $log(par_1)$ being the fit parameter $[1]$, and $par_2$ being the fit parameter $[0]$.\\
+A signal ($signal_1$) can then be scaled into a new signal ($signal_2$) according to the voltages by doing:
+\begin{align}
+ \frac{signal_1}{signal_2} & = \frac{10^{[1]}\cdot V_1^{[0]}}{10^{[1]}\cdot V_2^{[0]}} \\
+ signal_2 & = signal_1 \cdot \left( \frac{V_2}{V_1} \right) ^{[0]}
+\end{align}
+
 
 \subsubsection{Collimator apertures scan - for different intensities and vacuum pressures}
 \label{aperture_scans}
