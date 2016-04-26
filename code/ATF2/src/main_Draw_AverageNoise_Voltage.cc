@@ -147,7 +147,8 @@ void GetAverageSignals(float* NoiseAverage, bool GetError,  const float voltages
     //If the error is desired, get the RMS from the signal distributions in the TH1 vector, and divide it by the square root of number of entries
     //Then you have the standard deviation of the mean
     else{
-      NoiseAverage[iterator] = Noise_Voltage.at(iterator)->GetRMS()/std::sqrt(Noise_Voltage.at(iterator)->GetEntries());  
+      NoiseAverage[iterator] = Noise_Voltage.at(iterator)->GetRMS();  
+      //NoiseAverage[iterator] = Noise_Voltage.at(iterator)->GetRMS()/std::sqrt(Noise_Voltage.at(iterator)->GetEntries());  
     }
     delete Noise_Voltage.at(iterator);
   }
