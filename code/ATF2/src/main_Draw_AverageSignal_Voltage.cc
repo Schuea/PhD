@@ -100,8 +100,8 @@ int main(int const argc, char const * const * const argv) {
   AverageSignal_Voltage->GetXaxis()->SetNoExponent(1);
 
   TF1* powerfit = new TF1("fit", "10^[1]*x^[0]",700,1100); //log log equivalent to a linear fit 
-  powerfit->SetParName(1,"Offset");
-  powerfit->SetParName(0,"Slope");
+  powerfit->SetParName(1,"[1]");
+  powerfit->SetParName(0,"[0]");
   powerfit->SetLineColor(2);
   gStyle->SetOptFit(1);
   //gStyle->SetOptFit(0);
