@@ -160,7 +160,7 @@ void GetAverageSignals(float* SignalAverage, bool GetError,  const float voltage
     }
     //If the error is desired, get the RMS from the signal distributions in the TH1 vector
     else{
-      SignalAverage[iterator] = Signal_Voltage.at(iterator)->GetRMS();  
+      SignalAverage[iterator] = std::sqrt( std::pow(Signal_Voltage.at(iterator)->GetRMS(),2) + std::pow(Signal_Voltage.at(iterator)->GetMeanError(),2) );  
       //SignalAverage[iterator] = Signal_Voltage.at(iterator)->GetRMS()/std::sqrt(Signal_Voltage.at(iterator)->GetEntries());  
     }
     delete Signal_Voltage.at(iterator);
