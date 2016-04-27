@@ -187,14 +187,25 @@ void GetAverageSignals(float* SignalAverage, bool GetError, const float* beamint
   for(size_t iterator; iterator < Signal_CollAperture.size();++iterator){
     //If the average signal is desired, get the mean from the signal distributions in the TH1 vector
     if (GetError==false){
-      SignalAverage[iterator] = Signal_CollAperture.at(iterator)->GetMean();  
+      if(*beamintensity_branch >= 1.08 - 0.02 && *beamintensity_branch >= 1.08 + 0.02){
+        //Scale this data set by a voltage normalisation factor that depends on the voltages (800V->900V), factor from voltage normalisation plot & fit
+        SignalAverage[iterator] = std::pow(800/900,6.645)*Signal_CollAperture.at(iterator)->GetMean();  
+      } 
+      else{
+        SignalAverage[iterator] = Signal_CollAperture.at(iterator)->GetMean();  
+      }
       if (SignalAverage[iterator] > HistoMax) HistoMax = SignalAverage[iterator];
       if (SignalAverage[iterator] < HistoMin) HistoMin = SignalAverage[iterator];
     }
     //If the error is desired, get the RMS from the signal distributions in the TH1 vector devided by the square root of entries->standard deviation of the mean
     else{
-      SignalAverage[iterator] = Signal_CollAperture.at(iterator)->GetRMS();  
-      //SignalAverage[iterator] = Signal_CollAperture.at(iterator)->GetRMS()/std::sqrt(Signal_CollAperture.at(iterator)->GetEntries());  
+      if(*beamintensity_branch >= 1.08 - 0.02 && *beamintensity_branch >= 1.08 + 0.02){
+        //Scaling this data set by a voltage normalisation factor goes with a systematic error, factor from voltage normalisation plot & fit error
+        SignalAverage[iterator] = std::sqrt( std::pow(800/900,0.2463*2) + std::pow(Signal_CollAperture.at(iterator)->GetRMS(),2) + std::pow(Signal_CollAperture.at(iterator)->GetMeanError(),2) );  
+      } 
+      else{
+        SignalAverage[iterator] = std::sqrt( std::pow(Signal_CollAperture.at(iterator)->GetRMS(),2) + std::pow(Signal_CollAperture.at(iterator)->GetMeanError(),2) );  
+      }
     }
     delete Signal_CollAperture.at(iterator);
   }
