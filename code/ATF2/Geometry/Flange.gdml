@@ -8,8 +8,10 @@
 
     <define>
     <constant name="world_side" value="300." />
-    <position name="Union_position" x="90." y="0." z="0." unit="mm"/>
-    <position name="center" x="-45." y="0." z="8.75" unit="mm"/>
+    <position name="Union_position" x="34.5" y="0." z="0." unit="mm"/>
+    <position name="cut_circles" x="-23.5" y="0." z="8.75" unit="mm"/>
+    <position name="cut_box" x="0." y="0." z="-8.75" unit="mm"/>
+    <position name="add_window_material" x="-23.5" y="0." z="15." unit="mm"/>
     </define>
 
     <materials>
@@ -40,38 +42,52 @@
     </materials>
 
     <solids>
-        <tube name="Flange" rmin="0." rmax="140." z="35." deltaphi="360" startphi="0" aunit="deg" lunit="mm"/>
-        <tube name="Window" rmin="0." rmax="30." z="17.5" deltaphi="360" startphi="0" aunit="deg" lunit="mm"/>
-        <tube name="Exit_RoundBeamPipe" rmin="0." rmax="30." z="17.5" deltaphi="360" startphi="0" aunit="deg" lunit="mm"/>
+        <tube lunit="mm" name="Flange" rmin="0." rmax="57." z="35." deltaphi="360" startphi="0" aunit="deg" lunit="mm"/>
+        <box lunit="mm" name="Exit_Rectangular_BeamPipe" x="72." y="30." z="17.5"/> <!-- length of magnetic field -->
+        <tube lunit="mm" name="Window" rmin="0." rmax="13.5" z="17.5" deltaphi="360" startphi="0" aunit="deg" lunit="mm"/>
+        <tube lunit="mm" name="Window_Material" rmin="0." rmax="13.5" z="0.5" deltaphi="360" startphi="0" aunit="deg" lunit="mm"/>
+        <tube lunit="mm" name="Exit_RoundBeamPipe" rmin="0." rmax="12." z="17.5" deltaphi="360" startphi="0" aunit="deg" lunit="mm"/>
 
-	<union name="Both_exits">
+	<union name="Both_circular_exits">
           <first ref="Window"/>
           <second ref="Exit_RoundBeamPipe"/>
           <positionref ref="Union_position" /> <!-- Position of the second object wrt the first object -->
         </union> 
 
-	<subtraction name="Flange_with_exits">
+	<subtraction name="Flange_with_circular_exits">
           <first ref="Flange"/>
-          <second ref="Both_exits"/>
-	  <positionref ref="center" />
+          <second ref="Both_circular_exits"/>
+	  <positionref ref="cut_circles" />
         </subtraction> 
 
-        <!-- world volume -->
-        <box lunit="mm" name="WorldBox" x="500." y="500." z="world_side" /> 
+	<subtraction name="Flange_with_exits">
+          <first ref="Flange_with_circular_exits"/>
+          <second ref="Exit_Rectangular_BeamPipe"/>
+	  <positionref ref="cut_box" />
+        </subtraction> 
+
+	<union name="Whole_Flange">
+          <first ref="Flange_with_exits"/>
+          <second ref="Window_Material"/>
+          <positionref ref="add_window_material" /> <!-- Position of the second object wrt the first object -->
+        </union> 
+
+        <!-- world volume: MIGHT HAVE TO BE SLIGHTLY BIGGER DEPENDING ON BDSIM -->
+        <box lunit="mm" name="WorldBox" x="114." y="114." z="35." /> 
     </solids>
 
     <structure>
-        <volume name="Flange_with_exits_vol">
+        <volume name="Whole_Flange_vol">
           <materialref ref="Aluminium" />
-          <solidref ref="Flange_with_exits" />
+          <solidref ref="Whole_Flange" />
         </volume>
 
         <volume name="tracking_volume" > 
             <materialref ref="Air" /> 
             <solidref ref="WorldBox" /> 
             <physvol>
-             <volumeref ref="Flange_with_exits_vol" />
-             <position name="Flange_vol_position" x="0." y="0." z="0." />
+             <volumeref ref="Whole_Flange_vol" />
+             <position name="Whole_Flange_vol_position" x="0." y="0." z="0." />
             </physvol>
 	</volume> 
     </structure>
