@@ -1,0 +1,38 @@
+$ACCELERATOR:: ILCUPGRADE-1TeV_A1
+{energy=500.0;particles=1.74;beta_x=22.6;beta_y=0.25;emitt_x=10.0;emitt_y=0.030;
+sigma_z=250.0;f_rep=4.0;n_b=2450;charge_sign=-1;scale_step=1.0;waist_y=190;espread.1=0.00083;espread.2=0.00043;}
+$ACCELERATOR:: ILCUPGRADE-1TeV_B1b
+{energy=500.0;particles=1.74;beta_x=11.0;beta_y=0.23;emitt_x=10.0;emitt_y=0.030;
+sigma_z=225.0;f_rep=4.0;n_b=2450;charge_sign=-1;scale_step=1.0;waist_y=190;espread.1=0.00085;espread.2=0.00047;}
+$ACCELERATOR:: ILCUPGRADE-500GeV
+{energy=250.0;particles=2.0;beta_x=11.0;beta_y=0.48;emitt_x=10.0;emitt_y=0.035;
+sigma_z=300.0;f_rep=5.0;n_b=2625;charge_sign=-1;scale_step=1.0;waist_y=250;espread.1=0.00124;espread.2=0.0007;which_espread=3;}
+$ACCELERATOR:: ILC-500GeV
+{energy=250.0;particles=2.0;
+beta_x=11.0;beta_y=0.48;emitt_x=10.0;emitt_y=0.035;sigma_z=300.0;
+f_rep=5.0;n_b=1312;charge_sign=-1;scale_step=1.0;waist_y=250;
+espread.1=0.00124;espread.2=0.0007;which_espread=3;}
+$ACCELERATOR:: ILC-350GeV
+{energy=175.0;particles=2.0;beta_x=16.0;beta_y=0.34;emitt_x=10.0;emitt_y=0.035;
+sigma_z=300.0;f_rep=5.0;n_b=1312;charge_sign=-1;scale_step=1.0;waist_y=250;espread.1=0.00158;espread.2=0.001;}
+$ACCELERATOR:: ILC-250GeV
+{energy=125.0;particles=2.0;beta_x=13.0;beta_y=0.41;emitt_x=10.0;emitt_y=0.035;
+sigma_z=300.0;f_rep=5.0;n_b=1312;charge_sign=-1;scale_step=1.0;waist_y=250;espread.1=0.0019;espread.2=0.00152;}
+$ACCELERATOR:: ILC-230GeV
+{energy=115.0;particles=2.0;beta_x=14.0;beta_y=0.38;emitt_x=10.0;emitt_y=0.035;
+sigma_z=300.0;f_rep=5.0;n_b=1312;charge_sign=-1;scale_step=1.0;waist_y=250;espread.1=0.00194;espread.2=0.00165;}
+$ACCELERATOR:: ILC-200GeV
+{energy=100.0;particles=2.0;beta_x=16.0;beta_y=0.34;emitt_x=10.0;emitt_y=0.035;
+sigma_z=300.0;f_rep=5.0;n_b=1312;charge_sign=-1;scale_step=1.0;waist_y=250;espread.1=0.00206;espread.2=0.0019;}
+
+$PARAMETERS:: par_pairs
+{n_z=12;n_t=6;n_m=80000;n_x=256;n_y=256;
+cut_z=3.5*sigma_z.1;cut_x=4*sigma_x.1;cut_y=4*sigma_y.1;
+pair_ecut=1e-3;pair_q2=2;do_pairs=1;track_pairs=1;store_pairs=1;
+beam_size=1;grids=7;store_beam=1;
+do_hadrons=1;do_jets=1;do_coherent=0;
+do_photons=1;store_photons=1;
+do_eloss=1;do_espread=1;
+electron_ratio=1;photon_ratio=1;
+rndm_save=1;rndm_load=1;
+}
