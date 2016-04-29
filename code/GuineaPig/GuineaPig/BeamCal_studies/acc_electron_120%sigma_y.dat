@@ -1,0 +1,18 @@
+$ACCELERATOR:: ILC-500GeV
+{energy=250.0;particles=2.0;
+beta_x.1=11.0;beta_y.1=0.6912;emitt_x.1=10.0;emitt_y.1=0.035;sigma_z.1=300.0;
+beta_x.2=11.0;beta_y.2=0.48;emitt_x.2=10.0;emitt_y.2=0.035;sigma_z.2=300.0;
+f_rep=5.0;n_b=1312;charge_sign=-1;scale_step=1.0;waist_y=250;
+espread.1=0.00124;espread.2=0.0007;which_espread=3;}
+
+$PARAMETERS:: par_pairs
+{n_z=12;n_t=6;n_m=80000;n_x=256;n_y=256;
+cut_z=3.5*sigma_z.1;cut_x=4*sigma_x.1;cut_y=4*sigma_y.1;
+pair_ecut=1e-3;pair_q2=2;do_pairs=1;track_pairs=1;store_pairs=1;
+beam_size=1;grids=7;store_beam=1;
+do_hadrons=0;do_jets=0;do_coherent=0;
+do_photons=1;store_photons=1;
+do_eloss=1;do_espread=1;
+electron_ratio=1;photon_ratio=1;
+rndm_save=1;rndm_load=1;
+}
