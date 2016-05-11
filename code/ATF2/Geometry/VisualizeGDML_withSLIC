@@ -1,0 +1,1 @@
+slic -g Test.gdml -n -m vis.mac
