@@ -5,15 +5,17 @@
  }
 \begin{frame}{FLUKA simulation of the ILC Beam Dump}
 \flukalogo
-The beam is dumped into a water tank after collision.\\Neutrons are emitted that radiate the surroundings, and fly back towards the detectors.
+The beam is dumped into a water tank after collision.\\Neutrons ($\lesssim$\SI{e10}{\per\square\centi\metre\per\year}) are emitted that radiate the surroundings, and travel back towards the detectors.\\
+\vspace*{0.1cm}
+Redoing the simulation studies that were done in 2007 (design was not decided yet).
 \begin{block}{Simulation step 1}
 Simulating the neutrons from the beam dump with FLUKA, using the design drawings by B. Smith~\cite{Smith} to model the dump and the surrounding.
 \end{block}
 
 \begin{center}
-\includegraphics[height=0.5\textheight]{figures/Front_view_BeamDump_Tomb.png}
+\includegraphics[height=0.35\textheight]{figures/Front_view_BeamDump_Tomb.png}
 \hspace*{0.2cm}
-\includegraphics[height=0.5\textheight]{figures/Bird_view_BeamDump_Tomb.png}
+\includegraphics[height=0.35\textheight]{figures/Bird_view_BeamDump_Tomb.png}
 \end{center}
 \end{frame}
 
@@ -34,7 +36,19 @@ Simulating the neutrons reaching the interaction point in a full detector simula
 \end{block}
 \end{column}
 \end{columns}
-\vspace*{0.3cm}
+\end{frame}
+
+\begin{frame}
+ \flukalogo
+ All goals of this study in an overview:
+\begin{itemize}
+ \item Simulating the neutron flux,
+ \item the number of neutrons reaching the IP,
+ \item the dosis of the surrounding,
+ \item the influence of the water composition (amount of Deuterium),
+ \item the effect of the beam dump design.
+\end{itemize}
+\vspace*{0.6cm}
 \rule{12cm}{.1pt}
 \begin{thebibliography}{9}
 \setbeamertemplate{bibliography item}[text]
