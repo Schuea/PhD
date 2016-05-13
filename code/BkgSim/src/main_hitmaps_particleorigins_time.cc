@@ -10,6 +10,7 @@
 #include <iostream>
 #include <limits>
 #include <string>
+#include <sstream>
 #include <vector>
 
 #include "ConfigReaderAnalysis.h"
@@ -103,14 +104,14 @@ int main(int const argc, char const * const * const argv) {
 	std::vector<float> range_array;
 
 	range_array = SubDetectors->at(0)->GetROOTHisto_binning3D(); //SOMETHING HARD CODED!!
-	float rmax = sqrt(pow(range_array[5], 2) + pow(range_array[8], 2));
+	float rmax = 1.5*sqrt(pow(range_array[5], 2) + pow(range_array[8], 2));//Make the plot a big bigger than the data
 	float rmin = 0.;
 	float rrange = rmax - rmin;
 	float zmax = 3500;
 	//float zmax = range_array[2];
 	float zmin = -zmax;
 	float zrange = rmax - zmin;
-	std::array<float, 6> axis_vector = { float(zrange / 8.0), zmin, zmax, float(rrange / 20.0), rmin, rmax};
+	std::array<float, 6> axis_vector = { float(zrange / 8.0), zmin, zmax, float(rrange / 10.0), rmin, rmax};
 
 	//Make histogram for storing the information
 	std::string const title1 = "Time < 10ns, Hit maps of particle origins for those particles hitting subdetector "
@@ -126,28 +127,56 @@ int main(int const argc, char const * const * const argv) {
 	TH2D* histo3 = new TH2D("histo3", title3.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 			axis_vector[4], axis_vector[5]);
 
+	std::stringstream subdetector_names;
+
 	for (size_t subdetector_iterator = 0; subdetector_iterator < SubDetectors->size(); ++subdetector_iterator) {
+	  subdetector_names << SubDetectors->at(subdetector_iterator)->GetName();
 
 		for (int file_iterator = 0; file_iterator < NUMBER_OF_FILES; ++file_iterator) {
 			TFile *file = TFile::Open(inputfilenames->at(file_iterator).c_str());
 			TTree *tree = Get_TTree(file, SubDetectors->at(subdetector_iterator)->GetName());
 
 			//Set the branches
-			tree->SetBranchStatus("*", 0);
-			tree->SetBranchStatus("HitContrTime", 1);
-			tree->SetBranchStatus("HitMotherVertex_x", 1);
-			tree->SetBranchStatus("HitMotherVertex_y", 1);
-			tree->SetBranchStatus("HitMotherVertex_z", 1);
-
 			float actualtime = 0.0;
 			double vertex_x = 0.0;
 			double vertex_y = 0.0;
 			double vertex_z = 0.0;
-
-			tree->SetBranchAddress("HitContrTime", &actualtime);
-			tree->SetBranchAddress("HitMotherVertex_x", &vertex_x);
-			tree->SetBranchAddress("HitMotherVertex_y", &vertex_y);
-			tree->SetBranchAddress("HitMotherVertex_z", &vertex_z);
+			tree->SetBranchStatus("*", 0);
+			
+			if (tree->GetName() == std::string("Tree_EcalBarrel") 
+											|| tree->GetName() == std::string("Tree_EcalEndcap")
+											|| tree->GetName() == std::string("Tree_HcalBarrel") 
+											|| tree->GetName() == std::string("Tree_HcalEndcap")
+											|| tree->GetName() == std::string("Tree_MuonBarrel") 
+											|| tree->GetName() == std::string("Tree_MuonEndcap")
+											|| tree->GetName() == std::string("Tree_BeamCal") 
+											|| tree->GetName() == std::string("Tree_LumiCal")) {
+							tree->SetBranchStatus("HitContrTime", 1);
+							tree->SetBranchStatus("HitMotherVertex_x", 1);
+							tree->SetBranchStatus("HitMotherVertex_y", 1);
+							tree->SetBranchStatus("HitMotherVertex_z", 1);
+							tree->SetBranchAddress("HitContrTime", &actualtime);
+							tree->SetBranchAddress("HitMotherVertex_x", &vertex_x);
+							tree->SetBranchAddress("HitMotherVertex_y", &vertex_y);
+							tree->SetBranchAddress("HitMotherVertex_z", &vertex_z);
+			}
+			else if (tree->GetName() == std::string("Tree_SiVertexBarrel")
+											|| tree->GetName() == std::string("Tree_SiVertexEndcap")
+											|| tree->GetName() == std::string("Tree_SiTrackerBarrel")
+											|| tree->GetName() == std::string("Tree_SiTrackerEndcap")
+											|| tree->GetName() == std::string("Tree_SiTrackerForward")) {
+							tree->SetBranchStatus("HitTime", 1);
+							tree->SetBranchStatus("HitParticleVertex_x", 1);
+							tree->SetBranchStatus("HitParticleVertex_y", 1);
+							tree->SetBranchStatus("HitParticleVertex_z", 1);
+							tree->SetBranchAddress("HitTime", &actualtime);
+							tree->SetBranchAddress("HitParticleVertex_x", &vertex_x);
+							tree->SetBranchAddress("HitParticleVertex_y", &vertex_y);
+							tree->SetBranchAddress("HitParticleVertex_z", &vertex_z);
+			} else {
+							std::cerr << "The given TTree name does not match any TTree in the inputfile!" << std::endl;
+							std::terminate();
+			}
 
 			std::array<double, 3> vertex;
 			std::pair<int, int> Number_train_bunch = Set_train_bunch_number(file_iterator);
@@ -176,6 +205,7 @@ int main(int const argc, char const * const * const argv) {
 	TCanvas *canvas3 = new TCanvas("canvas3", "canvas", 800, 600);
 
 	canvas1->cd();
+	canvas1->SetLogz();
 	histo1->Draw("colz");
 	canvas1->Update();
 	TPaveStats *st1 = (TPaveStats*)histo1->GetListOfFunctions()->FindObject("stats");
@@ -184,10 +214,12 @@ int main(int const argc, char const * const * const argv) {
 	st1->SetY1NDC(0.6); //new x start position
 	st1->SetY2NDC(0.9); //new x end position
 
-	canvas1->Print("output/hitmaps_particleorigins_time1.pdf");
-	canvas1->Print("output/hitmaps_particleorigins_time1.cxx");
+
+	canvas1->Print(("output/hitmaps_particleorigins_time1_"+subdetector_names.str()+".pdf").c_str());
+	canvas1->Print(("output/hitmaps_particleorigins_time1_"+subdetector_names.str()+".cxx").c_str());
 
 	canvas2->cd();
+	canvas2->SetLogz();
 	histo2->Draw("colz");
 	canvas2->Update();
 	TPaveStats *st2 = (TPaveStats*)histo2->GetListOfFunctions()->FindObject("stats");
@@ -196,10 +228,11 @@ int main(int const argc, char const * const * const argv) {
 	st2->SetY1NDC(0.6); //new x start position
 	st2->SetY2NDC(0.9); //new x end position
 
-	canvas2->Print("output/hitmaps_particleorigins_time2.pdf");
-	canvas2->Print("output/hitmaps_particleorigins_time2.cxx");
+	canvas2->Print(("output/hitmaps_particleorigins_time2_"+subdetector_names.str()+".pdf").c_str());
+	canvas2->Print(("output/hitmaps_particleorigins_time2_"+subdetector_names.str()+".cxx").c_str());
 
 	canvas3->cd();
+	canvas3->SetLogz();
 	histo3->Draw("colz");
 	canvas3->Update();
 	TPaveStats *st3 = (TPaveStats*)histo3->GetListOfFunctions()->FindObject("stats");
@@ -208,8 +241,8 @@ int main(int const argc, char const * const * const argv) {
 	st3->SetY1NDC(0.6); //new x start position
 	st3->SetY2NDC(0.9); //new x end position
 
-	canvas3->Print("output/hitmaps_particleorigins_time3.pdf");
-	canvas3->Print("output/hitmaps_particleorigins_time3.cxx");
+	canvas3->Print(("output/hitmaps_particleorigins_time3_"+subdetector_names.str()+".pdf").c_str());
+	canvas3->Print(("output/hitmaps_particleorigins_time3_"+subdetector_names.str()+".cxx").c_str());
 
 	return 0;
 }
