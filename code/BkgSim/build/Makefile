@@ -10,7 +10,7 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include -g -Wall -Wextra -pthread -O2 -std=c++
 CXXFLAGS +=  $(shell root-config --glibs)
 
 # Executables produced by this Makefile
-RUN = ../OccupancyPlotter ../FullBufferMapsPlotter ../FullBufferHistoPlotter ../ParticleOriginsTimePlotter
+RUN = ../OccupancyPlotter ../FullBufferMapsPlotter ../FullBufferHistoPlotter ../ParticleOriginsTimePlotter ../HittimePlotter
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
@@ -21,6 +21,7 @@ MAIN_OCCUPANCY = ../objects/main_occupancy.o
 MAIN_HITMAPSFULLBUFFER = ../objects/main_hitmaps_fullbuffers.o
 MAIN_DEADCELLS_LAYER = ../objects/main_histo_deadcells_perlayer_fullbuffers.o
 MAIN_HITMAPSORIGINSTIME = ../objects/main_hitmaps_particleorigins_time.o
+MAIN_HITTIME = ../objects/main_hittime_distribution.o
 CONFIG = ../objects/ConfigReader.o ../objects/ConfigReaderAnalysis.o
 USEFUL = ../objects/UsefulFunctions.o
 STYLE = ../objects/Style.o
@@ -97,6 +98,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 ../ParticleOriginsTimePlotter : $(MAIN_HITMAPSORIGINSTIME) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
+../HittimePlotter : $(MAIN_HITTIME) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
 ../objects/ConfigReader.o : ../src/ConfigReader.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
@@ -113,6 +117,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_hitmaps_particleorigins_time.o : ../src/main_hitmaps_particleorigins_time.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/main_hittime_distribution.o : ../src/main_hittime_distribution.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/UsefulFunctions.o : ../../General/src/UsefulFunctions.cc
