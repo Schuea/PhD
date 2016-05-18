@@ -108,11 +108,12 @@ int main(int const argc, char const * const * const argv) {
 	//Make histogram for storing the information
 	//std::vector< TH2D* > Hits_Time_rtime_2D_;
 	range_array = SubDetectors->at(0)->GetROOTHisto_binning3D(); //SOMETHING HARD CODED!!
-	std::array<float, 6> axis_vector = { float(zrange / 8.0), zmin, zmax, float(rrange / 10.0), rmin, rmax};
+	std::array<float, 3> axis_vector = { float(rrange / 10.0), 0, rmax};
 	std::string const histo_name = "HitsTime_rtime_" + subdetectornames + "_Layer_" + layer;
 	std::string const histo_title = "Radial position of hits over hit time for " + subdetectornames + ";Hit time [ns];r [mm]";
-	TH2D* Hits_Time_rtime_ = new TH2D(histo_name.c_str(), histo_title.c_str(), axis_range_plot.at(0), axis_range_plot.at(1),
-									axis_range_plot.at(2), axis_range_plot.at(3), axis_range_plot.at(4), axis_range_plot.at(5)));
+	TH2D* Hits_Time_rtime_ = new TH2D(histo_name.c_str(), histo_title.c_str(), 
+									500, 0,time_interval_bunchspacing, 
+									axis_vector.at(0), axis_vector.at(1), axis_vector.at(2));
 
 	for (size_t subdetector_iterator = 0; subdetector_iterator < SubDetectors->size(); ++subdetector_iterator) {
 	  subdetector_names << SubDetectors->at(subdetector_iterator)->GetName();
