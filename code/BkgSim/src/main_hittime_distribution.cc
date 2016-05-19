@@ -103,31 +103,44 @@ int main(int const argc, char const * const * const argv) {
 	std::string subdetectornames = (*subdetector_name);
 	std::vector<float> range_array;
 
-	float time_interval_bunchspacing = NUMBER_OF_FILES * 554.0; //ns (one bunch spacing is 554 ns)
-
 	//Make histogram for storing the information
 	//std::vector< TH2D* > Hits_Time_rtime_2D_;
 	range_array = SubDetectors->at(0)->GetROOTHisto_binning3D(); //SOMETHING HARD CODED!!
-	std::array<float, 3> axis_vector = { float(rrange / 10.0), 0, rmax};
-	std::string const histo_name = "HitsTime_rtime_" + subdetectornames + "_Layer_" + layer;
+	float rmax = 0.7*sqrt(pow(range_array[5], 2) + pow(range_array[8], 2));//Make the plot a big smaller than the actual measurement of the subdetector
+	float rmin = 0.;
+	float rrange = rmax - rmin;
+	float timemax = 0.0; //ns (one bunch spacing is 554 ns)
+	if(NUMBER_OF_FILES>1) timemax = NUMBER_OF_FILES * 600.0; //ns (one bunch spacing is 554 ns)
+	else timemax = 70.0; //ns (one bunch spacing is 554 ns)
+	float timemin = 0.;
+	float timerange = timemax - timemin;
+	std::array<float, 6> axis_vector = { float(timerange / 10.0), timemin, timemax, float(rrange / 10.0), rmin, rmax };
+
 	std::string const histo_title = "Radial position of hits over hit time for " + subdetectornames + ";Hit time [ns];r [mm]";
-	TH2D* Hits_Time_rtime_ = new TH2D(histo_name.c_str(), histo_title.c_str(), 
-									500, 0,time_interval_bunchspacing, 
-									axis_vector.at(0), axis_vector.at(1), axis_vector.at(2));
+	std::vector<TH2D*> Hits_Time_rtime_;
 
 	for (size_t subdetector_iterator = 0; subdetector_iterator < SubDetectors->size(); ++subdetector_iterator) {
-	  subdetector_names << SubDetectors->at(subdetector_iterator)->GetName();
+		Time PassedTime;
 
 		for (int file_iterator = 0; file_iterator < NUMBER_OF_FILES; ++file_iterator) {
+			std::stringstream histoname;
+			histoname << "HitTime_" << subdetectornames << "_bunch#" << file_iterator+1;
+			std::string histo_name = histoname.str();
+			Hits_Time_rtime_.emplace_back(new TH2D(histo_name.c_str(), histo_title.c_str(), 
+									axis_vector.at(0), axis_vector.at(1), axis_vector.at(2),
+									axis_vector.at(3), axis_vector.at(4), axis_vector.at(5)));
 			TFile *file = TFile::Open(inputfilenames->at(file_iterator).c_str());
 			TTree *tree = Get_TTree(file, SubDetectors->at(subdetector_iterator)->GetName());
 
 			//Set the branches
 			float actualtime = 0.0;
-			double vertex_x = 0.0;
-			double vertex_y = 0.0;
-			double vertex_z = 0.0;
+			float x_cal = 0.0;
+			float y_cal = 0.0;
+			double x_tracker = 0.0;
+			double y_tracker = 0.0;
 			tree->SetBranchStatus("*", 0);
+			tree->SetBranchStatus("HitPosition_x", kTRUE); 
+			tree->SetBranchStatus("HitPosition_y", kTRUE);
 			
 			if (tree->GetName() == std::string("Tree_EcalBarrel") 
 											|| tree->GetName() == std::string("Tree_EcalEndcap")
@@ -138,13 +151,9 @@ int main(int const argc, char const * const * const argv) {
 											|| tree->GetName() == std::string("Tree_BeamCal") 
 											|| tree->GetName() == std::string("Tree_LumiCal")) {
 							tree->SetBranchStatus("HitContrTime", 1);
-							tree->SetBranchStatus("HitMotherVertex_x", 1);
-							tree->SetBranchStatus("HitMotherVertex_y", 1);
-							tree->SetBranchStatus("HitMotherVertex_z", 1);
 							tree->SetBranchAddress("HitContrTime", &actualtime);
-							tree->SetBranchAddress("HitMotherVertex_x", &vertex_x);
-							tree->SetBranchAddress("HitMotherVertex_y", &vertex_y);
-							tree->SetBranchAddress("HitMotherVertex_z", &vertex_z);
+							tree->SetBranchAddress("HitPosition_x", &x_cal);
+							tree->SetBranchAddress("HitPosition_y", &y_cal);
 			}
 			else if (tree->GetName() == std::string("Tree_SiVertexBarrel")
 											|| tree->GetName() == std::string("Tree_SiVertexEndcap")
@@ -152,83 +161,94 @@ int main(int const argc, char const * const * const argv) {
 											|| tree->GetName() == std::string("Tree_SiTrackerEndcap")
 											|| tree->GetName() == std::string("Tree_SiTrackerForward")) {
 							tree->SetBranchStatus("HitTime", 1);
-							tree->SetBranchStatus("HitParticleVertex_x", 1);
-							tree->SetBranchStatus("HitParticleVertex_y", 1);
-							tree->SetBranchStatus("HitParticleVertex_z", 1);
 							tree->SetBranchAddress("HitTime", &actualtime);
-							tree->SetBranchAddress("HitParticleVertex_x", &vertex_x);
-							tree->SetBranchAddress("HitParticleVertex_y", &vertex_y);
-							tree->SetBranchAddress("HitParticleVertex_z", &vertex_z);
+							tree->SetBranchAddress("HitPosition_x", &x_tracker);
+							tree->SetBranchAddress("HitPosition_y", &y_tracker);
 			} else {
 							std::cerr << "The given TTree name does not match any TTree in the inputfile!" << std::endl;
 							std::terminate();
 			}
+			float x = 0.0;
+			float y = 0.0;
 
-			std::array<double, 3> vertex;
+			//Figure out which bunch in which train we are, in order to calculate the time that's already passed:
 			std::pair<int, int> Number_train_bunch = Set_train_bunch_number(file_iterator);
+			PassedTime.Calculate_passedbytime(Number_train_bunch.first, Number_train_bunch.second);//first: number of train, second: number of bunch
+  		float absolutetime = 0.0;
+
+			//Have the markers for different bunches coloured differently
+			Hits_Time_rtime_.at(file_iterator)->SetMarkerColor(Number_train_bunch.second);
 
 			//Now we loop through the tree
-			//Combine the two Cell ID's into a single new Cell ID
-			//See how often the new Cell ID occurs in total, this is the occupancy
 
 			long long int const entries = tree->GetEntries();
 			for (long long int i = 0; i < entries; ++i) {
 				tree->GetEntry(i);
-				vertex = { vertex_x, vertex_y, vertex_z };
-				if (actualtime < 10.0) histo1->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
-				else if (actualtime >= 10.0 && actualtime < 20.0) histo2->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
-				else if (actualtime >= 20.0 && actualtime < 50.0) histo3->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
+				if (tree->GetName() == std::string("Tree_EcalBarrel") 
+											|| tree->GetName() == std::string("Tree_EcalEndcap")
+											|| tree->GetName() == std::string("Tree_HcalBarrel") 
+											|| tree->GetName() == std::string("Tree_HcalEndcap")
+											|| tree->GetName() == std::string("Tree_MuonBarrel") 
+											|| tree->GetName() == std::string("Tree_MuonEndcap")
+											|| tree->GetName() == std::string("Tree_BeamCal") 
+											|| tree->GetName() == std::string("Tree_LumiCal")) {
+								x = x_cal;
+								y = y_cal;
+			}
+			else if (tree->GetName() == std::string("Tree_SiVertexBarrel")
+											|| tree->GetName() == std::string("Tree_SiVertexEndcap")
+											|| tree->GetName() == std::string("Tree_SiTrackerBarrel")
+											|| tree->GetName() == std::string("Tree_SiTrackerEndcap")
+											|| tree->GetName() == std::string("Tree_SiTrackerForward")) {
+								x = x_tracker;
+								y = y_tracker;
+			} else {
+							std::cerr << "The given TTree name does not match any TTree in the inputfile!" << std::endl;
+							std::terminate();
+			}
+			//absolute time = time in respect to the current bunch interaction + time passed by since first bunch interaction
+			  absolutetime = actualtime + PassedTime.Get_passedbytime();
+				Hits_Time_rtime_.at(file_iterator)->Fill(absolutetime, sqrt(pow(x, 2) + pow(y, 2)));
 			}
 			file->Close();
 		}
 	}
-	gStyle->SetOptStat(111111);
+	gStyle->SetOptStat(11);
 
 	//Plot the histogram and save it
 	
 	TCanvas *canvas1 = new TCanvas("canvas1", "canvas", 800, 600);
-	TCanvas *canvas2 = new TCanvas("canvas2", "canvas", 800, 600);
-	TCanvas *canvas3 = new TCanvas("canvas3", "canvas", 800, 600);
 
 	canvas1->cd();
-	canvas1->SetLogz();
-	histo1->Draw("colz");
+	//canvas1->SetLogz();
+	//histo1->Draw("colz");
+	Hits_Time_rtime_.at(0)->Draw();
 	canvas1->Update();
-	TPaveStats *st1 = (TPaveStats*)histo1->GetListOfFunctions()->FindObject("stats");
-	st1->SetX1NDC(0.65); //new x start position
-	st1->SetX2NDC(0.85); //new x end position
-	st1->SetY1NDC(0.6); //new x start position
-	st1->SetY2NDC(0.9); //new x end position
+	std::vector<TPaveStats*> st_vec;
+	st_vec.push_back(new TPaveStats());
+	st_vec.at(0) = (TPaveStats*)Hits_Time_rtime_.at(0)->GetListOfFunctions()->FindObject("stats");
+	st_vec.at(0)->SetLineColor(0+1);
+	st_vec.at(0)->SetX1NDC(0.65); //new x start position
+	st_vec.at(0)->SetX2NDC(0.85); //new x end position
+	st_vec.at(0)->SetY1NDC(0.83); //new x start position
+	st_vec.at(0)->SetY2NDC(0.9); //new x end position
+	float boxsize = st_vec.at(0)->GetY2NDC()-st_vec.at(0)->GetY1NDC();
+
+	for (int file_iterator = 1; file_iterator < NUMBER_OF_FILES; ++file_iterator) {
+		Hits_Time_rtime_.at(file_iterator)->Draw("SAMES");
+		canvas1->Update();
+		st_vec.push_back(new TPaveStats());
+		st_vec.at(file_iterator)= (TPaveStats*)Hits_Time_rtime_.at(file_iterator)->GetListOfFunctions()->FindObject("stats");
+		st_vec.at(file_iterator)->SetLineColor(file_iterator+1);
+		st_vec.at(file_iterator)->SetX1NDC(0.65); //new x start position
+		st_vec.at(file_iterator)->SetX2NDC(0.85); //new x end position
+		st_vec.at(file_iterator)->SetY2NDC(st_vec.at(file_iterator-1)->GetY1NDC()); //new x end position
+		st_vec.at(file_iterator)->SetY1NDC(st_vec.at(file_iterator)->GetY2NDC()-boxsize); //new x start position
+	}
 
 
-	canvas1->Print(("output/hitmaps_particleorigins_time1_"+subdetectornames.str()+".pdf").c_str());
-	canvas1->Print(("output/hitmaps_particleorigins_time1_"+subdetectornames.str()+".cxx").c_str());
-
-	canvas2->cd();
-	canvas2->SetLogz();
-	histo2->Draw("colz");
-	canvas2->Update();
-	TPaveStats *st2 = (TPaveStats*)histo2->GetListOfFunctions()->FindObject("stats");
-	st2->SetX1NDC(0.65); //new x start position
-	st2->SetX2NDC(0.85); //new x end position
-	st2->SetY1NDC(0.6); //new x start position
-	st2->SetY2NDC(0.9); //new x end position
-
-	canvas2->Print(("output/hitmaps_particleorigins_time2_"+subdetectornames.str()+".pdf").c_str());
-	canvas2->Print(("output/hitmaps_particleorigins_time2_"+subdetectornames.str()+".cxx").c_str());
-
-	canvas3->cd();
-	canvas3->SetLogz();
-	histo3->Draw("colz");
-	canvas3->Update();
-	TPaveStats *st3 = (TPaveStats*)histo3->GetListOfFunctions()->FindObject("stats");
-	st3->SetX1NDC(0.65); //new x start position
-	st3->SetX2NDC(0.85); //new x end position
-	st3->SetY1NDC(0.6); //new x start position
-	st3->SetY2NDC(0.9); //new x end position
-
-	canvas3->Print(("output/hitmaps_particleorigins_time3_"+subdetectornames.str()+".pdf").c_str());
-	canvas3->Print(("output/hitmaps_particleorigins_time3_"+subdetectornames.str()+".cxx").c_str());
+	canvas1->Print(("output/hittime_"+subdetectornames+".pdf").c_str());
+	canvas1->Print(("output/hittime_"+subdetectornames+".cxx").c_str());
 
 	return 0;
 }
