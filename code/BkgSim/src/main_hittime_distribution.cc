@@ -114,7 +114,7 @@ int main(int const argc, char const * const * const argv) {
 	else timemax = 70.0; //ns (one bunch spacing is 554 ns)
 	float timemin = 0.;
 	float timerange = timemax - timemin;
-	std::array<float, 6> axis_vector = { float(timerange / 10.0), timemin, timemax, float(rrange / 10.0), rmin, rmax };
+	std::array<float, 6> axis_vector = { timerange, timemin, timemax, rrange, rmin, rmax };
 
 	std::string const histo_title = "Radial position of hits over hit time for " + subdetectornames + ";Hit time [ns];r [mm]";
 	std::vector<TH2D*> Hits_Time_rtime_;
@@ -222,7 +222,8 @@ int main(int const argc, char const * const * const argv) {
 	canvas1->cd();
 	//canvas1->SetLogz();
 	//histo1->Draw("colz");
-	Hits_Time_rtime_.at(0)->Draw();
+	if(NUMBER_OF_FILES == 1) Hits_Time_rtime_.at(0)->Draw("colz");
+  else	Hits_Time_rtime_.at(0)->Draw();
 	canvas1->Update();
 	std::vector<TPaveStats*> st_vec;
 	st_vec.push_back(new TPaveStats());
