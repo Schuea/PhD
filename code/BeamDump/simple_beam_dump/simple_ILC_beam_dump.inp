@@ -121,6 +121,9 @@ ASSIGNMA    Stainles      Tank      Tank                 0.0
 ASSIGNMA    Stainles  BeamPipe  BeamPipe                 0.0
 ASSIGNMA    TITANIUM    Window    Window                 0.0
 ASSIGNMA      VACUUM   PipeVac   PipeVac                 0.0
+PHOTONUC          1.                                                1.
+LAM-BIAS         0.0      0.02     WATER   NEUTRON                    INEPRI
+USRBDX            1.   NEUTRON             PipeVac   BLKBODY
 !@what.4=3000.0*mm
 !@what.5=2000.0*mm
 !@what.6=4000.0*mm
