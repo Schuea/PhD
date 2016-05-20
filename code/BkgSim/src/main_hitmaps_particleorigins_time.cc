@@ -122,9 +122,13 @@ int main(int const argc, char const * const * const argv) {
 			+ subdetectornames + ";z [mm];r [mm];# of origins";
 	TH2D* histo2 = new TH2D("histo2", title2.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 			axis_vector[4], axis_vector[5]);
-	std::string const title3 = "20ns <= Time < 50ns, Hit maps of particle origins for those particles hitting subdetector "
+	std::string const title3 = "20ns <= Time < 30ns, Hit maps of particle origins for those particles hitting subdetector "
 			+ subdetectornames + ";z [mm];r [mm];# of origins";
 	TH2D* histo3 = new TH2D("histo3", title3.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
+			axis_vector[4], axis_vector[5]);
+	std::string const title4 = "30ns <= Time < 50ns, Hit maps of particle origins for those particles hitting subdetector "
+			+ subdetectornames + ";z [mm];r [mm];# of origins";
+	TH2D* histo4 = new TH2D("histo4", title4.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 			axis_vector[4], axis_vector[5]);
 
 	std::stringstream subdetector_names;
@@ -191,7 +195,8 @@ int main(int const argc, char const * const * const argv) {
 				vertex = { vertex_x, vertex_y, vertex_z };
 				if (actualtime < 10.0) histo1->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
 				else if (actualtime >= 10.0 && actualtime < 20.0) histo2->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
-				else if (actualtime >= 20.0 && actualtime < 50.0) histo3->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
+				else if (actualtime >= 20.0 && actualtime < 30.0) histo3->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
+				else if (actualtime >= 30.0 && actualtime < 50.0) histo4->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
 			}
 			file->Close();
 		}
@@ -203,6 +208,7 @@ int main(int const argc, char const * const * const argv) {
 	TCanvas *canvas1 = new TCanvas("canvas1", "canvas", 800, 600);
 	TCanvas *canvas2 = new TCanvas("canvas2", "canvas", 800, 600);
 	TCanvas *canvas3 = new TCanvas("canvas3", "canvas", 800, 600);
+	TCanvas *canvas4 = new TCanvas("canvas4", "canvas", 800, 600);
 
 	canvas1->cd();
 	canvas1->SetLogz();
@@ -243,6 +249,20 @@ int main(int const argc, char const * const * const argv) {
 
 	canvas3->Print(("output/hitmaps_particleorigins_time3_"+subdetector_names.str()+".pdf").c_str());
 	canvas3->Print(("output/hitmaps_particleorigins_time3_"+subdetector_names.str()+".cxx").c_str());
+
+	canvas4->cd();
+	canvas4->SetLogz();
+	histo4->Draw("colz");
+	canvas4->Update();
+	TPaveStats *st4 = (TPaveStats*)histo4->GetListOfFunctions()->FindObject("stats");
+	st4->SetX1NDC(0.65); //new x start position
+	st4->SetX2NDC(0.85); //new x end position
+	st4->SetY1NDC(0.6); //new x start position
+	st4->SetY2NDC(0.9); //new x end position
+
+	canvas4->Print(("output/hitmaps_particleorigins_time4_"+subdetector_names.str()+".pdf").c_str());
+	canvas4->Print(("output/hitmaps_particleorigins_time4_"+subdetector_names.str()+".cxx").c_str());
+
 
 	return 0;
 }
