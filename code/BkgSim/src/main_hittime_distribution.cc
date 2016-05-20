@@ -114,7 +114,7 @@ int main(int const argc, char const * const * const argv) {
 	else timemax = 70.0; //ns (one bunch spacing is 554 ns)
 	float timemin = 0.;
 	float timerange = timemax - timemin;
-	std::array<float, 6> axis_vector = { timerange, timemin, timemax, rrange, rmin, rmax };
+	std::array<float, 6> axis_vector = { int(timerange), timemin, timemax, int(rrange), rmin, rmax };
 
 	std::string const histo_title = "Radial position of hits over hit time for " + subdetectornames + ";Hit time [ns];r [mm]";
 	std::vector<TH2D*> Hits_Time_rtime_;
