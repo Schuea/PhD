@@ -12,9 +12,9 @@
 #include <iostream>
 #include <sstream>
 
-int const n = 17; //Number of apertures that were recorded
+int const n = 14; //Number of apertures that were recorded
 float HistoMax = 0.0; //To find the maximum entry to the histogram, so that the y-axis can be scaled appropriately.
-float HistoMin = 1000000.0; //To find the minimum entry to the histogram, so that the y-axis can be scaled appropriately.
+float HistoMin = 10000000.0; //To find the minimum entry to the histogram, so that the y-axis can be scaled appropriately.
 
 void GetAverageSignals(float* SignalAverage, bool GetError, const float* beamintensity, const float apertures[], const int num_apertures, TTree* tree, const float* beamintensity_branch, const float* firstjawposition_branch, const float* secondjawposition_branch, const float* signal_branch, const int* voltage_branch);
 
@@ -111,8 +111,8 @@ int main(int const argc, char const * const * const argv) {
   Detector->SetBranchAddress("NoiseSubtractedSignal", &signal);
   Detector->SetBranchAddress("Voltage", &voltage);
 
-  float JawPosition[n] = {2.6,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8,8.5,9,10,11,12};
-  float JawPositionError[n] = {0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04};
+  float JawPosition[n] = {3,3.5,4,4.5,5,5.5,6,6.5,7,8,9,10,11,12};
+  float JawPositionError[n] = {0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04};
 
   //Fill the arrays with the average and the RMS/sqrt(N) of the signals from the TTree for the different beam intensities:
   std::vector< TGraphErrors*> All_TGraphErrors;
@@ -190,7 +190,7 @@ void GetAverageSignals(float* SignalAverage, bool GetError, const float* beamint
   std::vector<TH1D*> Signal_CollAperture;
   //Push back as many TH1 histograms as needed in order to have one for each aperture
   for(int number_apertures = 0; number_apertures < num_apertures; ++number_apertures){
-    Signal_CollAperture.emplace_back(new TH1D("signal-noise", title1D.c_str(),1000,0,100000));
+    Signal_CollAperture.emplace_back(new TH1D("signal-noise", title1D.c_str(),500,0,1000000));
   }
 
   long long int const entries =  tree->GetEntries();
@@ -198,7 +198,8 @@ void GetAverageSignals(float* SignalAverage, bool GetError, const float* beamint
     tree->GetEntry(i);
     if(*voltage_branch > 0
         && *secondjawposition_branch >= 11.5 && *secondjawposition_branch <= 12.5 //one jaw was held on the open position, while the other one was moved
-        && *beamintensity_branch >= *beamintensity-0.055 && *beamintensity_branch <= *beamintensity+0.055){
+        && *beamintensity_branch >= *beamintensity-0.15 && *beamintensity_branch <= *beamintensity+0.15){
+        //&& *beamintensity_branch >= *beamintensity-0.055 && *beamintensity_branch <= *beamintensity+0.055){
         //&& *beamintensity_branch >= *beamintensity-0.04 && *beamintensity_branch <= *beamintensity+0.04){
 
         for(int number_apertures = 0; number_apertures < num_apertures; ++number_apertures){
