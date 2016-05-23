@@ -3,6 +3,7 @@
 #include "TH1.h"
 #include "TCanvas.h"
 
+#include <limits>
 #include <algorithm>
 #include <utility>
 #include <vector>
@@ -65,4 +66,18 @@ void PRINT(TCanvas* canvas, std::string title, std::string PDFtitle){
   canvas->Print(outputname1.c_str());
   canvas->Print(outputname2.c_str());
   canvas->Print(("output/" + PDFtitle).c_str());
+}
+
+std::pair< double, double> GetMinMaxForMultipleOverlappingHistograms(std::vector< TH1D* > histos, bool const logscale){
+  double min(std::numeric_limits< double >::max()),max(std::numeric_limits< double >::min());
+  for(int i = 0; i < histos.size(); ++i){
+    if(histos.at(i)->GetMinimum() < min) min = histos.at(i)->GetMinimum();
+    if(histos.at(i)->GetMaximum() > max) max = histos.at(i)->GetMaximum();
+  }
+  if(logscale) max *= 10;
+  else max *= 1.1;
+  if(logscale) min *= 0.1;
+  else if(min < 0) min *= 1.1;
+  std::pair< double, double > result(min,max);
+  return result;
 }
