@@ -4,6 +4,7 @@
 #include "TH2D.h"
 #include "TStyle.h"
 #include "TROOT.h"
+#include "TAxis.h"
 #include "TPaveStats.h"
 
 #include <bitset>
@@ -104,27 +105,29 @@ int main(int const argc, char const * const * const argv) {
 	std::vector<float> range_array;
 
 	//Make histogram for storing the information
+  TH1D* ParticleCreationTime = new TH1D("Creation time", ("Creation time of particles hitting subdetector "+subdetectornames+";Particle creation time [ns]; #hits").c_str(), 6000,0, 2000);
+
   std::vector< TH1D* > Momentum_histos;
-	std::string const title1 = "Particle momentum in certain time interval for particles moving away from the IP, hitting subdetector "
+	std::string const title1 = "Particle momentum in certain time interval for particles created before 1ns, hitting subdetector "
 			+ subdetectornames + ";Total momentum [GeV];#hits";
   Momentum_histos.emplace_back( new TH1D("0 < hittime < 10ns", title1.c_str(), 20, 0, 0.2) );
   Momentum_histos.emplace_back( new TH1D("10 < hittime < 20ns", title1.c_str(), 20, 0, 0.2) );
   Momentum_histos.emplace_back( new TH1D("20 < hittime < 30ns", title1.c_str(), 20, 0, 0.2) );
   Momentum_histos.emplace_back( new TH1D("30 < hittime < 50ns", title1.c_str(), 20, 0, 0.2) );
 	
-  std::string const title2 = "Particle momentum at hittime for particles moving away from the IP, hitting subdetector "
+  std::string const title2 = "Particle momentum at hittime for particles created before 1ns, hitting subdetector "
 			+ subdetectornames + ";hit time [ns];Total momentum [GeV]";
 	TH2D* Momentum_time = new TH2D("Momentum_time", title2.c_str(), 70,0,100, 20, 0, 0.2);
 
   std::vector< TH1D* > BackScatter_Momentum_histos;
-	std::string const BackScatter_title1 = "Particle momentum in certain time interval for particles moving towards the IP, hitting subdetector "
+	std::string const BackScatter_title1 = "Particle momentum in certain time interval for particles created after 1ns, hitting subdetector "
 			+ subdetectornames + ";Total momentum [GeV];#hits";
   BackScatter_Momentum_histos.emplace_back( new TH1D("0 < hittime < 10ns", title1.c_str(), 20, 0, 0.2) );
   BackScatter_Momentum_histos.emplace_back( new TH1D("10 < hittime < 20ns", title1.c_str(), 20, 0, 0.2) );
   BackScatter_Momentum_histos.emplace_back( new TH1D("20 < hittime < 30ns", title1.c_str(), 20, 0, 0.2) );
   BackScatter_Momentum_histos.emplace_back( new TH1D("30 < hittime < 50ns", title1.c_str(), 20, 0, 0.2) );
 	
-  std::string const BackScatter_title2 = "Particle momentum at hittime for particles moving towards the IP, hitting subdetector "
+  std::string const BackScatter_title2 = "Particle momentum at hittime for particles created after 1ns, hitting subdetector "
 			+ subdetectornames + ";hit time [ns];Total momentum [GeV]";
 	TH2D* BackScatter_Momentum_time = new TH2D("Momentum_time", BackScatter_title2.c_str(), 70,0,100, 20, 0, 0.2);
 
@@ -140,6 +143,7 @@ int main(int const argc, char const * const * const argv) {
 
 			//Set the branches
 			float actualtime = 0.0;
+			float creationtime = 0.0;
 			float x_cal = 0.0;
 			float y_cal = 0.0;
 			float z_cal = 0.0;
@@ -183,6 +187,7 @@ int main(int const argc, char const * const * const argv) {
 											|| tree->GetName() == std::string("Tree_SiTrackerEndcap")
 											|| tree->GetName() == std::string("Tree_SiTrackerForward")) {
 							tree->SetBranchStatus("HitTime", 1);
+							tree->SetBranchStatus("HitParticleCreationTime", 1);
 							tree->SetBranchStatus("HitPosition_x", 1);
 							tree->SetBranchStatus("HitPosition_y", 1);
 							tree->SetBranchStatus("HitPosition_z", 1);
@@ -190,6 +195,7 @@ int main(int const argc, char const * const * const argv) {
 							tree->SetBranchStatus("HitMomentum_y", 1);
 							tree->SetBranchStatus("HitMomentum_z", 1);
 							tree->SetBranchAddress("HitTime", &actualtime);
+							tree->SetBranchAddress("HitParticleCreationTime", &creationtime);
 							tree->SetBranchAddress("HitPosition_x", &x_tracker);
 							tree->SetBranchAddress("HitPosition_y", &y_tracker);
 							tree->SetBranchAddress("HitPosition_z", &z_tracker);
@@ -208,9 +214,8 @@ int main(int const argc, char const * const * const argv) {
 			long long int const entries = tree->GetEntries();
 			for (long long int i = 0; i < entries; ++i) {
 				tree->GetEntry(i);
-        if( ( (x_tracker>0 && momentum_x_tracker<0)||(x_tracker<0 && momentum_x_tracker>0) )&& 
-            ( (y_tracker>0 && momentum_y_tracker<0)||(y_tracker<0 && momentum_y_tracker>0) )&& 
-            ( (z_tracker>0 && momentum_z_tracker<0)||(z_tracker<0 && momentum_z_tracker>0) ) ){
+        ParticleCreationTime->Fill(creationtime);
+        if( creationtime > 1){
           BackScatter_Momentum_time->Fill(actualtime, std::sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)+std::pow(momentum_z_tracker,2)));
 
           if (actualtime < 10.0) BackScatter_Momentum_histos.at(0)->Fill(sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)+std::pow(momentum_z_tracker,2)));
@@ -236,8 +241,11 @@ int main(int const argc, char const * const * const argv) {
 	
 	TCanvas *canvas1 = new TCanvas("canvas1", "canvas", 800, 600);
 	TCanvas *canvas2 = new TCanvas("canvas2", "canvas", 800, 600);
+	TCanvas *canvas3 = new TCanvas("canvas3", "canvas", 800, 600);
 
 	canvas1->cd();
+  canvas1->SetLogx(0);
+  canvas1->SetLogy(0);
 	Momentum_time->Draw("colz");
 	canvas1->Update();
 	TPaveStats *st1 = (TPaveStats*)Momentum_time->GetListOfFunctions()->FindObject("stats");
@@ -260,8 +268,10 @@ int main(int const argc, char const * const * const argv) {
 	canvas1->Print(("output/backscatter_momentum_time_"+subdetector_names.str()+".pdf").c_str());
 	canvas1->Print(("output/backscatter_momentum_time_"+subdetector_names.str()+".cxx").c_str());
 
-
+  std::cout << canvas2 << std::endl;
 	canvas2->cd();
+  canvas2->SetLogx(0);
+  canvas2->SetLogy(0);
   double momentummax=GetMinMaxForMultipleOverlappingHistograms(Momentum_histos,false).second;
   for(int time_iterator = 0; time_iterator < Momentum_histos.size(); ++time_iterator){
     Momentum_histos.at(time_iterator)->SetMaximum(momentummax);
@@ -282,7 +292,7 @@ int main(int const argc, char const * const * const argv) {
 	  Momentum_histos.at(time_iterator)->Draw("SAMES");
 		canvas2->Update();
 		st_vec.push_back(new TPaveStats());
-	st_vec.at(time_iterator)= (TPaveStats*)Momentum_histos.at(time_iterator)->GetListOfFunctions()->FindObject("stats");
+	  st_vec.at(time_iterator)= (TPaveStats*)Momentum_histos.at(time_iterator)->GetListOfFunctions()->FindObject("stats");
 		st_vec.at(time_iterator)->SetLineColor(time_iterator+1);
 		st_vec.at(time_iterator)->SetX1NDC(0.65); //new x start position
 		st_vec.at(time_iterator)->SetX2NDC(0.85); //new x end position
@@ -325,6 +335,20 @@ int main(int const argc, char const * const * const argv) {
 	canvas2->Print(("output/backscatter_momentum_histo_"+subdetector_names.str()+".pdf").c_str());
 	canvas2->Print(("output/backscatter_momentum_histo_"+subdetector_names.str()+".cxx").c_str());
 
+  canvas3->cd();
+  canvas3->SetLogx(1);
+  canvas3->SetLogy(1);
+  ParticleCreationTime->GetXaxis()->SetLimits(0.1,2000);
+  ParticleCreationTime->Draw();
+	canvas3->Update();
+	TPaveStats *st3 = (TPaveStats*)ParticleCreationTime->GetListOfFunctions()->FindObject("stats");
+	st3->SetX1NDC(0.65); //new x start position
+	st3->SetX2NDC(0.85); //new x end position
+	st3->SetY1NDC(0.7); //new x start position
+	st3->SetY2NDC(0.9); //new x end position
+
+	canvas3->Print(("output/creationtime_histo_"+subdetector_names.str()+".pdf").c_str());
+	canvas3->Print(("output/creationtime_histo_"+subdetector_names.str()+".cxx").c_str());
 
 	return 0;
 }
