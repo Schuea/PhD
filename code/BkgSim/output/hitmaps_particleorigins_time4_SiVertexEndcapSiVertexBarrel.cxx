@@ -1,6 +1,6 @@
 {
 //=========Macro generated from canvas: canvas4/canvas
-//=========  (Fri May 20 22:19:51 2016) by ROOT version5.34/05
+//=========  (Tue May 24 11:09:06 2016) by ROOT version5.34/05
    TCanvas *canvas4 = new TCanvas("canvas4", "canvas",0,0,800,600);
    gStyle->SetOptFit(1);
    canvas4->SetHighLightColor(2);
@@ -699,7 +699,7 @@ palette->SetTitleSize(0.05);
    palette->SetFillStyle(1001);
    histo4->GetListOfFunctions()->Add(palette,"br");
    
-   TPaveStats *ptstats = new TPaveStats(0.65,0.6,0.85,0.9,"brNDC");
+   TPaveStats *ptstats = new TPaveStats(0.6,0.6,0.85,0.9,"brNDC");
    ptstats->SetName("stats");
    ptstats->SetBorderSize(2);
    ptstats->SetFillColor(0);
