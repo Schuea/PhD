@@ -215,7 +215,7 @@ int main(int const argc, char const * const * const argv) {
 	histo1->Draw("colz");
 	canvas1->Update();
 	TPaveStats *st1 = (TPaveStats*)histo1->GetListOfFunctions()->FindObject("stats");
-	st1->SetX1NDC(0.65); //new x start position
+	st1->SetX1NDC(0.6); //new x start position
 	st1->SetX2NDC(0.85); //new x end position
 	st1->SetY1NDC(0.6); //new x start position
 	st1->SetY2NDC(0.9); //new x end position
@@ -229,7 +229,7 @@ int main(int const argc, char const * const * const argv) {
 	histo2->Draw("colz");
 	canvas2->Update();
 	TPaveStats *st2 = (TPaveStats*)histo2->GetListOfFunctions()->FindObject("stats");
-	st2->SetX1NDC(0.65); //new x start position
+	st2->SetX1NDC(0.6); //new x start position
 	st2->SetX2NDC(0.85); //new x end position
 	st2->SetY1NDC(0.6); //new x start position
 	st2->SetY2NDC(0.9); //new x end position
@@ -242,7 +242,7 @@ int main(int const argc, char const * const * const argv) {
 	histo3->Draw("colz");
 	canvas3->Update();
 	TPaveStats *st3 = (TPaveStats*)histo3->GetListOfFunctions()->FindObject("stats");
-	st3->SetX1NDC(0.65); //new x start position
+	st3->SetX1NDC(0.6); //new x start position
 	st3->SetX2NDC(0.85); //new x end position
 	st3->SetY1NDC(0.6); //new x start position
 	st3->SetY2NDC(0.9); //new x end position
@@ -255,7 +255,7 @@ int main(int const argc, char const * const * const argv) {
 	histo4->Draw("colz");
 	canvas4->Update();
 	TPaveStats *st4 = (TPaveStats*)histo4->GetListOfFunctions()->FindObject("stats");
-	st4->SetX1NDC(0.65); //new x start position
+	st4->SetX1NDC(0.6); //new x start position
 	st4->SetX2NDC(0.85); //new x end position
 	st4->SetY1NDC(0.6); //new x start position
 	st4->SetY2NDC(0.9); //new x end position
