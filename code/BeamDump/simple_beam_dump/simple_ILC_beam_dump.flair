@@ -5,7 +5,7 @@ Title: simple_ILC_beam_dump
 Input: simple_ILC_beam_dump.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Geometry
+Page: Plot
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -17,11 +17,11 @@ Run: <default>
 	Last:     5
 	Status:   3
 	Pid:      0
-	StartRun: 1460955083
+	StartRun: 1464992608
 
-	# USRxxx data file: simple_ILC_beam_dump_50.bnn
+	# USRxxx data file: simple_ILC_beam_dump_51.bnn
 	Data: \I_\U.\e
-		Unit: 50
+		Unit: 51
 		Type: b
 		Rule: +,\I\d\d\d_fort\.\U
 		Rule: +,\I\d\d\d_ftn\.\U
@@ -89,7 +89,7 @@ Plot: Red
 	boundaries: 1
 	ztics: 0
 	cblog: 0
-	origin: -3.7877 454.712 0
+	origin: -8.62506 304.754 0
 	cbround: 0
 	ylog: 0
 	zlog: 0
@@ -107,7 +107,7 @@ End
 Plot: Green
 	Format: .eps
 	Type:   Geometry
-	origin: 53.6164 0 -445.597
+	origin: -40.3234 0 -45.5272
 	cbround: 0
 	xlog: 0
 	labels: 1
@@ -121,9 +121,9 @@ Plot: Green
 	y2log: 0
 	layer: Media
 	boundaries: 1
-	extends: 550 292.296
+	extends: 449.306 238.782
 	ylabel: -X [cm]
-	xlabel: Z [cm]
+	ztics: 0
 	nu: 200
 	nv: 200
 	grid: 0
@@ -134,7 +134,7 @@ Plot: Green
 	cbpalette: FLUKA
 	coord: Z-X
 	subtype: Material
-	ztics: 0
+	xlabel: Z [cm]
 	x2log: 0
 	cblog: 0
 End
@@ -143,7 +143,7 @@ End
 Plot: Blue
 	Format: .eps
 	Type:   Geometry
-	origin: 0 -36.1122 -1574.95
+	origin: 0 -47.7764 617.915
 	layer: Media
 	title: GeoViewer Blue plot
 	labels: 1
@@ -159,45 +159,46 @@ End
 Plot: Magenta
 	Format: .eps
 	Type:   Geometry
-	origin: 0 0 0
-	cbround: 0
-	xlog: 0
 	labels: 1
-	layer: Media
-	basisu: -1 0 0
-	basisv: 0 1 0
-	zlog: 0
 	cbcolors: 0
-	index: 0
 	title: GeoViewer Magenta plot
-	y2log: 0
-	boundaries: 1
 	extends: 4600.51 2444.93
-	ylog: 0
 	grid: 0
-	cbtics: 0
-	x2tics: 0
-	y2tics: 0
-	cpd: 0
 	cbpalette: FLUKA
 	coord: X-Y
-	subtype: Material
-	ztics: 0
+	y2tics: 0
 	x2log: 0
+	index: 0
+	subtype: Material
+	y2log: 0
+	boundaries: 1
+	ztics: 0
 	cblog: 0
+	origin: 0 0 0
+	cbround: 0
+	ylog: 0
+	zlog: 0
+	cbtics: 0
+	layer: Media
+	cpd: 0
+	xlog: 0
+	basisu: -1 0 0
+	basisv: 0 1 0
+	x2tics: 0
 End
 
-# USRBIN plot "USRBIN simple ILC beam dump 50"
-Plot: simple_ILC_beam_dump_50_plot
+# USRBIN plot "Neutron balance density"
+Plot: simple_ILC_beam_dump_51_plot
 	Format: .eps
 	Type:   USRBIN
 	lw.0: 0
 	cbcolors: 30
-	title: USRBIN simple ILC beam dump 50
+	title: Neutron balance density
 	swap: 0
+	ylabel: x (cm)
 	grid: 0
 	geo: -Auto-
-	datafile: simple_ILC_beam_dump_50.bnn
+	datafile: simple_ILC_beam_dump_51.bnn
 	cbpalette: FLUKA
 	x2log: 0
 	with.0: errorbars
@@ -206,7 +207,8 @@ Plot: simple_ILC_beam_dump_50_plot
 	axes: Auto
 	y2log: 0
 	hist: 2D Projection
-	proj: Z
+	cblabel: # neutrons per kg
+	proj: Y
 	zrebin: 1
 	ztics: 0
 	cblog: 1
@@ -214,16 +216,17 @@ Plot: simple_ILC_beam_dump_50_plot
 	ylog: 0
 	zlog: 0
 	xrebin: 1
+	ps.0: 0
 	yrebin: 1
-	cbtics: 1
 	y2tics: 0
+	cbtics: 1
 	det: 1
 	pt.0: 0
-	int: 249.99954128265375
-	xlog: 0
-	min: 3.09658493E-03
-	max: 3.94885801E-03
-	x2tics: 0
-	ps.0: 0
+	xlabel: z (cm)
+	int: 2221.5682046001039
 	cpd: 0
+	xlog: 0
+	min: 3.93896244E-06
+	max: 3.48742527E-04
+	x2tics: 0
 End

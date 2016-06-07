@@ -1,11 +1,10 @@
 TITLE
 simple_ILC_beam_dump
-GLOBAL                                          1.        1.
-DEFAULTS                                                              NEUTRONS
-!@what.1=250.0*GeV
-BEAM            250.  -0.00282          -2.4697E-4-3.0522E-6          ELECTRON
-!@what.3=-7000.0*mm
-BEAMPOS          0.0       0.0     -700.
+GLOBAL                                          1.
+DEFAULTS                                                              NEW-DEFA
+BEAM          -250.0  -0.00282          -2.4697E-4-3.0522E-6          ELECTRON
+!@what.3=-4500.0*mm
+BEAMPOS          0.0       0.0     -450.       0.0       0.0
 GEOBEGIN                                                              COMBNAME
     0    0          simple_ILC_beam_dump
 !@what.1=-6550.0*mm
@@ -121,18 +120,27 @@ ASSIGNMA    Stainles      Tank      Tank                 0.0
 ASSIGNMA    Stainles  BeamPipe  BeamPipe                 0.0
 ASSIGNMA    TITANIUM    Window    Window                 0.0
 ASSIGNMA      VACUUM   PipeVac   PipeVac                 0.0
-PHOTONUC          1.                                                1.
-LAM-BIAS         0.0      0.02     WATER   NEUTRON                    INEPRI
-USRBDX            1.   NEUTRON             PipeVac   BLKBODY
-!@what.4=3000.0*mm
+PHOTONUC          1.                        VACUUM     WATER        1.
+LAM-BIAS         0.0      0.02              PHOTON                    INEPRI
+*USRBDX            1.   NEUTRON       49.   PipeVac   BLKBODY       20.Neutrons
+*USRBDX                              100.                          100. &
+!@what.4=900.0*mm
 !@what.5=2000.0*mm
 !@what.6=4000.0*mm
-!@what.7=-1000.0*mm
+!@what.7=-900.0*mm
 !@what.8=-2000.0*mm
-!@what.9=-7000.0*mm
-USRBIN           10.    ENERGY      -50.      300.      200.      400.Energy
-USRBIN         -100.     -200.     -700.     100.0     100.0     100.0 &
+!@what.9=-4000.0*mm
+*USRBIN           10.    ENERGY      -50.       90.      200.      400.Energy
+*USRBIN          -90.     -200.     -400.     100.0     100.0     100.0 &
+!@what.4=900.0*mm
+!@what.5=2000.0*mm
+!@what.6=4000.0*mm
+!@what.7=-900.0*mm
+!@what.8=-2000.0*mm
+!@what.9=-4000.0*mm
+USRBIN           10.   NEUTRON      -51.       90.      200.      400.Neutrons
+USRBIN          -90.     -200.     -400.      50.0      20.0      50.0 &
 DISCARD        MUONS
 RANDOMIZ          1.
-START           100.
+START          3000.                                     0.0 99999999.
 STOP
