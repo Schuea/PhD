@@ -14,8 +14,7 @@
 \usepackage{appendixnumberbeamer}
 \usepackage[absolute,overlay]{textpos} %for positioning the logos where I want
 
-\usepackage{animate}
-\usepackage{multimedia}
+\DeclareSIUnit\year{yr}
 
 \mode<presentation>
 {
@@ -73,15 +72,15 @@
   \setlength{\TPHorizModule}{1pt}
   \setlength{\TPVertModule}{1pt}
    % textblock{}{x,y}: pos(x) = rightUpperCorner + (x * \TPHorizModule), pos(y) = leftUpperCorner - (y * \TPVertModule)
-  \begin{textblock}{1}(295,12)
-   \includegraphics[width=70pt,height=26pt]{figures/rhul_logo.png}
+  \begin{textblock}{1}(343,12)
+   \includegraphics[width=20pt,height=26pt]{figures/rhul_logo.png}
   \end{textblock}
 }
 \newcommand{\ejadelogo}{
   \setlength{\TPHorizModule}{1pt}
   \setlength{\TPVertModule}{1pt}
    % textblock{}{x,y}: pos(x) = rightUpperCorner + (x * \TPHorizModule), pos(y) = leftUpperCorner - (y * \TPVertModule)
-  \begin{textblock}{1}(323,12)
+  \begin{textblock}{1}(283,12)
    \includegraphics[width=40pt,height=26pt]{figures/EJADE.jpeg}
   \end{textblock}
 } 
@@ -103,10 +102,15 @@
 } 
 
 
-\title[ILC \& Background Simulations]{\textbf{\alert{Mini-Workshop on ILC Infrastructure and CFS for Physics and Detectors} \\\LARGE The International Linear Collider \\ \normalsize IP Background Simulations}}
-\author{\textbf{Anne Sch\"utz}}
-\institute{\textbf{KIT, DESY}}
-\date{\textbf{15. March 2016}}
+\title[ILC \& Background Simulations]{\textbf{\alert{ECFA 2016} \\\LARGE Beam Backgrounds at the ILC}}
+%\author{\textbf{Anne Sch\"utz}}
+\author[Anne Sch\"utz]{\underline{Anne Sch\"utz} \inst{1}, Marcel Stanitzki \inst{1}, Jan Strube \inst{2}, Bruce Schumm \inst{3}, Christopher Milke \inst{3}, SiD collaboration\\
+\vspace*{0.2cm}{\scriptsize In collaboration with:\\Benno List \inst{1}, Nuria Fuster Martinez \inst{4}, ATF staff \inst{5}, Glen White \inst{6}, L. Nevay \inst{7},\\J. Snuverink \inst{7}, S. Boogert \inst{7}}}
+
+\institute[DESY]{\inst{1} DESY \inst{2} PNNL \inst{3} UCSC \inst{4} IFIC \inst{5} KEK \inst{6} SLAC \inst{7} RHUL}
+
+%\institute{\textbf{KIT, DESY}}
+\date{\textbf{04. May 2016}}
 
 \titlegraphic{\includegraphics[height=1.0cm]{figures/KIT.png}\hspace*{6cm}~%
    \includegraphics[height=1.2cm]{figures/DESY_Logo.png}
@@ -129,137 +133,460 @@
 \end{frame}
 
 
-\section{The International Linear Collider}
-
-\subsection{The layout}
-\begin{frame}{The layout of the ILC}
-\ilclogo
-\begin{center}
-\only<1>{
-\includegraphics[width=\textwidth]{figures/ILC_schematic_layout.png}
-}
-\only<2->{
-\includegraphics[width=\textwidth]{figures/ILC_schematic_layout_centralregion.png}
-}
-\end{center}
-\end{frame}
-
-\section{Background simulation}
-
-\subsection{Background sources}
-\begin{frame}{Background sources}
+\section{Background sources}
+\begin{frame}{Background sources and simulation tools}
 \ilclogo
 The main sources of background:
 \vspace*{0.5cm}
-\begin{columns}
- \begin{column}{0.55\textwidth}
  \only<1>{
   \begin{itemize}
-    \item Pair background
-    \item Bhabha scattering
-    \item \textgamma \textgamma $\rightarrow$ hadrons
+    \item Backgrounds from beam-beam interactions
+    \begin{itemize}
+      \item Pair background
+      \item Bhabha scattering
+      \item \textgamma \textgamma $\rightarrow$ hadrons
+    \end{itemize}
     \item Neutrons from the beam dumps
-    \item Background from Final-Focus system
+    \item Background from the Final-Focus system
     \begin{itemize}
      \item Beam halo collimators
-     \item Muon spoilers
+     \item Muons from spoilers
     \end{itemize}
   \end{itemize}
   }
   \only<2>{
   \begin{itemize}
-    \item \alert{\MakeUppercase{Pair background}}
-    \item \alert{Bhabha scattering}
-    \item \alert{\textgamma \textgamma $\rightarrow$ hadrons}
+    \item Backgrounds from beam-beam interactions
+    \begin{itemize}
+      \item \alert{Pair background - GuineaPig}
+      \item \alert{Bhabha scattering - Whizard, Pythia}
+      \item \alert{\textgamma \textgamma $\rightarrow$ hadrons - Whizard, Pythia}
+    \end{itemize}
     \item Neutrons from the beam dumps
-    \item Background from Final-Focus system
+    \item Background from the Final-Focus system
     \begin{itemize}
      \item Beam halo collimators
-     \item Muon spoilers
+     \item Muons from spoilers
     \end{itemize}
   \end{itemize}
   }
  \only<3>{
   \begin{itemize}
-    \item Pair background
-    \item Bhabha scattering
-    \item \textgamma \textgamma $\rightarrow$ hadrons
-    \item \alert{\MakeUppercase{Neutrons from the beam dumps}}
-    \item Background from Final-Focus system
+    \item Backgrounds from beam-beam interactions
+    \begin{itemize}
+      \item Pair background - GuineaPig
+      \item Bhabha scattering - Whizard, Pythia
+      \item \textgamma \textgamma $\rightarrow$ hadrons  - Whizard, Pythia
+    \end{itemize}
+    \item \alert{Neutrons from the beam dumps - FLUKA}
+    \item Background from the Final-Focus system
     \begin{itemize}
      \item Beam halo collimators
-     \item Muon spoilers
+     \item Muons from spoilers
     \end{itemize}
   \end{itemize}
   }
   \only<4>{
   \begin{itemize}
-    \item Pair background
-    \item Bhabha scattering
-    \item \textgamma \textgamma $\rightarrow$ hadrons
-    \item Neutrons from the beam dumps
-    \item \alert{Background from Final-Focus system}
+   \item Backgrounds from beam-beam interactions
     \begin{itemize}
-     \item \alert{\MakeUppercase{Beam halo collimators}}
-     \item \alert{Muon spoilers}
+      \item Pair background - GuineaPig
+      \item Bhabha scattering - Whizard, Pythia
+      \item \textgamma \textgamma $\rightarrow$ hadrons  - Whizard, Pythia
+    \end{itemize}
+    \item Neutrons from the beam dumps - FLUKA
+    \item Background from the Final-Focus system
+    \begin{itemize}
+     \item \alert{Beam halo collimators - BDSIM}
+     \item Muons from spoilers
     \end{itemize}
   \end{itemize}
   }
    \only<5>{
   \begin{itemize}
-    \item Pair background
-    \item Bhabha scattering
-    \item \textgamma \textgamma $\rightarrow$ hadrons
-    \item Neutrons from the beam dumps
-    \item \alert{Background from Final-Focus system}
+   \item Backgrounds from beam-beam interactions
     \begin{itemize}
-     \item \alert{Beam halo collimators}
-     \item \alert{\MakeUppercase{Muon spoilers}}
+      \item Pair background - GuineaPig
+      \item Bhabha scattering - Whizard, Pythia
+      \item \textgamma \textgamma $\rightarrow$ hadrons  - Whizard, Pythia
+    \end{itemize}
+    \item Neutrons from the beam dumps - FLUKA
+    \item Background from the Final-Focus system
+    \begin{itemize}
+     \item Beam halo collimators - BDSIM
+     \item \alert{Muons from spoilers - MUCARLO}
     \end{itemize}
   \end{itemize}
   }
- \end{column}
- \begin{column}{0.45\textwidth}
- \only<2>{
- \includegraphics[height=0.2\textheight]{figures/beamstrahlung_processes.png}\\
- \includegraphics[height=0.15\textheight]{figures/bhabha_scattering.pdf} 
- \includegraphics[height=0.15\textheight]{figures/gammagamma_hadrons.pdf}
- }
- \only<3>{
- \includegraphics[height=0.45\textheight]{figures/FLUKA_quadrupole_model.png}
- }
- \only<4>{
- \includegraphics[height=0.45\textheight]{figures/ATF2_beamhalo_collimator.pdf}
- }
- \only<5>{
- \includegraphics[height=0.45\textheight]{figures/Muons.png}
- }
- \end{column}
-\end{columns}
 
 \end{frame}
 
-\subsection{Simulation tools}
-\begin{frame}{Simulation tools}
-Simulation tools used for the studied background sources:
-\vspace*{0.5cm}
-  \begin{itemize}
-    \item Pair background - \alert{GuineaPig}
-    \item Bhabha scattering - \alert{Pythia}
-    \item \textgamma \textgamma $\rightarrow$ hadrons - \alert{Pythia}
-    \item Neutrons from the beam dumps - \alert{FLUKA}
-    \item Beam halo collimators - \alert{BDSIM}
-    \item Muon spoilers - \alert{MUCARLO}
-  \end{itemize}
-\end{frame}
+\section{Backgrounds from beam-beam interactions}
 
-\subsection{Pair background in the SiD detector}
 \begin{frame}
  \begin{center}
-  \alert{\MakeUppercase{Pair background}}
+  \alert{\MakeUppercase{Backgrounds from beam-beam interactions}\\ \MakeUppercase{in the SiD detector}\\ 
+  \vspace*{0.5cm}
+  Pair background}\\
+   \vspace*{0.3cm}
+  \includegraphics[height=0.3\textheight]{figures/beamstrahlung_processes.png}\\
+  \vspace*{0.5cm}
+  \alert{Bhabha scattering \& \textgamma \textgamma $\rightarrow$hadrons}\\
+  \vspace*{0.3cm}
+  \includegraphics[height=0.2\textheight]{figures/bhabha_scattering.pdf} 
+ \includegraphics[height=0.2\textheight]{figures/gammagamma_hadrons.pdf}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Available files}
+\sidlogo
+ Generated background files are available for the community:
+ \begin{itemize}
+  \item Pair background: >3900 bunches for the ILC500 nominal beam parameters on the Grid
+  \begin{itemize}
+   \item at the IP: \cite{Grid}
+   \item full detector simulations for different SiD geometries: \cite{Jan_Grid}
+  \end{itemize}
+  \item Bhabha scattering: $\sim$400 files (ILC500) for different SiD geometries on the Grid \cite{Jan_Grid}
+  \item \textgamma\textgamma$\rightarrow$hadrons: $\sim$400 files (ILC500, +80e-/-30e+ and -80e-/+30e+) for different SiD geometries on the Grid \cite{Jan_Grid}
+  \item Low cross section: (ILC500, +80e-/-30e+ and -80e-/+30e+) for different SiD geometries on the Grid \cite{Jan_Grid}
+ \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Ongoing studies}
+\sidlogo
+Example of ongoing studies on detector occupancies and hit time distributions:\\
+\begin{block}{See also upcoming SiD note}
+ \large``SiD concept design considerations prompted by high cross-section ILC processes''\\
+ \small[Luc d`Hautuille, Christopher Milke, Bruce Schumm, Anne Sch\"utz, \\Marcel Stanitzki, Jan Strube]
+\end{block}
+\textit{\normalsize $\rightarrow$ Stay tuned!}
+\end{frame}
+
+\begin{frame}{Forward ECAL occupancies - all bkg}
+\sidlogo
+Occupancy and buffer depth studies in the Forward ECAL subdetector:\\
+\flushright \tiny [Bruce Schumm, Christopher Milke, George Courcoubetis]\\
+ \includegraphics[width=0.52\textwidth]{figures/zzfig_raw_occupancy.png}
+\includegraphics[width=0.52\textwidth]{figures/zzfig_buffer_depth.png}\\
+\flushleft \normalsize With a KPiX buffer depth of four, 1\% of the hits are lost\\ (because of full buffers).\\
+With a buffer depth of eight, only 0.01\% of all hits are lost.
+\end{frame}
+
+\begin{frame}{Forward ECAL occupancies - all bkg}
+\sidlogo
+Dependency of the fractional loss of hits on the buffer depth and on the depth within the FCAL and the transverse distance from the beamline:\\
+\flushright \tiny [Bruce Schumm, Christopher Milke, George Courcoubetis]\\
+ \includegraphics[width=0.5\textwidth]{figures/zzfig_layer_buffer_depth_all.png}
+\includegraphics[width=0.5\textwidth]{figures/zzfig_radial_buffer_depth_all.png}\\
+\flushleft \normalsize No significant dependency on the layer depth is shown, but for smaller radii 7 or more buffers would reduce the fraction of lost hits to below \num{e-3}!\\ 
+\tiny (The rise just before layer 20 is likely due to the increase in absorber thickness encountered at that depth in the calorimeter.)
+\end{frame}
+
+\begin{frame}{Vertex detector occupancies - Pair bkg}
+\sidlogo
+Comparison between different SiD geometries of the occupancy \underline{in layer 0}  of the vertex barrel and endcap as a function of phi and the radius:\\
+\flushright \tiny [Bruce Schumm, Christopher Milke]\\
+\includegraphics[width=0.52\textwidth]{figures/VradOccupancy_allGeoms_brl.png}
+%\caption[Beamstrahlung processes]{VXD barrel layer 0 occupancies as a function of azimuthal angle.}
+\includegraphics[width=0.52\textwidth]{figures/VradOccupancy_allGeoms_ecp.png}
+%\caption[Beamstrahlung processes]{VXD endcap occupancies as a function of radius from the beamline.}
+\flushleft \normalsize The SiD geometry with the anti-DiD or cutouts have comparable vertex occupancies, which are mainly lower than for the baseline design (sidloi3).\\
+$\Rightarrow$All of the geometries show occupancies below \num{e-3} for all regions (except the innermost radii)!
+\end{frame}
+
+\begin{frame}{Vertex detector \& pair bkg time distributions}
+\sidlogo
+Distributions of the creation time and the hit time of the pair background particles hitting the SiD vertex detector:\\
+\includegraphics[width=0.54\textwidth]{figures/creationtime_histo_SiVertexEndcapSiVertexBarrel.pdf}
+\includegraphics[width=0.54\textwidth]{figures/hittime_SiVertexEndcapSiVertexBarrel_IRrealign_3bunch.pdf}\\
+
+\small 1312 bunches are accumulated for the left plot.\\
+\normalsize The backscatter particles (backscattering from the SiD detector endcaps) are arriving up to several \textmu s late. 
+\end{frame}
+
+\begin{frame}{Particle origin of pair bkg particles hitting the vertex detector}
+\sidlogo
+ \begin{figure}
+\begin{subfigure}[t]{0.49\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/hitmaps_particleorigins_time1_SiVertexEndcapSiVertexBarrel.pdf}
+\caption{$[0\,ns;10\,ns]$.}
+\end{subfigure}
+\begin{subfigure}[t]{0.49\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/hitmaps_particleorigins_time2_SiVertexEndcapSiVertexBarrel.pdf}
+\caption{$]10\,ns;20\,ns]$.}
+\end{subfigure}
+%\caption{\footnotesize The radial position as a function of the z-position of the origins of those background particles, that hit the barrel and the endcaps of the vertex detector for $]0\,ns;10\,ns]$, $]10\,ns;20\,ns]$. 1312 bunches are accumulated to increase the statistics.}
+\end{figure}
+\footnotesize The radial position as a function of the z-position of the origins of those background particles, that hit the barrel and the endcaps of the vertex detector for $]0\,ns;10\,ns]$, $]10\,ns;20\,ns]$. 1312 bunches are accumulated to increase the statistics.
+\end{frame}
+
+\begin{frame}{Particle origin of pair bkg particles hitting the vertex detector}
+\sidlogo
+ \begin{figure}
+\begin{subfigure}[t]{0.49\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/hitmaps_particleorigins_time3_SiVertexEndcapSiVertexBarrel.pdf}
+\caption{$]20\,ns;30\,ns]$.}
+\end{subfigure}
+\begin{subfigure}[t]{0.49\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/hitmaps_particleorigins_time4_SiVertexEndcapSiVertexBarrel.pdf}
+\caption{$]30\,ns;50\,ns]$.}
+\end{subfigure}
+%\caption{\footnotesize The radial position as a function of the z-position of the origins of those background particles, that hit the barrel and the endcaps of the vertex detector for $]20\,ns;30\,ns]$ and $]30\,ns;50\,ns]$. 1312 bunches are accumulated to increase the statistics.}
+\end{figure}
+\footnotesize The radial position as a function of the z-position of the origins of those background particles, that hit the barrel and the endcaps of the vertex detector for $]20\,ns;30\,ns]$ and $]30\,ns;50\,ns]$. 1312 bunches are accumulated to increase the statistics.\\
+\normalsize $\Rightarrow$Backscatter particles originate from the endcaps of the SiD detector.
+\end{frame}
+
+\section{FLUKA simulation of the ILC Beam Dump}
+\begin{frame}
+ \begin{center}
+  \alert{\MakeUppercase{Neutrons from the beam dump}}
+ \end{center}
+\end{frame}
+{
+\usebackgroundtemplate{
+ \tikz\node[opacity=0.05]{\includegraphics[width=1.1\paperwidth]{figures/TB-0067-300-00-A_stamp.pdf}};
+ }
+\begin{frame}{FLUKA simulation of the ILC Beam Dumps}
+\flukalogo
+The beam is dumped into a water tank after collision.\\Neutrons ($\lesssim$\SI{e10}{\per\square\centi\metre\per\year}) are emitted that radiate the surroundings, and travel back towards the detectors.\\
+\vspace*{0.1cm}
+Redoing the simulation studies that were done in 2007 (design was not decided back then).
+\begin{block}{Simulation step 1}
+Implementing the beam dump geometry within FLUKA, using the design drawings by B. Smith~\cite{Smith} to model the dump and the surrounding.
+\end{block}
+
+\begin{center}
+\includegraphics[height=0.35\textheight]{figures/Front_view_BeamDump_Tomb.png}
+\hspace*{0.2cm}
+\includegraphics[height=0.35\textheight]{figures/Bird_view_BeamDump_Tomb.png}
+\includegraphics[height=0.25\textheight]{figures/done.jpg}
+\end{center}
+\end{frame}
+
+\begin{frame}{FLUKA simulation of the ILC Beam Dumps}
+\flukalogo
+\begin{block}{Simulation step 2}
+Make FLUKA and FLAIR work, and simulate the neutrons from the beam dumps.
+\end{block}
+
+\begin{center}
+\includegraphics[width=0.5\textwidth]{figures/NeutronDistribution.png}
+\includegraphics[width=0.5\textwidth]{figures/DepositedEnergy.png}\\
+\includegraphics[height=0.2\textheight]{figures/done.jpg}
+\end{center}
+\end{frame}
+
+\begin{frame}{FLUKA simulation of the ILC Beam Dumps}
+\flukalogo
+\begin{columns}
+\begin{column}[c]{0.4\textwidth}
+\includegraphics[height=0.45\textheight]{figures/FLUKA_quadrupole_model.png}\\
+\small FLUKA simulation model of one of the ILC EXT lattice quadrupoles.
+\end{column}
+\begin{column}[c]{0.55\textwidth}
+\begin{block}{Simulation step 3}
+With Benno List (DESY): Python program to plug the real extraction line lattice into FLUKA.\\
+Realistic simulation of the interaction between the neutrons and the lattice.
+\end{block}
+\begin{block}{Simulation step 4}
+Simulating the neutrons reaching the interaction point in a full detector simulation.
+\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Plans for the FLUKA simulation of the ILC Beam Dumps}
+ \flukalogo
+ All goals of this study in an overview:
+\begin{itemize}
+ \item Simulating the neutron flux,
+ \item the number of neutrons reaching the IP,
+ \item the dosis of the surrounding,
+ \item the influence of the water composition (amount of deuterium),
+ \item the effect of different BeamCal apertures,
+ \item the effect of the beam dump design.
+\end{itemize}
+\end{frame}
+}
+
+\section{Final-Focus system as a background source}
+\begin{frame}
+ \begin{center}
+  \alert{\MakeUppercase{Final-Focus system as a background source}\\ \vspace*{0.5cm} Background reduction by Beam Halo collimators}
  \end{center}
 \end{frame}
 
+\begin{frame}{Beam Halo Collimators}
+\atflogo
+\ejadelogo
+ \begin{center}
+\includegraphics[width=0.5\textwidth]{figures/ATF2_beamhalo_collimator.pdf}
+\end{center}
+
+\begin{itemize}
+\item In ATF operation time in March: Measured the background level affected by the installed beam halo collimator with Cherenkov detectors
+\item Simulating the background with BDSIM (developed by RHUL), after improving the ATF lattice geometry within BDSIM
+\end{itemize}
+\begin{block}{}
+$\Rightarrow$ Studying how much effect a vertical beam halo collimator has on the reduction of the background from the halo interacting with the FF system
+\end{block}
+\end{frame}
+
+\begin{frame}{Results of the ATF beam operation time}
+\atflogo
+\ejadelogo
+\begin{columns}
+ \begin{column}[c]{0.55\textwidth}
+ \begin{center}
+ \small Cherenkov detector close to the collimator
+  \end{center}
+ \end{column}
+ \begin{column}[c]{0.45\textwidth}
+  \begin{center}
+ \small Background monitor close to the IP
+  \end{center}
+ \end{column}
+\end{columns}
+
+\begin{columns}
+ \begin{column}[b]{0.55\textwidth}
+ \begin{center}
+   \includegraphics[width=0.9\textwidth]{figures/AverageSignal_perAperture.png}
+  \end{center}
+ \end{column}
+ \begin{column}[b]{0.45\textwidth}
+ \flushright
+ \tiny [Data taken by Nuria Fuster Martinez (IFIC)]
+  \begin{center}
+   \includegraphics[width=\textwidth]{figures/Nuria_postIP_Bkg_VerticalCollimator_new_relative.png}
+  \end{center}
+ \end{column}
+\end{columns}
+  \flushright{\tiny \alert{See talk by Nuria Fuster Martinez in the ATF session on Wednesday!}}
+\begin{block}{}
+$\Rightarrow$ Background reduction at the IP of up to 95\%!
+\end{block}
+\end{frame}
+
+\section{Muons from spoilers}
+\begin{frame}
+ \begin{center}
+  \alert{\MakeUppercase{Muons from spoilers}}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Muon from spoilers}
+ Lewis Keller: MUCARLO simulation of the muon tracks in the BDS tunnel.\\
+ \alert{$\Rightarrow$See talk by Glen White in the MDI session of Wednesday:}
+ \begin{center}
+ 	\frame{\includegraphics[width=0.9\textwidth]{figures/Glen_ILC_muons_slide10.pdf}}
+  \end{center}
+\end{frame}
+\begin{frame}{Muons at IP}
+\small [Glen White, Lewis Keller (SLAC)]
+  \begin{center}
+ 	\frame{\includegraphics[width=0.8\textwidth]{figures/Glen_ILC_muons_slide12.pdf}}
+  \end{center}
+\end{frame}
+\begin{frame}{Muons at IP}
+\small [Glen White, Lewis Keller (SLAC)]
+  \begin{center}
+ 	\frame{\includegraphics[width=0.9\textwidth]{figures/Glen_ILC_muons_slide11.pdf}}
+  \end{center}
+\end{frame}
+
+
+\section*{Summary}
+\begin{frame}{Summary}
+Current effort in simulating the background at the IP:
+ \begin{itemize}
+  \item Background from beam-beam interactions
+    \begin{itemize}
+      \item Pair background, bhabha scattering and \textgamma\textgamma$\rightarrow$hadrons
+      \item Occupancy studies in the SiD detector
+      \item Hit time studies
+    \end{itemize}
+  \item Neutron background from the main beam dump
+      \begin{itemize}
+      \item FLUKA simulation of the neutrons emitted
+      \item Studies of different beam dump designs
+      \item Studies of the doses of the surroundings
+    \end{itemize}
+  \item Background from the Final-Focus system
+    \begin{itemize}
+      \item Performance studies of a vertical beam halo collimator at ATF2
+      \item BDSIM simulations of the relative beam background reduction by beam halo collimations
+    \end{itemize}
+  \item Muon background from spoilers
+  \begin{itemize}
+   \item Studies of the SiD detector occupancies by muons are needed
+  \end{itemize}
+
+ \end{itemize}
+ 
+ 
+\end{frame}
+
+
+
+
+\section*{The end}
+{
+\usebackgroundtemplate{
+ \tikz\node[opacity=0.1]{\includegraphics[width=\paperwidth,resolution=200]{figures/ilc-Comic.png}};
+ % \tikz\node[opacity=0.2]{\centering\includegraphics[height=\paperheight]{figures/Iwatecomics.jpg}};
+ }
+\begin{frame}
+\ilclogo
+\begin{center}
+\textcolor{RubineRed}{
+	\LARGE Thanks!\\
+	%\vspace*{0.5cm}
+	%\begin{CJK}{UTF8}{min}
+	%どうもありがとうございます。
+	%\end{CJK}
+}
+\end{center}
+\end{frame}
+}
+
+\section*{References}
+\begin{frame}{References}
+\begin{thebibliography}{9}
+\setbeamertemplate{bibliography item}[text]
+
+\bibitem{Grid} /ilc/user/a/aschuetz/GuineaPig
+\bibitem{Jan_Grid} /pnfs/desy.de/ilc/user/j/jstrube
+\bibitem{TDR} T. Behnke, et al. \emph{The International Linear Collider - Technical Design Report}, 2013.
+\bibitem{Smith} B. Smith (Rutherford Lab), \emph{Design drawings 0-TB-0067-300-00-A, 0-TB-0067-210-00-A, 0-TB-0067-404-00-A}, Dec. 2006 - Jan. 2007.
+\bibitem{Collimator} N. Fuster-Martínez, IFIC (CSIC-UV), et al. \emph{Design study and construction of a transverse Beam Halo Collimation system for ATF2}, 2015. \url{http://accelconf.web.cern.ch/AccelConf/IPAC2015/papers/wepmn059.pdf}
+\bibitem{Muons} MUCARLO simulations: Lewis Keller (SLAC)
+
+\end{thebibliography}
+\end{frame}
+
+
+%--------------------------------------------------------------------------------
+\section{Appendix}
+\appendix
+
+\begin{frame}
+\begin{center}
+\LARGE Additional Material
+\end{center}
+  \tableofcontents
+\end{frame}
+
+\section{Background simulations}
+\subsection{GuineaPig}
 \begin{frame}{GuineaPig data}
 Accelerator parameters needed as input to GuineaPig are available for different ILC modes.\\
 Already simulated pair background files for >3900 bunches are on the Grid as service to the community.\cite{Grid}\\
@@ -280,424 +607,58 @@ One bunch has about 200,000 background particles:
 }
 \end{frame}
 
-\begin{frame}{Pair background in the SiD detector}
-\sidlogo
-Specific studies:
-\begin{itemize}
- \item Hit distribution in the subdetectors
- \item Occupancy and buffer depth studies
- \item Origins of the background particles induced by beam-beam interactions
- \item Time of arrival of the background particles at the subdetectors wrt time of the bunch-crossing
-\end{itemize}
-\begin{center}
- \includegraphics[height=4cm]{figures/3Danimation_EcalEndcap/Hits_3D_EcalEndcap_Layer_0.png}
-\end{center}
+\subsection{Occupancy studies}
+\begin{frame}{Vertex detector barrel and endcaps - all bkg}
+Occupancy distributions in the single layers of the vertex barrel and endcaps:
+\includegraphics[width=0.52\textwidth]{figures/VX_occ_barrel.png}
+\includegraphics[width=0.52\textwidth]{figures/VX_occ_endcap.png}
 \end{frame}
 
-\begin{frame}{SiD detector}
-\sidlogo
-\begin{figure}[T]
-\centering
-\begin{subfigure}[b]{0.49\textwidth}
-\centering
-\includegraphics[height=0.65\textheight]{figures/SiD_detector_model.pdf}
-\end{subfigure}
-\begin{subfigure}[b]{0.49\textwidth}
-\centering
-\includegraphics[height=0.65\textheight]{figures/SiD_detector_model_Ausschnitt.pdf}
-\end{subfigure}
-\caption{\small SiD detector model: Vertex detector (red), ECAL (green), HCAL (pink), Muon system (blue)}
-\end{figure}
+\subsection{Hit time distributions}
+\begin{frame}{Vertex detector barrel and endcaps - Pair bkg}
+Hit time distributions of the first bunch of pair background in the vertex barrel and endcaps:
+\includegraphics[width=0.52\textwidth]{figures/hittime_SiVertexBarrel_IRrealign_1bunch.pdf}
+\includegraphics[width=0.52\textwidth]{figures/hittime_SiVertexEndcap_IRrealign_1bunch.pdf}
 \end{frame}
 
-
-\begin{frame}[label=HitsEcalEndcaps]{Hits in the SiD - EcalEndcaps}
-\sidlogo
-\begin{columns}
-\begin{column}[T]{0.5\textwidth}
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{figures/sidloi3_pairs_1312_EcalEndcap_HitsPerFile_Hits.png}
-\caption{\small Hits of pair background particles from a full train in the EcalEndcaps}
-\end{figure}
-\end{column}
-\begin{column}[T]{0.5\textwidth}
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{figures/sidloi3_pairs_1312_EcalEndcap_Hits_EcalEndcap_MeanHits_0-4.png}
-\caption{\small Comparison of the MEAN number of hits in the first 5 layers of the EcalEndcaps.}
-\end{figure}
-\end{column}
-\end{columns}
-In the EcalEndcaps only, there are about 200 hits per bunch crossing.\\
-\only<1>{
-\vspace*{0.2cm}
-The mean number of hits per layer is between 15 and 25 hits, per full bunch crossing!\\
-}
-\only<2>{
-\vspace*{0.2cm}
-\begin{center}
- In comparison:\\
-e$^+$e$^-\rightarrow$\,ZH\,$\rightarrow$\,4 jets: $\sim$ \num{2100} hits in the EcalEndcaps
-\hyperlink{ZH_event_display}{\beamergotobutton{Go to event display}}
-\end{center}
-}
-\end{frame}
-
-\begin{frame}[t]{3D hit map animation of the EcalEndcaps}
-\sidlogo
-\begin{center}
-\only<1>{
-  \animategraphics[portait,autoplay,loop,height=6cm]{2}{figures/3Danimation_EcalEndcap/Hits_3D_EcalEndcap_Layer_}{0}{30}
-}
-\only<2->{
-  \includegraphics[height=0.4\textheight]{figures/3Danimation_EcalEndcap/Hits_3D_EcalEndcap_Layer_0.png}
-   \includegraphics[height=0.4\textheight]{figures/3Danimation_EcalEndcap/Hits_3D_EcalEndcap_Layer_5.png}\\
-    \includegraphics[height=0.4\textheight]{figures/3Danimation_EcalEndcap/Hits_3D_EcalEndcap_Layer_10.png}
-     \includegraphics[height=0.4\textheight]{figures/3Danimation_EcalEndcap/Hits_3D_EcalEndcap_Layer_20.png}
-}
-\end{center}
-Most of the hits are around the beam pipe $\rightarrow$ Ring of fire
-\end{frame}
-
-\begin{frame}{Pair background origins}
-\sidlogo
-  \begin{figure}
- 	\begin{columns}
-        \column[T]{0.75\linewidth} 
-        \begin{flushright}
-        \includegraphics[width=0.9\textwidth]{figures/sidloi3_pairs_1312_EcalEndcap_Hits_EcalEndcap_ParticleOrigins_EcalEndcap_Layer_0.pdf}
-        \end{flushright}
-        \column[T]{0.25\linewidth}
-        \begin{flushleft}
-	\caption{\small 2D map of the origins of the pair background particles that hit the EcalEndcap layer 0.}
-        \end{flushleft}
-      \end{columns}
-\end{figure}
-
-Most of the background particles are coming from the IP as expected.\\
-But there are a lot of particles backscattering from the tracker layers and the BeamCal.
-\end{frame}
-
-\subsection{FLUKA simulation of the ILC Beam Dump}
-\begin{frame}
- \begin{center}
-  \alert{\MakeUppercase{Neutrons from the beam dump}}
- \end{center}
-\end{frame}
-
-\begin{frame}{FLUKA simulation of the ILC Beam Dump}
-\flukalogo
-\EXTsymbol
-\begin{columns}[T]
-\begin{column}[b]{0.4\textwidth}
- \begin{figure}
- \centering
-\includegraphics[height=0.45\textheight]{figures/FLUKA_quadrupole_model.png}
-\caption{\small FLUKA simulation model of one of the ILC lattice quadrupoles.}
-\end{figure}
-\end{column}
-\begin{column}[b]{0.6\textwidth}
-\begin{itemize}
- \item The beam is dumped into a water tank after collision.
- \item Neutrons are emitted that radiate the surroundings.
- \item Neutrons fly back towards the detectors.
-\end{itemize}
-\vspace*{0.5cm}
-\visible<2->{
-\begin{block}{Simulation}
-With Benno List (DESY): Pluging the real extraction line lattice into FLUKA.\\
-Realistic simulation of the interaction between the neutrons,the lattice and the detectors.
-\end{block}
-}
-\end{column}
-\end{columns}
-\end{frame}
-
-\subsection{Final-Focus system as a background source}
-\begin{frame}
- \begin{center}
-  \alert{\MakeUppercase{Background from Beam Halo collimators}}
- \end{center}
-\end{frame}
-
-\begin{frame}{Beam Halo collimators}
-\BDSsymbol
- \begin{center}
-\includegraphics[width=0.65\textwidth]{figures/ATF2_beamhalo_collimator.pdf}
-\end{center}
-By driving collimator blocks into the beam:\\
-\begin{itemize}
- \item The beam halo is cut off.
- \item Wakefields are induced.
- \item New background is produced.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Accelerator Test Facility 2}
-\atflogo
-ATF2
-\begin{itemize}
-\item Test bench for the Final-Focus system of the ILC $\rightarrow$ very close to the ILC 500
-\item Achieving \SI{40}{\nano\metre} beam size (goal: \SI{37}{\nano\metre})
-\end{itemize}
-\vspace*{0.3cm}
-\begin{center}
- \includegraphics[width=0.8\textwidth]{figures/ATF.jpg}
-\end{center}
-\end{frame}
-
-\subsection{ATF2}
-\begin{frame}{Accelerator Test Facility 2}
-\atflogo
-ATF2: Extension of the Accelerator Test Facility (ATF) at KEK
-\vspace*{0.3cm}
-\begin{center}
- \only<1>{\includegraphics[width=0.7\textwidth]{figures/kek_map.pdf}}
- \only<2->{\includegraphics[width=0.7\textwidth]{figures/kek_map_stars.pdf}}
-\end{center}
-\end{frame}
-
-\begin{frame}{Beam time at ATF2 in March}
-\ejadelogo
-At the moment, I am joining the ATF2 beam time, thanks to the E-JADE program {\tiny(www.e-jade.eu)}.
-\begin{itemize}
-\item Measuring the background generated by the installed beam halo collimator with Cherenkov detector
-\item Simulating the background with BDSIM
-\end{itemize}
-\begin{columns}[T]
- \begin{column}[t]{0.75\textwidth}
- \flushright
-  \includegraphics[width=0.67\textwidth]{figures/rhulcher1_20160311morning_signal_averagesignal_aperture.png}
- \end{column}
- \begin{column}[t]{0.25\textwidth}
-  \flushleft
-  \textcolor{RubineRed}{FIRST RESULTS}
- \end{column}
-\end{columns}
-\end{frame}
-
+\section{BDSIM}
 \begin{frame}{BDSIM}
 \rhullogo
 BDSIM is:
 \begin{itemize}
- \item a Geant4 extension toolkit for simulation of particle transport in accelerator beamlines
+ \item a Geant4 extension toolkit for the simulation of particle transport in accelerator beamlines
  \item developed at RHUL
 \end{itemize}
  \begin{center}
- \includegraphics[width=0.7\textwidth]{figures/atf_bdsim.png}
+ \includegraphics[width=0.5\textwidth]{figures/atf_bdsim.png}
 \end{center}
-Accelerator descriptions from other tools such as MADX can be converted to BDSIM input. 
-\end{frame}
-
-
-\begin{frame}{Cultural experiences}
-Overnight stay in a traditional ryokan - \\ \flushright near the Snow Monkey park in Nagano.
- \begin{center}
- \includegraphics[width=0.55\textwidth]{figures/japanese_breakfast.jpg}
- \hspace*{0.3cm}
- \includegraphics[width=0.4\textwidth]{figures/snow_monkeys.jpg}
-\end{center}
-\end{frame}
-
-
-\subsection{Muon from spoilers}
-\begin{frame}
- \begin{center}
-  \alert{\MakeUppercase{Muons from spoilers}}
- \end{center}
-\end{frame}
-
-\begin{frame}{Muon from spoilers}
- Lewis Keller: MUCARLO simulation of the muon tracks in the BDS tunnel.\\
- 4-vectors of muons at IP are available to simulate muons in detectors
- \begin{center}
- 	\includegraphics[width=0.7\textwidth]{figures/Muons.png}
-  \end{center}
-\end{frame}
-
-\begin{frame}{Muons at IP}
-Number of the muons at the IP
-  \begin{center}
- 	\includegraphics[width=0.9\textwidth]{figures/mucarlo_numbers.pdf}
-  \end{center}
-\end{frame}
-
-\section*{Summary}
-\begin{frame}{Summary}
-Current effort in simulating the background at the IP:
- \begin{itemize}
-  \item Background from beam-beam interactions
-  \item Neutron background from the beam dump
-  \item Background from Beam Halo collimators in the Final-Focus system
-  \item Muon background from spoilers
- \end{itemize}
- 
- \vspace*{0.5cm}
- 
- \begin{center}
-  \includegraphics[width=0.6\textwidth]{figures/ILC_LHC_eventdisplay_comparison.pdf}
- \end{center}
-
-
-\end{frame}
-
-
-
-
-\section*{The end}
-{
-\usebackgroundtemplate{
- \tikz\node[opacity=0.1]{\includegraphics[width=\paperwidth,resolution=200]{figures/ilc-Comic.png}};
- % \tikz\node[opacity=0.2]{\centering\includegraphics[height=\paperheight]{figures/Iwatecomics.jpg}};
- }
-\begin{frame}
-\ilclogo
-\begin{center}
-\textcolor{RubineRed}{
-	\LARGE Thanks!\\
-	\vspace*{0.5cm}
-	\begin{CJK}{UTF8}{min}
-	どうもありがとうございます。
-	\end{CJK}
-}
-\end{center}
-\end{frame}
-}
-
-\section*{References}
-\begin{thebibliography}{9}
-\begin{frame}{References}
-\bibitem{Grid} /ilc/user/a/aschuetz/GuineaPig
-\bibitem{TDR} T. Behnke, et al. \emph{The International Linear Collider - Technical Design Report}, 2013.
-\bibitem{Collimator} N. Fuster-Martínez, IFIC (CSIC-UV), et al. \emph{Design study and construction of a transverse Beam Halo Collimation system for ATF2}, 2015. \url{http://accelconf.web.cern.ch/AccelConf/IPAC2015/papers/wepmn059.pdf}
-\bibitem{Muons} MUCARLO simulations: Lewis Keller (SLAC)
-\bibitem{RHUL} Mark Thomson. \emph{Physics and Detectors at the ILC}, 2013. \url{https://www.royalholloway.ac.uk/physics/documents/pdf/events/particlephysicsseminars/13-14markthomson23oct2013.pdf}
-
-\end{frame}
-\end{thebibliography}
-
-%--------------------------------------------------------------------------------
-\appendix
-
-\begin{frame}
-\begin{center}
-\LARGE Additional Material
-\end{center}
-  \tableofcontents
-\end{frame}
-
-\section{ILC}
-
-\subsection{Some facts about the SiD detector}
-\begin{frame}{SiD detector}
-\sidlogo
- \begin{columns}
-  \begin{column}{0.7\textwidth}
-    SiD has a very convincing design:
- \begin{itemize}
-  \item compact and robust
-  \item full silicon vertex detector and tracker\\
-  Vertex detector:
-  \begin{itemize}
-   \item $<$\SI{5}{\micro\metre} resolution
-   \item Momentum resolution $\sim$ 2-\SI{5e-5}{\per\giga\electronvolt}
-   \item $\sim$ \SI{0.1}{\percent} X$_0$ per layer
-    \item Single bunch timing resolution
-    \item cos($\theta$)$\approx$0.984
-  \end{itemize}
-  \item highly granular calorimetry optimized for Particle Flow (ECAL: radation length = 26 X$_0$, \\EM energy resolution = 0.17/$\sqrt{E}\bigoplus$1\%)
- \end{itemize}
-  \end{column}
-  \begin{column}{0.3\textwidth}
-    \begin{flushright}
-  \includegraphics[height=0.4\textheight]{figures/SiDpics.pdf}
- \end{flushright}
-  \end{column}
- \end{columns}
-
-\end{frame}
-
-\section{Additional SiD simulation plots}
-
-\subsection{Higgs event display}
-\begin{frame}[label=ZH_event_display]{e$^+$e$^-\rightarrow$\,ZH\,$\rightarrow$\,4 jets in the SiD detector}
-e$^+$e$^-\rightarrow$\,ZH\,$\rightarrow$\,4 jets in the SiD detector\\
-Displayed with WIRED4
- \begin{center}
-   \includegraphics[width=0.8\textwidth]{figures/Zhiggs_4jets_SiD.png}\\
- \hyperlink{HitsEcalEndcaps}{\beamergotobutton{Go back}}
- \end{center}
-\end{frame}
-
-\subsection{Hit maps of the EcalEndcap}
-\begin{frame}{Hit maps of the inner most EcalEndcap layer}
-\sidlogo
-\begin{columns}[T]
-\begin{column}[b]{0.5\textwidth}
- \begin{figure}
-\centering
-\includegraphics[height=0.5\textheight]{figures/sidloi3_pairs_1312_EcalEndcap_Hits_EcalEndcap_Hits_2D_EcalEndcap_Layer_0-eps-converted-to.pdf}
-\caption{\small 2D hit map of the hits from a full pair background train in the EcalEndcap layer 0.}
-\end{figure}
-\end{column}
-\begin{column}[b]{0.5\textwidth}
- \begin{figure}
-\centering
-\includegraphics[height=0.5\textheight]{figures/Hits_3D_EcalEndcap_Layer_0.png}
-\caption{\small 3D hit map of the hits from a full pair background train in the EcalEndcap layer 0.}
-\end{figure}
-\end{column}
-\end{columns}
-Most of the hits are around the beam pipe $\rightarrow$ Ring of fire
-\end{frame}
-
-\subsection{Absolute time of hits}
-\begin{frame}{Absolute time of hits in the EcalEndcaps}
-\sidlogo
-\only<1>{
-\begin{figure}
-\centering
-\includegraphics[height=0.55\textheight]{figures/3_sidloi3_EcalEndcap_Hits_EcalEndcap_HitsTime_EcalEndcap_Layer_all.pdf}
-\caption{\small Number of particles arriving at the EcalEndcaps as a function of the absolute time.}
-\end{figure}
-}
-\only<2>{
-\begin{figure}
-\centering
-\includegraphics[height=0.6\textheight]{figures/3_sidloi3_EcalEndcap_Hits_EcalEndcap_HitsTime_rtime_2D_EcalEndcap_Layer_all-biggerdots.pdf}
-\caption{\small The radial position of the particles arriving at the EcalEndcaps.}
-\end{figure}
-}
-The pair background particles don't arrive all at the same time.\\
-The second smaller peak of particles are backscatter particles.
-\end{frame} 
-
-\subsection{Hit energy deposition}
-\begin{frame}{Energy deposition of hits in SiD-EcalEndcaps}
-\sidlogo
- \begin{figure}
- \centering
-  \includegraphics[width=0.6\textwidth]{figures/sidloi3_pairs_1312_EcalEndcap_Hits_EcalEndcap_Energy_EcalEndcap_Layer_0-4.eps}
- \caption{Energy distribution of the hits in the first five layers of the SiD EcalEndcaps}
- \end{figure}
-The distributions reach up to about \SI{8}{\mega\electronvolt}.
-\end{frame}
-
-\section{The Final-Focus system}
-\begin{frame}{The Final-Focus system}
- \ilclogo
- The Final-Focus (FF) uses:
+Accelerator descriptions from other tools such as MADX can be converted to BDSIM input.
+\begin{columns}
+ \begin{column}[b]{0.35\textwidth}
+  \centering
+   \includegraphics[width=0.5\textwidth]{figures/Flange_+z_view2.jpg}\\
+   \tiny New GDML geometry visualization of a beam pipe flange between a rectangular and a circular beam
+pipe at the location of the Cherenkov detector.
+ \end{column}
+ \begin{column}[b]{0.65\textwidth}
+   Current simulation status:
 \begin{itemize}
- \item Strong compact superconducting quadrupoles to focus the
-beam at the IP (single collision point with a 14 mrad beam-crossing angle)
-\item Sextupoles providing local chromaticity correction
-\item Two superconducting octupole doublets, which use nonlinear
-focusing to reduce the amplitude of beam-halo particles while leaving the beam core untouched $\rightarrow$ permitting larger collimation amplitude
-\item Collimators and spoilers to prevent the beam halo and background particles from entering the detectors
+ \item Improving the ATF lattice geometry within BDSIM in the region of the collimator
+ \item Updating the BDSIM source code regarding these changes
 \end{itemize}
+ \end{column}
+\end{columns}
 \end{frame}
 
-
+\section{Beam dump study}
+\begin{frame}{Beam dump tank drawing - Jan 2007}
+ \includegraphics[width=\textwidth]{figures/TB-0067-210-00-A_stamp.pdf}
+\end{frame}
+\begin{frame}{Beam dump tank drawing - Jan 2007}
+ \includegraphics[width=\textwidth]{figures/TB-0067-300-00-A_stamp.pdf}
+\end{frame}
+\begin{frame}{Beam dump building drawing - Dec 2006}
+ \includegraphics[width=0.65\textwidth,angle=90]{figures/0067_404__2__Layout1__1__stamp.pdf}
+\end{frame}
 
 \end{document}
