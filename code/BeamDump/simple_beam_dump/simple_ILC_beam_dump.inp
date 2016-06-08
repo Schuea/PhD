@@ -123,23 +123,25 @@ ASSIGNMA      VACUUM   PipeVac   PipeVac                 0.0
 PHOTONUC          1.                        VACUUM     WATER        1.
 LAM-BIAS         0.0      0.02              PHOTON                    INEPRI
 *USRBDX            1.   NEUTRON       49.   PipeVac   BLKBODY       20.Neutrons
-*USRBDX                              100.                          100. &
+*USRBDX                               50.                           10. &
 !@what.4=900.0*mm
 !@what.5=2000.0*mm
 !@what.6=4000.0*mm
 !@what.7=-900.0*mm
 !@what.8=-2000.0*mm
 !@what.9=-4000.0*mm
-*USRBIN           10.    ENERGY      -50.       90.      200.      400.Energy
-*USRBIN          -90.     -200.     -400.     100.0     100.0     100.0 &
+USRBIN           10.    ENERGY      -50.       90.      200.      400.Energy
+USRBIN          -90.     -200.     -400.      20.0       1.0      30.0 &
 !@what.4=900.0*mm
 !@what.5=2000.0*mm
 !@what.6=4000.0*mm
 !@what.7=-900.0*mm
 !@what.8=-2000.0*mm
 !@what.9=-4000.0*mm
-USRBIN           10.   NEUTRON      -51.       90.      200.      400.Neutrons
-USRBIN          -90.     -200.     -400.      50.0      20.0      50.0 &
+*USRBIN           10.   NEUTRON      -51.       90.      200.      400.Neutrons
+*USRBIN          -90.     -200.     -400.      20.0       1.0      30.0 &
+*USRYIELD       3301.   NEUTRON       52.                              Ekin_n
+*USRYIELD                                     1000.                     &
 DISCARD        MUONS
 RANDOMIZ          1.
 START          3000.                                     0.0 99999999.
