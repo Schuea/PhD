@@ -205,7 +205,9 @@ void GetAverageSignals(float* SignalAverage, bool GetError, const float* beamint
         for(int number_apertures = 0; number_apertures < num_apertures; ++number_apertures){
           //Fill the TH1 in the vector with signals for an aperture, that corresponds to the desired apertures in the aperture vector:
           if(*firstjawposition_branch > apertures[number_apertures]-0.1 && *firstjawposition_branch < apertures[number_apertures]+0.1){
-            Signal_CollAperture.at(number_apertures)->Fill(*signal_branch);
+            //Signal_CollAperture.at(number_apertures)->Fill(*signal_branch/ *beamintensity);
+            //Normalizing by charge
+            Signal_CollAperture.at(number_apertures)->Fill(*signal_branch/ *beamintensity);
           }
         }
 
