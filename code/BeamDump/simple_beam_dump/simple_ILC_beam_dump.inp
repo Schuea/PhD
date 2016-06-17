@@ -109,57 +109,59 @@ COMPOUND        18.0  CHROMIUM      74.0      IRON       8.0    NICKELStainles
 MATERIAL                            2.34                              Concrete
 COMPOUND        23.0    CARBON      40.0    OXYGEN      12.0   SILICONConcrete
 COMPOUND        12.0   CALCIUM      10.0  HYDROGEN       2.0  MAGNESIUConcrete
-MATERIAL                                                              SiO2
+MATERIAL                             2.5                              SiO2
 COMPOUND       33.33   SILICON     66.66    OXYGEN                    SiO2
-MATERIAL                                                              MgO
+MATERIAL                            3.58                              MgO
 COMPOUND        50.0  MAGNESIU      50.0    OXYGEN                    MgO
-MATERIAL                                                              Mangan
-MATERIAL                                                              MnO
+MATERIAL         25.    54.938      7.44                           0.0Mangan
+MATERIAL                            5.45                              MnO
 COMPOUND        50.0    Mangan      50.0    OXYGEN                    MnO
-MATERIAL                                                              Al2O3
+MATERIAL                            3.94                              Al2O3
 COMPOUND        40.0  ALUMINUM      60.0    OXYGEN                    Al2O3
-MATERIAL                                                              CaO
+MATERIAL                            3.37                              CaO
 COMPOUND        50.0   CALCIUM      50.0    OXYGEN                    CaO
-MATERIAL                                                              Cs
-MATERIAL                                                              Na2O
+MATERIAL         55.    132.91     1.873                           0.0Cs
+MATERIAL                            2.27                              Na2O
 COMPOUND       66.66    SODIUM     33.33    OXYGEN                    Na2O
-MATERIAL                                                              Kalium
-MATERIAL                                                              K2O
+MATERIAL         19.    39.098     0.862                           0.0Kalium
+MATERIAL                            2.32                              K2O
 COMPOUND       66.66    Kalium     33.33    OXYGEN                    K2O
-MATERIAL                                                              TiO2
+MATERIAL                            4.24                              TiO2
 COMPOUND       33.33  TITANIUM     66.66    OXYGEN                    TiO2
-MATERIAL                                                              Fe2O3
+MATERIAL                            5.24                              Fe2O3
 COMPOUND        40.0      IRON      60.0    OXYGEN                    Fe2O3
-MATERIAL                                                              Eu
-MATERIAL                                                              Cobalt
+MATERIAL         63.    151.96     5.243                           0.0Eu
+MATERIAL         27.    58.933      8.86                           0.0Cobalt
 MATERIAL                             2.2                              NormConc
 COMPOUND       -57.7      SiO2     -6.04     WATER     -1.31       MgONormConc
 COMPOUND       -0.08       MnO     -10.5     Al2O3     -14.5       CaONormConc
 COMPOUND       -0.01        Cs     -2.29      Na2O     -0.86       K2ONormConc
 COMPOUND       -0.39      TiO2     -3.47     Fe2O3     -0.01        EuNormConc
 COMPOUND       -0.01    Cobalt                                        NormConc
-MATERIAL                                                              CoO
+MATERIAL                              6.                              CoO
 COMPOUND        50.0    Cobalt      50.0    OXYGEN                    CoO
-MATERIAL                                                              SO3
-COMPOUND        25.0    COPPER      75.0    OXYGEN                    SO3
-MATERIAL                                                              Cl
-MATERIAL                                                              Bor
-MATERIAL                                                              B2O3
-COMPOUND        40.0       Bor      60.0    OXYGEN                    B2O3
-MATERIAL                                                              P2O5
-COMPOUND                                    OXYGEN                    P2O5
+MATERIAL         16.    32.065     2.067                           0.0Sulfur
+MATERIAL                            2.00                              SO3
+COMPOUND        25.0    Sulfur      75.0    OXYGEN                    SO3
+MATERIAL         17.    35.453  0.003214                           0.0Chlorine
+MATERIAL          5.    10.811      2.34                           0.0Boron
+MATERIAL                            1.83                              B2O3
+COMPOUND        40.0     Boron      60.0    OXYGEN                    B2O3
+MATERIAL         15.    30.974      1.82                           0.0Phosphor
+MATERIAL                            2.39                              P2O5
+COMPOUND       28.57  Phosphor     71.42    OXYGEN                    P2O5
 MATERIAL                             2.2                              NeutConc
 COMPOUND       -33.1      SiO2     -14.8     WATER     -29.1       MgONeutConc
 COMPOUND       -0.09       MnO     -1.54     Al2O3     -11.0       CaONeutConc
 COMPOUND       -0.01        Cs     -0.05      Na2O     -0.06       K2ONeutConc
 COMPOUND       -0.07      TiO2     -6.23     Fe2O3     -0.01        EuNeutConc
-COMPOUND       -0.01       CoO                                        NeutConc
-COMPOUND                                                              NeutConc
+COMPOUND       -0.01       CoO    -0.016  Chlorine     -0.11      P2O5NeutConc
+COMPOUND       -0.38       SO3     -2.61      B2O3                    NeutConc
 ASSIGNMA    BLCKHOLE   BLKBODY   BLKBODY                 0.0
 ASSIGNMA         AIR      Air2      Air2                 0.0
 ASSIGNMA        IRON  IronShie  IronShie                 0.0
-ASSIGNMA    NormConc  BorConcr  BorConcr                 0.0
-ASSIGNMA    Concrete     Concr     Concr                 0.0
+ASSIGNMA    NeutConc  BorConcr  BorConcr                 0.0
+ASSIGNMA    NormConc     Concr     Concr                 0.0
 ASSIGNMA         AIR       Air       Air                 0.0
 ASSIGNMA       WATER     Water     Water                 0.0
 ASSIGNMA    Stainles      Tank      Tank                 0.0
