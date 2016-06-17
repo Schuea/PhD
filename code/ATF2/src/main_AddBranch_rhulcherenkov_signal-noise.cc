@@ -12,27 +12,39 @@ int main(int const argc, char const * const * const argv){
 
   std::string SIGNALinputfilename;
   std::string NOISEinputfilename;
+  bool signalfile_set = false;
+  bool noisefile_set = false;
 
   for (int i = 1; i < argc; i++) {
     if (argv[i] == std::string("-s")) {
       if (argv[i + 1] != NULL 
           && argv[i + 1] != std::string("-n")){
         SIGNALinputfilename = argv[i + 1];
+        signalfile_set = true;
       } else {
         std::cerr << "You didn't give an argument for the SIGNALinputfilename!"
           << std::endl;
+        std::exit(1);
       }
     }
     if (argv[i] == std::string("-n")) {
       if (argv[i + 1] != NULL 
           && argv[i + 1] != std::string("-s")){
         NOISEinputfilename = argv[i + 1];
+        noisefile_set = true;
       } else {
         std::cerr << "You didn't give an argument for the NOISEinputfilename!"
           << std::endl;
+        std::exit(1);
       }
     }
   }
+  if (argc < 4 || (!noisefile_set || !signalfile_set)){
+    std::cerr << "You didn't give the required arguments: -s signalfile.root -n noisefile.root !"
+      << std::endl;
+    std::exit(1);
+  }
+
 
   std::string title1D = "RHUL cherenkov detector noise;Noise [a.u.];Count";
   TH1D* Noise_voltage0V = new TH1D("noise_0V",title1D.c_str(),1000,0,10000);
