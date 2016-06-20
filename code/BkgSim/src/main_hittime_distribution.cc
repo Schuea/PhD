@@ -116,7 +116,7 @@ int main(int const argc, char const * const * const argv) {
 	float timerange = timemax - timemin;
 	std::array<float, 6> axis_vector = { int(timerange), timemin, timemax, int(rrange), rmin, rmax };
 
-	std::string const histo_title = "Radial position of hits over hit time for " + subdetectornames + ";Hit time [ns];r [mm]";
+	std::string const histo_title = "Radial position of hits over hit time, " + subdetectornames + ";Hit time [ns];r [mm]";
 	std::vector<TH2D*> Hits_Time_rtime_;
 
 	for (size_t subdetector_iterator = 0; subdetector_iterator < SubDetectors->size(); ++subdetector_iterator) {
