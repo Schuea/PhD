@@ -108,29 +108,31 @@ int main(int const argc, char const * const * const argv) {
   TH1D* ParticleCreationTime = new TH1D("Creation time", ("Creation time of particles hitting subdetector "+subdetectornames+";Particle creation time [ns]; #hits").c_str(), 4000,0, 2000);
 
   std::vector< TH1D* > Momentum_histos;
-	std::string const title1 = "Particle momentum in certain time interval for particles created before 1ns, hitting subdetector "
+	std::string const title1 = "Particle momentum in certain time interval, hitting "
 			+ subdetectornames + ";Total momentum [GeV];#hits";
-  Momentum_histos.emplace_back( new TH1D("0 < hittime < 10ns", title1.c_str(), 50, 0, 1) );
-  Momentum_histos.emplace_back( new TH1D("10 < hittime < 20ns", title1.c_str(), 50, 0, 1) );
-  Momentum_histos.emplace_back( new TH1D("20 < hittime < 30ns", title1.c_str(), 50, 0, 1) );
-  Momentum_histos.emplace_back( new TH1D("30 < hittime < 50ns", title1.c_str(), 50, 0, 1) );
+  Momentum_histos.emplace_back( new TH1D("0 < hittime < 10ns", title1.c_str(), 50, 0, 1.5) );
+  Momentum_histos.emplace_back( new TH1D("10 < hittime < 20ns", title1.c_str(), 50, 0, 1.5) );
+  Momentum_histos.emplace_back( new TH1D("20 < hittime < 30ns", title1.c_str(), 50, 0, 1.5) );
+  Momentum_histos.emplace_back( new TH1D("30 < hittime < 50ns", title1.c_str(), 50, 0, 1.5) );
 	
   std::string const title2 = "Particle momentum at hittime for particles created before 1ns, hitting subdetector "
 			+ subdetectornames + ";hit time [ns];Total momentum [GeV]";
 	TH2D* Momentum_time = new TH2D("Momentum_time", title2.c_str(), 70,0,100, 20, 0, 0.2);
 
-  std::vector< TH1D* > BackScatter_Momentum_histos;
-	std::string const BackScatter_title1 = "Particle momentum in certain time interval for particles created after 1ns, hitting subdetector "
-			+ subdetectornames + ";Total momentum [GeV];#hits";
-  BackScatter_Momentum_histos.emplace_back( new TH1D("0 < hittime < 10ns", title1.c_str(), 50, 0, 1) );
-  BackScatter_Momentum_histos.emplace_back( new TH1D("10 < hittime < 20ns", title1.c_str(), 50, 0, 1) );
-  BackScatter_Momentum_histos.emplace_back( new TH1D("20 < hittime < 30ns", title1.c_str(), 50, 0, 1) );
-  BackScatter_Momentum_histos.emplace_back( new TH1D("30 < hittime < 50ns", title1.c_str(), 50, 0, 1) );
+  std::vector< TH1D* > TransvMomentum_histos;
+	std::string const Transvtitle1 = "Particle momentum in certain time interval, hitting "
+			+ subdetectornames + ";Transverse momentum [GeV];#hits";
+  TransvMomentum_histos.emplace_back( new TH1D("0 < hittime < 10ns", Transvtitle1.c_str(), 50, 0, 1.5) );
+  TransvMomentum_histos.emplace_back( new TH1D("10 < hittime < 20ns", Transvtitle1.c_str(), 50, 0, 1.5) );
+  TransvMomentum_histos.emplace_back( new TH1D("20 < hittime < 30ns", Transvtitle1.c_str(), 50, 0, 1.5) );
+  TransvMomentum_histos.emplace_back( new TH1D("30 < hittime < 50ns", Transvtitle1.c_str(), 50, 0, 1.5) );
 	
-  std::string const BackScatter_title2 = "Particle momentum at hittime for particles created after 1ns, hitting subdetector "
+  std::string const Transvtitle2 = "Particle momentum at hittime for particles hitting "
 			+ subdetectornames + ";hit time [ns];Total momentum [GeV]";
-	TH2D* BackScatter_Momentum_time = new TH2D("Momentum_time", BackScatter_title2.c_str(), 70,0,100, 20, 0, 0.2);
+	TH2D* TransvMomentum_time = new TH2D("TransvMomentum_time", Transvtitle2.c_str(), 70,0,100, 20, 0, 0.2);
 
+
+ 
 
 	std::stringstream subdetector_names;
 
@@ -230,22 +232,25 @@ int main(int const argc, char const * const * const argv) {
 				else if (creationtime >= 30.0 && creationtime < 50.0) particles_30_50ns++;
 				else if (creationtime >= 50.0 && creationtime < 1000.0) particles_50_1000ns++;
 
-        if( creationtime > 1){
-          BackScatter_Momentum_time->Fill(actualtime, std::sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)+std::pow(momentum_z_tracker,2)));
-
-          if (actualtime < 10.0) BackScatter_Momentum_histos.at(0)->Fill(sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)+std::pow(momentum_z_tracker,2)));
-          else if (actualtime >= 10.0 && actualtime < 20.0) BackScatter_Momentum_histos.at(1)->Fill(std::sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)+std::pow(momentum_z_tracker,2)));
-          else if (actualtime >= 20.0 && actualtime < 30.0) BackScatter_Momentum_histos.at(2)->Fill(std::sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)+std::pow(momentum_z_tracker,2)));
-          else if (actualtime >= 30.0 && actualtime < 50.0) BackScatter_Momentum_histos.at(3)->Fill(std::sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)+std::pow(momentum_z_tracker,2)));
-        }
-        //else{
           Momentum_time->Fill(actualtime, std::sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)+std::pow(momentum_z_tracker,2)));
+          TransvMomentum_time->Fill(actualtime, std::sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)));
 
-          if (actualtime < 10.0) Momentum_histos.at(0)->Fill(sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)+std::pow(momentum_z_tracker,2)));
-          else if (actualtime >= 10.0 && actualtime < 20.0) Momentum_histos.at(1)->Fill(std::sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)+std::pow(momentum_z_tracker,2)));
-          else if (actualtime >= 20.0 && actualtime < 30.0) Momentum_histos.at(2)->Fill(std::sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)+std::pow(momentum_z_tracker,2)));
-          else if (actualtime >= 30.0 && actualtime < 50.0) Momentum_histos.at(3)->Fill(std::sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)+std::pow(momentum_z_tracker,2)));
-       // }
+          if (actualtime < 10.0){
+									Momentum_histos.at(0)->Fill(sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)+std::pow(momentum_z_tracker,2)));
+									TransvMomentum_histos.at(0)->Fill(sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)));
+					}
+          else if (actualtime >= 10.0 && actualtime < 20.0) {
+									Momentum_histos.at(1)->Fill(std::sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)+std::pow(momentum_z_tracker,2)));
+									TransvMomentum_histos.at(1)->Fill(std::sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)));
+					}
+          else if (actualtime >= 20.0 && actualtime < 30.0) {
+									Momentum_histos.at(2)->Fill(std::sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)+std::pow(momentum_z_tracker,2)));
+									TransvMomentum_histos.at(2)->Fill(std::sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)));
+					}
+          else if (actualtime >= 30.0 && actualtime < 50.0) {
+									Momentum_histos.at(3)->Fill(std::sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)+std::pow(momentum_z_tracker,2)));
+									TransvMomentum_histos.at(3)->Fill(std::sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)));
+					}
 			}
 			file->Close();
 		}
@@ -278,23 +283,24 @@ int main(int const argc, char const * const * const argv) {
 	canvas1->Print(("output/momentum_time_"+subdetector_names.str()+".pdf").c_str());
 	canvas1->Print(("output/momentum_time_"+subdetector_names.str()+".cxx").c_str());
 
-  BackScatter_Momentum_time->Draw("colz");
+	TransvMomentum_time->Draw("colz");
 	canvas1->Update();
-	TPaveStats *BackScatter_st1 = (TPaveStats*)BackScatter_Momentum_time->GetListOfFunctions()->FindObject("stats");
-	BackScatter_st1->SetX1NDC(0.65); //new x start position
-	BackScatter_st1->SetX2NDC(0.85); //new x end position
-	BackScatter_st1->SetY1NDC(0.7); //new x start position
-	BackScatter_st1->SetY2NDC(0.9); //new x end position
+	TPaveStats *st12 = (TPaveStats*)TransvMomentum_time->GetListOfFunctions()->FindObject("stats");
+	st12->SetX1NDC(0.65); //new x start position
+	st12->SetX2NDC(0.85); //new x end position
+	st12->SetY1NDC(0.7); //new x start position
+	st12->SetY2NDC(0.9); //new x end position
 
-	canvas1->Print(("output/backscatter_momentum_time_"+subdetector_names.str()+".pdf").c_str());
-	canvas1->Print(("output/backscatter_momentum_time_"+subdetector_names.str()+".cxx").c_str());
+	canvas1->Print(("output/transvmomentum_time_"+subdetector_names.str()+".pdf").c_str());
+	canvas1->Print(("output/transvmomentum_time_"+subdetector_names.str()+".cxx").c_str());
 
-  std::cout << canvas2 << std::endl;
+
 	canvas2->cd();
   canvas2->SetLogx(0);
   canvas2->SetLogy(1);
   double momentummax=GetMinMaxForMultipleOverlappingHistograms(Momentum_histos,true).second;
   for(int time_iterator = 0; time_iterator < Momentum_histos.size(); ++time_iterator){
+    Momentum_histos.at(time_iterator)->SetMinimum(1);
     Momentum_histos.at(time_iterator)->SetMaximum(momentummax);
   }
 	Momentum_histos.at(0)->Draw();
@@ -324,37 +330,39 @@ int main(int const argc, char const * const * const argv) {
 	canvas2->Print(("output/momentum_histo_"+subdetector_names.str()+".pdf").c_str());
 	canvas2->Print(("output/momentum_histo_"+subdetector_names.str()+".cxx").c_str());
 
-  //****Backscatters:
-  double backscattermax=GetMinMaxForMultipleOverlappingHistograms(BackScatter_Momentum_histos,true).second;
-  for(int time_iterator=0; time_iterator < BackScatter_Momentum_histos.size(); ++time_iterator){
-    BackScatter_Momentum_histos.at(time_iterator)->SetMaximum(backscattermax);
+	//Transverse momentum
+	double transvmomentummax=GetMinMaxForMultipleOverlappingHistograms(TransvMomentum_histos,true).second;
+  for(int time_iterator = 0; time_iterator < TransvMomentum_histos.size(); ++time_iterator){
+    TransvMomentum_histos.at(time_iterator)->SetMinimum(1);
+    TransvMomentum_histos.at(time_iterator)->SetMaximum(transvmomentummax);
   }
-  BackScatter_Momentum_histos.at(0)->Draw();
+	TransvMomentum_histos.at(0)->Draw();
   canvas2->Update();
-	TPaveStats *BackScatter_st2 = (TPaveStats*)BackScatter_Momentum_histos.at(0)->GetListOfFunctions()->FindObject("stats");
-	BackScatter_st2->SetX1NDC(0.65); //new x start position
-	BackScatter_st2->SetX2NDC(0.85); //new x end position
-	BackScatter_st2->SetY1NDC(0.73); //new x start position
-	BackScatter_st2->SetY2NDC(0.9); //new x end position
-	std::vector<TPaveStats*> BackScatter_st_vec;
-	BackScatter_st_vec.push_back(BackScatter_st2);
-	float BackScatter_boxsize = BackScatter_st_vec.at(0)->GetY2NDC()-BackScatter_st_vec.at(0)->GetY1NDC();
+	TPaveStats *st2_transv = (TPaveStats*)TransvMomentum_histos.at(0)->GetListOfFunctions()->FindObject("stats");
+	st2_transv->SetX1NDC(0.65); //new x start position
+	st2_transv->SetX2NDC(0.85); //new x end position
+	st2_transv->SetY1NDC(0.73); //new x start position
+	st2_transv->SetY2NDC(0.9); //new x end position
+	std::vector<TPaveStats*> st_vec_transv;
+	st_vec_transv.push_back(st2_transv);
+	float boxsize_transv = st_vec.at(0)->GetY2NDC()-st_vec.at(0)->GetY1NDC();
 
   for(int time_iterator=1; time_iterator <=3; ++time_iterator){
-	  BackScatter_Momentum_histos.at(time_iterator)->SetLineColor(time_iterator+1);
-	  BackScatter_Momentum_histos.at(time_iterator)->Draw("SAMES");
+	  TransvMomentum_histos.at(time_iterator)->SetLineColor(time_iterator+1);
+	  TransvMomentum_histos.at(time_iterator)->Draw("SAMES");
 		canvas2->Update();
-		BackScatter_st_vec.push_back(new TPaveStats());
-		BackScatter_st_vec.at(time_iterator)= (TPaveStats*)BackScatter_Momentum_histos.at(time_iterator)->GetListOfFunctions()->FindObject("stats");
-		BackScatter_st_vec.at(time_iterator)->SetLineColor(time_iterator+1);
-		BackScatter_st_vec.at(time_iterator)->SetX1NDC(0.65); //new x start position
-		BackScatter_st_vec.at(time_iterator)->SetX2NDC(0.85); //new x end position
-		BackScatter_st_vec.at(time_iterator)->SetY2NDC(BackScatter_st_vec.at(time_iterator-1)->GetY1NDC()); //new x end position
-		BackScatter_st_vec.at(time_iterator)->SetY1NDC(BackScatter_st_vec.at(time_iterator)->GetY2NDC()-BackScatter_boxsize); //new x start position
+		st_vec_transv.push_back(new TPaveStats());
+	  st_vec_transv.at(time_iterator)= (TPaveStats*)TransvMomentum_histos.at(time_iterator)->GetListOfFunctions()->FindObject("stats");
+		st_vec_transv.at(time_iterator)->SetLineColor(time_iterator+1);
+		st_vec_transv.at(time_iterator)->SetX1NDC(0.65); //new x start position
+		st_vec_transv.at(time_iterator)->SetX2NDC(0.85); //new x end position
+		st_vec_transv.at(time_iterator)->SetY2NDC(st_vec_transv.at(time_iterator-1)->GetY1NDC()); //new x end position
+		st_vec_transv.at(time_iterator)->SetY1NDC(st_vec_transv.at(time_iterator)->GetY2NDC()-boxsize_transv); //new x start position
   }
 
-	canvas2->Print(("output/backscatter_momentum_histo_"+subdetector_names.str()+".pdf").c_str());
-	canvas2->Print(("output/backscatter_momentum_histo_"+subdetector_names.str()+".cxx").c_str());
+	canvas2->Print(("output/transvmomentum_histo_"+subdetector_names.str()+".pdf").c_str());
+	canvas2->Print(("output/transvmomentum_histo_"+subdetector_names.str()+".cxx").c_str());
+
 
   canvas3->cd();
   canvas3->SetLogx(1);
