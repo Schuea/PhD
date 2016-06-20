@@ -16,7 +16,8 @@ int const n = 14; //Number of apertures that were recorded
 float HistoMax = 0.0; //To find the maximum entry to the histogram, so that the y-axis can be scaled appropriately.
 float HistoMin = 10000000.0; //To find the minimum entry to the histogram, so that the y-axis can be scaled appropriately.
 
-void GetAverageSignals(float* SignalAverage, bool GetError, const float* beamintensity, const float apertures[], const int num_apertures, TTree* tree, const float* beamintensity_branch, const float* firstjawposition_branch, const float* secondjawposition_branch, const float* signal_branch, const int* voltage_branch);
+void GetAverageSignals(float* SignalAverage, bool GetError, const float apertures[], const int num_apertures, TTree* tree, const float* beamintensity_branch, const float* firstjawposition_branch, const float* secondjawposition_branch, const float* signal_branch, const int* voltage_branch);
+void GetAverageSignals(bool normalizing_ON, float* SignalAverage, bool GetError, const float* beamintensity, const float apertures[], const int num_apertures, TTree* tree, const float* beamintensity_branch, const float* firstjawposition_branch, const float* secondjawposition_branch, const float* signal_branch, const int* voltage_branch);
 
 int main(int const argc, char const * const * const argv) {
   UsePhDStyle();
@@ -25,16 +26,19 @@ int main(int const argc, char const * const * const argv) {
 
   std::string inputfilename;
   std::string outputfilename;
+  bool normalizing_ON = false;
   std::vector< float > recorded_beamIntensities;
 
   bool inputfile_set = false;
   bool outputfile_set = false;
   bool beamintensity_set = false;
+  bool normalizing_set = false;
 
   for (int i = 1; i < argc; i++) {
     if (argv[i] == std::string("-i")){
       if (argv[i + 1] != std::string("-o")
           && argv[i + 1] != std::string("-b")
+          && argv[i + 1] != std::string("-n")
           && argv[i + 1] != NULL) {
         inputfilename = argv[i + 1];
         inputfile_set = true;
@@ -46,6 +50,7 @@ int main(int const argc, char const * const * const argv) {
     if (argv[i] == std::string("-o")) {
       if (argv[i + 1] != NULL 
           && argv[i + 1] != std::string("-b")
+          && argv[i + 1] != std::string("-n")
           && argv[i + 1] != std::string("-i")) {
         outputfilename = argv[i + 1];
         outputfile_set = true;
@@ -54,15 +59,30 @@ int main(int const argc, char const * const * const argv) {
           << std::endl;
       }
     }
+    if (argv[i] == std::string("-n")) {
+      if (argv[i + 1] != NULL 
+          && argv[i + 1] != std::string("-b")
+          && argv[i + 1] != std::string("-o")
+          && argv[i + 1] != std::string("-i")) {
+        normalizing_ON = argv[i + 1];
+        normalizing_set = true;
+      } else {
+        std::cerr << "You didn't say if the data shall be normalized by charge!"
+          << std::endl;
+      }
+    }
     if (argv[i] == std::string("-b")) {
       if (argv[i + 1] != NULL
+          && argv[i + 1] != std::string("-n")
           && argv[i + 1] != std::string("-i")
           && argv[i + 1] != std::string("-o")) {
         int j = 1;
         while(argv[i + j] != NULL
+            && argv[i + j] != std::string("-n")
             && argv[i + j] != std::string("-i")
             && argv[i + j] != std::string("-o")) {
-          recorded_beamIntensities.push_back(std::stof(argv[i + j]));
+          std::string str(argv[i + j]);
+          recorded_beamIntensities.push_back(std::atof(str.c_str()));
           j++;
         }
         beamintensity_set = true;
@@ -73,18 +93,30 @@ int main(int const argc, char const * const * const argv) {
     }
 
   }
-  if (!inputfile_set || !outputfile_set || !beamintensity_set) {
+  if (!inputfile_set || !outputfile_set || !normalizing_set) {
     std::cerr
-      << "You didn't give the name for the inputfile or the outputfile. Please try again!"
+      << "You didn't give the name for the inputfile, the outputfile, or if the data shall be normalized. Please try again!"
       << std::endl;
+    exit(1);
+  }
+  if (!normalizing_ON && !beamintensity_set){
+    std::cerr << "Please specify which beam intensities you are interested in: e.g. -b 0.8" << std::endl;
     exit(1);
   }
   std::cout << "Inputfile: " << inputfilename << std::endl;
   std::cout << "Output: " << outputfilename << std::endl;
-  std::cout << "Beam intensities [10^8]: " << std::endl;
-  for(int intensity_iterator = 0; intensity_iterator < recorded_beamIntensities.size(); ++intensity_iterator){
-    std::cout << recorded_beamIntensities.at(intensity_iterator) << std::endl;
-    recorded_beamIntensities.at(intensity_iterator) /= 100.0;//change back to a intensity unit of 10^10, as the intensity is given like this in the ROOT inputfiles
+  if (normalizing_ON = false){
+    std::cout << "Beam intensities [10^8]: " << std::endl;
+    for(int intensity_iterator = 0; intensity_iterator < recorded_beamIntensities.size(); ++intensity_iterator){
+      std::cout << recorded_beamIntensities.at(intensity_iterator) << std::endl;
+      recorded_beamIntensities.at(intensity_iterator);
+      //recorded_beamIntensities.at(intensity_iterator) /= 100.0;//change back to a intensity unit of 10^10, as the intensity is given like this in the ROOT inputfiles
+    }
+  }
+  else{
+    std::cout << "----------------" << std::endl;
+    std::cout << "The data will be normalized by charge!" << std::endl;
+    std::cout << "----------------" << std::endl;
   }
 
   TFile* inputfile = TFile::Open(inputfilename.c_str());
@@ -116,12 +148,21 @@ int main(int const argc, char const * const * const argv) {
 
   //Fill the arrays with the average and the RMS/sqrt(N) of the signals from the TTree for the different beam intensities:
   std::vector< TGraphErrors*> All_TGraphErrors;
-  
-  for(int intensity_iterator = 0; intensity_iterator < recorded_beamIntensities.size(); ++intensity_iterator){
+ 
+  int intensity_iterator = 0; 
+  do{
+    //UPPER JAW:
     float SignalAverage[n];
-    GetAverageSignals(SignalAverage, false, &recorded_beamIntensities.at(intensity_iterator), JawPosition, n, Detector, &beamintensity, &upperjawposition, &lowerjawposition, &signal, &voltage);
     float SignalAverageError[n];
-    GetAverageSignals(SignalAverageError, true, &recorded_beamIntensities.at(intensity_iterator), JawPosition, n, Detector, &beamintensity, &upperjawposition, &lowerjawposition, &signal, &voltage);
+    if(recorded_beamIntensities.size()>0){
+      GetAverageSignals(normalizing_ON, SignalAverage, false, &recorded_beamIntensities.at(intensity_iterator), JawPosition, n, Detector, &beamintensity, &upperjawposition, &lowerjawposition, &signal, &voltage);
+      GetAverageSignals(normalizing_ON, SignalAverageError, true, &recorded_beamIntensities.at(intensity_iterator), JawPosition, n, Detector, &beamintensity, &upperjawposition, &lowerjawposition, &signal, &voltage);
+    }
+    else{
+      GetAverageSignals(SignalAverage, false, JawPosition, n, Detector, &beamintensity, &upperjawposition, &lowerjawposition, &signal, &voltage);
+      GetAverageSignals(SignalAverageError, true, JawPosition, n, Detector, &beamintensity, &upperjawposition, &lowerjawposition, &signal, &voltage);
+    }
+  std::cout << __LINE__ << std::endl;
 
     TGraphErrors* AverageSignal_CollAperture = new TGraphErrors(n,JawPosition,SignalAverage,JawPositionError,SignalAverageError);
     AverageSignal_CollAperture->SetTitle("Average signal strength for different beam halo collimator apertures;Jaw position [mm];Average RHUL cherenkov signal [a.u.]");
@@ -131,10 +172,18 @@ int main(int const argc, char const * const * const argv) {
 
     All_TGraphErrors.push_back(AverageSignal_CollAperture);
 
+    //LOWER_JAW:
     float SignalAverage2[n];
-    GetAverageSignals(SignalAverage2, false, &recorded_beamIntensities.at(intensity_iterator), JawPosition, n, Detector, &beamintensity, &lowerjawposition, &upperjawposition, &signal, &voltage);
     float SignalAverageError2[n];
-    GetAverageSignals(SignalAverageError2, true, &recorded_beamIntensities.at(intensity_iterator), JawPosition, n, Detector, &beamintensity, &lowerjawposition, &upperjawposition, &signal, &voltage);
+    if(recorded_beamIntensities.size()>0){
+    GetAverageSignals(normalizing_ON, SignalAverage2, false, &recorded_beamIntensities.at(intensity_iterator), JawPosition, n, Detector, &beamintensity, &lowerjawposition, &upperjawposition, &signal, &voltage);
+    GetAverageSignals(normalizing_ON, SignalAverageError2, true, &recorded_beamIntensities.at(intensity_iterator), JawPosition, n, Detector, &beamintensity, &lowerjawposition, &upperjawposition, &signal, &voltage);
+    }
+    else{
+    GetAverageSignals(SignalAverage2, false, JawPosition, n, Detector, &beamintensity, &lowerjawposition, &upperjawposition, &signal, &voltage);
+    GetAverageSignals(SignalAverageError2, true, JawPosition, n, Detector, &beamintensity, &lowerjawposition, &upperjawposition, &signal, &voltage);
+    }
+  std::cout << __LINE__ << std::endl;
 
     TGraphErrors* AverageSignal_CollAperture2 = new TGraphErrors(n,JawPosition,SignalAverage2,JawPositionError,SignalAverageError2);
     AverageSignal_CollAperture2->SetTitle("Average signal strength for different beam halo collimator apertures;Collimator aperture [mm];Average RHUL cherenkov signal [a.u.]");
@@ -143,8 +192,11 @@ int main(int const argc, char const * const * const argv) {
     AverageSignal_CollAperture2->SetMarkerStyle(8);
 
     All_TGraphErrors.push_back(AverageSignal_CollAperture2);
+    ++intensity_iterator;
   }
+  while(intensity_iterator < recorded_beamIntensities.size());
 
+  std::cout << __LINE__ << std::endl;
 
   //Plot the TGraphErrors for the different intensities onto the same canvas:
   TCanvas* canvas = new TCanvas();
@@ -155,11 +207,19 @@ int main(int const argc, char const * const * const argv) {
   for(int graph_iterator = 0; graph_iterator < All_TGraphErrors.size(); ++graph_iterator){
     All_TGraphErrors.at(graph_iterator)->SetMaximum(HistoMax + 0.1*HistoMax);
     All_TGraphErrors.at(graph_iterator)->SetMinimum(500);
+  std::cout << __LINE__ << std::endl;
 
     std::stringstream legend_text1, legend_text2;
     int intensity_iterator = std::floor(((float)graph_iterator)/2.0);//There are two graphs per intensity -> there are twice as many entries in the GraphVector as there are in the IntensityVector -> only count the intensity_iterator up for every number%2==0 basically
-    legend_text1 << recorded_beamIntensities.at(intensity_iterator) << legend_text_unit.str() << ", upper jaw moving";
-    legend_text2 << recorded_beamIntensities.at(intensity_iterator) << legend_text_unit.str() << ", lower jaw moving";
+    if (normalizing_ON == false && recorded_beamIntensities.size()>0){
+      legend_text1 << recorded_beamIntensities.at(intensity_iterator) << legend_text_unit.str() << ", upper jaw moving";
+      legend_text2 << recorded_beamIntensities.at(intensity_iterator) << legend_text_unit.str() << ", lower jaw moving";
+    }
+    else{
+      legend_text1 << "Run "<< intensity_iterator+1 <<", upper jaw moving";
+      legend_text2 << "Run "<< intensity_iterator+1 <<", lower jaw moving";
+    }
+  std::cout << __LINE__ << std::endl;
 
     //All even graphs are for the upper jaw with legend_text1, all odd graphs for the lower jaw with legend_text2:
     if(graph_iterator == 0){//Specify the very first graph separately because here mustn't be written 'SAME' in drawing options
@@ -176,6 +236,7 @@ int main(int const argc, char const * const * const argv) {
     }
   }
   legend->Draw();
+  std::cout << __LINE__ << std::endl;
 
   std::string outputname1 = "output/" + outputfilename + ".pdf";
   std::string outputname2 = "output/" + outputfilename + ".cxx";
@@ -185,7 +246,8 @@ int main(int const argc, char const * const * const argv) {
   inputfile->Close();
 }  
 
-void GetAverageSignals(float* SignalAverage, bool GetError, const float* beamintensity, const float apertures[], const int num_apertures, TTree* tree, const float* beamintensity_branch, const float* firstjawposition_branch, const float* secondjawposition_branch, const float* signal_branch, const int* voltage_branch){
+void GetAverageSignals(bool normalizing_ON, float* SignalAverage, bool GetError, const float* beamintensity, const float apertures[], const int num_apertures, TTree* tree, const float* beamintensity_branch, const float* firstjawposition_branch, const float* secondjawposition_branch, const float* signal_branch, const int* voltage_branch){
+
   std::string title1D = "RHUL cherenkov detector signal;Signal [a.u.];Count";
   std::vector<TH1D*> Signal_CollAperture;
   //Push back as many TH1 histograms as needed in order to have one for each aperture
@@ -197,21 +259,30 @@ void GetAverageSignals(float* SignalAverage, bool GetError, const float* beamint
   for (long long int i = 0; i < entries; ++i){
     tree->GetEntry(i);
     if(*voltage_branch > 0
-        && *secondjawposition_branch >= 11.5 && *secondjawposition_branch <= 12.5 //one jaw was held on the open position, while the other one was moved
-        && *beamintensity_branch >= *beamintensity-0.15 && *beamintensity_branch <= *beamintensity+0.15){
-        //&& *beamintensity_branch >= *beamintensity-0.055 && *beamintensity_branch <= *beamintensity+0.055){
-        //&& *beamintensity_branch >= *beamintensity-0.04 && *beamintensity_branch <= *beamintensity+0.04){
-
+        && *secondjawposition_branch >= 11.5 && *secondjawposition_branch <= 12.5) //one jaw was held on the open position, while the other one was moved
+    {
+      if(normalizing_ON){
         for(int number_apertures = 0; number_apertures < num_apertures; ++number_apertures){
           //Fill the TH1 in the vector with signals for an aperture, that corresponds to the desired apertures in the aperture vector:
           if(*firstjawposition_branch > apertures[number_apertures]-0.1 && *firstjawposition_branch < apertures[number_apertures]+0.1){
-            Signal_CollAperture.at(number_apertures)->Fill(*signal_branch);
-          }
-        }
-
-    }
+            //Normalizing by charge
+            Signal_CollAperture.at(number_apertures)->Fill(*signal_branch/ *beamintensity_branch);
+          }//end if
+        }//end for
+      }//end if(normalizing_ON)  
+      else{    
+        if(*beamintensity_branch >= *beamintensity-0.15 && *beamintensity_branch <= *beamintensity+0.15){
+          for(int number_apertures = 0; number_apertures < num_apertures; ++number_apertures){
+            //Fill the TH1 in the vector with signals for an aperture, that corresponds to the desired apertures in the aperture vector:
+            if(*firstjawposition_branch > apertures[number_apertures]-0.1 && *firstjawposition_branch < apertures[number_apertures]+0.1){
+              Signal_CollAperture.at(number_apertures)->Fill(*signal_branch);
+            }//end if
+          }//end for
+        }//end if
+      }//end else
+    }//end if (*voltage_branch > 0 &&..
     else continue;
-  }
+  }//end for
 
   for(size_t iterator; iterator < Signal_CollAperture.size();++iterator){
     //If the average signal is desired, get the mean from the signal distributions in the TH1 vector
@@ -226,5 +297,47 @@ void GetAverageSignals(float* SignalAverage, bool GetError, const float* beamint
       //SignalAverage[iterator] = Signal_CollAperture.at(iterator)->GetRMS()/std::sqrt(Signal_CollAperture.at(iterator)->GetEntries());  
     }
     delete Signal_CollAperture.at(iterator);
+  }//end for
+}//end function
+
+void GetAverageSignals(float* SignalAverage, bool GetError, const float apertures[], const int num_apertures, TTree* tree, const float* beamintensity_branch, const float* firstjawposition_branch, const float* secondjawposition_branch, const float* signal_branch, const int* voltage_branch){
+
+  std::string title1D = "RHUL cherenkov detector signal;Signal [a.u.];Count";
+  std::vector<TH1D*> Signal_CollAperture;
+  //Push back as many TH1 histograms as needed in order to have one for each aperture
+  for(int number_apertures = 0; number_apertures < num_apertures; ++number_apertures){
+    Signal_CollAperture.emplace_back(new TH1D("signal-noise", title1D.c_str(),500,0,1000000));
   }
+
+  long long int const entries =  tree->GetEntries();
+  for (long long int i = 0; i < entries; ++i){
+    tree->GetEntry(i);
+    if(*voltage_branch > 0
+        && *secondjawposition_branch >= 11.5 && *secondjawposition_branch <= 12.5) //one jaw was held on the open position, while the other one was moved
+    {
+      for(int number_apertures = 0; number_apertures < num_apertures; ++number_apertures){
+        //Fill the TH1 in the vector with signals for an aperture, that corresponds to the desired apertures in the aperture vector:
+        if(*firstjawposition_branch > apertures[number_apertures]-0.1 && *firstjawposition_branch < apertures[number_apertures]+0.1){
+          //Normalizing by charge
+          Signal_CollAperture.at(number_apertures)->Fill(*signal_branch/ *beamintensity_branch);
+        }//end if
+      }//end for
+    }//end if (*voltage_branch > 0 &&..
+    else continue;
+  }//end for
+
+  for(size_t iterator; iterator < Signal_CollAperture.size();++iterator){
+    //If the average signal is desired, get the mean from the signal distributions in the TH1 vector
+    if (GetError==false){
+      SignalAverage[iterator] = Signal_CollAperture.at(iterator)->GetMean();  
+      if (SignalAverage[iterator] > HistoMax) HistoMax = SignalAverage[iterator];
+      if (SignalAverage[iterator] < HistoMin) HistoMin = SignalAverage[iterator];
+    }
+    //If the error is desired, get the RMS from the signal distributions in the TH1 vector devided by the square root of entries->standard deviation of the mean
+    else{
+      SignalAverage[iterator] = Signal_CollAperture.at(iterator)->GetRMS();  
+      //SignalAverage[iterator] = Signal_CollAperture.at(iterator)->GetRMS()/std::sqrt(Signal_CollAperture.at(iterator)->GetEntries());  
+    }
+    delete Signal_CollAperture.at(iterator);
+  }//end for
 }

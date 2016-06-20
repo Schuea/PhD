@@ -1,3 +1,4 @@
 g++ -o ../MakeTTree_rhulcherenkov.exe main_MakeTTree_rhulcherenkov.cc `root-config --cflags --glibs`
+g++ -o ../MakeTTree_rhulcherenkov_charge_from_BPMfiles.exe main_MakeTTree_rhulcherenkov_charge_from_BPMfiles.cc `root-config --cflags --glibs`
 g++ -o ../MakeTChain_rhulcherenkov.exe main_MakeTChain_rhulcherenkov.cc `root-config --cflags --glibs`
 g++ -o ../AddBranch_rhulcherenkov_signal-noise.exe main_AddBranch_rhulcherenkov_signal-noise.cc `root-config --cflags --glibs`
