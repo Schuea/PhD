@@ -1,6 +1,7 @@
 #include "TStyle.h"
 #include "TROOT.h"
 #include "TGaxis.h"
+#include "TColor.h"
 
 #include "Style.h"
 
@@ -80,7 +81,8 @@ TStyle* PhDStyle()
   myPhDStyle->SetPadTickX(1);
   myPhDStyle->SetPadTickY(1);
 
-  myPhDStyle->SetPalette(53); //Black body color scale
+  myPhDStyle->SetPalette(kBird); //kBird color scale
+  //myPhDStyle->SetPalette(53); //Black body color scale
   myPhDStyle->SetNumberContours(100); //How many colors in color scale
 
   return myPhDStyle;
