@@ -104,8 +104,20 @@ int main(int const argc, char const * const * const argv) {
 	std::string subdetectornames = (*subdetector_name);
 	std::vector<float> range_array;
 
+	float const phillwidth = 1.1;
+	float const phillstart = 0.01;
+	float const phillend = 2000;
+	int const phillbins((log(phillend/phillstart))/(log(phillwidth)));
+	std::cout << "phillbins = " << phillbins << std::endl;
+	float phillbins2[phillbins+2];
+	phillbins2[0] = phillstart;
+	for(int i = 1; i < phillbins+2; ++i){
+		phillbins2[i] = phillwidth*phillbins2[i-1];
+		std::cout << "Bin " << i << " is " << phillbins2[i] << std::endl;
+	}
 	//Make histogram for storing the information
-  TH1D* ParticleCreationTime = new TH1D("Creation time", ("Creation time of particles hitting subdetector "+subdetectornames+";Particle creation time [ns]; #hits").c_str(), 4000,0, 2000);
+  TH1D* ParticleCreationTime = new TH1D("Creation time", ("Creation time of particles hitting subdetector "+subdetectornames+";Particle creation time [ns]; #hits").c_str(), phillbins, phillbins2);
+  //TH1D* ParticleCreationTime = new TH1D("Creation time", ("Creation time of particles hitting subdetector "+subdetectornames+";Particle creation time [ns]; #hits").c_str(), 4000,0, 2000);
 
   std::vector< TH1D* > Momentum_histos;
 	std::string const title1 = "Particle momentum in certain time interval, hitting "
