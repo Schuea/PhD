@@ -38,7 +38,7 @@ public class MuonsToStdhepLCIO {
 		if (args.length %2 != 0 && !(args[0].equals("-h") || args[0].equals("--help"))){
 			System.out.println("Please check your arguments!\n"
 					+ "I guess you forgot to set a flag... Type for the USAGE:\n"
-					+ ">> java -cp bin:lib/* PairsToStdhepLCIO -h / --help");
+					+ ">> java -cp bin:lib/* MuonsToStdhepLCIO -h / --help");
 			System.exit(1);
 		}
 
@@ -581,7 +581,7 @@ public class MuonsToStdhepLCIO {
 
 	private static void Start() {
 		System.out.print(String.format("%65s", " ").replace(' ', '*'));
-		System.out.printf("%n%-4s%20s%17s%20s%4s%n","****"," ","PairsToStdhepLCIO"," ","****");
+		System.out.printf("%n%-4s%20s%17s%20s%4s%n","****"," ","MuonsToStdhepLCIO"," ","****");
 		System.out.printf("%-4s%57s%4s%n","****"," Converting muons.txt files to Stdhep or LCIO ","****");
 		System.out.printf("%-4s%18s%21s%18s%4s%n","****"," ","Author:  Anne Schuetz"," ","****");
 		System.out.print(String.format("%65s", " ").replace(' ', '*'));
@@ -589,14 +589,14 @@ public class MuonsToStdhepLCIO {
 	}
 	
 	private static void Usage() {
-		System.out.println("\nPairsToStdhepLCIO: \n"
+		System.out.println("\nMuonsToStdhepLCIO: \n"
 			+ "Application to convert muons.txt files to stdhep format or slcio format.\n"
 			+ "\nCuts on pT and Theta can be applied in the following way: pTcut_low < pT [GeV] < pTcut_high, and thetacut_low < theta [degrees] < thetacut_high. \n"
 			+ "With giving an integer number, the number of particles that are to be converted can be defined.\n"
 			+ "Passing a run number as an argument will allow to distinguish single simulation files after merging.\n"
 			+ "If no run number will be passed the default value 1 will be set as the run number for this file.");
 		System.out.println("\nUSAGE: \n"
-			+ ">> java -cp bin:lib/*  PairsToStdhepLCIO -i PATH/TO/input.txt -o output<.stdhep / .slcio> <more options> \n");
+			+ ">> java -cp bin:lib/*  MuonsToStdhepLCIO -i PATH/TO/input.txt -o output<.stdhep / .slcio> <more options> \n");
 		System.out.println("\nRequired Arguments:\n");
 		System.out.printf("%-25s%s%n","-i:","<input.txt file>");
 		System.out.printf("%-25s%s%n","-o:","<output filename.stdhep / .slcio>");
@@ -609,10 +609,10 @@ public class MuonsToStdhepLCIO {
 		System.out.printf("%-25s%s%n","-tl / --thetacut_low:","<lower limit for theta in degree>");
 		System.out.printf("%-25s%s%n","-th / --thetacut_high:","<higher limit for theta in degree>");
 		System.out.println("\n For example: \n"
-			+ ">> java -cp bin:lib/* PairsToStdhepLCIO -i muons.txt -o muons.slcio -r 2 -n 3000 -pl 0.01 -ph 1 -tl 0.2 -th 30");
+			+ ">> java -cp bin:lib/* MuonsToStdhepLCIO -i muons.txt -o muons.slcio -r 2 -n 3000 -pl 0.01 -ph 1 -tl 0.2 -th 30");
 		System.exit(0);
 	}//end Usage()
-}//end PairsToSthepLCIO class
+}//end MuonsToSthepLCIO class
 
 
 class Particle{
