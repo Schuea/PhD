@@ -19,6 +19,7 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+import java.util.Random;
 
 /**
  * Converter for muons from spoilers text file to stdhep or slcio
@@ -33,12 +34,23 @@ public class MuonsToStdhepLCIO {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
+		//Phill
+		
+		for( int i = 0; i < 1000; ++i){
+			System.out.println(Poisson(2));
+			System.out.println("\n");
+		}
+		System.exit(0);
+
+		//Phill
+
+
 		Start();
 		if (args.length < 1) Usage();
 		if (args.length %2 != 0 && !(args[0].equals("-h") || args[0].equals("--help"))){
 			System.out.println("Please check your arguments!\n"
 					+ "I guess you forgot to set a flag... Type for the USAGE:\n"
-					+ ">> java -cp bin:lib/* PairsToStdhepLCIO -h / --help");
+					+ ">> java -cp bin:lib/* MuonsToStdhepLCIO -h / --help");
 			System.exit(1);
 		}
 
@@ -94,6 +106,7 @@ public class MuonsToStdhepLCIO {
 		//Default values for the optional arguments:	
 		int runnum = 1;
 		int nmax = total_number_of_particles;
+		boolean distribution = false; 
 		double pT_cut_low = 0.0D;
 		double pT_cut_high = 999.9D;
 		double Theta_cut_low = 0.0D;
@@ -106,6 +119,9 @@ public class MuonsToStdhepLCIO {
 			}
 			if ( args[i].equals("-n")){
 				nmax = Integer.parseInt(args[i+1]);
+			}
+			if ( args[i].equals("-d")){
+				distribution = Boolean.parseBoolean(args[i+1]);
 			}
 			if ( args[i].equals("-pl") || args[i].equals("--ptcut_low")){
 				pT_cut_low = Double.parseDouble(args[i+1]);
@@ -139,7 +155,7 @@ public class MuonsToStdhepLCIO {
 				MoreOutputfiles = YesNo_MoreOutputfiles();
 			}
 			//Call function to convert into stdhep:
-			ToStdhep(output_name, muons, total_number_of_particles, nmax, MoreOutputfiles, pT_cut_low, pT_cut_high, Theta_cut_low, Theta_cut_high);
+			ToStdhep(output_name, muons, total_number_of_particles, nmax, distribution, MoreOutputfiles, pT_cut_low, pT_cut_high, Theta_cut_low, Theta_cut_high);
 			muons_file.close();
 		}
 		else if (file_format.equals("slcio")){
@@ -150,7 +166,7 @@ public class MuonsToStdhepLCIO {
 				MoreOutputfiles = YesNo_MoreOutputfiles();
 			}
 			//Call function to convert into slcio:
-		 	ToLCIO(output_name, muons, runnum, nmax, MoreOutputfiles, pT_cut_low, pT_cut_high, Theta_cut_low, Theta_cut_high);
+		 	ToLCIO(output_name, muons, runnum, nmax, distribution, MoreOutputfiles, pT_cut_low, pT_cut_high, Theta_cut_low, Theta_cut_high);
 		 	muons_file.close(); 
 		}
 		else {
@@ -165,13 +181,14 @@ public class MuonsToStdhepLCIO {
 	 * @param muons BufferedReader for input muons file
 	 * @param tot_num Total number of particles in the input file
 	 * @param _nmax Maximum number of particles per output file
+	 * @param distribution Boolean choice whether the number of particles shall be poisson distributed
 	 * @param More_outputfiles Boolean choice whether several output files shall be created with each _nmax particles
 	 * @param pT_cut_low Value for lower limit of p_T
 	 * @param pT_cut_high Value for higher limit of p_T
 	 * @param Theta_cut_low Value for lower limit of theta
 	 * @param Theta_cut_high Value for higher limit of theta
 	 */
-	public static void ToStdhep(String outputFilename, BufferedReader muons, int tot_num, int _nmax, boolean More_outputfiles,
+	public static void ToStdhep(String outputFilename, BufferedReader muons, int tot_num, int _nmax, boolean distribution, boolean More_outputfiles,
 			double pT_cut_low, double pT_cut_high, double Theta_cut_low, double Theta_cut_high) {
 		
 		//Double array of values per line in the input file:
@@ -179,6 +196,11 @@ public class MuonsToStdhepLCIO {
 
 		int _n = 0; //Number of particles
 		int _eventnum = 1; //For counting up output files
+
+		
+		if(distribution == true){
+						_nmax = poisson(generator);
+		}
 		
 		//Arrays for StdhepEvent values:
 		int[] _fst = new int[_nmax];
@@ -363,13 +385,14 @@ public class MuonsToStdhepLCIO {
 	 * @param muons BufferedReader for input muons.txt file
 	 * @param run_num Number of run
 	 * @param _nmax Maximum number of particles per output file
+	 * @param distribution Boolean choice whether the number of particles shall be poisson distributed
 	 * @param More_outputfiles Boolean choice whether several output files shall be created with each _nmax particles
 	 * @param pT_cut_low Value for lower limit of p_T
 	 * @param pT_cut_high Value for higher limit of p_T
 	 * @param Theta_cut_low Value for lower limit of theta
 	 * @param Theta_cut_high Value for higher limit of theta
 	 */
-	public static void ToLCIO(String outputFilename, BufferedReader muons, int run_num, int _nmax, boolean More_outputfiles, double pT_cut_low, double pT_cut_high, double Theta_cut_low, double Theta_cut_high) { 
+	public static void ToLCIO(String outputFilename, BufferedReader muons, int run_num, int _nmax, boolean distribution, boolean More_outputfiles, double pT_cut_low, double pT_cut_high, double Theta_cut_low, double Theta_cut_high) { 
 		
 		String New_outputFilename=outputFilename;
 		
@@ -581,7 +604,7 @@ public class MuonsToStdhepLCIO {
 
 	private static void Start() {
 		System.out.print(String.format("%65s", " ").replace(' ', '*'));
-		System.out.printf("%n%-4s%20s%17s%20s%4s%n","****"," ","PairsToStdhepLCIO"," ","****");
+		System.out.printf("%n%-4s%20s%17s%20s%4s%n","****"," ","MuonsToStdhepLCIO"," ","****");
 		System.out.printf("%-4s%57s%4s%n","****"," Converting muons.txt files to Stdhep or LCIO ","****");
 		System.out.printf("%-4s%18s%21s%18s%4s%n","****"," ","Author:  Anne Schuetz"," ","****");
 		System.out.print(String.format("%65s", " ").replace(' ', '*'));
@@ -589,14 +612,14 @@ public class MuonsToStdhepLCIO {
 	}
 	
 	private static void Usage() {
-		System.out.println("\nPairsToStdhepLCIO: \n"
+		System.out.println("\nMuonsToStdhepLCIO: \n"
 			+ "Application to convert muons.txt files to stdhep format or slcio format.\n"
 			+ "\nCuts on pT and Theta can be applied in the following way: pTcut_low < pT [GeV] < pTcut_high, and thetacut_low < theta [degrees] < thetacut_high. \n"
 			+ "With giving an integer number, the number of particles that are to be converted can be defined.\n"
 			+ "Passing a run number as an argument will allow to distinguish single simulation files after merging.\n"
 			+ "If no run number will be passed the default value 1 will be set as the run number for this file.");
 		System.out.println("\nUSAGE: \n"
-			+ ">> java -cp bin:lib/*  PairsToStdhepLCIO -i PATH/TO/input.txt -o output<.stdhep / .slcio> <more options> \n");
+			+ ">> java -cp bin:lib/*  MuonsToStdhepLCIO -i PATH/TO/input.txt -o output<.stdhep / .slcio> <more options> \n");
 		System.out.println("\nRequired Arguments:\n");
 		System.out.printf("%-25s%s%n","-i:","<input.txt file>");
 		System.out.printf("%-25s%s%n","-o:","<output filename.stdhep / .slcio>");
@@ -609,10 +632,24 @@ public class MuonsToStdhepLCIO {
 		System.out.printf("%-25s%s%n","-tl / --thetacut_low:","<lower limit for theta in degree>");
 		System.out.printf("%-25s%s%n","-th / --thetacut_high:","<higher limit for theta in degree>");
 		System.out.println("\n For example: \n"
-			+ ">> java -cp bin:lib/* PairsToStdhepLCIO -i muons.txt -o muons.slcio -r 2 -n 3000 -pl 0.01 -ph 1 -tl 0.2 -th 30");
+			+ ">> java -cp bin:lib/* MuonsToStdhepLCIO -i muons.txt -o muons.slcio -r 2 -n 3000 -pl 0.01 -ph 1 -tl 0.2 -th 30");
 		System.exit(0);
 	}//end Usage()
-}//end PairsToSthepLCIO class
+
+	private static int Poisson(int mean){
+					double L = Math.exp(-mean);
+					double p = 1.0;
+					int k = 0;
+
+					do {
+									k++;
+									p *= Math.random();
+					} while (p > L);
+
+					return k - 1;
+	}
+
+}//end MuonsToSthepLCIO class
 
 
 class Particle{
@@ -628,9 +665,9 @@ class Particle{
 		//beta[1] = qualities[2];
 		//beta[2] = qualities[3];
 		pos = new double[3];
-		pos[0] = qualities[0];//x
-		pos[1] = qualities[1];//y
-		pos[2] = -1000.0;//z (cm) (muons at IP)
+		pos[0] = qualities[0]*10.0;//x (mm)
+		pos[1] = qualities[1]*10.0;//y (mm)
+		pos[2] = -10000.0;//z (mm) (muons at IP)
 		angle = new double[3];
 		angle[0] = qualities[2];//angle between x direction and z-axis
 		angle[1] = qualities[3];//angle between y direction and z-axis
