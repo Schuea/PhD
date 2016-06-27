@@ -1,5 +1,5 @@
-PairsToStdhepLCIO
-Converting GuineaPig pairs.dat files to Stdhep or LCIO
+MuonsToStdhepLCIO
+Converting muons.txt files to Stdhep or LCIO
 
 ---------------------------------------------------------------
 Required libraries:
@@ -32,7 +32,7 @@ lcsim-distribution-3.1.3-bin.jar
 lcio.jar
 ---------------------------------------------------------------
 For compiling:
-javac -cp bin:lib/* src/PairsToStdhepLCIO.java 
+javac -cp "bin:<PATH-TO/>lib/*" src/MuonsToStdhepLCIO.java 
 
 Here, the java file is stored in the subfolder src.
 The flag -cp gives the path to the class file (here in the bin folder) and the needed libraries (i.e. the jar files). Unlike for the class file, the libraries have to be directly named (not only the folder where they are included in). This is here done by addressing all jar files (*) in the lib folder. 
@@ -40,10 +40,10 @@ The classpath needs to be adjusted appropriately to your paths.
 
 
 For running:
-java -cp bin:lib/* PairsToStdhepLCIO -i pairs.dat -o output<.slcio / .stdhep>
+java -cp "bin:<PATH-TO/>lib/*" MuonsToStdhepLCIO -i muons.txt -o output<.slcio / .stdhep>
 
 
 There are also more options available e.g. for applying cuts on p_T and theta.
 
 See usage by typing:
-java -cp bin:lib/* PairsToStdhepLCIO -h
+java -cp "bin:<PATH-TO/>lib/*" MuonsToStdhepLCIO -h
