@@ -16,10 +16,11 @@ import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.util.*;
+//import java.util.Scanner;
+//import java.util.StringTokenizer;
 
-import java.util.Random;
+//import java.util.Random;
 
 /**
  * Converter for muons from spoilers text file to stdhep or slcio
@@ -34,17 +35,6 @@ public class MuonsToStdhepLCIO {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-		//Phill
-		
-		for( int i = 0; i < 1000; ++i){
-			System.out.println(Poisson(2));
-			System.out.println("\n");
-		}
-		System.exit(0);
-
-		//Phill
-
-
 		Start();
 		if (args.length < 1) Usage();
 		if (args.length %2 != 0 && !(args[0].equals("-h") || args[0].equals("--help"))){
@@ -144,6 +134,25 @@ public class MuonsToStdhepLCIO {
 			System.exit(1);
 		}
 		
+		List<Integer> list = new ArrayList<Integer>(); 
+		Random randomGenerator = new Random();
+
+		if (distribution == true){
+						for(int i = 0; i < total_number_of_particles;++i){
+										list.add(i);
+						}
+						int poisson_n = Poisson(nmax);
+						for(int i = 0; i < (total_number_of_particles - poisson_n); ++i){
+										int size = list.size();
+										int j = randomGenerator.nextInt(size);//gives a random integer in the interval [0;size[
+										list.remove(j);
+						}
+						nmax = poisson_n;
+						System.out.println("New nmax = " + nmax);
+		}
+		else {
+						list.clear();
+		}
 
 		boolean MoreOutputfiles = false;
 		
@@ -155,7 +164,7 @@ public class MuonsToStdhepLCIO {
 				MoreOutputfiles = YesNo_MoreOutputfiles();
 			}
 			//Call function to convert into stdhep:
-			ToStdhep(output_name, muons, total_number_of_particles, nmax, distribution, MoreOutputfiles, pT_cut_low, pT_cut_high, Theta_cut_low, Theta_cut_high);
+			ToStdhep(output_name, muons, total_number_of_particles, nmax, list, MoreOutputfiles, pT_cut_low, pT_cut_high, Theta_cut_low, Theta_cut_high);
 			muons_file.close();
 		}
 		else if (file_format.equals("slcio")){
@@ -166,7 +175,7 @@ public class MuonsToStdhepLCIO {
 				MoreOutputfiles = YesNo_MoreOutputfiles();
 			}
 			//Call function to convert into slcio:
-		 	ToLCIO(output_name, muons, runnum, nmax, distribution, MoreOutputfiles, pT_cut_low, pT_cut_high, Theta_cut_low, Theta_cut_high);
+		 	ToLCIO(output_name, muons, runnum, nmax, list, MoreOutputfiles, pT_cut_low, pT_cut_high, Theta_cut_low, Theta_cut_high);
 		 	muons_file.close(); 
 		}
 		else {
@@ -181,26 +190,23 @@ public class MuonsToStdhepLCIO {
 	 * @param muons BufferedReader for input muons file
 	 * @param tot_num Total number of particles in the input file
 	 * @param _nmax Maximum number of particles per output file
-	 * @param distribution Boolean choice whether the number of particles shall be poisson distributed
+	 * @param list List of particle number that are randomly chosen
 	 * @param More_outputfiles Boolean choice whether several output files shall be created with each _nmax particles
 	 * @param pT_cut_low Value for lower limit of p_T
 	 * @param pT_cut_high Value for higher limit of p_T
 	 * @param Theta_cut_low Value for lower limit of theta
 	 * @param Theta_cut_high Value for higher limit of theta
 	 */
-	public static void ToStdhep(String outputFilename, BufferedReader muons, int tot_num, int _nmax, boolean distribution, boolean More_outputfiles,
+	public static void ToStdhep(String outputFilename, BufferedReader muons, int tot_num, int _nmax, List<Integer> list, boolean More_outputfiles,
 			double pT_cut_low, double pT_cut_high, double Theta_cut_low, double Theta_cut_high) {
 		
 		//Double array of values per line in the input file:
 		double[] values = new double[8];
 
 		int _n = 0; //Number of particles
+		int _m = 0; //Number of particles
 		int _eventnum = 1; //For counting up output files
 
-		
-		if(distribution == true){
-						_nmax = poisson(generator);
-		}
 		
 		//Arrays for StdhepEvent values:
 		int[] _fst = new int[_nmax];
@@ -244,6 +250,13 @@ public class MuonsToStdhepLCIO {
 			//Loop over lines in input file:
 			String line;
 			while ((line = muons.readLine()) != null) {	
+				if (!list.isEmpty()){//if the list is empty, then all the particles should be used
+								System.out.println("Checking if item "+_m+" exists: " +list.contains(_m));
+								if(!list.contains(_m)){
+												_m++;
+												continue;//if it is not empty, forget about the ones that are not in the list
+								}
+				}
 				
 				//If more output files are wished, open new output file and create new event:
 				if (_n >= _nmax && More_outputfiles){
@@ -322,7 +335,9 @@ public class MuonsToStdhepLCIO {
 				
 				//Increment the number of particles in this event
 				_n++;
-				
+				_m++;
+				System.out.println(_n);
+				System.out.println(_m);
 				 
 				//If more output files are wished, open new output file and create new event:
 				if (_n >= _nmax && More_outputfiles){
@@ -385,14 +400,14 @@ public class MuonsToStdhepLCIO {
 	 * @param muons BufferedReader for input muons.txt file
 	 * @param run_num Number of run
 	 * @param _nmax Maximum number of particles per output file
-	 * @param distribution Boolean choice whether the number of particles shall be poisson distributed
+	 * @param list List of particle number that are randomly chosen
 	 * @param More_outputfiles Boolean choice whether several output files shall be created with each _nmax particles
 	 * @param pT_cut_low Value for lower limit of p_T
 	 * @param pT_cut_high Value for higher limit of p_T
 	 * @param Theta_cut_low Value for lower limit of theta
 	 * @param Theta_cut_high Value for higher limit of theta
 	 */
-	public static void ToLCIO(String outputFilename, BufferedReader muons, int run_num, int _nmax, boolean distribution, boolean More_outputfiles, double pT_cut_low, double pT_cut_high, double Theta_cut_low, double Theta_cut_high) { 
+	public static void ToLCIO(String outputFilename, BufferedReader muons, int run_num, int _nmax, List<Integer> list, boolean More_outputfiles, double pT_cut_low, double pT_cut_high, double Theta_cut_low, double Theta_cut_high) { 
 		
 		String New_outputFilename=outputFilename;
 		
@@ -421,6 +436,9 @@ public class MuonsToStdhepLCIO {
 			String line; 
 			while ((line = muons.readLine()) != null){
 				int j = 0 ; StringTokenizer st = new java.util.StringTokenizer(line, " "); 
+				if (!list.isEmpty()){//if the list is empty, then all the particles should be used
+								if(!list.contains(j)) continue;//if it is not empty, forget about the ones that are not in the list
+				}
 			
 				//Store values in the current line into array:
 				while(st.hasMoreElements()){ 
@@ -616,6 +634,7 @@ public class MuonsToStdhepLCIO {
 			+ "Application to convert muons.txt files to stdhep format or slcio format.\n"
 			+ "\nCuts on pT and Theta can be applied in the following way: pTcut_low < pT [GeV] < pTcut_high, and thetacut_low < theta [degrees] < thetacut_high. \n"
 			+ "With giving an integer number, the number of particles that are to be converted can be defined.\n"
+			+ "By setting the flag -d to true (-d true), the particle selection can be randomized, and the total number of particles can be poisson distributed around the given max. number.\n"
 			+ "Passing a run number as an argument will allow to distinguish single simulation files after merging.\n"
 			+ "If no run number will be passed the default value 1 will be set as the run number for this file.");
 		System.out.println("\nUSAGE: \n"
@@ -627,6 +646,7 @@ public class MuonsToStdhepLCIO {
 		System.out.printf("%-25s%s%n","-h / --help:","Usage");
 		System.out.printf("%-25s%s%n","-r:","<run number>");
 		System.out.printf("%-25s%s%n","-n:","<maximum number of particles that are to be converted>");
+		System.out.printf("%-25s%s%n","-d:","<true/false> Boolean to say if the maximum number of particles should be poisson distributed -> random selection of particles");
 		System.out.printf("%-25s%s%n","-pl / --ptcut_low:","<lower limit for pT in GeV>");
 		System.out.printf("%-25s%s%n","-ph / --ptcut_high:","<higher limit for pT in GeV>");
 		System.out.printf("%-25s%s%n","-tl / --thetacut_low:","<lower limit for theta in degree>");
