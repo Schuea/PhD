@@ -138,49 +138,64 @@ int main(int const argc, char const * const * const argv) {
 				//float zmax = range_array[2];
 				float zmin = -zmax;
 				float zrange = rmax - zmin;
-				std::array<float, 6> axis_vector = { float(zrange / 8.0), zmin, zmax, float(rrange / 10.0), rmin, rmax};
+				std::array<float, 6> axis_vector = { float(zrange / 8.0), zmin, zmax, float(rrange / 5.0), rmin, rmax};
 
 				//Make histogram for storing the information
+				std::vector< TH2D* > histo_vector;
 				std::string const title1 = "Time < 10ns, Particle origins for those hitting "
 								+ subdetectornames + ";z [mm];r [mm];# of origins";
 				TH2D* histo1 = new TH2D("histo1", title1.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 												axis_vector[4], axis_vector[5]);
+				histo_vector.push_back(histo1);
 				std::string const title2 = "10ns <= Time < 20ns, Particle origins for those hitting "
 								+ subdetectornames + ";z [mm];r [mm];# of origins";
 				TH2D* histo2 = new TH2D("histo2", title2.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 												axis_vector[4], axis_vector[5]);
+				histo_vector.push_back(histo2);
 				std::string const title2_2 = "10ns <= Time < 11ns, Particle origins for those hitting "
 								+ subdetectornames + ";z [mm];r [mm];# of origins";
 				TH2D* histo2_2 = new TH2D("histo2_2", title2_2.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 												axis_vector[4], axis_vector[5]);
+				histo_vector.push_back(histo2_2);
 				std::string const title2_3 = "11ns <= Time < 13ns, Particle origins for those hitting "
 								+ subdetectornames + ";z [mm];r [mm];# of origins";
 				TH2D* histo2_3 = new TH2D("histo2_3", title2_3.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 												axis_vector[4], axis_vector[5]);
+				histo_vector.push_back(histo2_3);
 				std::string const title2_4 = "13ns <= Time < 20ns, Particle origins for those hitting "
 								+ subdetectornames + ";z [mm];r [mm];# of origins";
 				TH2D* histo2_4 = new TH2D("histo2_4", title2_4.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 												axis_vector[4], axis_vector[5]);
+				histo_vector.push_back(histo2_4);
 				std::string const title3 = "20ns <= Time < 30ns, Particle origins for those hitting "
 								+ subdetectornames + ";z [mm];r [mm];# of origins";
 				TH2D* histo3 = new TH2D("histo3", title3.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 												axis_vector[4], axis_vector[5]);
+				histo_vector.push_back(histo3);
 				std::string const title3_2 = "20ns <= Time < 23ns, Particle origins for those hitting "
 								+ subdetectornames + ";z [mm];r [mm];# of origins";
 				TH2D* histo3_2 = new TH2D("histo3_2", title3_2.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 												axis_vector[4], axis_vector[5]);
+				histo_vector.push_back(histo3_2);
 				std::string const title3_3 = "23ns <= Time < 30ns, Particle origins for those hitting "
 								+ subdetectornames + ";z [mm];r [mm];# of origins";
 				TH2D* histo3_3 = new TH2D("histo3_3", title3_3.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 												axis_vector[4], axis_vector[5]);
+				histo_vector.push_back(histo3_3);
 				std::string const title4 = "30ns <= Time < 50ns, Particle origins for those hitting "
 								+ subdetectornames + ";z [mm];r [mm];# of origins";
 				TH2D* histo4 = new TH2D("histo4", title4.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 												axis_vector[4], axis_vector[5]);
+				histo_vector.push_back(histo4);
 				std::string const title5 = "50ns <= Time < 1000ns, Particle origins for those hitting "
 								+ subdetectornames + ";z [mm];r [mm];# of origins";
 				TH2D* histo5 = new TH2D("histo5", title5.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 												axis_vector[4], axis_vector[5]);
+				histo_vector.push_back(histo5);
+
+				for(int i = 0; i < histo_vector.size(); ++i){
+								histo_vector.at(i)->GetZaxis()->SetRangeUser(0,std::pow(10,6));
+				}
 
 				std::stringstream subdetector_names;
 
