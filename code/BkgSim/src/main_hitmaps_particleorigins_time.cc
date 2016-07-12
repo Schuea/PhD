@@ -138,7 +138,7 @@ int main(int const argc, char const * const * const argv) {
 				//float zmax = range_array[2];
 				float zmin = -zmax;
 				float zrange = rmax - zmin;
-				std::array<float, 6> axis_vector = { float(zrange / 8.0), zmin, zmax, float(rrange / 5.0), rmin, rmax};
+				std::array<float, 6> axis_vector = { float(zrange / 8.0), zmin, zmax, float(rrange / 7.0), rmin, rmax};
 
 				//Make histogram for storing the information
 				std::vector< TH2D* > histo_vector;
@@ -194,7 +194,7 @@ int main(int const argc, char const * const * const argv) {
 				histo_vector.push_back(histo5);
 
 				for(int i = 0; i < histo_vector.size(); ++i){
-								histo_vector.at(i)->GetZaxis()->SetRangeUser(0,std::pow(10,6));
+								histo_vector.at(i)->GetZaxis()->SetRangeUser(1,2*std::pow(10,6));
 				}
 
 				std::stringstream subdetector_names;
