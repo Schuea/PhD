@@ -108,20 +108,23 @@ int main(int const argc, char const * const * const argv) {
 
 			//Set the branches
 			tree->SetBranchStatus("*", 0);
-			tree->SetBranchStatus("HitCellID", 1);
-			//tree->SetBranchStatus("HitCellID0", 1);
-			//tree->SetBranchStatus("HitCellID1", 1);
+			//tree->SetBranchStatus("HitCellID", 1);
+			tree->SetBranchStatus("HitCellID0", 1);
+			tree->SetBranchStatus("HitCellID1", 1);
 			tree->SetBranchStatus("HitPosition_x", 1);
 			tree->SetBranchStatus("HitPosition_y", 1);
+			tree->SetBranchStatus("HitPosition_z", 1);
 
 			int HitCellID0(0), HitCellID1(0);
-			double HitPosition_x(0.0), HitPosition_y(0.0);
+			float HitPosition_x(0.0), HitPosition_y(0.0), HitPosition_z(0.0);
+			//double HitPosition_x(0.0), HitPosition_y(0.0);
 
-			tree->SetBranchAddress("HitCellID", &HitCellID0);
-			//tree->SetBranchAddress("HitCellID0", &HitCellID0);
-			//tree->SetBranchAddress("HitCellID1", &HitCellID1);
+			//tree->SetBranchAddress("HitCellID", &HitCellID0);
+			tree->SetBranchAddress("HitCellID0", &HitCellID0);
+			tree->SetBranchAddress("HitCellID1", &HitCellID1);
 			tree->SetBranchAddress("HitPosition_x", &HitPosition_x);
 			tree->SetBranchAddress("HitPosition_y", &HitPosition_y);
+			tree->SetBranchAddress("HitPosition_z", &HitPosition_z);
 
 			//Now we loop through the tree
 			//Combine the two Cell ID's into a single new Cell ID
@@ -130,9 +133,17 @@ int main(int const argc, char const * const * const argv) {
 			long long int const entries = tree->GetEntries();
 			for (long long int i = 0; i < entries; ++i) {
 				tree->GetEntry(i);
+				//if (HitPosition_z < 0) continue;
 				//Make a combined cell ID
-				//long long int const combined_cell_id = (long long) HitCellID1 << 32 | HitCellID0;
-				long long int const combined_cell_id = (long long) HitCellID0;
+				//bitset<32> BitID0 = HitCellID0;
+				//int Layer = 0;
+				//for(int i = 0; i < 8; ++i){
+				//				Layer += BitID0[i+15]*std::pow(2,i);
+				//}
+				//long long int const combined_cell_id = (long long) HitCellID1 << 8 | Layer;
+				long long int const combined_cell_id = (long long) HitCellID1 << 32 | HitCellID0;
+				//long long int const combined_cell_id = (long long) HitCellID0;
+				//long long int const combined_cell_id = HitCellID1;
 				//Use the CellHits class for storing the hit cells and their hitcounts
 				HitCount->Check_CellID(combined_cell_id, HitPosition_x, HitPosition_y);
 			}
@@ -144,7 +155,10 @@ int main(int const argc, char const * const * const argv) {
 	std::string const title = "Occupancy for subdetector " + subdetectornames;
 	//std::string const title = "Normalized buffer depth for subdetector " + subdetectornames;
 	std::vector< TH1D* > histos;
+	TH1D* All_Layers_histo = new TH1D("All layers", title.c_str(), 10, 0, 10);
 	std::vector< TPaveStats* > stats;
+
+	int tot_no_hits = 0;
 
 	int max_num_layers = 0;
 	for (size_t subdetector_it = 0; subdetector_it < SubDetectors->size(); ++subdetector_it) {
@@ -152,22 +166,25 @@ int main(int const argc, char const * const * const argv) {
 			max_num_layers = SubDetectors->at(subdetector_it)->GetNumberOfLayers();
 		}
 	}
-	std::cout<<__LINE__<<std::endl;
 	for (int number_layer = 0; number_layer <= max_num_layers; ++number_layer) {
 		std::stringstream layername;
 		layername << "Layer " << number_layer;
 		histos.emplace_back(new TH1D(layername.str().c_str(), title.c_str(), 100000, 0, 100000));
 	}
-	std::cout<<__LINE__<<std::endl;
 	for (size_t allcellhits = 0; allcellhits < AllCellHits.size(); ++allcellhits) {
 		for (size_t hitcounts = 0; hitcounts < AllCellHits.at(allcellhits)->Get_HitCount().size(); ++hitcounts) {
       if(AllCellHits.at(allcellhits)->Get_HitCount().at(hitcounts) > 0)
 			histos.at(AllCellHits.at(allcellhits)->Get_Layer().at(hitcounts))->Fill(AllCellHits.at(allcellhits)->Get_HitCount().at(hitcounts));
+			All_Layers_histo->Fill(AllCellHits.at(allcellhits)->Get_HitCount().at(hitcounts));
+			tot_no_hits += AllCellHits.at(allcellhits)->Get_HitCount().at(hitcounts);
 		}
 	}
 
+	std::cout<< "---------------" <<std::endl;
+	std::cout<< "Total number of hits counted for this histogram: " << tot_no_hits <<std::endl;
+	std::cout<< "---------------" <<std::endl;
+
 	//NormalizeHistogram(histo, 1.0);
-	std::cout<<__LINE__<<std::endl;
 	//Plot the histogram and save it
 	TCanvas *canvas = new TCanvas("canvas", "canvas", 800, 600);
 	canvas->SetLogy(1);
@@ -186,7 +203,6 @@ int main(int const argc, char const * const * const argv) {
 									stats.push_back(st);
 									boxsize = stats.at(number_histo)->GetY2NDC() - stats.at(number_histo)->GetY1NDC();
 					}
-	std::cout<<__LINE__<<std::endl;
 					if(number_histo > 0){
 									histos.at(number_histo)->SetLineColor(2+number_histo);
 									histos.at(number_histo)->Draw("SAMES");
@@ -201,9 +217,24 @@ int main(int const argc, char const * const * const argv) {
 					}
 	}
   std::stringstream output;
-  output << "output/occupancy_" << subdetectornames;
+  output << "output/muon_occupancy_" << subdetectornames;
 	canvas->Print((output.str() + ".pdf").c_str());
 	canvas->Print((output.str() + ".cxx").c_str());
+
+	All_Layers_histo->SetMinimum(0.1);
+	All_Layers_histo->SetLineColor(2);
+	All_Layers_histo->Draw();
+	canvas->Update();
+	TPaveStats* st =  (TPaveStats*)All_Layers_histo->GetListOfFunctions()->FindObject("stats");
+	st->SetX1NDC(0.65); //new x start position
+	st->SetX2NDC(0.85); //new x end position
+	st->SetY1NDC(0.8); //new y start position
+	st->SetY2NDC(0.9); //new y end position
+
+  std::stringstream output2;
+  output2 << "output/muon_occupancy_all_layers_" << subdetectornames;
+	canvas->Print((output2.str() + ".pdf").c_str());
+	canvas->Print((output2.str() + ".cxx").c_str());
 
 	return 0;
 }

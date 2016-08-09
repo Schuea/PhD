@@ -10,7 +10,7 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include -g -Wall -Wextra -pthread -O2 -std=c++
 CXXFLAGS +=  $(shell root-config --glibs)
 
 # Executables produced by this Makefile
-RUN = ../OccupancyPlotter ../FullBufferMapsPlotter ../FullBufferHistoPlotter ../ParticleOriginsTimePlotter ../HittimePlotter ../MomentumTimePlotter
+RUN = ../OccupancyPlotter ../FullBufferMapsPlotter ../FullBufferHistoPlotter ../ParticleOriginsTimePlotter ../HittimePlotter ../MomentumTimePlotter ../LatePrimariesCalculater
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
@@ -23,6 +23,7 @@ MAIN_DEADCELLS_LAYER = ../objects/main_histo_deadcells_perlayer_fullbuffers.o
 MAIN_HITMAPSORIGINSTIME = ../objects/main_hitmaps_particleorigins_time.o
 MAIN_HITTIME = ../objects/main_hittime_distribution.o
 MAIN_MOMENTUMTIME = ../objects/main_momentum_time.o
+MAIN_CALC_LATE = ../objects/main_calculate_late_arriving_primaries.o
 CONFIG = ../objects/ConfigReader.o ../objects/ConfigReaderAnalysis.o
 USEFUL = ../objects/UsefulFunctions.o
 STYLE = ../objects/Style.o
@@ -105,6 +106,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 ../MomentumTimePlotter : $(MAIN_MOMENTUMTIME) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
+../LatePrimariesCalculater : $(MAIN_CALC_LATE) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
 ../objects/ConfigReader.o : ../src/ConfigReader.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
@@ -127,6 +131,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_momentum_time.o : ../src/main_momentum_time.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/main_calculate_late_arriving_primaries.o : ../src/main_calculate_late_arriving_primaries.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/UsefulFunctions.o : ../../General/src/UsefulFunctions.cc

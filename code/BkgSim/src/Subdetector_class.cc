@@ -68,7 +68,7 @@ void HcalEndcap::Initialize(){
 }								
 void MuonBarrel::Initialize(){
   Name_ = "MuonBarrel";
-  LengthLayerBin_ = 6;
+  LengthLayerBin_ = 8;
   StartLayerBin_ = 15;
   NumberOfLayers_ = 11;
   TotCellNumber_ = 1024;
@@ -84,7 +84,7 @@ void MuonBarrel::Initialize(){
 }								
 void MuonEndcap::Initialize(){
   Name_ = "MuonEndcap";
-  LengthLayerBin_ = 6;
+  LengthLayerBin_ = 8;
   StartLayerBin_ = 15;
   NumberOfLayers_ = 11;
   TotCellNumber_ = 1024;

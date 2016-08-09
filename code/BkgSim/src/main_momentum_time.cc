@@ -152,8 +152,8 @@ int main(int const argc, char const * const * const argv) {
 	  subdetector_names << SubDetectors->at(subdetector_iterator)->GetName();
 
 		int all_particles = 0;
-		int particles_0_13ns = 0;
-		int particles_13_20ns = 0;
+		int particles_0_11ns = 0;
+		int particles_11_20ns = 0;
 		int particles_20_30ns = 0;
 		int particles_30_50ns = 0;
 		int particles_50_1000ns = 0;
@@ -238,8 +238,8 @@ int main(int const argc, char const * const * const argv) {
 
         ParticleCreationTime->Fill(creationtime);
 				all_particles++;
-				if (creationtime < 13.0) particles_0_13ns++;
-				else if (creationtime >= 13.0 && creationtime < 20.0) particles_13_20ns++;
+				if (creationtime < 11.0) particles_0_11ns++;
+				else if (creationtime >= 11.0 && creationtime < 20.0) particles_11_20ns++;
 				else if (creationtime >= 20.0 && creationtime < 30.0) particles_20_30ns++;
 				else if (creationtime >= 30.0 && creationtime < 50.0) particles_30_50ns++;
 				else if (creationtime >= 50.0 && creationtime < 1000.0) particles_50_1000ns++;
@@ -267,8 +267,8 @@ int main(int const argc, char const * const * const argv) {
 			file->Close();
 		}
 	std::cout << "all_particles = " << all_particles << std::endl;
-	std::cout << "particles_0_13ns = " << particles_0_13ns << std::endl;
-	std::cout << "particles_13_20ns = " << particles_13_20ns << std::endl;
+	std::cout << "particles_0_11ns = " << particles_0_11ns << std::endl;
+	std::cout << "particles_11_20ns = " << particles_11_20ns << std::endl;
 	std::cout << "particles_20_30ns = " << particles_20_30ns << std::endl;
 	std::cout << "particles_30_50ns = " << particles_30_50ns << std::endl;
 	std::cout << "particles_50_1000ns = " << particles_50_1000ns << std::endl;
@@ -375,7 +375,7 @@ int main(int const argc, char const * const * const argv) {
 	canvas2->Print(("output/transvmomentum_histo_"+subdetector_names.str()+".pdf").c_str());
 	canvas2->Print(("output/transvmomentum_histo_"+subdetector_names.str()+".cxx").c_str());
 
-
+	gStyle->SetOptStat(0110011);
   canvas3->cd();
   canvas3->SetLogx(1);
   canvas3->SetLogy(1);

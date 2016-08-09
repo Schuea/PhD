@@ -138,7 +138,7 @@ int main(int const argc, char const * const * const argv) {
 				//float zmax = range_array[2];
 				float zmin = -zmax;
 				float zrange = rmax - zmin;
-				std::array<float, 6> axis_vector = { float(zrange / 8.0), zmin, zmax, float(rrange / 7.0), rmin, rmax};
+				std::array<float, 6> axis_vector = { float(zrange / 20.0), zmin, zmax, float(rrange / 7.0), rmin, rmax};
 
 				//Make histogram for storing the information
 				std::vector< TH2D* > histo_vector;
@@ -212,6 +212,11 @@ int main(int const argc, char const * const * const argv) {
 												double vertex_x = 0.0;
 												double vertex_y = 0.0;
 												double vertex_z = 0.0;
+												float momentum_x = 0.0;
+												float momentum_y = 0.0;
+												float momentum_z = 0.0;
+												bool CreatedInSimulation_Status = false;
+
 												tree->SetBranchStatus("*", 0);
 
 												if (tree->GetName() == std::string("Tree_EcalBarrel") 
@@ -241,11 +246,19 @@ int main(int const argc, char const * const * const argv) {
 																tree->SetBranchStatus("HitParticleVertex_x", 1);
 																tree->SetBranchStatus("HitParticleVertex_y", 1);
 																tree->SetBranchStatus("HitParticleVertex_z", 1);
+																tree->SetBranchStatus("HitMomentum_x", 1);
+																tree->SetBranchStatus("HitMomentum_y", 1);
+																tree->SetBranchStatus("HitMomentum_z", 1);
+																tree->SetBranchStatus("HitParticle_CreatedInSimulation_Status", 1);
 																tree->SetBranchAddress("HitTime", &actualtime);
 																tree->SetBranchAddress("HitParticleCreationTime", &creationtime);
 																tree->SetBranchAddress("HitParticleVertex_x", &vertex_x);
 																tree->SetBranchAddress("HitParticleVertex_y", &vertex_y);
 																tree->SetBranchAddress("HitParticleVertex_z", &vertex_z);
+																tree->SetBranchAddress("HitMomentum_x", &momentum_x);
+																tree->SetBranchAddress("HitMomentum_y", &momentum_y);
+																tree->SetBranchAddress("HitMomentum_z", &momentum_z);
+																tree->SetBranchAddress("HitParticle_CreatedInSimulation_Status", &CreatedInSimulation_Status);
 												} else {
 																std::cerr << "The given TTree name does not match any TTree in the inputfile!" << std::endl;
 																std::terminate();
@@ -269,6 +282,7 @@ int main(int const argc, char const * const * const argv) {
 												long long int const entries = tree->GetEntries();
 												for (long long int i = 0; i < entries; ++i) {
 																tree->GetEntry(i);
+																if(CreatedInSimulation_Status==0 && std::sqrt(momentum_x*momentum_x+momentum_y*momentum_y)<0.2)continue;
 																vertex = { vertex_x, vertex_y, vertex_z };
 																if (*time < 10.0) histo1->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
 																else if (*time >= 10.0 && *time < 20.0){
