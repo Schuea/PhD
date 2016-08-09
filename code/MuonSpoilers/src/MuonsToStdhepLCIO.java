@@ -332,6 +332,7 @@ public class MuonsToStdhepLCIO {
 				_v[0 + 4 * _n] = p.getPosition()[0]; // x
 				_v[1 + 4 * _n] = p.getPosition()[1]; // y
 				_v[2 + 4 * _n] = p.getPosition()[2]; // z
+				_v[3 + 4 * _n] = p.getTime(); // creation time
 				
 				//Increment the number of particles in this event
 				_n++;
@@ -460,6 +461,7 @@ public class MuonsToStdhepLCIO {
 				muon.setCharge(p.getCharge());
 				muon.setMomentum(p.getMomentum());
 				muon.setVertex(p.getPosition());
+				muon.setTime((float) p.getTime());
 				muon.setGeneratorStatus(p.getGeneratorStatus());
 				
 				Spoiler_muons.add(muon);
@@ -693,7 +695,8 @@ class Particle{
 		angle[1] = qualities[3];//angle between y direction and z-axis
 		angle[2] = 0.0;//angle between z direction and z-axis
 		mom_tot = qualities[4];
-		chargesign= qualities[5]; //charge sign
+		time = -qualities[5]; //time difference between muons and beam (negative sign because negative time in text file means later than beam)
+		chargesign= qualities[6]; //charge sign
 
 		//Default values for particle mass, pdg, charge and state of simulation:
 		GeneratorStatus = 1; //These particles are all generated.
@@ -716,6 +719,7 @@ class Particle{
 
 		if (chargesign > 0) {
 			ChangeToPosMuon();
+			ChangeToPositronBeam();	
 		}
 	}
 	private double[] calculateMom(double mom_tot, double[] angle){
@@ -743,6 +747,12 @@ class Particle{
 		pdg *= -1;
 		energy *= -1.0D;
 	}
+	//Switch sign of x coordinate and angles
+	public void ChangeToPositronBeam(){
+		pos[0] *= -1.0;
+		pos[2] *= -1.0;
+		angle[0] *= -1.0;
+	}
 	public final double[] getMomentum(){
 		return mom;
 	}
@@ -767,6 +777,9 @@ class Particle{
 	public final double getTheta(){
 		return theta;
 	}
+	public final double getTime(){
+		return time;
+	}
 	public final int getGeneratorStatus(){
 		return GeneratorStatus;
 	}
@@ -783,5 +796,6 @@ class Particle{
 	private double mass = 0.1056583745; //muon mass
 	private double pT;
 	private double theta;
+	private double time;
 	private int GeneratorStatus;
 }
