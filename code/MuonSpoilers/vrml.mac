@@ -1,0 +1,8 @@
+
+/lcio/fileExists delete
+
+/vis/scene/create
+/vis/scene/add/volume
+#/vis/open VRML2FILE
+/vis/open RayTracer
+/vis/viewer/flush

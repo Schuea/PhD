@@ -1,0 +1,1 @@
+slic -g sidloi3-IR_realign.gdml -n -m vrml.mac
