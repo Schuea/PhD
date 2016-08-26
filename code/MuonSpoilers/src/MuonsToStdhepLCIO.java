@@ -717,9 +717,12 @@ class Particle{
 		pT = calculatePT(mom);
 		theta = calculateTheta(pT, mom);
 
+		boolean positronline = false;
+		if (positronline) {
+			ChangeToPositronBeam();	
+		}
 		if (chargesign > 0) {
 			ChangeToPosMuon();
-			ChangeToPositronBeam();	
 		}
 	}
 	private double[] calculateMom(double mom_tot, double[] angle){
@@ -752,6 +755,8 @@ class Particle{
 		pos[0] *= -1.0;
 		pos[2] *= -1.0;
 		angle[0] *= -1.0;
+		mom = calculateMom(mom_tot,angle);
+		mom[2] *= -1.0;
 	}
 	public final double[] getMomentum(){
 		return mom;
