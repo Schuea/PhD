@@ -145,7 +145,7 @@ int main(int const argc, char const * const * const argv) {
 				//long long int const combined_cell_id = (long long) HitCellID0;
 				//long long int const combined_cell_id = HitCellID1;
 				//Use the CellHits class for storing the hit cells and their hitcounts
-				HitCount->Check_CellID(combined_cell_id, HitPosition_x, HitPosition_y);
+				HitCount->Check_CellID(combined_cell_id, HitPosition_x, HitPosition_y, HitPosition_z);
 			}
 			file->Close();
 		}

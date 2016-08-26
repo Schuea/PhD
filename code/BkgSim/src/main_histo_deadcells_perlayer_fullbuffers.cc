@@ -119,14 +119,16 @@ int main(int const argc, char const * const * const argv) {
 			tree->SetBranchStatus("HitCellID1", 1);
 			tree->SetBranchStatus("HitPosition_x", 1);
 			tree->SetBranchStatus("HitPosition_y", 1);
+			tree->SetBranchStatus("HitPosition_z", 1);
 
 			int HitCellID0(0), HitCellID1(0);
-			float HitPosition_x(0.0), HitPosition_y(0.0);
+			float HitPosition_x(0.0), HitPosition_y(0.0), HitPosition_z(0.0);
 
 			tree->SetBranchAddress("HitCellID0", &HitCellID0);
 			tree->SetBranchAddress("HitCellID1", &HitCellID1);
 			tree->SetBranchAddress("HitPosition_x", &HitPosition_x);
 			tree->SetBranchAddress("HitPosition_y", &HitPosition_y);
+			tree->SetBranchAddress("HitPosition_z", &HitPosition_z);
 
 			//Now we loop through the tree
 			//Combine the two Cell ID's into a single new Cell ID
@@ -138,7 +140,7 @@ int main(int const argc, char const * const * const argv) {
 				//Make a combined cell ID
 				long long int const combined_cell_id = (long long) HitCellID1 << 32 | HitCellID0;
 				//Use the CellHits class for storing the hit cells and their hitcounts
-				HitCount->Check_CellID(combined_cell_id, HitPosition_x, HitPosition_y);
+				HitCount->Check_CellID(combined_cell_id, HitPosition_x, HitPosition_y, HitPosition_z);
 			}
 			file->Close();
 		}

@@ -21,8 +21,31 @@ std::vector<long long int> CellHits::Get_CellID() const {
 std::vector<int> CellHits::Get_HitCount() const {
 	return HitCount;
 }
-std::vector<std::pair<float, float> > CellHits::Get_CellPosition() const {
-	return CellPosition;
+std::vector<int> CellHits::Get_Particle() const {
+	return Particle;
+}
+std::vector<int> CellHits::Get_ParticleCount() const {
+	return ParticleCount;
+}
+std::vector<float> CellHits::Get_HitTime() const {
+	return HitTime;
+}
+std::vector< float > CellHits::Get_HitPosition(char xyz) const {
+	if (xyz != 'x' && xyz != 'y' && xyz != 'z') {
+		std::cerr << "Input not correct! Has to be 'x', 'y' or 'z'!" << std::endl;
+		exit(1);
+	}
+	else if (xyz == 'x') return HitPosition_x;
+	else if (xyz == 'y') return HitPosition_y;
+	else if (xyz == 'z') return HitPosition_z;
+}
+std::vector< float > CellHits::Get_HitMomentum(char zT) const {
+	if (zT != 'T' && zT != 'z') {
+		std::cerr << "Input not correct! Has to be 'T' or 'z'!" << std::endl;
+		exit(1);
+	}
+	else if (zT == 'T') return HitMomentum_T;
+	else if (zT == 'z') return HitMomentum_z;
 }
 std::vector< int > CellHits::Get_Layer() const {
 	return Layer;
@@ -49,7 +72,32 @@ void CellHits::Set_BunchNumber(int const bunchnumber) {
 	BunchNumber = bunchnumber;
 }
 
-void CellHits::Check_CellID(long long int const id, float const x, float const y) {
+void CellHits::Check_ParticleID(long long int const id, int const particle_id, float const time, float const x, float const y, float const z, float const p_T, float const p_z ) {
+	bool particleID_exists(false);
+	int vector_element(-1);
+	for (size_t i = 0; i < Particle.size(); ++i) {
+		if (Particle.at(i) == particle_id) {
+			particleID_exists = true;
+			vector_element = i; //Check at which position in vector the ID is stored
+			break;
+		}
+	}
+	if (particleID_exists) {
+		ParticleCount.at(vector_element) += 1;
+	} else {
+		Particle.push_back(particle_id);
+		ParticleCount.push_back(1);
+		CellID.push_back(id);
+		HitTime.push_back(time);
+		HitMomentum_z.push_back(p_z);
+		HitMomentum_T.push_back(p_T);
+		HitPosition_x.push_back(x);
+		HitPosition_y.push_back(y);
+		HitPosition_z.push_back(z);
+		Layer.push_back(SubDetector->GetLayer(id));
+	}
+}
+void CellHits::Check_CellID(long long int const id, float const x, float const y, float const z) {
 	bool cell_exists(false);
 	int vector_element(-1);
 	for (size_t i = 0; i < CellID.size(); ++i) {
@@ -64,7 +112,9 @@ void CellHits::Check_CellID(long long int const id, float const x, float const y
 	} else {
 		CellID.push_back(id);
 		HitCount.push_back(1);
-		CellPosition.push_back(std::pair<float, float>(x, y));
+		HitPosition_x.push_back(x);
+		HitPosition_y.push_back(y);
+		HitPosition_z.push_back(z);
 		Layer.push_back(SubDetector->GetLayer(id));
 		Position_Radius.push_back(sqrt(pow(x, 2) + pow(y, 2)));
 		Position_Phi.push_back(atan2(y, x));
