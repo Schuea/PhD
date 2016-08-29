@@ -282,7 +282,6 @@ int main(int const argc, char const * const * const argv) {
 												long long int const entries = tree->GetEntries();
 												for (long long int i = 0; i < entries; ++i) {
 																tree->GetEntry(i);
-																if(CreatedInSimulation_Status==0 && std::sqrt(momentum_x*momentum_x+momentum_y*momentum_y)<0.2)continue;
 																vertex = { vertex_x, vertex_y, vertex_z };
 																if (*time < 10.0) histo1->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
 																else if (*time >= 10.0 && *time < 20.0){

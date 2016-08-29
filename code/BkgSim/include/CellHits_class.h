@@ -25,6 +25,9 @@ public:
 			HitPosition_x(), 
 			HitPosition_y(), 
 			HitPosition_z(), 
+			HitParticleVertex_x(), 
+			HitParticleVertex_y(), 
+			HitParticleVertex_z(), 
 			Layer(),
       Position_Radius(),
       Position_Phi(),
@@ -41,6 +44,7 @@ public:
 	std::vector< int > Get_ParticleCount() const;
 	std::vector< float > Get_HitTime() const;
 	std::vector< float > Get_HitPosition(char xyz) const;
+	std::vector< float > Get_HitParticleVertex(char xyz) const;
 	std::vector< float > Get_HitMomentum(char zT) const;
 	std::vector< int > Get_Layer() const;
 	int Get_NumberHitsPerLayer(int LayerNumber);
@@ -52,7 +56,7 @@ public:
 	void Set_BunchNumber(int const bunchnumber);
 
 	int Calculate_NumberHitsPerLayer(int LayerNumber);
-	void Check_ParticleID(long long int const id, int const particle_id, float const time, float const x, float const y, float const z, float const p_T, float const p_z ); 
+	void Check_ParticleID(long long int const id, int const particle_id, float const time, float const vertex_x, float const vertex_y, float const vertex_z, float const x, float const y, float const z, float const p_T, float const p_z ); 
 	void Check_CellID(long long int const id, float const x, float const y, float const z);
 	void Check_Rad_Position();
 	void Check_Phi_Position();
@@ -70,6 +74,9 @@ protected:
 	std::vector<float> HitPosition_x;
 	std::vector<float> HitPosition_y;
 	std::vector<float> HitPosition_z;
+	std::vector<float> HitParticleVertex_x;
+	std::vector<float> HitParticleVertex_y;
+	std::vector<float> HitParticleVertex_z;
 	std::vector<int> Layer;
 	std::vector<float> Position_Radius;
 	std::vector<float> Position_Phi;

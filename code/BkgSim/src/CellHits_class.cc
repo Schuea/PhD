@@ -39,7 +39,15 @@ std::vector< float > CellHits::Get_HitPosition(char xyz) const {
 	else if (xyz == 'y') return HitPosition_y;
 	else if (xyz == 'z') return HitPosition_z;
 }
-std::vector< float > CellHits::Get_HitMomentum(char zT) const {
+std::vector< float > CellHits::Get_HitParticleVertex(char xyz) const {
+	if (xyz != 'x' && xyz != 'y' && xyz != 'z') {
+		std::cerr << "Input not correct! Has to be 'x', 'y' or 'z'!" << std::endl;
+		exit(1);
+	}
+	else if (xyz == 'x') return HitParticleVertex_x;
+	else if (xyz == 'y') return HitParticleVertex_y;
+	else if (xyz == 'z') return HitParticleVertex_z;
+}std::vector< float > CellHits::Get_HitMomentum(char zT) const {
 	if (zT != 'T' && zT != 'z') {
 		std::cerr << "Input not correct! Has to be 'T' or 'z'!" << std::endl;
 		exit(1);
@@ -72,7 +80,7 @@ void CellHits::Set_BunchNumber(int const bunchnumber) {
 	BunchNumber = bunchnumber;
 }
 
-void CellHits::Check_ParticleID(long long int const id, int const particle_id, float const time, float const x, float const y, float const z, float const p_T, float const p_z ) {
+void CellHits::Check_ParticleID(long long int const id, int const particle_id, float const time, float const vertex_x, float const vertex_y, float const vertex_z, float const x, float const y, float const z, float const p_T, float const p_z ) {
 	bool particleID_exists(false);
 	int vector_element(-1);
 	for (size_t i = 0; i < Particle.size(); ++i) {
@@ -94,6 +102,9 @@ void CellHits::Check_ParticleID(long long int const id, int const particle_id, f
 		HitPosition_x.push_back(x);
 		HitPosition_y.push_back(y);
 		HitPosition_z.push_back(z);
+		HitParticleVertex_x.push_back(vertex_x);
+		HitParticleVertex_y.push_back(vertex_y);
+		HitParticleVertex_z.push_back(vertex_z);
 		Layer.push_back(SubDetector->GetLayer(id));
 	}
 }
