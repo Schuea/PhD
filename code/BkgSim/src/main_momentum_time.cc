@@ -153,10 +153,9 @@ int main(int const argc, char const * const * const argv) {
 
 		int all_particles = 0;
 		int particles_0_11ns = 0;
-		int particles_11_20ns = 0;
-		int particles_20_30ns = 0;
-		int particles_30_50ns = 0;
-		int particles_50_1000ns = 0;
+		int particles_11_50ns = 0;
+		int particles_50_554ns = 0;
+		int particles_554_1000ns = 0;
 
 		for (int file_iterator = 0; file_iterator < NUMBER_OF_FILES; ++file_iterator) {
 			TFile *file = TFile::Open(inputfilenames->at(file_iterator).c_str());
@@ -239,11 +238,10 @@ int main(int const argc, char const * const * const argv) {
         ParticleCreationTime->Fill(creationtime);
 				all_particles++;
 				if (creationtime < 11.0) particles_0_11ns++;
-				else if (creationtime >= 11.0 && creationtime < 20.0) particles_11_20ns++;
-				else if (creationtime >= 20.0 && creationtime < 30.0) particles_20_30ns++;
-				else if (creationtime >= 30.0 && creationtime < 50.0) particles_30_50ns++;
-				else if (creationtime >= 50.0 && creationtime < 1000.0) particles_50_1000ns++;
-
+				else if (creationtime >= 11.0 && creationtime < 50.0) particles_11_50ns++;
+				else if (creationtime >= 50.0 && creationtime < 554.0) particles_50_554ns++;
+				else if (creationtime >= 554.0 && creationtime < 1000.0) particles_554_1000ns++;
+/*
           Momentum_time->Fill(actualtime, std::sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)+std::pow(momentum_z_tracker,2)));
           TransvMomentum_time->Fill(actualtime, std::sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)));
 
@@ -263,18 +261,18 @@ int main(int const argc, char const * const * const argv) {
 									Momentum_histos.at(3)->Fill(std::sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)+std::pow(momentum_z_tracker,2)));
 									TransvMomentum_histos.at(3)->Fill(std::sqrt(std::pow(momentum_x_tracker,2)+std::pow(momentum_y_tracker,2)));
 					}
+*/
 			}
 			file->Close();
 		}
 	std::cout << "all_particles = " << all_particles << std::endl;
 	std::cout << "particles_0_11ns = " << particles_0_11ns << std::endl;
-	std::cout << "particles_11_20ns = " << particles_11_20ns << std::endl;
-	std::cout << "particles_20_30ns = " << particles_20_30ns << std::endl;
-	std::cout << "particles_30_50ns = " << particles_30_50ns << std::endl;
-	std::cout << "particles_50_1000ns = " << particles_50_1000ns << std::endl;
+	std::cout << "particles_11_50ns = " << particles_11_50ns << std::endl;
+	std::cout << "particles_50_554ns = " << particles_50_554ns << std::endl;
+	std::cout << "particles_554_1000ns = " << particles_554_1000ns << std::endl;
 	}
 	gStyle->SetOptStat(1);
-
+/*
 	//Plot the histogram and save it
 	
 	TCanvas *canvas1 = new TCanvas("canvas1", "canvas", 800, 600);
@@ -393,6 +391,6 @@ int main(int const argc, char const * const * const argv) {
 
 	canvas3->Print(("output/creationtime_histo_"+subdetector_names.str()+".pdf").c_str());
 	canvas3->Print(("output/creationtime_histo_"+subdetector_names.str()+".cxx").c_str());
-
+*/
 	return 0;
 }

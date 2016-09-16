@@ -24,7 +24,7 @@ using namespace std;
 
 void Print_Origin_histo(TCanvas* canvas, TH2D* const histo, std::string const set_time, std::string const subdetectornames);
 
-int num_hits = 5;
+int num_hits = 2;
 
 int main(int const argc, char const * const * const argv) {
 				UsePhDStyle();
@@ -299,7 +299,7 @@ int main(int const argc, char const * const * const argv) {
 				}
 
 				//Make histogram for storing the information
-				std::string const title = "Particle count for subdetector " + subdetectornames;
+				std::string const title = "Hits per particle, for subdetector " + subdetectornames +";Number of hits;Number of particles";
 				//std::string const title = "Normalized buffer depth for subdetector " + subdetectornames;
 				std::vector< TH1D* > histos;
 				TH1D* All_Layers_histo = new TH1D("All layers", title.c_str(), 50, 0, 100);
@@ -313,7 +313,7 @@ int main(int const argc, char const * const * const argv) {
 								//		max_num_layers = SubDetectors->at(subdetector_it)->GetNumberOfLayers();
 								//	}
 								max_num_layers = SubDetectors->at(subdetector_it)->GetNumberOfLayers();
-								for (int number_layer = 0; number_layer <= max_num_layers; ++number_layer) {
+								for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
 												std::stringstream layername;
 												layername << SubDetectors->at(subdetector_it)->GetName() << " Layer " << number_layer;
 												histos.emplace_back(new TH1D(layername.str().c_str(), title.c_str(), 50, 0, 100));
@@ -323,14 +323,17 @@ int main(int const argc, char const * const * const argv) {
 								for (size_t particlecounts = 0; particlecounts < AllCounter.at(allcounters)->Get_ParticleCount().size(); ++particlecounts) {
 												if(AllCounter.at(allcounters)->Get_ParticleCount().at(particlecounts) > 0){
 																if (IsCalo){
-																				histos.at(AllCounter.at(allcounters)->Get_Layer().at(particlecounts))->Fill(AllCounter.at(allcounters)->Get_ParticleCount().at(particlecounts));
+																				histos.at(AllCounter.at(allcounters)->Get_Layer().at(particlecounts) + allcounters*SubDetectors->at(allcounters)->GetNumberOfLayers())->Fill(AllCounter.at(allcounters)->Get_ParticleCount().at(particlecounts));
 																}
-																else {
-																				histos.at(AllCounter.at(allcounters)->Get_Layer().at(particlecounts) - 1)->Fill(AllCounter.at(allcounters)->Get_ParticleCount().at(particlecounts));
+																else {//Fill the particle counts into the appropriate histogram: for each subdetector and their layers there is one histogram
+																				// -1 in layer number because the vertex and tracker layers start from number 1
+																				if(allcounters == 0) histos.at(AllCounter.at(allcounters)->Get_Layer().at(particlecounts) - 1)->Fill(AllCounter.at(allcounters)->Get_ParticleCount().at(particlecounts));
+																				else histos.at(AllCounter.at(allcounters)->Get_Layer().at(particlecounts) - 1 + SubDetectors->at(allcounters-1)->GetNumberOfLayers())->Fill(AllCounter.at(allcounters)->Get_ParticleCount().at(particlecounts));
 																}
 																All_Layers_histo->Fill(AllCounter.at(allcounters)->Get_ParticleCount().at(particlecounts));
 																tot_no_hits += AllCounter.at(allcounters)->Get_ParticleCount().at(particlecounts);
 																//---Only for producing vertex maps again for particles hitting < num_hits times
+																/*
 																if(AllCounter.at(allcounters)->Get_ParticleCount().at(particlecounts)<num_hits){
 																				float time =  AllCounter.at(allcounters)->Get_HitTime().at(particlecounts);
 																				std::vector< double > vertex = {
@@ -353,7 +356,7 @@ int main(int const argc, char const * const * const argv) {
 																				else if (time >= 30.0 && time < 50.0) histo4->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
 																				else if (time >= 50.0 && time < 1000.0) histo5->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
 																}
-
+																*/			
 												}
 								}
 				}
@@ -364,39 +367,61 @@ int main(int const argc, char const * const * const argv) {
 
 				double max=GetMinMaxForMultipleOverlappingHistograms(histos,true).second;
 				for(size_t iterator = 0; iterator < histos.size(); ++iterator){
-								histos.at(iterator)->SetMinimum(0.1);
+								histos.at(iterator)->SetMinimum(0.5);
 								histos.at(iterator)->SetMaximum(max);
+								histos.at(iterator)->Sumw2();
 				}
 				//NormalizeHistogram(histo, 1.0);
 				//Plot the histogram and save it
 				TCanvas *canvas = new TCanvas("canvas", "canvas", 800, 600);
 				canvas->SetLogy(1);
 				float boxsize = 0.0;
+				int color = 2; // Very first histogram will be drawn with the color 2, then counted up
+				int marker = 20; // Very first histogram will be drawn with the marker style 20, then counted up
 				for (size_t number_histo = 0; number_histo< histos.size(); ++number_histo) {
 								if(number_histo == 0){
-												histos.at(number_histo)->SetLineColor(2);
+												histos.at(number_histo)->SetLineColor(color);
+												histos.at(number_histo)->SetMarkerColor(color);
+												histos.at(number_histo)->SetMarkerStyle(marker);
 												histos.at(number_histo)->Draw();
 												canvas->Update();
 												TPaveStats* st =  (TPaveStats*)histos.at(number_histo)->GetListOfFunctions()->FindObject("stats");
-												st->SetTextColor(2);
-												st->SetX1NDC(0.65); //new x start position
-												st->SetX2NDC(0.85); //new x end position
+												st->SetTextColor(color);
+												st->SetX1NDC(0.6); //new x start position
+												st->SetX2NDC(0.75); //new x end position
 												st->SetY1NDC(0.8); //new y start position
 												st->SetY2NDC(0.9); //new y end position
 												stats.push_back(st);
 												boxsize = stats.at(number_histo)->GetY2NDC() - stats.at(number_histo)->GetY1NDC();
 								}
-								if(number_histo > 0){
-												histos.at(number_histo)->SetLineColor(2+number_histo);
+								else if(number_histo > 0){
+												color++;
+												marker++;
+												if(color == 5 || color == 10) color += 1; // 5 would be yellow, 10 would be very light gray 
+												histos.at(number_histo)->SetLineColor(color);
+												histos.at(number_histo)->SetMarkerColor(color);
+												histos.at(number_histo)->SetMarkerStyle(marker);
 												histos.at(number_histo)->Draw("SAMES");
 												canvas->Update();
 												TPaveStats* st =  (TPaveStats*)histos.at(number_histo)->GetListOfFunctions()->FindObject("stats");
 												stats.push_back(st);
-												stats.at(number_histo)->SetTextColor(2+number_histo);
-												stats.at(number_histo)->SetX1NDC(0.65); //new x start position
-												stats.at(number_histo)->SetX2NDC(0.85); //new x end position
-												stats.at(number_histo)->SetY2NDC(stats.at(number_histo-1)->GetY1NDC()); //new y end position
-												stats.at(number_histo)->SetY1NDC(stats.at(number_histo)->GetY2NDC()-boxsize); //new y start position
+												stats.at(number_histo)->SetTextColor(color);
+												if(number_histo >= 5){
+																stats.at(number_histo)->SetX1NDC(0.75); //new x start position
+																stats.at(number_histo)->SetX2NDC(0.9); //new x end position
+												}
+												else {
+																stats.at(number_histo)->SetX1NDC(0.6); //new x start position
+																stats.at(number_histo)->SetX2NDC(0.75); //new x end position
+												}
+												if(number_histo == 5) {
+																stats.at(number_histo)->SetY1NDC(0.8); //new y end position
+																stats.at(number_histo)->SetY2NDC(0.9); //new y end position
+												}
+												else {
+																stats.at(number_histo)->SetY2NDC(stats.at(number_histo-1)->GetY1NDC()); //new y end position
+																stats.at(number_histo)->SetY1NDC(stats.at(number_histo)->GetY2NDC()-boxsize); //new y start position
+												}
 								}
 				}
 				std::stringstream output;
@@ -418,7 +443,7 @@ int main(int const argc, char const * const * const argv) {
 				output2 << "output/particlecounts_all_layers_" << subdetectornames;
 				canvas->Print((output2.str() + ".pdf").c_str());
 				canvas->Print((output2.str() + ".cxx").c_str());
-
+/*
 				std::string set_time = "hit";
 				Print_Origin_histo(canvas, histo1, set_time, subdetectornames);
 				Print_Origin_histo(canvas, histo2, set_time, subdetectornames);
@@ -430,7 +455,7 @@ int main(int const argc, char const * const * const argv) {
 				Print_Origin_histo(canvas, histo3_3, set_time, subdetectornames);
 				Print_Origin_histo(canvas, histo4, set_time, subdetectornames);
 				Print_Origin_histo(canvas, histo5, set_time, subdetectornames);
-
+*/
 				return 0;
 }
 void Print_Origin_histo(TCanvas* canvas, TH2D* const histo, std::string const set_time, std::string const subdetectornames){
