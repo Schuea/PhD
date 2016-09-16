@@ -10,7 +10,7 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include -g -Wall -Wextra -pthread -O2 -std=c++
 CXXFLAGS +=  $(shell root-config --glibs)
 
 # Executables produced by this Makefile
-RUN = ../OccupancyPlotter ../ParticleCountPlotter ../FullBufferMapsPlotter ../FullBufferHistoPlotter ../ParticleOriginsTimePlotter ../HittimePlotter ../MomentumTimePlotter ../LatePrimariesCalculater
+RUN = ../OccupancyPlotter ../ParticleCountPlotter ../FullBufferMapsPlotter ../FullBufferHistoPlotter ../ParticleOriginsTimePlotter ../HittimePlotter ../ggHadrons_HittimePlotter ../ggHadrons_pairs_HittimePlotter ../MomentumTimePlotter ../LatePrimariesCalculater
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
@@ -22,7 +22,9 @@ MAIN_PARTICLECOUNTER = ../objects/main_particlecounter.o
 MAIN_HITMAPSFULLBUFFER = ../objects/main_hitmaps_fullbuffers.o
 MAIN_DEADCELLS_LAYER = ../objects/main_histo_deadcells_perlayer_fullbuffers.o
 MAIN_HITMAPSORIGINSTIME = ../objects/main_hitmaps_particleorigins_time.o
-MAIN_HITTIME = ../objects/main_hittime_distribution.o
+MAIN_HITTIME= ../objects/main_hittime_distribution.o
+MAIN_HITTIME_GGHADRONS = ../objects/main_hittime_distribution_gg-hadrons.o
+MAIN_HITTIME_GGHADRONS_PAIRS = ../objects/main_compare_hittime_gg-hadrons_pairs.o
 MAIN_MOMENTUMTIME = ../objects/main_momentum_time.o
 MAIN_CALC_LATE = ../objects/main_calculate_late_arriving_primaries.o
 CONFIG = ../objects/ConfigReader.o ../objects/ConfigReaderAnalysis.o
@@ -107,6 +109,12 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 ../HittimePlotter : $(MAIN_HITTIME) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
+../ggHadrons_HittimePlotter : $(MAIN_HITTIME_GGHADRONS) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
+../ggHadrons_pairs_HittimePlotter : $(MAIN_HITTIME_GGHADRONS_PAIRS) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
 ../MomentumTimePlotter : $(MAIN_MOMENTUMTIME) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
@@ -135,6 +143,12 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_hittime_distribution.o : ../src/main_hittime_distribution.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/main_hittime_distribution_gg-hadrons.o : ../src/main_hittime_distribution_gg-hadrons.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/main_compare_hittime_gg-hadrons_pairs.o : ../src/main_compare_hittime_gg-hadrons_pairs.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_momentum_time.o : ../src/main_momentum_time.cc
