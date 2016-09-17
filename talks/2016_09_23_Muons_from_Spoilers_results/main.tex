@@ -35,7 +35,7 @@
   \setbeamertemplate{caption}[numbered]
 } 
 
-\title[ILC \& Muons from spoilers]{\textbf{\LARGE The International Linear Collider \\ \small Muons from the muon spoilers in the SiD detector - FIRST RESULTS}}
+\title[ILC \& Muons from spoilers]{\textbf{\LARGE The International Linear Collider \\ \small Muons from the muon spoilers in the SiD detector - \\FIRST RESULTS}}
 \author{\textbf{Anne Sch\"utz}}
 \institute{\textbf{DESY}}
 \date{\textbf{23rd September 2016}}
@@ -123,7 +123,7 @@ There are two spoiler scenarios under discussion:
 
 \subsection{Muon tracking}
 \begin{frame}{Muon tracks in the BDS tunnel}
-Muon tracks of positively (\textcolor{green}{\textmu\textsuperscript{+}}) and negatively( \textcolor{red}{\textmu\textsuperscript{-}}) charged muons, originating at two different primary betatron collimators: SP2 and SP4.
+Muon tracks of positively (\textcolor{green}{\textmu\textsuperscript{+}}) and negatively (\textcolor{red}{\textmu\textsuperscript{-}}) charged muons, originating at two different primary betatron collimators: SP2 and SP4.
 \begin{center}
 \includegraphics[width=0.95\textwidth]{Muon_tracks.pdf}
 \end{center}
@@ -183,7 +183,7 @@ Preparations:
 
 \subsection{Event displays of muons in the SiD detector}
 \begin{frame}{WIRED4 event display}
-1 train worth of muons ($\sim$ 650 muons):
+1 train's worth of muons ($\sim$ 650 muons):
 \begin{center}
 \includegraphics[height=0.6\textheight]{sidloi3_muons_wired4_eventdisplay_1bunch.png}
 \hspace*{0.2cm}
@@ -192,7 +192,92 @@ Preparations:
 The asymmetry in the xy plane is predicted by the MUCARLO simulation output (see a few slides before), and clearly visible also in the SLIC simulation.
 \end{frame}
 
-\subsection{Analysis}
+%New command: column type
+\newcolumntype{P}[1]{>{\centering}p{#1}}
+
+\subsection{Analysis - Energy distributions}
+\begin{frame}{Energy distribution of muons - Spoiler and Spoiler+Wall scenarios}
+ \begin{center}
+\includegraphics[height=0.6\textheight]{Energy_distributions.pdf}
+\end{center}
+\small This is showing equal number of events. The real absolute number of muons cannot be analyzed yet because more simulation files from Lewis Keller are missing. There would be a lot more events for the Spoiler-only scenario.
+\end{frame}
+
+\subsection{Analysis - Spatial distributions}
+\begin{frame}{Spatial distribution in the MuonEndcaps - Spoiler and Spoiler+Wall scenarios}
+Hits from muons from 5 trains for both MuonEndcaps and all their layers:
+ \begin{center}
+\includegraphics[width=0.5\textwidth]{Spatial_distribution_MuonEndcap_Spoiler.pdf}
+\hspace*{0.1cm}
+\includegraphics[width=0.5\textwidth]{Spatial_distribution_MuonEndcap_SpoilerWall.pdf}
+\end{center}
+\end{frame}
+\begin{frame}{Angular distributions of muons before hitting the SiD}
+Muons from 5 trains:
+ \begin{center}
+\includegraphics[width=0.5\textwidth]{horizontalAngular_distributions.pdf}
+\hspace*{0.1cm}
+\includegraphics[width=0.5\textwidth]{verticalAngular_distributions.pdf}
+\end{center}
+\end{frame}
+\begin{frame}{Explanation of spatial distributions in the MuonEndcaps}
+ \begin{center}
+\includegraphics[height=0.85\textheight]{Explanation_Spatial_distribution.pdf}
+\end{center}
+\end{frame}
+
+\subsection{Analysis - Total number of hits}
+\begin{frame}{Total number of hits - Spoiler scenario}
+ \begin{center}
+\includegraphics[height=0.65\textheight]{Number_Hits_per_Subdetector.pdf}\\
+\begin{tabular}{@{}p{0.343\textwidth}p{0.01\textwidth}p{0.18\textwidth}p{0.01\textwidth}p{0.343\textwidth}p{0.001\textwidth}@{}}
+ \centering Vertex detectors & < & \centering ECAL, HCAL & < & \centering MuonEndcaps & \\
+  \centering{\scriptsize Smallest effective detector area} & &  \centering{\scriptsize Particle showers} & &  \centering{\scriptsize Biggest effective detector area}&
+\end{tabular}
+\end{center}
+\end{frame}
+\begin{frame}{Explanation of hit number distribution -\\ \small Spatial distribution in the MuonEndcaps}
+ \begin{center}
+\includegraphics[height=0.78\textheight]{Explanation_Hits_Subdetectors.pdf}
+\end{center}
+\end{frame}
+\begin{frame}{Total number of hits - Spoiler+Wall scenario}
+ \begin{center}
+\includegraphics[height=0.65\textheight]{Number_Hits_per_Subdetector.pdf}\\
+\begin{tabular}{@{}p{0.343\textwidth}p{0.01\textwidth}p{0.18\textwidth}p{0.01\textwidth}p{0.343\textwidth}p{0.001\textwidth}@{}}
+ \centering Vertex detectors & < & \centering ECAL, HCAL & < & \centering MuonEndcaps & \\
+  \centering{\scriptsize Smallest effective detector area} & &  \centering{\scriptsize Particle showers} & &  \centering{\scriptsize Biggest effective detector area}&
+\end{tabular}
+\end{center}
+\end{frame}
+
+\subsection{Analysis - Occupancies}
+\begin{frame}{Occupancy plots - MuonEndcap}
+ \begin{center}
+\includegraphics[height=0.7\textheight]{Occupancy_MuonEndcap.pdf}
+\end{center}
+The muon background has a small impact on the MuonEndcaps.
+\end{frame}
+\begin{frame}{Occupancy plots - SiTrackerBarrel}
+ \begin{center}
+\includegraphics[height=0.68\textheight]{Occupancy_SiTrackerBarrel.pdf}
+\end{center}
+\footnotesize 10$^{-9}$ - 10$^{-8}$ of all cells that get hit, have 9 hits.\\
+\small Spoiler+Wall seems to do better by a factor of 3-5, with the same initial number of events. BUT final statement cannot be made yet!
+\end{frame}
+
+\subsection{Analysis - Time distributions}
+\begin{frame}{Time distribution - SiTrackerEndcaps}
+Note that the timing of the muons is not 100\% accurate yet! Lewis Keller will send the accurate numbers soon.
+ \begin{center}
+\includegraphics[height=0.78\textheight]{Time_distribution_SiTrackerEndcaps.pdf}
+\end{center}
+\end{frame}
+\begin{frame}{Time distribution - MuonEndcaps}
+ \begin{center}
+\includegraphics[height=0.78\textheight]{Time_distribution_MuonEndcaps.pdf}
+\end{center}
+\end{frame}
 
 \section{Conclusion and Outlook}
 \begin{frame}
@@ -200,6 +285,10 @@ The asymmetry in the xy plane is predicted by the MUCARLO simulation output (see
 \begin{itemize}
 \item Low energy muons are stopped by the muon wall.
 \item High energy muons could be used for tracker alignment.
+\item Spatial distributions quite different in the Spoiler and Spoiler+Wall scenarios.
+\item Number of hits in subdetectors are explained by geometries.
+\item Occupancy is small, but final statement cannot be made yet.
+\item Muons are instantaneous in comparison to pair background.
 \end{itemize}
 \textit{Outlook:}
 \begin{itemize}
