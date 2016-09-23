@@ -30,11 +30,12 @@ class Helix {
 								float x0, y0, z0;
 								float z;
 								float B;
-								double length;
+								double radius;
 								double number_turn;
 								double xi; 
 								std::vector< double > position;
 
+								void Calculate_radius();
 								void Calculate_number_turn();
 								void Calculate_xi();
 								void Calculate_position();
