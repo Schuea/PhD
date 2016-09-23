@@ -36,10 +36,11 @@ SUBDETECTOR = ../objects/Subdetector_class.o
 CELLHITS = ../objects/CellHits_class.o
 LAYERCODE = ../objects/LayerCodeInCellID_class.o
 TIME = ../objects/Time_class.o
+HELIX = ../objects/Helix_class.o
 
 INCLUDES = -I ../include/ -I ../test/include/ -I ../../General/include/
 
-OBJECTS = $(CONFIG) $(USEFUL) $(STYLE) $(STYLEUTILS) $(GENERALFUNCTIONS) $(SUBDETECTOR) $(CELLHITS) $(LAYERCODE) $(TIME)
+OBJECTS = $(CONFIG) $(USEFUL) $(STYLE) $(STYLEUTILS) $(GENERALFUNCTIONS) $(SUBDETECTOR) $(CELLHITS) $(LAYERCODE) $(TIME) $(HELIX)
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -179,4 +180,7 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/Time_class.o : ../src/Time_class.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/Helix_class.o : ../src/Helix_class.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
