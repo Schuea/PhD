@@ -10,7 +10,7 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include -g -Wall -Wextra -pthread -O2 -std=c++
 CXXFLAGS +=  $(shell root-config --glibs)
 
 # Executables produced by this Makefile
-RUN = ../OccupancyPlotter ../ParticleCountPlotter ../FullBufferMapsPlotter ../FullBufferHistoPlotter ../ParticleOriginsTimePlotter ../HittimePlotter ../ggHadrons_HittimePlotter ../ggHadrons_pairs_HittimePlotter ../MomentumTimePlotter ../LatePrimariesCalculater
+RUN = ../OccupancyPlotter ../ParticleCountPlotter ../FullBufferMapsPlotter ../FullBufferHistoPlotter ../ParticleOriginsTimePlotter ../HittimePlotter ../ggHadrons_HittimePlotter ../ggHadrons_pairs_HittimePlotter ../MomentumTimePlotter ../LatePrimariesCalculater ../HelixPlotter
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
@@ -27,6 +27,7 @@ MAIN_HITTIME_GGHADRONS = ../objects/main_hittime_distribution_gg-hadrons.o
 MAIN_HITTIME_GGHADRONS_PAIRS = ../objects/main_compare_hittime_gg-hadrons_pairs.o
 MAIN_MOMENTUMTIME = ../objects/main_momentum_time.o
 MAIN_CALC_LATE = ../objects/main_calculate_late_arriving_primaries.o
+MAIN_HELIX = ../objects/main_helix_tracks.o
 CONFIG = ../objects/ConfigReader.o ../objects/ConfigReaderAnalysis.o
 USEFUL = ../objects/UsefulFunctions.o
 STYLE = ../objects/Style.o
@@ -122,6 +123,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 ../LatePrimariesCalculater : $(MAIN_CALC_LATE) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
+../HelixPlotter : $(MAIN_HELIX) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
 ../objects/ConfigReader.o : ../src/ConfigReader.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
@@ -156,6 +160,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_calculate_late_arriving_primaries.o : ../src/main_calculate_late_arriving_primaries.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/main_helix_tracks.o : ../src/main_helix_tracks.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/UsefulFunctions.o : ../../General/src/UsefulFunctions.cc
