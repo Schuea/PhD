@@ -2,7 +2,7 @@
 #ifndef HELIX_H_
 #define HELIX_H_
 
-#include <math.h>
+#include <cmath>
 
 #include <iostream>
 #include <vector>
@@ -10,35 +10,50 @@
 class Helix {
 
 				public: 
-								Helix(){
+								Helix():
+												B(0),
+												px(0), py(0), pz(0),
+												x0(0), y0(0), z0(0),
+												charge(0), z(0),
+												radius(0), number_turn(0),
+												xi(0), cx(0), cy(0){
+												//position(){
+																std::cout << "This should not be printed!" << std::endl;
 								}
-								Helix(double momx, double momy, double momz, int particle_charge, std::vector< float > origin, float Field):
-												px(momx), py(momy), pz(momz),
-												charge(particle_charge),
-												x0(origin.at(0)), y0(origin.at(1)), z0(origin.at(2)),
-												B(Field){
+								Helix(float Field) :	
+												B(Field),
+												px(0), py(0), pz(0),
+												x0(0), y0(0), z0(0),
+												charge(0), z(0),
+												radius(0), number_turn(0),
+												xi(0), cx(0), cy(0){
+												//position(){
+																std::cout << "B(Field) = " << "B(" << Field <<") = " << B << std::endl;
 								}
 
 								~Helix(){
 								}
 
-								std::vector< double > Get_position(float pos_z);
+								std::vector< double > Get_position(std::vector< double > mom, float particle_charge, std::vector< double > origin, double pos_z);
 
 				private:
-								double px, py, pz;
-								int charge;
-								float x0, y0, z0;
-								float z;
 								float B;
+								double px, py, pz;
+								double x0, y0, z0;
+								float charge;
+								double z;
 								double radius;
 								double number_turn;
 								double xi; 
-								std::vector< double > position;
+				        double cx, cy;
+
+								//std::vector< double > position;
 
 								void Calculate_radius();
 								void Calculate_number_turn();
 								void Calculate_xi();
-								void Calculate_position();
+								void Calculate_circlecenter();
+								std::vector<double> Calculate_position();
 };
 
 #endif /* HELIX_H_*/
