@@ -15,28 +15,25 @@ class Helix {
 												px(0), py(0), pz(0),
 												x0(0), y0(0), z0(0),
 												charge(0), z(0),
-												radius(0), number_turn(0),
-												xi(0), cx(0), cy(0),
-												alpha(0){
-												//position(){
+												radius(0), 
+												cx(0), cy(0){
 																std::cout << "This should not be printed!" << std::endl;
 								}
-								Helix(float Field) :	
+								Helix(float const Field) :	
 												B(Field),
 												px(0), py(0), pz(0),
 												x0(0), y0(0), z0(0),
 												charge(0), z(0),
-												radius(0), number_turn(0),
-												xi(0), cx(0), cy(0),
-												alpha(0){
-												//position(){
+												radius(0),
+												cx(0), cy(0){
 																std::cout << "B(Field) = " << "B(" << Field <<") = " << B << std::endl;
 								}
 
 								~Helix(){
 								}
 
-								std::vector< double > Get_position(std::vector< double > mom, float particle_charge, std::vector< double > origin, double pos_z);
+								std::vector< double > Get_position(double const pos_z);
+                void Set_particlevalues(std::vector< double > const mom, float const particle_charge, std::vector< double > const origin);
 
 				private:
 								float B;
@@ -45,16 +42,11 @@ class Helix {
 								float charge;
 								double z;
 								double radius;
-								double number_turn;
-								double xi; 
 				        double cx, cy;
-								double alpha;
-
-								//std::vector< double > position;
 
 								void Calculate_radius();
-								void Calculate_number_turn();
-								void Calculate_xi();
+								double Calculate_number_turn() const;
+								double Calculate_xi() const;
 								void Calculate_circlecenter();
 								std::vector<double> Calculate_position();
 };

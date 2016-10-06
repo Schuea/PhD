@@ -80,16 +80,22 @@ int main(int const argc, char const * const * const argv) {
 				}
 
 				//Make histogram for storing the information
-				float zmin = 0.0;
-				float zmax = 300.0;
-				int zbin = 10000;
+				float const zmin = 0.0;
+				float const zmax = 300.0;
+				int const zbin = 10000;
+        float const ymin = -27.5;
+        float const ymax = 27.5;
+				int const ybin = 100;
+        float const xmin = -27.5;
+        float const xmax = 27.5;
+				int const xbin = 100;
 
 				std::string const title_x = "Pairs spiraling in the magnetic field;z [mm];x [mm];# of particles per (0.85mm x 0.25mm)";
 				std::string const title_y = "Pairs spiraling in the magnetic field;z [mm];y [mm];# of particles per (0.85mm x 0.25mm)";
-				TH2D* histo_x = new TH2D("Helix_tracks_xz", title_x.c_str(), zbin,zmin,zmax, 100,-27.5,27.5);
-				TH2D* histo_y = new TH2D("Helix_tracks_yz", title_y.c_str(), zbin,zmin,zmax, 100,-27.5,27.5);
+				TH2D* histo_x = new TH2D("Helix_tracks_xz", title_x.c_str(), zbin,zmin,zmax, xbin, xmin, xmax);
+				TH2D* histo_y = new TH2D("Helix_tracks_yz", title_y.c_str(), zbin,zmin,zmax, ybin, ymin, ymax);
 
-				float BField = 5.0;
+				float const BField = 5.0;
 				Helix helix(BField);
 
 				for (int file_iterator = 0; file_iterator < NUMBER_OF_FILES; ++file_iterator) {
@@ -129,19 +135,16 @@ int main(int const argc, char const * const * const argv) {
 								double z = zmin;
 
 								long long int const entries = tree->GetEntries();
-								for (long long int i = 0; i < entries; ++i) {
+								for (long long int i = 0; i < 1; ++i) {
 												tree->GetEntry(i);
 												if (CreatedInSimulation_Status == 1) continue;
 												vertex = { vertex_x, vertex_y, vertex_z };
-												if (abs(vertex.at(0)) > 0.1 || abs(vertex.at(1)) > 0.1 ) continue;
+												if (abs(vertex_x) > 0.1 || abs(vertex_y) > 0.1 ) continue;
 												momentum = { momentum_x, momentum_y, momentum_z };
-												//vertex = { 0,0,0 };
-												//momentum = { 0.1,0.2,3 };
+											  helix.Set_particlevalues(momentum, charge, vertex); // setting the constant values for the current particle in the helix class
 												for (int step = 1; step <= zbin; ++step){
-																double new_x = helix.Get_position(momentum, charge, vertex, z).at(0)*1000.0; // to convert from m to mm
-																double new_y = helix.Get_position(momentum, charge, vertex, z).at(1)*1000.0; // to convert from m to mm
-																//double new_x = helix.Get_position(momentum, 1, vertex, z).at(0)*1000.0;
-																//double new_y = helix.Get_position(momentum, 1, vertex, z).at(1)*1000.0;
+																double const new_x = helix.Get_position(z).at(0)*1000.0; // to convert from m to mm
+																double const new_y = helix.Get_position(z).at(1)*1000.0; // to convert from m to mm
 																//std::cout << "z = " << z << std::endl;
 																//std::cout << "new_x = " << new_x << std::endl;
 																//std::cout << "new_y = " << new_y << std::endl;
@@ -191,8 +194,8 @@ int main(int const argc, char const * const * const argv) {
 
 				std::string histoname_x(histo_x->GetName());
 
-				canvas->Print(("output/"+histoname_x+".pdf").c_str());
-				canvas->Print(("output/"+histoname_x+".cxx").c_str());
+				canvas->Print(("output/"+histoname_x+"_Optimized_1.pdf").c_str());
+				canvas->Print(("output/"+histoname_x+"_Optimized_1.cxx").c_str());
 
 				canvas->SetLogz();
 				histo_y->Draw("colz");
@@ -205,8 +208,8 @@ int main(int const argc, char const * const * const argv) {
 
 				std::string histoname_y(histo_y->GetName());
 
-				canvas->Print(("output/"+histoname_y+".pdf").c_str());
-				canvas->Print(("output/"+histoname_y+".cxx").c_str());
+				canvas->Print(("output/"+histoname_y+"_Optimized_1.pdf").c_str());
+				canvas->Print(("output/"+histoname_y+"_Optimized_1.cxx").c_str());
 				
 				return 0;
 }
