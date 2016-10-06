@@ -16,7 +16,8 @@ class Helix {
 												x0(0), y0(0), z0(0),
 												charge(0), z(0),
 												radius(0), number_turn(0),
-												xi(0), cx(0), cy(0){
+												xi(0), cx(0), cy(0),
+												alpha(0){
 												//position(){
 																std::cout << "This should not be printed!" << std::endl;
 								}
@@ -26,7 +27,8 @@ class Helix {
 												x0(0), y0(0), z0(0),
 												charge(0), z(0),
 												radius(0), number_turn(0),
-												xi(0), cx(0), cy(0){
+												xi(0), cx(0), cy(0),
+												alpha(0){
 												//position(){
 																std::cout << "B(Field) = " << "B(" << Field <<") = " << B << std::endl;
 								}
@@ -46,6 +48,7 @@ class Helix {
 								double number_turn;
 								double xi; 
 				        double cx, cy;
+								double alpha;
 
 								//std::vector< double > position;
 

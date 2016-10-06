@@ -129,7 +129,7 @@ int main(int const argc, char const * const * const argv) {
 								double z = zmin;
 
 								long long int const entries = tree->GetEntries();
-								for (long long int i = 0; i < 10; ++i) {
+								for (long long int i = 0; i < entries; ++i) {
 												tree->GetEntry(i);
 												if (CreatedInSimulation_Status == 1) continue;
 												vertex = { vertex_x, vertex_y, vertex_z };
