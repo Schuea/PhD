@@ -13,6 +13,7 @@
 \usepackage{booktabs}
 \usepackage{siunitx}
 \usepackage{units}
+\usepackage[absolute,overlay]{textpos} %for positioning the logos where I want
 
 \mode<presentation>
 {
@@ -35,13 +36,30 @@
   \setbeamertemplate{caption}[numbered]
 } 
 
+\newcommand{\sidlogo}{
+  \setlength{\TPHorizModule}{1pt}
+  \setlength{\TPVertModule}{1pt}
+   % textblock{}{x,y}: pos(x) = rightUpperCorner + (x * \TPHorizModule), pos(y) = leftUpperCorner - (y * \TPVertModule)
+  \begin{textblock}{1}(323,12)
+   \includegraphics[width=40pt,height=26pt]{figures/SiD.jpeg}
+  \end{textblock}
+  } 
+\newcommand{\ilclogo}{
+  \setlength{\TPHorizModule}{1pt}
+  \setlength{\TPVertModule}{1pt}
+   % textblock{}{x,y}: pos(x) = rightUpperCorner + (x * \TPHorizModule), pos(y) = leftUpperCorner - (y * \TPVertModule)
+  \begin{textblock}{1}(323,12)
+   \includegraphics[width=40pt,height=26pt]{figures/ILC.jpeg}
+  \end{textblock}
+} 
+
 \title[ILC \& Muons from spoilers]{\textbf{\LARGE The International Linear Collider \\ \small Muons from the muon spoilers in the SiD detector - \\FIRST RESULTS}}
 \author{\textbf{Anne Sch\"utz}}
 \institute{\textbf{DESY}}
 \date{\textbf{23rd September 2016}}
 
-\titlegraphic{\includegraphics[height=1.0cm]{SiD.jpeg}\hspace*{6cm}~%
-   \includegraphics[height=1.0cm]{DESY_Logo.png}
+\titlegraphic{\includegraphics[height=1.0cm]{figures/SiD.jpeg}\hspace*{6cm}~%
+   \includegraphics[height=1.0cm]{figures/DESY_Logo.png}
 }
 
 \begin{document}
@@ -59,7 +77,16 @@
 \end{frame}
 
 \section{Muons from the muon spoilers}
+\begin{frame}{The layout of the ILC}
+\ilclogo
+\begin{center}
+\includegraphics[width=\textwidth]{figures/ILC_schematic_layout.png}
+\end{center}
+The muon spoilers will be installed in the Beam Delivery System (BDS) in the central region.
+\end{frame}
+
 \begin{frame}{BDS tunnel layout}
+\ilclogo
 \begin{center}
 \includegraphics[height=0.65\textheight]{BDS_electron_tunnel.pdf}
 \end{center}
@@ -67,6 +94,7 @@
 
 \subsection{Muon spoiler scenarios}
 \begin{frame}{Muon spoiler scenarios}
+\ilclogo
 There are two spoiler scenarios under discussion:
 \begin{itemize}
  \item 3 donut spoilers
@@ -78,11 +106,12 @@ There are two spoiler scenarios under discussion:
 \end{frame}
 
 \begin{frame}{3 donut spoilers}
+\ilclogo
 \textbf{The donut spoilers} are designed as follows:
 \begin{itemize}
  \item \unit[70]{cm} radius
  \item \unit[5]{m} long
- \item Magnetized  with a field of $\sim$\unit[10-19]{kG}
+ \item Magnetized iron with a field of $\sim$\unit[10-19]{kG}
 \end{itemize}
 \begin{center}
 \includegraphics[height=0.67\textheight]{Muon_spoilers.pdf}
@@ -90,7 +119,8 @@ There are two spoiler scenarios under discussion:
 \end{frame}
 
 \begin{frame}{3 donut spoilers + wall}
-\textbf{The steel wall} would completely fill up the tunnel:
+\ilclogo
+\textbf{The iron wall} would completely fill up the tunnel:
 \begin{itemize}
  \item \unit[5]{m} x \unit[3]{m}, \unit[5]{m} long
  \item Magnetized with a field of $\sim$\unit[16]{kG}
@@ -104,12 +134,16 @@ There are two spoiler scenarios under discussion:
 
 \section{MUCARLO simulation}
 \begin{frame}{MUCARLO simulation overview}
-\begin{itemize}
+\ilclogo
+
+\begin{columns}
+ \begin{column}{0.7\textwidth}
+  \begin{itemize}
 \item BDS backgrounds with muon collimation system modelled with MUCARLO [Lewis Keller, SLAC] and Geant4 [Glen White, SLAC]
 \item Using TDR baseline machine parameters for the ILC500
 \item Muon production processes:
 \begin{itemize}
-\item Predominantly: Bethe-Heitler process: \textgamma + A $\rightarrow$ A' + \textmu$^+$\textmu$^-$
+\item Predominantly: Bethe-Heitler process:\\ \textgamma + Z $\rightarrow$ Z' + \textmu$^+$\textmu$^-$
 \item Few \% level: direct annihilation of positrons with atomic electrons: e$^+$e$^-$ $\rightarrow$ \textmu$^+$\textmu$^-$
 \end{itemize}
 \item Halo particle tracking:
@@ -119,18 +153,27 @@ There are two spoiler scenarios under discussion:
 \end{itemize}
 \end{itemize}
 
+ \end{column}
+ \begin{column}{0.3\textwidth}
+  \includegraphics[width=\textwidth]{BetheHeitler.pdf}
+ \end{column}
+\end{columns}
 \end{frame}
 
 \subsection{Muon tracking}
 \begin{frame}{Muon tracks in the BDS tunnel}
+\ilclogo
 Muon tracks of positively (\textcolor{green}{\textmu\textsuperscript{+}}) and negatively (\textcolor{red}{\textmu\textsuperscript{-}}) charged muons, originating at two different primary betatron collimators: SP2 and SP4.
 \begin{center}
 \includegraphics[width=0.95\textwidth]{Muon_tracks.pdf}
 \end{center}
+The tracks that are drawn are only the ones that reach the detector.\\
+Because the SP2 is further away and the negative muons are deflected by the magnetized spoilers, the negative muons are not drawn because they don't reach the detector.
 \end{frame}
 
 \subsection{Muon 4-vectors}
 \begin{frame}{Muon 4-vectors}
+\ilclogo
 \begin{center}
 \includegraphics[height=0.5\textheight]{Muon_4-vectors.pdf}
 \end{center}
@@ -138,6 +181,7 @@ Spatial and momentum distribution of muons in a detector (of 6.5m radius).
 4-vectors provided to SiD and ILD.
 \end{frame}
 \begin{frame}{Muons in the detector}
+\ilclogo
 \begin{center}
 \includegraphics[height=0.6\textheight]{Muon_numbers.pdf}
 \end{center}
@@ -145,15 +189,18 @@ First column: muon numbers per bunch in a detector with 6.5m radius.
 The number can be reduced to below 1!
 \end{frame}
 
-\begin{frame}{Muons in the detector}
+\begin{frame}{Attenuation Factor}
+\ilclogo
 \begin{center}
 \includegraphics[height=0.7\textheight]{Attenuation_Factors.pdf}
 \end{center}
 The ratio of muons produced over muons which reach the detector, for different spoiler conditions and different source locations.
 \end{frame}
 
+
 \section{Motivation}
 \begin{frame}{}
+\ilclogo
 Question to SiD and ILD: Do we need the muon wall at all?!
 MID people would be happy to get rid of it because of safety issues.
 \begin{center}
@@ -163,6 +210,7 @@ MID people would be happy to get rid of it because of safety issues.
 
 \section{First results}
 \begin{frame}{Summer student project}
+\ilclogo
 The first analysis of the muon hits and the detector occupancy in the SiD detector was done by Jonas Glombitza, Marcel's and my summer student this summer 2016.\\
 \vspace*{0.5cm}
 Preparations:
@@ -183,6 +231,7 @@ Preparations:
 
 \subsection{Event displays of muons in the SiD detector}
 \begin{frame}{WIRED4 event display}
+\sidlogo
 1 train's worth of muons ($\sim$ 650 muons):
 \begin{center}
 \includegraphics[height=0.6\textheight]{sidloi3_muons_wired4_eventdisplay_1bunch.png}
@@ -196,7 +245,8 @@ The asymmetry in the xy plane is predicted by the MUCARLO simulation output (see
 \newcolumntype{P}[1]{>{\centering}p{#1}}
 
 \subsection{Analysis - Energy distributions}
-\begin{frame}{Energy distribution of muons - Spoiler and Spoiler+Wall scenarios}
+\begin{frame}{Energy distribution of muons -\\ \small Spoiler and Spoiler+Wall scenarios}
+\sidlogo
  \begin{center}
 \includegraphics[height=0.6\textheight]{Energy_distributions.pdf}
 \end{center}
@@ -204,7 +254,8 @@ The asymmetry in the xy plane is predicted by the MUCARLO simulation output (see
 \end{frame}
 
 \subsection{Analysis - Spatial distributions}
-\begin{frame}{Spatial distribution in the MuonEndcaps - Spoiler and Spoiler+Wall scenarios}
+\begin{frame}{Spatial distribution in the MuonEndcaps - \\ \small Spoiler and Spoiler+Wall scenarios}
+\sidlogo
 Hits from muons from 5 trains for both MuonEndcaps and all their layers:
  \begin{center}
 \includegraphics[width=0.5\textwidth]{Spatial_distribution_MuonEndcap_Spoiler.pdf}
@@ -212,7 +263,8 @@ Hits from muons from 5 trains for both MuonEndcaps and all their layers:
 \includegraphics[width=0.5\textwidth]{Spatial_distribution_MuonEndcap_SpoilerWall.pdf}
 \end{center}
 \end{frame}
-\begin{frame}{Angular distributions of muons before hitting the SiD}
+\begin{frame}{Angular distributions of muons \small before hitting the SiD}
+\sidlogo
 Muons from 5 trains:
  \begin{center}
 \includegraphics[width=0.5\textwidth]{horizontalAngular_distributions.pdf}
@@ -220,14 +272,16 @@ Muons from 5 trains:
 \includegraphics[width=0.5\textwidth]{verticalAngular_distributions.pdf}
 \end{center}
 \end{frame}
-\begin{frame}{Explanation of spatial distributions in the MuonEndcaps}
+\begin{frame}{Explanation of spatial distributions \small in the MuonEndcaps}
+\sidlogo
  \begin{center}
 \includegraphics[height=0.85\textheight]{Explanation_Spatial_distribution.pdf}
 \end{center}
 \end{frame}
 
 \subsection{Analysis - Total number of hits}
-\begin{frame}{Total number of hits - Spoiler scenario}
+\begin{frame}{Total number of hits - \small Spoiler scenario}
+\sidlogo
  \begin{center}
 \includegraphics[height=0.65\textheight]{Number_Hits_per_Subdetector.pdf}\\
 \begin{tabular}{@{}p{0.343\textwidth}p{0.01\textwidth}p{0.18\textwidth}p{0.01\textwidth}p{0.343\textwidth}p{0.001\textwidth}@{}}
@@ -237,11 +291,13 @@ Muons from 5 trains:
 \end{center}
 \end{frame}
 \begin{frame}{Explanation of hit number distribution -\\ \small Spatial distribution in the MuonEndcaps}
+\sidlogo
  \begin{center}
 \includegraphics[height=0.78\textheight]{Explanation_Hits_Subdetectors.pdf}
 \end{center}
 \end{frame}
-\begin{frame}{Total number of hits - Spoiler+Wall scenario}
+\begin{frame}{Total number of hits - \small Spoiler+Wall scenario}
+\sidlogo
  \begin{center}
 \includegraphics[height=0.65\textheight]{Number_Hits_per_Subdetector_SpoilerWall.pdf}\\
 Number of hits more equally distributed, but still:\\
@@ -253,13 +309,15 @@ Number of hits more equally distributed, but still:\\
 \end{frame}
 
 \subsection{Analysis - Occupancies}
-\begin{frame}{Occupancy plots - MuonEndcap}
+\begin{frame}{Occupancy plots - \small MuonEndcap}
+\sidlogo
  \begin{center}
 \includegraphics[height=0.7\textheight]{Occupancy_MuonEndcap.pdf}
 \end{center}
 The muon background has a small impact on the MuonEndcaps.
 \end{frame}
-\begin{frame}{Occupancy plots - SiTrackerBarrel}
+\begin{frame}{Occupancy plots - \small SiTrackerBarrel}
+\sidlogo
  \begin{center}
 \includegraphics[height=0.68\textheight]{Occupancy_SiTrackerBarrel.pdf}
 \end{center}
@@ -268,13 +326,15 @@ The muon background has a small impact on the MuonEndcaps.
 \end{frame}
 
 \subsection{Analysis - Time distributions}
-\begin{frame}{Time distribution - SiTrackerEndcaps}
+\begin{frame}{Time distribution - \small SiTrackerEndcaps}
+\sidlogo
 Note that the timing of the muons is not 100\% accurate yet! Lewis Keller will send the accurate numbers soon.
  \begin{center}
 \includegraphics[height=0.78\textheight]{Time_distribution_SiTrackerEndcaps.pdf}
 \end{center}
 \end{frame}
-\begin{frame}{Time distribution - MuonEndcaps}
+\begin{frame}{Time distribution - \small MuonEndcaps}
+\sidlogo
  \begin{center}
 \includegraphics[height=0.78\textheight]{Time_distribution_MuonEndcaps.pdf}
 \end{center}
@@ -315,5 +375,18 @@ $\rightarrow$\textit{Stay tuned!}}
 \end{thebibliography}
 \end{frame}
 %%--------------------------------------------------------------------------------
+\section*{Appendix}
+\begin{frame}{Attenuation Factor}
+\ilclogo
+\begin{center}
+\includegraphics[height=0.5\textheight]{Attenuation_Factors.pdf}
+\end{center}
+Spoilers (SP) have a much smaller gap than the absorbers (PC and AB), and they intercept the primary beam halo.\\
+Muons originating at the SPs:
+\begin{itemize}
+ \item smaller radius $\rightarrow$ ``see'' more of the detector
+ \item smaller angular spread (SPs are at max-beta points = min-divergence)
+\end{itemize} 
+\end{frame}
 
 \end{document}
