@@ -7,12 +7,13 @@
 #include "TPaveStats.h"
 #include "TLine.h"
 
-#include <bitset>
+#include <cmath>
 #include <iostream>
 #include <limits>
 #include <string>
 #include <sstream>
 #include <vector>
+#include <iomanip>
 
 #include "Helix_class.h"
 #include "GeneralFunctions_SiDBkgSim.h"
@@ -74,21 +75,24 @@ int main(int const argc, char const * const * const argv) {
 								exit(1);
 				}
 
+				TFile* Outputfile = new TFile("output/Helix_in_beampipe.root","RECREATE");
 				//Make histogram for storing the information
 				float const zmin = 0.0;
 				float const zmax = 300.0;
 				int const zbin = 10000;
-        float const ymin = -27.5;
-        float const ymax = 27.5;
+        float const ymin = -29;
+        float const ymax = 29;
 				int const ybin = 100;
-        float const xmin = -27.5;
-        float const xmax = 27.5;
+        float const xmin = -29;
+        float const xmax = 29;
 				int const xbin = 100;
 
-				std::string const title_x = "Pairs spiraling in the magnetic field;z [mm];x [mm];# of particles per (0.03mm x 0.55mm)";
-				std::string const title_y = "Pairs spiraling in the magnetic field;z [mm];y [mm];# of particles per (0.03mm x 0.55mm)";
+				std::string const title_x = "Pairs spiraling in the magnetic field;z [mm];x [mm];# of particles per (0.03mm x 0.58mm)";
+				std::string const title_y = "Pairs spiraling in the magnetic field;z [mm];y [mm];# of particles per (0.03mm x 0.58mm)";
 				TH2D* histo_x = new TH2D("Helix_tracks_xz", title_x.c_str(), zbin,zmin,zmax, xbin, xmin, xmax);
 				TH2D* histo_y = new TH2D("Helix_tracks_yz", title_y.c_str(), zbin,zmin,zmax, ybin, ymin, ymax);
+				histo_x->SetMinimum(10^(-8));
+				histo_y->SetMinimum(10^(-8));
 
 				long long int all_particles = 0;
 				long long int particles_outside_beampipe = 0;
@@ -134,14 +138,14 @@ int main(int const argc, char const * const * const argv) {
 								std::vector< double > momentum;
 								double z = zmin;
 
-								float beampipe_angle1 = 3.266;
-								float beampipe_angle2 = 5.329;
+								float beampipe_angle1 = 3.266*M_PI/180;
+								float beampipe_angle2 = 5.329*M_PI/180;
 								double tan_beampipe_angle1( tan(beampipe_angle1) );
 								double tan_beampipe_angle2( tan(beampipe_angle2) );
 
 
 								long long int const entries = tree->GetEntries();
-								for (long long int i = 0; i < entries; ++i) {
+								for (long long int i = 0; i < 10000; ++i) {
 												tree->GetEntry(i);
 												if (CreatedInSimulation_Status == 1) continue;
 												vertex = { vertex_x, vertex_y, vertex_z };
@@ -181,7 +185,7 @@ int main(int const argc, char const * const * const argv) {
 				std::cout << "-----------------" << std::endl;
 				std::cout << "All particles drawn: " << all_particles <<  std::endl;
 				std::cout << "All particles outside the beam pipe: " << particles_outside_beampipe <<  std::endl;
-				std::cout << "Ratio: " << particles_outside_beampipe/all_particles <<  std::endl;
+				std::cout << "Ratio: "  << std::fixed << std::setprecision(3) << ((float)particles_outside_beampipe)/((float)all_particles) <<  std::endl;
 
 
 				TLine *line = new TLine(0,12,62.5,12);
@@ -200,13 +204,11 @@ int main(int const argc, char const * const * const argv) {
 				gStyle->SetOptStat(0);
 				//gStyle->SetOptStat(111111);
 
+				Outputfile->cd();
 				//Plot the histogram and save it
-
 				TCanvas *canvas = new TCanvas("canvas", "canvas", 800, 600);
 				canvas->cd();
 
-				histo_x->SetMinimum(10^(-8));
-				histo_y->SetMinimum(10^(-8));
 				canvas->SetLogz();
 				histo_x->Draw("colz");
 				//canvas->Update();
@@ -223,6 +225,8 @@ int main(int const argc, char const * const * const argv) {
 				line3->Draw();
 				nline3->Draw();
 
+				//Outputfile->cd();
+				//histo_x->Write();
 				std::string histoname_x(histo_x->GetName());
 
 				canvas->Print(("output/"+histoname_x+"_1bunch_updated_BeamPipe_coloraxis.pdf").c_str());
@@ -237,10 +241,12 @@ int main(int const argc, char const * const * const argv) {
 				line3->Draw();
 				nline3->Draw();
 
+				//histo_y->Write();
 				std::string histoname_y(histo_y->GetName());
 
 				canvas->Print(("output/"+histoname_y+"_1bunch_updated_BeamPipe_coloraxis.pdf").c_str());
 				canvas->Print(("output/"+histoname_y+"_1bunch_updated_BeamPipe_coloraxis.cxx").c_str());
 				
+				Outputfile->Write();
 				return 0;
 }
