@@ -1,6 +1,12 @@
 #ifndef GENERALFUNCTIONSFORSIDBKGSIM_H_
 #define GENERALFUNCTIONSFORSIDBKGSIM_H_
 
+#include "Subdetector_class.h"
+#include "TFile.h"
+#include "TTree.h"
+#include <sstream>
+#include <iostream>
+
 void SetupSubDetectorsVector(std::vector<Subdetector*> * SubDetectors, std::string *several_subdetector_names,
 		std::vector<std::string> argument_subdetectors);
 void InitializeAllCaloSubdetectors(std::vector<Subdetector*> * SubDetectors);
