@@ -14,11 +14,9 @@
 #include <sstream>
 #include <vector>
 
-#include "ConfigReaderAnalysis.h"
-#include "UsefulFunctions.h"
-#include "CellHits_class.h"
-#include "GeneralFunctions_SiDBkgSim.h"
 #include "Helix_class.h"
+#include "UsefulFunctions.h"
+#include "GeneralFunctions_SiDBkgSim.h"
 
 #include "Style.h"
 
@@ -90,8 +88,8 @@ int main(int const argc, char const * const * const argv) {
         float const xmax = 27.5;
 				int const xbin = 100;
 
-				std::string const title_x = "Pairs spiraling in the magnetic field;z [mm];x [mm];# of particles per (0.85mm x 0.25mm)";
-				std::string const title_y = "Pairs spiraling in the magnetic field;z [mm];y [mm];# of particles per (0.85mm x 0.25mm)";
+				std::string const title_x = "Pairs spiraling in the magnetic field;z [mm];x [mm];# of particles per (0.03mm x 0.55mm)";
+				std::string const title_y = "Pairs spiraling in the magnetic field;z [mm];y [mm];# of particles per (0.03mm x 0.55mm)";
 				TH2D* histo_x = new TH2D("Helix_tracks_xz", title_x.c_str(), zbin,zmin,zmax, xbin, xmin, xmax);
 				TH2D* histo_y = new TH2D("Helix_tracks_yz", title_y.c_str(), zbin,zmin,zmax, ybin, ymin, ymax);
 
@@ -111,6 +109,7 @@ int main(int const argc, char const * const * const argv) {
 								double momentum_z = 0.0;
 								float charge = -99.0;
 								bool CreatedInSimulation_Status = false;
+								float creationtime = 0.0;
 
 								tree->SetBranchStatus("*", 0);
 								tree->SetBranchStatus("Vertexx", 1);
@@ -129,18 +128,21 @@ int main(int const argc, char const * const * const argv) {
 								tree->SetBranchAddress("Charge", &charge);
 								tree->SetBranchStatus("CreatedInSimulation_Status", 1);
 								tree->SetBranchAddress("CreatedInSimulation_Status", &CreatedInSimulation_Status);
+								tree->SetBranchStatus("CreationTime", 1);
+								tree->SetBranchAddress("CreationTime", &creationtime);
 
 								std::vector< double > vertex;
 								std::vector< double > momentum;
 								double z = zmin;
 
 								long long int const entries = tree->GetEntries();
-								for (long long int i = 0; i < 1; ++i) {
+								for (long long int i = 0; i < entries; ++i) {
 												tree->GetEntry(i);
 												if (CreatedInSimulation_Status == 1) continue;
 												vertex = { vertex_x, vertex_y, vertex_z };
-												if (abs(vertex_x) > 0.1 || abs(vertex_y) > 0.1 ) continue;
+												//if (abs(vertex_x) > 0.1 || abs(vertex_y) > 0.1 ) continue;
 												momentum = { momentum_x, momentum_y, momentum_z };
+												if (creationtime < 1 && sqrt(momentum_x*momentum_x+momentum_y*momentum_y) > 0.2) continue;
 											  helix.Set_particlevalues(momentum, charge, vertex); // setting the constant values for the current particle in the helix class
 												for (int step = 1; step <= zbin; ++step){
 																double const new_x = helix.Get_position(z).at(0)*1000.0; // to convert from m to mm
@@ -157,10 +159,10 @@ int main(int const argc, char const * const * const argv) {
 				}
 				TLine *line = new TLine(0,12,62.5,12);
 				TLine *nline = new TLine(0,-12,62.5,-12);
-				TLine *line2 = new TLine(62.5,12,200,20);
-				TLine *nline2 = new TLine(62.5,-12,200,-20);
-				TLine *line3 = new TLine(200,20,300,27.5);
-				TLine *nline3 = new TLine(200,-20,300,-27.5);
+				TLine *line2 = new TLine(62.5,12,205,20.1);
+				TLine *nline2 = new TLine(62.5,-12,205,-20.1);
+				TLine *line3 = new TLine(205,20.1,300,28.99);
+				TLine *nline3 = new TLine(205,-20.1,300,-28.99);
 				line->SetLineColor(2);
 				nline->SetLineColor(2);
 				line2->SetLineColor(2);
@@ -194,8 +196,8 @@ int main(int const argc, char const * const * const argv) {
 
 				std::string histoname_x(histo_x->GetName());
 
-				canvas->Print(("output/"+histoname_x+"_Optimized_1.pdf").c_str());
-				canvas->Print(("output/"+histoname_x+"_Optimized_1.cxx").c_str());
+				canvas->Print(("output/"+histoname_x+"_Optimized_lowPTloopers.pdf").c_str());
+				canvas->Print(("output/"+histoname_x+"_Optimized_lowPTloopers.cxx").c_str());
 
 				canvas->SetLogz();
 				histo_y->Draw("colz");
@@ -208,8 +210,8 @@ int main(int const argc, char const * const * const argv) {
 
 				std::string histoname_y(histo_y->GetName());
 
-				canvas->Print(("output/"+histoname_y+"_Optimized_1.pdf").c_str());
-				canvas->Print(("output/"+histoname_y+"_Optimized_1.cxx").c_str());
+				canvas->Print(("output/"+histoname_y+"_Optimized_lowPTloopers.pdf").c_str());
+				canvas->Print(("output/"+histoname_y+"_Optimized_lowPTloopers.cxx").c_str());
 				
 				return 0;
 }
