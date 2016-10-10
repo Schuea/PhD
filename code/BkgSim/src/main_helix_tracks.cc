@@ -15,14 +15,11 @@
 #include <vector>
 
 #include "Helix_class.h"
-#include "UsefulFunctions.h"
 #include "GeneralFunctions_SiDBkgSim.h"
 
 #include "Style.h"
 
 using namespace std;
-
-void Print_Origin_histo(TCanvas* canvas, TH2D* const histo, std::string const set_time, std::string const subdetectornames);
 
 int main(int const argc, char const * const * const argv) {
 				UsePhDStyle();
@@ -93,6 +90,8 @@ int main(int const argc, char const * const * const argv) {
 				TH2D* histo_x = new TH2D("Helix_tracks_xz", title_x.c_str(), zbin,zmin,zmax, xbin, xmin, xmax);
 				TH2D* histo_y = new TH2D("Helix_tracks_yz", title_y.c_str(), zbin,zmin,zmax, ybin, ymin, ymax);
 
+				long long int all_particles = 0;
+				long long int particles_outside_beampipe = 0;
 				float const BField = 5.0;
 				Helix helix(BField);
 
@@ -135,6 +134,12 @@ int main(int const argc, char const * const * const argv) {
 								std::vector< double > momentum;
 								double z = zmin;
 
+								float beampipe_angle1 = 3.266;
+								float beampipe_angle2 = 5.329;
+								double tan_beampipe_angle1( tan(beampipe_angle1) );
+								double tan_beampipe_angle2( tan(beampipe_angle2) );
+
+
 								long long int const entries = tree->GetEntries();
 								for (long long int i = 0; i < entries; ++i) {
 												tree->GetEntry(i);
@@ -142,8 +147,12 @@ int main(int const argc, char const * const * const argv) {
 												vertex = { vertex_x, vertex_y, vertex_z };
 												//if (abs(vertex_x) > 0.1 || abs(vertex_y) > 0.1 ) continue;
 												momentum = { momentum_x, momentum_y, momentum_z };
-												if (creationtime < 1 && sqrt(momentum_x*momentum_x+momentum_y*momentum_y) > 0.2) continue;
+												//if (creationtime < 1 && sqrt(momentum_x*momentum_x+momentum_y*momentum_y) > 0.2) continue;
+
 											  helix.Set_particlevalues(momentum, charge, vertex); // setting the constant values for the current particle in the helix class
+												
+												bool particle_went_outside_beampipe = false;
+
 												for (int step = 1; step <= zbin; ++step){
 																double const new_x = helix.Get_position(z).at(0)*1000.0; // to convert from m to mm
 																double const new_y = helix.Get_position(z).at(1)*1000.0; // to convert from m to mm
@@ -152,17 +161,35 @@ int main(int const argc, char const * const * const argv) {
 																//std::cout << "new_y = " << new_y << std::endl;
 																histo_x->Fill(z, new_x);
 																histo_y->Fill(z, new_y);
+																if ( particle_went_outside_beampipe == false &&
+																		 ((std::abs(new_x) > 12 && z <= 62.5) || //beam pipe inside vertex barrel: cylinder with 12mm radius, 32.5mm long
+																		 (z > 62.5 && z <= 205 && std::abs(new_x) > tan_beampipe_angle1*(z-62.5)+12) ||  //beam pipe outside vertex barrel: cone with half angle of beampipe_angle1, length 205-62.5mm, starting at z=62.5mm
+																		 (z > 205 && z <= zmax && std::abs(new_x) > tan_beampipe_angle2*(z-205)+20.13) //beam pipe outside vertex barrel: cone with half angle of beampipe_angle2, length 205-62.5mm, starting at z=205mm
+																		 ) ) {
+																				particle_went_outside_beampipe = true;
+																}
 																z = step*(zmax-zmin)/zbin;
+												}
+												all_particles++;
+												if (particle_went_outside_beampipe == true){
+																particles_outside_beampipe++;
 												}
 								}
 								file->Close();
 				}
+
+				std::cout << "-----------------" << std::endl;
+				std::cout << "All particles drawn: " << all_particles <<  std::endl;
+				std::cout << "All particles outside the beam pipe: " << particles_outside_beampipe <<  std::endl;
+				std::cout << "Ratio: " << particles_outside_beampipe/all_particles <<  std::endl;
+
+
 				TLine *line = new TLine(0,12,62.5,12);
 				TLine *nline = new TLine(0,-12,62.5,-12);
-				TLine *line2 = new TLine(62.5,12,205,20.1);
-				TLine *nline2 = new TLine(62.5,-12,205,-20.1);
-				TLine *line3 = new TLine(205,20.1,300,28.99);
-				TLine *nline3 = new TLine(205,-20.1,300,-28.99);
+				TLine *line2 = new TLine(62.5,12,205,20.13);
+				TLine *nline2 = new TLine(62.5,-12,205,-20.13);
+				TLine *line3 = new TLine(205,20.13,300,28.99);
+				TLine *nline3 = new TLine(205,-20.13,300,-28.99);
 				line->SetLineColor(2);
 				nline->SetLineColor(2);
 				line2->SetLineColor(2);
@@ -178,6 +205,8 @@ int main(int const argc, char const * const * const argv) {
 				TCanvas *canvas = new TCanvas("canvas", "canvas", 800, 600);
 				canvas->cd();
 
+				histo_x->SetMinimum(10^(-8));
+				histo_y->SetMinimum(10^(-8));
 				canvas->SetLogz();
 				histo_x->Draw("colz");
 				//canvas->Update();
@@ -196,8 +225,8 @@ int main(int const argc, char const * const * const argv) {
 
 				std::string histoname_x(histo_x->GetName());
 
-				canvas->Print(("output/"+histoname_x+"_Optimized_lowPTloopers.pdf").c_str());
-				canvas->Print(("output/"+histoname_x+"_Optimized_lowPTloopers.cxx").c_str());
+				canvas->Print(("output/"+histoname_x+"_1bunch_updated_BeamPipe_coloraxis.pdf").c_str());
+				canvas->Print(("output/"+histoname_x+"_1bunch_updated_BeamPipe_coloraxis.cxx").c_str());
 
 				canvas->SetLogz();
 				histo_y->Draw("colz");
@@ -210,8 +239,8 @@ int main(int const argc, char const * const * const argv) {
 
 				std::string histoname_y(histo_y->GetName());
 
-				canvas->Print(("output/"+histoname_y+"_Optimized_lowPTloopers.pdf").c_str());
-				canvas->Print(("output/"+histoname_y+"_Optimized_lowPTloopers.cxx").c_str());
+				canvas->Print(("output/"+histoname_y+"_1bunch_updated_BeamPipe_coloraxis.pdf").c_str());
+				canvas->Print(("output/"+histoname_y+"_1bunch_updated_BeamPipe_coloraxis.cxx").c_str());
 				
 				return 0;
 }
