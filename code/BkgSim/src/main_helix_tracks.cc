@@ -91,8 +91,16 @@ int main(int const argc, char const * const * const argv) {
 				std::string const title_y = "Pairs spiraling in the magnetic field;z [mm];y [mm];# of particles per (0.03mm x 0.58mm)";
 				TH2D* histo_x = new TH2D("Helix_tracks_xz", title_x.c_str(), zbin,zmin,zmax, xbin, xmin, xmax);
 				TH2D* histo_y = new TH2D("Helix_tracks_yz", title_y.c_str(), zbin,zmin,zmax, ybin, ymin, ymax);
-				histo_x->SetMinimum(10^(-8));
-				histo_y->SetMinimum(10^(-8));
+
+
+        //PHILLS CODE
+        TTree *outputtree = new TTree("Helix_Tracks","Helix_Tracks");
+        float tree_x(0),tree_y(0),tree_z(0);
+        outputtree->Branch("x",&tree_x);
+        outputtree->Branch("y",&tree_y);
+        outputtree->Branch("z",&tree_z);
+        //PHILL ENDS HERE
+
 
 				long long int all_particles = 0;
 				long long int particles_outside_beampipe = 0;
@@ -145,7 +153,7 @@ int main(int const argc, char const * const * const argv) {
 
 
 								long long int const entries = tree->GetEntries();
-								for (long long int i = 0; i < 10000; ++i) {
+								for (long long int i = 0; i < 100; ++i) {
 												tree->GetEntry(i);
 												if (CreatedInSimulation_Status == 1) continue;
 												vertex = { vertex_x, vertex_y, vertex_z };
@@ -165,6 +173,10 @@ int main(int const argc, char const * const * const argv) {
 																//std::cout << "new_y = " << new_y << std::endl;
 																histo_x->Fill(z, new_x);
 																histo_y->Fill(z, new_y);
+                                tree_x = new_x;
+                                tree_y = new_y;
+                                tree_z = z;
+                                outputtree->Fill();
 																if ( particle_went_outside_beampipe == false &&
 																		 ((std::abs(new_x) > 12 && z <= 62.5) || //beam pipe inside vertex barrel: cylinder with 12mm radius, 32.5mm long
 																		 (z > 62.5 && z <= 205 && std::abs(new_x) > tan_beampipe_angle1*(z-62.5)+12) ||  //beam pipe outside vertex barrel: cone with half angle of beampipe_angle1, length 205-62.5mm, starting at z=62.5mm
@@ -210,6 +222,14 @@ int main(int const argc, char const * const * const argv) {
 				canvas->cd();
 
 				canvas->SetLogz();
+				histo_x->GetZaxis()->SetLimits(1e-8,100);
+				histo_y->GetZaxis()->SetLimits(1e-8,100);
+				histo_x->GetZaxis()->SetRangeUser(1e-8,100);
+				histo_y->GetZaxis()->SetRangeUser(1e-8,100);
+				histo_x->SetMinimum(1e-8);
+				histo_y->SetMinimum(1e-8);
+				histo_x->SetMaximum(100);
+				histo_y->SetMaximum(100);
 				histo_x->Draw("colz");
 				//canvas->Update();
 				//TPaveStats *st = (TPaveStats*)histo->GetListOfFunctions()->FindObject("stats");
@@ -228,6 +248,7 @@ int main(int const argc, char const * const * const argv) {
 				//Outputfile->cd();
 				//histo_x->Write();
 				std::string histoname_x(histo_x->GetName());
+
 
 				canvas->Print(("output/"+histoname_x+"_1bunch_updated_BeamPipe_coloraxis.pdf").c_str());
 				canvas->Print(("output/"+histoname_x+"_1bunch_updated_BeamPipe_coloraxis.cxx").c_str());
