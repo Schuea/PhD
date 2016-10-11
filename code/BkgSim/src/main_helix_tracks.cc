@@ -92,7 +92,8 @@ int main(int const argc, char const * const * const argv) {
 				TH2D* histo_y = new TH2D("Helix_tracks_yz", title_y.c_str(), zbin,zmin,zmax, ybin, ymin, ymax);
 
 				//TTree for outputfile -> store new x, y and z positions of the helixes in there 
-				TFile* Outputfile = new TFile("output/Helix_in_beampipe.root","RECREATE");
+				std::string specialname = "1bunch_updated_BeamPipe";
+				TFile* Outputfile = new TFile(("output/Helix_in_beampipe_"+specialname+".root").c_str(),"RECREATE");
         TTree *outputtree = new TTree("Helix_Tracks","Helix_Tracks");
         double tree_x(0),tree_y(0),tree_z(0);
         outputtree->Branch("x",&tree_x);
@@ -163,7 +164,7 @@ int main(int const argc, char const * const * const argv) {
 								double* z_array = new double[zbin];
 
 								long long int const entries = tree->GetEntries();
-								for (long long int i = 0; i < 10000; ++i) {
+								for (long long int i = 0; i < entries; ++i) {
 												tree->GetEntry(i);
 												//if (CreatedInSimulation_Status == 1) continue;
 												vertex = { vertex_x, vertex_y, vertex_z };
@@ -241,8 +242,8 @@ int main(int const argc, char const * const * const argv) {
 				canvas->cd();
 
 				canvas->SetLogz();
-				histo_x->SetMinimum(1e-8);
-				histo_y->SetMinimum(1e-8);
+				//histo_x->SetMinimum(1e-8);
+				//histo_y->SetMinimum(1e-8);
 				
 				histo_x->Draw("colz");
 				//canvas->Update();
@@ -261,8 +262,8 @@ int main(int const argc, char const * const * const argv) {
 
 				std::string histoname_x(histo_x->GetName());
 
-				canvas->Print(("output/"+histoname_x+"_1bunch_updated_BeamPipe_coloraxis.pdf").c_str());
-				canvas->Print(("output/"+histoname_x+"_1bunch_updated_BeamPipe_coloraxis.cxx").c_str());
+				canvas->Print(("output/"+histoname_x+"_"+specialname+".pdf").c_str());
+				canvas->Print(("output/"+histoname_x+"_"+specialname+".cxx").c_str());
 
 				histo_y->Draw("colz");
 				line->Draw();
@@ -274,8 +275,8 @@ int main(int const argc, char const * const * const argv) {
 
 				std::string histoname_y(histo_y->GetName());
 
-				canvas->Print(("output/"+histoname_y+"_1bunch_updated_BeamPipe_coloraxis.pdf").c_str());
-				canvas->Print(("output/"+histoname_y+"_1bunch_updated_BeamPipe_coloraxis.cxx").c_str());
+				canvas->Print(("output/"+histoname_y+"_"+specialname+".pdf").c_str());
+				canvas->Print(("output/"+histoname_y+"_"+specialname+".cxx").c_str());
 				
 				Outputfile->Write();
 				return 0;
