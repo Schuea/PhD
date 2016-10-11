@@ -44,7 +44,7 @@ class Helix {
 								~Helix(){
 								}
 
-								std::vector< double > Get_position(double const pos_z);
+								std::array[3] Get_position(double const pos_z);
                 void Set_particlevalues(std::vector< double > const mom, float const particle_charge, std::vector< double > const origin);
 
 				private:
@@ -64,13 +64,13 @@ class Helix {
 								double position_prime_x;
 								double position_prime_y;
 
-								std::vector< double > position;
+								std::array[3] position;
 
 								void Calculate_radius();
 								double Calculate_number_turn() const;
 								double Calculate_xi() const;
 								void Calculate_circlecenter();
-								std::vector<double> Calculate_position();
+								std::array[3] Calculate_position();
 };
 
 #endif /* HELIX_H_*/
