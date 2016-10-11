@@ -101,8 +101,8 @@ int main(int const argc, char const * const * const argv) {
         outputtree->Branch("z",&tree_z);
 
 				//For counting all particles drawn, and the ones leaving the beam pipe:
-				long long int all_particles = 0;
 				long long int particles_outside_beampipe = 0;
+				long long int particles_inside_beampipe = 0;
 				
 				//Initializing the Helix class:
 				float const BField = 5.0;
@@ -196,8 +196,11 @@ int main(int const argc, char const * const * const argv) {
 																//Check if particle leaves the beam pipe, and if yes set boolian to true -> after that the if loop should not be accessed again
 																if ( particle_went_outside_beampipe == false &&
 																		 ((std::abs(tree_x) > 12 && z <= 62.5) || //beam pipe inside vertex barrel: cylinder with 12mm radius, 32.5mm long
+																		 ((std::abs(tree_y) > 12 && z <= 62.5) ||
 																		 (z > 62.5 && z <= 205 && std::abs(tree_x) > tan_beampipe_angle1*(z-62.5)+12) ||  //beam pipe outside vertex barrel: cone with half angle of beampipe_angle1, length 205-62.5mm, starting at z=62.5mm
-																		 (z > 205 && z <= zmax && std::abs(tree_x) > tan_beampipe_angle2*(z-205)+20.13) //beam pipe outside vertex barrel: cone with half angle of beampipe_angle2, length 205-62.5mm, starting at z=205mm
+																		 (z > 62.5 && z <= 205 && std::abs(tree_y) > tan_beampipe_angle1*(z-62.5)+12) ||
+																		 (z > 205 && z <= zmax && std::abs(tree_x) > tan_beampipe_angle2*(z-205)+20.13)|| //beam pipe outside vertex barrel: cone with half angle of beampipe_angle2, length 205-62.5mm, starting at z=205mm
+																		 (z > 205 && z <= zmax && std::abs(tree_y) > tan_beampipe_angle2*(z-205)+20.13)
 																		 ) ) {
 																				particle_went_outside_beampipe = true;
 																}
@@ -206,18 +209,20 @@ int main(int const argc, char const * const * const argv) {
 												}
 												histo_x->FillN(zbin, z_array, x_array,nullptr,1);//number of entries in arrays, array for x, array for y, array for weights (if NULL then weight=1),step size through arrays
 												histo_y->FillN(zbin, z_array, y_array,nullptr,1);
-												all_particles++;
 												if (particle_went_outside_beampipe == true){
 																particles_outside_beampipe++;
+												}
+												else{
+																particles_inside_beampipe++;
 												}
 								}
 								file->Close();
 				}
 
 				std::cout << "-----------------" << std::endl;
-				std::cout << "All particles drawn: " << all_particles <<  std::endl;
+				std::cout << "All particles drawn: " << particles_outside_beampipe + particles_inside_beampipe <<  std::endl;
 				std::cout << "All particles outside the beam pipe: " << particles_outside_beampipe <<  std::endl;
-				std::cout << "Ratio: "  << std::fixed << std::setprecision(3) << ((float)particles_outside_beampipe)/((float)all_particles) <<  std::endl;
+				std::cout << "Ratio: "  << std::fixed << std::setprecision(3) << ((float)particles_outside_beampipe)/((float)(particles_outside_beampipe + particles_inside_beampipe)) <<  std::endl;
 				std::cout << "-----------------" << std::endl;
 
 
