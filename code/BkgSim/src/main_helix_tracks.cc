@@ -145,12 +145,16 @@ int main(int const argc, char const * const * const argv) {
 								std::vector< double > vertex;
 								std::vector< double > momentum;
 								double z = zmin;
+								std::vector< double > helix_positions;
+								double new_x = 0;
+								double new_y = 0;
 
-								float beampipe_angle1 = 3.266*M_PI/180;
-								float beampipe_angle2 = 5.329*M_PI/180;
-								double tan_beampipe_angle1( tan(beampipe_angle1) );
-								double tan_beampipe_angle2( tan(beampipe_angle2) );
+								float const beampipe_angle1 = 3.266*M_PI/180;
+								float const beampipe_angle2 = 5.329*M_PI/180;
+								double const tan_beampipe_angle1( tan(beampipe_angle1) );
+								double const tan_beampipe_angle2( tan(beampipe_angle2) );
 
+								bool particle_went_outside_beampipe = false;
 
 								long long int const entries = tree->GetEntries();
 								for (long long int i = 0; i < 100; ++i) {
@@ -163,14 +167,12 @@ int main(int const argc, char const * const * const argv) {
 
 											  helix.Set_particlevalues(momentum, charge, vertex); // setting the constant values for the current particle in the helix class
 												
-												bool particle_went_outside_beampipe = false;
+												particle_went_outside_beampipe = false; //assume first that every particle will stay inside the beampipe
 
 												for (int step = 1; step <= zbin; ++step){
-																double const new_x = helix.Get_position(z).at(0)*1000.0; // to convert from m to mm
-																double const new_y = helix.Get_position(z).at(1)*1000.0; // to convert from m to mm
-																//std::cout << "z = " << z << std::endl;
-																//std::cout << "new_x = " << new_x << std::endl;
-																//std::cout << "new_y = " << new_y << std::endl;
+																helix_positions = helix.Get_position(z);
+																new_x = helix_positions.at(0)*1000.0; // to convert from m to mm
+																new_y = helix_positions.at(1)*1000.0; // to convert from m to mm
 																histo_x->Fill(z, new_x);
 																histo_y->Fill(z, new_y);
                                 tree_x = new_x;
@@ -185,6 +187,7 @@ int main(int const argc, char const * const * const argv) {
 																				particle_went_outside_beampipe = true;
 																}
 																z = step*(zmax-zmin)/zbin;
+																helix_positions.clear();
 												}
 												all_particles++;
 												if (particle_went_outside_beampipe == true){
