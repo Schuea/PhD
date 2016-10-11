@@ -72,6 +72,6 @@ void Helix::Set_particlevalues(std::vector< double > const mom, float const part
 				Calculate_radius();
 				Calculate_circlecenter();
 				alpha = atan2(py,px); // alpha is the angle between x-axis and p_T vector in the xy-plane
-        sinalpha( sin(alpha) );
-        cosalpha( cos(alpha) );
+        sinalpha = sin(alpha);
+        cosalpha = cos(alpha);
 }
