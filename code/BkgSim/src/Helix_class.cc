@@ -28,18 +28,13 @@ void Helix::Calculate_circlecenter(){
 
 std::vector< double > Helix::Calculate_position(){
 
-				Calculate_radius();
 				double xi = Calculate_xi();
-				Calculate_circlecenter();
 
 				double const position_prime_x( radius*cos(xi) + x0 + cx );
 				double const position_prime_y( radius*sin(xi) + y0 + cy );
 
 				std::vector< double > position;
 				//The actual position can be gained by rotating the coordinate system with the rotation matrix:
-				double const alpha = atan2(py,px); // alpha is the angle between x-axis and p_T vector in the xy-plane
-        double const sinalpha( sin(alpha) );
-        double const cosalpha( cos(alpha) );
 				position.push_back( position_prime_x*cosalpha - position_prime_y*sinalpha );
 				position.push_back( position_prime_x*sinalpha + position_prime_y*cosalpha );
 				position.push_back( z + z0 );
@@ -72,4 +67,11 @@ void Helix::Set_particlevalues(std::vector< double > const mom, float const part
 				x0 = origin.at(0);
 				y0 = origin.at(1);
 				z0 = origin.at(2);
+				
+				//Everything that depends only on px and py can be calculated already here:
+				Calculate_radius();
+				Calculate_circlecenter();
+				double const alpha = atan2(py,px); // alpha is the angle between x-axis and p_T vector in the xy-plane
+        double const sinalpha( sin(alpha) );
+        double const cosalpha( cos(alpha) );
 }
