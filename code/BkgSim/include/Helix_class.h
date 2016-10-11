@@ -27,6 +27,9 @@ class Helix {
 												radius(0),
 												cx(0), cy(0){
 																std::cout << "B(Field) = " << "B(" << Field <<") = " << B << std::endl;
+				double const alpha = atan2(py,px); // alpha is the angle between x-axis and p_T vector in the xy-plane
+        double const sinalpha( sin(alpha) );
+        double const cosalpha( cos(alpha) );
 								}
 
 								~Helix(){
@@ -49,6 +52,10 @@ class Helix {
 								double Calculate_xi() const;
 								void Calculate_circlecenter();
 								std::vector<double> Calculate_position();
+				
+								double alpha;
+								double sinalpha;
+								double cosalpha;
 };
 
 #endif /* HELIX_H_*/
