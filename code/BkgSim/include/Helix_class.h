@@ -16,7 +16,13 @@ class Helix {
 												x0(0), y0(0), z0(0),
 												charge(0), z(0),
 												radius(0), 
-												cx(0), cy(0){
+												cx(0), cy(0),
+												xi(0),
+												beta(0), alpha(0),
+												sinalpha(0), cosalpha(0),
+												position_prime_x(0), position_prime_y(0),
+												position()
+												{
 																std::cout << "This should not be printed!" << std::endl;
 								}
 								Helix(float const Field) :	
@@ -25,7 +31,13 @@ class Helix {
 												x0(0), y0(0), z0(0),
 												charge(0), z(0),
 												radius(0),
-												cx(0), cy(0){
+												cx(0), cy(0),
+												xi(0),
+												beta(0), alpha(0),
+												sinalpha(0), cosalpha(0),
+												position_prime_x(0), position_prime_y(0),
+												position()
+												{
 																std::cout << "B(Field) = " << "B(" << Field <<") = " << B << std::endl;
 								}
 
@@ -44,12 +56,6 @@ class Helix {
 								double radius;
 				        double cx, cy;
 				        double xi;
-
-								void Calculate_radius();
-								double Calculate_number_turn() const;
-								double Calculate_xi() const;
-								void Calculate_circlecenter();
-								std::vector<double> Calculate_position();
 				
 								double beta;
 								double alpha;
@@ -57,7 +63,14 @@ class Helix {
 								double cosalpha;
 								double position_prime_x;
 								double position_prime_y;
+
 								std::vector< double > position;
+
+								void Calculate_radius();
+								double Calculate_number_turn() const;
+								double Calculate_xi() const;
+								void Calculate_circlecenter();
+								std::vector<double> Calculate_position();
 };
 
 #endif /* HELIX_H_*/
