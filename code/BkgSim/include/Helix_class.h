@@ -43,6 +43,7 @@ class Helix {
 								double z;
 								double radius;
 				        double cx, cy;
+				        double xi;
 
 								void Calculate_radius();
 								double Calculate_number_turn() const;
@@ -50,9 +51,13 @@ class Helix {
 								void Calculate_circlecenter();
 								std::vector<double> Calculate_position();
 				
+								double beta;
 								double alpha;
 								double sinalpha;
 								double cosalpha;
+								double position_prime_x;
+								double position_prime_y;
+								std::vector< double > position;
 };
 
 #endif /* HELIX_H_*/

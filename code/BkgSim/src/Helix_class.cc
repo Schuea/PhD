@@ -20,7 +20,7 @@ double Helix::Calculate_xi() const{
 }
 
 void Helix::Calculate_circlecenter(){
-				double const beta(M_PI*0.5 + py/std::abs(py)*charge*M_PI*0.5); //beta is the angle between the x-axis and the axis perpendicular to p_T in the xy-plane
+				beta(M_PI*0.5 + py/std::abs(py)*charge*M_PI*0.5); //beta is the angle between the x-axis and the axis perpendicular to p_T in the xy-plane
 			  //std::cout << "beta = " << beta << std::endl;
 				cx = radius*cos(beta);//cx and cy are the x- and y-coordinates of the center of the circle that the helix performs in the xy-plane
 				cy = radius*sin(beta);
@@ -28,12 +28,11 @@ void Helix::Calculate_circlecenter(){
 
 std::vector< double > Helix::Calculate_position(){
 
-				double xi = Calculate_xi();
+				xi = Calculate_xi();
 
-				double const position_prime_x( radius*cos(xi) + x0 + cx );
-				double const position_prime_y( radius*sin(xi) + y0 + cy );
+				position_prime_x = radius*cos(xi) + x0 + cx;
+				position_prime_y = radius*sin(xi) + y0 + cy;
 
-				std::vector< double > position;
 				//The actual position can be gained by rotating the coordinate system with the rotation matrix:
 				position.push_back( position_prime_x*cosalpha - position_prime_y*sinalpha );
 				position.push_back( position_prime_x*sinalpha + position_prime_y*cosalpha );
