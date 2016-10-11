@@ -166,6 +166,7 @@ int main(int const argc, char const * const * const argv) {
 								long long int const entries = tree->GetEntries();
 								for (long long int i = 0; i < entries; ++i) {
 												tree->GetEntry(i);
+												if (momentum_z < 0) continue;
 												//if (CreatedInSimulation_Status == 1) continue;
 												vertex = { vertex_x, vertex_y, vertex_z };
 												//if (abs(vertex_x) > 0.1 || abs(vertex_y) > 0.1 ) continue;
@@ -196,7 +197,7 @@ int main(int const argc, char const * const * const argv) {
 																//Check if particle leaves the beam pipe, and if yes set boolian to true -> after that the if loop should not be accessed again
 																if ( particle_went_outside_beampipe == false &&
 																		 ((std::abs(tree_x) > 12 && z <= 62.5) || //beam pipe inside vertex barrel: cylinder with 12mm radius, 32.5mm long
-																		 ((std::abs(tree_y) > 12 && z <= 62.5) ||
+																		 (std::abs(tree_y) > 12 && z <= 62.5) ||
 																		 (z > 62.5 && z <= 205 && std::abs(tree_x) > tan_beampipe_angle1*(z-62.5)+12) ||  //beam pipe outside vertex barrel: cone with half angle of beampipe_angle1, length 205-62.5mm, starting at z=62.5mm
 																		 (z > 62.5 && z <= 205 && std::abs(tree_y) > tan_beampipe_angle1*(z-62.5)+12) ||
 																		 (z > 205 && z <= zmax && std::abs(tree_x) > tan_beampipe_angle2*(z-205)+20.13)|| //beam pipe outside vertex barrel: cone with half angle of beampipe_angle2, length 205-62.5mm, starting at z=205mm
