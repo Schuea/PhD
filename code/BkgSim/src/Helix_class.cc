@@ -26,7 +26,9 @@ void Helix::Calculate_circlecenter(){
 				cy = radius*sin(beta);
 }
 
-std::array[3] Helix::Calculate_position(){
+double* Helix::Get_position(double const pos_z){
+				z = pos_z*0.001; //to convert mm into m (the histogramm will be drawn in mm, therefore z is given in mm)
+				double* pointer = nullptr;
 
 				xi = Calculate_xi();
 
@@ -38,6 +40,7 @@ std::array[3] Helix::Calculate_position(){
 				position[1] = position_prime_x*sinalpha + position_prime_y*cosalpha;
 				position[2] = z + z0;
 
+				pointer = position;
 			  //if (std::abs(position.at(0)) > 4.0/1000.0 || std::abs(position.at(1)) > 4.0/1000.0){ //Only for the positions that are 4 mm away from the IP (0.0.0)
 			  //				std::cout << "charge = " << charge << std::endl;
 			  //				std::cout << "px = " << px << std::endl;
@@ -50,13 +53,7 @@ std::array[3] Helix::Calculate_position(){
 			  //				std::cout << "position.at(0) = " << position.at(0) << std::endl;
 			  //				std::cout << "position.at(1) = " << position.at(1) << std::endl;
 			  //}
-				return position;
-}
-
-std::array[3] Helix::Get_position(double const pos_z){
-				z = pos_z*0.001; //to convert mm into m (the histogramm will be drawn in mm, therefore z is given in mm)
-				Calculate_position();
-				return position;
+				return pointer;
 }
 
 void Helix::Set_particlevalues(std::vector< double > const mom, float const particle_charge, std::vector< double > const origin){
