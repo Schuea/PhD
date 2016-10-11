@@ -147,8 +147,8 @@ int main(int const argc, char const * const * const argv) {
 								std::vector< double > momentum;
 								double z = zmin;
 								double* helix_positions = nullptr;
-								double new_x = 0;
-								double new_y = 0;
+								//double new_x = 0;
+								//double new_y = 0;
 
 								float const beampipe_angle1 = 3.266*M_PI/180;
 								float const beampipe_angle2 = 5.329*M_PI/180;
@@ -156,6 +156,11 @@ int main(int const argc, char const * const * const argv) {
 								double const tan_beampipe_angle2( tan(beampipe_angle2) );
 
 								bool particle_went_outside_beampipe = false;
+
+								//For trying out FillN:
+								double* x_array = new double[zbin];
+								double* y_array = new double[zbin];
+								double* z_array = new double[zbin];
 
 								long long int const entries = tree->GetEntries();
 								for (long long int i = 0; i < 10000; ++i) {
@@ -173,26 +178,33 @@ int main(int const argc, char const * const * const argv) {
 												//Looping through the histogramm bins in z:
 												for (int step = 1; step <= zbin; ++step){
 																helix_positions = helix.Get_position(z);
-																new_x = helix_positions[0]*1000.0; // to convert from m to mm
-																new_y = helix_positions[1]*1000.0; // to convert from m to mm
-																histo_x->Fill(z, new_x);
-																histo_y->Fill(z, new_y);
+																x_array[step-1]=helix_positions[0]*1000.0;
+																y_array[step-1]=helix_positions[1]*1000.0;
+																z_array[step-1]=z;
+																//new_x = helix_positions[0]*1000.0; // to convert from m to mm
+																//new_y = helix_positions[1]*1000.0; // to convert from m to mm
+																//histo_x->Fill(z, new_x);
+																//histo_y->Fill(z, new_y);
                                 //Fill the output TTree:
-																tree_x = new_x;
-                                tree_y = new_y;
+																tree_x = x_array[step-1];
+                                tree_y = y_array[step-1];
+																//tree_x = new_x;
+                                //tree_y = new_y;
                                 tree_z = z;
                                 outputtree->Fill();
 																//Check if particle leaves the beam pipe, and if yes set boolian to true -> after that the if loop should not be accessed again
 																if ( particle_went_outside_beampipe == false &&
-																		 ((std::abs(new_x) > 12 && z <= 62.5) || //beam pipe inside vertex barrel: cylinder with 12mm radius, 32.5mm long
-																		 (z > 62.5 && z <= 205 && std::abs(new_x) > tan_beampipe_angle1*(z-62.5)+12) ||  //beam pipe outside vertex barrel: cone with half angle of beampipe_angle1, length 205-62.5mm, starting at z=62.5mm
-																		 (z > 205 && z <= zmax && std::abs(new_x) > tan_beampipe_angle2*(z-205)+20.13) //beam pipe outside vertex barrel: cone with half angle of beampipe_angle2, length 205-62.5mm, starting at z=205mm
+																		 ((std::abs(tree_x) > 12 && z <= 62.5) || //beam pipe inside vertex barrel: cylinder with 12mm radius, 32.5mm long
+																		 (z > 62.5 && z <= 205 && std::abs(tree_x) > tan_beampipe_angle1*(z-62.5)+12) ||  //beam pipe outside vertex barrel: cone with half angle of beampipe_angle1, length 205-62.5mm, starting at z=62.5mm
+																		 (z > 205 && z <= zmax && std::abs(tree_x) > tan_beampipe_angle2*(z-205)+20.13) //beam pipe outside vertex barrel: cone with half angle of beampipe_angle2, length 205-62.5mm, starting at z=205mm
 																		 ) ) {
 																				particle_went_outside_beampipe = true;
 																}
 																z = step*(zmax-zmin)/zbin;
 																helix_positions = nullptr;
 												}
+												histo_x->FillN(zbin, z_array, x_array,nullptr,1);//number of entries in arrays, array for x, array for y, array for weights (if NULL then weight=1),step size through arrays
+												histo_y->FillN(zbin, z_array, y_array,nullptr,1);
 												all_particles++;
 												if (particle_went_outside_beampipe == true){
 																particles_outside_beampipe++;
