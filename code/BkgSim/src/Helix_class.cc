@@ -20,30 +20,27 @@ double Helix::Calculate_xi() const{
 }
 
 void Helix::Calculate_circlecenter(){
-				double const beta(M_PI*0.5 + py/std::abs(py)*charge*M_PI*0.5); //beta is the angle between the x-axis and the axis perpendicular to p_T in the xy-plane
+				beta = M_PI*0.5 + py/std::abs(py)*charge*M_PI*0.5; //beta is the angle between the x-axis and the axis perpendicular to p_T in the xy-plane
 			  //std::cout << "beta = " << beta << std::endl;
 				cx = radius*cos(beta);//cx and cy are the x- and y-coordinates of the center of the circle that the helix performs in the xy-plane
 				cy = radius*sin(beta);
 }
 
-std::vector< double > Helix::Calculate_position(){
+double* Helix::Get_position(double const pos_z){
+				z = pos_z*0.001; //to convert mm into m (the histogramm will be drawn in mm, therefore z is given in mm)
+				double* pointer = nullptr;
 
-				Calculate_radius();
-				double xi = Calculate_xi();
-				Calculate_circlecenter();
+				xi = Calculate_xi();
 
-				double const position_prime_x( radius*cos(xi) + x0 + cx );
-				double const position_prime_y( radius*sin(xi) + y0 + cy );
+				position_prime_x = radius*cos(xi) + x0 + cx;
+				position_prime_y = radius*sin(xi) + y0 + cy;
 
-				std::vector< double > position;
 				//The actual position can be gained by rotating the coordinate system with the rotation matrix:
-				double const alpha = atan2(py,px); // alpha is the angle between x-axis and p_T vector in the xy-plane
-        double const sinalpha( sin(alpha) );
-        double const cosalpha( cos(alpha) );
-				position.push_back( position_prime_x*cosalpha - position_prime_y*sinalpha );
-				position.push_back( position_prime_x*sinalpha + position_prime_y*cosalpha );
-				position.push_back( z + z0 );
+				position[0] = position_prime_x*cosalpha - position_prime_y*sinalpha;
+				position[1] = position_prime_x*sinalpha + position_prime_y*cosalpha;
+				position[2] = z + z0;
 
+				pointer = position;
 			  //if (std::abs(position.at(0)) > 4.0/1000.0 || std::abs(position.at(1)) > 4.0/1000.0){ //Only for the positions that are 4 mm away from the IP (0.0.0)
 			  //				std::cout << "charge = " << charge << std::endl;
 			  //				std::cout << "px = " << px << std::endl;
@@ -56,12 +53,7 @@ std::vector< double > Helix::Calculate_position(){
 			  //				std::cout << "position.at(0) = " << position.at(0) << std::endl;
 			  //				std::cout << "position.at(1) = " << position.at(1) << std::endl;
 			  //}
-				return position;
-}
-
-std::vector< double > Helix::Get_position(double const pos_z){
-				z = pos_z*0.001; //to convert mm into m (the histogramm will be drawn in mm, therefore z is given in mm)
-				return Calculate_position();
+				return pointer;
 }
 
 void Helix::Set_particlevalues(std::vector< double > const mom, float const particle_charge, std::vector< double > const origin){
@@ -72,4 +64,11 @@ void Helix::Set_particlevalues(std::vector< double > const mom, float const part
 				x0 = origin.at(0);
 				y0 = origin.at(1);
 				z0 = origin.at(2);
+				
+				//Everything that depends only on px and py can be calculated already here:
+				Calculate_radius();
+				Calculate_circlecenter();
+				alpha = atan2(py,px); // alpha is the angle between x-axis and p_T vector in the xy-plane
+        sinalpha = sin(alpha);
+        cosalpha = cos(alpha);
 }
