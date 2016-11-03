@@ -12,7 +12,7 @@
 #include <iostream>
 #include <sstream>
 
-int const n = 14; //Number of apertures that were recorded
+int const n = 16; //Number of apertures that were recorded
 float HistoMax = 0.0; //To find the maximum entry to the histogram, so that the y-axis can be scaled appropriately.
 float HistoMin = 10000000.0; //To find the minimum entry to the histogram, so that the y-axis can be scaled appropriately.
 
@@ -26,7 +26,8 @@ int main(int const argc, char const * const * const argv) {
 
   std::string inputfilename;
   std::string outputfilename;
-  bool normalizing_ON = false;
+  int normalizing_ON = 0;
+        std::cout <<__LINE__<< " normalizing_ON = " << normalizing_ON << std::endl; 
   std::vector< float > recorded_beamIntensities;
 
   bool inputfile_set = false;
@@ -64,7 +65,8 @@ int main(int const argc, char const * const * const argv) {
           && argv[i + 1] != std::string("-b")
           && argv[i + 1] != std::string("-o")
           && argv[i + 1] != std::string("-i")) {
-        normalizing_ON = argv[i + 1];
+        normalizing_ON = std::stof(argv[i + 1]);
+        std::cout <<__LINE__<< " normalizing_ON = " << normalizing_ON << std::endl; 
         normalizing_set = true;
       } else {
         std::cerr << "You didn't say if the data shall be normalized by charge!"
@@ -99,14 +101,15 @@ int main(int const argc, char const * const * const argv) {
       << std::endl;
     exit(1);
   }
-  if (!normalizing_ON && !beamintensity_set){
+  if (normalizing_ON == 0 && !beamintensity_set){
     std::cerr << "Please specify which beam intensities you are interested in: e.g. -b 0.8" << std::endl;
     exit(1);
   }
   std::cout << "Inputfile: " << inputfilename << std::endl;
   std::cout << "Output: " << outputfilename << std::endl;
-  if (normalizing_ON = false){
-    std::cout << "Beam intensities [10^8]: " << std::endl;
+        std::cout <<__LINE__<< " normalizing_ON = " << normalizing_ON << std::endl; 
+  if (normalizing_ON == 0){
+    std::cout << "Beam intensities [10^10]: " << std::endl;
     for(int intensity_iterator = 0; intensity_iterator < recorded_beamIntensities.size(); ++intensity_iterator){
       std::cout << recorded_beamIntensities.at(intensity_iterator) << std::endl;
       recorded_beamIntensities.at(intensity_iterator);
@@ -143,8 +146,8 @@ int main(int const argc, char const * const * const argv) {
   Detector->SetBranchAddress("NoiseSubtractedSignal", &signal);
   Detector->SetBranchAddress("Voltage", &voltage);
 
-  float JawPosition[n] = {3,3.5,4,4.5,5,5.5,6,6.5,7,8,9,10,11,12};
-  float JawPositionError[n] = {0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04};
+  float JawPosition[n] = {2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,8,9,10,11,12};
+  float JawPositionError[n] = {0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04};
 
   //Fill the arrays with the average and the RMS/sqrt(N) of the signals from the TTree for the different beam intensities:
   std::vector< TGraphErrors*> All_TGraphErrors;
@@ -206,7 +209,7 @@ int main(int const argc, char const * const * const argv) {
 
   for(int graph_iterator = 0; graph_iterator < All_TGraphErrors.size(); ++graph_iterator){
     All_TGraphErrors.at(graph_iterator)->SetMaximum(HistoMax + 0.1*HistoMax);
-    All_TGraphErrors.at(graph_iterator)->SetMinimum(500);
+    All_TGraphErrors.at(graph_iterator)->SetMinimum(HistoMin - 0.3*HistoMin);
   std::cout << __LINE__ << std::endl;
 
     std::stringstream legend_text1, legend_text2;

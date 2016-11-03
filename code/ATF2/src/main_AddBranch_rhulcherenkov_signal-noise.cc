@@ -49,14 +49,16 @@ int main(int const argc, char const * const * const argv){
   std::string title1D = "RHUL cherenkov detector noise;Noise [a.u.];Count";
   TH1D* Noise_voltage0V = new TH1D("noise_0V",title1D.c_str(),1000,0,10000);
   TH1D* Noise_voltage500V = new TH1D("noise_500V",title1D.c_str(),1000,0,10000);
+  TH1D* Noise_voltage600V = new TH1D("noise_600V",title1D.c_str(),1000,0,10000);
+  TH1D* Noise_voltage650V = new TH1D("noise_650V",title1D.c_str(),1000,0,10000);
   TH1D* Noise_voltage700V = new TH1D("noise_700V",title1D.c_str(),1000,0,10000);
+  TH1D* Noise_voltage750V = new TH1D("noise_750V",title1D.c_str(),1000,0,10000);
   TH1D* Noise_voltage800V = new TH1D("noise_800V",title1D.c_str(),1000,0,10000);
   TH1D* Noise_voltage900V = new TH1D("noise_900V",title1D.c_str(),1000,0,10000);
   TH1D* Noise_voltage1000V = new TH1D("noise_1000V",title1D.c_str(),1000,0,10000);
   TH1D* Noise_voltage1100V = new TH1D("noise_1100V",title1D.c_str(),1000,0,10000);
   TH1D* Noise_voltage1200V = new TH1D("noise_1200V",title1D.c_str(),1000,0,10000);
   TH1D* Noise_voltage1300V = new TH1D("noise_1300V",title1D.c_str(),1000,0,10000);
-
   TFile* NOISEinputfile = TFile::Open(NOISEinputfilename.c_str());
   TTree* Detector_Noise = nullptr;
   NOISEinputfile->GetObject("Tree_Detector1",Detector_Noise);
@@ -75,15 +77,18 @@ int main(int const argc, char const * const * const argv){
   long long int const entries_Noise =  Detector_Noise->GetEntries();
   for (long long int i = 0; i < entries_Noise; ++i){
     Detector_Noise->GetEntry(i);
-    if(voltage_noise < 1) Noise_voltage0V->Fill(signal_noise);
-    if(voltage_noise > 409 && voltage_noise < 501) Noise_voltage500V->Fill(signal_noise);
-    if(voltage_noise > 609 && voltage_noise < 701) Noise_voltage700V->Fill(signal_noise);
-    if(voltage_noise > 709 && voltage_noise < 801) Noise_voltage800V->Fill(signal_noise);
-    if(voltage_noise > 809 && voltage_noise < 901) Noise_voltage900V->Fill(signal_noise);
-    if(voltage_noise > 909 && voltage_noise < 1001) Noise_voltage1000V->Fill(signal_noise);
-    if(voltage_noise > 1009 && voltage_noise < 1101) Noise_voltage1100V->Fill(signal_noise);
-    if(voltage_noise > 1109 && voltage_noise < 1201) Noise_voltage1200V->Fill(signal_noise);
-    if(voltage_noise > 1209 && voltage_noise < 1301) Noise_voltage1300V->Fill(signal_noise);
+    if(voltage_noise > 0 && voltage_noise < 3) Noise_voltage0V->Fill(signal_noise);
+    if(voltage_noise > 497 && voltage_noise < 503) Noise_voltage500V->Fill(signal_noise);
+    if(voltage_noise > 597 && voltage_noise < 603) Noise_voltage600V->Fill(signal_noise);
+    if(voltage_noise > 647 && voltage_noise < 653) Noise_voltage650V->Fill(signal_noise);
+    if(voltage_noise > 697 && voltage_noise < 703) Noise_voltage700V->Fill(signal_noise);
+    if(voltage_noise > 747 && voltage_noise < 753) Noise_voltage750V->Fill(signal_noise);
+    if(voltage_noise > 797 && voltage_noise < 803) Noise_voltage800V->Fill(signal_noise);
+    if(voltage_noise > 897 && voltage_noise < 903) Noise_voltage900V->Fill(signal_noise);
+    if(voltage_noise > 997 && voltage_noise < 1003) Noise_voltage1000V->Fill(signal_noise);
+    if(voltage_noise > 1097 && voltage_noise < 1103) Noise_voltage1100V->Fill(signal_noise);
+    if(voltage_noise > 1197 && voltage_noise < 1203) Noise_voltage1200V->Fill(signal_noise);
+    if(voltage_noise > 1297 && voltage_noise < 1303) Noise_voltage1300V->Fill(signal_noise);
   }
   NOISEinputfile->Close();
 
@@ -104,15 +109,18 @@ int main(int const argc, char const * const * const argv){
   long long int entries = Detector->GetEntries();
   for (long long int i = 0; i < entries; ++i){
     Detector->GetEntry(i);
-    if(voltage < 1) NoiseSubtracted_signal1 = signal - Noise_voltage0V->GetMean(1);
-    if(voltage > 409 && voltage < 501) NoiseSubtracted_signal1 = signal - Noise_voltage500V->GetMean(1);
-    if(voltage > 609 && voltage < 701) NoiseSubtracted_signal1 = signal - Noise_voltage700V->GetMean(1);
-    if(voltage > 709 && voltage < 801) NoiseSubtracted_signal1 = signal - Noise_voltage800V->GetMean(1);
-    if(voltage > 809 && voltage < 901) NoiseSubtracted_signal1 = signal - Noise_voltage900V->GetMean(1);
-    if(voltage > 909 && voltage < 1001) NoiseSubtracted_signal1 = signal - Noise_voltage1000V->GetMean(1);
-    if(voltage > 1009 && voltage < 1101) NoiseSubtracted_signal1 = signal - Noise_voltage1100V->GetMean(1);
-    if(voltage > 1109 && voltage < 1201) NoiseSubtracted_signal1 = signal - Noise_voltage1200V->GetMean(1);
-    if(voltage > 1209 && voltage < 1301) NoiseSubtracted_signal1 = signal - Noise_voltage1300V->GetMean(1);
+    if(voltage > 0 && voltage < 3) NoiseSubtracted_signal1 = signal - Noise_voltage0V->GetMean(1);
+    if(voltage > 497 && voltage < 503) NoiseSubtracted_signal1 = signal - Noise_voltage500V->GetMean(1);
+    if(voltage > 597 && voltage < 603) NoiseSubtracted_signal1 = signal - Noise_voltage600V->GetMean(1);
+    if(voltage > 647 && voltage < 653) NoiseSubtracted_signal1 = signal - Noise_voltage650V->GetMean(1);
+    if(voltage > 697 && voltage < 703) NoiseSubtracted_signal1 = signal - Noise_voltage700V->GetMean(1);
+    if(voltage > 747 && voltage < 753) NoiseSubtracted_signal1 = signal - Noise_voltage750V->GetMean(1);
+    if(voltage > 797 && voltage < 803) NoiseSubtracted_signal1 = signal - Noise_voltage800V->GetMean(1);
+    if(voltage > 897 && voltage < 903) NoiseSubtracted_signal1 = signal - Noise_voltage900V->GetMean(1);
+    if(voltage > 997 && voltage < 1003) NoiseSubtracted_signal1 = signal - Noise_voltage1000V->GetMean(1);
+    if(voltage > 1097 && voltage < 1103) NoiseSubtracted_signal1 = signal - Noise_voltage1100V->GetMean(1);
+    if(voltage > 1197 && voltage < 1203) NoiseSubtracted_signal1 = signal - Noise_voltage1200V->GetMean(1);
+    if(voltage > 1297 && voltage < 1303) NoiseSubtracted_signal1 = signal - Noise_voltage1300V->GetMean(1);
     NoiseSubtracted_Signal->Fill();
   }
   Detector->Write("",TObject::kOverwrite);
