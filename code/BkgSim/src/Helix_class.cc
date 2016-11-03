@@ -68,7 +68,19 @@ void Helix::Set_particlevalues(std::vector< double > const mom, float const part
 				//Everything that depends only on px and py can be calculated already here:
 				Calculate_radius();
 				Calculate_circlecenter();
-				alpha = atan2(py,px); // alpha is the angle between x-axis and p_T vector in the xy-plane
+				alpha = abs( atan(py,px) ); // alpha is the angle between x-axis and p_T vector in the xy-plane
+        if (px > 0 && py > 0){//1. quadrant
+          alpha = 0 + alpha;
+        }
+        else if (px < 0 && py > 0){//2. quadrant
+          alpha = M_PI - alpha;
+        }
+        else if (px < 0 && py < 0){//3. quadrant
+          alpha = M_PI + alpha;
+        }
+        else if (px > 0 && py < 0){//4. quadrant
+          alpha = 2*M_PI - alpha;
+        }
         sinalpha = sin(alpha);
         cosalpha = cos(alpha);
 }
