@@ -12,7 +12,7 @@ double Helix::Calculate_number_turn() const{
 
 double Helix::Calculate_xi() const{
 			  //std::cout << "xi = " << xi << std::endl;
-				if (py/std::abs(py)*charge < 0 ){ //if the particle's circle is on the right hand side of the p_T vector, the angle starts off from pi and not 0.
+				if (charge < 0 ){ //if the particle's circle is on the right hand side of the p_T vector, the angle starts off from pi and not 0.
           return charge*Calculate_number_turn()*(2.0*M_PI) + M_PI;
         } else{
           return charge*Calculate_number_turn()*(2.0*M_PI);
@@ -20,7 +20,7 @@ double Helix::Calculate_xi() const{
 }
 
 void Helix::Calculate_circlecenter(){
-				beta = M_PI*0.5 + py/std::abs(py)*charge*M_PI*0.5; //beta is the angle between the x-axis and the axis perpendicular to p_T in the xy-plane
+				beta = M_PI*0.5 + charge*M_PI*0.5; //beta is the angle between the x-axis and the axis perpendicular to p_T in the xy-plane
 			  //std::cout << "beta = " << beta << std::endl;
 				cx = radius*cos(beta);//cx and cy are the x- and y-coordinates of the center of the circle that the helix performs in the xy-plane
 				cy = radius*sin(beta);
