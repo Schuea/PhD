@@ -6,6 +6,7 @@
 #include "TROOT.h"
 #include "TPaveStats.h"
 #include "TLine.h"
+#include "TLegend.h"
 
 #include <cmath>
 #include <iostream>
@@ -90,10 +91,10 @@ int main(int const argc, char const * const * const argv) {
 				std::string const title_y = "Pairs spiraling in the magnetic field;z [mm];y [mm];# of particles per (0.03mm x 0.58mm)";
 				TH2D* histo_x = new TH2D("Helix_tracks_xz", title_x.c_str(), zbin,zmin,zmax, xbin, xmin, xmax);
 				TH2D* histo_y = new TH2D("Helix_tracks_yz", title_y.c_str(), zbin,zmin,zmax, ybin, ymin, ymax);
-        TH1D* histo_x_projected = new TH1D("Helix_tracks_x_projected", "Projected x position;x [mm];# of particles per (0.03mm x 0.58mm)", xbin,xmin,xmax);
-        TH1D* histo_y_projected = new TH1D("Helix_tracks_y_projected", "Projected y position;y [mm];# of particles per (0.03mm x 0.58mm)", ybin,ymin,ymax);
+        //TH1D* histo_x_projected = new TH1D("Helix_tracks_x_projected", "Projected x position;x [mm];# of particles per (0.03mm x 0.58mm)", xbin,xmin,xmax);
+        //TH1D* histo_y_projected = new TH1D("Helix_tracks_y_projected", "Projected y position;y [mm];# of particles per (0.03mm x 0.58mm)", ybin,ymin,ymax);
 				//TTree for outputfile -> store new x, y and z positions of the helixes in there 
-				std::string specialname = "1bunch_momentum_cuts";
+				std::string specialname = "1bunch_wo_momentum_cuts";
 				TFile* Outputfile = new TFile(("output/Helix_in_beampipe_"+specialname+".root").c_str(),"RECREATE");
         TTree *outputtree = new TTree("Helix_Tracks","Helix_Tracks");
         double tree_x(0),tree_y(0),tree_z(0);
@@ -108,7 +109,6 @@ int main(int const argc, char const * const * const argv) {
 				//Initializing the Helix class:
 				float const BField = 5.0;
 				Helix helix(BField);
-
 				//Looping through the root file(s):
 				for (int file_iterator = 0; file_iterator < NUMBER_OF_FILES; ++file_iterator) {
 								TFile *file = TFile::Open(inputfilenames->at(file_iterator).c_str());
@@ -167,13 +167,12 @@ int main(int const argc, char const * const * const argv) {
 								long long int const entries = tree->GetEntries();
 								for (long long int i = 0; i < entries; ++i) {
 												tree->GetEntry(i);
-												if (momentum_z < 0) continue;
-                        if (momentum_x <0 && momentum_y<0) continue;
+												if (momentum_z < 0 /*|| momentum_z>0.1*/) continue;
+                        //if ( (momentum_x >0.002 || momentum_x<-0.002) && (momentum_y>0.002 || momentum_y<-0.002) ) continue;
 												//if (CreatedInSimulation_Status == 1) continue;
 												vertex = { vertex_x, vertex_y, vertex_z };
 												//if (abs(vertex_x) > 0.1 || abs(vertex_y) > 0.1 ) continue;
 												momentum = { momentum_x, momentum_y, momentum_z };
-												//if (creationtime < 1 && sqrt(momentum_x*momentum_x+momentum_y*momentum_y) > 0.2) continue;
 
 											  helix.Set_particlevalues(momentum, charge, vertex); // setting the constant values for the current particle in the helix class
 												
@@ -184,19 +183,15 @@ int main(int const argc, char const * const * const argv) {
 																helix_positions = helix.Get_position(z);
 																x_array[step-1]=helix_positions[0]*1000.0;
 																y_array[step-1]=helix_positions[1]*1000.0;
-																z_array[step-1]=z;
-																//new_x = helix_positions[0]*1000.0; // to convert from m to mm
-																//new_y = helix_positions[1]*1000.0; // to convert from m to mm
-																//histo_x->Fill(z, new_x);
-																//histo_y->Fill(z, new_y);
-                                histo_x_projected->Fill(x_array[step-1]);
-                                histo_y_projected->Fill(y_array[step-1]);
+																z_array[step-1]=helix_positions[2]*1000.0;
+																//if(step > 190/300*zbin){
+                                //histo_x_projected->Fill(x_array[step-1]);
+                                //histo_y_projected->Fill(y_array[step-1]);
+																//}
                                 //Fill the output TTree:
 																tree_x = x_array[step-1];
                                 tree_y = y_array[step-1];
-																//tree_x = new_x;
-                                //tree_y = new_y;
-                                tree_z = z;
+                                tree_z = z_array[step-1];
                                 outputtree->Fill();
 																//Check if particle leaves the beam pipe, and if yes set boolian to true -> after that the if loop should not be accessed again
 																if ( particle_went_outside_beampipe == false &&
@@ -214,6 +209,7 @@ int main(int const argc, char const * const * const argv) {
 												}
 												histo_x->FillN(zbin, z_array, x_array,nullptr,1);//number of entries in arrays, array for x, array for y, array for weights (if NULL then weight=1),step size through arrays
 												histo_y->FillN(zbin, z_array, y_array,nullptr,1);
+
 												if (particle_went_outside_beampipe == true){
 																particles_outside_beampipe++;
 												}
@@ -223,6 +219,19 @@ int main(int const argc, char const * const * const argv) {
 								}
 								file->Close();
 				}
+				
+				TH1D *ProjectionY_xz_1Kink = histo_x->ProjectionY("Projection_xz_1Kink",(62.5-5.0)*zbin/300.,(62.5+5.0)*zbin/300.);
+				ProjectionY_xz_1Kink->Rebin(2);
+				ProjectionY_xz_1Kink->SetLineColor(2);
+				TH1D *ProjectionY_xz_2Kink = histo_x->ProjectionY("Projection_xz_2Kink",(205.0-5.0)*zbin/300.,(205.0+5.0)*zbin/300.);
+				ProjectionY_xz_2Kink->Rebin(2);
+				ProjectionY_xz_2Kink->SetLineColor(4);
+				TH1D *ProjectionY_yz_1Kink = histo_y->ProjectionY("Projection_yz_1Kink",(62.5-5.0)*zbin/300.,(62.5+5.0)*zbin/300.);
+				ProjectionY_yz_1Kink->Rebin(2);
+				ProjectionY_yz_1Kink->SetLineColor(2);                               
+				TH1D *ProjectionY_yz_2Kink = histo_y->ProjectionY("Projection_yz_2Kink",(205.0-5.0)*zbin/300.,(205.0+5.0)*zbin/300.);
+				ProjectionY_yz_2Kink->Rebin(2);
+				ProjectionY_yz_2Kink->SetLineColor(4);
 
 				std::cout << "-----------------" << std::endl;
 				std::cout << "All particles drawn: " << particles_outside_beampipe + particles_inside_beampipe <<  std::endl;
@@ -243,6 +252,7 @@ int main(int const argc, char const * const * const argv) {
 				nline2->SetLineColor(2);
 				line3->SetLineColor(2);
 				nline3->SetLineColor(2);
+
 				
 				gStyle->SetOptStat(0);
 				//gStyle->SetOptStat(111111);
@@ -251,6 +261,8 @@ int main(int const argc, char const * const * const argv) {
 				TCanvas *canvas = new TCanvas("canvas", "canvas", 800, 600);
 				canvas->cd();
 
+				canvas->SetLogx(0);
+				canvas->SetLogy(0);
 				canvas->SetLogz();
 				//histo_x->SetMinimum(1e-8);
 				//histo_y->SetMinimum(1e-8);
@@ -288,10 +300,35 @@ int main(int const argc, char const * const * const argv) {
 				canvas->Print(("output/"+histoname_y+"_"+specialname+".pdf").c_str());
 				canvas->Print(("output/"+histoname_y+"_"+specialname+".cxx").c_str());
 				
-        histo_x_projected->Draw();
-        canvas->Print("output/phill_x_projected.pdf");
-        histo_y_projected->Draw();
-        canvas->Print("output/phill_y_projected.pdf");
+        //histo_x_projected->Draw();
+        //canvas->Print("output/phill_x_projected.pdf");
+        //histo_y_projected->Draw();
+        //canvas->Print("output/phill_y_projected.pdf");
+
+				canvas->SetLogy(1);
+				ProjectionY_xz_1Kink->GetXaxis()->SetTitleOffset(1);
+				ProjectionY_xz_2Kink->GetXaxis()->SetTitleOffset(1);
+				ProjectionY_xz_1Kink->Draw();
+				ProjectionY_xz_2Kink->Draw("same");
+				TLegend* leg = new TLegend(0.6,0.7,0.9,0.9);
+				leg->SetTextSize(0.023);
+				leg->SetHeader("Projection at different beam pipe kinks");
+				leg->AddEntry(ProjectionY_xz_1Kink,"Beam pipe kink at z=62.5mm","l");
+				leg->AddEntry(ProjectionY_xz_2Kink,"Beam pipe kink at z=205 mm","l");
+				leg->Draw();
+				canvas->Print(("output/ProjectionY_xz_"+specialname+".pdf").c_str());
+				ProjectionY_yz_1Kink->GetXaxis()->SetTitleOffset(1);
+				ProjectionY_yz_2Kink->GetXaxis()->SetTitleOffset(1);
+				ProjectionY_yz_1Kink->Draw();
+				ProjectionY_yz_2Kink->Draw("same");
+				TLegend* leg2 = new TLegend(0.6,0.7,0.9,0.9);
+				leg2->SetTextSize(0.023);
+				leg2->SetHeader("Projection at different beam pipe kinks");
+				leg2->AddEntry(ProjectionY_yz_1Kink,"Beam pipe kink at z=62.5mm","l");
+				leg2->AddEntry(ProjectionY_yz_2Kink,"Beam pipe kink at z=205 mm","l");
+				leg2->Draw();
+				canvas->Print(("output/ProjectionY_yz_"+specialname+".pdf").c_str());
+
 				Outputfile->Write();
 				return 0;
 }
