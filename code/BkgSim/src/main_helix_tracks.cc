@@ -90,9 +90,10 @@ int main(int const argc, char const * const * const argv) {
 				std::string const title_y = "Pairs spiraling in the magnetic field;z [mm];y [mm];# of particles per (0.03mm x 0.58mm)";
 				TH2D* histo_x = new TH2D("Helix_tracks_xz", title_x.c_str(), zbin,zmin,zmax, xbin, xmin, xmax);
 				TH2D* histo_y = new TH2D("Helix_tracks_yz", title_y.c_str(), zbin,zmin,zmax, ybin, ymin, ymax);
-
+        TH1D* histo_x_projected = new TH1D("Helix_tracks_x_projected", "Projected x position;x [mm];# of particles per (0.03mm x 0.58mm)", xbin,xmin,xmax);
+        TH1D* histo_y_projected = new TH1D("Helix_tracks_y_projected", "Projected y position;y [mm];# of particles per (0.03mm x 0.58mm)", ybin,ymin,ymax);
 				//TTree for outputfile -> store new x, y and z positions of the helixes in there 
-				std::string specialname = "1bunch_updated_BeamPipe";
+				std::string specialname = "1bunch_momentum_cuts";
 				TFile* Outputfile = new TFile(("output/Helix_in_beampipe_"+specialname+".root").c_str(),"RECREATE");
         TTree *outputtree = new TTree("Helix_Tracks","Helix_Tracks");
         double tree_x(0),tree_y(0),tree_z(0);
@@ -167,6 +168,7 @@ int main(int const argc, char const * const * const argv) {
 								for (long long int i = 0; i < entries; ++i) {
 												tree->GetEntry(i);
 												if (momentum_z < 0) continue;
+                        if (momentum_x <0 && momentum_y<0) continue;
 												//if (CreatedInSimulation_Status == 1) continue;
 												vertex = { vertex_x, vertex_y, vertex_z };
 												//if (abs(vertex_x) > 0.1 || abs(vertex_y) > 0.1 ) continue;
@@ -187,6 +189,8 @@ int main(int const argc, char const * const * const argv) {
 																//new_y = helix_positions[1]*1000.0; // to convert from m to mm
 																//histo_x->Fill(z, new_x);
 																//histo_y->Fill(z, new_y);
+                                histo_x_projected->Fill(x_array[step-1]);
+                                histo_y_projected->Fill(y_array[step-1]);
                                 //Fill the output TTree:
 																tree_x = x_array[step-1];
                                 tree_y = y_array[step-1];
@@ -284,6 +288,10 @@ int main(int const argc, char const * const * const argv) {
 				canvas->Print(("output/"+histoname_y+"_"+specialname+".pdf").c_str());
 				canvas->Print(("output/"+histoname_y+"_"+specialname+".cxx").c_str());
 				
+        histo_x_projected->Draw();
+        canvas->Print("output/phill_x_projected.pdf");
+        histo_y_projected->Draw();
+        canvas->Print("output/phill_y_projected.pdf");
 				Outputfile->Write();
 				return 0;
 }
