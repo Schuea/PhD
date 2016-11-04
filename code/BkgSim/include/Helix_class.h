@@ -16,7 +16,7 @@ class Helix {
 												x0(0), y0(0), z0(0),
 												charge(0), z(0),
 												radius(0), 
-												cx(0), cy(0),
+												cx(0),// cy(0),
 												xi(0),
 												beta(0), alpha(0),
 												sinalpha(0), cosalpha(0),
@@ -31,7 +31,7 @@ class Helix {
 												x0(0), y0(0), z0(0),
 												charge(0), z(0),
 												radius(0),
-												cx(0), cy(0),
+												cx(0),// cy(0),
 												xi(0),
 												beta(0), alpha(0),
 												sinalpha(0), cosalpha(0),
@@ -54,7 +54,7 @@ class Helix {
 								float charge;
 								double z;
 								double radius;
-				        double cx, cy;
+				        double cx;//, cy;
 				        double xi;
 				
 								double beta;

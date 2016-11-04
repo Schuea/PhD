@@ -23,7 +23,7 @@ void Helix::Calculate_circlecenter(){
 				beta = M_PI*0.5 + charge*M_PI*0.5; //beta is the angle between the x-axis and the axis perpendicular to p_T in the xy-plane
 			  //std::cout << "beta = " << beta << std::endl;
 				cx = radius*cos(beta);//cx and cy are the x- and y-coordinates of the center of the circle that the helix performs in the xy-plane
-				cy = radius*sin(beta);
+				//cy = radius*sin(beta); //not needed because it will always be 0 (beta = 0 or pi)
 }
 
 double* Helix::Get_position(double const pos_z){
@@ -33,7 +33,7 @@ double* Helix::Get_position(double const pos_z){
 				xi = Calculate_xi();
 
 				position_prime_x = radius*cos(xi) + x0 + cx;
-				position_prime_y = radius*sin(xi) + y0 + cy;
+				position_prime_y = radius*sin(xi) + y0;//+ cy;
 
 				//The actual position can be gained by rotating the coordinate system with the rotation matrix:
 				position[0] = position_prime_x*cosalpha - position_prime_y*sinalpha;
