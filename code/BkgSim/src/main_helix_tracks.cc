@@ -249,10 +249,16 @@ int main(int const argc, char const * const * const argv) {
 								}
 				}
 				double* variable_bins = &variable_bins_vec[0];
-				for(size_t histo_iterator = 0; histo_iterator < ProjectionY_xz.size(); ++histo_iterator){
-								ProjectionY_xz.at(histo_iterator)->Rebin(variable_bins_vec.size()-1,"",variable_bins);
+				std::vector< TH1D* > Rebinned_ProjectionY_xz;
+				std::vector< TH1D* > Rebinned_ProjectionY_yz;
+				Rebinned_ProjectionY_xz.emplace_back( dynamic_cast<TH1D*>( ProjectionY_xz.at(0)->Rebin(variable_bins_vec.size()-1,"Rebinned_Projection_xz_1Kink",variable_bins) ) );
+				Rebinned_ProjectionY_xz.emplace_back( dynamic_cast<TH1D*>( ProjectionY_xz.at(1)->Rebin(variable_bins_vec.size()-1,"Rebinned_Projection_xz_2Kink",variable_bins) ) );
+				Rebinned_ProjectionY_xz.emplace_back( dynamic_cast<TH1D*>( ProjectionY_xz.at(2)->Rebin(variable_bins_vec.size()-1,"Rebinned_Projection_xz_3Kink",variable_bins) ) );
+				Rebinned_ProjectionY_yz.emplace_back( dynamic_cast<TH1D*>( ProjectionY_yz.at(0)->Rebin(variable_bins_vec.size()-1,"Rebinned_Projection_yz_1Kink",variable_bins) ) );
+				Rebinned_ProjectionY_yz.emplace_back( dynamic_cast<TH1D*>( ProjectionY_yz.at(1)->Rebin(variable_bins_vec.size()-1,"Rebinned_Projection_yz_2Kink",variable_bins) ) );
+				Rebinned_ProjectionY_yz.emplace_back( dynamic_cast<TH1D*>( ProjectionY_yz.at(2)->Rebin(variable_bins_vec.size()-1,"Rebinned_Projection_yz_3Kink",variable_bins) ) );
+				for(size_t histo_iterator = 0; histo_iterator < Rebinned_ProjectionY_xz.size(); ++histo_iterator){
 								ProjectionY_xz.at(histo_iterator)->SetLineColor(((int)histo_iterator+1));//*2);
-								ProjectionY_yz.at(histo_iterator)->Rebin(variable_bins_vec.size()-1,"",variable_bins);
 								ProjectionY_yz.at(histo_iterator)->SetLineColor(((int)histo_iterator+1));//*2);
 				}
 
@@ -329,9 +335,9 @@ int main(int const argc, char const * const * const argv) {
         //canvas->Print("output/phill_y_projected.pdf");
 
 				canvas->SetLogy(1);
-				Print_ProjectionY_plots( ProjectionY_xz );
+				Print_ProjectionY_plots( Rebinned_ProjectionY_xz );
 				canvas->Print(("output/ProjectionY_xz_"+specialname+".pdf").c_str());
-				Print_ProjectionY_plots( ProjectionY_yz );
+				Print_ProjectionY_plots( Rebinned_ProjectionY_yz );
 				canvas->Print(("output/ProjectionY_yz_"+specialname+".pdf").c_str());
 
 				Outputfile->Write();
