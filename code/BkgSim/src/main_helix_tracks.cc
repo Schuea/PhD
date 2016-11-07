@@ -22,6 +22,7 @@
 #include "Style.h"
 
 using namespace std;
+void Print_ProjectionY_plots(std::vector< TH1D* > ProjectionY);
 
 int main(int const argc, char const * const * const argv) {
 				UsePhDStyle();
@@ -94,7 +95,7 @@ int main(int const argc, char const * const * const argv) {
         //TH1D* histo_x_projected = new TH1D("Helix_tracks_x_projected", "Projected x position;x [mm];# of particles per (0.03mm x 0.58mm)", xbin,xmin,xmax);
         //TH1D* histo_y_projected = new TH1D("Helix_tracks_y_projected", "Projected y position;y [mm];# of particles per (0.03mm x 0.58mm)", ybin,ymin,ymax);
 				//TTree for outputfile -> store new x, y and z positions of the helixes in there 
-				std::string specialname = "1bunch_wo_momentum_cuts";
+				std::string specialname = "1bunch_w_z-momentum_cuts";
 				TFile* Outputfile = new TFile(("output/Helix_in_beampipe_"+specialname+".root").c_str(),"RECREATE");
         TTree *outputtree = new TTree("Helix_Tracks","Helix_Tracks");
         double tree_x(0),tree_y(0),tree_z(0);
@@ -165,9 +166,9 @@ int main(int const argc, char const * const * const argv) {
 								double* z_array = new double[zbin];
 
 								long long int const entries = tree->GetEntries();
-								for (long long int i = 0; i < entries; ++i) {
+								for (long long int i = 0; i < 0.1*entries; ++i) {
 												tree->GetEntry(i);
-												if (momentum_z < 0 /*|| momentum_z>0.1*/) continue;
+												if (momentum_z < 0 || momentum_z>0.1) continue;
                         //if ( (momentum_x >0.002 || momentum_x<-0.002) && (momentum_y>0.002 || momentum_y<-0.002) ) continue;
 												//if (CreatedInSimulation_Status == 1) continue;
 												vertex = { vertex_x, vertex_y, vertex_z };
@@ -220,18 +221,22 @@ int main(int const argc, char const * const * const argv) {
 								file->Close();
 				}
 				
-				TH1D *ProjectionY_xz_1Kink = histo_x->ProjectionY("Projection_xz_1Kink",(62.5-5.0)*zbin/300.,(62.5+5.0)*zbin/300.);
-				ProjectionY_xz_1Kink->Rebin(2);
-				ProjectionY_xz_1Kink->SetLineColor(2);
-				TH1D *ProjectionY_xz_2Kink = histo_x->ProjectionY("Projection_xz_2Kink",(205.0-5.0)*zbin/300.,(205.0+5.0)*zbin/300.);
-				ProjectionY_xz_2Kink->Rebin(2);
-				ProjectionY_xz_2Kink->SetLineColor(4);
-				TH1D *ProjectionY_yz_1Kink = histo_y->ProjectionY("Projection_yz_1Kink",(62.5-5.0)*zbin/300.,(62.5+5.0)*zbin/300.);
-				ProjectionY_yz_1Kink->Rebin(2);
-				ProjectionY_yz_1Kink->SetLineColor(2);                               
-				TH1D *ProjectionY_yz_2Kink = histo_y->ProjectionY("Projection_yz_2Kink",(205.0-5.0)*zbin/300.,(205.0+5.0)*zbin/300.);
-				ProjectionY_yz_2Kink->Rebin(2);
-				ProjectionY_yz_2Kink->SetLineColor(4);
+				std::vector< TH1D* > ProjectionY_xz;
+				ProjectionY_xz.emplace_back( histo_x->ProjectionY("Projection_xz_1Kink",(62.5-5.0)*zbin/300.,(62.5+5.0)*zbin/300.) );
+				ProjectionY_xz.emplace_back( histo_x->ProjectionY("Projection_xz_2Kink",(205.0-5.0)*zbin/300.,(205.0+5.0)*zbin/300.) );
+				ProjectionY_xz.emplace_back( histo_x->ProjectionY("Projection_xz_3Kink",(295.0-5.0)*zbin/300.,(295.0+5.0)*zbin/300.) );
+				std::vector< TH1D* > ProjectionY_yz;
+				ProjectionY_yz.emplace_back( histo_y->ProjectionY("Projection_yz_1Kink",(62.5-5.0)*zbin/300.,(62.5+5.0)*zbin/300.) );
+				ProjectionY_yz.emplace_back( histo_y->ProjectionY("Projection_yz_2Kink",(205.0-5.0)*zbin/300.,(205.0+5.0)*zbin/300.) );
+				ProjectionY_yz.emplace_back( histo_y->ProjectionY("Projection_yz_3Kink",(295.0-5.0)*zbin/300.,(295.0+5.0)*zbin/300.) );
+				double variable_bins[37]={-29.0,-27.0,-25.0,-23.0,-21.0,-19.0,-17.0,-15.0,-13.0,-11.0,-9.0,-7.0,-5.0,-3.0,-2.0,-1.5,-1.0,-0.5,
+								0,0.5,1.0,1.5,2.0,3.0,5.0,7.0,9.0,11.0,13.0,15.0,17.0,19.0,21.0,23.0,25.0,27.0,29.0};
+				for(size_t histo_iterator = 0; histo_iterator < ProjectionY_xz.size(); ++histo_iterator){
+								ProjectionY_xz.at(histo_iterator)->Rebin(36,"",variable_bins);
+								ProjectionY_xz.at(histo_iterator)->SetLineColor(((int)histo_iterator+1));//*2);
+								ProjectionY_yz.at(histo_iterator)->Rebin(36,"",variable_bins);
+								ProjectionY_yz.at(histo_iterator)->SetLineColor(((int)histo_iterator+1));//*2);
+				}
 
 				std::cout << "-----------------" << std::endl;
 				std::cout << "All particles drawn: " << particles_outside_beampipe + particles_inside_beampipe <<  std::endl;
@@ -306,29 +311,26 @@ int main(int const argc, char const * const * const argv) {
         //canvas->Print("output/phill_y_projected.pdf");
 
 				canvas->SetLogy(1);
-				ProjectionY_xz_1Kink->GetXaxis()->SetTitleOffset(1);
-				ProjectionY_xz_2Kink->GetXaxis()->SetTitleOffset(1);
-				ProjectionY_xz_1Kink->Draw();
-				ProjectionY_xz_2Kink->Draw("same");
-				TLegend* leg = new TLegend(0.6,0.7,0.9,0.9);
-				leg->SetTextSize(0.023);
-				leg->SetHeader("Projection at different beam pipe kinks");
-				leg->AddEntry(ProjectionY_xz_1Kink,"Beam pipe kink at z=62.5mm","l");
-				leg->AddEntry(ProjectionY_xz_2Kink,"Beam pipe kink at z=205 mm","l");
-				leg->Draw();
+				Print_ProjectionY_plots( ProjectionY_xz );
 				canvas->Print(("output/ProjectionY_xz_"+specialname+".pdf").c_str());
-				ProjectionY_yz_1Kink->GetXaxis()->SetTitleOffset(1);
-				ProjectionY_yz_2Kink->GetXaxis()->SetTitleOffset(1);
-				ProjectionY_yz_1Kink->Draw();
-				ProjectionY_yz_2Kink->Draw("same");
-				TLegend* leg2 = new TLegend(0.6,0.7,0.9,0.9);
-				leg2->SetTextSize(0.023);
-				leg2->SetHeader("Projection at different beam pipe kinks");
-				leg2->AddEntry(ProjectionY_yz_1Kink,"Beam pipe kink at z=62.5mm","l");
-				leg2->AddEntry(ProjectionY_yz_2Kink,"Beam pipe kink at z=205 mm","l");
-				leg2->Draw();
+				Print_ProjectionY_plots( ProjectionY_yz );
 				canvas->Print(("output/ProjectionY_yz_"+specialname+".pdf").c_str());
 
 				Outputfile->Write();
 				return 0;
+}
+
+void Print_ProjectionY_plots(std::vector< TH1D* > ProjectionY){
+				for(size_t histo_iterator = 0; histo_iterator < ProjectionY.size(); ++histo_iterator){
+								ProjectionY.at(histo_iterator)->GetXaxis()->SetTitleOffset(1);
+								if (histo_iterator==0) ProjectionY.at(histo_iterator)->Draw();
+								ProjectionY.at(histo_iterator)->Draw("same");
+				}
+				TLegend* leg = new TLegend(0.6,0.7,0.9,0.9);
+				leg->SetTextSize(0.023);
+				leg->SetHeader("Projection at different beam pipe kinks");
+				leg->AddEntry(ProjectionY.at(0),"Beam pipe kink at z=62.5mm","l");
+				leg->AddEntry(ProjectionY.at(1),"Beam pipe kink at z=205 mm","l");
+				leg->AddEntry(ProjectionY.at(2),"Beam pipe kink at z=295 mm","l");
+				leg->Draw();
 }
