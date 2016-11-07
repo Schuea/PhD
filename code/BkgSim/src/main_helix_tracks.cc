@@ -229,12 +229,32 @@ int main(int const argc, char const * const * const argv) {
 				ProjectionY_yz.emplace_back( histo_y->ProjectionY("Projection_yz_1Kink",(62.5-5.0)*zbin/300.,(62.5+5.0)*zbin/300.) );
 				ProjectionY_yz.emplace_back( histo_y->ProjectionY("Projection_yz_2Kink",(205.0-5.0)*zbin/300.,(205.0+5.0)*zbin/300.) );
 				ProjectionY_yz.emplace_back( histo_y->ProjectionY("Projection_yz_3Kink",(295.0-5.0)*zbin/300.,(295.0+5.0)*zbin/300.) );
-				double variable_bins[37]={-29.0,-27.0,-25.0,-23.0,-21.0,-19.0,-17.0,-15.0,-13.0,-11.0,-9.0,-7.0,-5.0,-3.0,-2.0,-1.5,-1.0,-0.5,
-								0,0.5,1.0,1.5,2.0,3.0,5.0,7.0,9.0,11.0,13.0,15.0,17.0,19.0,21.0,23.0,25.0,27.0,29.0};
+				double original_binsize = (double)(xmax - xmin)/(double)xbin;
+				std::cout << "original_binsize = " << original_binsize << std::endl;
+				std::vector< double > variable_bins_vec;
+				double temp = -29.0;
+				while(temp < 29.0){
+					std::cout << "temp = " << temp << std::endl;
+								if(temp < -12.0 || temp > 12.0){ 
+									variable_bins_vec.push_back( temp + 4.0*original_binsize ); 
+									temp += 4.0*original_binsize;
+								}
+								else if( (temp>-12.0 && temp < -2.0) || (temp > 2.0 && temp < 12.0) ){ 
+									variable_bins_vec.push_back( temp + 2.0*original_binsize ); 
+									temp += 2.0*original_binsize;
+								}
+								else{
+									variable_bins_vec.push_back( temp + 1.0*original_binsize ); 
+									temp += 1.0*original_binsize;
+								}
+				}
+				variable_bins_vec.push_back( 29.0 ); 
+				std::cout << "variable_bins_vec.size = " << variable_bins_vec.size() << std::endl;
+				double* variable_bins = &variable_bins_vec[0];
 				for(size_t histo_iterator = 0; histo_iterator < ProjectionY_xz.size(); ++histo_iterator){
-								ProjectionY_xz.at(histo_iterator)->Rebin(36,"",variable_bins);
+								ProjectionY_xz.at(histo_iterator)->Rebin(38,"",variable_bins);
 								ProjectionY_xz.at(histo_iterator)->SetLineColor(((int)histo_iterator+1));//*2);
-								ProjectionY_yz.at(histo_iterator)->Rebin(36,"",variable_bins);
+								ProjectionY_yz.at(histo_iterator)->Rebin(38,"",variable_bins);
 								ProjectionY_yz.at(histo_iterator)->SetLineColor(((int)histo_iterator+1));//*2);
 				}
 
