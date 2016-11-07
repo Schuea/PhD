@@ -258,8 +258,8 @@ int main(int const argc, char const * const * const argv) {
 				Rebinned_ProjectionY_yz.emplace_back( dynamic_cast<TH1D*>( ProjectionY_yz.at(1)->Rebin(variable_bins_vec.size()-1,"Rebinned_Projection_yz_2Kink",variable_bins) ) );
 				Rebinned_ProjectionY_yz.emplace_back( dynamic_cast<TH1D*>( ProjectionY_yz.at(2)->Rebin(variable_bins_vec.size()-1,"Rebinned_Projection_yz_3Kink",variable_bins) ) );
 				for(size_t histo_iterator = 0; histo_iterator < Rebinned_ProjectionY_xz.size(); ++histo_iterator){
-								ProjectionY_xz.at(histo_iterator)->SetLineColor(((int)histo_iterator+1));//*2);
-								ProjectionY_yz.at(histo_iterator)->SetLineColor(((int)histo_iterator+1));//*2);
+								Rebinned_ProjectionY_xz.at(histo_iterator)->SetLineColor(((int)histo_iterator+1));//*2);
+								Rebinned_ProjectionY_yz.at(histo_iterator)->SetLineColor(((int)histo_iterator+1));//*2);
 				}
 
 				std::cout << "-----------------" << std::endl;
