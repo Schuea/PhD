@@ -95,7 +95,7 @@ int main(int const argc, char const * const * const argv) {
         //TH1D* histo_x_projected = new TH1D("Helix_tracks_x_projected", "Projected x position;x [mm];# of particles per (0.03mm x 0.58mm)", xbin,xmin,xmax);
         //TH1D* histo_y_projected = new TH1D("Helix_tracks_y_projected", "Projected y position;y [mm];# of particles per (0.03mm x 0.58mm)", ybin,ymin,ymax);
 				//TTree for outputfile -> store new x, y and z positions of the helixes in there 
-				std::string specialname = "1bunch_w_z-momentum_cuts";
+				std::string specialname = "1bunch_wo_momentum_cuts";
 				TFile* Outputfile = new TFile(("output/Helix_in_beampipe_"+specialname+".root").c_str(),"RECREATE");
         TTree *outputtree = new TTree("Helix_Tracks","Helix_Tracks");
         double tree_x(0),tree_y(0),tree_z(0);
@@ -166,9 +166,9 @@ int main(int const argc, char const * const * const argv) {
 								double* z_array = new double[zbin];
 
 								long long int const entries = tree->GetEntries();
-								for (long long int i = 0; i < 0.1*entries; ++i) {
+								for (long long int i = 0; i < 0.2*entries; ++i) {
 												tree->GetEntry(i);
-												if (momentum_z < 0 || momentum_z>0.1) continue;
+												if (momentum_z < 0 /*|| momentum_z>0.1*/) continue;
                         //if ( (momentum_x >0.002 || momentum_x<-0.002) && (momentum_y>0.002 || momentum_y<-0.002) ) continue;
 												//if (CreatedInSimulation_Status == 1) continue;
 												vertex = { vertex_x, vertex_y, vertex_z };
@@ -229,12 +229,12 @@ int main(int const argc, char const * const * const argv) {
 				ProjectionY_yz.emplace_back( histo_y->ProjectionY("Projection_yz_1Kink",(62.5-5.0)*zbin/300.,(62.5+5.0)*zbin/300.) );
 				ProjectionY_yz.emplace_back( histo_y->ProjectionY("Projection_yz_2Kink",(205.0-5.0)*zbin/300.,(205.0+5.0)*zbin/300.) );
 				ProjectionY_yz.emplace_back( histo_y->ProjectionY("Projection_yz_3Kink",(295.0-5.0)*zbin/300.,(295.0+5.0)*zbin/300.) );
+
 				double original_binsize = (double)(xmax - xmin)/(double)xbin;
-				std::cout << "original_binsize = " << original_binsize << std::endl;
 				std::vector< double > variable_bins_vec;
-				double temp = -29.0;
-				while(temp < 29.0){
-					std::cout << "temp = " << temp << std::endl;
+				variable_bins_vec.push_back(xmin); 
+				double temp = xmin;
+				while(temp < xmax){
 								if(temp < -12.0 || temp > 12.0){ 
 									variable_bins_vec.push_back( temp + 4.0*original_binsize ); 
 									temp += 4.0*original_binsize;
@@ -248,13 +248,11 @@ int main(int const argc, char const * const * const argv) {
 									temp += 1.0*original_binsize;
 								}
 				}
-				variable_bins_vec.push_back( 29.0 ); 
-				std::cout << "variable_bins_vec.size = " << variable_bins_vec.size() << std::endl;
 				double* variable_bins = &variable_bins_vec[0];
 				for(size_t histo_iterator = 0; histo_iterator < ProjectionY_xz.size(); ++histo_iterator){
-								ProjectionY_xz.at(histo_iterator)->Rebin(38,"",variable_bins);
+								ProjectionY_xz.at(histo_iterator)->Rebin(variable_bins_vec.size()-1,"",variable_bins);
 								ProjectionY_xz.at(histo_iterator)->SetLineColor(((int)histo_iterator+1));//*2);
-								ProjectionY_yz.at(histo_iterator)->Rebin(38,"",variable_bins);
+								ProjectionY_yz.at(histo_iterator)->Rebin(variable_bins_vec.size()-1,"",variable_bins);
 								ProjectionY_yz.at(histo_iterator)->SetLineColor(((int)histo_iterator+1));//*2);
 				}
 
@@ -348,9 +346,9 @@ void Print_ProjectionY_plots(std::vector< TH1D* > ProjectionY){
 				}
 				TLegend* leg = new TLegend(0.6,0.7,0.9,0.9);
 				leg->SetTextSize(0.023);
-				leg->SetHeader("Projection at different beam pipe kinks");
+				leg->SetHeader("Projection at different z-positions along the beam pipe");
 				leg->AddEntry(ProjectionY.at(0),"Beam pipe kink at z=62.5mm","l");
 				leg->AddEntry(ProjectionY.at(1),"Beam pipe kink at z=205 mm","l");
-				leg->AddEntry(ProjectionY.at(2),"Beam pipe kink at z=295 mm","l");
+				leg->AddEntry(ProjectionY.at(2),"At z=295 mm","l");
 				leg->Draw();
 }
