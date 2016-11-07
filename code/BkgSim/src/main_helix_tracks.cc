@@ -123,6 +123,7 @@ int main(int const argc, char const * const * const argv) {
 								double momentum_y = 0.0;
 								double momentum_z = 0.0;
 								float charge = -99.0;
+								int particleID = 0;
 								//bool CreatedInSimulation_Status = false;
 								//float creationtime = 0.0;
 
@@ -141,6 +142,8 @@ int main(int const argc, char const * const * const argv) {
 								tree->SetBranchAddress("Momentumz", &momentum_z);
 								tree->SetBranchStatus("Charge", 1);
 								tree->SetBranchAddress("Charge", &charge);
+								tree->SetBranchStatus("Particle_ID", 1);
+								tree->SetBranchAddress("Particle_ID", &particleID);
 								//tree->SetBranchStatus("CreatedInSimulation_Status", 1);
 								//tree->SetBranchAddress("CreatedInSimulation_Status", &CreatedInSimulation_Status);
 								//tree->SetBranchStatus("CreationTime", 1);
@@ -166,8 +169,9 @@ int main(int const argc, char const * const * const argv) {
 								double* z_array = new double[zbin];
 
 								long long int const entries = tree->GetEntries();
-								for (long long int i = 0; i < 0.2*entries; ++i) {
+								for (long long int i = 0; i < 0.1*entries; ++i) {
 												tree->GetEntry(i);
+												if (particleID != 11) continue;
 												if (momentum_z < 0 /*|| momentum_z>0.1*/) continue;
                         //if ( (momentum_x >0.002 || momentum_x<-0.002) && (momentum_y>0.002 || momentum_y<-0.002) ) continue;
 												//if (CreatedInSimulation_Status == 1) continue;
@@ -350,9 +354,9 @@ void Print_ProjectionY_plots(std::vector< TH1D* > ProjectionY){
 								if (histo_iterator==0) ProjectionY.at(histo_iterator)->Draw();
 								ProjectionY.at(histo_iterator)->Draw("same");
 				}
-				TLegend* leg = new TLegend(0.6,0.7,0.9,0.9);
+				TLegend* leg = new TLegend(0.6,0.7,0.95,0.9);
 				leg->SetTextSize(0.023);
-				leg->SetHeader("Projection at different z-positions along the beam pipe");
+				leg->SetHeader("Projection at different z-positions");
 				leg->AddEntry(ProjectionY.at(0),"Beam pipe kink at z=62.5mm","l");
 				leg->AddEntry(ProjectionY.at(1),"Beam pipe kink at z=205 mm","l");
 				leg->AddEntry(ProjectionY.at(2),"At z=295 mm","l");
