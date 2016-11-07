@@ -12,7 +12,7 @@ double Helix::Calculate_number_turn() const{
 
 double Helix::Calculate_xi() const{
 			  //std::cout << "xi = " << xi << std::endl;
-				if (charge < 0 ){ //if the particle's circle is on the right hand side of the p_T vector, the angle starts off from pi and not 0.
+				if (beta == 0 ){ //if the particle's circle is on the right hand side of the p_T vector, the angle starts off from pi and not 0.
           return charge*Calculate_number_turn()*(2.0*M_PI) + M_PI;
         } else{
           return charge*Calculate_number_turn()*(2.0*M_PI);
