@@ -10,7 +10,7 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include -g -Wall -Wextra -pthread -O2 -std=c++
 CXXFLAGS +=  $(shell root-config --glibs)
 
 # Executables produced by this Makefile
-RUN = ../OccupancyPlotter ../ParticleCountPlotter ../FullBufferMapsPlotter ../FullBufferHistoPlotter ../ParticleOriginsTimePlotter ../HittimePlotter ../ggHadrons_HittimePlotter ../ggHadrons_pairs_HittimePlotter ../MomentumTimePlotter ../LatePrimariesCalculater ../HelixPlotter
+RUN = ../OccupancyPlotter ../ParticleCountPlotter ../FullBufferMapsPlotter ../FullBufferHistoPlotter ../ParticleOriginsTimePlotter ../HittimePlotter ../ggHadrons_HittimePlotter ../ggHadrons_pairs_HittimePlotter ../ggHadrons_pairs_PT_Plotter ../MomentumTimePlotter ../LatePrimariesCalculater ../HelixPlotter
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
@@ -25,6 +25,7 @@ MAIN_HITMAPSORIGINSTIME = ../objects/main_hitmaps_particleorigins_time.o
 MAIN_HITTIME= ../objects/main_hittime_distribution.o
 MAIN_HITTIME_GGHADRONS = ../objects/main_hittime_distribution_gg-hadrons.o
 MAIN_HITTIME_GGHADRONS_PAIRS = ../objects/main_compare_hittime_gg-hadrons_pairs.o
+MAIN_PT_GGHADRONS_PAIRS = ../objects/main_compare_PT_gg-hadrons_pairs.o
 MAIN_MOMENTUMTIME = ../objects/main_momentum_time.o
 MAIN_CALC_LATE = ../objects/main_calculate_late_arriving_primaries.o
 MAIN_HELIX = ../objects/main_helix_tracks.o
@@ -117,6 +118,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 ../ggHadrons_pairs_HittimePlotter : $(MAIN_HITTIME_GGHADRONS_PAIRS) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
+../ggHadrons_pairs_PT_Plotter : $(MAIN_PT_GGHADRONS_PAIRS) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
 ../MomentumTimePlotter : $(MAIN_MOMENTUMTIME) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
@@ -154,6 +158,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_compare_hittime_gg-hadrons_pairs.o : ../src/main_compare_hittime_gg-hadrons_pairs.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/main_compare_PT_gg-hadrons_pairs.o : ../src/main_compare_PT_gg-hadrons_pairs.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_momentum_time.o : ../src/main_momentum_time.cc
