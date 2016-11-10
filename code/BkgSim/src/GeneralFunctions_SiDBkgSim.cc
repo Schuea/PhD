@@ -1,6 +1,9 @@
 #include "GeneralFunctions_SiDBkgSim.h"
 
 
+void InitializeMCP(std::vector<Subdetector*> * SubDetectors) {
+	SubDetectors->push_back(new MCP());
+}
 void InitializeAllCaloSubdetectors(std::vector<Subdetector*> * SubDetectors) {
 	SubDetectors->push_back(new EcalBarrel());
 	SubDetectors->push_back(new EcalEndcap());
@@ -20,7 +23,9 @@ void InitializeAllTrackerSubdetectors(std::vector<Subdetector*> * SubDetectors) 
 }
 void InitializeWhichSubdetector(std::string SubdetectorName, std::vector<Subdetector*> * SubDetectors) {
 	std::cout << "SubdetectorName = " << SubdetectorName << std::endl;
-	if (SubdetectorName == std::string("EcalBarrel"))
+	if (SubdetectorName == std::string("MCP"))
+		SubDetectors->push_back(new MCP());
+	else if (SubdetectorName == std::string("EcalBarrel"))
 		SubDetectors->push_back(new EcalBarrel());
 	else if (SubdetectorName == std::string("EcalEndcap"))
 		SubDetectors->push_back(new EcalEndcap());
@@ -54,6 +59,7 @@ void InitializeWhichSubdetector(std::string SubdetectorName, std::vector<Subdete
 void InitializeAllSubdetectors(std::vector<Subdetector*> * SubDetectors) {
 	InitializeAllCaloSubdetectors(SubDetectors);
 	InitializeAllTrackerSubdetectors(SubDetectors);
+	InitializeMCP(SubDetectors);
 }
 
 void SetupSubDetectorsVector(std::vector<Subdetector*> * SubDetectors, std::string *several_subdetector_names,

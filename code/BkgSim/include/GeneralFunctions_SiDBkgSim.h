@@ -9,6 +9,7 @@
 
 void SetupSubDetectorsVector(std::vector<Subdetector*> * SubDetectors, std::string *several_subdetector_names,
 		std::vector<std::string> argument_subdetectors);
+void InitializeMCP(std::vector<Subdetector*> * SubDetectors);
 void InitializeAllCaloSubdetectors(std::vector<Subdetector*> * SubDetectors);
 void InitializeAllTrackerSubdetectors(std::vector<Subdetector*> * SubDetectors);
 void InitializeWhichSubdetector(std::string SubdetectorName, std::vector<Subdetector*> * SubDetectors);

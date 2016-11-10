@@ -2,6 +2,9 @@
 
 #include <iostream>
 
+void MCP::Initialize(){
+  Name_ = "MCP";
+}
 void EcalBarrel::Initialize(){
   Name_ = "EcalBarrel";
   LengthLayerBin_ = 6;
@@ -266,6 +269,11 @@ std::vector<float> Subdetector::GetROOTHisto_binning3D() const{
 }				
 std::vector<float> Subdetector::GetROOTHisto_time() const{
   return ROOTHisto_time;
+}
+
+MCP::MCP(){
+}
+MCP::~MCP(){
 }
 
 EcalBarrel::EcalBarrel(){

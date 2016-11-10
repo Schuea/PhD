@@ -43,6 +43,12 @@ class Subdetector{
     std::vector<float> ROOTHisto_binning3D;
     std::vector<float> ROOTHisto_time;
 };
+class MCP : public Subdetector{
+  public:
+    MCP();
+    ~MCP();
+    void Initialize();
+};
 class EcalBarrel : public Subdetector{
   public:
     EcalBarrel();
