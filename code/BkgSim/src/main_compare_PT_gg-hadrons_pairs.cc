@@ -252,10 +252,22 @@ int main(int const argc, char const * const * const argv) {
 			double mom_x = 0.0;
 			double mom_y = 0.0;
 			double mom_z = 0.0;
+			bool CreatedInSimulation_Status = 0;
+			bool DecayedInTracker_Status = 0;
+			bool hasLeftDetector_Status = 0;
+			int parents = -1;
 			int event_id = -999;
 			tree->SetBranchStatus("*", 0);
 			
 			if (tree->GetName() == std::string("Tree_MCP")){
+							tree->SetBranchStatus("NumberOfParents", kTRUE);
+							tree->SetBranchAddress("NumberOfParents", &parents);
+							tree->SetBranchStatus("CreatedInSimulation_Status", kTRUE);
+							tree->SetBranchAddress("CreatedInSimulation_Status", &CreatedInSimulation_Status);
+							tree->SetBranchStatus("DecayedInTracker_Status", kTRUE);
+							tree->SetBranchAddress("DecayedInTracker_Status", &DecayedInTracker_Status);
+							tree->SetBranchStatus("hasLeftDetector_Status", kTRUE);
+							tree->SetBranchAddress("hasLeftDetector_Status", &hasLeftDetector_Status);
 							tree->SetBranchStatus("Event_ID", kTRUE);
 							tree->SetBranchAddress("Event_ID", &event_id);
 							tree->SetBranchStatus("Momentumx", 1);
@@ -273,6 +285,12 @@ int main(int const argc, char const * const * const argv) {
 											|| tree->GetName() == std::string("Tree_MuonEndcap")
 											|| tree->GetName() == std::string("Tree_BeamCal") 
 											|| tree->GetName() == std::string("Tree_LumiCal")) {
+							tree->SetBranchStatus("HitMother_CreatedInSimulation_Status", kTRUE);
+							tree->SetBranchAddress("HitMother_CreatedInSimulation_Status", &CreatedInSimulation_Status);
+							tree->SetBranchStatus("HitMother_DecayedInTracker_Status", kTRUE);
+							tree->SetBranchAddress("HitMother_DecayedInTracker_Status", &DecayedInTracker_Status);
+							tree->SetBranchStatus("HitMother_hasLeftDetector_Status", kTRUE);
+							tree->SetBranchAddress("HitMother_hasLeftDetector_Status", &hasLeftDetector_Status);
 							tree->SetBranchStatus("event_id", kTRUE);
 							tree->SetBranchAddress("event_id", &event_id);
 							tree->SetBranchStatus("HitMotherMomentum_x", 1);
@@ -287,6 +305,12 @@ int main(int const argc, char const * const * const argv) {
 											|| tree->GetName() == std::string("Tree_SiTrackerBarrel")
 											|| tree->GetName() == std::string("Tree_SiTrackerEndcap")
 											|| tree->GetName() == std::string("Tree_SiTrackerForward")) {
+							tree->SetBranchStatus("HitParticle_CreatedInSimulation_Status", kTRUE);
+							tree->SetBranchAddress("HitParticle_CreatedInSimulation_Status", &CreatedInSimulation_Status);
+							tree->SetBranchStatus("HitParticle_DecayedInTracker_Status", kTRUE);
+							tree->SetBranchAddress("HitParticle_DecayedInTracker_Status", &DecayedInTracker_Status);
+							tree->SetBranchStatus("HitParticle_hasLeftDetector_Status", kTRUE);
+							tree->SetBranchAddress("HitParticle_hasLeftDetector_Status", &hasLeftDetector_Status);
 							tree->SetBranchStatus("event_id", kTRUE);
 							tree->SetBranchAddress("event_id", &event_id);
 							tree->SetBranchStatus("HitParticleMomentum_x", 1);
@@ -309,6 +333,7 @@ int main(int const argc, char const * const * const argv) {
 			if( file_iterator == 3) weight = (829.0/10000.0)*(weight_bunches/1312.0);
 			for (long long int i = 0; i < entries; ++i) {
 				tree->GetEntry(i);
+				if(DecayedInTracker_Status == 1 && hasLeftDetector_Status == 0 && CreatedInSimulation_Status == 1) continue;
 				if( file_iterator < 4){
 								Hits_P_T_gg->Fill(sqrt(mom_x*mom_x+mom_y*mom_y),weight);
 				}
@@ -402,8 +427,8 @@ int main(int const argc, char const * const * const argv) {
 	text1->Draw();
 	text2->Draw();
 
-	canvas1->Print(("output/gg-hadrons_pairs_comparison_PT_"+subdetectornames+".pdf").c_str());
-	canvas1->Print(("output/gg-hadrons_pairs_comparison_PT_"+subdetectornames+".cxx").c_str());
+	canvas1->Print(("output/gg-hadrons_pairs_comparison_PT_NoShower_"+subdetectornames+".pdf").c_str());
+	canvas1->Print(("output/gg-hadrons_pairs_comparison_PT_NoShower_"+subdetectornames+".cxx").c_str());
 	
 	return 0;
 }
