@@ -95,7 +95,7 @@ int main(int const argc, char const * const * const argv) {
         //TH1D* histo_x_projected = new TH1D("Helix_tracks_x_projected", "Projected x position;x [mm];# of particles per (0.03mm x 0.58mm)", xbin,xmin,xmax);
         //TH1D* histo_y_projected = new TH1D("Helix_tracks_y_projected", "Projected y position;y [mm];# of particles per (0.03mm x 0.58mm)", ybin,ymin,ymax);
 				//TTree for outputfile -> store new x, y and z positions of the helixes in there 
-				std::string specialname = "1bunch_wo_momentum_cuts_ELECTRON";
+				std::string specialname = "1bunch_wo_momentum_cuts";
 				TFile* Outputfile = new TFile(("output/Helix_in_beampipe_"+specialname+".root").c_str(),"RECREATE");
         TTree *outputtree = new TTree("Helix_Tracks","Helix_Tracks");
         double tree_x(0),tree_y(0),tree_z(0);
@@ -171,19 +171,12 @@ int main(int const argc, char const * const * const argv) {
 								long long int const entries = tree->GetEntries();
 								for (long long int i = 0; i < entries; ++i) {
 												tree->GetEntry(i);
-												if (particleID != 11) continue;
+												//if (particleID != -11) continue;
 												if (momentum_z < 0 /*|| momentum_z>0.1*/) continue;
-												//std::cout << "Charge: " << std::endl;
-												//std::cout << charge << std::endl;
-												//std::cout << "Momentum: " << std::endl;
-												//std::cout << momentum_x <<", "<< momentum_y <<", "<< momentum_z << std::endl;
-												//std::cout << "Vertex: " << std::endl;
-												//std::cout << vertex_x <<", "<< vertex_y <<", "<< vertex_z << std::endl;
-                        if ( sqrt(momentum_x*momentum_x+momentum_y*momentum_y)>0.0004 && momentum_z > 0.005) continue;
+                        //if ( sqrt(momentum_x*momentum_x+momentum_y*momentum_y)>0.0004 && momentum_z > 0.005) continue;
                         //if ( (momentum_x >0.002 || momentum_x<-0.002) && (momentum_y>0.002 || momentum_y<-0.002) && momentum_z > 0.2) continue;
 												//if (CreatedInSimulation_Status == 1) continue;
 												vertex = { vertex_x, vertex_y, vertex_z };
-												//if (abs(vertex_x) > 0.1 || abs(vertex_y) > 0.1 ) continue;
 												momentum = { momentum_x, momentum_y, momentum_z };
 
 											  helix.Set_particlevalues(momentum, charge, vertex); // setting the constant values for the current particle in the helix class
