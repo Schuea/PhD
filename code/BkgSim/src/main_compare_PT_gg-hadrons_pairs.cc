@@ -242,14 +242,17 @@ int main(int const argc, char const * const * const argv) {
 	TH1D* Hits_P_T_gg = new TH1D("P_T_gammagamma_hadrons",histo_title.c_str(),30,0,5);
 	TH1D* Hits_P_T_pairs = new TH1D("P_T_pairs",histo_title.c_str(),30,0,5);
 	
-	std::string const histo_title_x = "P_x of particles from #gamma#gamma #rightarrow hadrons events , " + subdetectornames + ";P_x [GeV]; #events";
-	std::string const histo_title_y = "P_y of particles from #gamma#gamma #rightarrow hadrons events , " + subdetectornames + ";P_y [GeV]; #events";
-	std::string const histo_title_z = "P_z of particles from #gamma#gamma #rightarrow hadrons events , " + subdetectornames + ";P_z [GeV]; #events";
-	std::string const histo_title_E = "E_sum of e+ e- from #gamma#gamma #rightarrow hadrons events , " + subdetectornames + ";E_sum [GeV]; #events";
-	TH1D* Hits_P_x_gg = new TH1D("P_x_gammagamma_hadrons",histo_title_x.c_str(),30,0,5);
-	TH1D* Hits_P_y_gg = new TH1D("P_y_gammagamma_hadrons",histo_title_y.c_str(),30,0,5);
-	TH1D* Hits_P_z_gg = new TH1D("P_z_gammagamma_hadrons",histo_title_z.c_str(),100,0,270);
-	TH1D* Hits_Esum_gg = new TH1D("E_sum_gammagamma_hadrons",histo_title_E.c_str(),50,0,30);
+	//std::string const histo_title_x = "P_x of particles from #gamma#gamma #rightarrow hadrons events , " + subdetectornames + ";P_x [GeV]; #events";
+	//std::string const histo_title_y = "P_y of particles from #gamma#gamma #rightarrow hadrons events , " + subdetectornames + ";P_y [GeV]; #events";
+	//std::string const histo_title_z = "P_z of particles from #gamma#gamma #rightarrow hadrons events , " + subdetectornames + ";P_z [GeV]; #events";
+	std::string const histo_title_x = "P_x of all except e+ e- (leaving detector) from #gamma#gamma #rightarrow hadrons events , " + subdetectornames + ";P_x [GeV]; #events";
+	std::string const histo_title_y = "P_y of all except e+ e- (leaving detector) from #gamma#gamma #rightarrow hadrons events , " + subdetectornames + ";P_y [GeV]; #events";
+	std::string const histo_title_z = "P_z of all except e+ e- (leaving detector) from #gamma#gamma #rightarrow hadrons events , " + subdetectornames + ";P_z [GeV]; #events";
+	std::string const histo_title_E = "E_sum of e+ e- (leaving detector) from #gamma#gamma #rightarrow hadrons events , " + subdetectornames + ";E_sum [GeV]; #events";
+	TH1D* Hits_P_x_gg = new TH1D("P_x_gammagamma_hadrons",histo_title_x.c_str(),40,-3,3);
+	TH1D* Hits_P_y_gg = new TH1D("P_y_gammagamma_hadrons",histo_title_y.c_str(),40,-3,3);
+	TH1D* Hits_P_z_gg = new TH1D("P_z_gammagamma_hadrons",histo_title_z.c_str(),180,-270,270);
+	TH1D* Hits_Esum_gg = new TH1D("E_sum_gammagamma_hadrons",histo_title_E.c_str(),60,0,40);
 
 	//std::map< int, std::pair< std::vector<int>, std::vector<double> > > energy_map; // int: event_id, int: particle_id doubles particle energy 
 	std::vector< int > eventid_vec;
@@ -288,11 +291,17 @@ int main(int const argc, char const * const * const argv) {
 							tree->SetBranchStatus("hasLeftDetector_Status", kTRUE);
 							tree->SetBranchAddress("hasLeftDetector_Status", &hasLeftDetector_Status);
 							if(file_iterator<4){
-							tree->SetBranchStatus("Particle_PDG", kTRUE);
-							tree->SetBranchAddress("Particle_PDG", &particle_pdg);
+											tree->SetBranchStatus("Particle_PDG", kTRUE);
+											tree->SetBranchAddress("Particle_PDG", &particle_pdg);
+											tree->SetBranchStatus("Particle_ID", kTRUE);
+											tree->SetBranchAddress("Particle_ID", &particle_id);
 							}
-							tree->SetBranchStatus("Particle_ID", kTRUE);
-							tree->SetBranchAddress("Particle_ID", &particle_id);
+							else{
+											tree->SetBranchStatus("Particle_PDG", kTRUE);
+											tree->SetBranchAddress("Particle_PDG", &particle_pdg);
+											tree->SetBranchStatus("Particle_ID", kTRUE);
+											tree->SetBranchAddress("Particle_ID", &particle_id);
+							}
 							tree->SetBranchStatus("Event_ID", kTRUE);
 							tree->SetBranchAddress("Event_ID", &event_id);
 							tree->SetBranchStatus("Momentumx", 1);
@@ -366,41 +375,45 @@ int main(int const argc, char const * const * const argv) {
 			if( file_iterator == 3) weight = (829.0/10000.0)*(weight_bunches/1312.0);
 			for (long long int i = 0; i < entries; ++i) {
 				tree->GetEntry(i);
-				if(sqrt(mom_x*mom_x+mom_y*mom_y)<1.6 || sqrt(mom_x*mom_x+mom_y*mom_y)>1.8) continue;
+				//if(sqrt(mom_x*mom_x+mom_y*mom_y)<1.6 || sqrt(mom_x*mom_x+mom_y*mom_y)>1.8) continue;
+				if ( particle_pdg != 11 && particle_pdg != -11 && hasLeftDetector_Status != 1) continue;
+				//if ( (particle_pdg == 11 || particle_pdg == -11) && hasLeftDetector_Status == 1) continue;
 				//if(charge == 0) continue;
 				//if(DecayedInTracker_Status == 1 && hasLeftDetector_Status == 0 && CreatedInSimulation_Status == 1) continue;
 				if( file_iterator < 4){
 								Hits_P_T_gg->Fill(sqrt(mom_x*mom_x+mom_y*mom_y),weight);
-								Hits_P_x_gg->Fill(mom_x,weight);
-								Hits_P_y_gg->Fill(mom_y,weight);
-								Hits_P_z_gg->Fill(mom_z,weight);
-								if ( (particle_pdg == 11 || particle_pdg==-11) && hasLeftDetector_Status==1){
-									//energy_map[event_id].first.push_back(particle_id);		  
-									//energy_map[event_id].second.push_back(energy);		  
-									//std::cout << "event_id = " << event_id << std::endl;
-									//std::cout << "energy = " << energy << std::endl;
-									//std::cout << "particle_id = " << particle_id << std::endl;
-									if( eventid_vec.size()==0 ){
-									//std::cout << "event_id = " << event_id << std::endl;
-									//std::cout << "energy = " << energy << std::endl;
-									//std::cout << "particle_id = " << particle_id << std::endl;
-													eventid_vec.push_back(event_id);
-													energy_vec.push_back(energy);
-													particleid_vec.push_back(particle_id);
-									}
-									else{
-													if(event_id == eventid_vec.back() && (abs(particle_id - particleid_vec.back())==1) ){
-									//std::cout << "event_id = " << event_id << std::endl;
-									//std::cout << "energy = " << energy << std::endl;
-									//std::cout << "particle_id = " << particle_id << std::endl;
-																	energy_vec.push_back(energy);
-																	Hits_Esum_gg->Fill( abs(energy_vec.at(0) - energy_vec.at(1) ));
-													}
-													else{
-																	eventid_vec.clear();
-																	energy_vec.clear();
-																	particleid_vec.clear();
-													}
+								Hits_P_x_gg->Fill(mom_x);
+								Hits_P_y_gg->Fill(mom_y);
+								Hits_P_z_gg->Fill(mom_z);
+								if (tree->GetName() == std::string("Tree_MCP")){
+									if ( (particle_pdg == 11 || particle_pdg==-11) && hasLeftDetector_Status==1){
+										//energy_map[event_id].first.push_back(particle_id);		  
+										//energy_map[event_id].second.push_back(energy);		  
+										//std::cout << "event_id = " << event_id << std::endl;
+										//std::cout << "energy = " << energy << std::endl;
+										//std::cout << "particle_id = " << particle_id << std::endl;
+										if( eventid_vec.size()==0 ){
+										//std::cout << "event_id = " << event_id << std::endl;
+										//std::cout << "energy = " << energy << std::endl;
+										//std::cout << "particle_id = " << particle_id << std::endl;
+														eventid_vec.push_back(event_id);
+														energy_vec.push_back(energy);
+														particleid_vec.push_back(particle_id);
+										}
+										else{
+														if(event_id == eventid_vec.back() && (abs(particle_id - particleid_vec.back())==1) ){
+										//std::cout << "event_id = " << event_id << std::endl;
+										//std::cout << "energy = " << energy << std::endl;
+										//std::cout << "particle_id = " << particle_id << std::endl;
+																		energy_vec.push_back(energy);
+																		Hits_Esum_gg->Fill( abs(energy_vec.at(0) - energy_vec.at(1) ));
+														}
+														else{
+																		eventid_vec.clear();
+																		energy_vec.clear();
+																		particleid_vec.clear();
+														}
+										}
 									}
 								}
 				}
@@ -408,22 +421,7 @@ int main(int const argc, char const * const * const argv) {
 					Hits_P_T_pairs->Fill(sqrt(mom_x*mom_x+mom_y*mom_y),weight_bunches/float(NUMBER_OF_pairFILES));
 				}
 			}
-			//if( file_iterator < 4){
-			//				std::cout << "energy_map.size() = " << energy_map.size() << std::endl;
-			//				//for(int i = 0; i < energy_map.size(); ++i){
-			//				for(const auto & i : energy_map){
-			//								std::cout << i.first << std::endl;
-			//								for(int j = 0; j < i.second.first.size(); ++j){
-			//												std::cout << "i.second.first.at("<<j<<") = " << i.second.first.at(j) << std::endl;
-			//												std::cout << "i.second.second.at("<<j<<") = " << i.second.second.at(j) << std::endl;
-			//								}
-			//								if (i.second.first.size() == 2) {
-			//												Hits_Esum_gg->Fill( abs(i.second.second.at(0) - i.second.second.at(1)), weight);
-			//								}
-			//				}
-			//				energy_map.clear();
-			//}
-			file->Close();
+						file->Close();
 		}
 	}
 	//gStyle->SetOptStat(11);
@@ -443,6 +441,7 @@ int main(int const argc, char const * const * const argv) {
 
 	canvas1->cd();
 	canvas1->SetLogy(1);
+
 	Hits_P_T_pairs->SetMarkerColor(0+1);
 	Hits_P_T_pairs->Draw();
 	canvas1->Update();
@@ -509,21 +508,23 @@ int main(int const argc, char const * const * const argv) {
 	text1->Draw();
 	text2->Draw();
 
-	canvas1->Print(("output/gg-hadrons_pairs_comparison_PT_"+subdetectornames+".pdf").c_str());
-	canvas1->Print(("output/gg-hadrons_pairs_comparison_PT_"+subdetectornames+".cxx").c_str());
+	canvas1->Print(("output/gg-hadrons_pairs_comparison_elecposi_leavindetector_PT_"+subdetectornames+".pdf").c_str());
+	canvas1->Print(("output/gg-hadrons_pairs_comparison_elecposi_leavindetector_PT_"+subdetectornames+".cxx").c_str());
 
 	Hits_P_x_gg->Draw();
-	canvas1->Print(("output/gg-hadrons_pairs_comparison_Px_"+subdetectornames+".pdf").c_str());
-	canvas1->Print(("output/gg-hadrons_pairs_comparison_Px_"+subdetectornames+".cxx").c_str());
+	canvas1->Print(("output/gg-hadrons_elecposi_leavindetector_Px_"+subdetectornames+".pdf").c_str());
+	canvas1->Print(("output/gg-hadrons_elecposi_leavindetector_Px_"+subdetectornames+".cxx").c_str());
 	Hits_P_y_gg->Draw();
-	canvas1->Print(("output/gg-hadrons_pairs_comparison_Py_"+subdetectornames+".pdf").c_str());
-	canvas1->Print(("output/gg-hadrons_pairs_comparison_Py_"+subdetectornames+".cxx").c_str());
+	canvas1->Print(("output/gg-hadrons_elecposi_leavindetector_Py_"+subdetectornames+".pdf").c_str());
+	canvas1->Print(("output/gg-hadrons_elecposi_leavindetector_Py_"+subdetectornames+".cxx").c_str());
 	Hits_P_z_gg->Draw();
-	canvas1->Print(("output/gg-hadrons_pairs_comparison_Pz_"+subdetectornames+".pdf").c_str());
-	canvas1->Print(("output/gg-hadrons_pairs_comparison_Pz_"+subdetectornames+".cxx").c_str());
-	Hits_Esum_gg->Draw();
-	canvas1->Print(("output/gg-hadrons_pairs_comparison_Esum_"+subdetectornames+".pdf").c_str());
-	canvas1->Print(("output/gg-hadrons_pairs_comparison_Esum_"+subdetectornames+".cxx").c_str());
+	canvas1->Print(("output/gg-hadrons_elecposi_leavindetector_Pz_"+subdetectornames+".pdf").c_str());
+	canvas1->Print(("output/gg-hadrons_elecposi_leavindetector_Pz_"+subdetectornames+".cxx").c_str());
+	if( Hits_Esum_gg->GetEntries() != 0 ){
+					Hits_Esum_gg->Draw();
+					canvas1->Print(("output/gg-hadrons_elecposi_leavingdetector_Esum_"+subdetectornames+".pdf").c_str());
+					canvas1->Print(("output/gg-hadrons_elecposi_leavingdetector_Esum_"+subdetectornames+".cxx").c_str());
+	}
 
 	return 0;
 }
