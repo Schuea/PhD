@@ -18,11 +18,12 @@
 
 #include "Helix_class.h"
 #include "GeneralFunctions_SiDBkgSim.h"
+#include "UsefulFunctions.h"
 
 #include "Style.h"
 
 using namespace std;
-void Print_ProjectionY_plots(std::vector< TH1D* > ProjectionY);
+void Print_ProjectionY_plots(std::vector< TH1D* > ProjectionY, bool normalize);
 
 int main(int const argc, char const * const * const argv) {
 				UsePhDStyle();
@@ -77,6 +78,10 @@ int main(int const argc, char const * const * const argv) {
 								exit(1);
 				}
 
+				std::string specialname = "1bunch_wo_momentum_cuts";
+				TFile* Outputfile = new TFile(("output/Helix_in_beampipe_"+specialname+".root").c_str(),"RECREATE");
+        TTree *outputtree = new TTree("Helix_Tracks","Helix_Tracks");
+
 				//Make histogram for storing the information
 				float const zmin = 0.0;
 				float const zmax = 300.0;
@@ -95,9 +100,6 @@ int main(int const argc, char const * const * const argv) {
         //TH1D* histo_x_projected = new TH1D("Helix_tracks_x_projected", "Projected x position;x [mm];# of particles per (0.03mm x 0.58mm)", xbin,xmin,xmax);
         //TH1D* histo_y_projected = new TH1D("Helix_tracks_y_projected", "Projected y position;y [mm];# of particles per (0.03mm x 0.58mm)", ybin,ymin,ymax);
 				//TTree for outputfile -> store new x, y and z positions of the helixes in there 
-				std::string specialname = "1bunch_wo_momentum_cuts";
-				TFile* Outputfile = new TFile(("output/Helix_in_beampipe_"+specialname+".root").c_str(),"RECREATE");
-        TTree *outputtree = new TTree("Helix_Tracks","Helix_Tracks");
         double tree_x(0),tree_y(0),tree_z(0);
         outputtree->Branch("x",&tree_x);
         outputtree->Branch("y",&tree_y);
@@ -339,18 +341,24 @@ int main(int const argc, char const * const * const argv) {
         //canvas->Print("output/phill_y_projected.pdf");
 
 				canvas->SetLogy(1);
-				Print_ProjectionY_plots( Rebinned_ProjectionY_xz );
+				Print_ProjectionY_plots( Rebinned_ProjectionY_xz, false );
 				canvas->Print(("output/ProjectionY_xz_"+specialname+".pdf").c_str());
-				Print_ProjectionY_plots( Rebinned_ProjectionY_yz );
+				Print_ProjectionY_plots( Rebinned_ProjectionY_yz, false );
 				canvas->Print(("output/ProjectionY_yz_"+specialname+".pdf").c_str());
+
+				Print_ProjectionY_plots( Rebinned_ProjectionY_xz, true );
+				canvas->Print(("output/ProjectionY_xz_normalized_"+specialname+".pdf").c_str());
+				Print_ProjectionY_plots( Rebinned_ProjectionY_yz, true );
+				canvas->Print(("output/ProjectionY_yz_normalized_"+specialname+".pdf").c_str());
 
 				Outputfile->Write();
 				return 0;
 }
 
-void Print_ProjectionY_plots(std::vector< TH1D* > ProjectionY){
+void Print_ProjectionY_plots(std::vector< TH1D* > ProjectionY, bool normalize){
 				for(size_t histo_iterator = 0; histo_iterator < ProjectionY.size(); ++histo_iterator){
 								ProjectionY.at(histo_iterator)->GetXaxis()->SetTitleOffset(1);
+                if (normalize == true) NormalizeHistogram( ProjectionY.at(histo_iterator),1.0 );
 								if (histo_iterator==0) ProjectionY.at(histo_iterator)->Draw();
 								ProjectionY.at(histo_iterator)->Draw("same");
 				}
