@@ -364,6 +364,7 @@ int main(int const argc, char const * const * const argv) {
 void Print_ProjectionY_plots(std::vector< TH1D* > ProjectionY, bool normalize){
 				for(size_t histo_iterator = 0; histo_iterator < ProjectionY.size(); ++histo_iterator){
 								ProjectionY.at(histo_iterator)->GetXaxis()->SetTitleOffset(1);
+								if (normalize == false) ProjectionY.at(histo_iterator)->GetYaxis()->SetTitle("# of particles per (0.03mm x 0.58mm)");
                 if (normalize == true) NormalizeHistogram( ProjectionY.at(histo_iterator),1.0 );
 								if (histo_iterator==0) ProjectionY.at(histo_iterator)->Draw();
 								ProjectionY.at(histo_iterator)->Draw("same");
