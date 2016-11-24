@@ -55,7 +55,7 @@ int main(){
   UsePhDStyle();
   time_t time1 = time(NULL);
   TFile *file = TFile::Open("output/Helix_in_beampipe_1bunch_wo_momentum_cuts.root");
-  TH2D *hx = (TH2D*)file->Get("Helix_tracks_yz");
+  TH2D *hx = (TH2D*)file->Get("Helix_tracks_xz");
   int const sizeX = hx->GetNbinsX();
   int const n = sizeX-1;
 
@@ -74,7 +74,7 @@ int main(){
   graph_95_neg->SetMarkerStyle(7);
   graph_99_neg->SetMarkerStyle(7);
 
-  graph_68->SetTitle("Envelopes outlining fractions of helix tracks from pair backgrounds;z [mm]; y [mm]");
+  graph_68->SetTitle("Envelopes outlining fractions of helix tracks from pair backgrounds;z [mm];x [mm]");
 
   graph_68->SetMarkerColor(1);
   graph_68_neg->SetMarkerColor(1);
@@ -112,17 +112,18 @@ int main(){
 	line2->Draw();
 	nline2->Draw();
 
-  TLegend *leg = new TLegend(0.18,0.11,0.38,0.3);
-  leg->SetBorderSize(0);
-  leg->SetFillColorAlpha(0,0);
+  //TLegend *leg = new TLegend(0.18,0.11,0.38,0.3);
+	TLegend* leg = new TLegend(0.75,0.7,0.95,0.9);
+  //leg->SetBorderSize(0);
+  //leg->SetFillColorAlpha(0,0);
   leg->AddEntry(graph_68,"68%","p");
   leg->AddEntry(graph_90,"90%","p");
   leg->AddEntry(graph_95,"95%","p");
   leg->AddEntry(graph_99,"99%","p");
   leg->Draw();
   //resultx->Draw("hist");
-  c.Print("HelixEnvelopes_yz.pdf");
-  c.Print("HelixEnvelopes_yz.cxx");
+  c.Print("HelixEnvelopes_xz.pdf");
+  c.Print("HelixEnvelopes_xz.cxx");
   cout << "Time taken: " << time(NULL) - time1 <<  " seconds" << endl;
 
   return 0;
