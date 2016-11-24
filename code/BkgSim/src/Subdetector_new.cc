@@ -33,9 +33,31 @@ Subdetector::Subdetector(string const subdetector_config_file){
     if(string(variable) == "zHalf") setZHalf(ConvertCSVToVectorDoubles(string(value)));
     if(string(variable) == "length") setLength(value);
     //Add something that checks values of zHalf and length, if one is set and the other isn't, set the other based on the first
+    if(string(variable) == "cellSizeX") setCellSizeX(stof(string(value)));
+    if(string(variable) == "cellSizeY") setCellSizeY(stof(string(value)));
     if(string(variable) == "shape"){
       //Depending on the shape, this will have multiple layers which have to be taken into account differently
-      if(string(value) == "barrel") getRLayer.push_back(2*PI*getRMin()*length);
+      for (int Layer = 0; Layer < getNumberOfLayers(); ++Layer){
+        if(string(value) == "octagon-barrel"){
+          getRLayer.push_back( sin(2*M_PI/8)*(getRMin()+(getRMax()-getRMin())/getNumberOfLayers())*(Layer+1)/sin((M_PI-2*M_PI/8)/2) );
+          getArea.push_back( getRLayer.back()*8*getLength() );
+          getNumberOfCells.push_back( (int)(getArea.back()/getCellSizeArea()) );
+        }
+        if(string(value) == "octagon-endcap"){
+          getRLayer.push_back( getRMax() );
+          getArea.push_back( pow(getRLayer.back(),2)*2*sqrt(2) - pow(200,2)*8*tan(M_PI/8) );
+          getNumberOfCells.push_back( (int)(getArea.back()/getCellSizeArea()) );
+        }
+        if(string(value) == "dodecagon-barrel"){
+          getRLayer.push_back( sin(2*M_PI/12)*(getRMin()+(getRMax()-getRMin())/getNumberOfLayers())*(Layer+1)/sin((M_PI-2*M_PI/12)/2) );
+          getArea.push_back( getRLayer.back()*12*getLength() );
+          getNumberOfCells.push_back( (int)(getArea.back()/getCellSizeArea()) );
+        }
+        if(string(value) == "dodecagon-endcap"){
+          getRLayer.push_back( getRMax() );
+          getArea.push_back( );
+        }
+      }
       //Finish this for the other shapes
       //Set the area using rLayer*shape_number_of_sides*length or equivilent formula
       //Number of cells is just area divided by cellSizeArea
