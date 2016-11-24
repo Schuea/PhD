@@ -228,13 +228,19 @@ int main(int const argc, char const * const * const argv) {
 				}
 				
 				std::vector< TH1D* > ProjectionY_xz;
-				ProjectionY_xz.emplace_back( histo_x->ProjectionY("Projection_xz_1Kink",(62.5-5.0)*zbin/300.,(62.5+5.0)*zbin/300.) );
-				ProjectionY_xz.emplace_back( histo_x->ProjectionY("Projection_xz_2Kink",(205.0-5.0)*zbin/300.,(205.0+5.0)*zbin/300.) );
-				ProjectionY_xz.emplace_back( histo_x->ProjectionY("Projection_xz_3Kink",(295.0-5.0)*zbin/300.,(295.0+5.0)*zbin/300.) );
+				ProjectionY_xz.emplace_back( histo_x->ProjectionY("Projection_xz_1Kink",62.5*zbin/300.,62.5*zbin/300.+1) );
+				ProjectionY_xz.emplace_back( histo_x->ProjectionY("Projection_xz_2Kink",205.0*zbin/300.,205.0*zbin/300.+1) );
+				ProjectionY_xz.emplace_back( histo_x->ProjectionY("Projection_xz_3Kink",295.0*zbin/300.,295.0*zbin/300.+1) );
+				//ProjectionY_xz.emplace_back( histo_x->ProjectionY("Projection_xz_1Kink",(62.5-5.0)*zbin/300.,(62.5+5.0)*zbin/300.) );
+				//ProjectionY_xz.emplace_back( histo_x->ProjectionY("Projection_xz_2Kink",(205.0-5.0)*zbin/300.,(205.0+5.0)*zbin/300.) );
+				//ProjectionY_xz.emplace_back( histo_x->ProjectionY("Projection_xz_3Kink",(295.0-5.0)*zbin/300.,(295.0+5.0)*zbin/300.) );
 				std::vector< TH1D* > ProjectionY_yz;
-				ProjectionY_yz.emplace_back( histo_y->ProjectionY("Projection_yz_1Kink",(62.5-5.0)*zbin/300.,(62.5+5.0)*zbin/300.) );
-				ProjectionY_yz.emplace_back( histo_y->ProjectionY("Projection_yz_2Kink",(205.0-5.0)*zbin/300.,(205.0+5.0)*zbin/300.) );
-				ProjectionY_yz.emplace_back( histo_y->ProjectionY("Projection_yz_3Kink",(295.0-5.0)*zbin/300.,(295.0+5.0)*zbin/300.) );
+				ProjectionY_yz.emplace_back( histo_y->ProjectionY("Projection_yz_1Kink",62.5*zbin/300.,62.5*zbin/300.+1) );
+				ProjectionY_yz.emplace_back( histo_y->ProjectionY("Projection_yz_2Kink",205.0*zbin/300.,205.0*zbin/300.+1) );
+				ProjectionY_yz.emplace_back( histo_y->ProjectionY("Projection_yz_3Kink",295.0*zbin/300.,295.0*zbin/300.+1) );
+				//ProjectionY_yz.emplace_back( histo_y->ProjectionY("Projection_yz_1Kink",(62.5-5.0)*zbin/300.,(62.5+5.0)*zbin/300.) );
+				//ProjectionY_yz.emplace_back( histo_y->ProjectionY("Projection_yz_2Kink",(205.0-5.0)*zbin/300.,(205.0+5.0)*zbin/300.) );
+				//ProjectionY_yz.emplace_back( histo_y->ProjectionY("Projection_yz_3Kink",(295.0-5.0)*zbin/300.,(295.0+5.0)*zbin/300.) );
 
 				double original_binsize = (double)(xmax - xmin)/(double)xbin;
 				std::vector< double > variable_bins_vec;
@@ -362,7 +368,8 @@ void Print_ProjectionY_plots(std::vector< TH1D* > ProjectionY, bool normalize){
 								if (histo_iterator==0) ProjectionY.at(histo_iterator)->Draw();
 								ProjectionY.at(histo_iterator)->Draw("same");
 				}
-				TLegend* leg = new TLegend(0.6,0.7,0.95,0.9);
+				
+	      TLegend* leg = new TLegend(0.6,0.7,0.95,0.9);
 				leg->SetTextSize(0.023);
 				leg->SetHeader("Projection at different z-positions");
 				leg->AddEntry(ProjectionY.at(0),"Beam pipe kink at z=62.5mm","l");
