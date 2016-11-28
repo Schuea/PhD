@@ -11,8 +11,6 @@ using namespace std;
 vector< double > ConvertCSVToVectorDoubles(string const csv);
 void FillUpVector( vector< double > vec);
 
-long long int MakeNewCellID(double const x, double const y, Subdetector const & component);
-
 Subdetector::Subdetector(){
 }
 
@@ -206,19 +204,6 @@ void Subdetector::setArea(vector< double > const area){
 
 void Subdetector::setNumberOfCells(vector< double > const number_of_cells){
   _numberOfCells = number_of_cells;
-}
-
-long long int MakeNewCellID(double const x, double const y, Subdetector const & component){
-  int newX = static_cast<int>(x/component.getCellSizeArea()); //Check if Cell Size Area is the same as Cell Dimension
-  int newY = static_cast<int>(y/component.getCellSizeArea()); //Check if Cell Size Area is the same as Cell Dimension
-  if(x >= 0) ++newX;
-  if(y >= 0) ++newY;
-  bitset<32> bitY = newY;
-  newY = 0;
-  for(int i = 0; i < 31; ++i){
-    newY += bitY[i]*pow(2,i);
-  }
-  return newX << 32 | newY;
 }
 
 vector< double > ConvertCSVToVectorDoubles(string const csv){
