@@ -244,7 +244,3 @@ void FillUpVector( vector< double > vec){
     }
 }
 
-int main(){
-  Subdetector component("SiTrackerBarrel.cfg");
-  return 0;
-}
