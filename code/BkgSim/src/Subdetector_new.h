@@ -12,10 +12,10 @@ class Subdetector{
     std::vector< double > _rMin;
     std::vector< double > _rMax;
     std::vector< double > _zHalf;
+    std::vector< double > _length;
     double _cellSizeX;
     double _cellSizeY;
     double _cellSizeArea;
-    double _length;//maybe layer dependent->vector
     std::vector< double > _rLayer;
     std::vector< double > _area;
     std::vector< double > _numberOfCells;

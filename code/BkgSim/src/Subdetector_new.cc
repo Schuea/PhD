@@ -2,12 +2,14 @@
 #include <cmath>
 #include <iostream>
 #include <fstream>
+#include <limits>
 
 #include "Subdetector.h"
 
 using namespace std;
 
 vector< double > ConvertCSVToVectorDoubles(string const csv);
+void FillUpVector( vector< double > vec);
 
 long long int MakeNewCellID(double const x, double const y, Subdetector const & component);
 
@@ -31,10 +33,10 @@ Subdetector::Subdetector(string const subdetector_config_file){
     if(string(variable) == "rMin") setRMin(ConvertCSVToVectorDoubles(string(value)));
     if(string(variable) == "rMax") setRMax(ConvertCSVToVectorDoubles(string(value)));
     if(string(variable) == "zHalf") setZHalf(ConvertCSVToVectorDoubles(string(value)));
-    if(string(variable) == "length") setLength(value);
-    //Add something that checks values of zHalf and length, if one is set and the other isn't, set the other based on the first
+    if(string(variable) == "length") setLength(ConvertCSVToVectorDoubles(string(value));
     if(string(variable) == "cellSizeX") setCellSizeX(stof(string(value)));
     if(string(variable) == "cellSizeY") setCellSizeY(stof(string(value)));
+
     if(string(variable) == "shape"){
       //Depending on the shape, this will have multiple layers which have to be taken into account differently
       for (int Layer = 0; Layer < getNumberOfLayers(); ++Layer){
@@ -69,9 +71,34 @@ Subdetector::Subdetector(string const subdetector_config_file){
           getNumberOfCells().push_back( (int)(getArea.back()/getCellSizeArea()) );
         }
       }
-      //Finish this for the other shapes
-      //Set the area using rLayer*shape_number_of_sides*length or equivilent formula
-      //Number of cells is just area divided by cellSizeArea
+    }
+  }
+  //Check the input parameters for zHalf and length:
+  if (getLength().size() == 0 && getZHalf().size() != 0){
+    for (size_t i=0; i < getZHalf().size(); ++i){
+      getLength().at(i) = getZHalf().at(i)*2.0;
+    }
+  }
+  else if (getLength.size() != 0 && getZHalf.size() == 0){
+    for (size_t i=0; i < getLength().size(); ++i){
+      getZHalf().at(i) = getLength().at(i)/2.0;
+    }
+  }
+  else{
+    if (getLength().size() == getZHalf().size()){
+      for (size_t i=0; i < getLength().size(); ++i){
+        if (getZHalf().at(i) < getLength().at(i)/2.0 + numeric_limits<double>::epsilon &&
+            getZHalf().at(i) > getLength().at(i)/2.0 - numeric_limits<double>::epsilon){
+          cerr << "The given numbers for zHalf and length are not in agreement!" << endl; 
+          cerr << "Exited in file " << __FILE__ << " on line " << __LINE__ << endl; 
+          exit(-1);
+        }
+      }
+    }
+    else{
+          cerr << "The number of input parameters for zHalf and length is not the same!" << endl; 
+          cerr << "Exited in file " << __FILE__ << " on line " << __LINE__ << endl; 
+          exit(-1);
     }
   }
   
@@ -113,7 +140,7 @@ double Subdetector::getCellSizeArea() const{
   return _cellSizeArea;
 }
 
-double Subdetector::getLength() const{
+vector< double > Subdetector::getLength() const{
   return _length;
 }
 
@@ -203,12 +230,21 @@ vector< double > ConvertCSVToVectorDoubles(string const csv){
   }
   result.push_back(stof(csv.substr(startpos,csv.find(',',startpos) - startpos)));
   startpos = csv.find(',',startpos) + 1;
+  
+  FillUpVector( result );
+
   return result;
+}
+
+void FillUpVector( vector< double > vec){
+    if (vec.size() == 1){//if only one number is given, fill the vector with the same number for the rest of the layers
+      for (int l=0; l < getNumberOfLayers()-1; ++l){
+        vec.push_back( vec.at(0) );
+      }
+    }
 }
 
 int main(){
   Subdetector component("SiTrackerBarrel.cfg");
   return 0;
 }
-
-
