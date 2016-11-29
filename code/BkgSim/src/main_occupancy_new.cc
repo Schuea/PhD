@@ -237,8 +237,8 @@ int main(int const argc, char const * const * const argv) {
 	All_Layers_histo->Draw();
 	canvas->Update();
 	TPaveStats* st =  (TPaveStats*)All_Layers_histo->GetListOfFunctions()->FindObject("stats");
-	st->SetX1NDC(0.65); //new x start position
-	st->SetX2NDC(0.85); //new x end position
+	st->SetX1NDC(0.75); //new x start position
+	st->SetX2NDC(0.9); //new x end position
 	st->SetY1NDC(0.8); //new y start position
 	st->SetY2NDC(0.9); //new y end position
 
