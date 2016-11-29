@@ -21,6 +21,8 @@ using namespace std;
 
 long long int MakeNewCellID(double const x, double const y, Subdetector const & component);
 
+float weight = 1;
+
 int main(int const argc, char const * const * const argv) {
 	//ConfigReaderAnalysis config(argv[1]);
 	//config.setUp();
@@ -138,9 +140,12 @@ int main(int const argc, char const * const * const argv) {
 
 	//Make histogram for storing the information
   std::string subdetectorname = det.getName();
-	std::string const title = "Occupancy for subdetector " + subdetectorname;
-	//std::string const title = "Normalized buffer depth for subdetector " + subdetectorname;
+	std::string const title = "Occupancy for subdetector " + subdetectorname + ";Number of hits per cell;Number of cells";
+	std::string const title2 = "Occupancy for subdetector " + subdetectorname + " wrt to total number of cells;Assumend buffer depth;Number of hits lost";
+	std::string const title3 = "Buffer depth for subdetector " + subdetectorname + ";Assumend buffer depth;Number of hits lost";
 	std::vector< TH1D* > histos;
+	std::vector< TH1D* > histos_numcells;
+	std::vector< TH1D* > histos_bufferdepth;
 	std::vector< TPaveStats* > stats;
 
 	int tot_no_hits = 0;
@@ -150,20 +155,47 @@ int main(int const argc, char const * const * const argv) {
       tot_no_hits += HitCount->Get_HitCount().at(vecpos);
 	}
 
-	TH1D* All_Layers_histo = new TH1D("All layers", title.c_str(), max_no_hits*1.1/2, 0, max_no_hits*1.1);
+	int xrange = max_no_hits + max_no_hits/10;
+	TH1D* All_Layers_histo = new TH1D("All_layers", title.c_str(), xrange/2, 0, xrange);
+	TH1D* All_Layers_histo_numcells = new TH1D("All_layers_wrt_#cells", title2.c_str(), xrange/2, 0, xrange);
+	TH1D* All_Layers_histo_bufferdepth = new TH1D("All_layers_bufferdepth", title3.c_str(), xrange/2, 0, xrange);
 	int max_num_layers = det.getNumberOfLayers();
 	for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
-		std::stringstream layername;
-		layername << "Layer " << number_layer;
-		histos.emplace_back(new TH1D(layername.str().c_str(), title.c_str(), max_no_hits*1.1/2, 0, max_no_hits*1.1));
+		std::stringstream layername, layername2, layername3;
+		layername << "Layer_" << number_layer;
+		layername2 << "Layer_" << number_layer << "_numcells";
+		layername3 << "Layer_" << number_layer << "_bufferdepth";
+		histos.emplace_back(new TH1D(layername.str().c_str(), title.c_str(), xrange/2, 0, xrange));
+		histos_numcells.emplace_back(new TH1D(layername2.str().c_str(), title2.c_str(), xrange/2, 0, xrange));
+		histos_bufferdepth.emplace_back(new TH1D(layername3.str().c_str(), title3.c_str(), xrange/2, 0, xrange));
 	}
   for (size_t vecpos = 0; vecpos < HitCount->Get_HitCount().size(); ++vecpos) {
     if(HitCount->Get_HitCount().at(vecpos) > 0){
 			//std::cout << "Layer: " << HitCount->Get_Layer().at(vecpos) << std::endl;
-      histos.at(HitCount->Get_Layer().at(vecpos) -1 )->Fill(HitCount->Get_HitCount().at(vecpos));//-1 for SiTrackerBarrel, because layer count starts from 1
-      All_Layers_histo->Fill(HitCount->Get_HitCount().at(vecpos));
+      histos.at(HitCount->Get_Layer().at(vecpos) -1 )->Fill(HitCount->Get_HitCount().at(vecpos),weight);//-1 for SiTrackerBarrel, because layer count starts from 1
+      All_Layers_histo->Fill(HitCount->Get_HitCount().at(vecpos),weight);
     }
   }
+	//Filling numcells plots:
+	int tot_num_cells = 0;
+	int tot_num_hitcells = 0;
+	for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
+					tot_num_cells += det.getNumberOfCells().at(number_layer);
+					for (int bin = 2; bin < histos.at(number_layer)->GetNbinsX(); ++bin) {
+									tot_num_hitcells += histos.at(number_layer)->GetBinContent(bin);
+									histos_numcells.at(number_layer)->SetBinContent(bin, histos.at(number_layer)->GetBinContent(bin) );
+					}
+					histos.at( number_layer )->SetBinContent(1, det.getNumberOfCells().at(number_layer) - tot_num_hitcells );
+					histos_numcells.at( number_layer )->SetBinContent(1, det.getNumberOfCells().at(number_layer));
+					tot_num_hitcells = 0;
+	}
+	for (int bin = 2; bin < All_Layers_histo->GetNbinsX(); ++bin) {
+					std::cout << "BinCenter of bin " << bin << " = " << All_Layers_histo->GetBinCenter(bin) << std::endl;
+					tot_num_hitcells += All_Layers_histo->GetBinContent(bin);
+					All_Layers_histo_numcells->SetBinContent(bin, All_Layers_histo->GetBinContent(bin));
+	}
+	All_Layers_histo->SetBinContent(1, tot_num_cells - tot_num_hitcells);
+	All_Layers_histo_numcells->SetBinContent(1, tot_num_cells);
 
 	std::cout<< "---------------" <<std::endl;
 	std::cout<< "Total number of hits counted for this histogram: " << tot_no_hits <<std::endl;
