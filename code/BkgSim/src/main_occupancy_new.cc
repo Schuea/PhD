@@ -147,10 +147,10 @@ int main(int const argc, char const * const * const argv) {
 	int tot_no_hits = 0;
 
 	int max_num_layers = det.getNumberOfLayers();
-	for (int number_layer = 0; number_layer <= max_num_layers; ++number_layer) {
+	for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
 		std::stringstream layername;
 		layername << "Layer " << number_layer;
-		histos.emplace_back(new TH1D(layername.str().c_str(), title.c_str(), 100000, 0, 100000));
+		histos.emplace_back(new TH1D(layername.str().c_str(), title.c_str(), 50, 0, 100));
 	}
   for (size_t vecpos = 0; vecpos < HitCount->Get_HitCount().size(); ++vecpos) {
     if(HitCount->Get_HitCount().at(vecpos) > 0){
@@ -177,8 +177,14 @@ int main(int const argc, char const * const * const argv) {
 									histos.at(number_histo)->Draw();
 									canvas->Update();
 									TPaveStats* st =  (TPaveStats*)histos.at(number_histo)->GetListOfFunctions()->FindObject("stats");
-									st->SetX1NDC(0.6); //new x start position
-									st->SetX2NDC(0.75); //new x end position
+									if (max_num_layers > 5){
+													st->SetX1NDC(0.6); //new x start position
+													st->SetX2NDC(0.75); //new x end position
+									}
+									else{
+													st->SetX1NDC(0.75); //new x start position
+													st->SetX2NDC(0.9); //new x end position
+									}
 									st->SetY1NDC(0.8); //new y start position
 									st->SetY2NDC(0.9); //new y end position
 									stats.push_back(st);
@@ -190,21 +196,30 @@ int main(int const argc, char const * const * const argv) {
 									canvas->Update();
 									stats.push_back(  (TPaveStats*)histos.at(number_histo)->GetListOfFunctions()->FindObject("stats") );
 									stats.at(number_histo)->SetTextColor(2+number_histo);
-									if(number_histo >= 5){
+									if (max_num_layers > 5) {
+													if(number_histo >= 5){
+																	stats.at(number_histo)->SetX1NDC(0.75); //new x start position
+																	stats.at(number_histo)->SetX2NDC(0.9); //new x end position
+													}
+													else {
+																	stats.at(number_histo)->SetX1NDC(0.6); //new x start position
+																	stats.at(number_histo)->SetX2NDC(0.75); //new x end position
+													}
+													if(number_histo == 5) {
+																	stats.at(number_histo)->SetY1NDC(0.8); //new y end position
+																	stats.at(number_histo)->SetY2NDC(0.9); //new y end position
+													}
+													else {
+																	stats.at(number_histo)->SetY2NDC(stats.at(number_histo-1)->GetY1NDC()); //new y end position
+																	stats.at(number_histo)->SetY1NDC(stats.at(number_histo)->GetY2NDC()-boxsize); //new y start position
+													}
+									} 
+									else{
 													stats.at(number_histo)->SetX1NDC(0.75); //new x start position
 													stats.at(number_histo)->SetX2NDC(0.9); //new x end position
-									}
-									else {
-													stats.at(number_histo)->SetX1NDC(0.6); //new x start position
-													stats.at(number_histo)->SetX2NDC(0.75); //new x end position
-									}
-									if(number_histo == 5) {
-													stats.at(number_histo)->SetY1NDC(0.8); //new y end position
-													stats.at(number_histo)->SetY2NDC(0.9); //new y end position
-									}
-									else {
 													stats.at(number_histo)->SetY2NDC(stats.at(number_histo-1)->GetY1NDC()); //new y end position
 													stats.at(number_histo)->SetY1NDC(stats.at(number_histo)->GetY2NDC()-boxsize); //new y start position
+
 									}
 					}
 	}
