@@ -141,23 +141,27 @@ int main(int const argc, char const * const * const argv) {
 	std::string const title = "Occupancy for subdetector " + subdetectorname;
 	//std::string const title = "Normalized buffer depth for subdetector " + subdetectorname;
 	std::vector< TH1D* > histos;
-	TH1D* All_Layers_histo = new TH1D("All layers", title.c_str(), 10, 0, 10);
 	std::vector< TPaveStats* > stats;
 
 	int tot_no_hits = 0;
+	int max_no_hits = 0;
+  for (size_t vecpos = 0; vecpos < HitCount->Get_HitCount().size(); ++vecpos) {
+			if (HitCount->Get_HitCount().at(vecpos) > max_no_hits) max_no_hits = HitCount->Get_HitCount().at(vecpos);
+      tot_no_hits += HitCount->Get_HitCount().at(vecpos);
+	}
 
+	TH1D* All_Layers_histo = new TH1D("All layers", title.c_str(), max_no_hits*1.1/2, 0, max_no_hits*1.1);
 	int max_num_layers = det.getNumberOfLayers();
 	for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
 		std::stringstream layername;
 		layername << "Layer " << number_layer;
-		histos.emplace_back(new TH1D(layername.str().c_str(), title.c_str(), 50, 0, 100));
+		histos.emplace_back(new TH1D(layername.str().c_str(), title.c_str(), max_no_hits*1.1/2, 0, max_no_hits*1.1));
 	}
   for (size_t vecpos = 0; vecpos < HitCount->Get_HitCount().size(); ++vecpos) {
     if(HitCount->Get_HitCount().at(vecpos) > 0){
 			//std::cout << "Layer: " << HitCount->Get_Layer().at(vecpos) << std::endl;
       histos.at(HitCount->Get_Layer().at(vecpos) -1 )->Fill(HitCount->Get_HitCount().at(vecpos));//-1 for SiTrackerBarrel, because layer count starts from 1
       All_Layers_histo->Fill(HitCount->Get_HitCount().at(vecpos));
-      tot_no_hits += HitCount->Get_HitCount().at(vecpos);
     }
   }
 
