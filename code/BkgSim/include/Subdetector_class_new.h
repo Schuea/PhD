@@ -55,7 +55,7 @@ class Subdetector{
     void setNumberOfCells(std::vector< double > const number_of_cells);
 
     std::vector< double > ConvertCSVToVectorDoubles(std::string const csv);
-    void FillUpVector( std::vector< double > vec);
+    void FillUpVector( std::vector< double > & vec);
 };
 
 #endif

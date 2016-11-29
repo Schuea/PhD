@@ -32,51 +32,15 @@ Subdetector::Subdetector(string const subdetector_config_file){
     if(string(variable) == "cellSizeX") setCellSizeX(stof(string(value)));
     if(string(variable) == "cellSizeY") setCellSizeY(stof(string(value)));
 
-    if(string(variable) == "shape"){
-      //Depending on the shape, this will have multiple layers which have to be taken into account differently
-      for (int Layer = 0; Layer < getNumberOfLayers(); ++Layer){
-        if(string(value) == "octagon-barrel"){//MuonBarrel
-          getRLayer().push_back( sin(2*M_PI/8)*(getRMin().at(Layer)+(getRMax().at(Layer)-getRMin().at(Layer))/getNumberOfLayers())*(Layer+1)/sin((M_PI-2*M_PI/8)/2) );
-          getArea().push_back( getRLayer().back()*8*getLength().at(Layer) );
-          getNumberOfCells().push_back( (int)(getArea().back()/getCellSizeArea()) );
-        }
-        if(string(value) == "octagon-endcap"){//MuonEndcap
-          getRLayer().push_back( getRMax().at(Layer) );
-          getArea().push_back( pow(getRLayer().back(),2)*2*sqrt(2) - pow(getRMin().at(Layer),2)*8*tan(M_PI/8) );
-          getNumberOfCells().push_back( (int)(getArea().back()/getCellSizeArea()) );
-        }
-        if(string(value) == "dodecagon-barrel"){//Ecal+HcalBarrel
-          getRLayer().push_back( sin(2*M_PI/12)*(getRMin().at(Layer)+(getRMax().at(Layer)-getRMin().at(Layer))/getNumberOfLayers())*(Layer+1)/sin((M_PI-2*M_PI/12)/2) );
-          getArea().push_back( getRLayer().back()*12*getLength().at(Layer) );
-          getNumberOfCells().push_back( (int)(getArea().back()/getCellSizeArea()) );
-        }
-        if(string(value) == "dodecagon-endcap"){//Ecal+HcalEndcaps
-          getRLayer().push_back( getRMax().at(Layer) );
-          getArea().push_back( 3*pow(getRLayer().back(),2) - pow(getRMin().at(Layer),2)*12*(2-sqrt(3)) );
-          getNumberOfCells().push_back( (int)(getArea().back()/getCellSizeArea()) );
-        }
-        if(string(value) == "circle-barrel"){//SiVertex+TrackerBarrel
-          getRLayer().push_back( getRMax().at(Layer) );
-          getArea().push_back( 2*M_PI*getRMin().at(Layer)*2*getLength().at(Layer) );
-          getNumberOfCells().push_back( (int)(getArea().back()/getCellSizeArea()) );
-        }
-        if(string(value) == "circle-endcap"){//LumiCal,BeamCal,SiVertex+TrackerEndcap
-          getRLayer().push_back( getRMax().at(Layer) );
-          getArea().push_back( M_PI*(pow(getRLayer().back(),2) - pow(getRMin().at(Layer),2)) );
-          getNumberOfCells().push_back( (int)(getArea().back()/getCellSizeArea()) );
-        }
-      }
-    }
-  }
   //Check the input parameters for zHalf and length:
   if (getLength().size() == 0 && getZHalf().size() != 0){
     for (size_t i=0; i < getZHalf().size(); ++i){
-      getLength().at(i) = getZHalf().at(i)*2.0;
+      _length.push_back(getZHalf().at(i)*2.0);
     }
   }
   else if (getLength().size() != 0 && getZHalf().size() == 0){
     for (size_t i=0; i < getLength().size(); ++i){
-      getZHalf().at(i) = getLength().at(i)/2.0;
+      _zHalf.push_back(getLength().at(i)/2.0);
     }
   }
   else{
@@ -94,6 +58,42 @@ Subdetector::Subdetector(string const subdetector_config_file){
           cerr << "The number of input parameters for zHalf and length is not the same!" << endl; 
           cerr << "Exited in file " << __FILE__ << " on line " << __LINE__ << endl; 
           exit(-1);
+    }
+  }
+    if(string(variable) == "shape"){
+      //Depending on the shape, this will have multiple layers which have to be taken into account differently
+      for (int Layer = 0; Layer < getNumberOfLayers(); ++Layer){
+        if(string(value) == "octagon-barrel"){//MuonBarrel
+          _rLayer.push_back( sin(2*M_PI/8)*(getRMin().at(Layer)+(getRMax().at(Layer)-getRMin().at(Layer))/getNumberOfLayers())*(Layer+1)/sin((M_PI-2*M_PI/8)/2) );
+          _area.push_back( getRLayer().back()*8*getLength().at(Layer) );
+          _numberOfCells.push_back( (int)(getArea().back()/getCellSizeArea()) );
+        }
+        if(string(value) == "octagon-endcap"){//MuonEndcap
+          _rLayer.push_back( getRMax().at(Layer) );
+          _area.push_back( pow(getRLayer().back(),2)*2*sqrt(2) - pow(getRMin().at(Layer),2)*8*tan(M_PI/8) );
+          _numberOfCells.push_back( (int)(getArea().back()/getCellSizeArea()) );
+        }
+        if(string(value) == "dodecagon-barrel"){//Ecal+HcalBarrel
+          _rLayer.push_back( sin(2*M_PI/12)*(getRMin().at(Layer)+(getRMax().at(Layer)-getRMin().at(Layer))/getNumberOfLayers())*(Layer+1)/sin((M_PI-2*M_PI/12)/2) );
+          _area.push_back( getRLayer().back()*12*getLength().at(Layer) );
+          _numberOfCells.push_back( (int)(getArea().back()/getCellSizeArea()) );
+        }
+        if(string(value) == "dodecagon-endcap"){//Ecal+HcalEndcaps
+          _rLayer.push_back( getRMax().at(Layer) );
+          _area.push_back( 3*pow(getRLayer().back(),2) - pow(getRMin().at(Layer),2)*12*(2-sqrt(3)) );
+          _numberOfCells.push_back( (int)(getArea().back()/getCellSizeArea()) );
+        }
+        if(string(value) == "circle-barrel"){//SiVertex+TrackerBarrel
+          _rLayer.push_back( getRMax().at(Layer) );
+          _area.push_back( 2*M_PI*getRMin().at(Layer)*2*getLength().at(Layer) );
+          _numberOfCells.push_back( (int)(getArea().back()/getCellSizeArea()) );
+        }
+        if(string(value) == "circle-endcap"){//LumiCal,BeamCal,SiVertex+TrackerEndcap
+          _rLayer.push_back( getRMax().at(Layer) );
+          _area.push_back( M_PI*(pow(getRLayer().back(),2) - pow(getRMin().at(Layer),2)) );
+          _numberOfCells.push_back( (int)(getArea().back()/getCellSizeArea()) );
+        }
+      }
     }
   }
   
@@ -226,7 +226,7 @@ vector< double > Subdetector::ConvertCSVToVectorDoubles(string const csv){
   return result;
 }
 
-void Subdetector::FillUpVector( std::vector< double > vec ){
+void Subdetector::FillUpVector( std::vector< double > & vec ){
     if (vec.size() == 1){//if only one number is given, fill the vector with the same number for the rest of the layers
       for (int l=0; l < getNumberOfLayers()-1; ++l){
         vec.push_back( vec.at(0) );
