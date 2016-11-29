@@ -174,8 +174,10 @@ int main(int const argc, char const * const * const argv) {
 	TCanvas *canvas = new TCanvas("canvas", "canvas", 800, 600);
 	canvas->SetLogy(1);
 	float boxsize = 0.0;
+	double max=GetMinMaxForMultipleOverlappingHistograms(histos,true).second;
 	for (size_t number_histo = 0; number_histo< histos.size(); ++number_histo) {
 					histos.at(number_histo)->SetMinimum(0.1);
+					histos.at(number_histo)->SetMaximum(max);
 					if(number_histo == 0){
 									histos.at(number_histo)->SetLineColor(2);
 									histos.at(number_histo)->Draw();
