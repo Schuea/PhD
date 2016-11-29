@@ -144,7 +144,8 @@ int main(int const argc, char const * const * const argv) {
   std::string subdetectorname = det.getName();
 	std::string const title = "Occupancy for subdetector " + subdetectorname + ";Number of hits per cell;Number of cells";
 	std::string const title2 = "Occupancy for subdetector " + subdetectorname + " wrt to total number of cells;Assumend buffer depth;Number of hits lost";
-	std::string const title3 = "Buffer depth for subdetector " + subdetectorname + ";Assumend buffer depth;Number of hits lost";
+	std::string const title3 = "Number of hits lost for a given buffer depth for subdetector " + subdetectorname + ";Assumend buffer depth;Number of hits lost";
+	std::string const title4 = "Number of dead cells for a given buffer depth for subdetector " + subdetectorname + ";Assumend buffer depth;Number of dead cells";
 	std::vector< TH1D* > histos;
 	std::vector< TH1D* > histos_numcells;
 	std::vector< TH1D* > histos_bufferdepth;
@@ -160,6 +161,7 @@ int main(int const argc, char const * const * const argv) {
 	TH1D* All_Layers_histo = new TH1D("All_layers", title.c_str(), xrange, 0, xrange);
 	TH1D* All_Layers_histo_numcells = new TH1D("All_layers_wrt_#cells", title2.c_str(), xrange, 0, xrange);
 	TH1D* All_Layers_histo_bufferdepth = new TH1D("All_layers_bufferdepth", title3.c_str(), xrange, 0, xrange);
+	TH1D* All_Layers_histo_deadcells = new TH1D("All_layers_deadcells", title4.c_str(), xrange, 0, xrange);
 	int max_num_layers = det.getNumberOfLayers();
 	for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
 		std::stringstream layername, layername2, layername3;
@@ -201,10 +203,13 @@ int main(int const argc, char const * const * const argv) {
 	//Filling bufferdepth plots:
 	for (int i = 0; i <= max_no_hits; ++i){//For each bufferdepth
 					int tot = 0;
+					int deadcells = 0;
 					for (int bin = i+1; bin < All_Layers_histo->GetNbinsX(); ++bin) {//go through the histo from bufferdepth value onwards
 									tot += All_Layers_histo->GetBinContent(bin) * (All_Layers_histo->GetBinLowEdge(bin) - i);//Sum the total number of hits in each of these bins
+									deadcells += All_Layers_histo->GetBinContent(bin);
 					}
 					All_Layers_histo_bufferdepth->SetBinContent(i+1, tot);
+					All_Layers_histo_deadcells->SetBinContent(i+1, deadcells);
 	}
 
 	std::cout<< "---------------" <<std::endl;
@@ -251,6 +256,12 @@ int main(int const argc, char const * const * const argv) {
   All_output3 << "output/muon_occupancy_bufferdepth_all_layers_" << subdetectorname;
 	canvas->Print((All_output3.str() + ".pdf").c_str());
 	canvas->Print((All_output3.str() + ".cxx").c_str());
+
+  Draw_single_plots ( All_Layers_histo_deadcells,canvas);
+  std::stringstream All_output4;
+  All_output4 << "output/muon_occupancy_deadcells_all_layers_" << subdetectorname;
+	canvas->Print((All_output4.str() + ".pdf").c_str());
+	canvas->Print((All_output4.str() + ".cxx").c_str());
 
 	return 0;
 }
