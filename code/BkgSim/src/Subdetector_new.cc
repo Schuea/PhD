@@ -25,6 +25,7 @@ Subdetector::Subdetector(string const subdetector_config_file){
   while(!file.eof()){
     file.getline(variable, 256, '=');
     file.getline(value, 256);
+    if(string(variable) == "name") setName(string(value));
     if(string(variable) == "numberOfLayers") setNumberOfLayers(stoi(string(value)));
     if(string(variable) == "startBitLayer") setStartBitLayer(stoi(string(value)));
     if(string(variable) == "lengthBitLayer") setLengthBitLayer(stoi(string(value)));
@@ -102,6 +103,10 @@ Subdetector::Subdetector(string const subdetector_config_file){
   
 }
 
+std::string Subdetector::getName() const{
+  return _name;
+}
+
 int Subdetector::getNumberOfLayers() const{
   return _numberOfLayers;
 }
@@ -114,15 +119,15 @@ int Subdetector::getLengthBitLayer() const{
   return _lengthBitLayer;
 }
 
-vector< double > Subdetector::getRMin() const{
+std::vector< double > Subdetector::getRMin() const{
   return _rMin;
 }
 
-vector< double > Subdetector::getRMax() const{
+std::vector< double > Subdetector::getRMax() const{
   return _rMax;
 }
 
-vector< double > Subdetector::getZHalf() const{
+std::vector< double > Subdetector::getZHalf() const{
   return _zHalf;
 }
 
@@ -138,7 +143,7 @@ double Subdetector::getCellSizeArea() const{
   return _cellSizeArea;
 }
 
-vector< double > Subdetector::getLength() const{
+std::vector< double > Subdetector::getLength() const{
   return _length;
 }
 
@@ -152,6 +157,10 @@ std::vector< double > Subdetector::getArea() const{
 
 std::vector< double > Subdetector::getNumberOfCells() const{
   return _numberOfCells;
+}
+
+void Subdetector::setName(string const name){
+  _name = name;
 }
 
 void Subdetector::setNumberOfLayers(int const number_of_layers){
