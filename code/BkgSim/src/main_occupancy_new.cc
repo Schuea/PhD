@@ -12,10 +12,9 @@
 #include <string>
 #include <vector>
 
-#include "ConfigReaderAnalysis.h"
 #include "UsefulFunctions.h"
-#include "CellHits_class.h"
 #include "GeneralFunctions_SiDBkgSim.h"
+#include "CellHits_class_new.h"
 
 using namespace std;
 
@@ -93,17 +92,17 @@ int main(int const argc, char const * const * const argv) {
 
   Subdetector det( argument_subdetectors );
 
-		CellHits * HitCount = new CellHits( det );
+	CellHits * HitCount = new CellHits( det );
 
 		for (int file_iterator = 0; file_iterator < NUMBER_OF_FILES; ++file_iterator) {
 			TFile *file = TFile::Open(inputfilenames->at(file_iterator).c_str());
-			TTree *tree = Get_TTree(file, det->GetName());
+			TTree *tree = Get_TTree(file, det.getName());
 
 			//Set the branches
 			tree->SetBranchStatus("*", 0);
 			//tree->SetBranchStatus("HitCellID", 1);
 			tree->SetBranchStatus("HitCellID0", 1);
-			tree->SetBranchStatus("HitCellID1", 1);
+			//tree->SetBranchStatus("HitCellID1", 1);
 			tree->SetBranchStatus("HitPosition_x", 1);
 			tree->SetBranchStatus("HitPosition_y", 1);
 			tree->SetBranchStatus("HitPosition_z", 1);
@@ -114,7 +113,7 @@ int main(int const argc, char const * const * const argv) {
 
 			//tree->SetBranchAddress("HitCellID", &HitCellID0);
 			tree->SetBranchAddress("HitCellID0", &HitCellID0);
-			tree->SetBranchAddress("HitCellID1", &HitCellID1);
+			//tree->SetBranchAddress("HitCellID1", &HitCellID1);
 			tree->SetBranchAddress("HitPosition_x", &HitPosition_x);
 			tree->SetBranchAddress("HitPosition_y", &HitPosition_y);
 			tree->SetBranchAddress("HitPosition_z", &HitPosition_z);
@@ -128,6 +127,7 @@ int main(int const argc, char const * const * const argv) {
 				tree->GetEntry(i);
 				//if (HitPosition_z < 0) continue;
 				//Make a combined cell ID
+        long long int HitCellID1 = MakeNewCellID(Hitposition_x,Hitposition_y,det);
 				long long int const combined_cell_id = (long long) HitCellID1 << 32 | HitCellID0;
 				//Use the CellHits class for storing the hit cells and their hitcounts
 				HitCount->Check_CellID(combined_cell_id, HitPosition_x, HitPosition_y, HitPosition_z);
@@ -144,25 +144,19 @@ int main(int const argc, char const * const * const argv) {
 
 	int tot_no_hits = 0;
 
-	int max_num_layers = 0;
-	for (size_t subdetector_it = 0; subdetector_it < SubDetectors->size(); ++subdetector_it) {
-		if(max_num_layers < SubDetectors->at(subdetector_it)->GetNumberOfLayers()){
-			max_num_layers = SubDetectors->at(subdetector_it)->GetNumberOfLayers();
-		}
-	}
+	int max_num_layers = det.getNumberOfLayers();
 	for (int number_layer = 0; number_layer <= max_num_layers; ++number_layer) {
 		std::stringstream layername;
 		layername << "Layer " << number_layer;
 		histos.emplace_back(new TH1D(layername.str().c_str(), title.c_str(), 100000, 0, 100000));
 	}
-	for (size_t allcellhits = 0; allcellhits < AllCellHits.size(); ++allcellhits) {
-		for (size_t hitcounts = 0; hitcounts < AllCellHits.at(allcellhits)->Get_HitCount().size(); ++hitcounts) {
-      if(AllCellHits.at(allcellhits)->Get_HitCount().at(hitcounts) > 0)
-			histos.at(AllCellHits.at(allcellhits)->Get_Layer().at(hitcounts))->Fill(AllCellHits.at(allcellhits)->Get_HitCount().at(hitcounts));
-			All_Layers_histo->Fill(AllCellHits.at(allcellhits)->Get_HitCount().at(hitcounts));
-			tot_no_hits += AllCellHits.at(allcellhits)->Get_HitCount().at(hitcounts);
-		}
-	}
+  for (size_t vecpos = 0; vecpos < HitCount->Get_HitCount().size(); ++vecpos) {
+    if(HitCount->Get_HitCount().at(vecpos) > 0){
+      histos.at(HitCount->Get_Layer().at(vecpos))->Fill(HitCount->Get_HitCount().at(vecpos));
+      All_Layers_histo->Fill(HitCount->Get_HitCount().at(vecpos));
+      tot_no_hits += HitCount->Get_HitCount().at(vecpos);
+    }
+  }
 
 	std::cout<< "---------------" <<std::endl;
 	std::cout<< "Total number of hits counted for this histogram: " << tot_no_hits <<std::endl;
