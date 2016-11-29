@@ -12,14 +12,14 @@
 
 class CellHits {
 public:
-	CellHits(Subdetector subdetector) :
+	CellHits(Subdetector *subdetector) :
       SubDetector(subdetector),
       CellID(), 
       HitCount(), 
 			HitPosition_x(), 
 			HitPosition_y(), 
 			HitPosition_z(), 
-			Layer(),
+			Layer()
   {
 	}
 	~CellHits() {
@@ -29,6 +29,7 @@ public:
 	std::vector< int > Get_HitCount() const;
 	std::vector< float > Get_HitPosition(char xyz) const;
 	std::vector< int > Get_Layer() const;
+  int CalculateLayer(long long int const id);
 	int Get_NumberHitsPerLayer(int LayerNumber);
 
 	int Calculate_NumberHitsPerLayer(int LayerNumber);

@@ -34,7 +34,7 @@ class Subdetector{
     double getCellSizeX() const;
     double getCellSizeY() const;
     double getCellSizeArea() const;
-    double getLength() const;
+    std::vector< double > getLength() const;
     std::vector< double > getRLayer() const;
     std::vector< double > getArea() const;
     std::vector< double > getNumberOfCells() const;
@@ -49,10 +49,13 @@ class Subdetector{
     void setCellSizeX(double const cell_size_x);
     void setCellSizeY(double const cell_size_y);
     void setCellSizeArea(double const cell_size_area);
-    void setLength(double const length);
+    void setLength(std::vector< double > const length);
     void setRLayer(std::vector< double > const r_layer);
     void setArea(std::vector< double > const area);
     void setNumberOfCells(std::vector< double > const number_of_cells);
+
+    std::vector< double > ConvertCSVToVectorDoubles(std::string const csv);
+    void FillUpVector( std::vector< double > vec);
 };
 
 #endif

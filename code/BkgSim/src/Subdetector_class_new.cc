@@ -8,9 +8,6 @@
 
 using namespace std;
 
-vector< double > ConvertCSVToVectorDoubles(string const csv);
-void FillUpVector( vector< double > vec);
-
 Subdetector::Subdetector(){
 }
 
@@ -21,17 +18,17 @@ Subdetector::Subdetector(string const subdetector_config_file){
     exit(2);
   }
   char variable[256], value[256];
-  double const PI(3.1415926535);
   while(!file.eof()){
     file.getline(variable, 256, '=');
     file.getline(value, 256);
+    if(string(variable) == "name") setName(string(value));
     if(string(variable) == "numberOfLayers") setNumberOfLayers(stoi(string(value)));
     if(string(variable) == "startBitLayer") setStartBitLayer(stoi(string(value)));
     if(string(variable) == "lengthBitLayer") setLengthBitLayer(stoi(string(value)));
     if(string(variable) == "rMin") setRMin(ConvertCSVToVectorDoubles(string(value)));
     if(string(variable) == "rMax") setRMax(ConvertCSVToVectorDoubles(string(value)));
     if(string(variable) == "zHalf") setZHalf(ConvertCSVToVectorDoubles(string(value)));
-    if(string(variable) == "length") setLength(ConvertCSVToVectorDoubles(string(value));
+    if(string(variable) == "length") setLength(ConvertCSVToVectorDoubles(string(value)));
     if(string(variable) == "cellSizeX") setCellSizeX(stof(string(value)));
     if(string(variable) == "cellSizeY") setCellSizeY(stof(string(value)));
 
@@ -55,18 +52,18 @@ Subdetector::Subdetector(string const subdetector_config_file){
         }
         if(string(value) == "dodecagon-endcap"){//Ecal+HcalEndcaps
           getRLayer().push_back( getRMax().at(Layer) );
-          getArea().push_back( 3*pow(getRLayer().back(),2) - pow(getRMin().at(Layer),2)*12*(2-sqrt(3) );
+          getArea().push_back( 3*pow(getRLayer().back(),2) - pow(getRMin().at(Layer),2)*12*(2-sqrt(3)) );
           getNumberOfCells().push_back( (int)(getArea().back()/getCellSizeArea()) );
         }
         if(string(value) == "circle-barrel"){//SiVertex+TrackerBarrel
           getRLayer().push_back( getRMax().at(Layer) );
           getArea().push_back( 2*M_PI*getRMin().at(Layer)*2*getLength().at(Layer) );
-          getNumberOfCells().push_back( (int)(getArea.back()/getCellSizeArea()) );
+          getNumberOfCells().push_back( (int)(getArea().back()/getCellSizeArea()) );
         }
         if(string(value) == "circle-endcap"){//LumiCal,BeamCal,SiVertex+TrackerEndcap
           getRLayer().push_back( getRMax().at(Layer) );
-          getArea().push_back( M_PI*(pow(getRLayer().back(),2) - pow(getRMin().at(Layer),2) );
-          getNumberOfCells().push_back( (int)(getArea.back()/getCellSizeArea()) );
+          getArea().push_back( M_PI*(pow(getRLayer().back(),2) - pow(getRMin().at(Layer),2)) );
+          getNumberOfCells().push_back( (int)(getArea().back()/getCellSizeArea()) );
         }
       }
     }
@@ -77,7 +74,7 @@ Subdetector::Subdetector(string const subdetector_config_file){
       getLength().at(i) = getZHalf().at(i)*2.0;
     }
   }
-  else if (getLength.size() != 0 && getZHalf.size() == 0){
+  else if (getLength().size() != 0 && getZHalf().size() == 0){
     for (size_t i=0; i < getLength().size(); ++i){
       getZHalf().at(i) = getLength().at(i)/2.0;
     }
@@ -85,8 +82,8 @@ Subdetector::Subdetector(string const subdetector_config_file){
   else{
     if (getLength().size() == getZHalf().size()){
       for (size_t i=0; i < getLength().size(); ++i){
-        if (getZHalf().at(i) < getLength().at(i)/2.0 + numeric_limits<double>::epsilon &&
-            getZHalf().at(i) > getLength().at(i)/2.0 - numeric_limits<double>::epsilon){
+        if (getZHalf().at(i) < getLength().at(i)/2.0 + numeric_limits<double>::epsilon() &&
+            getZHalf().at(i) > getLength().at(i)/2.0 - numeric_limits<double>::epsilon() ){
           cerr << "The given numbers for zHalf and length are not in agreement!" << endl; 
           cerr << "Exited in file " << __FILE__ << " on line " << __LINE__ << endl; 
           exit(-1);
@@ -100,6 +97,10 @@ Subdetector::Subdetector(string const subdetector_config_file){
     }
   }
   
+}
+
+std::string Subdetector::getName() const{
+  return _name;
 }
 
 int Subdetector::getNumberOfLayers() const{
@@ -154,6 +155,10 @@ std::vector< double > Subdetector::getNumberOfCells() const{
   return _numberOfCells;
 }
 
+void Subdetector::setName(std::string const name){
+  _name = name;
+}
+
 void Subdetector::setNumberOfLayers(int const number_of_layers){
   _numberOfLayers = number_of_layers;
 }
@@ -190,7 +195,7 @@ void Subdetector::setCellSizeArea(double const cell_size_area){
   _cellSizeArea = cell_size_area;
 }
 
-void Subdetector::setLength(double const length){
+void Subdetector::setLength(std::vector< double > const length){
   _length = length;
 }
 
@@ -206,7 +211,7 @@ void Subdetector::setNumberOfCells(vector< double > const number_of_cells){
   _numberOfCells = number_of_cells;
 }
 
-vector< double > ConvertCSVToVectorDoubles(string const csv){
+vector< double > Subdetector::ConvertCSVToVectorDoubles(string const csv){
   int startpos(0);
   vector< double > result;
   while(csv.find(',',startpos) != string::npos){
@@ -221,11 +226,10 @@ vector< double > ConvertCSVToVectorDoubles(string const csv){
   return result;
 }
 
-void FillUpVector( vector< double > vec){
+void Subdetector::FillUpVector( std::vector< double > vec ){
     if (vec.size() == 1){//if only one number is given, fill the vector with the same number for the rest of the layers
       for (int l=0; l < getNumberOfLayers()-1; ++l){
         vec.push_back( vec.at(0) );
       }
     }
 }
-

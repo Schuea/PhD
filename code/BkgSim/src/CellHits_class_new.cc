@@ -6,6 +6,7 @@
  */
 
 #include <iostream>
+#include <sstream>
 
 #include <bitset>
 #include <vector>
@@ -21,10 +22,22 @@ std::vector<long long int> CellHits::Get_CellID() const {
 std::vector<int> CellHits::Get_HitCount() const {
 	return HitCount;
 }
-std::vector< int > CellHits::Get_Layer(Subdetector det, long long int const id) {
+std::vector< float > CellHits::Get_HitPosition(char xyz) const {
+	if (xyz != 'x' && xyz != 'y' && xyz != 'z') {
+		std::cerr << "Input not correct! Has to be 'x', 'y' or 'z'!" << std::endl;
+		exit(1);
+	}
+	else if (xyz == 'x') return HitPosition_x;
+	else if (xyz == 'y') return HitPosition_y;
+	else if (xyz == 'z') return HitPosition_z;
+}
+std::vector<int> CellHits::Get_Layer() const {
+	return Layer;
+}
+int CellHits::CalculateLayer(long long int const id) {
   std::bitset<64> cellidbit(id);
   std::string CellID_ = cellidbit.to_string();
-  Layer = -1;
+  int LayerInt = -1;
   std::stringstream LayerID;
 
   //This for loop calculates the layer id
@@ -33,15 +46,15 @@ std::vector< int > CellHits::Get_Layer(Subdetector det, long long int const id) 
   //The LengthBin is the length of the string we are interested in
   //We read from left to right, but we specify the start position from right to left
   //There is a magic +1 in there because strings start at element 0.
-  for (int i = CellID_.size() - (det.getStartBitLayer + det.getLengthBitLayers); i <= CellID_.size() - (det.getStartBitLayers + 1);
+  for (int i = CellID_.size() - (SubDetector->getStartBitLayer() + SubDetector->getLengthBitLayer()); i <= CellID_.size() - (SubDetector->getStartBitLayer() + 1);
       ++i) {
     LayerID << CellID_.at(i);
   }
 
   std::bitset<64> LayerIDbit(LayerID.str());
-  Layer = LayerIDbit.to_ulong();
+  LayerInt = LayerIDbit.to_ulong();
 
-  return Layer;
+  return LayerInt;
 }
 int CellHits::Get_NumberHitsPerLayer(int LayerNumber) {
 	return Calculate_NumberHitsPerLayer(LayerNumber);
@@ -65,7 +78,7 @@ void CellHits::Check_CellID(long long int const id, float const x, float const y
 		HitPosition_x.push_back(x);
 		HitPosition_y.push_back(y);
 		HitPosition_z.push_back(z);
-		Layer.push_back(GetLayer(subdetector, id));
+		Layer.push_back(CalculateLayer(id));
 	}
 }
 

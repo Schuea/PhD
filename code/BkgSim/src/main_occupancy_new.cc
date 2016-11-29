@@ -15,6 +15,7 @@
 #include "UsefulFunctions.h"
 #include "GeneralFunctions_SiDBkgSim.h"
 #include "CellHits_class_new.h"
+#include "Subdetector_class_new.h"
 
 using namespace std;
 
@@ -92,7 +93,7 @@ int main(int const argc, char const * const * const argv) {
 
   Subdetector det( argument_subdetectors );
 
-	CellHits * HitCount = new CellHits( det );
+	CellHits * HitCount = new CellHits( &det );
 
 		for (int file_iterator = 0; file_iterator < NUMBER_OF_FILES; ++file_iterator) {
 			TFile *file = TFile::Open(inputfilenames->at(file_iterator).c_str());
@@ -107,7 +108,8 @@ int main(int const argc, char const * const * const argv) {
 			tree->SetBranchStatus("HitPosition_y", 1);
 			tree->SetBranchStatus("HitPosition_z", 1);
 
-			int HitCellID0(0), HitCellID1(0);
+			int HitCellID0(0);
+      //int HitCellID1(0);
 			float HitPosition_x(0.0), HitPosition_y(0.0), HitPosition_z(0.0);
 			//double HitPosition_x(0.0), HitPosition_y(0.0);
 
@@ -127,7 +129,7 @@ int main(int const argc, char const * const * const argv) {
 				tree->GetEntry(i);
 				//if (HitPosition_z < 0) continue;
 				//Make a combined cell ID
-        long long int HitCellID1 = MakeNewCellID(Hitposition_x,Hitposition_y,det);
+        long long int HitCellID1 = MakeNewCellID(HitPosition_x,HitPosition_y,det);
 				long long int const combined_cell_id = (long long) HitCellID1 << 32 | HitCellID0;
 				//Use the CellHits class for storing the hit cells and their hitcounts
 				HitCount->Check_CellID(combined_cell_id, HitPosition_x, HitPosition_y, HitPosition_z);
@@ -136,8 +138,9 @@ int main(int const argc, char const * const * const argv) {
 		}
 
 	//Make histogram for storing the information
-	std::string const title = "Occupancy for subdetector " + subdetectornames;
-	//std::string const title = "Normalized buffer depth for subdetector " + subdetectornames;
+  std::string subdetectorname = det.getName();
+	std::string const title = "Occupancy for subdetector " + subdetectorname;
+	//std::string const title = "Normalized buffer depth for subdetector " + subdetectorname;
 	std::vector< TH1D* > histos;
 	TH1D* All_Layers_histo = new TH1D("All layers", title.c_str(), 10, 0, 10);
 	std::vector< TPaveStats* > stats;
@@ -195,7 +198,7 @@ int main(int const argc, char const * const * const argv) {
 					}
 	}
   std::stringstream output;
-  output << "output/muon_occupancy_" << subdetectornames;
+  output << "output/muon_occupancy_" << subdetectorname;
 	canvas->Print((output.str() + ".pdf").c_str());
 	canvas->Print((output.str() + ".cxx").c_str());
 
@@ -210,7 +213,7 @@ int main(int const argc, char const * const * const argv) {
 	st->SetY2NDC(0.9); //new y end position
 
   std::stringstream output2;
-  output2 << "output/muon_occupancy_all_layers_" << subdetectornames;
+  output2 << "output/muon_occupancy_all_layers_" << subdetectorname;
 	canvas->Print((output2.str() + ".pdf").c_str());
 	canvas->Print((output2.str() + ".cxx").c_str());
 
