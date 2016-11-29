@@ -173,13 +173,18 @@ int main(int const argc, char const * const * const argv) {
 	//Plot the histogram and save it
 	TCanvas *canvas = new TCanvas("canvas", "canvas", 800, 600);
 	canvas->SetLogy(1);
+	int color = 2; // Very first histogram will be drawn with the color 2, then counted up
+	int marker = 20; // Very first histogram will be drawn with the marker style 20, then counted up
 	float boxsize = 0.0;
 	double max=GetMinMaxForMultipleOverlappingHistograms(histos,true).second;
 	for (size_t number_histo = 0; number_histo< histos.size(); ++number_histo) {
 					histos.at(number_histo)->SetMinimum(0.1);
 					histos.at(number_histo)->SetMaximum(max);
+					histos.at(number_histo)->Sumw2();
 					if(number_histo == 0){
-									histos.at(number_histo)->SetLineColor(2);
+									histos.at(number_histo)->SetLineColor(color);
+									histos.at(number_histo)->SetMarkerColor(color);
+									histos.at(number_histo)->SetMarkerStyle(marker);
 									histos.at(number_histo)->Draw();
 									canvas->Update();
 									TPaveStats* st =  (TPaveStats*)histos.at(number_histo)->GetListOfFunctions()->FindObject("stats");
@@ -197,11 +202,16 @@ int main(int const argc, char const * const * const argv) {
 									boxsize = stats.at(number_histo)->GetY2NDC() - stats.at(number_histo)->GetY1NDC();
 					}
 					if(number_histo > 0){
-									histos.at(number_histo)->SetLineColor(2+number_histo);
+									color++;
+									marker++;
+									if(color == 5 || color == 10) color += 1; // 5 would be yellow, 10 would be very light gray 
+									histos.at(number_histo)->SetLineColor(color);
+									histos.at(number_histo)->SetMarkerColor(color);
+									histos.at(number_histo)->SetMarkerStyle(marker);
 									histos.at(number_histo)->Draw("SAMES");
 									canvas->Update();
 									stats.push_back(  (TPaveStats*)histos.at(number_histo)->GetListOfFunctions()->FindObject("stats") );
-									stats.at(number_histo)->SetTextColor(2+number_histo);
+									stats.at(number_histo)->SetTextColor(color);
 									if (max_num_layers > 5) {
 													if(number_histo >= 5){
 																	stats.at(number_histo)->SetX1NDC(0.75); //new x start position
