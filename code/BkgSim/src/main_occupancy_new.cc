@@ -13,7 +13,7 @@
 #include <vector>
 
 #include "UsefulFunctions.h"
-#include "GeneralFunctions_SiDBkgSim.h"
+#include "GeneralFunctions_SiDBkgSim_new.h"
 #include "CellHits_class_new.h"
 #include "Subdetector_class_new.h"
 
