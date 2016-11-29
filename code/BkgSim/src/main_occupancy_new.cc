@@ -154,7 +154,8 @@ int main(int const argc, char const * const * const argv) {
 	}
   for (size_t vecpos = 0; vecpos < HitCount->Get_HitCount().size(); ++vecpos) {
     if(HitCount->Get_HitCount().at(vecpos) > 0){
-      histos.at(HitCount->Get_Layer().at(vecpos))->Fill(HitCount->Get_HitCount().at(vecpos));
+			//std::cout << "Layer: " << HitCount->Get_Layer().at(vecpos) << std::endl;
+      histos.at(HitCount->Get_Layer().at(vecpos) -1 )->Fill(HitCount->Get_HitCount().at(vecpos));//-1 for SiTrackerBarrel, because layer count starts from 1
       All_Layers_histo->Fill(HitCount->Get_HitCount().at(vecpos));
       tot_no_hits += HitCount->Get_HitCount().at(vecpos);
     }
@@ -176,8 +177,8 @@ int main(int const argc, char const * const * const argv) {
 									histos.at(number_histo)->Draw();
 									canvas->Update();
 									TPaveStats* st =  (TPaveStats*)histos.at(number_histo)->GetListOfFunctions()->FindObject("stats");
-									st->SetX1NDC(0.65); //new x start position
-									st->SetX2NDC(0.85); //new x end position
+									st->SetX1NDC(0.6); //new x start position
+									st->SetX2NDC(0.75); //new x end position
 									st->SetY1NDC(0.8); //new y start position
 									st->SetY2NDC(0.9); //new y end position
 									stats.push_back(st);
@@ -187,13 +188,24 @@ int main(int const argc, char const * const * const argv) {
 									histos.at(number_histo)->SetLineColor(2+number_histo);
 									histos.at(number_histo)->Draw("SAMES");
 									canvas->Update();
-									TPaveStats* st =  (TPaveStats*)histos.at(number_histo)->GetListOfFunctions()->FindObject("stats");
-									stats.push_back(st);
+									stats.push_back(  (TPaveStats*)histos.at(number_histo)->GetListOfFunctions()->FindObject("stats") );
 									stats.at(number_histo)->SetTextColor(2+number_histo);
-									stats.at(number_histo)->SetX1NDC(0.65); //new x start position
-									stats.at(number_histo)->SetX2NDC(0.85); //new x end position
-									stats.at(number_histo)->SetY2NDC(stats.at(number_histo-1)->GetY1NDC()); //new y end position
-									stats.at(number_histo)->SetY1NDC(stats.at(number_histo-1)->GetY2NDC()-boxsize); //new y start position
+									if(number_histo >= 5){
+													stats.at(number_histo)->SetX1NDC(0.75); //new x start position
+													stats.at(number_histo)->SetX2NDC(0.9); //new x end position
+									}
+									else {
+													stats.at(number_histo)->SetX1NDC(0.6); //new x start position
+													stats.at(number_histo)->SetX2NDC(0.75); //new x end position
+									}
+									if(number_histo == 5) {
+													stats.at(number_histo)->SetY1NDC(0.8); //new y end position
+													stats.at(number_histo)->SetY2NDC(0.9); //new y end position
+									}
+									else {
+													stats.at(number_histo)->SetY2NDC(stats.at(number_histo-1)->GetY1NDC()); //new y end position
+													stats.at(number_histo)->SetY1NDC(stats.at(number_histo)->GetY2NDC()-boxsize); //new y start position
+									}
 					}
 	}
   std::stringstream output;
