@@ -20,6 +20,8 @@
 using namespace std;
 
 long long int MakeNewCellID(double const x, double const y, Subdetector const & component);
+void Draw_single_plots ( TH1D* histo, TCanvas* canvas);
+void Draw_multiple_plots ( std::vector< TH1D* > histos, TCanvas* canvas);
 
 float weight = 1;
 
@@ -146,7 +148,6 @@ int main(int const argc, char const * const * const argv) {
 	std::vector< TH1D* > histos;
 	std::vector< TH1D* > histos_numcells;
 	std::vector< TH1D* > histos_bufferdepth;
-	std::vector< TPaveStats* > stats;
 
 	int tot_no_hits = 0;
 	int max_no_hits = 0;
@@ -156,18 +157,18 @@ int main(int const argc, char const * const * const argv) {
 	}
 
 	int xrange = max_no_hits + max_no_hits/10;
-	TH1D* All_Layers_histo = new TH1D("All_layers", title.c_str(), xrange/2, 0, xrange);
-	TH1D* All_Layers_histo_numcells = new TH1D("All_layers_wrt_#cells", title2.c_str(), xrange/2, 0, xrange);
-	TH1D* All_Layers_histo_bufferdepth = new TH1D("All_layers_bufferdepth", title3.c_str(), xrange/2, 0, xrange);
+	TH1D* All_Layers_histo = new TH1D("All_layers", title.c_str(), xrange, 0, xrange);
+	TH1D* All_Layers_histo_numcells = new TH1D("All_layers_wrt_#cells", title2.c_str(), xrange, 0, xrange);
+	TH1D* All_Layers_histo_bufferdepth = new TH1D("All_layers_bufferdepth", title3.c_str(), xrange, 0, xrange);
 	int max_num_layers = det.getNumberOfLayers();
 	for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
 		std::stringstream layername, layername2, layername3;
 		layername << "Layer_" << number_layer;
 		layername2 << "Layer_" << number_layer << "_numcells";
 		layername3 << "Layer_" << number_layer << "_bufferdepth";
-		histos.emplace_back(new TH1D(layername.str().c_str(), title.c_str(), xrange/2, 0, xrange));
-		histos_numcells.emplace_back(new TH1D(layername2.str().c_str(), title2.c_str(), xrange/2, 0, xrange));
-		histos_bufferdepth.emplace_back(new TH1D(layername3.str().c_str(), title3.c_str(), xrange/2, 0, xrange));
+		histos.emplace_back(new TH1D(layername.str().c_str(), title.c_str(), xrange, 0, xrange));
+		histos_numcells.emplace_back(new TH1D(layername2.str().c_str(), title2.c_str(), xrange, 0, xrange));
+		histos_bufferdepth.emplace_back(new TH1D(layername3.str().c_str(), title3.c_str(), xrange, 0, xrange));
 	}
   for (size_t vecpos = 0; vecpos < HitCount->Get_HitCount().size(); ++vecpos) {
     if(HitCount->Get_HitCount().at(vecpos) > 0){
@@ -190,12 +191,21 @@ int main(int const argc, char const * const * const argv) {
 					tot_num_hitcells = 0;
 	}
 	for (int bin = 2; bin < All_Layers_histo->GetNbinsX(); ++bin) {
-					std::cout << "BinCenter of bin " << bin << " = " << All_Layers_histo->GetBinCenter(bin) << std::endl;
+					std::cout << "BinCenter of bin " << bin << " = " << All_Layers_histo->GetBinLowEdge(bin) << std::endl;
 					tot_num_hitcells += All_Layers_histo->GetBinContent(bin);
 					All_Layers_histo_numcells->SetBinContent(bin, All_Layers_histo->GetBinContent(bin));
 	}
 	All_Layers_histo->SetBinContent(1, tot_num_cells - tot_num_hitcells);
 	All_Layers_histo_numcells->SetBinContent(1, tot_num_cells);
+
+	//Filling bufferdepth plots:
+	for (int i = 0; i <= max_no_hits; ++i){//For each bufferdepth
+					int tot = 0;
+					for (int bin = i+1; bin < All_Layers_histo->GetNbinsX(); ++bin) {//go through the histo from bufferdepth value onwards
+									tot += All_Layers_histo->GetBinContent(bin) * (All_Layers_histo->GetBinLowEdge(bin) - i);//Sum the total number of hits in each of these bins
+					}
+					All_Layers_histo_bufferdepth->SetBinContent(i+1, tot);
+	}
 
 	std::cout<< "---------------" <<std::endl;
 	std::cout<< "Total number of hits counted for this histogram: " << tot_no_hits <<std::endl;
@@ -205,6 +215,72 @@ int main(int const argc, char const * const * const argv) {
 	//Plot the histogram and save it
 	TCanvas *canvas = new TCanvas("canvas", "canvas", 800, 600);
 	canvas->SetLogy(1);
+
+	Draw_multiple_plots(histos,canvas);
+  std::stringstream output;
+  output << "output/muon_occupancy_" << subdetectorname;
+	canvas->Print((output.str() + ".pdf").c_str());
+	canvas->Print((output.str() + ".cxx").c_str());
+
+	Draw_multiple_plots(histos_numcells,canvas);
+  std::stringstream output2;
+  output2 << "output/muon_occupancy_numcells_" << subdetectorname;
+	canvas->Print((output2.str() + ".pdf").c_str());
+	canvas->Print((output2.str() + ".cxx").c_str());
+
+	Draw_multiple_plots(histos_bufferdepth,canvas);
+  std::stringstream output3;
+  output3 << "output/muon_occupancy_bufferdepth_" << subdetectorname;
+	canvas->Print((output3.str() + ".pdf").c_str());
+	canvas->Print((output3.str() + ".cxx").c_str());
+
+  Draw_single_plots ( All_Layers_histo,canvas);
+  std::stringstream All_output;
+  All_output << "output/muon_occupancy_all_layers_" << subdetectorname;
+	canvas->Print((All_output.str() + ".pdf").c_str());
+	canvas->Print((All_output.str() + ".cxx").c_str());
+
+  Draw_single_plots ( All_Layers_histo_numcells,canvas);
+  std::stringstream All_output2;
+  All_output2 << "output/muon_occupancy_numcells_all_layers_" << subdetectorname;
+	canvas->Print((All_output2.str() + ".pdf").c_str());
+	canvas->Print((All_output2.str() + ".cxx").c_str());
+
+  Draw_single_plots ( All_Layers_histo_bufferdepth,canvas);
+  std::stringstream All_output3;
+  All_output3 << "output/muon_occupancy_bufferdepth_all_layers_" << subdetectorname;
+	canvas->Print((All_output3.str() + ".pdf").c_str());
+	canvas->Print((All_output3.str() + ".cxx").c_str());
+
+	return 0;
+}
+
+long long int MakeNewCellID(double const x, double const y, Subdetector const & component){
+  int newX = static_cast<int>(x/component.getCellSizeArea()); //Check if Cell Size Area is the same as Cell Dimension
+  int newY = static_cast<int>(y/component.getCellSizeArea()); //Check if Cell Size Area is the same as Cell Dimension
+  if(x >= 0) ++newX;
+  if(y >= 0) ++newY;
+  bitset<32> bitY = newY;
+  newY = 0;
+  for(int i = 0; i < 31; ++i){
+    newY += bitY[i]*pow(2,i);
+  }
+  return newX << 32 | newY;
+}
+void Draw_single_plots ( TH1D* histo, TCanvas* canvas){
+	histo->SetMinimum(0.1);
+	histo->SetLineColor(2);
+	histo->Draw();
+	canvas->Update();
+	TPaveStats* st =  (TPaveStats*)histo->GetListOfFunctions()->FindObject("stats");
+	st->SetX1NDC(0.75); //new x start position
+	st->SetX2NDC(0.9); //new x end position
+	st->SetY1NDC(0.8); //new y start position
+	st->SetY2NDC(0.9); //new y end position
+
+}
+void Draw_multiple_plots ( std::vector< TH1D* > histos, TCanvas* canvas){
+	std::vector< TPaveStats* > stats;
 	int color = 2; // Very first histogram will be drawn with the color 2, then counted up
 	int marker = 20; // Very first histogram will be drawn with the marker style 20, then counted up
 	float boxsize = 0.0;
@@ -220,7 +296,7 @@ int main(int const argc, char const * const * const argv) {
 									histos.at(number_histo)->Draw();
 									canvas->Update();
 									TPaveStats* st =  (TPaveStats*)histos.at(number_histo)->GetListOfFunctions()->FindObject("stats");
-									if (max_num_layers > 5){
+									if (histos.size() > 5){
 													st->SetX1NDC(0.6); //new x start position
 													st->SetX2NDC(0.75); //new x end position
 									}
@@ -244,7 +320,7 @@ int main(int const argc, char const * const * const argv) {
 									canvas->Update();
 									stats.push_back(  (TPaveStats*)histos.at(number_histo)->GetListOfFunctions()->FindObject("stats") );
 									stats.at(number_histo)->SetTextColor(color);
-									if (max_num_layers > 5) {
+									if (histos.size() > 5) {
 													if(number_histo >= 5){
 																	stats.at(number_histo)->SetX1NDC(0.75); //new x start position
 																	stats.at(number_histo)->SetX2NDC(0.9); //new x end position
@@ -271,39 +347,4 @@ int main(int const argc, char const * const * const argv) {
 									}
 					}
 	}
-  std::stringstream output;
-  output << "output/muon_occupancy_" << subdetectorname;
-	canvas->Print((output.str() + ".pdf").c_str());
-	canvas->Print((output.str() + ".cxx").c_str());
-
-	All_Layers_histo->SetMinimum(0.1);
-	All_Layers_histo->SetLineColor(2);
-	All_Layers_histo->Draw();
-	canvas->Update();
-	TPaveStats* st =  (TPaveStats*)All_Layers_histo->GetListOfFunctions()->FindObject("stats");
-	st->SetX1NDC(0.75); //new x start position
-	st->SetX2NDC(0.9); //new x end position
-	st->SetY1NDC(0.8); //new y start position
-	st->SetY2NDC(0.9); //new y end position
-
-  std::stringstream output2;
-  output2 << "output/muon_occupancy_all_layers_" << subdetectorname;
-	canvas->Print((output2.str() + ".pdf").c_str());
-	canvas->Print((output2.str() + ".cxx").c_str());
-
-	return 0;
 }
-
-long long int MakeNewCellID(double const x, double const y, Subdetector const & component){
-  int newX = static_cast<int>(x/component.getCellSizeArea()); //Check if Cell Size Area is the same as Cell Dimension
-  int newY = static_cast<int>(y/component.getCellSizeArea()); //Check if Cell Size Area is the same as Cell Dimension
-  if(x >= 0) ++newX;
-  if(y >= 0) ++newY;
-  bitset<32> bitY = newY;
-  newY = 0;
-  for(int i = 0; i < 31; ++i){
-    newY += bitY[i]*pow(2,i);
-  }
-  return newX << 32 | newY;
-}
-
