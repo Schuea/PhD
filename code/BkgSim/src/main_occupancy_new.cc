@@ -94,7 +94,6 @@ int main(int const argc, char const * const * const argv) {
   Subdetector det( argument_subdetectors );
 
 	CellHits * HitCount = new CellHits( &det );
-
 		for (int file_iterator = 0; file_iterator < NUMBER_OF_FILES; ++file_iterator) {
 			TFile *file = TFile::Open(inputfilenames->at(file_iterator).c_str());
 			TTree *tree = Get_TTree(file, det.getName());
@@ -110,8 +109,8 @@ int main(int const argc, char const * const * const argv) {
 
 			int HitCellID0(0);
       //int HitCellID1(0);
-			float HitPosition_x(0.0), HitPosition_y(0.0), HitPosition_z(0.0);
-			//double HitPosition_x(0.0), HitPosition_y(0.0);
+			//float HitPosition_x(0.0), HitPosition_y(0.0), HitPosition_z(0.0);
+			double HitPosition_x(0.0), HitPosition_y(0.0), HitPosition_z(0.0);
 
 			//tree->SetBranchAddress("HitCellID", &HitCellID0);
 			tree->SetBranchAddress("HitCellID0", &HitCellID0);
