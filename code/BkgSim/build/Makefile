@@ -10,7 +10,7 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include -g -Wall -Wextra -pthread -O2 -std=c++
 CXXFLAGS +=  $(shell root-config --glibs)
 
 # Executables produced by this Makefile
-RUN = ../OccupancyPlotter ../ParticleCountPlotter ../FullBufferMapsPlotter ../FullBufferHistoPlotter ../ParticleOriginsTimePlotter ../HittimePlotter ../ggHadrons_HittimePlotter ../ggHadrons_pairs_HittimePlotter ../ggHadrons_pairs_PT_Plotter ../MomentumTimePlotter ../LatePrimariesCalculater ../HelixPlotter ../HelixEnvelopePlotter
+RUN = ../NewOccupancyPlotter ../OccupancyPlotter ../ParticleCountPlotter ../FullBufferMapsPlotter ../FullBufferHistoPlotter ../ParticleOriginsTimePlotter ../HittimePlotter ../ggHadrons_HittimePlotter ../ggHadrons_pairs_HittimePlotter ../ggHadrons_pairs_PT_Plotter ../MomentumTimePlotter ../LatePrimariesCalculater ../HelixPlotter ../HelixEnvelopePlotter
 
 
 # All tests produced by this Makefile.  Remember to add new tests you
@@ -18,6 +18,7 @@ RUN = ../OccupancyPlotter ../ParticleCountPlotter ../FullBufferMapsPlotter ../Fu
 TESTS = #Test
 
 # Useful variables
+MAIN_OCCUPANCY_NEW = ../objects/main_occupancy_new.o
 MAIN_OCCUPANCY = ../objects/main_occupancy.o
 MAIN_PARTICLECOUNTER = ../objects/main_particlecounter.o
 MAIN_HITMAPSFULLBUFFER = ../objects/main_hitmaps_fullbuffers.o
@@ -36,15 +37,18 @@ USEFUL = ../objects/UsefulFunctions.o
 STYLE = ../objects/Style.o
 STYLEUTILS = ../objects/Style_Utils.o
 GENERALFUNCTIONS = ../objects/GeneralFunctions_SiDBkgSim.o
-SUBDETECTOR = ../objects/Subdetector_class.o
-CELLHITS = ../objects/CellHits_class.o
+SUBDETECTOR_NEW = ../objects/Subdetector_class_new.o
+#SUBDETECTOR = ../objects/Subdetector_class.o
+CELLHITS_NEW = ../objects/CellHits_class_new.o
+#CELLHITS = ../objects/CellHits_class.o
 LAYERCODE = ../objects/LayerCodeInCellID_class.o
 TIME = ../objects/Time_class.o
 HELIX = ../objects/Helix_class.o
 
 INCLUDES = -I ../include/ -I ../test/include/ -I ../../General/include/
 
-OBJECTS = $(CONFIG) $(USEFUL) $(STYLE) $(STYLEUTILS) $(GENERALFUNCTIONS) $(SUBDETECTOR) $(CELLHITS) $(LAYERCODE) $(TIME) $(HELIX)
+OBJECTS = $(CONFIG) $(USEFUL) $(STYLE) $(STYLEUTILS) $(GENERALFUNCTIONS) $(SUBDETECTOR_NEW) $(CELLHITS_NEW) $(LAYERCODE) $(TIME) $(HELIX)
+#OBJECTS = $(CONFIG) $(USEFUL) $(STYLE) $(STYLEUTILS) $(GENERALFUNCTIONS) $(SUBDETECTOR_NEW) $(SUBDETECTOR) $(CELLHITS_NEW) $(CELLHITS) $(LAYERCODE) $(TIME) $(HELIX)
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -96,6 +100,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 
 # Building the graviton code
 
+../NewOccupancyPlotter : $(MAIN_OCCUPANCY_NEW) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
 ../OccupancyPlotter : $(MAIN_OCCUPANCY) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
@@ -139,6 +146,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/ConfigReaderAnalysis.o : ../src/ConfigReaderAnalysis.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/main_occupancy_new.o : ../src/main_occupancy_new.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_occupancy.o : ../src/main_occupancy.cc
@@ -192,7 +202,13 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 ../objects/GeneralFunctions_SiDBkgSim.o : ../src/GeneralFunctions_SiDBkgSim.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
+../objects/Subdetector_class_new.o : ../src/Subdetector_class_new.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
 ../objects/Subdetector_class.o : ../src/Subdetector_class.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/CellHits_class_new.o : ../src/CellHits_class_new.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/CellHits_class.o : ../src/CellHits_class.cc
