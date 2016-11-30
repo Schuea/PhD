@@ -204,26 +204,29 @@ int main(int const argc, char const * const * const argv) {
 
 	//Filling bufferdepth plots:
 	for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
+					std::cout << "layer: " << number_layer << std::endl;
 					for (int i = 0; i <= max_no_hits; ++i){//For each bufferdepth
-									int tot = 0;
-									int deadcells = 0;
+									long long int tot = 0;
+									long long int deadcells = 0;
 									for (int bin = i+1; bin < histos.at(number_layer)->GetNbinsX(); ++bin) {//go through the histo from bufferdepth value onwards
 													tot += histos.at(number_layer)->GetBinContent(bin) * (histos.at(number_layer)->GetBinLowEdge(bin) - i);//Sum the total number of hits in each of these bins
 													deadcells += histos.at(number_layer)->GetBinContent(bin);
 									}
 									histos_bufferdepth.at(number_layer)->SetBinContent(i+1, tot);
 									histos_deadcells.at(number_layer)->SetBinContent(i+1, deadcells);
+									std::cout << "bin: " << i+1 << ", deadcells: " << deadcells << std::endl;
 					}
 	}
 	for (int i = 0; i <= max_no_hits; ++i){//For each bufferdepth
-					int tot = 0;
-					int deadcells = 0;
+					long long int tot = 0;
+					long long int deadcells = 0;
 					for (int bin = i+1; bin < All_Layers_histo->GetNbinsX(); ++bin) {//go through the histo from bufferdepth value onwards
 									tot += All_Layers_histo->GetBinContent(bin) * (All_Layers_histo->GetBinLowEdge(bin) - i);//Sum the total number of hits in each of these bins
 									deadcells += All_Layers_histo->GetBinContent(bin);
 					}
 					All_Layers_histo_bufferdepth->SetBinContent(i+1, tot);
 					All_Layers_histo_deadcells->SetBinContent(i+1, deadcells);
+					std::cout << "bin: " << i+1 << ", deadcells: " << deadcells << std::endl;
 	}
 
 	std::cout<< "---------------" <<std::endl;
