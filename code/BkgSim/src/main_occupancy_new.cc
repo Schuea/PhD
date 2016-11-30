@@ -320,13 +320,14 @@ void Draw_multiple_plots ( std::vector< TH1D* > histos, TCanvas* canvas, bool no
 	float boxsize = 0.0;
 	double max=GetMinMaxForMultipleOverlappingHistograms(histos,true).second;
 	for (size_t number_histo = 0; number_histo< histos.size(); ++number_histo) {
-					histos.at(number_histo)->SetMinimum(0.1);
 					if(normalize == true){
 									histos.at(number_histo)->Scale(1.0/histos.at(number_histo)->GetBinContent(1));
 									histos.at(number_histo)->SetMinimum( pow(10,-12) );
 					}
-					histos.at(number_histo)->SetMinimum(0.1);
-					histos.at(number_histo)->SetMaximum(max);
+					else{
+									histos.at(number_histo)->SetMaximum(max);
+									histos.at(number_histo)->SetMinimum(0.1);
+					}
 					histos.at(number_histo)->Sumw2();
 					if(number_histo == 0){
 									histos.at(number_histo)->SetLineColor(color);
@@ -335,6 +336,7 @@ void Draw_multiple_plots ( std::vector< TH1D* > histos, TCanvas* canvas, bool no
 									histos.at(number_histo)->Draw();
 									canvas->Update();
 									TPaveStats* st =  (TPaveStats*)histos.at(number_histo)->GetListOfFunctions()->FindObject("stats");
+									st->SetTextColor(color);
 									if (histos.size() > 5){
 													st->SetX1NDC(0.6); //new x start position
 													st->SetX2NDC(0.75); //new x end position
