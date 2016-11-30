@@ -204,7 +204,6 @@ int main(int const argc, char const * const * const argv) {
 
 	//Filling bufferdepth plots:
 	for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
-					std::cout << "layer: " << number_layer << std::endl;
 					for (int i = 0; i <= max_no_hits; ++i){//For each bufferdepth
 									long long int tot = 0;
 									long long int deadcells = 0;
@@ -214,7 +213,6 @@ int main(int const argc, char const * const * const argv) {
 									}
 									histos_bufferdepth.at(number_layer)->SetBinContent(i+1, tot);
 									histos_deadcells.at(number_layer)->SetBinContent(i+1, deadcells);
-									std::cout << "bin: " << i+1 << ", deadcells: " << deadcells << std::endl;
 					}
 	}
 	for (int i = 0; i <= max_no_hits; ++i){//For each bufferdepth
@@ -226,7 +224,6 @@ int main(int const argc, char const * const * const argv) {
 					}
 					All_Layers_histo_bufferdepth->SetBinContent(i+1, tot);
 					All_Layers_histo_deadcells->SetBinContent(i+1, deadcells);
-					std::cout << "bin: " << i+1 << ", deadcells: " << deadcells << std::endl;
 	}
 
 	std::cout<< "---------------" <<std::endl;
