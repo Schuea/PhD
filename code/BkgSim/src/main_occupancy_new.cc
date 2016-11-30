@@ -20,8 +20,8 @@
 using namespace std;
 
 long long int MakeNewCellID(double const x, double const y, Subdetector const & component);
-void Draw_single_plots ( TH1D* histo, TCanvas* canvas);
-void Draw_multiple_plots ( std::vector< TH1D* > histos, TCanvas* canvas);
+void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize);
+void Draw_multiple_plots ( std::vector< TH1D* > histos, TCanvas* canvas, bool normalize);
 
 float weight = 1;
 
@@ -180,10 +180,11 @@ int main(int const argc, char const * const * const argv) {
     }
   }
 	//Filling numcells plots:
-	int tot_num_cells = 0;
-	int tot_num_hitcells = 0;
+	long long int tot_num_cells = 0;
+	long long int tot_num_hitcells = 0;
 	for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
 					tot_num_cells += det.getNumberOfCells().at(number_layer);
+					std::cout<< tot_num_cells << std::endl;
 					for (int bin = 2; bin < histos.at(number_layer)->GetNbinsX(); ++bin) {
 									tot_num_hitcells += histos.at(number_layer)->GetBinContent(bin);
 									histos_numcells.at(number_layer)->SetBinContent(bin, histos.at(number_layer)->GetBinContent(bin) );
@@ -199,6 +200,7 @@ int main(int const argc, char const * const * const argv) {
 	}
 	All_Layers_histo->SetBinContent(1, tot_num_cells - tot_num_hitcells);
 	All_Layers_histo_numcells->SetBinContent(1, tot_num_cells);
+	std::cout<<tot_num_cells <<std::endl;
 
 	//Filling bufferdepth plots:
 	for (int i = 0; i <= max_no_hits; ++i){//For each bufferdepth
@@ -216,48 +218,47 @@ int main(int const argc, char const * const * const argv) {
 	std::cout<< "Total number of hits counted for this histogram: " << tot_no_hits <<std::endl;
 	std::cout<< "---------------" <<std::endl;
 
-	//NormalizeHistogram(histo, 1.0);
 	//Plot the histogram and save it
 	TCanvas *canvas = new TCanvas("canvas", "canvas", 800, 600);
 	canvas->SetLogy(1);
 
-	Draw_multiple_plots(histos,canvas);
+	Draw_multiple_plots(histos, canvas, false);
   std::stringstream output;
   output << "output/muon_occupancy_" << subdetectorname;
 	canvas->Print((output.str() + ".pdf").c_str());
 	canvas->Print((output.str() + ".cxx").c_str());
 
-	Draw_multiple_plots(histos_numcells,canvas);
+	Draw_multiple_plots(histos_numcells, canvas, true);
   std::stringstream output2;
   output2 << "output/muon_occupancy_numcells_" << subdetectorname;
 	canvas->Print((output2.str() + ".pdf").c_str());
 	canvas->Print((output2.str() + ".cxx").c_str());
 
-	Draw_multiple_plots(histos_bufferdepth,canvas);
+	Draw_multiple_plots(histos_bufferdepth, canvas, false);
   std::stringstream output3;
   output3 << "output/muon_occupancy_bufferdepth_" << subdetectorname;
 	canvas->Print((output3.str() + ".pdf").c_str());
 	canvas->Print((output3.str() + ".cxx").c_str());
 
-  Draw_single_plots ( All_Layers_histo,canvas);
+  Draw_single_plots ( All_Layers_histo,canvas, false);
   std::stringstream All_output;
   All_output << "output/muon_occupancy_all_layers_" << subdetectorname;
 	canvas->Print((All_output.str() + ".pdf").c_str());
 	canvas->Print((All_output.str() + ".cxx").c_str());
 
-  Draw_single_plots ( All_Layers_histo_numcells,canvas);
-  std::stringstream All_output2;
+  Draw_single_plots ( All_Layers_histo_numcells,canvas, true); 
+	std::stringstream All_output2;
   All_output2 << "output/muon_occupancy_numcells_all_layers_" << subdetectorname;
 	canvas->Print((All_output2.str() + ".pdf").c_str());
 	canvas->Print((All_output2.str() + ".cxx").c_str());
 
-  Draw_single_plots ( All_Layers_histo_bufferdepth,canvas);
+  Draw_single_plots ( All_Layers_histo_bufferdepth,canvas, false);
   std::stringstream All_output3;
   All_output3 << "output/muon_occupancy_bufferdepth_all_layers_" << subdetectorname;
 	canvas->Print((All_output3.str() + ".pdf").c_str());
 	canvas->Print((All_output3.str() + ".cxx").c_str());
 
-  Draw_single_plots ( All_Layers_histo_deadcells,canvas);
+  Draw_single_plots ( All_Layers_histo_deadcells,canvas, false);
   std::stringstream All_output4;
   All_output4 << "output/muon_occupancy_deadcells_all_layers_" << subdetectorname;
 	canvas->Print((All_output4.str() + ".pdf").c_str());
@@ -278,7 +279,10 @@ long long int MakeNewCellID(double const x, double const y, Subdetector const & 
   }
   return newX << 32 | newY;
 }
-void Draw_single_plots ( TH1D* histo, TCanvas* canvas){
+void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize){
+	if(normalize == true){
+					histo->Scale(1.0/histo->GetBinContent(1));
+	}
 	histo->SetMinimum(0.1);
 	histo->SetLineColor(2);
 	histo->Draw();
@@ -290,13 +294,16 @@ void Draw_single_plots ( TH1D* histo, TCanvas* canvas){
 	st->SetY2NDC(0.9); //new y end position
 
 }
-void Draw_multiple_plots ( std::vector< TH1D* > histos, TCanvas* canvas){
+void Draw_multiple_plots ( std::vector< TH1D* > histos, TCanvas* canvas, bool normalize){
 	std::vector< TPaveStats* > stats;
 	int color = 2; // Very first histogram will be drawn with the color 2, then counted up
 	int marker = 20; // Very first histogram will be drawn with the marker style 20, then counted up
 	float boxsize = 0.0;
 	double max=GetMinMaxForMultipleOverlappingHistograms(histos,true).second;
 	for (size_t number_histo = 0; number_histo< histos.size(); ++number_histo) {
+					if(normalize == true){
+									histos.at(number_histo)->Scale(1.0/histos.at(number_histo)->GetBinContent(1));
+					}
 					histos.at(number_histo)->SetMinimum(0.1);
 					histos.at(number_histo)->SetMaximum(max);
 					histos.at(number_histo)->Sumw2();

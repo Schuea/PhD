@@ -31,6 +31,7 @@ Subdetector::Subdetector(string const subdetector_config_file){
     if(string(variable) == "length") setLength(ConvertCSVToVectorDoubles(string(value)));
     if(string(variable) == "cellSizeX") setCellSizeX(stof(string(value)));
     if(string(variable) == "cellSizeY") setCellSizeY(stof(string(value)));
+		setCellSizeArea(getCellSizeX()*getCellSizeY());
 
   //Check the input parameters for zHalf and length:
   if (getLength().size() == 0 && getZHalf().size() != 0){
@@ -66,32 +67,35 @@ Subdetector::Subdetector(string const subdetector_config_file){
         if(string(value) == "octagon-barrel"){//MuonBarrel
           _rLayer.push_back( sin(2*M_PI/8)*(getRMin().at(Layer)+(getRMax().at(Layer)-getRMin().at(Layer))/getNumberOfLayers())*(Layer+1)/sin((M_PI-2*M_PI/8)/2) );
           _area.push_back( getRLayer().back()*8*getLength().at(Layer) );
-          _numberOfCells.push_back( (int)(getArea().back()/getCellSizeArea()) );
+          _numberOfCells.push_back( (long long int)(getArea().back()/getCellSizeArea()) );
         }
         if(string(value) == "octagon-endcap"){//MuonEndcap
           _rLayer.push_back( getRMax().at(Layer) );
           _area.push_back( pow(getRLayer().back(),2)*2*sqrt(2) - pow(getRMin().at(Layer),2)*8*tan(M_PI/8) );
-          _numberOfCells.push_back( (int)(getArea().back()/getCellSizeArea()) );
+          _numberOfCells.push_back( (long long int)(getArea().back()/getCellSizeArea()) );
         }
         if(string(value) == "dodecagon-barrel"){//Ecal+HcalBarrel
           _rLayer.push_back( sin(2*M_PI/12)*(getRMin().at(Layer)+(getRMax().at(Layer)-getRMin().at(Layer))/getNumberOfLayers())*(Layer+1)/sin((M_PI-2*M_PI/12)/2) );
           _area.push_back( getRLayer().back()*12*getLength().at(Layer) );
-          _numberOfCells.push_back( (int)(getArea().back()/getCellSizeArea()) );
+          _numberOfCells.push_back( (long long int)(getArea().back()/getCellSizeArea()) );
         }
         if(string(value) == "dodecagon-endcap"){//Ecal+HcalEndcaps
           _rLayer.push_back( getRMax().at(Layer) );
           _area.push_back( 3*pow(getRLayer().back(),2) - pow(getRMin().at(Layer),2)*12*(2-sqrt(3)) );
-          _numberOfCells.push_back( (int)(getArea().back()/getCellSizeArea()) );
+          _numberOfCells.push_back( (long long int)(getArea().back()/getCellSizeArea()) );
         }
         if(string(value) == "circle-barrel"){//SiVertex+TrackerBarrel
           _rLayer.push_back( getRMax().at(Layer) );
           _area.push_back( 2*M_PI*getRMin().at(Layer)*2*getLength().at(Layer) );
-          _numberOfCells.push_back( (int)(getArea().back()/getCellSizeArea()) );
+          _numberOfCells.push_back( (long long int)(getArea().back()/getCellSizeArea()) );
+					std::cout << "getArea().back() = "<< getArea().back()<< std::endl;
+					std::cout << "getCellSizeArea() = "<< getCellSizeArea()<< std::endl;
+					std::cout << "getNumberOfCells() = "<< getNumberOfCells().back() << std::endl;
         }
         if(string(value) == "circle-endcap"){//LumiCal,BeamCal,SiVertex+TrackerEndcap
           _rLayer.push_back( getRMax().at(Layer) );
           _area.push_back( M_PI*(pow(getRLayer().back(),2) - pow(getRMin().at(Layer),2)) );
-          _numberOfCells.push_back( (int)(getArea().back()/getCellSizeArea()) );
+          _numberOfCells.push_back( (long long int)(getArea().back()/getCellSizeArea()) );
         }
       }
     }
@@ -151,7 +155,7 @@ std::vector< double > Subdetector::getArea() const{
   return _area;
 }
 
-std::vector< double > Subdetector::getNumberOfCells() const{
+std::vector< long long int > Subdetector::getNumberOfCells() const{
   return _numberOfCells;
 }
 
@@ -207,7 +211,7 @@ void Subdetector::setArea(vector< double > const area){
   _area = area;
 }
 
-void Subdetector::setNumberOfCells(vector< double > const number_of_cells){
+void Subdetector::setNumberOfCells(vector< long long int > const number_of_cells){
   _numberOfCells = number_of_cells;
 }
 
