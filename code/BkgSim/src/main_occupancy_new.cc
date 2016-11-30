@@ -252,7 +252,7 @@ int main(int const argc, char const * const * const argv) {
 	canvas->Print((output3.str() + ".pdf").c_str());
 	canvas->Print((output3.str() + ".cxx").c_str());
 
-	Draw_multiple_plots(histos_deadcells, canvas, false);
+	Draw_multiple_plots(histos_deadcells, canvas, true);
   std::stringstream output4;
   output4 << "output/muon_occupancy_deadcells_" << subdetectorname;
 	canvas->Print((output4.str() + ".pdf").c_str());
@@ -276,7 +276,7 @@ int main(int const argc, char const * const * const argv) {
 	canvas->Print((All_output3.str() + ".pdf").c_str());
 	canvas->Print((All_output3.str() + ".cxx").c_str());
 
-  Draw_single_plots ( All_Layers_histo_deadcells,canvas, false);
+  Draw_single_plots ( All_Layers_histo_deadcells,canvas, true);
   std::stringstream All_output4;
   All_output4 << "output/muon_occupancy_deadcells_all_layers_" << subdetectorname;
 	canvas->Print((All_output4.str() + ".pdf").c_str());
