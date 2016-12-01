@@ -303,17 +303,24 @@ int main(int const argc, char const * const * const argv) {
   output << "output/muon_occupancy_" << subdetectorname;
   Print_multiple_plots_from_same_vec (max_num_layers, histos, canvas, false, output.str());
 
+  std::cout << __LINE__ << std::endl;
   std::stringstream output2;
   output2 << "output/muon_occupancy_numcells_" << subdetectorname;
   Print_multiple_plots_from_same_vec (max_num_layers, histos_numcells, canvas, true, output2.str());
+  
+  std::cout << __LINE__ << std::endl;
 
   std::stringstream output3;
   output3 << "output/muon_occupancy_bufferdepth_" << subdetectorname;
+  
   Print_multiple_plots_from_same_vec (max_num_layers, histos_bufferdepth, canvas, false, output3.str());
+  std::cout << __LINE__ << std::endl;
 
   std::stringstream output4;
   output4 << "output/muon_occupancy_deadcells_" << subdetectorname;
   Print_multiple_plots_from_same_vec (max_num_layers, histos_deadcells, canvas, true, output4.str());
+
+  std::cout << __LINE__ << std::endl;
 
   Draw_All_Layer_plots_together( All_Layers_histo,canvas, false); 
   std::stringstream All_output;
@@ -408,6 +415,7 @@ void Draw_All_Layer_plots_together ( std::vector< TH1D* > histo, TCanvas* canvas
       histo.at(vec_entry)->Scale(1.0/histo.at(vec_entry)->GetBinContent(1));
       histo.at(vec_entry)->SetMinimum( pow(10,-12) );
     }
+  std::cout << __LINE__ << std::endl;
     if(vec_entry == 0){
       histo.at(vec_entry)->SetLineColor(2);
       histo.at(vec_entry)->Draw();
@@ -431,6 +439,7 @@ void Draw_All_Layer_plots_together ( std::vector< TH1D* > histo, TCanvas* canvas
       stats.at(vec_entry)->SetY2NDC(stats.at(vec_entry-1)->GetY1NDC()); //new y end position
       stats.at(vec_entry)->SetY1NDC(stats.at(vec_entry)->GetY2NDC()-boxsize); //new y start position
     }
+  std::cout << __LINE__ << std::endl;
   }
 }
 void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize){
@@ -455,6 +464,8 @@ void Print_multiple_plots_from_same_vec (int num_layers, std::vector< TH1D* > hi
   output1 << output << "_5spoilers";
 	canvas->Print((output1.str() + ".pdf").c_str());
 	canvas->Print((output1.str() + ".cxx").c_str());
+  
+  std::cout << __LINE__ << std::endl;
 
   start_layer = num_layers;
 	Draw_multiple_plots(num_layers, start_layer, histos, canvas, normalize);
@@ -465,11 +476,12 @@ void Print_multiple_plots_from_same_vec (int num_layers, std::vector< TH1D* > hi
 }
 void Draw_multiple_plots (int num_layers, int start_layer, std::vector< TH1D* > histos, TCanvas* canvas, bool normalize){
 	std::vector< TPaveStats* > stats;
+	float boxsize = 0.0;
+  int stat_count = 0;
 	int color = 2; // Very first histogram will be drawn with the color 2, then counted up
 	int marker = 20; // Very first histogram will be drawn with the marker style 20, then counted up
-	float boxsize = 0.0;
 	double max=GetMinMaxForMultipleOverlappingHistograms(histos,true).second;
-	for (size_t number_histo = start_layer; number_histo< start_layer+num_layers; ++number_histo) {
+	for (int number_histo = start_layer; number_histo< start_layer+num_layers; ++number_histo) {
 					if(normalize == true){
 									histos.at(number_histo)->Scale(1.0/histos.at(number_histo)->GetBinContent(1));
 									histos.at(number_histo)->SetMinimum( pow(10,-12) );
@@ -479,7 +491,8 @@ void Draw_multiple_plots (int num_layers, int start_layer, std::vector< TH1D* > 
 									histos.at(number_histo)->SetMinimum(0.1);
 					}
 					histos.at(number_histo)->Sumw2();
-					if(number_histo == 0){
+  std::cout << __LINE__ << std::endl;
+					if(number_histo == 0+start_layer){
 									histos.at(number_histo)->SetLineColor(color);
 									histos.at(number_histo)->SetMarkerColor(color);
 									histos.at(number_histo)->SetMarkerStyle(marker);
@@ -487,7 +500,7 @@ void Draw_multiple_plots (int num_layers, int start_layer, std::vector< TH1D* > 
 									canvas->Update();
 									TPaveStats* st =  (TPaveStats*)histos.at(number_histo)->GetListOfFunctions()->FindObject("stats");
 									st->SetTextColor(color);
-									if (histos.size() > 5){
+									if (num_layers-start_layer > 5){
 													st->SetX1NDC(0.6); //new x start position
 													st->SetX2NDC(0.75); //new x end position
 									}
@@ -498,9 +511,11 @@ void Draw_multiple_plots (int num_layers, int start_layer, std::vector< TH1D* > 
 									st->SetY1NDC(0.8); //new y start position
 									st->SetY2NDC(0.9); //new y end position
 									stats.push_back(st);
-									boxsize = stats.at(number_histo)->GetY2NDC() - stats.at(number_histo)->GetY1NDC();
+                  stat_count++;
+									boxsize = stats.back()->GetY2NDC() - stats.back()->GetY1NDC();
 					}
-					if(number_histo > 0){
+  std::cout << __LINE__ << std::endl;
+					if(number_histo > 0+start_layer){
 									color++;
 									marker++;
 									if(color == 5 || color == 10) color += 1; // 5 would be yellow, 10 would be very light gray 
@@ -510,32 +525,35 @@ void Draw_multiple_plots (int num_layers, int start_layer, std::vector< TH1D* > 
 									histos.at(number_histo)->Draw("SAMES");
 									canvas->Update();
 									stats.push_back(  (TPaveStats*)histos.at(number_histo)->GetListOfFunctions()->FindObject("stats") );
-									stats.at(number_histo)->SetTextColor(color);
-									if (histos.size() > 5) {
-													if(number_histo >= 5){
-																	stats.at(number_histo)->SetX1NDC(0.75); //new x start position
-																	stats.at(number_histo)->SetX2NDC(0.9); //new x end position
+                  stat_count++;
+									stats.back()->SetTextColor(color);
+									if (num_layers-start_layer > 5) {
+													if(number_histo >= 5+start_layer){
+																	stats.back()->SetX1NDC(0.75); //new x start position
+																	stats.back()->SetX2NDC(0.9); //new x end position
 													}
 													else {
-																	stats.at(number_histo)->SetX1NDC(0.6); //new x start position
-																	stats.at(number_histo)->SetX2NDC(0.75); //new x end position
+																	stats.back()->SetX1NDC(0.6); //new x start position
+																	stats.back()->SetX2NDC(0.75); //new x end position
 													}
-													if(number_histo == 5) {
-																	stats.at(number_histo)->SetY1NDC(0.8); //new y end position
-																	stats.at(number_histo)->SetY2NDC(0.9); //new y end position
+  std::cout << __LINE__ << std::endl;
+													if(number_histo == 5+start_layer) {
+																	stats.back()->SetY1NDC(0.8); //new y end position
+																	stats.back()->SetY2NDC(0.9); //new y end position
 													}
 													else {
-																	stats.at(number_histo)->SetY2NDC(stats.at(number_histo-1)->GetY1NDC()); //new y end position
-																	stats.at(number_histo)->SetY1NDC(stats.at(number_histo)->GetY2NDC()-boxsize); //new y start position
+																	stats.back()->SetY2NDC(stats.at(stat_count-1)->GetY1NDC()); //new y end position
+																	stats.back()->SetY1NDC(stats.back()->GetY2NDC()-boxsize); //new y start position
 													}
 									} 
 									else{
-													stats.at(number_histo)->SetX1NDC(0.75); //new x start position
-													stats.at(number_histo)->SetX2NDC(0.9); //new x end position
-													stats.at(number_histo)->SetY2NDC(stats.at(number_histo-1)->GetY1NDC()); //new y end position
-													stats.at(number_histo)->SetY1NDC(stats.at(number_histo)->GetY2NDC()-boxsize); //new y start position
+													stats.back()->SetX1NDC(0.75); //new x start position
+													stats.back()->SetX2NDC(0.9); //new x end position
+													stats.back()->SetY2NDC(stats.at(stat_count-1)->GetY1NDC()); //new y end position
+													stats.back()->SetY1NDC(stats.back()->GetY2NDC()-boxsize); //new y start position
 
 									}
+  std::cout << __LINE__ << std::endl;
 					}
 	}
 }
