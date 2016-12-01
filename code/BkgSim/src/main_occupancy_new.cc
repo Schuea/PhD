@@ -97,6 +97,8 @@ int main(int const argc, char const * const * const argv) {
 		exit(1);
 	}
 
+  std::cout << __LINE__ <<std::endl;
+
   Subdetector det( argument_subdetectors );
   std::vector< CellHits* > CellHits_vec;
 
@@ -143,6 +145,7 @@ int main(int const argc, char const * const * const argv) {
 			file->Close();
 		}
 
+  std::cout << __LINE__ <<std::endl;
 	//Make histogram vectors for storing the histograms
   std::string subdetectorname = det.getName();
   std::vector < std::string > all_name_sp;
@@ -186,6 +189,7 @@ int main(int const argc, char const * const * const argv) {
       tot_no_hits.at(num_hitcount_classes) += CellHits_vec.at(num_hitcount_classes)->Get_HitCount().at(vecpos);
     }
   }
+  std::cout << __LINE__ <<std::endl;
 	int xrange = max_no_hits + max_no_hits/10;
   int max_num_layers = det.getNumberOfLayers();
 
@@ -226,6 +230,7 @@ int main(int const argc, char const * const * const argv) {
       histos_bufferdepth.emplace_back(new TH1D(layername3.str().c_str(), title.at(2).c_str(), xrange, 0, xrange));
       histos_deadcells.emplace_back(new TH1D(layername4.str().c_str(), title.at(3).c_str(), xrange, 0, xrange));
     }
+  std::cout << __LINE__ <<std::endl;
     //Filling the primary histograms with the entries from the CellHits_vec vectors
     for (size_t vecpos = 0; vecpos < CellHits_vec.at(num_hitcount_classes)->Get_HitCount().size(); ++vecpos) {
       if(CellHits_vec.at(num_hitcount_classes)->Get_HitCount().at(vecpos) > 0){
@@ -236,11 +241,12 @@ int main(int const argc, char const * const * const argv) {
         All_Layers_histo.at(num_hitcount_classes)->Fill( CellHits_vec.at(num_hitcount_classes)->Get_HitCount().at(vecpos),weight );
       }
     }
+  std::cout << __LINE__ <<std::endl;
     //Filling numcells plots:
     long long int tot_num_cells = 0;
     long long int tot_num_hitcells = 0;
     for (int number_layer = num_hitcount_classes*max_num_layers; number_layer < (num_hitcount_classes+1)*max_num_layers; ++number_layer) {//For the second loop of the num_hitcount_classes loop, the plots in the second half of the histogramms vector shall be filled
-      tot_num_cells += det.getNumberOfCells().at(number_layer);
+      tot_num_cells += det.getNumberOfCells().at(number_layer - num_hitcount_classes*max_num_layers);//The layers in the subdetector class only go to max_num_layers
       for (int bin = 2; bin < histos.at(number_layer)->GetNbinsX(); ++bin) {
         tot_num_hitcells += histos.at(number_layer)->GetBinContent(bin);
         histos_numcells.at(number_layer)->SetBinContent(bin, histos.at(number_layer)->GetBinContent(bin) );
@@ -256,6 +262,7 @@ int main(int const argc, char const * const * const argv) {
     All_Layers_histo.at(num_hitcount_classes)->SetBinContent(1, tot_num_cells - tot_num_hitcells);
     All_Layers_histo_numcells.at(num_hitcount_classes)->SetBinContent(1, tot_num_cells);
 
+  std::cout << __LINE__ <<std::endl;
     //Filling bufferdepth plots:
     for (int number_layer = num_hitcount_classes*max_num_layers; number_layer < (num_hitcount_classes+1)*max_num_layers; ++number_layer) {//For the second loop of the num_hitcount_classes loop, the plots in the second half of the histogramms vector shall be filled
       for (int i = 0; i <= max_no_hits; ++i){//For each bufferdepth
