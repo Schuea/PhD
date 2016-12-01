@@ -251,8 +251,8 @@ int main(int const argc, char const * const * const argv) {
         tot_num_hitcells += histos.at(number_layer)->GetBinContent(bin);
         histos_numcells.at(number_layer)->SetBinContent(bin, histos.at(number_layer)->GetBinContent(bin) );
       }
-      histos.at( number_layer )->SetBinContent(1, det.getNumberOfCells().at(number_layer) - tot_num_hitcells );
-      histos_numcells.at( number_layer )->SetBinContent(1, det.getNumberOfCells().at(number_layer));
+      histos.at( number_layer )->SetBinContent(1, det.getNumberOfCells().at(number_layer - num_hitcount_classes*max_num_layers) - tot_num_hitcells );
+      histos_numcells.at( number_layer )->SetBinContent(1, det.getNumberOfCells().at(number_layer - num_hitcount_classes*max_num_layers));
       tot_num_hitcells = 0;
     }
     for (int bin = 2; bin < All_Layers_histo.at(num_hitcount_classes)->GetNbinsX(); ++bin) {
