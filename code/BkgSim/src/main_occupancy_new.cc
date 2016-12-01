@@ -73,7 +73,7 @@ int main(int const argc, char const * const * const argv) {
           } else {
             break;
           }
-        } while (j <= NUMBER_OF_FILES);
+        } while (j <= NUMBER_OF_FILES*2);//2 files per scenario
         inputfile_set = true;
       } else {
         std::cerr << "You didn't give an argument for the inputfile(s)!" << std::endl;
