@@ -717,7 +717,7 @@ class Particle{
 		pT = calculatePT(mom);
 		theta = calculateTheta(pT, mom);
 
-		boolean positronline = true;
+		boolean positronline = true;//CHANGE HERE WETHER IT IS THE POSITRON LINE OR NOT
 		if (positronline) {
 			ChangeToPositronBeam();	
 		}
