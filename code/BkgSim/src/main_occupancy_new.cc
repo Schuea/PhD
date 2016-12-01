@@ -23,7 +23,8 @@ long long int MakeNewCellID(double const x, double const y, Subdetector const & 
 void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize);
 void Draw_multiple_plots ( std::vector< TH1D* > histos, TCanvas* canvas, bool normalize);
 
-float weight = 1;
+float weight_spoilers = 1;
+float weight_spoilerswall = 1;
 
 int main(int const argc, char const * const * const argv) {
 	//ConfigReaderAnalysis config(argv[1]);
@@ -96,9 +97,10 @@ int main(int const argc, char const * const * const argv) {
 	}
 
   Subdetector det( argument_subdetectors );
+  std::vector< CellHits* > CellHits_vec;
 
-	CellHits * HitCount = new CellHits( &det );
 		for (int file_iterator = 0; file_iterator < NUMBER_OF_FILES; ++file_iterator) {
+      CellHits_vec.emplace_back(new CellHits( &det ));
 			TFile *file = TFile::Open(inputfilenames->at(file_iterator).c_str());
 			TTree *tree = Get_TTree(file, det.getName());
 
@@ -135,7 +137,7 @@ int main(int const argc, char const * const * const argv) {
         long long int HitCellID1 = MakeNewCellID(HitPosition_x,HitPosition_y,det);
 				long long int const combined_cell_id = (long long) HitCellID1 << 32 | HitCellID0;
 				//Use the CellHits class for storing the hit cells and their hitcounts
-				HitCount->Check_CellID(combined_cell_id, HitPosition_x, HitPosition_y, HitPosition_z);
+				CellHits_vec.at(file_iterator)->Check_CellID(combined_cell_id, HitPosition_x, HitPosition_y, HitPosition_z);
 			}
 			file->Close();
 		}
@@ -151,12 +153,15 @@ int main(int const argc, char const * const * const argv) {
 	std::vector< TH1D* > histos_bufferdepth;
 	std::vector< TH1D* > histos_deadcells;
 
-	int tot_no_hits = 0;
+  std::vector< int > tot_no_hits;
 	int max_no_hits = 0;
-  for (size_t vecpos = 0; vecpos < HitCount->Get_HitCount().size(); ++vecpos) {
-			if (HitCount->Get_HitCount().at(vecpos) > max_no_hits) max_no_hits = HitCount->Get_HitCount().at(vecpos);
-      tot_no_hits += HitCount->Get_HitCount().at(vecpos);
-	}
+  for (size_t num_hitcount_classes = 0; num_hitcount_classes < CellHits_vec.size(); ++ num_hitcount_classes){
+    tot_no_hits.push_back(0);
+    for (size_t vecpos = 0; vecpos < HitCount->Get_HitCount().size(); ++vecpos) {
+      if (HitCount->Get_HitCount().at(vecpos) > max_no_hits) max_no_hits = HitCount->Get_HitCount().at(vecpos);
+      tot_no_hits.at(num_hitcount_classes) += HitCount->Get_HitCount().at(vecpos);
+    }
+  }
 
 	int xrange = max_no_hits + max_no_hits/10;
 	TH1D* All_Layers_histo = new TH1D("All_layers", title.c_str(), xrange, 0, xrange);
