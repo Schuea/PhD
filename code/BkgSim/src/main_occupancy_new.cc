@@ -20,6 +20,7 @@
 using namespace std;
 
 long long int MakeNewCellID(double const x, double const y, Subdetector const & component);
+void Draw_All_Layer_plots_together ( std::vector< TH1D* > histo, TCanvas* canvas, bool normalize);
 void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize);
 void Draw_multiple_plots (int num_layers, int start_layer, std::vector< TH1D* > histos, TCanvas* canvas, bool normalize);
 void Print_multiple_plots_from_same_vec (int num_layers, std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::string output);
@@ -307,49 +308,72 @@ int main(int const argc, char const * const * const argv) {
   output4 << "output/muon_occupancy_deadcells_" << subdetectorname;
   Print_multiple_plots_from_same_vec (max_num_layers, histos_deadcells, canvas, true, output4.str());
 
-  Draw_single_plots ( All_Layers_histo.at(0),canvas, false);
+  Draw_All_Layer_plots_together( All_Layers_histo,canvas, false); 
   std::stringstream All_output;
-  All_output << "output/muon_occupancy_all_layers_" << subdetectorname << "_5spoilers";
-	canvas->Print((All_output.str() + ".pdf").c_str());
-	canvas->Print((All_output.str() + ".cxx").c_str());
-  Draw_single_plots ( All_Layers_histo.at(1),canvas, false);
-  std::stringstream All_output2;
-  All_output2 << "output/muon_occupancy_all_layers_" << subdetectorname << "_5spoilers_wall";
-	canvas->Print((All_output2.str() + ".pdf").c_str());
-	canvas->Print((All_output2.str() + ".cxx").c_str());
-
-  Draw_single_plots ( All_Layers_histo_numcells.at(0),canvas, true); 
-	std::stringstream All_numcells_output1;
-  All_numcells_output1 << "output/muon_occupancy_numcells_all_layers_" << subdetectorname << "_5spoilers";
-	canvas->Print((All_numcells_output1.str() + ".pdf").c_str());
-	canvas->Print((All_numcells_output1.str() + ".cxx").c_str());
-  Draw_single_plots ( All_Layers_histo_numcells.at(1),canvas, true); 
-	std::stringstream All_numcells_output2;
-  All_numcells_output2 << "output/muon_occupancy_numcells_all_layers_" << subdetectorname << "_5spoilers_wall";
-	canvas->Print((All_numcells_output2.str() + ".pdf").c_str());
-	canvas->Print((All_numcells_output2.str() + ".cxx").c_str());
-
-  Draw_single_plots ( All_Layers_histo_bufferdepth.at(0),canvas, false);
+  All_output << "output/muon_occupancy_all_layers_" << subdetectorname;
+  canvas->Print((All_output.str() + ".pdf").c_str());
+  canvas->Print((All_output.str() + ".cxx").c_str());
+  
+  Draw_All_Layer_plots_together ( All_Layers_histo_numcells,canvas, true); 
+  std::stringstream All_numcells_output1;
+  All_numcells_output1 << "output/muon_occupancy_numcells_all_layers_" << subdetectorname;
+  canvas->Print((All_numcells_output1.str() + ".pdf").c_str());
+  canvas->Print((All_numcells_output1.str() + ".cxx").c_str());
+  
+  Draw_All_Layer_plots_together ( All_Layers_histo_bufferdepth,canvas, false);
   std::stringstream All_bufferdepth_output1;
-  All_bufferdepth_output1 << "output/muon_occupancy_bufferdepth_all_layers_" << subdetectorname << "_5spoilers";
-	canvas->Print((All_bufferdepth_output1.str() + ".pdf").c_str());
-	canvas->Print((All_bufferdepth_output1.str() + ".cxx").c_str());
-  Draw_single_plots ( All_Layers_histo_bufferdepth.at(1),canvas, false);
-  std::stringstream All_bufferdepth_output2;
-  All_bufferdepth_output2 << "output/muon_occupancy_bufferdepth_all_layers_" << subdetectorname << "_5spoilers_wall";
-	canvas->Print((All_bufferdepth_output2.str() + ".pdf").c_str());
-	canvas->Print((All_bufferdepth_output2.str() + ".cxx").c_str());
-
-  Draw_single_plots ( All_Layers_histo_deadcells.at(0),canvas, true);
+  All_bufferdepth_output1 << "output/muon_occupancy_bufferdepth_all_layers_" << subdetectorname;
+  canvas->Print((All_bufferdepth_output1.str() + ".pdf").c_str());
+  canvas->Print((All_bufferdepth_output1.str() + ".cxx").c_str());
+  
+  Draw_All_Layer_plots_together ( All_Layers_histo_deadcells,canvas, true);
   std::stringstream All_deadcells_output1;
-  All_deadcells_output1 << "output/muon_occupancy_deadcells_all_layers_" << subdetectorname << "_5spoilers";
-	canvas->Print((All_deadcells_output1.str() + ".pdf").c_str());
-	canvas->Print((All_deadcells_output1.str() + ".cxx").c_str());
-  Draw_single_plots ( All_Layers_histo_deadcells.at(1),canvas, true);
-  std::stringstream All_deadcells_output2;
-  All_deadcells_output2 << "output/muon_occupancy_deadcells_all_layers_" << subdetectorname << "_5spoilers_wall";
-	canvas->Print((All_deadcells_output2.str() + ".pdf").c_str());
-	canvas->Print((All_deadcells_output2.str() + ".cxx").c_str());
+  All_deadcells_output1 << "output/muon_occupancy_deadcells_all_layers_" << subdetectorname;
+  canvas->Print((All_deadcells_output1.str() + ".pdf").c_str());
+  canvas->Print((All_deadcells_output1.str() + ".cxx").c_str());
+//  Draw_single_plots ( All_Layers_histo.at(0),canvas, false);
+//  std::stringstream All_output;
+//  All_output << "output/muon_occupancy_all_layers_" << subdetectorname << "_5spoilers";
+//	canvas->Print((All_output.str() + ".pdf").c_str());
+//	canvas->Print((All_output.str() + ".cxx").c_str());
+//  Draw_single_plots ( All_Layers_histo.at(1),canvas, false);
+//  std::stringstream All_output2;
+//  All_output2 << "output/muon_occupancy_all_layers_" << subdetectorname << "_5spoilers_wall";
+//	canvas->Print((All_output2.str() + ".pdf").c_str());
+//	canvas->Print((All_output2.str() + ".cxx").c_str());
+//
+//  Draw_single_plots ( All_Layers_histo_numcells.at(0),canvas, true); 
+//	std::stringstream All_numcells_output1;
+//  All_numcells_output1 << "output/muon_occupancy_numcells_all_layers_" << subdetectorname << "_5spoilers";
+//	canvas->Print((All_numcells_output1.str() + ".pdf").c_str());
+//	canvas->Print((All_numcells_output1.str() + ".cxx").c_str());
+//  Draw_single_plots ( All_Layers_histo_numcells.at(1),canvas, true); 
+//	std::stringstream All_numcells_output2;
+//  All_numcells_output2 << "output/muon_occupancy_numcells_all_layers_" << subdetectorname << "_5spoilers_wall";
+//	canvas->Print((All_numcells_output2.str() + ".pdf").c_str());
+//	canvas->Print((All_numcells_output2.str() + ".cxx").c_str());
+//
+//  Draw_single_plots ( All_Layers_histo_bufferdepth.at(0),canvas, false);
+//  std::stringstream All_bufferdepth_output1;
+//  All_bufferdepth_output1 << "output/muon_occupancy_bufferdepth_all_layers_" << subdetectorname << "_5spoilers";
+//	canvas->Print((All_bufferdepth_output1.str() + ".pdf").c_str());
+//	canvas->Print((All_bufferdepth_output1.str() + ".cxx").c_str());
+//  Draw_single_plots ( All_Layers_histo_bufferdepth.at(1),canvas, false);
+//  std::stringstream All_bufferdepth_output2;
+//  All_bufferdepth_output2 << "output/muon_occupancy_bufferdepth_all_layers_" << subdetectorname << "_5spoilers_wall";
+//	canvas->Print((All_bufferdepth_output2.str() + ".pdf").c_str());
+//	canvas->Print((All_bufferdepth_output2.str() + ".cxx").c_str());
+//
+//  Draw_single_plots ( All_Layers_histo_deadcells.at(0),canvas, true);
+//  std::stringstream All_deadcells_output1;
+//  All_deadcells_output1 << "output/muon_occupancy_deadcells_all_layers_" << subdetectorname << "_5spoilers";
+//	canvas->Print((All_deadcells_output1.str() + ".pdf").c_str());
+//	canvas->Print((All_deadcells_output1.str() + ".cxx").c_str());
+//  Draw_single_plots ( All_Layers_histo_deadcells.at(1),canvas, true);
+//  std::stringstream All_deadcells_output2;
+//  All_deadcells_output2 << "output/muon_occupancy_deadcells_all_layers_" << subdetectorname << "_5spoilers_wall";
+//	canvas->Print((All_deadcells_output2.str() + ".pdf").c_str());
+//	canvas->Print((All_deadcells_output2.str() + ".cxx").c_str());
 
 	return 0;
 }
@@ -366,6 +390,42 @@ long long int MakeNewCellID(double const x, double const y, Subdetector const & 
   }
   return newX << 32 | newY;
 }
+void Draw_All_Layer_plots_together ( std::vector< TH1D* > histo, TCanvas* canvas, bool normalize){
+	std::vector< TPaveStats* > stats;
+	float boxsize = 0.0;
+	double max=GetMinMaxForMultipleOverlappingHistograms(histo,true).second;
+  for (size_t vec_entry = 0; vec_entry < histo.size(); ++vec_entry){
+    histo.at(vec_entry)->SetMinimum(0.1);
+    histo.at(vec_entry)->SetMinimum(max);
+    if(normalize == true){
+      histo.at(vec_entry)->Scale(1.0/histo.at(vec_entry)->GetBinContent(1));
+      histo.at(vec_entry)->SetMinimum( pow(10,-12) );
+    }
+    if(vec_entry == 0){
+      histo.at(vec_entry)->SetLineColor(2);
+      histo.at(vec_entry)->Draw();
+      canvas->Update();
+      stats.push_back( (TPaveStats*)histo.at(vec_entry)->GetListOfFunctions()->FindObject("stats") );
+      stats.at(vec_entry)->SetTextColor(2);
+      stats.at(vec_entry)->SetX1NDC(0.75); //new x start position
+      stats.at(vec_entry)->SetX2NDC(0.9); //new x end position
+      stats.at(vec_entry)->SetY1NDC(0.8); //new y start position
+      stats.at(vec_entry)->SetY2NDC(0.9); //new y end position
+			boxsize = stats.at(vec_entry)->GetY2NDC() - stats.at(vec_entry)->GetY1NDC();
+    }
+    else{
+      histo.at(vec_entry)->SetLineColor(4);
+      histo.at(vec_entry)->Draw("SAMES");
+      canvas->Update();
+      stats.push_back( (TPaveStats*)histo.at(vec_entry)->GetListOfFunctions()->FindObject("stats") );
+      stats.at(vec_entry)->SetTextColor(4);
+      stats.at(vec_entry)->SetX1NDC(0.75); //new x start position
+      stats.at(vec_entry)->SetX2NDC(0.9); //new x end position
+      stats.at(vec_entry)->SetY2NDC(stats.at(vec_entry-1)->GetY1NDC()); //new y end position
+      stats.at(vec_entry)->SetY1NDC(stats.at(vec_entry)->GetY2NDC()-boxsize); //new y start position
+    }
+  }
+}
 void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize){
 	histo->SetMinimum(0.1);
 	if(normalize == true){
@@ -380,7 +440,6 @@ void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize){
 	st->SetX2NDC(0.9); //new x end position
 	st->SetY1NDC(0.8); //new y start position
 	st->SetY2NDC(0.9); //new y end position
-
 }
 void Print_multiple_plots_from_same_vec (int num_layers, std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::string output){
   int start_layer = 0;
