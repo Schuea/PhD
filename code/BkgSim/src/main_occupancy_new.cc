@@ -399,12 +399,13 @@ void Draw_All_Layer_plots_together ( std::vector< TH1D* > histo, TCanvas* canvas
 	float boxsize = 0.0;
 	double max=GetMinMaxForMultipleOverlappingHistograms(histo,true).second;
   for (size_t vec_entry = 0; vec_entry < histo.size(); ++vec_entry){
-    histo.at(vec_entry)->SetMinimum(0.1);
     histo.at(vec_entry)->SetMinimum(max);
+    histo.at(vec_entry)->SetMinimum(0.1);
     if(normalize == true){
       histo.at(vec_entry)->Scale(1.0/histo.at(vec_entry)->GetBinContent(1));
       histo.at(vec_entry)->SetMinimum( pow(10,-12) );
     }
+		histo.at(vec_entry)->Sumw2(0);
     if(vec_entry == 0){
       histo.at(vec_entry)->SetLineColor(2);
       histo.at(vec_entry)->Draw();
@@ -477,7 +478,7 @@ void Draw_multiple_plots (int num_layers, int start_layer, std::vector< TH1D* > 
 									histos.at(number_histo)->SetMaximum(max);
 									histos.at(number_histo)->SetMinimum(0.1);
 					}
-					histos.at(number_histo)->Sumw2();
+					histos.at(number_histo)->Sumw2(1);
 					if(number_histo == start_layer){
 									histos.at(number_histo)->SetLineColor(color);
 									histos.at(number_histo)->SetMarkerColor(color);
