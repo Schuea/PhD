@@ -117,8 +117,8 @@ int main(int const argc, char const * const * const argv) {
 
 			int HitCellID0(0);
       //int HitCellID1(0);
-			//float HitPosition_x(0.0), HitPosition_y(0.0), HitPosition_z(0.0);
-			double HitPosition_x(0.0), HitPosition_y(0.0), HitPosition_z(0.0);
+			float HitPosition_x(0.0), HitPosition_y(0.0), HitPosition_z(0.0);
+			//double HitPosition_x(0.0), HitPosition_y(0.0), HitPosition_z(0.0);
 
 			//tree->SetBranchAddress("HitCellID", &HitCellID0);
 			tree->SetBranchAddress("HitCellID0", &HitCellID0);
@@ -233,7 +233,8 @@ int main(int const argc, char const * const * const argv) {
         //std::cout << "Layer: " << CellHits_vec.at(num_hitcount_classes)->Get_Layer().at(vecpos) << std::endl;
         int current_layer = CellHits_vec.at(num_hitcount_classes)->Get_Layer().at(vecpos);
         if (num_hitcount_classes == 1) current_layer += max_num_layers;//For the second loop of the num_hitcount_classes loop, the plots in the second half of the histogramms vector shall be filled
-        histos.at(current_layer -1 )->Fill(CellHits_vec.at(num_hitcount_classes)->Get_HitCount().at(vecpos),weight);//-1 for SiTrackerBarrel, because layer count starts from 1
+        //histos.at(current_layer -1 )->Fill(CellHits_vec.at(num_hitcount_classes)->Get_HitCount().at(vecpos),weight);//-1 for Silicon detectors only, because layer count starts from 1
+        histos.at(current_layer)->Fill(CellHits_vec.at(num_hitcount_classes)->Get_HitCount().at(vecpos),weight);
         All_Layers_histo.at(num_hitcount_classes)->Fill( CellHits_vec.at(num_hitcount_classes)->Get_HitCount().at(vecpos),weight );
       }
     }
