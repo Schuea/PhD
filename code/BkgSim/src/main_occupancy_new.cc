@@ -471,6 +471,7 @@ void Draw_multiple_plots (int num_layers, int start_layer, std::vector< TH1D* > 
 	int marker = 20; // Very first histogram will be drawn with the marker style 20, then counted up
 	double max=GetMinMaxForMultipleOverlappingHistograms(histos,true).second;
 	for (int number_histo = start_layer; number_histo< start_layer+num_layers; ++number_histo) {
+					histos.at(number_histo)->Sumw2(1);
 					if(normalize == true){
 									histos.at(number_histo)->Scale(1.0/histos.at(number_histo)->GetBinContent(1));
 									histos.at(number_histo)->SetMinimum( pow(10,-12) );
@@ -479,12 +480,11 @@ void Draw_multiple_plots (int num_layers, int start_layer, std::vector< TH1D* > 
 									histos.at(number_histo)->SetMaximum(max);
 									histos.at(number_histo)->SetMinimum(0.1);
 					}
-					histos.at(number_histo)->Sumw2(1);
 					if(number_histo == start_layer){
 									histos.at(number_histo)->SetLineColor(color);
 									histos.at(number_histo)->SetMarkerColor(color);
 									histos.at(number_histo)->SetMarkerStyle(marker);
-									histos.at(number_histo)->Draw();
+									histos.at(number_histo)->Draw("P");
 									canvas->Update();
 									TPaveStats* st =  (TPaveStats*)histos.at(number_histo)->GetListOfFunctions()->FindObject("stats");
 									st->SetTextColor(color);
@@ -509,7 +509,7 @@ void Draw_multiple_plots (int num_layers, int start_layer, std::vector< TH1D* > 
 									histos.at(number_histo)->SetLineColor(color);
 									histos.at(number_histo)->SetMarkerColor(color);
 									histos.at(number_histo)->SetMarkerStyle(marker);
-									histos.at(number_histo)->Draw("SAMES");
+									histos.at(number_histo)->Draw("P,SAMES");
 									canvas->Update();
 									stats.push_back(  (TPaveStats*)histos.at(number_histo)->GetListOfFunctions()->FindObject("stats") );
                   //stat_count++;
