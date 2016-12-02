@@ -22,7 +22,7 @@ using namespace std;
 long long int MakeNewCellID(double const x, double const y, Subdetector const & component);
 void Draw_All_Layer_plots_together ( std::vector< TH1D* > histo, TCanvas* canvas, bool normalize);
 void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize);
-void Draw_multiple_plots (int num_layers, int start_layer, std::vector< TH1D* > histos, TCanvas* canvas, bool normalize);
+void Draw_multiple_plots (int num_layers, int start_layer, std::vector< TH1D* > histos, std::vector < TPaveStats* > &stats, TCanvas* canvas, bool normalize);
 void Print_multiple_plots_from_same_vec (int num_layers, std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::string output);
 
 float weight = 0.08846; //The weight is the same for both scenarios, for both, the electron and the positron line, e.g.: 5sp+wall, elec: (4321/10155 * 898.34)/4321
@@ -446,8 +446,9 @@ void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize){
 	st->SetY2NDC(0.9); //new y end position
 }
 void Print_multiple_plots_from_same_vec (int num_layers, std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::string output){
+	std::vector< TPaveStats* > stats;
   int start_layer = 0;
-	Draw_multiple_plots(num_layers, start_layer, histos, canvas, normalize);
+	Draw_multiple_plots(num_layers, start_layer, histos, stats, canvas, normalize);
   std::stringstream output1;
   output1 << output << "_5spoilers";
 	canvas->Print((output1.str() + ".pdf").c_str());
@@ -455,16 +456,15 @@ void Print_multiple_plots_from_same_vec (int num_layers, std::vector< TH1D* > hi
   
 
   start_layer = num_layers;
-	Draw_multiple_plots(num_layers, start_layer, histos, canvas, normalize);
+	Draw_multiple_plots(num_layers, start_layer, histos, stats, canvas, normalize);
   std::stringstream output2;
   output2 << output << "_5spoilers_wall";
 	canvas->Print((output2.str() + ".pdf").c_str());
 	canvas->Print((output2.str() + ".cxx").c_str());
 }
-void Draw_multiple_plots (int num_layers, int start_layer, std::vector< TH1D* > histos, TCanvas* canvas, bool normalize){
-	std::vector< TPaveStats* > stats;
+void Draw_multiple_plots (int num_layers, int start_layer, std::vector< TH1D* > histos, std::vector < TPaveStats* > &stats, TCanvas* canvas, bool normalize){
 	float boxsize = 0.0;
-  int stat_count = 0;
+  //int stat_count = 0;
 	int color = 2; // Very first histogram will be drawn with the color 2, then counted up
 	int marker = 20; // Very first histogram will be drawn with the marker style 20, then counted up
 	double max=GetMinMaxForMultipleOverlappingHistograms(histos,true).second;
@@ -478,7 +478,7 @@ void Draw_multiple_plots (int num_layers, int start_layer, std::vector< TH1D* > 
 									histos.at(number_histo)->SetMinimum(0.1);
 					}
 					histos.at(number_histo)->Sumw2();
-					if(number_histo == 0+start_layer){
+					if(number_histo == start_layer){
 									histos.at(number_histo)->SetLineColor(color);
 									histos.at(number_histo)->SetMarkerColor(color);
 									histos.at(number_histo)->SetMarkerStyle(marker);
@@ -497,10 +497,10 @@ void Draw_multiple_plots (int num_layers, int start_layer, std::vector< TH1D* > 
 									st->SetY1NDC(0.8); //new y start position
 									st->SetY2NDC(0.9); //new y end position
 									stats.push_back(st);
-                  stat_count++;
+                  //stat_count++;
 									boxsize = stats.back()->GetY2NDC() - stats.back()->GetY1NDC();
 					}
-					if(number_histo > 0+start_layer){
+					if(number_histo > start_layer){
 									color++;
 									marker++;
 									if(color == 5 || color == 10) color += 1; // 5 would be yellow, 10 would be very light gray 
@@ -510,9 +510,9 @@ void Draw_multiple_plots (int num_layers, int start_layer, std::vector< TH1D* > 
 									histos.at(number_histo)->Draw("SAMES");
 									canvas->Update();
 									stats.push_back(  (TPaveStats*)histos.at(number_histo)->GetListOfFunctions()->FindObject("stats") );
-                  stat_count++;
+                  //stat_count++;
 									stats.back()->SetTextColor(color);
-									if (num_layers-start_layer > 5) {
+									if (num_layers > 5) {
 													if(number_histo >= 5+start_layer){
 																	stats.back()->SetX1NDC(0.75); //new x start position
 																	stats.back()->SetX2NDC(0.9); //new x end position
@@ -526,16 +526,15 @@ void Draw_multiple_plots (int num_layers, int start_layer, std::vector< TH1D* > 
 																	stats.back()->SetY2NDC(0.9); //new y end position
 													}
 													else {
-																	stats.back()->SetY2NDC(stats.at(stat_count-1)->GetY1NDC()); //new y end position
+																	stats.back()->SetY2NDC(stats.at(number_histo-1)->GetY1NDC()); //new y end position
 																	stats.back()->SetY1NDC(stats.back()->GetY2NDC()-boxsize); //new y start position
 													}
 									} 
 									else{
 													stats.back()->SetX1NDC(0.75); //new x start position
 													stats.back()->SetX2NDC(0.9); //new x end position
-													stats.back()->SetY2NDC(stats.at(stat_count-1)->GetY1NDC()); //new y end position
+													stats.back()->SetY2NDC(stats.at(number_histo-1)->GetY1NDC()); //new y end position
 													stats.back()->SetY1NDC(stats.back()->GetY2NDC()-boxsize); //new y start position
-
 									}
 					}
 	}
