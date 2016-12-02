@@ -45,9 +45,10 @@ Subdetector::Subdetector(string const subdetector_config_file){
     }
   }
   else{
-    if (getLength().size() == getZHalf().size()){
+    if (getLength().size() == getZHalf().size() ){
       for (size_t i=0; i < getLength().size(); ++i){
-        if (getZHalf().at(i) < getLength().at(i)/2.0 + numeric_limits<double>::epsilon() &&
+        if (getLength().at(i) != 0 && getZHalf().at(i) != 0 &&
+            getZHalf().at(i) < getLength().at(i)/2.0 + numeric_limits<double>::epsilon() &&
             getZHalf().at(i) > getLength().at(i)/2.0 - numeric_limits<double>::epsilon() ){
           cerr << "The given numbers for zHalf and length are not in agreement!" << endl; 
           cerr << "Exited in file " << __FILE__ << " on line " << __LINE__ << endl; 
