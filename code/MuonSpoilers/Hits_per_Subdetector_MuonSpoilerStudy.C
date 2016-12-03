@@ -1,38 +1,69 @@
 {				
 				int n = 12;
-				const char *detectors[12] = {"EcalBarrel","EcalEndcap","HcalEndcap","HcalBarrel","MuonBarrel","MuonEndcap","LumiCal","BeamCal","SiVertexEndcap","SiVertexBarrel","SiTrackerEndcap","SiTrackerBarrel"};
+				const char *detectors[12] = {"EcalBarrel","EcalEndcap","HcalBarrel","HcalEndcap","MuonBarrel","MuonEndcap","LumiCal","BeamCal","SiVertexBarrel","SiVertexEndcap","SiTrackerBarrel","SiTrackerEndcap"};
 
-				TH1F *h = new TH1F("Hits","Number of hits in the SiD per train - Spoiler + Wall",n,0,n);
-				h->GetYaxis()->SetTitle("Number of hits");
-				h->SetMarkerColor(kBlue);
-				h->SetMarkerStyle(20);
-				h->SetFillColor(38);
+				TH1F *h1 = new TH1F("Hits","Number of hits in SiD per train - 5 Spoilers vs. 5 Spoilers+Wall ",n,0,n);
+				h1->GetYaxis()->SetTitle("Number of hits");
+				h1->SetMarkerColor(kBlue);
+				h1->SetMarkerStyle(20);
+				h1->SetFillColor(38);
 
-				h->SetBinContent(1,9423/5);
-				h->SetBinContent(2,12745/5);
-				h->SetBinContent(3,21024/5);
-				h->SetBinContent(4,39856/5);
-				h->SetBinContent(5,27569/5);
-				h->SetBinContent(6,198342/5);
-				h->SetBinContent(7,212/5);
-				h->SetBinContent(8,68/5);
-				h->SetBinContent(9,0);
-				h->SetBinContent(10,0);
-				h->SetBinContent(11,3849/5);
-				h->SetBinContent(12,1892/5);
+				h1->SetBinContent(1,16997);
+				h1->SetBinContent(2,31927);
+				h1->SetBinContent(3,53408);
+				h1->SetBinContent(4,53394);
+				h1->SetBinContent(5,12505);
+				h1->SetBinContent(6,145212);
+				h1->SetBinContent(7,1038);
+				h1->SetBinContent(8,965);
+				h1->SetBinContent(9,2);
+				h1->SetBinContent(10,0);
+				h1->SetBinContent(11,4012);
+				h1->SetBinContent(12,9196);
 
-				h->SetStats(0);
+				h1->SetStats(0);
+
+        TH1F *h2 = new TH1F("Hits","Number of hits in SiD per train - 5 Spoilers vs. 5 Spoilers+Wall",n,0,n);
+				h2->GetYaxis()->SetTitle("Number of hits");
+				h2->SetMarkerColor(kRed);
+				h2->SetMarkerStyle(20);
+				h2->SetFillColor(46);
+
+				h2->SetBinContent(1,2218);
+				h2->SetBinContent(2,2337);
+				h2->SetBinContent(3,6982);
+				h2->SetBinContent(4,3829);
+				h2->SetBinContent(5,4344);
+				h2->SetBinContent(6,33179);
+				h2->SetBinContent(7,69);
+				h2->SetBinContent(8,69);
+				h2->SetBinContent(9,0);
+				h2->SetBinContent(10,0);
+				h2->SetBinContent(11,486);
+				h2->SetBinContent(12,867);
+
+				h2->SetStats(0);
 
 				for (int i =1; i <=n; ++i) {
-					h->GetXaxis()->SetBinLabel(i,detectors[i-1]);
+					h1->GetXaxis()->SetBinLabel(i,detectors[i-1]);
+					h2->GetXaxis()->SetBinLabel(i,detectors[i-1]);
 				}
+				h1->GetXaxis()->SetLabelSize(0.045);
+				h1->GetYaxis()->SetLabelSize(0.05);
+				h1->GetYaxis()->SetTitleSize(0.05);
+				h1->GetYaxis()->SetTitleOffset(0.95);
+				h2->GetXaxis()->SetLabelSize(0.045);
+				h2->GetYaxis()->SetLabelSize(0.05);
+				h2->GetYaxis()->SetTitleSize(0.05);
+				h2->GetYaxis()->SetTitleOffset(0.95);
 				
 				TCanvas *canvas = new TCanvas();
 				canvas->SetGrid();
 				canvas->SetLogy();
 
-				h->Draw();
-				canvas->Print("Hits_in_SiD_subdetectors_Spoiler.pdf");
-				canvas->Print("Hits_in_SiD_subdetectors_Spoiler.cxx");
+				h1->Draw();
+				h2->Draw("SAME");
+				canvas->Print("Hits_in_SiD_subdetectors_MuonSpoilerStudy.pdf");
+				canvas->Print("Hits_in_SiD_subdetectors_MuonSpoilerStudy.cxx");
 }
 

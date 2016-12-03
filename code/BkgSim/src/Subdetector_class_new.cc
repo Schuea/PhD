@@ -63,6 +63,7 @@ Subdetector::Subdetector(string const subdetector_config_file){
     }
   }
     if(string(variable) == "shape"){
+      setShape(string(value));
       //Depending on the shape, this will have multiple layers which have to be taken into account differently
       for (int Layer = 0; Layer < getNumberOfLayers(); ++Layer){
         if(string(value) == "octagon-barrel"){//MuonBarrel
@@ -103,6 +104,10 @@ Subdetector::Subdetector(string const subdetector_config_file){
 
 std::string Subdetector::getName() const{
   return _name;
+}
+
+std::string Subdetector::getShape() const{
+  return _shape;
 }
 
 int Subdetector::getNumberOfLayers() const{
@@ -159,6 +164,10 @@ std::vector< long long int > Subdetector::getNumberOfCells() const{
 
 void Subdetector::setName(std::string const name){
   _name = name;
+}
+
+void Subdetector::setShape(std::string const shape){
+  _shape = shape;
 }
 
 void Subdetector::setNumberOfLayers(int const number_of_layers){

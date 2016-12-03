@@ -19,6 +19,8 @@
 
 using namespace std;
 
+double CalculatePhi(double x, double y);
+int CalculateLayer(long long int const id, Subdetector const & SubDetector); 
 long long int MakeNewCellID(double const x, double const y, Subdetector const & component);
 void Draw_All_Layer_plots_together ( std::vector< TH1D* > histo, TCanvas* canvas, bool normalize, int integral_startbin, bool integral_numhits);
 void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, int integral_startbin, bool integral_numhits);
@@ -28,19 +30,6 @@ void Print_multiple_plots_from_same_vec (int num_layers, std::vector< TH1D* > hi
 double weight = 0.08846; //The weight is the same for both scenarios, for both, the electron and the positron line, e.g.: 5sp+wall, elec: (4321/10155 * 898.34)/4321
 
 int main(int const argc, char const * const * const argv) {
-	//ConfigReaderAnalysis config(argv[1]);
-	//config.setUp();
-	//cout << config.getConfigName() << endl;
-	//cout << config.getDoEventLooper() << endl;
-	//cout << config.getMaxEvents() << endl;
-	//exit(1);
-	//Three occupancy plots
-	//Two that are 1D histograms, y-axis is average occupancy and x-axis is radius/phi
-	//The difficult plot is buffer depth plot: y-axis is probability of a specific cell occupancy occuring and x-axis is occupancy
-
-	//The input is a TTree ROOT file(s)
-	//The output is .pdf and .C files
-
 	std::vector<std::string> *inputfilenames = new std::vector<std::string>();
 	std::string argument_subdetectors;
 
@@ -136,7 +125,21 @@ int main(int const argc, char const * const * const argv) {
 				tree->GetEntry(i);
 				//if (HitPosition_z < 0) continue;
 				//Make a combined cell ID
-        long long int HitCellID1 = MakeNewCellID(HitPosition_x,HitPosition_y,det);
+        long long int HitCellID1 = 0;
+        if (det.getShape().find("endcap") != std::string::npos){//If Endcap, calculate CellID with x and y
+          std::cout <<"Found 'endcap'!" << std::endl;
+          HitCellID1 = MakeNewCellID(HitPosition_x,HitPosition_y,det);//If Barrel, calculate CellID with z and phi on a certain radius
+        }
+        else if (det.getShape().find("barrel") != std::string::npos){
+          std::cout <<"Found 'barrel'!" << std::endl;
+          double phi = CalculatePhi((double)HitPosition_x, (double)HitPosition_y);
+          //HitCellID1 = MakeNewCellID(HitPosition_z,phi*det.getRMin().at( CalculateLayer(HitCellID0,det)-1 ),det);//-1 for Silicon detectors only, because layer count starts from 1
+          HitCellID1 = MakeNewCellID(HitPosition_z,phi*det.getRMin().at( CalculateLayer(HitCellID0,det) ),det);
+        }
+        else{
+          std::cerr << "This subdetector name was not recognized!" << std::endl; 
+          exit(-1);
+        }
 				long long int const combined_cell_id = (long long) HitCellID1 << 32 | HitCellID0;
 				//Use the CellHits class for storing the hit cells and their hitcounts
 				CellHits_vec.at( file_iterator/NUMBER_OF_FILES )->Check_CellID(combined_cell_id, HitPosition_x, HitPosition_y, HitPosition_z);
@@ -381,6 +384,38 @@ int main(int const argc, char const * const * const argv) {
 	return 0;
 }
 
+int CalculateLayer(long long int const id, Subdetector const & SubDetector) {
+  std::bitset<64> cellidbit(id);
+  std::string CellID_ = cellidbit.to_string();
+  int LayerInt = -1;
+  std::stringstream LayerID;
+
+  //This for loop calculates the layer id
+  //From a sring of 0's and 1's, e.g. 00001011010010
+  //The StartBin is the first bin in the string we are interested in (when reading from right to left)
+  //The LengthBin is the length of the string we are interested in
+  //We read from left to right, but we specify the start position from right to left
+  //There is a magic +1 in there because strings start at element 0.
+  for (int i = CellID_.size() - (SubDetector.getStartBitLayer() + SubDetector.getLengthBitLayer()); i <= CellID_.size() - (SubDetector.getStartBitLayer() + 1);
+      ++i) {
+    LayerID << CellID_.at(i);
+  }
+
+  std::bitset<64> LayerIDbit(LayerID.str());
+  LayerInt = LayerIDbit.to_ulong();
+
+  return LayerInt;
+}
+
+double CalculatePhi(double x, double y){
+  double phi =0;
+  if(x>0) return phi = atan(y/x);
+  if(x<0 && y>=0) return phi = atan(y/x) + M_PI;
+  if(x<0 && y<0)  return phi = atan(y/x) - M_PI;
+  if(x==0 && y>0)  return phi = 0.5*M_PI;
+  if(x==0 && y<0)  return phi = -0.5*M_PI;
+  else return -101;
+}
 long long int MakeNewCellID(double const x, double const y, Subdetector const & component){
   int newX = static_cast<int>(x/component.getCellSizeArea()); //Check if Cell Size Area is the same as Cell Dimension
   int newY = static_cast<int>(y/component.getCellSizeArea()); //Check if Cell Size Area is the same as Cell Dimension
@@ -391,7 +426,7 @@ long long int MakeNewCellID(double const x, double const y, Subdetector const & 
   for(int i = 0; i < 31; ++i){
     newY += bitY[i]*pow(2,i);
   }
-  return newX << 32 | newY;
+  return (long long int) newX << 32 | newY;
 }
 void Draw_All_Layer_plots_together ( std::vector< TH1D* > histo, TCanvas* canvas, bool normalize, int integral_startbin, bool integral_numhits){
   int tot = 0;

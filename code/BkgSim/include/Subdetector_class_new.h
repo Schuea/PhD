@@ -7,6 +7,7 @@
 class Subdetector{
   private:
     std::string _name;
+    std::string _shape;
     int _numberOfLayers;
     int _startBitLayer;
     int _lengthBitLayer;
@@ -25,6 +26,7 @@ class Subdetector{
     Subdetector(std::string const subdetector_config_file);
 
     std::string getName() const;
+    std::string getShape() const;
     int getNumberOfLayers() const;
     int getStartBitLayer() const;
     int getLengthBitLayer() const;
@@ -40,6 +42,7 @@ class Subdetector{
     std::vector< long long int > getNumberOfCells() const;
 
     void setName(std::string const name);
+    void setShape(std::string const shape);
     void setNumberOfLayers(int const number_of_layers);
     void setStartBitLayer(int const start_bit_layer);
     void setLengthBitLayer(int const length_bit_layer);
