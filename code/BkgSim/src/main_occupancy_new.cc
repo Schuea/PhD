@@ -96,7 +96,24 @@ int main(int const argc, char const * const * const argv) {
 			TTree *tree = Get_TTree(file, det.getName());
 
 			//Set the branches
+      int pdg(0);
 			tree->SetBranchStatus("*", 0);
+      if (det.getName().find("Si") != std::string::npos){
+        std::cout << "Silicon detector found!" << std::endl;
+        tree->SetBranchStatus("HitParticle_PDG", 1);
+        tree->SetBranchAddress("HitParticle_PDG", &pdg);
+      }
+      else if (det.getName().find("cal",0) != std::string::npos
+              || det.getName().find("Cal",0) != std::string::npos
+              || det.getName().find("Muon",0) != std::string::npos){
+        std::cout << "Calorimeter found!" << std::endl;
+        tree->SetBranchStatus("HitMotherParticle_PDG", 1);
+        tree->SetBranchAddress("HitMotherParticle_PDG", &pdg);
+      }
+      else{
+        std::cerr << "This subdetector name was not recognized!" << std::endl; 
+        exit(-1);
+      }
 			//tree->SetBranchStatus("HitCellID", 1);
 			tree->SetBranchStatus("HitCellID0", 1);
 			//tree->SetBranchStatus("HitCellID1", 1);
@@ -123,6 +140,8 @@ int main(int const argc, char const * const * const argv) {
 			long long int const entries = tree->GetEntries();
 			for (long long int i = 0; i < entries; ++i) {
 				tree->GetEntry(i);
+        if (pdg != 13 && pdg != -13) continue;
+        std::cout << pdg << std::endl;
 				//if (HitPosition_z < 0) continue;
 				//Make a combined cell ID
         long long int HitCellID1 = 0;
@@ -137,7 +156,7 @@ int main(int const argc, char const * const * const argv) {
           HitCellID1 = MakeNewCellID(HitPosition_z,phi*det.getRMin().at( CalculateLayer(HitCellID0,det) ),det);
         }
         else{
-          std::cerr << "This subdetector name was not recognized!" << std::endl; 
+          std::cerr << "This subdetector shape was not recognized!" << std::endl; 
           exit(-1);
         }
 				long long int const combined_cell_id = (long long) HitCellID1 << 32 | HitCellID0;
