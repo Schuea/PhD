@@ -82,16 +82,20 @@ int main(int const argc, char const * const * const argv) {
     //Set the branches
     tree->SetBranchStatus("*", 0);
     tree->SetBranchStatus("Energy", 1);
+    tree->SetBranchStatus("Particle_PDG", 1);
 
     double energy(0.0);
+    int pdg(0);
 
     tree->SetBranchAddress("Energy", &energy);
+    tree->SetBranchAddress("Particle_PDG", &pdg);
 
     //Now we loop through the tree
 
     long long int const entries = tree->GetEntries();
     for (long long int i = 0; i < entries; ++i) {
       tree->GetEntry(i);
+      if (pdg != 13 && pdg != -13) continue;
       Energy_histos.at(file_iterator/NUMBER_OF_FILES)->Fill(energy, weight);
     }
     file->Close();
@@ -120,6 +124,7 @@ void Draw_All_plots_together ( std::vector< TH1D* > histo, TCanvas* canvas){
   }
   for (size_t vec_entry = 0; vec_entry < histo.size(); ++vec_entry){
 			histo.at(vec_entry)->Sumw2(1);
+      histo.at(vec_entry)->SetStats(0);
   }
 	double max=GetMinMaxForMultipleOverlappingHistograms(histo,true).second;
   for (size_t vec_entry = 0; vec_entry < histo.size(); ++vec_entry){
