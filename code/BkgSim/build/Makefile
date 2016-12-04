@@ -10,7 +10,7 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include -g -Wall -Wextra -pthread -O2 -std=c++
 CXXFLAGS +=  $(shell root-config --glibs)
 
 # Executables produced by this Makefile
-RUN = ../NewOccupancyPlotter ../MuonEnergyPlotter
+RUN = ../NewOccupancyPlotter ../MuonEnergyPlotter ../MuonHitTimePlotter
 
 
 # All tests produced by this Makefile.  Remember to add new tests you
@@ -20,6 +20,7 @@ TESTS = #Test
 # Useful variables
 MAIN_OCCUPANCY_NEW = ../objects/main_occupancy_new.o
 MAIN_MUON_ENERGY = ../objects/main_muon_energy.o
+MAIN_MUON_TIMING = ../objects/main_muon_timing.o
 USEFUL = ../objects/UsefulFunctions.o
 STYLE = ../objects/Style.o
 STYLEUTILS = ../objects/Style_Utils.o
@@ -87,10 +88,16 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 ../MuonEnergyPlotter : $(MAIN_MUON_ENERGY) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
+../MuonHitTimePlotter : $(MAIN_MUON_TIMING) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
 ../objects/main_occupancy_new.o : ../src/main_occupancy_new.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_muon_energy.o : ../src/main_muon_energy.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/main_muon_timing.o : ../src/main_muon_timing.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/UsefulFunctions.o : ../../General/src/UsefulFunctions.cc
