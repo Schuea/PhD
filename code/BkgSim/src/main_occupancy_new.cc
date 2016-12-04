@@ -131,7 +131,9 @@ int main(int const argc, char const * const * const argv) {
     int HitCellID0(0);
     double D_HitPosition_x(0.0), D_HitPosition_y(0.0), D_HitPosition_z(0.0); //double for Silicon detectors
     float F_HitPosition_x(0.0), F_HitPosition_y(0.0), F_HitPosition_z(0.0);
-    float HitPosition_x(0.0), HitPosition_y(0.0), HitPosition_z(0.0);
+    double HitPosition_x;
+    double HitPosition_y;
+    double HitPosition_z;
 
     tree->SetBranchStatus("*", 0);
     tree->SetBranchStatus("HitCellID0", 1);
@@ -148,10 +150,6 @@ int main(int const argc, char const * const * const argv) {
       tree->SetBranchAddress("HitPosition_x", &D_HitPosition_x);
       tree->SetBranchAddress("HitPosition_y", &D_HitPosition_y);
       tree->SetBranchAddress("HitPosition_z", &D_HitPosition_z);
-    
-      HitPosition_x = D_HitPosition_x;
-      HitPosition_y = D_HitPosition_y;
-      HitPosition_z = D_HitPosition_z;
     }
     else if (Calo){
       tree->SetBranchStatus("HitMotherParticle_PDG", 1);
@@ -160,10 +158,6 @@ int main(int const argc, char const * const * const argv) {
       tree->SetBranchAddress("HitPosition_x", &F_HitPosition_x);
       tree->SetBranchAddress("HitPosition_y", &F_HitPosition_y);
       tree->SetBranchAddress("HitPosition_z", &F_HitPosition_z);
-    
-      HitPosition_x = F_HitPosition_x;
-      HitPosition_y = F_HitPosition_y;
-      HitPosition_z = F_HitPosition_z;
     }
     else{
       std::cerr << "This subdetector name was not recognized!" << std::endl; 
@@ -178,15 +172,29 @@ int main(int const argc, char const * const * const argv) {
     long long int const entries = tree->GetEntries();
     for (long long int i = 0; i < entries; ++i) {
       tree->GetEntry(i);
+      if (Silicon){
+        HitPosition_x = D_HitPosition_x;
+        HitPosition_y = D_HitPosition_y;
+        HitPosition_z = D_HitPosition_z;
+      }
+      else if (Calo){
+        HitPosition_x = F_HitPosition_x;
+        HitPosition_y = F_HitPosition_y;
+        HitPosition_z = F_HitPosition_z;
+      }
       //if (pdg != 13 && pdg != -13) continue;
-      if (endcap &&  HitPosition_z < 0) continue;
+      //if (endcap && *HitPosition_z < 0) continue;
+      std::cout << "HitPosition_x = " << HitPosition_x << std::endl;
+      std::cout << "HitPosition_y = " << HitPosition_y << std::endl;
+      std::cout << "HitPosition_z = " << HitPosition_z << std::endl;
       //Make a combined cell ID
       long long int HitCellID1 = 0;
       if (endcap){
-        HitCellID1 = MakeNewCellID(HitPosition_x,HitPosition_y,det);//If Barrel, calculate CellID with z and phi on a certain radius
+        HitCellID1 = MakeNewCellID(HitPosition_x,HitPosition_y,det);
       }
       else if (barrel){
-        double phi = CalculatePhi((double)HitPosition_x, (double)HitPosition_y);
+        double phi = CalculatePhi(HitPosition_x, HitPosition_y);
+        //If Barrel, calculate CellID with z and phi on a certain radius
         if (Silicon) HitCellID1 = MakeNewCellID(HitPosition_z,phi*det.getRMin().at( CalculateLayer(HitCellID0,det)-1 ),det);//-1 for Silicon detectors only, because layer count starts from 1
         else if (Calo) HitCellID1 = MakeNewCellID(HitPosition_z,phi*det.getRMin().at( CalculateLayer(HitCellID0,det) ),det);
       }
@@ -194,6 +202,7 @@ int main(int const argc, char const * const * const argv) {
         std::cerr << "This subdetector shape was not recognized!" << std::endl; 
         exit(-1);
       }
+      std::cout << "HitCellID1 = " << HitCellID1 << std::endl;
       long long int const combined_cell_id = (long long) HitCellID1 << 32 | HitCellID0;
       //Use the CellHits class for storing the hit cells and their hitcounts
       CellHits_vec.at( file_iterator/NUMBER_OF_FILES )->Check_CellID(combined_cell_id, HitPosition_x, HitPosition_y, HitPosition_z);
@@ -471,8 +480,8 @@ double CalculatePhi(double x, double y){
   else return -101;
 }
 long long int MakeNewCellID(double const x, double const y, Subdetector const & component){
-  int newX = static_cast<int>(x/component.getCellSizeArea()); //Check if Cell Size Area is the same as Cell Dimension
-  int newY = static_cast<int>(y/component.getCellSizeArea()); //Check if Cell Size Area is the same as Cell Dimension
+  int newX = static_cast<int>(x/component.getCellSizeX()); //Check if Cell Size Area is the same as Cell Dimension
+  int newY = static_cast<int>(y/component.getCellSizeY()); //Check if Cell Size Area is the same as Cell Dimension
   if(x >= 0) ++newX;
   if(y >= 0) ++newY;
   bitset<32> bitY = newY;
