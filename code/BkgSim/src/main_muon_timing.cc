@@ -125,8 +125,11 @@ int main(int const argc, char const * const * const argv) {
   std::vector < std::string > title;
   title.emplace_back( "Hit time for " + subdetectorname + ";Hit time [ns];Number of hits" );
   title.emplace_back( "Hit time for " + subdetectorname +";Hit time [ns];Number of hits" );
-  std::vector< TH1D* > All_Layers_histo;
-  All_Layers_histo
+  float max_time = 100;
+  std::vector< TH1D* > All_Layers_histos;
+  All_Layers_histos.emplace_back(new TH1D(all_name.at(0).c_str(), title.at(0).c_str(), (int)(max_time/2.0), 0, (int)max_time) );
+  All_Layers_histos.emplace_back(new TH1D(all_name.at(1).c_str(), title.at(1).c_str(), (int)(max_time/2.0), 0, (int)max_time) );
+
   std::vector< TH1D* > histos;
 
   for (int file_iterator = 0; file_iterator < NUMBER_OF_FILES*2; ++file_iterator) {
@@ -136,22 +139,25 @@ int main(int const argc, char const * const * const argv) {
     //Set the branches
     int pdg(0);
     float hittime(0.0);
+    float creationtime(0.0);
 
     tree->SetBranchStatus("*", 0);
 
     if (Silicon){
       tree->SetBranchStatus("HitParticle_PDG", 1);
       tree->SetBranchAddress("HitParticle_PDG", &pdg);
-
       tree->SetBranchStatus("HitTime", 1);
       tree->SetBranchAddress("HitTime", &hittime);
+      tree->SetBranchStatus("HitParticleCreationTime", 1);
+      tree->SetBranchAddress("HitParticleCreationTime", &creationtime);
     }
     else if (Calo){
       tree->SetBranchStatus("HitMotherParticle_PDG", 1);
       tree->SetBranchAddress("HitMotherParticle_PDG", &pdg);
-
       tree->SetBranchStatus("HitContrTime", 1);
       tree->SetBranchAddress("HitContrTime", &hittime);
+      tree->SetBranchStatus("HitMotherCreationTime", 1);
+      tree->SetBranchAddress("HitMotherCreationTime", &creationtime);
     }
     else{
       std::cerr << "This subdetector name was not recognized!" << std::endl; 
@@ -169,7 +175,7 @@ int main(int const argc, char const * const * const argv) {
       //if (pdg != 13 && pdg != -13) continue;
       //if (endcap && *HitPosition_z < 0) continue;
 
-      All_Layers_histo.at(file_iterator/NUMBER_OF_FILES)->Fill(hittime,weight);  
+      All_Layers_histos.at(file_iterator/NUMBER_OF_FILES)->Fill(hittime-14.498+creationtime,weight);  
     }
     file->Close();
   }
@@ -183,9 +189,9 @@ int main(int const argc, char const * const * const argv) {
   //output << "output/muon_occupancy_" << subdetectorname;
   //Print_multiple_plots_from_same_vec (max_num_layers, histos, canvas, false, output.str());
 
-  Draw_All_Layer_plots_together( All_Layers_histo,canvas, false); 
+  Draw_All_Layer_plots_together( All_Layers_histos,canvas, false); 
   std::stringstream All_output;
-  All_output << "output/muon_occupancy_all_layers_" << subdetectorname;
+  All_output << "output/muon_hittime_all_layers_" << subdetectorname;
   canvas->Print((All_output.str() + ".pdf").c_str());
   canvas->Print((All_output.str() + ".cxx").c_str());
 
