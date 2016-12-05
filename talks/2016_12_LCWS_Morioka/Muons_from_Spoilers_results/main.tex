@@ -284,7 +284,7 @@ The spatial distribution is due to the tunnel shape and its shielding effects.
   Comparison of the muon energies in the \textcolor{red}{'5 Spoilers'} and the \textcolor{blue}{'5 Spoilers + Wall'} case:
  \end{column}
  \begin{column}{0.75\textwidth}
-  \includegraphics[width=\textwidth]{muon_energy.pdf}
+  \includegraphics[width=\textwidth]{figures/muon_energy.pdf}
  \end{column}
 \end{columns}
 In the 'Spoiler + Wall' case, the lower energy muons are either stopped or deflected by the magnetized wall.
@@ -299,7 +299,7 @@ In the 'Spoiler + Wall' case, the lower energy muons are either stopped or defle
   Comparison of the total number of hits in the different SiD subdetectors in the \textcolor{red}{'5 Spoilers'} and the \textcolor{blue}{'5 Spoilers + Wall'} case:
  \end{column}
  \begin{column}{0.8\textwidth}
-\includegraphics[width=\textwidth]{Hits_in_SiD_subdetectors_MuonSpoilerStudy.pdf}
+\includegraphics[width=\textwidth]{figures/Hits_in_SiD_subdetectors_MuonSpoilerStudy.pdf}
  \end{column}
 \end{columns}
 \begin{center}
@@ -321,7 +321,7 @@ In the 'Spoiler + Wall' case, the lower energy muons are either stopped or defle
 \begin{frame}{SiD Occupancy - Different background sources}
 \sidlogo
  \begin{center}
-\includegraphics[height=0.6\textheight]{SiD_Occupancy.png}
+\includegraphics[height=0.6\textheight]{figures/SiD_Occupancy.png}
 \end{center}
 Detailed occupancy studies with different background sources (e.g. pair background) is being done for SiD.\\
 SiD background note: ``A Study of the Impact of High Cross Section ILC Processes on the SiD Detector Design'' \small ( http://arxiv.org/abs/1609.07816 )
@@ -331,10 +331,10 @@ SiD background note: ``A Study of the Impact of High Cross Section ILC Processes
 \begin{columns}
  \begin{column}{0.25\textwidth}
  \small
-  Comparison of the muon occupancy in the \textcolor{red}{'5 Spoilers'} and the \textcolor{blue}{'5 Spoilers + Wall'} case.\\{\small The \textcolor{green}{buffer depth} of the current sensor design is 4.}
+  Comparison of the muon occupancy in the \textcolor{red}{'5 Spoilers} and the \textcolor{blue}{'5 Spoilers + Wall'} case.\\{\small The \textcolor{green}{buffer depth} of the current sensor design is 4.}
  \end{column}
  \begin{column}{0.75\textwidth}
-\includegraphics[width=\textwidth]{SiTrackerEndcap_Occupancy.png}
+\includegraphics[width=\textwidth]{figures/SiTrackerEndcap_Occupancy.png}
 \end{column}
 \end{columns}
 For both scenarios, 5 Spoilers w/ and w/o Wall, 10$^{-9}$ - 10$^{-8}$ of all cells that get hit have 4 hits.
@@ -342,48 +342,48 @@ For both scenarios, 5 Spoilers w/ and w/o Wall, 10$^{-9}$ - 10$^{-8}$ of all cel
 \begin{frame}{Occupancy plots - \small EcalEndcap}
 \sidlogo
  \begin{center}
-\includegraphics[height=0.62\textheight]{EcalEndcap_Occupancy.png}
+\includegraphics[height=0.62\textheight]{figures/EcalEndcap_Occupancy.png}
 \end{center}
-\small '5 Spoilers + Wall' seems to do better by an order of magnitude, when looking at a buffer depth of 4. The occupancy is still at a level of only 10$^{-5}$.\\
-\small The '5 Spoiler' case shows up to 70 hits per cell.$\rightarrow$ Constant occupancy for all buffer depths.
+\small '5 Spoilers + Wall' seems to do better by an order of magnitude, when looking at a buffer depth of 4. The occupancy is still at a level of only $\sim$10$^{-6}$.\\
+\small The '5 Spoiler' case shows up to 27 hits per cell.$\rightarrow$ Constant occupancy for all buffer depths.
 \end{frame}
 
 \subsection{Analysis - Dead cells}
 \begin{frame}{Dead cells - \small SiTrackerEndcap}
 \sidlogo
  \begin{center}
-\includegraphics[height=0.65\textheight]{SiTrackerEndcap_DeadCells.png}
+\includegraphics[height=0.65\textheight]{figures/SiTrackerEndcap_DeadCells.png}
 \end{center}
-\small For a assumed buffer depth of 4, the total number of dead cells is different by an order of magnitude. $\rightarrow$ In the '5 Spoiler' case, 100 cells would have reached the buffer limit.
+\small For a assumed buffer depth of 4, the total number of dead cells is different by an order of magnitude. $\rightarrow$ In the '5 Spoiler' case, 10$!{-7}$ cells would have reached the buffer limit.
 \end{frame}
 \begin{frame}{Dead cells - \small EcalEndcap}
 \sidlogo
  \begin{center}
-\includegraphics[height=0.65\textheight]{EcalEndcap_DeadCells.png}
+\includegraphics[height=0.65\textheight]{figures/EcalEndcap_DeadCells.png}
 \end{center}
-\small For a assumed buffer depth of 4, the total number of dead cells is different by a factor of about 5. $\rightarrow$ In the '5 Spoiler' case, 1000 cells would have reached the buffer limit.
+\small For a assumed buffer depth of 4, the total number of dead cells is different by about two orders of magnitude. $\rightarrow$ In the '5 Spoiler' case, 10$@{-3}$ cells would have reached the buffer limit.
 \end{frame}
 
 \subsection{Analysis - Time distributions}
-\begin{frame}{Creation time distribution \& Shower Particles}
+\begin{frame}{Creation time distribution}
 \sidlogo
-All of the muons are created up to 0.5\,ns after the bunch passing the material.
+All of the primary muons are created up to 0.5\,ns after the bunch passing the material.
  \begin{center}
-\includegraphics[height=0.49\textheight]{muon_hittime_all_layers_MuonEndcap.pdf}
-\includegraphics[height=0.49\textheight]{muon_hittime_all_layers_MuonEndcap.pdf}
+\includegraphics[height=0.65\textheight]{figures/muon_creationtime.pdf}
 \end{center}
+The lower energy muons, which have a broader creation time, do not reach the detector in the '5 Spoilers + Wall' case.
 \end{frame}
 \begin{frame}{Time distribution - \small MuonEndcaps}
 \sidlogo
  \begin{center}
-\includegraphics[height=0.65\textheight]{muon_hittime_all_layers_MuonEndcap.pdf}
+\includegraphics[height=0.65\textheight]{figures/muon_hittime_all_layers_MuonEndcap.pdf}
 \end{center}
 Muons are first hitting the MuonEndcaps as the most outer subdetector.
 \end{frame}
 \begin{frame}{Time distribution - \small SiTrackerEndcaps}
 \sidlogo
  \begin{center}
-\includegraphics[height=0.65\textheight]{muon_hittime_all_layers_SiTrackerEndcap.pdf}
+\includegraphics[height=0.65\textheight]{figures/muon_hittime_all_layers_SiTrackerEndcap.pdf}
 \end{center}
 \end{frame}
 
@@ -425,45 +425,59 @@ $\rightarrow$\textit{Stay tuned!}}
 \subsection*{Analysis - Occupancies}
 \begin{frame}{Occupancy plots - \small EcalBarrel}
 \sidlogo
-% \begin{center}
-%\includegraphics[height=0.62\textheight]{EcalBarrel_Occupancy.png}
-%\end{center}
+ \begin{center}
+\includegraphics[height=0.5\textheight]{figures/muon_occupancy_numcells_all_layers_EcalBarrel.pdf}
+\includegraphics[height=0.5\textheight]{figures/muon_occupancy_deadcells_all_layers_EcalBarrel.pdf}
+\end{center}
 \end{frame}
 \begin{frame}{Occupancy plots - \small HcalBarrel}
 \sidlogo
-% \begin{center}
-%\includegraphics[height=0.62\textheight]{EcalBarrel_Occupancy.png}
-%\end{center}
+ \begin{center}
+\includegraphics[height=0.5\textheight]{figures/muon_occupancy_numcells_all_layers_HcalBarrel.pdf}
+\includegraphics[height=0.5\textheight]{figures/muon_occupancy_deadcells_all_layers_HcalBarrel.pdf}
+\end{center}
 \end{frame}
 \begin{frame}{Occupancy plots - \small HcalEndcap}
 \sidlogo
-% \begin{center}
-%\includegraphics[height=0.62\textheight]{EcalBarrel_Occupancy.png}
-%\end{center}
+ \begin{center}
+\includegraphics[height=0.5\textheight]{figures/muon_occupancy_numcells_all_layers_HcalEndcap.pdf}
+\includegraphics[height=0.5\textheight]{figures/muon_occupancy_deadcells_all_layers_HcalEndcap.pdf}
+\end{center}
 \end{frame}
 \begin{frame}{Occupancy plots - \small MuonBarrel}
 \sidlogo
-% \begin{center}
-%\includegraphics[height=0.62\textheight]{EcalBarrel_Occupancy.png}
-%\end{center}
+ \begin{center}
+\includegraphics[height=0.5\textheight]{figures/muon_occupancy_numcells_all_layers_MuonBarrel.pdf}
+\includegraphics[height=0.5\textheight]{figures/muon_occupancy_deadcells_all_layers_MuonBarrel.pdf}
+\end{center}
+\end{frame}
+\begin{frame}{Occupancy plots - \small MuonEndcap}
+\sidlogo
+ \begin{center}
+\includegraphics[height=0.5\textheight]{figures/muon_occupancy_numcells_all_layers_MuonEndcap.pdf}
+\includegraphics[height=0.5\textheight]{figures/muon_occupancy_deadcells_all_layers_MuonEndcap.pdf}
+\end{center}
 \end{frame}
 \begin{frame}{Occupancy plots - \small SiTrackerBarrel}
 \sidlogo
-% \begin{center}
-%\includegraphics[height=0.62\textheight]{EcalBarrel_Occupancy.png}
-%\end{center}
+ \begin{center}
+\includegraphics[height=0.5\textheight]{figures/muon_occupancy_numcells_all_layers_SiTrackerBarrel.pdf}
+\includegraphics[height=0.5\textheight]{figures/muon_occupancy_deadcells_all_layers_SiTrackerBarrel.pdf}
+\end{center}
 \end{frame}
 \begin{frame}{Occupancy plots - \small BeamCal}
 \sidlogo
-% \begin{center}
-%\includegraphics[height=0.62\textheight]{EcalBarrel_Occupancy.png}
-%\end{center}
+ \begin{center}
+\includegraphics[height=0.5\textheight]{figures/muon_occupancy_numcells_all_layers_BeamCal.pdf}
+\includegraphics[height=0.5\textheight]{figures/muon_occupancy_deadcells_all_layers_BeamCal.pdf}
+\end{center}
 \end{frame}
 \begin{frame}{Occupancy plots - \small LumiCal}
 \sidlogo
-% \begin{center}
-%\includegraphics[height=0.62\textheight]{EcalBarrel_Occupancy.png}
-%\end{center}
+ \begin{center}
+\includegraphics[height=0.5\textheight]{figures/muon_occupancy_numcells_all_layers_LumiCal.pdf}
+\includegraphics[height=0.5\textheight]{figures/muon_occupancy_deadcells_all_layers_LumiCal.pdf}
+\end{center}
 \end{frame}
 
 \end{document}
