@@ -4,9 +4,9 @@
 
 				TH1F *h1 = new TH1F("Hits","Number of hits in SiD per train - 5 Spoilers vs. 5 Spoilers+Wall ",n,0,n);
 				h1->GetYaxis()->SetTitle("Number of hits");
-				h1->SetMarkerColor(kBlue);
+				h1->SetMarkerColor(kRed);
 				h1->SetMarkerStyle(20);
-				h1->SetFillColor(38);
+				h1->SetFillColor(46);
 
 				h1->SetBinContent(1,17033);
 				h1->SetBinContent(2,31946);
@@ -25,9 +25,9 @@
 
         TH1F *h2 = new TH1F("Hits","Number of hits in SiD per train - 5 Spoilers vs. 5 Spoilers+Wall",n,0,n);
 				h2->GetYaxis()->SetTitle("Number of hits");
-				h2->SetMarkerColor(kRed);
+				h2->SetMarkerColor(kBlue);
 				h2->SetMarkerStyle(20);
-				h2->SetFillColor(46);
+				h2->SetFillColor(38);
 
 				h2->SetBinContent(1,2239);
 				h2->SetBinContent(2,2340);
