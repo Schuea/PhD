@@ -71,14 +71,19 @@ int main(int const argc, char const * const * const argv) {
 
 
   //Make histogram vectors for storing the histograms
-  std::vector < std::string > name;
-  name.emplace_back( "Primary_Muons" );
-  name.emplace_back( "Shower_Particles" );
-  std::string title = "Creation time for Primary Muons;Creation time [ns];Number of particles";
+  std::vector < std::string > name1;
+  name1.emplace_back( "5Spoilers" );
+  name1.emplace_back( "5Spoilers_Wall" );
+  std::string title1 = "Creation time for Primary Muons;Creation time [ns];Number of particles";
   float max_time = 0.6;
-  std::vector< TH1D* > histos;
-  histos.emplace_back(new TH1D(name.at(0).c_str(), title.c_str(), 30, 0, max_time) );
-  histos.emplace_back(new TH1D(name.at(1).c_str(), title.c_str(), 30, 0, max_time) );
+  std::vector< TH1D* > histos1;
+  histos1.emplace_back(new TH1D(name1.at(0).c_str(), title1.c_str(), 30, 0, max_time) );
+  histos1.emplace_back(new TH1D(name1.at(1).c_str(), title1.c_str(), 30, 0, max_time) );
+  std::string title2 = "PDG IDs of the shower particles;PDG ID;Number of particles";
+  int max_pdg = 2200;
+  std::vector< TH1D* > histos2;
+  histos2.emplace_back(new TH1D(name1.at(0).c_str(), title2.c_str(), max_pdg-2000, 2000, max_pdg) );
+  histos2.emplace_back(new TH1D(name1.at(1).c_str(), title2.c_str(), max_pdg-2000, 2000, max_pdg) );
 
 
   for (int file_iterator = 0; file_iterator < NUMBER_OF_FILES*2; ++file_iterator) {
@@ -88,7 +93,7 @@ int main(int const argc, char const * const * const argv) {
     //Set the branches
     int pdg(0);
     float creationtime(0.0);
-    int CreatedInSim(-1);
+    bool CreatedInSim(0);
 
     tree->SetBranchStatus("*", 0);
 
@@ -102,9 +107,11 @@ int main(int const argc, char const * const * const argv) {
     long long int const entries = tree->GetEntries();
     for (long long int i = 0; i < entries; ++i) {
       tree->GetEntry(i);
-      if (pdg != 13 && pdg != -13 && CreatedInSim == 0) continue;
+      if (CreatedInSim == 0) continue;
+      //if (pdg != 13 && pdg != -13 && CreatedInSim == 0) continue;
 
-      histos.at(file_iterator/NUMBER_OF_FILES)->Fill(creationtime,weight);  
+      //histos1.at(file_iterator/NUMBER_OF_FILES)->Fill(creationtime,weight);  
+      histos2.at(file_iterator/NUMBER_OF_FILES)->Fill(pdg,weight);  
     }
     file->Close();
   }
@@ -113,12 +120,22 @@ int main(int const argc, char const * const * const argv) {
   //Plot the histogram and save it
   TCanvas *canvas = new TCanvas("canvas", "canvas", 800, 600);
   canvas->SetLogy(1);
+  canvas->SetLogx(0);
 
-  Draw_All_Layer_plots_together( histos,canvas, false); 
+  //Draw_All_Layer_plots_together( histos1,canvas, false); 
+  //std::stringstream All_output;
+  //All_output << "output/muon_creationtime";
+  //canvas->Print((All_output.str() + ".pdf").c_str());
+  //canvas->Print((All_output.str() + ".cxx").c_str());
+
+  histos2.at(0)->GetXaxis()->SetMoreLogLabels();
+  histos2.at(1)->GetXaxis()->SetMoreLogLabels();
+  Draw_All_Layer_plots_together( histos2,canvas, false); 
   std::stringstream All_output;
-  All_output << "output/muon_creationtime";
+  All_output << "output/muon_shower_pdg";
   canvas->Print((All_output.str() + ".pdf").c_str());
   canvas->Print((All_output.str() + ".cxx").c_str());
+
 
   return 0;
 }
