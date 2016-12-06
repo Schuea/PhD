@@ -125,7 +125,7 @@ int main(int const argc, char const * const * const argv) {
   std::vector < std::string > title;
   title.emplace_back( "Hit time for " + subdetectorname + ";Hit time [ns];Number of hits" );
   title.emplace_back( "Hit time for " + subdetectorname +";Hit time [ns];Number of hits" );
-  float max_time = 100;
+  float max_time = 150;
   std::vector< TH1D* > All_Layers_histos;
   All_Layers_histos.emplace_back(new TH1D(all_name.at(0).c_str(), title.at(0).c_str(), (int)(max_time/2.0), 0, (int)max_time) );
   All_Layers_histos.emplace_back(new TH1D(all_name.at(1).c_str(), title.at(1).c_str(), (int)(max_time/2.0), 0, (int)max_time) );
@@ -140,6 +140,7 @@ int main(int const argc, char const * const * const argv) {
     int pdg(0);
     float hittime(0.0);
     float creationtime(0.0);
+    bool CreatedInSim(0);
 
     tree->SetBranchStatus("*", 0);
 
@@ -150,6 +151,8 @@ int main(int const argc, char const * const * const argv) {
       tree->SetBranchAddress("HitTime", &hittime);
       tree->SetBranchStatus("HitParticleCreationTime", 1);
       tree->SetBranchAddress("HitParticleCreationTime", &creationtime);
+      tree->SetBranchStatus("HitParticle_CreatedInSimulation_Status", 1);
+      tree->SetBranchAddress("HitParticle_CreatedInSimulation_Status", &CreatedInSim);
     }
     else if (Calo){
       tree->SetBranchStatus("HitMotherParticle_PDG", 1);
@@ -158,6 +161,8 @@ int main(int const argc, char const * const * const argv) {
       tree->SetBranchAddress("HitContrTime", &hittime);
       tree->SetBranchStatus("HitMotherCreationTime", 1);
       tree->SetBranchAddress("HitMotherCreationTime", &creationtime);
+      tree->SetBranchStatus("HitMother_CreatedInSimulation_Status", 1);
+      tree->SetBranchAddress("HitMother_CreatedInSimulation_Status", &CreatedInSim);
     }
     else{
       std::cerr << "This subdetector name was not recognized!" << std::endl; 
@@ -172,7 +177,8 @@ int main(int const argc, char const * const * const argv) {
     long long int const entries = tree->GetEntries();
     for (long long int i = 0; i < entries; ++i) {
       tree->GetEntry(i);
-      //if (pdg != 13 && pdg != -13) continue;
+      if (CreatedInSim == 0) continue;
+      //if (pdg != 13 && pdg != -13 && CreatedInSim == 1) continue;
       //if (endcap && *HitPosition_z < 0) continue;
 
       All_Layers_histos.at(file_iterator/NUMBER_OF_FILES)->Fill(hittime-14.498+creationtime,weight);  
@@ -191,7 +197,7 @@ int main(int const argc, char const * const * const argv) {
 
   Draw_All_Layer_plots_together( All_Layers_histos,canvas, false); 
   std::stringstream All_output;
-  All_output << "output/muon_hittime_all_layers_" << subdetectorname;
+  All_output << "output/muon_hittime_all_layers_shower_" << subdetectorname;
   canvas->Print((All_output.str() + ".pdf").c_str());
   canvas->Print((All_output.str() + ".cxx").c_str());
 
