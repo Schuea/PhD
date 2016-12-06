@@ -95,10 +95,10 @@ The muon spoilers will be installed in the Beam Delivery System (BDS) in the cen
 \subsection{Muon spoiler scenarios}
 \begin{frame}{Muon spoiler scenarios}
 \ilclogo
-There are two spoiler scenarios under discussion:
+There are TWO SPOILER SCENARIOS under discussion:
 \begin{itemize}
- \item 5 donut spoilers
- \item 5 donut spoilers + wall
+ \item \textbf{5 Spoilers}
+ \item \textbf{5 Spoilers + Wall}
 \end{itemize}
 
 \begin{columns}[b]
@@ -226,8 +226,8 @@ Analysis method:
 \begin{itemize}
 \item 4-vector files provided by Lewis Keller:
 \begin{itemize}
- \item 5 Spoilers + wall: from electron line: $\sim$4321 muons
- \item 5 Spoilers + wall: from positron line: $\sim$5834 muons
+ \item 5 Spoilers + Wall: from electron line: $\sim$4321 muons
+ \item 5 Spoilers + Wall: from positron line: $\sim$5834 muons
  \item 5 Spoilers: from electron line: $\sim$30292 muons
  \item 5 Spoilers: from positron line: $\sim$33482 muons
 \end{itemize}
@@ -318,14 +318,6 @@ In the 'Spoiler + Wall' case, the lower energy muons are either stopped or defle
 \end{frame}
 
 \subsection{Analysis - Occupancies}
-\begin{frame}{SiD Occupancy - Different background sources}
-\sidlogo
- \begin{center}
-\includegraphics[height=0.6\textheight]{figures/SiD_Occupancy.png}
-\end{center}
-Detailed occupancy studies with different background sources (e.g. pair background) is being done for SiD.\\
-SiD background note: ``A Study of the Impact of High Cross Section ILC Processes on the SiD Detector Design'' \small ( http://arxiv.org/abs/1609.07816 )
-\end{frame}
 \begin{frame}{Occupancy plots - \small SiTrackerEndcap}
 \sidlogo
 \begin{columns}
@@ -380,29 +372,65 @@ The lower energy muons, which have a broader creation time, do not reach the det
 \end{center}
 Muons are first hitting the MuonEndcaps as the most outer subdetector.
 \end{frame}
+\begin{frame}{Time distribution - \small EcalEndcaps}
+\sidlogo
+Hit time distributions for \\
+\hspace*{0.6cm} the PRIMARY MUONS and the SHOWER PARTICLES:
+ \begin{center}
+\includegraphics[height=0.5\textheight]{figures/muon_hittime_all_layers_EcalEndcap.pdf}
+\includegraphics[height=0.5\textheight]{figures/muon_hittime_all_layers_shower_EcalEndcap.pdf}
+\end{center}
+The primary muons leave hits between 12 and $\sim$ 50\,ns after the bunch crossing, whereas the shower particles hit the EcalEndcaps about 60\,ns after the crossing.
+\end{frame}
 \begin{frame}{Time distribution - \small SiTrackerEndcaps}
 \sidlogo
+Hit time distributions for \\
+\hspace*{0.6cm} the PRIMARY MUONS and the SHOWER PARTICLES:
  \begin{center}
-\includegraphics[height=0.65\textheight]{figures/muon_hittime_all_layers_SiTrackerEndcap.pdf}
+\includegraphics[height=0.5\textheight]{figures/muon_hittime_all_layers_SiTrackerEndcap.pdf}
+\includegraphics[height=0.5\textheight]{figures/muon_hittime_all_layers_shower_SiTrackerEndcap.pdf}
 \end{center}
+The primary muons leave hits between 12 and $\sim$ 40\,ns after the bunch crossing, whereas the shower particles hit the Tracker endcaps about 40-100\,ns after the crossing.
+\end{frame}
+
+\subsection{Analysis - Shower particles}
+\begin{frame}{PDG IDs of the shower particles}
+\sidlogo
+Shower particles created from muons in 1 train:
+ \begin{center}
+\includegraphics[height=0.65\textheight]{figures/Shower_PDGs.png}
+\end{center}
+Mainly electrons, positrons and photons.
 \end{frame}
 
 \section{Conclusion and Outlook}
 \begin{frame}
 \textit{Conclusion:}
 \begin{itemize}
-\item Low energy muons are stopped by the muon wall.
+\item Low energy muons are stopped/deflected by the magnetized wall.
 \item High energy muons could be used for tracker alignment.
 \item Spatial distributions quite different in the '5 Spoiler' and '5 Spoiler+Wall' scenarios.
-\item Number of hits in subdetectors are explained by geometries.
-\item Occupancy is small, but 
-\item Muons are instantaneous in comparison to pair background.
+\item Number of hits in subdetectors are explained by different geometries.
+\item Primary muons are instantaneous in comparison to e.g. pair background, but hits (also from shower particles) still up to $\sim$ 100\,ns after bunch crossing.
+\item \textbf{\alert{Occupancy is small, but SiD would prefer:}}
 \end{itemize}
+\end{frame}
+\begin{frame}
 \textit{Outlook:}
-\begin{itemize}
-\item PACMAN should be included in the SiD geometry.
+\begin{columns}
+ \begin{column}{0.65\textwidth}
+  \begin{itemize}
+\item \textbf{PACMAN} should be included in the SiD geometry.
 This will have a big effect on the backgrounds, not only the muon spoiler background $\rightarrow$ PACMAN will stop muons with energies below 3-4 GeV.
+\item Muon background will be used for \textbf{further Occupancy studies together with different other background sources}.\\
+\small Detailed occupancy studies with different background sources (e.g. pair background) is being done for SiD. $\rightarrow$ SiD background note: ``A Study of the Impact of High Cross Section ILC Processes on the SiD Detector Design''\\( http://arxiv.org/abs/1609.07816 )
 \end{itemize}
+ \end{column}
+ \begin{column}{0.35\textwidth}
+  \includegraphics[height=0.37\textheight]{SiDPacman.jpg}
+ \end{column}
+\end{columns}
+\vspace*{0.2cm}
 \alert{
 $\rightarrow$\textit{Stay tuned!}}
 \end{frame}
