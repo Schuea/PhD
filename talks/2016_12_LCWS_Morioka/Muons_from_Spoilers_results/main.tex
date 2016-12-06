@@ -204,8 +204,8 @@ e\textsuperscript{-} beam line
 \vspace*{0.2cm}
 \begin{tabular}{ll}
 \textbf{Scenario} & \textbf{Number of muons in a detector with 6.5m radius}\\
- 5 spoilers& 4.3 muons/bunch crossing\\
- 5 spoilers + wall & 0.6 muons/bunch crossing
+ 5 Spoilers& 4.3 muons/bunch crossing\\
+ 5 Spoilers + Wall & 0.6 muons/bunch crossing
 \end{tabular}
 \end{frame}
 
@@ -232,9 +232,9 @@ Analysis method:
  \item 5 Spoilers: from positron line: $\sim$33482 muons
 \end{itemize}
 \item Conversion of the text files with the 4-vector values to  STDHEP files.
-\item The STDHEP files were used as input to a full SiD detector simulation with Genat4.
+\item The STDHEP files were used as input to a full SiD detector simulation with Geant4.
 \item Nice event displays from the simulations with WIRED4 in JAS3.
-\item Studies of the spatial distributions, the muon energy, and the detector occupancies.
+\item Studies of the spatial distributions, the muon energy, the timing, and the detector occupancies.
 \end{itemize}
 
 \end{frame}
@@ -323,13 +323,15 @@ In the 'Spoiler + Wall' case, the lower energy muons are either stopped or defle
 \begin{columns}
  \begin{column}{0.25\textwidth}
  \small
-  Comparison of the muon occupancy in the \textcolor{red}{'5 Spoilers} and the \textcolor{blue}{'5 Spoilers + Wall'} case.\\{\small The \textcolor{green}{buffer depth} of the current sensor design is 4.}
+  Comparison of the muon occupancy in the \textcolor{red}{'5 Spoilers} and the \textcolor{blue}{'5 Spoilers + Wall'} case.\\{\small The \textcolor{green}{buffer depth} of the current sensor design is 4.}\\
+  \vspace*{0.2cm}
+  {\footnotesize The following occupancy plots are normalized by the first bin.}
  \end{column}
  \begin{column}{0.75\textwidth}
 \includegraphics[width=\textwidth]{figures/SiTrackerEndcap_Occupancy.png}
 \end{column}
 \end{columns}
-For both scenarios, 5 Spoilers w/ and w/o Wall, 10$^{-9}$ - 10$^{-8}$ of all cells that get hit have 4 hits.
+For both scenarios, 5 Spoilers w/ and w/o Wall, 10$^{-9}$ - 10$^{-7}$ of all cells that get hit have 4 hits.
 \end{frame}
 \begin{frame}{Occupancy plots - \small EcalEndcap}
 \sidlogo
@@ -346,14 +348,14 @@ For both scenarios, 5 Spoilers w/ and w/o Wall, 10$^{-9}$ - 10$^{-8}$ of all cel
  \begin{center}
 \includegraphics[height=0.65\textheight]{figures/SiTrackerEndcap_DeadCells.png}
 \end{center}
-\small For a assumed buffer depth of 4, the total number of dead cells is different by an order of magnitude. $\rightarrow$ In the '5 Spoiler' case, 10$!{-7}$ cells would have reached the buffer limit.
+\small For an assumed buffer depth of 4, the total number of dead cells is different by an order of magnitude. $\rightarrow$ In the '5 Spoiler' case, 10$^{-7}$ cells would have reached the buffer limit.
 \end{frame}
 \begin{frame}{Dead cells - \small EcalEndcap}
 \sidlogo
  \begin{center}
 \includegraphics[height=0.65\textheight]{figures/EcalEndcap_DeadCells.png}
 \end{center}
-\small For a assumed buffer depth of 4, the total number of dead cells is different by about two orders of magnitude. $\rightarrow$ In the '5 Spoiler' case, 10$@{-3}$ cells would have reached the buffer limit.
+\small For an assumed buffer depth of 4, the total number of dead cells is different by about two orders of magnitude. $\rightarrow$ In the '5 Spoiler' case, 10$^{-3}$ cells would have reached the buffer limit.
 \end{frame}
 
 \subsection{Analysis - Time distributions}
@@ -365,14 +367,14 @@ All of the primary muons are created up to 0.5\,ns after the bunch passing the m
 \end{center}
 The lower energy muons, which have a broader creation time, do not reach the detector in the '5 Spoilers + Wall' case.
 \end{frame}
-\begin{frame}{Time distribution - \small MuonEndcaps}
+\begin{frame}{Hit Time distribution - \small MuonEndcaps}
 \sidlogo
  \begin{center}
 \includegraphics[height=0.65\textheight]{figures/muon_hittime_all_layers_MuonEndcap.pdf}
 \end{center}
 Muons are first hitting the MuonEndcaps as the most outer subdetector.
 \end{frame}
-\begin{frame}{Time distribution - \small EcalEndcaps}
+\begin{frame}{Hit Time distribution - \small EcalEndcaps}
 \sidlogo
 Hit time distributions for \\
 \hspace*{0.6cm} the PRIMARY MUONS and the SHOWER PARTICLES:
@@ -382,7 +384,7 @@ Hit time distributions for \\
 \end{center}
 The primary muons leave hits between 12 and $\sim$ 50\,ns after the bunch crossing, whereas the shower particles hit the EcalEndcaps about 60\,ns after the crossing.
 \end{frame}
-\begin{frame}{Time distribution - \small SiTrackerEndcaps}
+\begin{frame}{Hit Time distribution - \small SiTrackerEndcaps}
 \sidlogo
 Hit time distributions for \\
 \hspace*{0.6cm} the PRIMARY MUONS and the SHOWER PARTICLES:
