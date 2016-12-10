@@ -53,12 +53,13 @@
   \end{textblock}
 } 
 
-\title[ILC \& Muons from spoilers]{\textbf{\LARGE Muon background from the BDS\\in SiD} \\ \vspace*{0.3cm} \small LCWS Morioka}
+\title[ILC \& Muons from spoilers]{\textbf{\LARGE Muon background from the BDS\\in SiD} \\ \vspace*{0.3cm} \small LCWS16 Morioka}
 \author[Anne Sch\"utz]{\textbf{Anne Sch\"utz}\\Lewis Keller (SLAC), Glen White (SLAC)}
 \institute{\textbf{DESY}}
 \date{\textbf{8th December 2016}}
 
-\titlegraphic{\includegraphics[height=1.0cm]{figures/SiD.jpeg}\hspace*{6cm}~%
+\titlegraphic{\includegraphics[height=1.0cm]{figures/SiD.jpeg}\hspace*{2cm}~%
+\includegraphics[height=1.0cm]{figures/EJADE.jpeg}\hspace*{2.5cm}~
    \includegraphics[height=1.0cm]{figures/DESY_Logo.png}
 }
 
@@ -204,6 +205,7 @@ e\textsuperscript{-} beam line
 \vspace*{0.2cm}
 \begin{tabular}{ll}
 \textbf{Scenario} & \textbf{Number of muons in a detector with 6.5m radius}\\
+ No Spoilers & 130 muons/bunch crossing\\
  5 Spoilers& 4.3 muons/bunch crossing\\
  5 Spoilers + Wall & 0.6 muons/bunch crossing
 \end{tabular}
@@ -211,12 +213,14 @@ e\textsuperscript{-} beam line
 
 \section{Motivation}
 \begin{frame}{}
-\ilclogo
 Question to SiD and ILD: Do we need the muon wall at all?!
 MID people would be happy to get rid of it because of safety issues, and the costs for such a iron wall.
 \begin{center}
 \includegraphics[height=0.5\textheight]{Muon_wall_required.pdf}
 \end{center}
+\textit{On the other hand:}\\
+Removing the wall would mean NO access to IR when the beam is on!\\
+And expecting considerably higher rates when going to 1\,TeV $\rightarrow$ maybe wall then neccessary anyway!
 \end{frame}
 
 \section{Results}
@@ -395,15 +399,6 @@ Hit time distributions for \\
 The primary muons leave hits between 12 and $\sim$ 40\,ns after the bunch crossing, whereas the shower particles hit the Tracker endcaps about 40-100\,ns after the crossing.
 \end{frame}
 
-\subsection{Analysis - Shower particles}
-\begin{frame}{PDG IDs of the shower particles}
-\sidlogo
-Shower particles created from muons in 1 train:
- \begin{center}
-\includegraphics[height=0.65\textheight]{figures/Shower_PDGs.png}
-\end{center}
-Mainly electrons, positrons and photons.
-\end{frame}
 
 \section{Conclusion and Outlook}
 \begin{frame}
@@ -414,7 +409,7 @@ Mainly electrons, positrons and photons.
 \item Spatial distributions quite different in the '5 Spoiler' and '5 Spoiler+Wall' scenarios.
 \item Number of hits in subdetectors are explained by different geometries.
 \item Primary muons are instantaneous in comparison to e.g. pair background, but hits (also from shower particles) still up to $\sim$ 100\,ns after bunch crossing.
-\item \textbf{\alert{Occupancy is small, but SiD would prefer:}}
+\item \alert{With the shown evaluation of the muons from the current MUCARLO simulations, SiD would prefer to \textbf{keep the wall}. Additional studies with a comparison to other background sources will be done.}
 \end{itemize}
 \end{frame}
 \begin{frame}
@@ -452,6 +447,15 @@ $\rightarrow$\textit{Stay tuned!}}
 \end{frame}
 %%--------------------------------------------------------------------------------
 \section*{Appendix}
+\subsection*{Analysis - Shower particles}
+\begin{frame}{PDG IDs of the shower particles}
+\sidlogo
+Shower particles created from muons in 1 train:
+ \begin{center}
+\includegraphics[height=0.65\textheight]{figures/Shower_PDGs.png}
+\end{center}
+Mainly electrons, positrons and photons.
+\end{frame}
 \subsection*{Analysis - Occupancies}
 \begin{frame}{Occupancy plots - \small EcalBarrel}
 \sidlogo
