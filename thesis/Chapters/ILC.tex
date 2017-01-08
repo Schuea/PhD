@@ -91,9 +91,40 @@ Figure~\ref{fig:SiD} shows schematic drawings of the SiD detector and its subdet
 %TODO : Update the picture of the SiD detector -> new design for muon system
 
 To be hermetic and to contain the full particle showers, the magnetic field of the superconducting solenoid magnet is \unit{5}{T}.
-Therefore, the SiD detector optimized for Particle Flow Algorithms (PFA).
-%TODO : What is PFA?
+Therefore, the SiD detector is optimized for Particle Flow Algorithms (PFA).
+PFA is a reconstruction method that reconstructs each particle of the final state individually and uses the different subdetectors for a specific purpose.
+Therefore, charged particles are reconstructed from tracks in the tracker device, the ECAL is used for photons, and the ECAL and HCAL together for other neutral particles. 
+%TODO : Find a source for explanation of PFA
 
+Table~\ref{tab:KeyParametersSiD} lists the key parameters and measurements of the SiD subdetector systems.
+
+\begin{table}
+\caption{Key parameters of the baseline SiD design. (All dimension are given in cm).\cite{SiDBkgNote}}
+\label{tab:KeyParametersSiD}
+\centering
+\begin{tabularx}{0.81\textwidth}{l|llll}
+\hline\hline
+SiD Barrel & Technology & Inner radius & Outer radius & z extent \\
+\hline
+Vertex detector & Silicon pixels & 1.4 & 6.0 & $\pm 6.25$ \\
+Tracker & Silicon strips & 21.7 & 122.1 & $\pm 152.2$ \\
+ECAL & Silicon pixels-W & 126.5 & 140.9 & $\pm 176.5$ \\
+HCAL & RPC-steel & 141.7 & 249.3 & $\pm 301.8$ \\
+Solenoid & 5 T SC & 259.1 & 339.2 & $\pm 298.3$ \\
+Flux return & Scintillator-steel & 340.2 & 604.2 & $\pm 303.3$ \\
+\hline
+SiD Endcap & Technology & Inner z & Outer z & Outer radius \\
+\hline
+Vertex detector & Silicon pixels & 7.3 & 83.4 & 16.6 \\
+Tracker & Silicon strips & 77.0 & 164.3 & 125.5 \\
+ECAL & Silicon pixel-W & 165.7 & 180.0 & 125.0 \\
+HCAL & RPC-steel & 180.5 & 302.8 & 140.2 \\
+Flux return & Scintillator/steel & 303.3 & 567.3 & 604.2 \\
+LumiCal & Silicon-W & 155.7 & 169.55 &  20.0 \\
+BeamCal & Semiconductor-W & 326.5 & 344 & 14.0 \\
+\hline\hline
+\end{tabularx}
+\end{table}
 
 \subsection{The International Large Detector}
 
