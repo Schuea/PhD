@@ -80,6 +80,9 @@ The two detectors, the Silicon Detector (SiD) and the International Large Detect
 The SiD is designed to be a robust, compact detector with the vertex and tracker subdetectors and the electromagnetic calorimeter (ECAL) being based on silicon sensors.
 The silicon design in comparison to other designs for the vertex and tracking detectors is more robust regarding the beam background and timing.
 With also the highly segmented hadronic calorimeter being inside the solenoid field, particle tracking is possible even in the calorimeters.
+With being designed to be compact, the measurements for the full detector are \unit{14}{m} in height and \unit{11}{m} in length.
+To compensate the small radius, so that SiD is still hermetic and contains the full particle showers, the magnetic field of the superconducting solenoid magnet is \unit{5}{T}.
+
 Figure~\ref{fig:SiD} shows schematic drawings of the SiD detector and its subdetectors.
 
 \begin{figure}
@@ -90,8 +93,7 @@ Figure~\ref{fig:SiD} shows schematic drawings of the SiD detector and its subdet
 \end{figure}
 %TODO : Update the picture of the SiD detector -> new design for muon system
 
-To be hermetic and to contain the full particle showers, the magnetic field of the superconducting solenoid magnet is \unit{5}{T}.
-Therefore, the SiD detector is optimized for Particle Flow Algorithms (PFA).
+Overall the SiD detector is optimized for Particle Flow Algorithms (PFA).
 PFA is a reconstruction method that reconstructs each particle of the final state individually and uses the different subdetectors for a specific purpose.
 Therefore, charged particles are reconstructed from tracks in the tracker device, the ECAL is used for photons, and the ECAL and HCAL together for other neutral particles. 
 %TODO : Find a source for explanation of PFA
@@ -99,12 +101,12 @@ Therefore, charged particles are reconstructed from tracks in the tracker device
 Table~\ref{tab:KeyParametersSiD} lists the key parameters and measurements of the SiD subdetector systems.
 
 \begin{table}
-\caption{Key parameters of the baseline SiD design. (All dimension are given in cm).\cite{SiDBkgNote}}
+\caption{Key parameters of the baseline SiD design. All dimensions are given in cm.\cite{SiDBkgNote}}
 \label{tab:KeyParametersSiD}
 \centering
 \begin{tabularx}{0.81\textwidth}{l|llll}
 \hline\hline
-SiD Barrel & Technology & Inner radius & Outer radius & z extent \\
+SiD Barrel & Technology & Inner radius & Outer radius & z extent\\
 \hline
 Vertex detector & Silicon pixels & 1.4 & 6.0 & $\pm 6.25$ \\
 Tracker & Silicon strips & 21.7 & 122.1 & $\pm 152.2$ \\
@@ -113,7 +115,7 @@ HCAL & RPC-steel & 141.7 & 249.3 & $\pm 301.8$ \\
 Solenoid & 5 T SC & 259.1 & 339.2 & $\pm 298.3$ \\
 Flux return & Scintillator-steel & 340.2 & 604.2 & $\pm 303.3$ \\
 \hline
-SiD Endcap & Technology & Inner z & Outer z & Outer radius \\
+SiD Endcap & Technology & Inner z & Outer z & Outer radius\\
 \hline
 Vertex detector & Silicon pixels & 7.3 & 83.4 & 16.6 \\
 Tracker & Silicon strips & 77.0 & 164.3 & 125.5 \\
@@ -128,6 +130,13 @@ BeamCal & Semiconductor-W & 326.5 & 344 & 14.0 \\
 
 \subsection{The International Large Detector}
 
+Like the SiD detector, ILD is a multi-purpose particle detector that is optimized for PFA.
+Its vertex detector is also based on silicon sensors, whereas the tracker is a combination of both, a silicon strip and pixel detector and a time projection chamber (TPC).
+Also similar to SiD, the calorimeters are within the solenoid magnet, which is only surrounded by the muon system.
+The magnetic field of the superconducting solenoid magnet is \unit{3.5}{T} for the ILD.
+Because of having a big gaseous volume, the full detector is bigger than SiD, namely \unit{16}{m} in height and \unit{14}{m} in length.
+Figure~\ref{fig:ILD} shows all the subdetectors mentioned above in two schematic drawings of the ILD detector.
+
 \begin{figure}
 \centering
 \includegraphics[width=0.7\textwidth]{Figures/ILD.png}
@@ -138,3 +147,31 @@ BeamCal & Semiconductor-W & 326.5 & 344 & 14.0 \\
 
 \section{Physics Motivation}
 \label{ILC:physicsmotivation}
+
+The ILC can be motivated in different ways, of which two will be presented in this section.
+First, the advantages it will have over hadron colliders can be summarized with only four key words.
+Second, the ILC will be a Higgs factory which will measure the qualities of the Higgs boson with much higher precision than it had been done so far.
+The following paragraphs will go into more detail about these points and will motivate why the ILC is a great machine.
+
+\subsection{Key words}
+The physics motivation for the ILC can be summarized with four key words: Cleanliness, Democracy, Calculability and Detail.
+In the following, the meaning of these key words will be explained with respect to the great advantages the ILC has in comparison to hadron colliders, like the LHC.
+\subsubsection{Cleanliness}
+Cleanliness describes the clean events the detectors records.
+The environment is clean because of the small background levels and therefore small detector occupancy in comparison to a hadron collider.
+The energy range is restricted.
+There are no out-of-time pileup and no underlying events.
+\subsubsection{Democracy}
+Because the elementary coupling e of photons is the same for all quarks and leptons, the \electron \positron annihilation produces pairs of all species, SM and exotics, at similar rates.
+Besides that, the ILC will be taking data without triggers, i.e. all events will be recorded.
+This is possible because of the Cleanliness.
+\subsubsection{Calculability}
+The energies involved in the initial states are precisely known, since there are only point-like elementary particles in initial state.
+Due to the polarized beams, there are only events with couplings to electroweak interactions.
+Additionally, systematic uncertainties due to PDF uncertainties and QCD corrections are omitted.
+\subsubsection{Detail}
+Because of the clean events and the possibility to record and store all taken data, events can be reconstructed in completeness.
+The quark and lepton momenta can therefore be determined by kinematic fits.
+Studies of the spin-dependence of the production and decay processes are also possible.
+
+\subsection{ILC as a Higgs factory}
