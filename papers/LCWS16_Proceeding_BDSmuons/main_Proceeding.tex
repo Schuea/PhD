@@ -44,13 +44,21 @@
 }
 \newcommand{\micron}{\ensuremath{\murm\mathrm{m}\xspace}}
 
+\usepackage{authblk}
+
 \begin{document}
 
 %% Title, authors and addresses
 
 \title{A Study of the Impact of Muons from the Beam Delivery System on the SiD Performance}
 
-\author{Anne Sch\"utz\footnote{Karlsruhe Institute of Technology (KIT), Department of Physics, Institute of Experimental Nuclear Physics (IEKP), Wolfgang-Gaede-Str. 1, 76131 Karlsruhe, Germany}, Marcel Stanitzki\footnote{Deutsches Elektronen-Synchrotron (DESY), Notkestr. 85, 22607 Hamburg, Germany}}
+\author[1,2]{Anne Sch\"utz}
+\author[3]{Lewis Keller}
+\author[3]{Glen White}
+
+\affil[1]{Karlsruhe Institute of Technology (KIT), Department of Physics, Institute of Experimental Nuclear Physics (IEKP), Wolfgang-Gaede-Str. 1, 76131 Karlsruhe, Germany}
+\affil[2]{Deutsches Elektronen-Synchrotron (DESY), Notkestr. 85, 22607 Hamburg, Germany}
+\affil[3]{SLAC National Accelerator Laboratory, 2575 Sand Hill Rd, Menlo Park, CA 94025}
 
 \maketitle
 
@@ -80,6 +88,9 @@ In the first scenario five cylindrical magnetized spoilers are installed at diff
 The second scenario adds a magnetized iron wall close to the interaction region.
 Both, the spoilers and the wall are shown in schematic drawings in Figure~\ref{fig:Spoilers_Wall}.
 Their location in the BDS can be seen in Figure~\ref{fig:Spoilers_Wall_Locations}.
+The five spoilers are located at the following positions along the BDS tunnel: \unit{802.5}{m}, \unit{975.5}{m}, \unit{1145.5}{m}, \unit{1234.5}{m}, and \unit{1358.5}{m}.
+For the second shielding scenario, the wall would be additionally installed at \unit{400}{m} away from the interaction point.\cite{Lewis}
+
 \begin{figure}
     \centering
     \begin{subfigure}[b]{0.53\textwidth}
@@ -103,18 +114,21 @@ Their location in the BDS can be seen in Figure~\ref{fig:Spoilers_Wall_Locations
     \centering
     \includegraphics[width=0.7\textwidth]{figures/BDS_Tunnel_Spoilers+Wall.png}
     \caption[BDS tunnel with the spoiler and wall positions]{
-    The five spoilers are located at the following positions along the BDS tunnel: \unit{802.5}{m}, \unit{975.5}{m}, \unit{1145.5}{m}, \unit{1234.5}{m}, and \unit{1358.5}{m}.
-    For the second shielding scenario, the wall would be additionally installed at \unit{400}{m} away from the interaction point.
+    xz-view of the electron line of the BDS with the magnetized spoilers and the magnetized wall being depicted at their particular locations.
+    The green and red lines represent the tracks of the positively and negatively charged muons respectively, originating at this specific point along the beam line.
+    The reason why almost entirely positive muons are drawn is that only the tracks of these particles are drawn that reach the detector.
+    As the spoiler polarities are set to defocus muons with the same charge as the beam charge, the \textmu\textsuperscript{-} are defocussed and therefore absorbed in the tunnel walls before hitting the detector.
     }
     \label{fig:Spoilers_Wall_Locations}
 \end{figure}
 
 Due to the size of the wall which causes cost and safety issues, the MDI group prefers the first scenario without the wall.
 What has to be kept in mind on the other hand is that the wall reduces not only the muon rate but also shields the neutron and photon background created by the machine.
-Not having this shielding wall would therefore mean no access to the interaction region when the beam is on, i.e. the access to the detector in the garage position will not be allowed.
-
-
-SiD requirements for low background
+Not having this shielding wall would therefore mean the access to the interaction region, i.e. the access to the detector in the garage position, is not permitted when the beam is on.
+\\
+To facilitate the decision making whether the wall is needed in the end or not, the detector groups were asked to study the impact of the muons on the performance of the detectors.
+This proceeding shows the results of the study done for the SiD detector.\\
+With a tracker occupancy\footnote{The occupancy describes the fraction of detector cells that have been hit a certain amount of times.} of 10\textsuperscript{-3} being considered acceptable, the SiD occupancy caused by the muon background has to be seen in the context of all occurring backgrounds.
 
 
 \include{MUCARLO}
