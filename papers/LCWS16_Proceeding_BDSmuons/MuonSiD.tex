@@ -1,84 +1,44 @@
-\section{The SiD Detector concept}
+\section{The simulation of muons in the SiD detector}
 \label{Detector}
 
-\subsection{SiD in the Detailed Baseline Document}
-\begin{figure}
-\centering
-\includegraphics[angle=90,height=.7\textwidth]{figures/placeholder.jpg}
-\caption{Cross sectional views of the SiD concept, as described in the Detailed Baseline Document, in the x-y plane (left), and in the x-z plane (right).}
-\label{fig:SiD_Barrel_DBD}
-\end{figure}
-SiD~\cite{Aihara:2009ad} is a general-purpose detector designed to perform precision measurements at a linear collider. It satisfies the challenging detector requirements for precision measurements at a high-energy electron-positron collider~\cite{ILC_TDR_4}. SiD is optimized for event reconstruction using a particle flow algorithm (PFA), where the reconstruction of both charged and neutral particles is accomplished by the combination of tracking and calorimetry. The net result is a significantly more precise jet energy measurement that results in a di-jet mass resolution good enough to distinguish between W and Z hadronic decays. Following is a description of the SiD detector, as currently envisioned. Some key parameters of the SiD design are presented in Table~\ref{tab:KeyParametersSiD}.
-
-A superconducting solenoid with an inner radius of \unit[2.6]{m} provides a central magnetic field of \unit[5]{T}. The calorimeters are placed inside the coil and consist of a 30 layer tungsten--silicon electromagnetic calorimeter (ECAL) with $\unit[13]{mm^{2}}$ segmentation, followed by a hadronic calorimeter (HCAL) with steel absorber and instrumented with resistive plate chambers (RPC) -- 40 layers in the barrel region and 45 layers in the endcaps. The read-out cell size in the HCAL is $\unit[10\times10]{mm^{2}}$. The iron return yoke outside of the coil is instrumented with 11 RPC layers with $\unit[30\times30]{mm^{2}}$ read-out cells for muon identification.
-The silicon-only tracking system consists of five layers of $\unit[20\times20]{\micron^{2}}$ pixels followed by five strip layers with a pitch of \unit[25]{\micron}, a read-out pitch of \unit[50]{\micron} and a length of \unit[92]{mm} per module in the barrel region. The tracking system in the endcap consists of four stereo-strip disks with similar pitch and a stereo angle of $12^\circ$, complemented by four pixelated disks in the vertex region with a pixel size of $\unit[20\times 20]{\micron^{2}}$ and three disks in the far-forward region at lower radii with a pixel size of $\unit[50\times50]{\micron^{2}}$.
-Figure~\ref{fig:SiD_Barrel_DBD} shows a schematic drawing of the barrel of SiD, as described in the Detailed Baseline Document.
-
-All sub-detectors have the capability of time-stamping at the level of individual bunches, \unit[366]{ns} apart, $\approx$ 2600 to a train in the luminosity upgrade, according to the ILC TDR. The whole detector will be read out in the \unit[200]{ms} between bunch trains.
+In the first step of simulating the muons in the SiD detector, event displays were made with WIRED4.
 
 \begin{figure}
-\centering
-\includegraphics[width=.9\textwidth]{figures/placeholder.jpg}
-\caption{Detailed view of the forward layout of the detector with an L* of 4.1 m.}
-\label{fig:forward_region_new_Lstar}
-\end{figure}
-Figure~\ref{fig:forward_region_new_Lstar} shows the detailed layout of the detector in the forward region.
-Two dedicated calorimeters are foreseen in the very forward region. The LumiCal, covering an angular range of roughly \unit[40-90]{mrad} from the outgoing beamline, is designed for the precise measurement of the colliding-beam luminosity.  The BeamCal, extending from \unit[40]{mrad} down to angles as small as \unit[5]{mrad}, is designed for fast estimation of the luminosity, and to provide hermetic coverage for high- and intermediate-energy electrons and positrons arising from two-photon processes. The LumiCal and BeamCal are currently envisioned as cylindrical semiconductor-tungsten sampling calorimeters. The BeamCal is placed just in front of the final focus quadrupole and is centered on the outgoing beam. The LumiCal is aligned with the electromagnetic calorimeter endcap. The LumiCal is expected to make use of silicon sensors as the active medium, and is a precision device with challenging requirements on the mechanics and position control. The BeamCal is exposed to a large flux of low-energy electron-positron pairs originating from beamstrahlung. These depositions, useful for a bunch-by-bunch luminosity estimate and the determination of beam parameters, require radiation hard sensors -- as much as \unit[1]{MGy} of electromagnetically induced radiation per year at the peak of the radiation field. The choice of sensor technology is under study with dedicated radiation-damage experiments. The detectors in the very forward region also have to tackle relatively high occupancies, requiring dedicated front-end electronics.
-%The challenge for BeamCal is to find sensors that will tolerate about one MGy of dose per year. So far poly-crystalline chemical vapour deposition (CVD) diamond sensors of area 1 cm2 and larger sectors of GaAs pad sensors have been studied. Since large-area CVD diamond sensors are extremely expensive, they may be used for only the innermost part of BeamCal. At larger radii GaAs sensors appear to be a promising option. Sensor samples produced using the liquid encapsulated Czochralski method have been studied in a high-intensity electron beam.
-%For SiD, the main activities are the study of these radiation-hard sensors, development of the first version of the so-called Bean readout chip, and the simulation of BeamCal tagging for physics studies. SiD coordinates these activities with the FCAL R\&D Collaboration.
-
-\begin{table}
-\caption{Key parameters of the baseline SiD design. (All dimension are given in cm).}
-\label{tab:KeyParametersSiD}
-\begin{tabular}{lllll}
-\hline\hline
-SiD Barrel & Technology & Inner radius & Outer radius & z extent \\
-\hline
-Vertex detector & Silicon pixels & 1.4 & 6.0 & $\pm 6.25$ \\
-Tracker & Silicon strips & 21.7 & 122.1 & $\pm 152.2$ \\
-ECAL & Silicon pixels-W & 126.5 & 140.9 & $\pm 176.5$ \\
-HCAL & RPC-steel & 141.7 & 249.3 & $\pm 301.8$ \\
-Solenoid & 5 T SC & 259.1 & 339.2 & $\pm 298.3$ \\
-Flux return & Scintillator-steel & 340.2 & 604.2 & $\pm 303.3$ \\
-\hline
-SiD Endcap & Technology & Inner z & Outer z & Outer radius \\
-\hline
-Vertex detector & Silicon pixels & 7.3 & 83.4 & 16.6 \\
-Tracker & Silicon strips & 77.0 & 164.3 & 125.5 \\
-ECAL & Silicon pixel-W & 165.7 & 180.0 & 125.0 \\
-HCAL & RPC-steel & 180.5 & 302.8 & 140.2 \\
-Flux return & Scintillator/steel & 303.3 & 567.3 & 604.2 \\
-LumiCal & Silicon-W & 155.7 & 169.55 &  20.0 \\
-BeamCal & Semiconductor-W & 326.5 & 344 & 14.0 \\
-\hline\hline
-\end{tabular}
-\end{table}
-
-\subsection{SiD Detector Variants}
-
-\subsubsection{The Anti-DiD Field}
-
-To potentially suppress BeamCal backgrounds by directing a significant amount of the coherent pair activity into the outgoing beam pipe, the inclusion of an anti-DiD magnetic field has been proposed~\cite{ref:antiDiD}. The resulting vertex detector occupancy and BeamCal reconstruction efficiency, with and without the inclusion of the anti-DiD field, will be discussed below.
-
-
-
-\subsubsection{L* Variations}
-L* is the distance between the interaction point (IP) and the beginning of the final focusing magnet of the beam line, known as quadrupole QD0. The position of the BeamCal along the z-axis is related to the value of L*, since the BeamCal is attached to the end of the QD0 support structure. Thus, changing L* also changes the BeamCal location. In prior models of the SiD, L* was \unit[3.5]{m}, and the distance between the IP and the BeamCal was 2.95 meters. The most recent (and currently nominal) model of the SiD has L* changed to \unit[4.1]{m}, and has moved the BeamCal to be \unit[3.265]{m} away from the IP, in accordance with the ILC Change Control Board, which has dictated a common L* for the SiD and ILD detectors.
-
-\subsubsection{Variants of the ``plug'' region of the BeamCal}
-\begin{figure}[h]
     \centering
-    \begin{minipage}{0.3\textwidth}
-        \includegraphics[width=\textwidth]{figures/placeholder.jpg}
-    \end{minipage}
-    \begin{minipage}{0.3\textwidth}
-        \includegraphics[width=\textwidth]{figures/placeholder.jpg}
-    \end{minipage}
-    \begin{minipage}{0.3\textwidth}
-        \includegraphics[width=\textwidth]{figures/placeholder.jpg}
-    \end{minipage}
-    \caption{Front face of the BeamCal, showing the three different plug region implementations.}
-    \label{fig__beamcal_face}
+    \begin{subfigure}[b]{0.49\textwidth}
+    \centering
+        \includegraphics[height=0.3\textheight]{figures/muons_positron_5spoilers_wall_515_xyview_croped.png}
+        \caption{xy-view}
+	\label{fig:xy_5Spoilers}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.49\textwidth}
+    \centering
+        \includegraphics[height=0.3\textheight]{figures/muons_positron_5spoilers_wall_515_zyview_croped.png}
+        \caption{xy-view}
+        \label{fig:zy_5Spoilers}
+    \end{subfigure}
+    \caption[Event displays of muons in SiD from the '5 Spoilers' scenario]{
+    Event displays in the xy- and zy-view of the muons from the '5 Spoilers' scenario in the SiD detector.
+    }
+    \label{fig:WIRED4_5Spoilers}
 \end{figure}
 
-The plug region of the BeamCal refers to the area between and immediately surrounding the two beampipe holes. The outgoing beampipe hole, around which the BeamCal is centered, is \unit[20.5]{mm} in radius. The incoming beampipe hole is \unit15.5]{mm} in radius. There are three proposed designs for the plug region, pictured in Figure~\ref{fig__beamcal_face}, which are, from left to right: The first (and currently nominal) design instruments the full plug region, with two holes for the incoming and outgoing beam pipes. The second design is the so-called wedge-cutout, with one cutout for both beam pipes. The final design for the plug region is the circle-cutout, with a diameter which circumscribes both beam pipes. These designs mark a progressively more aggressive approach to removing material from the path of the highest concentration of background energy deposition in the BeamCal. Later sections will discuss the trade-off between BeamCal reconstruction efficiency and the effect of albedo emanating from the BeamCal associated with these variants.
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.49\textwidth}
+    \centering
+        \includegraphics[height=0.3\textheight]{figures/muons_positron_5spoilers_2961_xyview_croped.png}
+        \caption{xy-view}
+	\label{fig:xy_5SpoilersWall}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.49\textwidth}
+    \centering
+        \includegraphics[height=0.3\textheight]{figures/muons_positron_5spoilers_2961_zyview_croped.png}
+        \caption{xy-view}
+        \label{fig:zy_5SpoilersWall}
+    \end{subfigure}
+    \caption[Event displays of muons in SiD from the '5 Spoilers + Wall' scenario]{
+    Event displays in the xy- and zy-view of the muons from the '5 Spoilers + Wall' scenario in the SiD detector.
+    }
+    \label{fig:WIRED4_5SpoilersWall}
+\end{figure}
