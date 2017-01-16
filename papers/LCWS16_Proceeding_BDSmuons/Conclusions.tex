@@ -1,17 +1,21 @@
-\section{Summary and Conclusions}
+\section{Summary, Conclusions and Outlook}
 
-Making use of the SiD simulation infrastructure, we have conducted a simulation study of several aspects of the performance of the SiD vertex detector, forward electromagnetic calorimeter, and BeamCal. In particular, we have explored the way in which collision backgrounds (primarily from the production of coherent electron-positron pairs, but also including two-photon events when necessary) impact the performance of these detector elements. Within this context, we have also explored the effect of various IP design choices, including L* and BeamCal geometry variants as well as the inclusion of an anti-DiD magnetic field configuration that would sweep much of the coherent pair background into the exiting beampipe, thereby potentially improving the BeamCal reconstruction efficiency and lowering vertex detector backgrounds.
+To facilitate the decision making, whether a magnetized wall is necessary in addition to the five muon spoilers to guarantee acceptable muon shielding, the muons from the MUCARLO simulation have been simulated in a full SiD detector simulation.
+In particular, the differences between the two shielding scenarios and in both cases the impact of the muon background on the SiD occupancy have been studied.
 
-Fractional channel occupancy was used as a measure of the impact of the pair background on the performance of the vertex detector. Even under the conservative assumption of a pixel size of $\unit[30\times30]{\micron^{2}}$ and a readout that integrates over five bunch crossings, the occupancy was found to be well below $10^{-3}$ for any point in the barrel portion, and for any point in the endcap except at the innermost radii, where it rose to approximately $2 \times 10^{-3}$. Studies of the point-of-origin of pair-induced vertex detector background showed that only a fraction of the background arises from the BeamCal albedo, making the result insensitive to the L*, anti-DiD, and BeamCal geometry variants that were studied.
+The simulation showed that low energy muons from the Beam Delivery System are stopped or deflected by the magnetized wall, because of which the muon rate is reduced by a factor of about 6.
+Additionally, the spatial distributions of the muons in the two scenarios are quite different due to the magnetized wall which deflects the muons and spreads them over the whole detector area.
+Because of that fact, the number of hits in the different subdetectors are proportional to the effective detector areas.
 
-Furthermore, the studies of the hit time and creation time distributions of the background particles have shown that the pairs from the pair background do not hit the vertex detector instantaneously at the time of the bunch crossing. Due to the effect of backscattering and their low transverse momentum, pair background particles hit the vertex detector up to several microseconds late. These broad time distributions will allow us to reject hits that occur more than \unit[20]{ns} after the instant of the beam crossing by use of an electronic gate.
+Regarding the timing of the muons, it was shown that the primary muons are created instantaneously after the bunch passing the material.
+Despite that the hit time distributions of the primary muons and the produced shower particles made clear that the detector registers hits up to about \unit{100}{ns} after the bunch crossing.
 
-Making use of a simulation of all potentially high-occupancy backgrounds (pair, Bhabha, and two-photon production), we have explored the necessary buffer depth of the forward electromagnetic calorimeter readout. For the forward calorimeter overall, a depth of four buffers leads to a loss of several tenths of a percent of hits. Increasing this to six reduces the hit loss to just above  $10^{-4}$. However, while this result was also observed when the layer-by-layer hit loss was evaluated, the inverse relationship between background rate and distance from the beampipe led to a requirement of eight buffers to maintain hit losses below $10^{-4}$ for the innermost radii of the forward electromagnetic calorimeter.
+The most important objective of this study was the study of the SiD occupancy and the number of dead cells caused by the muon background.
+Although the occupancy in the vertex and tracker detectors is way below the critical value, the occupancy in the ECAL endcaps for example almost reaches this critical limit for the shielding scenario without the magnetized wall.
+It was found out that the reason for this is not only the higher muon rate in this scenario, but also the spatial distribution of the muons which are concentrated in a small area.
 
-Finally, our study of the dependence of the BeamCal reconstruction efficiency upon the choice of L* showed little effect, with a slight improvement in the geometrical acceptance observed for the larger, preferred value of L*. The inclusion of the anti-DiD field, which can have no effect on the geometrical acceptance, was observed to provide a noticeable improvement in the inefficiency for tagging \unit[50]{GeV} electrons in the region of the BeamCal between 30 and \unit[40]{cm} from the exiting electron/positron beams.
+Overall, with the shown evaluation of the muons from the current MUCARLO simulations, the SiD group would prefer to keep the magnetized wall, in order to keep the occupancy from the backgrounds as low as possible.
 
-%[Final flowery statements; acknowledgements?]
+To improve this study, the PACMAN geometry is recommended to be included in the SiD geometry, which will effect not only the simulations of the muon spoiler background but also all other machine backgrounds.
+Finally, the BDS muon background will be used for further occupancy studies together with different other background sources to see the overall occupancy from all background sources.
 
-%\subsection{Electromagnetic Calorimeter}
-%\subsection{Vertex Detector}
-%\subsection{BeamCal}
