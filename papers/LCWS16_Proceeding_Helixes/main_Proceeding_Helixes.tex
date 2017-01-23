@@ -1,0 +1,100 @@
+\pdfoutput=1 % for arXiv to use pdflatex
+\documentclass[12pt]{article}
+
+%% The graphicx package provides the includegraphics command.
+\usepackage{graphicx}
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amsmath}
+\usepackage{amssymb}
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers after \end{frontmatter}.
+\usepackage{lineno}
+\usepackage{url}
+\usepackage{xspace,multicol}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{color, colortbl}
+\usepackage{units}
+\usepackage{ragged2e}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{authblk}
+\usepackage{heppennames}
+\usepackage{feynmp}
+\usepackage{libertine}
+% \usepackage[libertine]{newtxmath}
+\usepackage{textgreek}
+\DeclareGraphicsRule{*}{mps}{*}{}
+
+\newcommand{\guineapig}{GuineaPig\xspace}
+\newcommand{\sid}{SiD\xspace}
+\newcommand{\slic}{\textsc{SLIC}\xspace}
+\newcommand{\geant}{\textsc{Geant4}\xspace}
+\newcommand{\murm}{%
+  \ifmmode
+    \mathchoice
+        {\hbox{\normalsize\textmu}}
+        {\hbox{\normalsize\textmu}}
+        {\hbox{\scriptsize\textmu}}
+        {\hbox{\tiny\textmu}}%
+  \else
+    \textmu
+  \fi
+}
+\newcommand{\micron}{\ensuremath{\murm\mathrm{m}\xspace}}
+
+\usepackage{authblk}
+\usepackage{fixltx2e}
+
+\begin{document}
+
+%% Title, authors and addresses
+
+\title{Pair Background Envelopes\\in the SiD Detector}
+
+\author[1,2]{Anne Sch\"utz}
+
+\affil[1]{Karlsruhe Institute of Technology (KIT), Department of Physics, Institute of Experimental Nuclear Physics (IEKP), Wolfgang-Gaede-Str. 1, 76131 Karlsruhe, Germany}
+\affil[2]{Deutsches Elektronen-Synchrotron (DESY), Notkestr. 85, 22607 Hamburg, Germany}
+
+\maketitle
+
+%%
+%% Start line numbering here if you want
+%%
+\linenumbers
+
+\begin{abstract}
+%% Text of abstract
+The study of the pair background envelopes and the beam pipe radius, previously done by Takashi Maruyama (SLAC), was redone with the up-to-date pair background data set simulated with \guineapig.
+Unlike before, the full data set of pairs produced in one bunch crossing was used to calculate the helix tracks the particles form in the solenoid field of the SiD detector.
+The results suggest to consider the reduction of the beam pipe radius and therefore to either add another vertex detector layer, or reduce the radius of the existing vertex detector layers.
+This has to go along with additional studies wether the improvement in physics reconstruction methods, like c-tagging, is worth the increasing background level at smaller radii.
+\end{abstract}
+
+
+%% main text
+\section{Introduction}
+\label{sec:introduction}
+Since the pair background irradiates material over time, the ideal distance between the area of high density pair background and the beam pipe can be decided or reviewed by studying the envelopes of the pair background helixes in the magnetic solenoid field.
+Takashi Maruyama has previously done this study with different beam parameters~\cite{Takashi_plot}, but with applying cuts to the data set because of limited CPU power~\cite{Takashi}.
+The plots shown in this proceeding in contrast were done with a full pair background data set from most recent simulations without any cuts applied.\\
+With the beam pipe radius of \unit{1.2}{cm} in the immediate interaction point region and the beam pipe increasing in radius in a cone shape, the fraction of pairs leaving the beam pipe can be calculated in order to convey an understanding of how many pair background particles enter the SiD detector and interact with the material. 
+
+\include{PairHelixesSiD}
+\include{Conclusions}
+
+
+%\section*{Acknowledgments}
+%Grateful acknowledgments to Lewis Keller and Glen White from SLAC for the simulation of the muons from the BDS and their support.
+
+%\include{Appendix}
+
+%% References with bibTeX database:
+
+\bibliographystyle{abbrv}
+%\bibliographystyle{model1-num-names} %Doesn't work well if you also cite webpages (Confluence page)
+\bibliography{bibliography.bib}
+
+\end{document}
