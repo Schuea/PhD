@@ -63,16 +63,22 @@ int main(){
   TGraph *graph_90 = MakeTheGraph(hx, 0.90);
   TGraph *graph_95 = MakeTheGraph(hx, 0.95);
   TGraph *graph_99 = MakeTheGraph(hx, 0.99);
+  TGraph *graph_997 = MakeTheGraph(hx, 0.997);
+  TGraph *graph_99999 = MakeTheGraph(hx, 0.99999);
 
   TGraph *graph_68_neg = new TGraph(n, graph_68->GetX(), InvertYaxis(n, graph_68->GetY()));
   TGraph *graph_90_neg = new TGraph(n, graph_90->GetX(), InvertYaxis(n, graph_90->GetY()));
   TGraph *graph_95_neg = new TGraph(n, graph_95->GetX(), InvertYaxis(n, graph_95->GetY()));
   TGraph *graph_99_neg = new TGraph(n, graph_99->GetX(), InvertYaxis(n, graph_99->GetY()));
+  TGraph *graph_997_neg = new TGraph(n, graph_997->GetX(), InvertYaxis(n, graph_997->GetY()));
+  TGraph *graph_99999_neg = new TGraph(n, graph_99999->GetX(), InvertYaxis(n, graph_99999->GetY()));
 
   graph_68_neg->SetMarkerStyle(7);
   graph_90_neg->SetMarkerStyle(7);
   graph_95_neg->SetMarkerStyle(7);
   graph_99_neg->SetMarkerStyle(7);
+  graph_997_neg->SetMarkerStyle(7);
+  graph_99999_neg->SetMarkerStyle(7);
 
   graph_68->SetTitle("Envelopes outlining fractions of helix tracks from pair backgrounds;z [mm];x [mm]");
 
@@ -84,6 +90,10 @@ int main(){
   graph_95_neg->SetMarkerColor(3);
   graph_99->SetMarkerColor(4);
   graph_99_neg->SetMarkerColor(4);
+  graph_997->SetMarkerColor(6);
+  graph_997_neg->SetMarkerColor(6);
+  graph_99999->SetMarkerColor(7);
+  graph_99999_neg->SetMarkerColor(7);
 
 	TLine *line = new TLine(0,12,62.5,12);
 	TLine *nline = new TLine(0,-12,62.5,-12);
@@ -106,6 +116,10 @@ int main(){
   graph_95_neg->Draw("PSAME");
   graph_99->Draw("PSAME");
   graph_99_neg->Draw("PSAME");
+  graph_997->Draw("PSAME");
+  graph_997_neg->Draw("PSAME");
+  graph_99999->Draw("PSAME");
+  graph_99999_neg->Draw("PSAME");
 
 	line->Draw();
 	nline->Draw();
@@ -120,11 +134,12 @@ int main(){
   leg->AddEntry(graph_90,"90%","p");
   leg->AddEntry(graph_95,"95%","p");
   leg->AddEntry(graph_99,"99%","p");
+  leg->AddEntry(graph_997,"99.7%","p");
+  leg->AddEntry(graph_99999,"99.999%","p");
   leg->Draw();
   //resultx->Draw("hist");
   c.Print("HelixEnvelopes_xz.pdf");
   c.Print("HelixEnvelopes_xz.cxx");
-  cout << "Time taken: " << time(NULL) - time1 <<  " seconds" << endl;
 
   return 0;
 }
