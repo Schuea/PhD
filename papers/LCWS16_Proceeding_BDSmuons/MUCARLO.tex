@@ -1,0 +1,27 @@
+\section{The Simulation of the Muon Background with MUCARLO}
+\label{MUCARLO}
+
+The simulation code MUCARLO is based on Fortran, and was written by Lewis Keller.
+For simulating the beam interacting with the BDS geometry and the muon collimation system, the TDR baseline machine parameters for the ILC500 are used.
+The muons are produced predominantly by the Bethe-Heilter process:\\
+\textgamma + Z $\rightarrow$ Z' + \murm\textsuperscript{+}\murm\textsuperscript{-}\\
+The muon production by direct annihilation of the positrons with atomic electrons is also taken into account.\cite[sec. 2]{Mucarlo}
+For tracking the halo particles, the tool Turtle\cite{Turtle} is used.\\
+The results from the MUCARLO simulations can be seen in Table~\ref{tab:MuonRates}, listing the number of muons reaching the interaction region for the two shielding scenarios and for the case of not having any muon shielding system.
+
+\begin{table}
+\caption{MUCARLO results: The number of muons hitting a detector with radius of \unit{6.5}{m} in the different shielding scenarios.}
+\label{tab:MuonRates}
+\centering
+\begin{tabularx}{\textwidth}{ll}
+\hline\hline
+\textbf{Scenario} & \textbf{Number of muons in a detector with 6.5m radius}\\
+\hline
+\cline{1-2}
+\hline
+ No Spoilers & 130 muons/bunch crossing\\
+ 5 Spoilers& 4.3 muons/bunch crossing\\
+ 5 Spoilers + Wall & 0.68 muons/bunch crossing\\
+\hline\hline
+\end{tabularx}
+\end{table}

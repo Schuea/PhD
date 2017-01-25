@@ -80,6 +80,9 @@ The two detectors, the Silicon Detector (SiD) and the International Large Detect
 The SiD is designed to be a robust, compact detector with the vertex and tracker subdetectors and the electromagnetic calorimeter (ECAL) being based on silicon sensors.
 The silicon design in comparison to other designs for the vertex and tracking detectors is more robust regarding the beam background and timing.
 With also the highly segmented hadronic calorimeter being inside the solenoid field, particle tracking is possible even in the calorimeters.
+With being designed to be compact, the measurements for the full detector are \unit{14}{m} in height and \unit{11}{m} in length.
+To compensate the small radius, so that SiD is still hermetic and contains the full particle showers, the magnetic field of the superconducting solenoid magnet is \unit{5}{T}.
+
 Figure~\ref{fig:SiD} shows schematic drawings of the SiD detector and its subdetectors.
 
 \begin{figure}
@@ -90,12 +93,49 @@ Figure~\ref{fig:SiD} shows schematic drawings of the SiD detector and its subdet
 \end{figure}
 %TODO : Update the picture of the SiD detector -> new design for muon system
 
-To be hermetic and to contain the full particle showers, the magnetic field of the superconducting solenoid magnet is \unit{5}{T}.
-Therefore, the SiD detector optimized for Particle Flow Algorithms (PFA).
-%TODO : What is PFA?
+Overall the SiD detector is optimized for Particle Flow Algorithms (PFA).
+PFA is a reconstruction method that reconstructs each particle of the final state individually and uses the different subdetectors for a specific purpose.
+Therefore, charged particles are reconstructed from tracks in the tracker device, the ECAL is used for photons, and the ECAL and HCAL together for other neutral particles. 
+%TODO : Find a source for explanation of PFA
 
+Table~\ref{tab:KeyParametersSiD} lists the key parameters and measurements of the SiD subdetector systems.
+
+\begin{table}
+\caption{Key parameters of the baseline SiD design. All dimensions are given in cm.\cite{SiDBkgNote}}
+\label{tab:KeyParametersSiD}
+\centering
+\begin{tabularx}{0.81\textwidth}{l|llll}
+\hline\hline
+SiD Barrel & Technology & Inner radius & Outer radius & z extent\\
+\hline
+Vertex detector & Silicon pixels & 1.4 & 6.0 & $\pm 6.25$ \\
+Tracker & Silicon strips & 21.7 & 122.1 & $\pm 152.2$ \\
+ECAL & Silicon pixels-W & 126.5 & 140.9 & $\pm 176.5$ \\
+HCAL & RPC-steel & 141.7 & 249.3 & $\pm 301.8$ \\
+Solenoid & 5 T SC & 259.1 & 339.2 & $\pm 298.3$ \\
+Flux return & Scintillator-steel & 340.2 & 604.2 & $\pm 303.3$ \\
+\hline
+SiD Endcap & Technology & Inner z & Outer z & Outer radius\\
+\hline
+Vertex detector & Silicon pixels & 7.3 & 83.4 & 16.6 \\
+Tracker & Silicon strips & 77.0 & 164.3 & 125.5 \\
+ECAL & Silicon pixel-W & 165.7 & 180.0 & 125.0 \\
+HCAL & RPC-steel & 180.5 & 302.8 & 140.2 \\
+Flux return & Scintillator/steel & 303.3 & 567.3 & 604.2 \\
+LumiCal & Silicon-W & 155.7 & 169.55 &  20.0 \\
+BeamCal & Semiconductor-W & 326.5 & 344 & 14.0 \\
+\hline\hline
+\end{tabularx}
+\end{table}
 
 \subsection{The International Large Detector}
+
+Like the SiD detector, ILD is a multi-purpose particle detector that is optimized for PFA.
+Its vertex detector is also based on silicon sensors, whereas the tracker is a combination of both, a silicon strip and pixel detector and a time projection chamber (TPC).
+Also similar to SiD, the calorimeters are within the solenoid magnet, which is only surrounded by the muon system.
+The magnetic field of the superconducting solenoid magnet is \unit{3.5}{T} for the ILD.
+Because of having a big gaseous volume, the full detector is bigger than SiD, namely \unit{16}{m} in height and \unit{14}{m} in length.
+Figure~\ref{fig:ILD} shows all the subdetectors mentioned above in two schematic drawings of the ILD detector.
 
 \begin{figure}
 \centering
@@ -107,3 +147,62 @@ Therefore, the SiD detector optimized for Particle Flow Algorithms (PFA).
 
 \section{Physics Motivation}
 \label{ILC:physicsmotivation}
+
+The ILC can be motivated in different ways.
+First, the advantages it will have over hadron colliders can be summarized with only four key words.
+Second, the ILC will be a Higgs factory which will measure the qualities of the Higgs boson with much higher precision than it had been done so far.
+Additionally, the ILC will not only be a Higgs factory but will also measure the Top quark qualities, and will have access to Beyond Standard Model (BSM) physics.\\
+The following paragraphs will go into more detail about the first two points and will motivate on the basis of these points why the ILC is a great machine.
+
+\subsection{Key words}
+The physics motivation for the ILC can be summarized with four key words: Cleanliness, Democracy, Calculability and Detail.\cite[p. 2-5]{TDR2}
+In the following, the meaning of these key words will be explained with respect to the great advantages the ILC has in comparison to hadron colliders, like the LHC.
+\subsubsection{Cleanliness}
+Cleanliness describes the clean events the detectors at the ILC will record.
+The environment is clean because of the small background levels and therefore small detector occupancy in comparison to a hadron collider.
+Due to the polarization of both beams, there are only events with couplings to electroweak interactions, which reduces the background level.
+The energy range is restricted, since the initial energy of the colliding beams can be set precisely and only point-like particles collide.
+Therefore, there are no underlying events which arise from the other nuclei of the composite particle, like in a proton-proton collider.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{Figures/Cleanliness.png}
+\caption[Clean environment at the ILC]{Comparison of the event displays of a Higgs event at the  LHC and at the ILC.\cite[p. 4]{ILCPhysics_Thomson}\\
+The comparison shows that at the ILC the hits recorded are exclusively from the final state particles of the physics interaction.
+At the LHC, underlying and pileup events populate the detector.}
+\label{fig:Cleanliness}
+\end{figure}
+
+\subsubsection{Democracy}
+Because the elementary coupling e of photons is the same for all quarks and leptons, the \electron \positron annihilation produces pairs of all species, from the Standard Model and Beyond Standard Model, at similar rates.
+Besides that, the ILC will be taking data without triggers, i.e. all events will be recorded.
+This is possible because of the Cleanliness.
+\subsubsection{Calculability}
+The energies involved in the initial states are precisely known, since there are only point-like elementary particles in initial state.
+There are only events with couplings to electroweak interactions.
+Additionally, systematic uncertainties due to PDF uncertainties and QCD corrections are omitted.
+\subsubsection{Detail}
+Because of the clean events and the possibility to record and store all taken data, events can be reconstructed in completeness without theoretical assumptions.
+The quark and lepton momenta can therefore be determined by kinematic fits.
+Studies of the spin-dependence of the production and decay processes are also possible.\\
+Due to the high energy resolution and the fact that the initial particle energies are precisely known, particles with small mass differences are distinguishable, i.e. peaks in mass spectra that are close together are more likely to be separable.\\
+Additionally, the nano-sized beam of the ILC allows the vertex detector to be close to the IP. 
+Hence, c-tagging is possible at the ILC which improves a lot of physics studies.
+
+\subsection{ILC as a Higgs factory}
+One could call the ILC a Higgs factory, since the total cross section for Higgs production is 10\textsuperscript{-2} in comparison to 10\textsuperscript{-9} for the LHC for example.
+%TODO : Find source or plot that shows the total production cross sections at ILC and LHC
+Therefore, the number of Higgs events measured at the ILC will be significantly higher, namely about 10 Higgs events per hour.
+Due to the large statistics and the capability for precision measurements, the individual Higgs couplings can be measured to a percent accuracy and the global width of the Higgs can be measured directly.
+When taking the LHC as an example, the LHC experiments have to make a global fit to all Higgs signals and make assumptions of the Higgs width, in order to get the Higgs couplings.
+This can not be as precise as at the ILC, as can be seen in Figure~\ref{fig:Higgs_couplings}.
+Only for the coupling to photons, the LHC yields more precise measurements which can only be topped by the combination of the LHC and the ILC results.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{Figures/Higgs_couplings.png}
+\caption[Higgs coupling precisions]{Comparison of the Higgs coupling precision reached at the ILC and at the LHC.\cite[p. 9]{ILCPhysics}\\
+The plot shows the relative precisions for the Higgs couplings calculated from the model-dependent fits to simulated data from the High-Luminosity LHC and the ILC.}
+\label{fig:Higgs_couplings}
+\end{figure}
+%TODO : Check if there is a more up-to-date picture

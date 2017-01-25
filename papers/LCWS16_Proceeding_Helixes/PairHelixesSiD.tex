@@ -1,0 +1,102 @@
+\section{The pair background envelopes}
+\label{Detector}
+The pair background induced by beam-beam interactions, in which the beamstrahlung from the initial beams produces secondary \Pep \Pem pairs, is simulated with \guineapig, a Monte Carlo (MC) background event generator~\cite{Schulte:1997nga}.
+For this study, the pairs are generated for the ILC500GeV beam parameters, and are then input to a \geant full detector simulation of the SiD detector.
+The 4-vectors of the resulting pair background particles from one bunch crossing are the input to a helix algorithm, calculating the tracks of the pairs in the SiD detector.\\
+The algorithm takes the particle vertices, their momenta and charge as arguments, and calculates the radius of the helix, its center position and its pitch.
+For this, the following assumptions are made: 
+The particle momenta does not change in the region shown in the plots, because of which the helix radius is constant over this distance.
+Additionally, any particle interaction with other particles or the material is not taken into account.\\
+Figure~\ref{fig:helix_circle} shows schematically the projection of a helix onto the xy-plane with the transverse momentum (P\textsubscript{T}) and the x- and y-momenta (p\textsubscript{x} and p\textsubscript{y}) of the particle being displayed, on which the helix is dependent.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/Helix_explanation.png}
+    \caption[Projection of the helix on the xy-plane]{
+    This schematic shows the vector of the transverse momentum (P\textsubscript{T}) in dependency of the x- and y-momenta (p\textsubscript{x} and p\textsubscript{y}).
+    With a constant magnetic field applied, a charged particle performs a helix track which is projected into a circle on the displayed xy-plane.
+    Depending on the charge of the particle, the direction of the rotation is either clockwise or anticlockwise.
+    The center and orientation of the projected circle is dependent on the transverse momentum of the particle.
+    }
+    \label{fig:helix_circle}
+\end{figure}
+
+Figure~\ref{fig:Helixes} shows the resulting helix tracks of the pair background from one bunch crossing in the xz- and yz-plane.
+With the envelopes drawn in Figures~\ref{fig:envelopes_xz} and \ref{fig:envelopes_yz}, it becomes clear that the distance between 99\% of all pair particle tracks and the beam pipe is more than \unit{4}{mm} at any given point.
+Overall, with the current beam pipe design, only $\sim$ 0.45\% of all pairs leave tracks outside the beam pipe.\\
+With a closer look, one can see that the envelopes are broader in the yz-plane than in the xz-plane, and that the distribution of tracks in the yz-plane is asymmetric.
+The reason for that are the initial momentum distributions of the pair background particles: the x-momentum distributions are broader than for the y-momentum, because of which the projected helix circles on the xy-plane are orientated more around the x-axis.
+Hence, the distribution of the projection of all helix tracks on the yz-plane is wider than on the xz-plane.\\
+The asymmetry of the helix track distribution in y is due to the different momenta of positrons and electrons in the beam direction, which can be seen in Figure~\ref{fig:momenta}.
+The secondary particles are boosted in the direction of the initial beam with the same charge, i.e. the secondary electrons are mainly boosted in the direction of the \Pem beam, and the secondary positrons in the other direction accordingly.
+Looking at both electrons and positrons, the distribution of track density becomes clear.
+
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.49\textwidth}
+    \centering
+        \includegraphics[height=0.26\textheight]{figures/Helix_tracks_xz_1bunch_lowres.pdf}
+        \caption{Helix tracks projected on the xz plane}
+	\label{fig:helix_xz}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.49\textwidth}
+    \centering
+        \includegraphics[height=0.26\textheight]{figures/HelixEnvelopes_xz.pdf}
+        \caption{Envelopes on the xz plane}
+        \label{fig:envelopes_xz}
+    \end{subfigure}\\
+    \begin{subfigure}[b]{0.49\textwidth}
+    \centering
+        \includegraphics[height=0.26\textheight]{figures/Helix_tracks_yz_1bunch_lowres.pdf}
+        \caption{Helix tracks projected on the yz plane}
+	\label{fig:helix_yz}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.49\textwidth}
+    \centering
+        \includegraphics[height=0.26\textheight]{figures/HelixEnvelopes_yz.pdf}
+        \caption{Envelopes on the yz plane}
+        \label{fig:envelopes_yz}
+    \end{subfigure}
+    \caption[Helix tracks and their envelopes]{
+    The projection of the helix tracks from the pair background particles of one bunch crossing are shown in the xz- and yz-plane in Figures a) and c).
+    The color scales shows how many particle tracks are in the single bins of these plots.
+    To get a better grasp, Figures b) and d) show the envelopes outlining certain fractions of helix tracks.
+    Therefore, the blue line represents the envelope of 99\% of all pair tracks.
+    In all subfigures, the thin red lines represent the beam pipe.
+    }
+    \label{fig:Helixes}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.49\textwidth}
+    \centering
+        \includegraphics[height=0.21\textheight]{figures/Momentumx_Momentumz.png}
+        \caption{p\textsubscript{x} vs. p\textsubscript{z}, \Pem}
+	\label{fig:px_pz_ele}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.49\textwidth}
+    \centering
+        \includegraphics[height=0.21\textheight]{figures/Momentumx_Momentumz_Positrons.png}
+        \caption{p\textsubscript{x} vs. p\textsubscript{z}, \Pep}
+        \label{fig:px_pz_posi}
+    \end{subfigure}\\
+    \begin{subfigure}[b]{0.49\textwidth}
+    \centering
+        \includegraphics[height=0.21\textheight]{figures/Momentumy_Momentumz.png}
+        \caption{p\textsubscript{y} vs. p\textsubscript{z}, \Pem}
+	\label{fig:py_pz_ele}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.49\textwidth}
+    \centering
+        \includegraphics[height=0.21\textheight]{figures/Momentumy_Momentumz_Positrons.png}
+        \caption{p\textsubscript{y} vs. p\textsubscript{z}, \Pep}
+        \label{fig:py_pz_posi}
+    \end{subfigure}
+    \caption[Momentum distributions for electrons and positrons]{
+    The pair background particle momenta are plotted for electrons and positrons separately for all pairs from one bunch crossing.
+    It becomes clear that the particle momenta distributions are quite distinctive, and that the distributions are mirrored for electrons and positrons.
+    }
+    \label{fig:momenta}
+\end{figure}

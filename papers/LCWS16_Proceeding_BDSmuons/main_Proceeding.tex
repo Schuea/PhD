@@ -1,0 +1,154 @@
+\pdfoutput=1 % for arXiv to use pdflatex
+\documentclass[12pt]{article}
+
+%% The graphicx package provides the includegraphics command.
+\usepackage{graphicx}
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amsmath}
+\usepackage{amssymb}
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers after \end{frontmatter}.
+\usepackage{lineno}
+\usepackage{url}
+\usepackage{xspace,multicol}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{color, colortbl}
+\usepackage{units}
+\usepackage{ragged2e}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{authblk}
+\usepackage{heppennames}
+\usepackage{feynmp}
+\usepackage{libertine}
+% \usepackage[libertine]{newtxmath}
+\usepackage{textgreek}
+\DeclareGraphicsRule{*}{mps}{*}{}
+
+\newcommand{\guineapig}{GuineaPig\xspace}
+\newcommand{\sid}{SiD\xspace}
+\newcommand{\slic}{\textsc{SLIC}\xspace}
+\newcommand{\geant}{\textsc{Geant4}\xspace}
+\newcommand{\murm}{%
+  \ifmmode
+    \mathchoice
+        {\hbox{\normalsize\textmu}}
+        {\hbox{\normalsize\textmu}}
+        {\hbox{\scriptsize\textmu}}
+        {\hbox{\tiny\textmu}}%
+  \else
+    \textmu
+  \fi
+}
+\newcommand{\micron}{\ensuremath{\murm\mathrm{m}\xspace}}
+
+\usepackage{authblk}
+
+\begin{document}
+
+%% Title, authors and addresses
+
+\title{A Study of the Impact of Muons from the Beam Delivery System on the SiD Performance}
+
+\author[1,2]{Anne Sch\"utz}
+\author[3]{Lewis Keller}
+\author[3]{Glen White}
+
+\affil[1]{Karlsruhe Institute of Technology (KIT), Department of Physics, Institute of Experimental Nuclear Physics (IEKP), Wolfgang-Gaede-Str. 1, 76131 Karlsruhe, Germany}
+\affil[2]{Deutsches Elektronen-Synchrotron (DESY), Notkestr. 85, 22607 Hamburg, Germany}
+\affil[3]{SLAC National Accelerator Laboratory, 2575 Sand Hill Rd, Menlo Park, CA 94025}
+
+\maketitle
+
+%%
+%% Start line numbering here if you want
+%%
+\linenumbers
+
+\begin{abstract}
+%% Text of abstract
+To suppress the muon background arising from the Beam Delivery System (BDS) of the International Linear Collider (ILC), and to hinder it from reaching the interaction region, two different shielding scenarios are under discussion: five cylindrical muon spoilers with or without an additional magnetized shielding wall.
+Due to cost and safety issues, the case preferred by the Machine-Detector-Interface (MDI) group is to omit the shielding wall, although omitting it also has disadvantages.
+To support the decision making, the impact of the muons from the two different shielding scenarios was studied in a full Geant4 detector simulation of the SiD detector, one of two proposed detectors for the ILC. 
+Input to this study is the muon background created by the beam traveling through the BDS, which was simulated with MUCARLO.\cite{Mucarlo}
+\end{abstract}
+
+
+%% main text
+\section{Introduction}
+\label{sec:introduction}
+
+The muon background from the BDS arises from the the beam halo hitting the material along the beam line, e.g. the beam collimator systems.
+Therefore, the muons are created along the BDS and travel towards the interaction region.
+To prevent the muons from reaching the detectors, a study was done to decide which shielding system would be effective and reasonable to be integrated in the BDS.
+Several different shielding scenarios have already been under discussion but did not fulfill the requirements.
+The two cases currently discussed and presented in this proceeding are both yielding acceptable muon rates at the interaction region.
+In the first scenario five cylindrical magnetized spoilers are installed at different positions along the beam line.
+The second scenario adds a magnetized iron wall close to the interaction region.
+Both, the spoilers and the wall are shown in schematic drawings in Figure~\ref{fig:Spoilers_Wall}.
+Their location in the BDS can be seen in Figure~\ref{fig:Spoilers_Wall_Locations}.
+The five spoilers are located at the following positions along the BDS tunnel: \unit{802.5}{m}, \unit{975.5}{m}, \unit{1145.5}{m}, \unit{1234.5}{m}, and \unit{1358.5}{m}.
+For the second shielding scenario, the wall would be additionally installed at \unit{400}{m} away from the interaction point.\cite{Lewis}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.53\textwidth}
+        \includegraphics[width=\textwidth]{figures/Spoiler.png}
+        \caption{The magnetized iron spoilers}
+	\label{fig:spoilers}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.42\textwidth}
+        \includegraphics[width=\textwidth]{figures/Muon_wall.pdf}
+        \caption{The magnetized iron wall}
+        \label{fig:wall}
+    \end{subfigure}
+    \caption[Schematic drawings of the shielding systems]{
+    Schematic drawings of the magnetized cylindrical spoilers and the magnetized wall.
+    The spoilers have a radius of \unit{70}{cm} and a length of \unit{5}{m}, while the wall is about \unit{5}{m} in length and width and almost fills the entire tunnel in height.
+    }
+    \label{fig:Spoilers_Wall}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/BDS_Tunnel_Spoilers+Wall.png}
+    \caption[BDS tunnel with the spoiler and wall positions]{
+    xz-view of the electron line of the BDS with the magnetized spoilers and the magnetized wall being depicted at their particular locations.
+    The green and red lines represent the tracks of the positively and negatively charged muons respectively, originating at this specific point along the beam line.
+    The reason that almost entirely positive muons are drawn is that only tracks that reach the detector are displayed.
+    As the spoiler polarities are set to defocus muons with the same charge as the beam charge, the \textmu\textsuperscript{-} are defocused and therefore absorbed in the tunnel walls before hitting the detector.
+    }
+    \label{fig:Spoilers_Wall_Locations}
+\end{figure}
+
+Due to the size of the wall, which causes cost and safety issues, the MDI group prefers the first scenario without the wall.
+What has to be kept in mind on the other hand is that the wall reduces not only the muon rate but also shields the neutron and photon background created by the machine.
+Having this shielding wall therefore means the access to the interaction region, i.e. the access to the detector in the garage position, would be permitted when the beam is on.
+\\
+To facilitate the decision of whether the wall is needed or not, the detector groups were asked to study the impact of the muons on the performance of the detectors.
+This proceeding shows the results of the study done for the SiD detector.\\
+In the current SiD detector design, the used sensors have a buffer depth of 4, i.e. the sensors can store four hits in their buffers.
+Since these buffers are read out after every ILC bunch train only, which corresponds to 1312 bunch crossings, the detector occupancy\footnote{The occupancy describes the fraction of detector cells that have been hit a certain amount of times.} from backgrounds has to be kept as low as possible.
+With a tracker occupancy of 10\textsuperscript{-3} being considered acceptable, the SiD occupancy caused by the muon background has to be seen in the context of all occurring backgrounds.
+This will have an impact on which muon shielding system the SiD group prefers.
+
+
+\include{MUCARLO}
+\include{MuonSiD}
+\include{Conclusions}
+
+
+\section*{Acknowledgments}
+Grateful acknowledgments to Lewis Keller and Glen White from SLAC for the simulation of the muons from the BDS and their support.
+
+%\include{Appendix}
+
+%% References with bibTeX database:
+
+\bibliographystyle{unsrt}
+%\bibliographystyle{model1-num-names} %Doesn't work well if you also cite webpages (Confluence page)
+\bibliography{bibliography.bib}
+
+\end{document}
