@@ -11,7 +11,6 @@
 #include "Style.h"
 
 using namespace std;
-
 double * InvertYaxis(int const n, double *y){
   double * result = new double[n];
   for(int i = 0; i < n; ++i){
@@ -19,7 +18,6 @@ double * InvertYaxis(int const n, double *y){
   }
   return result;
 }
-
 TGraph * MakeTheGraph(TH2D *h, float const acceptance){
   int const sizeX = h->GetNbinsX();
   int const sizeY = h->GetNbinsY();
@@ -51,14 +49,55 @@ TGraph * MakeTheGraph(TH2D *h, float const acceptance){
   return graph;
 }
 
-int main(){
-  UsePhDStyle();
-  time_t time1 = time(NULL);
-  TFile *file = TFile::Open("output/Helix_in_beampipe_1bunch_wo_momentum_cuts.root");
-  TH2D *hx = (TH2D*)file->Get("Helix_tracks_xz");
+TLegend* MakeLegend(vector< TGraph* > const & all_graphs){
+  TLegend* leg = new TLegend(0.75,0.7,0.95,0.9);
+  leg->AddEntry(all_graphs.at(0),"68%","p");
+  leg->AddEntry(all_graphs.at(2),"90%","p");
+  leg->AddEntry(all_graphs.at(4),"95%","p");
+  leg->AddEntry(all_graphs.at(6),"99%","p");
+  leg->AddEntry(all_graphs.at(8),"99.7%","p");
+  leg->AddEntry(all_graphs.at(10),"99.9%","p");
+  leg->AddEntry(all_graphs.at(12),"99.99%","p");
+}
+
+void SetAllLineStyles(vector< TLine* > & all_lines){
+  for(int i = 0; i < all_lines.size(); ++i){
+    all_lines.at(i)->SetLineColor(2);
+  }
+}
+
+vector< TLine* > GetAllLines(){
+  vector< TLine* > all_lines;
+	all_lines.push_back(new TLine(0,12,62.5,12));
+	all_lines.push_back(new TLine(0,-12,62.5,-12));
+	all_lines.push_back(new TLine(62.5,12,115,15));
+	all_lines.push_back(new TLine(62.5,-12,115,-15));
+}
+
+void DrawAllLines(vector< TLine* > const & all_lines){
+  for(size_t i = 0; i < all_lines.size(); ++i){
+    all_lines.at(i)->Draw();
+  }
+}
+
+void DrawAllGraphs(vector< TGraph* > const & all_graphs){
+  all_graphs.at(0)->Draw("AP");
+  for(size_t i = 1; i < all_graphs.size(); ++i){
+    all_graphs.at(i)->Draw("PSAME");
+  }
+}
+
+void SetAllGraphStyles(vector< TGraph* > &all_graphs){
+  for(size_t i = 0; i < all_graphs.size(); ++i){
+    all_graphs.at(i)->SetMarkerStyle(7);
+    all_graphs.at(i)->SetMarkerColor(i/2 + 1);
+    all_graphs.at(i)->SetTitle("Envelopes outlining fractions of helix tracks from pair backgrounds;z [mm];x [mm]");
+  }
+}
+
+vector< TGraph* > GetAllGraphs(TH2D * hx){
   int const sizeX = hx->GetNbinsX();
   int const n = sizeX-1;
-
   TGraph *graph_68 = MakeTheGraph(hx, 0.68);
   TGraph *graph_90 = MakeTheGraph(hx, 0.90);
   TGraph *graph_95 = MakeTheGraph(hx, 0.95);
@@ -75,75 +114,54 @@ int main(){
   TGraph *graph_999_neg = new TGraph(n, graph_999->GetX(), InvertYaxis(n, graph_999->GetY()));
   TGraph *graph_9999_neg = new TGraph(n, graph_9999->GetX(), InvertYaxis(n, graph_9999->GetY()));
 
-  graph_68_neg->SetMarkerStyle(7);
-  graph_90_neg->SetMarkerStyle(7);
-  graph_95_neg->SetMarkerStyle(7);
-  graph_99_neg->SetMarkerStyle(7);
-  graph_997_neg->SetMarkerStyle(7);
-  graph_999_neg->SetMarkerStyle(7);
-  graph_9999_neg->SetMarkerStyle(7);
+  vector< TGraph* > all_graphs;
+  all_graphs.push_back(graph_68);
+  all_graphs.push_back(graph_68_neg);
+  all_graphs.push_back(graph_90);
+  all_graphs.push_back(graph_90_neg);
+  all_graphs.push_back(graph_95);
+  all_graphs.push_back(graph_95_neg);
+  all_graphs.push_back(graph_99);
+  all_graphs.push_back(graph_99_neg);
+  all_graphs.push_back(graph_997);
+  all_graphs.push_back(graph_997_neg);
+  all_graphs.push_back(graph_999);
+  all_graphs.push_back(graph_999_neg);
+  all_graphs.push_back(graph_9999);
+  all_graphs.push_back(graph_9999_neg);
 
-  graph_68->SetTitle("Envelopes outlining fractions of helix tracks from pair backgrounds;z [mm];x [mm]");
+  return all_graphs;
+}
 
-  graph_68->SetMarkerColor(1);
-  graph_68_neg->SetMarkerColor(1);
-  graph_90->SetMarkerColor(2);
-  graph_90_neg->SetMarkerColor(2);
-  graph_95->SetMarkerColor(3);
-  graph_95_neg->SetMarkerColor(3);
-  graph_99->SetMarkerColor(4);
-  graph_99_neg->SetMarkerColor(4);
-  graph_997->SetMarkerColor(6);
-  graph_997_neg->SetMarkerColor(6);
-  graph_999->SetMarkerColor(7);
-  graph_999_neg->SetMarkerColor(7);
-  graph_9999->SetMarkerColor(8);
-  graph_9999_neg->SetMarkerColor(8);
 
-	TLine *line = new TLine(0,12,62.5,12);
-	TLine *nline = new TLine(0,-12,62.5,-12);
-	TLine *line2 = new TLine(62.5,12,115,15);
-	TLine *nline2 = new TLine(62.5,-12,115,-15);
-	line->SetLineColor(2);
-	nline->SetLineColor(2);
-	line2->SetLineColor(2);
-	nline2->SetLineColor(2);
+
+
+
+int main(){
+  UsePhDStyle();
+  time_t time1 = time(NULL);
+  TFile *file = TFile::Open("output/Helix_in_beampipe_1bunch_wo_momentum_cuts.root");
+  TH2D *hx = (TH2D*)file->Get("Helix_tracks_xz");
+
+
+  vector< TGraph* > all_graphs = GetAllGraphs(hx);
+
+  SetAllGraphStyles(all_graphs);
 
   TCanvas c;
   c.SetGridx();
   c.SetGridy();
 
-  graph_68->Draw("AP");
-  graph_68_neg->Draw("PSAME");
-  graph_90->Draw("PSAME");
-  graph_90_neg->Draw("PSAME");
-  graph_95->Draw("PSAME");
-  graph_95_neg->Draw("PSAME");
-  graph_99->Draw("PSAME");
-  graph_99_neg->Draw("PSAME");
-  graph_997->Draw("PSAME");
-  graph_997_neg->Draw("PSAME");
-  graph_999->Draw("PSAME");
-  graph_999_neg->Draw("PSAME");
-  graph_9999->Draw("PSAME");
-  graph_9999_neg->Draw("PSAME");
+  DrawAllGraphs(all_graphs);
 
-	line->Draw();
-	nline->Draw();
-	line2->Draw();
-	nline2->Draw();
+  vector< TLine* > all_lines = GetAllLines();
+  SetAllLineStyles(all_lines);
+  DrawAllLines(all_lines);
 
+  TLegend* leg = MakeLegend(all_graphs);
   //TLegend *leg = new TLegend(0.18,0.11,0.38,0.3);
-	TLegend* leg = new TLegend(0.75,0.7,0.95,0.9);
   //leg->SetBorderSize(0);
   //leg->SetFillColorAlpha(0,0);
-  leg->AddEntry(graph_68,"68%","p");
-  leg->AddEntry(graph_90,"90%","p");
-  leg->AddEntry(graph_95,"95%","p");
-  leg->AddEntry(graph_99,"99%","p");
-  leg->AddEntry(graph_997,"99.7%","p");
-  leg->AddEntry(graph_999,"99.9%","p");
-  leg->AddEntry(graph_9999,"99.99%","p");
   leg->Draw();
   //resultx->Draw("hist");
   c.Print("output/HelixEnvelopes_xz.pdf");
