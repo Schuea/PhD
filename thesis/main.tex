@@ -81,6 +81,9 @@ sort&compress]{natbib} % Order the citations
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
 
+\usepackage{todonotes} %Added by Phill so that todo lists can be added
+\setlength{\marginparwidth}{2cm} %This stops the todo notes from overflowing the page
+
 \newcommand{\myparagraph}[1]{\thesubsubsection\ \alph{paragraph}{#1}\mbox{}\\}
 
 \newcommand{\degree}{\ensuremath{^\circ}}
@@ -162,6 +165,7 @@ sort&compress]{natbib} % Order the citations
 \selectlanguage{english}
 \tableofcontents         %%% create a TOC
 \listoffigures
+\listoftodos
 
 \mainmatter              %%% now the thesis really starts
 \include{Chapters/Introduction}          %%% include all chapters in order
