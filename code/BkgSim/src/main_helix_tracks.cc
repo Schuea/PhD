@@ -78,7 +78,7 @@ int main(int const argc, char const * const * const argv) {
 								exit(1);
 				}
 
-				std::string specialname = "1bunch_wo_momentum_cuts";
+				std::string specialname = "1bunch_500GeV_5T";
 				TFile* Outputfile = new TFile(("output/Helix_in_beampipe_"+specialname+".root").c_str(),"RECREATE");
         TTree *outputtree = new TTree("Helix_Tracks","Helix_Tracks");
 
@@ -144,8 +144,10 @@ int main(int const argc, char const * const * const argv) {
 								tree->SetBranchAddress("Momentumz", &momentum_z);
 								tree->SetBranchStatus("Charge", 1);
 								tree->SetBranchAddress("Charge", &charge);
-								tree->SetBranchStatus("Particle_ID", 1);
-								tree->SetBranchAddress("Particle_ID", &particleID);
+								//tree->SetBranchStatus("Particle_ID", 1);
+								//tree->SetBranchAddress("Particle_ID", &particleID);
+								tree->SetBranchStatus("Particle_PDG", 1);
+								tree->SetBranchAddress("Particle_PDG", &particleID);
 								//tree->SetBranchStatus("CreatedInSimulation_Status", 1);
 								//tree->SetBranchAddress("CreatedInSimulation_Status", &CreatedInSimulation_Status);
 								//tree->SetBranchStatus("CreationTime", 1);
