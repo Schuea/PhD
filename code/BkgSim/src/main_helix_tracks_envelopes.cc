@@ -139,10 +139,10 @@ vector< TGraph* > GetAllGraphs(TH2D * hx){
 
 int main(){
   UsePhDStyle();
-  std::string specialname = "500GeV_5T";
-  std::string plane = "xz";
+  std::string specialname = "wo_momentum_cuts";
+  std::string plane = "Helix_tracks_xz";
   TFile *file = TFile::Open( ("output/Helix_in_beampipe_1bunch_"+specialname+".root").c_str() );
-  TH2D *hx = (TH2D*)file->Get( ("Helix_tracks_"+plane).c_str() );
+  TH2D *hx = (TH2D*)file->Get( plane.c_str() );
 
 
   vector< TGraph* > all_graphs = GetAllGraphs(hx);
