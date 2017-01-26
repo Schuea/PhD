@@ -139,9 +139,10 @@ vector< TGraph* > GetAllGraphs(TH2D * hx){
 
 int main(){
   UsePhDStyle();
-  time_t time1 = time(NULL);
-  TFile *file = TFile::Open("output/Helix_in_beampipe_1bunch_wo_momentum_cuts.root");
-  TH2D *hx = (TH2D*)file->Get("Helix_tracks_xz");
+  std::string specialname = "500GeV_5T";
+  std::string plane = "xz";
+  TFile *file = TFile::Open( ("output/Helix_in_beampipe_1bunch_"+specialname+".root").c_str() );
+  TH2D *hx = (TH2D*)file->Get( ("Helix_tracks_"+plane).c_str() );
 
 
   vector< TGraph* > all_graphs = GetAllGraphs(hx);
@@ -164,8 +165,8 @@ int main(){
   //leg->SetFillColorAlpha(0,0);
   leg->Draw();
   //resultx->Draw("hist");
-  c.Print("output/HelixEnvelopes_xz.pdf");
-  c.Print("output/HelixEnvelopes_xz.cxx");
+  c.Print( ("output/HelixEnvelopes_"+plane+"_"+specialname+".pdf").c_str() );
+  c.Print( ("output/HelixEnvelopes_"+plane+"_"+specialname+".cxx").c_str() );
 
   return 0;
 }
