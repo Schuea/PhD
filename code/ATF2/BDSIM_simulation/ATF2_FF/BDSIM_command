@@ -1,1 +1,1 @@
-bdsim --file=atf2.gmad --output=rootdetailed --outfile=Core_Sampler_IP-DS-QF3FF_SignChangeBeningMagnets --batch --seed=1
+bdsim --file=atf2.gmad --output=rootdetailed --outfile=test1_29012017 --batch --seed=1

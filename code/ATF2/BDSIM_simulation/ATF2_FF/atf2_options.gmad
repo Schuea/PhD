@@ -18,11 +18,12 @@ option, physicsList="em_standard",
 !option, physicsList="standard",
       	chordStepMinimum    = 0.0000000001 * m,
         deltaIntersection   = 0.00000000000001 * m,
-        deltaChord          = 0.0000000001 * m,
+        deltaChord          = 0.0000000001 * m;!,
        ! thresholdCutCharged = 1000 * MeV,
        ! thresholdCutPhotons = 1000* MeV,
 
        ! defaultRangeCut=30*cm,	
-	prodCutPositrons=10*cm,
-	prodCutElectrons=10*cm,
-	prodCutPhotons=20*cm;
+	!prodCutPositrons=10*cm,
+	!prodCutElectrons=10*cm,
+	!prodCutPhotons=20*cm;
+  

@@ -7,7 +7,7 @@ sample, range=COLLBY;
 !sample, range=RHUL_detector1;
 sample, range=RHUL_detector2;
 
-sample, range=IP;
+!sample, range=IP;
 !sample, range=DS;
 !sample, range=QF3FF;
 !sample, range=window;
