@@ -3,7 +3,6 @@
 
 In the first step of simulating the muons in the SiD detector, event displays were made with WIRED4\cite{Wired4}.
 The xy- and zy-views of these event displays can be seen for both shielding scenarios in Figure~\ref{fig:WIRED4}.
-When comparing the figures, one can notice several things about the number and the spatial distribution of the hits in the detector.
 First of all, without the magnetized wall as a last shielding mechanism about 6 times more muons enter the interaction region.
 In these plots, as in all following, the shown distributions are from muons from one ILC bunch train, since the SiD sensor buffers will be read out after every train only.\\
 Second, the muons travel through the detector horizontally which could be taken advantage of for the alignment of the subdetectors.
@@ -83,8 +82,8 @@ The occupancy in the tracker endcaps (Figure~\ref{fig:SiTracker_Occupancy}) is v
 Only 10\textsuperscript{-9} - 10\textsuperscript{-7} of all cells get four hits.
 The resulting number of dead cells in the tracker endcaps (Figure~\ref{fig:SiTracker_DeadCells}) shows that for a buffer depth of 4 only 10\textsuperscript{-8} of all cells get four or more hits and therefore reach the buffer limit in the ``5 Spoilers + Wall''.
 The ``5 Spoilers'' case would do only one order of magnitude better.\\
-More interesting are the plots for the ECAL endcaps in Figures~\ref{fig:Ecal_Occupancy} and \ref{fig:Ecal_DeadCells}.
-The occupancy is for both cases higher than for the tracker endcaps, which is simply due to the bigger effective detector area as explained before.
+But the muon background yields a much higher occupancy in the ECAL endcaps which is shown in Figures~\ref{fig:Ecal_Occupancy} and \ref{fig:Ecal_DeadCells}.
+The reason for the occupancy being higher than in the tracker endcaps for both cases is simply due to the bigger effective detector area as explained before.
 Despite that and the fact that the ``5 Spoilers + Wall'' case is better by an order of magnitude (when looking at a buffer depth of 4), the occupancy is still at a level of only about 10\textsuperscript{-6} - 10\textsuperscript{-5}.
 The interesting fact is that the ``5 Spoilers'' case shows up to 27 hits per cell with a roughly constant occupancy for all buffer depths.
 This leads to dead cell distributions which are vastly different.
@@ -96,25 +95,25 @@ The cause of this distribution is the spatial distribution of the muons in the `
     \centering
     \begin{subfigure}[b]{0.49\textwidth}
     \centering
-        \includegraphics[height=0.27\textheight]{figures/SiTrackerEndcap_Occupancy.png}
+        \includegraphics[height=0.265\textheight]{figures/SiTrackerEndcap_Occupancy.png}
         \caption{Tracker endcap occupancy}
 	\label{fig:SiTracker_Occupancy}
     \end{subfigure}
     \begin{subfigure}[b]{0.49\textwidth}
     \centering
-        \includegraphics[height=0.27\textheight]{figures/EcalEndcap_Occupancy.png}
+        \includegraphics[height=0.265\textheight]{figures/EcalEndcap_Occupancy.png}
         \caption{ECAL endcap occupancy}
         \label{fig:Ecal_Occupancy}
     \end{subfigure}\\
     \begin{subfigure}[b]{0.49\textwidth}
     \centering
-        \includegraphics[height=0.27\textheight]{figures/SiTrackerEndcap_DeadCells.png}
+        \includegraphics[height=0.265\textheight]{figures/SiTrackerEndcap_DeadCells.png}
         \caption{Dead cells in the tracker endcaps}
 	\label{fig:SiTracker_DeadCells}
     \end{subfigure}
     \begin{subfigure}[b]{0.49\textwidth}
     \centering
-        \includegraphics[height=0.27\textheight]{figures/EcalEndcap_DeadCells.png}
+        \includegraphics[height=0.265\textheight]{figures/EcalEndcap_DeadCells.png}
         \caption{Dead cells in the ECAL endcaps}
         \label{fig:Ecal_DeadCells}
     \end{subfigure}
