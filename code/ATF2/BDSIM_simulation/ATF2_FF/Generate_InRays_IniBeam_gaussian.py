@@ -51,8 +51,11 @@ alfx=-0.7862388903
 alfy=-3.285248127
 bety=19.79462726
 
+Npart_str=str(Npart)
+outputfilename="iniparticles_"+beam+"_"+Npart_str+".dat"
 #file=open("inrays.madx","w") #Different output for madx files!
-myfile=open("iniparticles.dat","w")
+myfile=open(outputfilename,"w")
+#myfile=open("iniparticles.dat","w")
 
 sx, spx, sy, spy, se = sqrt(ex*betx/gamma), sqrt(ex/betx/gamma), sqrt(ey*bety/gamma), sqrt(ey/bety/gamma), dp
 
