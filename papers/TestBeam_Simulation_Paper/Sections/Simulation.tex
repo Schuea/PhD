@@ -1,0 +1,231 @@
+\section{The DESY-II test beam simulation}
+\subsection{Software used for the simulation toolkit}
+The simulation of the DESY-II test beam generation was done using 
+\slic~\cite{Graf:2006ei,slic}, a full simulation package that uses the \geant \cite{Agostinelli2003250,1610988} detector 
+simulation toolkit. As mentioned previously, the test beam generation involves  
+several steps, each of which involves certain beam line components. The 
+components' geometry is defined in a \gdml (Geometry Description Markup 
+Language) file, which allows the description of detector geometries with 
+arbitrary placements~\cite{gdml}. A so-called compact \xml file, to which the 
+\gdml file is linked, contains additional information about the world volume, 
+tracking volume and other self defined logical volumes. Magnetic fields and 
+various kinds of sensitive detector parts, which can be set up to simulate 
+particle detectors, are specified in the compact file as well. 
+The \xml compact file and the \gdml file are then compiled into the  \lcdd~(``Linear Collider Detector Description)~\cite{McCormick:2005jc} file format, as \geant requires all 
+information about the geometry, the fields and sensitive detector parts sorted 
+by the solid, the physical volume and the logical volume. The conversion using 
+the \textit{detector-framework} software package from the \lcsim (Linear Collider 
+Simulation) framework expands the basic information of the detector components 
+into the verbose and hierarchical style that is required for \geant. \\ \slic's 
+stores the output of the simulation using th  \lcio (Linear Collider 
+Input/Output) format~\cite{Aplin:2012kj,LCIO_DOC}.
+
+\subsection{Event generation for DESY-II beam bunch}
+The first step in the chain of the test beam generation is the DESY-II beam 
+bunch consisting of 10$^{10}$ electrons or positrons hitting a primary target 
+placed directly in the beam pipe. 
+Thi uses the  average properties of a  DESY-II bunch, like the beam bunch size 
+and its energy distribution.
+\slic uses the \geant physics list \textit{LCPhys}~\cite{SLIC_LCPhys} 
+, which contains several classes for gamma, lepton, hadron and 
+ion physics as well as particle decays.
+
+The energy and spatial distribution of the simulated DESY-II synchrotron beam is shown in Figure~\ref{fig:DESY-II_beam_bunch_energy_spacial_deflection}.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[t]{0.47\textwidth}
+    \includegraphics[width=\textwidth]{beam_Energy_Canvas_withFitParameters.eps}
+      \caption[Energy distribution of DESY-II beam bunch.]{Energy distribution of the DESY-II beam bunch. A bunch contains 10$^{10}$ electrons with a mean energy of 6.301\,GeV. The Gaussian distribution has a sigma value of $\sigma_E$=0.0062\,GeV=6.2\,MeV.}
+  \end{subfigure}
+\hfill
+  \begin{subfigure}[t]{0.47\textwidth}
+    \includegraphics[width=\textwidth]{beam_Position_Canvas.jpg}
+      \caption[Spacial distribution of electrons in DESY-II beam bunch.]{Spacial distribution of the electrons in the DESY-II beam bunch at ring position of test beam generation for test beam line 21. The horizontal and vertical beam sizes are calculated as $\sigma_y$=1.534\,mm and $\sigma_y$=0.753\,mm.}
+  \end{subfigure}
+ \caption[Simulated DESY-II beam bunch: energy and spacial distribution of electrons.]{The energy and spacial distribution of the simulated 10$^{10}$ electrons in the DESY-II beam bunch.}
+  \label{fig:DESY-II_beam_bunch_energy_spacial_deflection}
+\end{figure}
+
+\subsection{The test beam primary target}
+
+The primary target of the DESY-II test beam lines is a carbon fibre of 25(NOTE, 
+actually more like 6-7) \,\textmu m thickness. When the simulated DESY-II beam 
+bunch hits the fibre, bremsstrahlung photons are emitted, their energy 
+distribution which follows the characteristic $\frac{1}{E}$ dependency 
+of bremsstrahlung spectra is shown in Figure~\ref{fig:bremsstrahlung_spectrum}.
+
+\begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.8\textwidth]{Photons_after_Fibre_bigger_world_large.eps}
+  \caption[Simulated bremsstrahlung photons emitted from the primary target.]{The DESY-II beam bunch hits the primary target and emits bremsstrahlung photons. The carbon fibre as well as the dimensions and shape of the beam bunch are clearly visible.}
+  \label{fig:bremsstrahlung_scatter}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+    \includegraphics[width=\textwidth]{bremsstrahlungSpectrum_wo_Chi2.eps}
+  \caption[Simulated bremsstrahlung spectrum emitted from the primary target.]{The DESY-II beam bunch of 10$^{10}$ electrons generates in total about $2\cdot10^5$ bremsstrahlung photons by hitting the primary target. The bremsstrahlung spectrum reaches to about 6.3\,GeV, which is the maximum energy of the photons, as they cannot exceed the maximum energy of the respective electrons. Mostly low energy photons in the MeV range are produced.}
+  \label{fig:bremsstrahlung_spectrum}
+\end{figure}
+
+% The number of emitted photons in a certain energy range, between $k_{min}$ and $k_{max}$, can be expressed with the following equation for the case of a very thin target ($dt\rightarrow d\ll X_0$) \cite[page 405]{PDG}:
+% \begin{equation}
+%  N_{\gamma}=\frac{d}{X_0}\left[\frac43ln\left(\frac{k_{max}}{k_{min}}\right)-\frac{4(k_{max}-k_{min})}{3E}+\frac{k_{max}^2-k_{min}^2}{2E^2}\right]
+%  \label{eq:bremsstrahlung_spectrum_2}
+% \end{equation}
+
+ 
+As the bremsstrahlung photons can only exit the beam pipe tangentially to DESY-II 
+synchrotron ring, the further test beam line components are placed along the 
+beam path of the bremsstrahlung photons. A map of the DESY-II test beam facility with its three test beam lines are 
+shown in Figure~\ref{fig:Test Beam Lines}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{TESTBEAMS-map2.eps}
+  \caption[A map of the DESY test beam lines in the DESY-II tunnel.]{A map of the DESY test beam lines in the DESY-II tunnel from 2002, which shows a state of the beam lines that deviates slightly from the current state.\cite{testbeam-web2-fig}  The evacuated beam pipes are shortened, so that currently the particles are also travelling through the air of the DESY-II tunnel.}
+    \label{fig:Test Beam Lines}
+\end{figure}
+
+\subsection{The secondary target}
+{\bfseries{Coordinate System ????}}
+In the secondary target, the bremsstrahlung photons are converted to electron/positron pairs.  As the cross section for pair production is dependent on material and target thickness, the rate of the final test beam depends on the choice of the secondary target. The test beam users can choose from a set different converter plates cosnisting of aluminium and copper of various thicknesses.. The most commonly used converter target is the a copper target with 5\,mm thickness as it yields the highest particle rate.
+
+Figure~\ref{fig:converter_rates} shows the comparison between the numbers of electrons and positrons simulated after the conversion of 205,500 photons in the different converters. Copper targets yield higher electron rates than the aluminium targets, and the thicker the material, the more photons are converted into electron/positron pairs. The copper wire yields the least electron/positron pairs. From the plotted numbers, the approximate conversion efficiencies were calculated and listed in Table~\ref{table:conversion_efficiency}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{NEW_stack.eps}
+  \caption[Energy distribution of electrons and positrons after photon conversion in different secondary targets of test beam line 21.]{The stacked histogram plots show the energy distribution of electrons and positrons behind the secondary target of the test beam line 21. With the comparison between the different secondary targets in respect to the material and the thickness, it is a direct comparison of their photon conversion efficiencies.}
+    \label{fig:converter_rates}
+\end{figure}
+
+\begin{table}[htbp]
+  \begin{center}
+    \begin{tabular}{l r r@{.}l }\toprule
+    \textbf{Converter} & \textbf{\#} & \multicolumn{2}{c|}{\textbf{\%}}\\ 
+\midrule
+    Cu 5\,mm & 70,384 & 17&13\\ 
+   
+    Cu 4\,mm & 58,520 & 14&24\\ 
+ 
+    Cu 3\,mm & 45651 & 11&11\\
+
+    Al 3\,mm & 8939 & 2&17\\
+
+    Al 2\,mm & 6681 & 1&63\\
+
+    Al 1\,mm & 3881 & 0&94\\
+    Cu wire & 4619 & 1&12\\
+    \bottomrule
+    \end{tabular}
+  \end{center}
+  \caption[Table of simulated photon conversion efficiencies.]{Table of photon conversion efficiency to a electron/positron pair in different converter materials. To be noted is that the given efficiencies are approximated, as the mean number of 205,500 photons hitting the secondary target is taken for this calculation.}
+  \label{table:conversion_efficiency}
+\end{table}
+
+\subsection{The test beam magnet}
+
+The magnets used in the team lines are bending dipole magnets (For details 
+see~\cite{DESY_TB_magnet_MR}). 
+The electron/positron pairs converted from the bremsstrahlung photons in the 
+secondary target enter the test beam magnet through an evacuated beam pipe, 
+about 60\,cm behind the converter plate. The simulated geometry is shown in Figure~\ref{fig:3D_model_converter}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.45\textwidth]{3D_simulation_model_converter_particles.eps}
+  \caption[3D simulation model of a converter plate in front of the dipole magnet.]{The simulated converter plate in front of the dipole magnet of the test beam line. Schematically, an electron and positron are shown  entering the dipole bending magnet and bent in opposite direction in the xz-plane.}
+    \label{fig:3D_model_converter}
+\end{figure}
+
+The electron/positron beam is spread by the dipole into a particle fan in the xz-plane 
+and separated by charge and energy. Neutral particles, like unconverted photons, 
+ are not deflected in a magnetic field and stay on their 
+initial path (in the case they are not scattered or stopped), they will leave 
+the test beam magnet centrally through the exit beam pipe.\\
+To separate the neutral particles from the desired electrons and positrons of 
+the final test beam, the beam pipe has a small kink 15\,cm behind the test beam 
+magnet. The kink angle of the pipe is 32\,mrad about the y-axis, in the positive 
+x-direction. All subsequent components of the test beam line are positioned 
+along this new beam path. Only charged particles with the desired momentum continue 
+along the new beam path, whereas all other particles will not enter the 
+subsequent beam line components. 
+The particle energy can controlled by test beam user by adjusting the current of the dipole magnet.
+
+Since the beam pipe has a radius of 5\,cm and is kinked, only the previously selected part of 
+the fan enters the test beam area. The particle mometum is Gaussian distributed, where the mean 
+value belongs to the particles following the ideal beam path through the centre 
+of the pipe. The width of the distribution is large due to the large beam pipe aperture.
+The beam size and therefore the width of the energy distribution can be reduced by two independent collimator systems, 
+which can be controlled by the test beam users.
+ 
+To illustrate the deflection of charged particles in the test beam magnet, 
+Figures~\ref{fig:deflection_plot_neg/pos} show the deflection of the particles a
+x-y-plane of behind the dipole magnet. The two 
+separate particle fans for positively and negatively charged particles are 
+clearly visible. The black circle indicate the contour of the beam pipe and only particles within
+enter the beam pipe behind the magnet. The other particles will hit 
+the iron surrounding of the magnet and not proceed along the beam path. Since the 
+beam pipe is kinked in positive y-direction (see above), only the 
+particles that are also deflected in the positive x-direction ({\bfseries x oder y} are able to 
+continue on the test beam line. If the users desire positrons instead of electrons  the magnetic field 
+polarity has to be reversed. 
+
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth]{Position_negCharge_Canvas_allfiles_TBmagnet_B-0_3T.eps}
+      \caption{Negatively charged particles}
+  \end{subfigure}
+\hfill
+  \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth]{Position_posCharge_Canvas_allfiles_TBmagnet_B-0_3T.eps}
+      \caption{Positively charged particles}
+  \end{subfigure}
+ \caption[Position plots for negatively/positively charged particles behind the test beam magnet.]{The points represent the x-/y-positions of the particles directly behind the magnet, e.g. the positions where the particles leave the magnet. The black circle illustrates the beam pipe coming out of the magnet. For the simulation, a magnetic field strength of B\,=\,-0.3\,T was chosen. The particles around the particle fan (particles with 0\,mm\,<\,x\,<\,400\,mm in Figure (a), and -400\,mm\,<\,x\,<0\,mm in Figure (b)) are scattered particles. This deviating from the particle fan is caused by particles entering the magnet with an angle to the z-axis or scattering off the material in the magnet or both.}
+  \label{fig:deflection_plot_neg/pos}
+\end{figure}
+
+\subsection{The primary test beam collimator}
+
+The test beam collimator consists of two separate collimators, a horizontal and 
+vertical one. They are both built up by two tungsten blocks with variable 
+distance between each other. By collimating the beam, the Gaussian energy 
+distribution of the final test beam is narrowed, and the stronger the 
+collimation, the smaller is the width of the distribution.\\
+Figure~\ref{fig:3D_model_collimators} shows the visualised simulated model of 
+the collimator with a gap size of 1\,cm, which is most commonly used.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.35\textwidth]{3D_simulation_model_collimators.eps}
+  \caption[3D simulation model of the horizontal and vertical collimators of the test beam lines.]{The simulated model of the horizontal and vertical collimators of the test beam lines are visualised with a \vrml viewer. The gap size between the tungsten blocks of both of the collimators is 1\,cm. The distance between the horizontal and the vertical collimator is about 7.9\,cm.}
+    \label{fig:3D_model_collimators}
+\end{figure}
+
+\subsection{Final collimation in the test beam area}
+
+The test beam areas are separated from the DESY-II synchrotron tunnel by a 
+concrete wall, that is up to 5\,m thick. The concrete is radiation safety 
+concrete with a fraction of 90\,\% iron. After the first collimation by the 
+horizontal and vertical collimators, the beam continues along the evacuated beam 
+pipe through the concrete wall into the test beam area. 
+To illustrate the trajectory of a beam particle, the simulation of a geantino 
+trajectory in the test beam line is shown in Figure~\ref{fig:TBline_trajectory}. 
+A geantino is a virtual particle for transportation processes in \geant 
+simulations.~\cite{Geantino}
+\\In the test beam area, the test beam is again collimated by a lead collimator 
+with different available hole sizes. The size of the collimator hole affects 
+amongst others the number of particles and the width of the energy distribution 
+of the final test beam.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\textwidth]{TBline_with_trajectory_zoomin.eps}
+  \caption[Visualisation of a geantino trajectory in the test beam line 21.]{Visualisation of the test beam line 21 with a geantino trajectory. As the xz-plane is shown with a view on top of the geometry, the geantino passes through the test beam line from the left to the right hand side.}
+    \label{fig:TBline_trajectory}
+\end{figure}
+
