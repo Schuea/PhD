@@ -1,0 +1,171 @@
+\documentclass[preprint,12pt]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+
+%% For including figures, graphicx.sty has been loaded in
+%% elsarticle.cls. If you prefer to use the old commands
+%% please give \usepackage{epsfig}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers.
+%% \usepackage{lineno}
+
+\usepackage{units}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\graphicspath{{Figures/}}
+
+
+\usepackage{booktabs} %%% scientific publication style tables
+%\usepackage{empheq}   %%% for boxed equations and alike
+%\usepackage{xcolor}   %%% for colored text and formulae
+\usepackage{amsmath}  %%% math symbols needed
+\usepackage{amsfonts} %%% math fonts needed
+\usepackage{amssymb}  %%% maths symbols needed 
+\usepackage{amsthm}   %%% theorem environments
+%\usepackage{dsfont}   %%% for blackboard numbers and characters 
+\usepackage{float}   
+\usepackage[]{hyperref} 
+%\usepackage{subfigure} 
+\usepackage{subcaption}
+\usepackage{caption}   
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{helvet}
+
+\usepackage{siunitx}
+\usepackage[above]{placeins}
+\usepackage{stfloats}
+
+\usepackage[italic]{hepnames}
+\usepackage[final]{pdfpages} %set to "final" in the end to show the pdf page
+%\usepackage{pifont}
+\usepackage{setspace}
+\usepackage{textcomp}
+
+\usepackage{natbib} % Order the citations
+
+\bibliographystyle{unsrtnat}
+
+
+%\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\redcomment}[1]{\ding{110}\ding{43}\textcolor{red}{#1}}
+
+\newcommand{\geant}{\textsc{Geant4}\xspace}
+\newcommand{\slic}{\textsc{SLIC}\xspace}
+\newcommand{\lcsim}{\texttt{org.lcsim}\xspace}
+\newcommand{\gdml}{\textsc{GDML}\xspace}
+\newcommand{\vrml}{\textsc{VRML}\xspace}
+\newcommand{\xml}{\textsc{XML}\xspace}
+\newcommand{\lcdd}{\textsc{LCDD}\xspace}
+\newcommand{\lcio}{\textsc{LCIO}\xspace}
+\newcommand{\ilcsoft}{\textsc{ILCSoft}\xspace}
+\newcommand{\marlin}{\textsc{Marlin}\xspace}
+\newcommand{\Root}{\textsc{ROOT}\xspace}
+\newcommand{\Cplusplus}{\texttt{C++}\xspace}
+
+
+\journal{Nuclear Physics B}
+
+
+
+
+\begin{document}
+
+\begin{frontmatter}
+
+%% Title, authors and addresses
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for theassociated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for theassociated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for theassociated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \address{Address\fnref{label3}}
+%% \fntext[label3]{}
+
+\title{Simulation of DESY-II Test Beam Facility}
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{}
+%% \address[label1]{}
+%% \address[label2]{}
+
+\author[Glasgow]{F.~Jöhlinger}
+\author[desy]{A.~Schütz}
+\author[desy]{M.~Stanitzki}
+\address[desy]{DESY, Notkestrasse 85, D-22607 Hamburg}
+\address[Glasgow]{University of Glasgow}
+
+\begin{abstract}
+DESY (Deutsches Elektronen-Synchrotron) is operating the DESY-II Test Beam 
+Facility, one of the few test beam lines available in the world. To provide the 
+users with an accurate simulation package of the beam line properties and to 
+support further developments for the beam line itself, 
+a flexible simulation package based on \slic and \geant simulation packages was developed.  
+The package simulates the entire beam line from the beam generation in the 
+DESY-II synchrotron down to all individual elements in the beam line. The 
+results from this complete simulation are presented, including particle rates, beam 
+momentum spread and backgrounds.
+
+\end{abstract}
+
+\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword
+
+%% PACS codes here, in the form: \PACS code \sep code
+
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+
+\end{keyword}
+
+\end{frontmatter}
+
+%% \linenumbers
+
+%% main text
+
+
+
+
+
+
+
+
+
+\input{Sections/Introduction}
+\input{Sections/Simulation}
+\input{Sections/Results}
+\input{Sections/Conclusion}
+
+\input{Misc/bibliography}  
+
+\end{document}
