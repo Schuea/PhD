@@ -50,7 +50,7 @@ TGraph * MakeTheGraph(TH2D *h, float const acceptance){
 }
 
 TLegend* MakeLegend(vector< TGraph* > const & all_graphs){
-  TLegend* leg = new TLegend(0.75,0.7,0.95,0.9);
+  TLegend* leg = new TLegend(0.78,0.55,0.9,0.9);
   leg->AddEntry(all_graphs.at(0),"68%","p");
   leg->AddEntry(all_graphs.at(2),"90%","p");
   leg->AddEntry(all_graphs.at(4),"95%","p");
@@ -58,6 +58,7 @@ TLegend* MakeLegend(vector< TGraph* > const & all_graphs){
   leg->AddEntry(all_graphs.at(8),"99.7%","p");
   leg->AddEntry(all_graphs.at(10),"99.9%","p");
   leg->AddEntry(all_graphs.at(12),"99.99%","p");
+	return leg;
 }
 
 void SetAllLineStyles(vector< TLine* > & all_lines){
@@ -72,6 +73,7 @@ vector< TLine* > GetAllLines(){
 	all_lines.push_back(new TLine(0,-12,62.5,-12));
 	all_lines.push_back(new TLine(62.5,12,115,15));
 	all_lines.push_back(new TLine(62.5,-12,115,-15));
+	return all_lines;
 }
 
 void DrawAllLines(vector< TLine* > const & all_lines){
@@ -87,11 +89,11 @@ void DrawAllGraphs(vector< TGraph* > const & all_graphs){
   }
 }
 
-void SetAllGraphStyles(vector< TGraph* > &all_graphs){
+void SetAllGraphStyles(vector< TGraph* > &all_graphs, std::string direction){
   for(size_t i = 0; i < all_graphs.size(); ++i){
     all_graphs.at(i)->SetMarkerStyle(7);
     all_graphs.at(i)->SetMarkerColor(i/2 + 1);
-    all_graphs.at(i)->SetTitle("Envelopes outlining fractions of helix tracks from pair backgrounds;z [mm];x [mm]");
+    all_graphs.at(i)->SetTitle(("Envelopes outlining fractions of helix tracks from pair backgrounds;z [mm];"+direction+" [mm]").c_str());
   }
 }
 
@@ -139,34 +141,44 @@ vector< TGraph* > GetAllGraphs(TH2D * hx){
 
 int main(){
   UsePhDStyle();
-  std::string specialname = "wo_momentum_cuts";
-  std::string plane = "Helix_tracks_xz";
-  TFile *file = TFile::Open( ("output/Helix_in_beampipe_1bunch_"+specialname+".root").c_str() );
-  TH2D *hx = (TH2D*)file->Get( plane.c_str() );
+  std::string specialname = "1bunch_500GeV_5T_onlyPrimaries";
+  //std::string specialname = "1bunch_500GeV_3T";
+  std::string plane1 = "Helix_tracks_xz";
+  std::string plane2 = "Helix_tracks_yz";
+  TFile *file = TFile::Open( ("output/Helix_in_beampipe_"+specialname+".root").c_str() );
+  TH2D *hx = (TH2D*)file->Get( plane1.c_str() );
+  TH2D *hy = (TH2D*)file->Get( plane2.c_str() );
 
+  vector< TGraph* > all_graphs1 = GetAllGraphs(hx);
+  vector< TGraph* > all_graphs2 = GetAllGraphs(hy);
 
-  vector< TGraph* > all_graphs = GetAllGraphs(hx);
-
-  SetAllGraphStyles(all_graphs);
+  SetAllGraphStyles(all_graphs1,"x");
+  SetAllGraphStyles(all_graphs2,"y");
 
   TCanvas c;
   c.SetGridx();
   c.SetGridy();
 
-  DrawAllGraphs(all_graphs);
+  DrawAllGraphs(all_graphs1);
 
   vector< TLine* > all_lines = GetAllLines();
   SetAllLineStyles(all_lines);
   DrawAllLines(all_lines);
 
-  TLegend* leg = MakeLegend(all_graphs);
-  //TLegend *leg = new TLegend(0.18,0.11,0.38,0.3);
-  //leg->SetBorderSize(0);
-  //leg->SetFillColorAlpha(0,0);
-  leg->Draw();
+  TLegend* leg1 = MakeLegend(all_graphs1);
+  //TLegend *leg1 = new TLegend(0.18,0.11,0.38,0.3);
+  //leg1->SetBorderSize(0);
+  //leg1->SetFillColorAlpha(0,0);
+  leg1->Draw();
   //resultx->Draw("hist");
-  c.Print( ("output/HelixEnvelopes_"+plane+"_"+specialname+".pdf").c_str() );
-  c.Print( ("output/HelixEnvelopes_"+plane+"_"+specialname+".cxx").c_str() );
+  c.Print( ("output/HelixEnvelopes_"+plane1+"_"+specialname+".pdf").c_str() );
+  c.Print( ("output/HelixEnvelopes_"+plane1+"_"+specialname+".cxx").c_str() );
 
+  DrawAllGraphs(all_graphs2);
+  DrawAllLines(all_lines);
+  TLegend* leg2 = MakeLegend(all_graphs2);
+  leg2->Draw();
+  c.Print( ("output/HelixEnvelopes_"+plane2+"_"+specialname+".pdf").c_str() );
+  c.Print( ("output/HelixEnvelopes_"+plane2+"_"+specialname+".cxx").c_str() );
   return 0;
 }
