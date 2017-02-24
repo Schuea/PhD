@@ -1,7 +1,7 @@
 beam,  particle="e-",
        energy = 1.3*GeV,
        distrType  = "userfile",
-       distrFile  = "iniparticles_Halo_10000.dat",
+       distrFile  = "iniparticles_Halo_50000.dat",
        !distrFile  = "iniparticles_106.dat",
        !distrFile  = "iniparticles_104.dat",
        distrFileFormat = "x[mum]:xp[mrad]:y[mum]:yp[mrad]:z[cm]:E[MeV]";
