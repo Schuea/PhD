@@ -58,7 +58,8 @@ QM11FF: quadrupole, k1=-0.806158153902*betafactor, l=0.099245,apertureType="circ
 QM11FF_1: quadrupole, k1=-0.806158153902*betafactor, l=0.099245,apertureType="circular", aper=16*mm;
 L206A: drift, l=0.019755;
 L206BA: drift, l=1.0408775-cbpm_length-0.240;
-COLLBY: ecol, l=0.240, xsize=12*mm, ysize=2*mm, outerDiameter=26*mm, material="copper";
+COLLBY: element, geometry="gdml:realistic_collim.gdml", l=599.4*mm;
+!COLLBY: ecol, l=0.240, xsize=12*mm, ysize=2*mm, outerDiameter=26*mm, material="copper";
 !COLLBY: marker;
 L206BB: drift, l=0.2408775;
 !QD10BFF: quadrupole, k1=1.46112817472, l=0.099245;
