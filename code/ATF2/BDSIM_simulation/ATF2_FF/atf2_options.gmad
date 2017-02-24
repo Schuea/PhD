@@ -8,22 +8,17 @@ option,
 	beampipeThickness=2*mm,
 	beampipeRadius=12*mm,
 	beampipeMaterial="stainlesssteel",
-	ngenerate=1000;
+	ngenerate=5000;
 
 option, magnetGeometryType="polesfacetcrop";
 !option, nperfile=1000;
 
 !physics
-option, physicsList="em_standard",
-!option, physicsList="standard",
+option, physicsList="em",
+!option, physicsList="em_standard",
       	chordStepMinimum    = 0.0000000001 * m,
         deltaIntersection   = 0.00000000000001 * m,
-        deltaChord          = 0.0000000001 * m;!,
-       ! thresholdCutCharged = 1000 * MeV,
-       ! thresholdCutPhotons = 1000* MeV,
-
-       ! defaultRangeCut=30*cm,	
-	!prodCutPositrons=10*cm,
-	!prodCutElectrons=10*cm,
-	!prodCutPhotons=20*cm;
+        deltaChord          = 0.0000000001 * m;
   
+option, maximumTrackingTime=300;!time after which a particle tracking loop is killed, in [s]
+option, storeTrajectories=1;
