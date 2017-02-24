@@ -17,8 +17,8 @@ option, magnetGeometryType="polesfacetcrop";
 option, physicsList="em",
 !option, physicsList="em_standard",
       	chordStepMinimum    = 0.0000000001 * m,
-        deltaIntersection   = 0.00000000000001 * m,
-        deltaChord          = 0.0000000001 * m;
+        deltaIntersection   = 0.00000000000001 * m;!,
+        !deltaChord          = 0.0000000001 * m;
   
 option, maximumTrackingTime=300;!time after which a particle tracking loop is killed, in [s]
 option, storeTrajectories=1;
