@@ -1,6 +1,55 @@
 \section{The simulation of muons in the SiD detector}
 \label{Detector}
 
+\begin{table}
+\caption{Key parameters of the baseline SiD design, including the measurements of the subdetectors and their readout cell dimensions and the buffer depth. All dimension are given in cm.}
+\label{tab:KeyParametersSiD}
+\begin{tabular}{lllllll}
+\hline\hline
+\textbf{SiD Barrel} & \textbf{Technology} & \textbf{Readout cell dimensions} & \textbf{Buffer depth} & \textbf{Inner radius} & \textbf{Outer radius} & \textbf{z extent} \\
+\hline
+Vertex detector & Silicon pixels & & & 1.4 & 6.0 & $\pm 6.25$ \\
+Tracker & Silicon strips & & & 21.7 & 122.1 & $\pm 152.2$ \\
+ECAL & Silicon pixels-W & & & 126.5 & 140.9 & $\pm 176.5$ \\
+HCAL & RPC-steel & & & 141.7 & 249.3 & $\pm 301.8$ \\
+Solenoid & 5 T SC & & & 259.1 & 339.2 & $\pm 298.3$ \\
+Flux return & Scintillator-steel & & & 340.2 & 604.2 & $\pm 303.3$ \\
+\hline
+\textbf{SiD Endcap} & \textbf{Technology} & \textbf{Readout cell dimensions} & \textbf{Buffer depth} & \textbf{Inner z} & \textbf{Outer z} & \textbf{Outer radius} \\
+\hline
+Vertex detector & Silicon pixels & & & 7.3 & 83.4 & 16.6 \\
+Tracker & Silicon strips & & & 77.0 & 164.3 & 125.5 \\
+ECAL & Silicon pixel-W & & & 165.7 & 180.0 & 125.0 \\
+HCAL & RPC-steel & & & 180.5 & 302.8 & 140.2 \\
+Flux return & & & Scintillator/steel & 303.3 & 567.3 & 604.2 \\
+LumiCal & Silicon-W & & & 155.7 & 169.55 &  20.0 \\
+BeamCal & Semiconductor-W & & & 326.5 & 344 & 14.0 \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}
+    \centering
+    \includegraphics[angle=90,width=0.7\textwidth]{figures/SiDparJul2012.pdf}
+    \caption[SiD detector cross sections]{
+    Cross sections of the SiD detector in the xy plane (left), and the xz plane (right).
+    The schematics show the SiD concept design from the Detailed Baseline Document (DBD).
+    }
+    \label{fig:SiD}
+\end{figure}
+
+\begin{table}
+\caption{Time structure of the ILC-500GeV beam.}
+\label{tab:Beam_TimeStructure}
+\begin{tabular}{lll}
+\hline\hline
+\textbf{Number of bunches per train} & \textbf{Bunch spacing} &  \textbf{Collision rate} \\
+\hline
+1312 & \unit{554}\,{ns} & \unit{5}\,{Hz}\\
+\hline\hline
+\end{tabular}
+\end{table}
+
 In the first step of simulating the muons in the SiD detector, event displays were made with WIRED4\cite{Wired4}.
 The xy- and zy-views of these event displays can be seen for both shielding scenarios in Figure~\ref{fig:WIRED4}.
 First of all, without the magnetized wall as a last shielding mechanism about 6 times more muons enter the interaction region.
