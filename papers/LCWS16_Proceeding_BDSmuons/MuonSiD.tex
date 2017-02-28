@@ -1,36 +1,9 @@
 \section{The simulation of muons in the SiD detector}
 \label{Detector}
 
-\begin{table}
-\caption{Key parameters of the baseline SiD design, including the measurements of the subdetectors and their readout cell dimensions and the buffer depth. All dimension are given in cm.}
-\label{tab:KeyParametersSiD}
-\begin{tabular}{lllllll}
-\hline\hline
-\textbf{SiD Barrel} & \textbf{Technology} & \textbf{Readout cell dimensions} & \textbf{Buffer depth} & \textbf{Inner radius} & \textbf{Outer radius} & \textbf{z extent} \\
-\hline
-Vertex detector & Silicon pixels & & & 1.4 & 6.0 & $\pm 6.25$ \\
-Tracker & Silicon strips & & & 21.7 & 122.1 & $\pm 152.2$ \\
-ECAL & Silicon pixels-W & & & 126.5 & 140.9 & $\pm 176.5$ \\
-HCAL & RPC-steel & & & 141.7 & 249.3 & $\pm 301.8$ \\
-Solenoid & 5 T SC & & & 259.1 & 339.2 & $\pm 298.3$ \\
-Flux return & Scintillator-steel & & & 340.2 & 604.2 & $\pm 303.3$ \\
-\hline
-\textbf{SiD Endcap} & \textbf{Technology} & \textbf{Readout cell dimensions} & \textbf{Buffer depth} & \textbf{Inner z} & \textbf{Outer z} & \textbf{Outer radius} \\
-\hline
-Vertex detector & Silicon pixels & & & 7.3 & 83.4 & 16.6 \\
-Tracker & Silicon strips & & & 77.0 & 164.3 & 125.5 \\
-ECAL & Silicon pixel-W & & & 165.7 & 180.0 & 125.0 \\
-HCAL & RPC-steel & & & 180.5 & 302.8 & 140.2 \\
-Flux return & & & Scintillator/steel & 303.3 & 567.3 & 604.2 \\
-LumiCal & Silicon-W & & & 155.7 & 169.55 &  20.0 \\
-BeamCal & Semiconductor-W & & & 326.5 & 344 & 14.0 \\
-\hline\hline
-\end{tabular}
-\end{table}
-
 \begin{figure}
     \centering
-    \includegraphics[angle=90,width=0.7\textwidth]{figures/SiDparJul2012.pdf}
+    \includegraphics[angle=90,height=0.7\textwidth]{figures/SiDparJul2012.pdf}
     \caption[SiD detector cross sections]{
     Cross sections of the SiD detector in the xy plane (left), and the xz plane (right).
     The schematics show the SiD concept design from the Detailed Baseline Document (DBD).
@@ -39,20 +12,22 @@ BeamCal & Semiconductor-W & & & 326.5 & 344 & 14.0 \\
 \end{figure}
 
 \begin{table}
-\caption{Time structure of the ILC-500GeV beam.}
+\caption[Time structure of the ILC-500GeV beam.]{Time structure of the ILC-500GeV beam. The bunch spacing is the time between two bunches, whereas the collision rate defines with which frequency the bunch trains are colliding.}
 \label{tab:Beam_TimeStructure}
 \begin{tabular}{lll}
 \hline\hline
-\textbf{Number of bunches per train} & \textbf{Bunch spacing} &  \textbf{Collision rate} \\
+\textbf{Number of bunches per train} & \textbf{Bunch spacing} &  \textbf{Collision rate} \tabularnewline
 \hline
-1312 & \unit{554}\,{ns} & \unit{5}\,{Hz}\\
+1312 & \unit{554}\,{ns} & \unit{5}\,{Hz}\tabularnewline
 \hline\hline
 \end{tabular}
 \end{table}
 
 In the first step of simulating the muons in the SiD detector, event displays were made with WIRED4\cite{Wired4}.
 The xy- and zy-views of these event displays can be seen for both shielding scenarios in Figure~\ref{fig:WIRED4}.
-First of all, without the magnetized wall as a last shielding mechanism about 6 times more muons enter the interaction region.
+The event displays show the hits in the SiD detector for one ILC bunch train which consist of 1312 bunches.
+The time structure of the ILC bunch trains is shown in Table~\ref{tab:Beam_TimeStructure}.
+First of all, without the magnetized wall as a last shielding mechanism about six times more muons enter the interaction region.
 In these plots, as in all following, the shown distributions are from muons from one ILC bunch train, since the SiD sensor buffers will be read out after every train only.\\
 Second, the muons travel through the detector horizontally which could be taken advantage of for the alignment of the subdetectors.
 The spatial distributions of the muons in both scenarios are shifted towards the top and the left.
@@ -111,8 +86,9 @@ Figure~\ref{fig:muon_energy} shows the muon energy distributions for both shield
     \label{fig:muon_energy}
 \end{figure}
 
-The difference in the spatial distributions explains the different numbers of hits in the single subdetectors for the two scenarios.
+The difference in the spatial distributions explains the different numbers of hits in the single subdetectors for the two scenarios, as shown in Figure~\ref{fig:hit_distribution}.
 With the muon endcaps having the largest effective detector area, the number of hits is the highest in this subdetector.
+Table~\ref{tab:KeyParametersSiD} lists the different components of the SiD detector with their physical sizes, the technology used, and the sizes of the readout cells.
 
 \begin{figure}
     \centering
@@ -126,17 +102,45 @@ With the muon endcaps having the largest effective detector area, the number of 
     \label{fig:hit_distribution}
 \end{figure}
 
-Figure~\ref{fig:Occupancy_DeadCells} shows the occupancy plots and the number of dead cells resulting from the occupancy for both scenarios, and for two different subdetectors: the tracker endcaps and the ECAL endcaps.
+\begin{table}
+\caption{Key parameters of the baseline SiD design, including the measurements of the subdetectors, their readout cell dimensions and the buffer depth. The given readout cell dimension are the pixelation cell sizes used for the full detector \geant simulation.}
+\label{tab:KeyParametersSiD}
+\begin{tabular}{>{\raggedright}p{1.5cm}>{\raggedright}p{2.5cm}>{\raggedright}p{2.4cm}>{\centering}p{1cm}>{\raggedright}p{1.2cm}>{\raggedright}p{1.2cm}>{\raggedright}p{1.2cm}}
+\hline\hline
+\textbf{SiD Barrel} & \textbf{Technology} & \textbf{Readout cell dimensions [mm$^2$]} & \textbf{Buffer depth} & \textbf{Inner radius [cm]} & \textbf{Outer radius [cm]} & \textbf{z extent [cm]} \tabularnewline
+\hline
+Vertex detector & Silicon pixels & 0.05 x 0.05 & 4 & 1.4 & 6.0 & $\pm 6.25$ \tabularnewline
+Tracker & Silicon strips & 0.05 x 0.05 & 4 & 21.7 & 122.1 & $\pm 152.2$ \tabularnewline
+ECAL & Silicon pixels-W & 3.5 x 3.5 & 4 & 126.5 & 140.9 & $\pm 176.5$ \tabularnewline
+HCAL & RPC-steel & 10 x 10 & 4 & 141.7 & 249.3 & $\pm 301.8$ \tabularnewline
+Solenoid & 5 T SC & - & - & 259.1 & 339.2 & $\pm 298.3$ \tabularnewline
+Flux return & Scintillator-steel & 30 x 30 & 4 & 340.2 & 604.2 & $\pm 303.3$ \tabularnewline
+\hline
+\textbf{SiD Endcap} & \textbf{Technology} & \textbf{Readout cell dimensions [mm$^2$]} & \textbf{Buffer depth} & \textbf{Inner z [cm]} & \textbf{Outer z [cm]} & \textbf{Outer radius [cm]} \tabularnewline
+\hline
+Vertex detector & Silicon pixels & 0.05 x 0.05 & 4 & 7.3 & 83.4 & 16.6 \tabularnewline
+Tracker & Silicon strips & 0.05 x 0.05 & 4 & 77.0 & 164.3 & 125.5 \tabularnewline
+ECAL & Silicon pixel-W & 3.5 x 3.5 & 4 & 165.7 & 180.0 & 125.0 \tabularnewline
+HCAL & RPC-steel & 10 x 10 & 4 & 180.5 & 302.8 & 140.2 \tabularnewline
+Flux return & Scintillator/steel & 30 x 30 & 4 & 303.3 & 567.3 & 604.2 \tabularnewline
+LumiCal & Silicon-W & 3.5 x 3.5 & 4 & 155.7 & 169.55 &  20.0 \tabularnewline
+BeamCal & Semicond.-W & 3.5 x 3.5 & 4 & 326.5 & 344 & 14.0 \tabularnewline
+\hline\hline
+\end{tabular}
+\end{table}
+
+Cells are declared ``dead'' when they are hit by more tracks than the buffer depth allows, as any hits beyond the buffer depth limit can not be recorded.
+Figure~\ref{fig:Occupancy_DeadCells} shows the occupancy plots and the number of dead cells resulting from the occupancy for both scenarios, and for two different subdetectors: the tracker endcaps and the ECAL endcaps. 
 The occupancy in the tracker endcaps (Figure~\ref{fig:SiTracker_Occupancy}) is very low for both scenarios.
 Only 10\textsuperscript{-9} - 10\textsuperscript{-7} of all cells get four hits.
-The resulting number of dead cells in the tracker endcaps (Figure~\ref{fig:SiTracker_DeadCells}) shows that for a buffer depth of 4 only 10\textsuperscript{-8} of all cells get four or more hits and therefore reach the buffer limit in the ``5 Spoilers + Wall''.
+The resulting number of dead cells in the tracker endcaps (Figure~\ref{fig:SiTracker_DeadCells}) shows that for a buffer depth of four only 10\textsuperscript{-8} of all cells get four or more hits and therefore reach the buffer limit in the ``5 Spoilers + Wall''.
 The ``5 Spoilers'' case would do only one order of magnitude better.\\
 But the muon background yields a much higher occupancy in the ECAL endcaps which is shown in Figures~\ref{fig:Ecal_Occupancy} and \ref{fig:Ecal_DeadCells}.
 The reason for the occupancy being higher than in the tracker endcaps for both cases is simply due to the bigger effective detector area as explained before.
-Despite that and the fact that the ``5 Spoilers + Wall'' case is better by an order of magnitude (when looking at a buffer depth of 4), the occupancy is still at a level of only about 10\textsuperscript{-6} - 10\textsuperscript{-5}.
+Despite that and the fact that the ``5 Spoilers + Wall'' case is better by an order of magnitude (when looking at a buffer depth of four), the occupancy is still at a level of only about 10\textsuperscript{-6} - 10\textsuperscript{-5}.
 The interesting fact is that the ``5 Spoilers'' case shows up to 27 hits per cell with a roughly constant occupancy for all buffer depths.
 This leads to dead cell distributions which are vastly different.
-For an assumed buffer depth of 4, the total number of dead cells is different by about two orders of magnitude when comparing the two shielding scenarios.
+For an assumed buffer depth of four, the total number of dead cells is different by about two orders of magnitude when comparing the two shielding scenarios.
 In the ``5 Spoilers'' case, 10\textsuperscript{-4} - 10\textsuperscript{-3} cells would have reached the buffer limit regardless of which buffer depth was chosen for the sensor design.
 The cause of this distribution is the spatial distribution of the muons in the ``5 Spoilers'' case: there are many more muons hitting the detector, and additionally all concentrated on a small area of the detector.
 
@@ -178,10 +182,10 @@ The cause of this distribution is the spatial distribution of the muons in the `
 \end{figure}
 
 Finally, also the timing of the muons with respect to the bunch crossing was studied.
-All of the muons from the BDS are created up to \unit{0.5}{ns} after the bunch passing the material, as can be seen in Figure~\ref{fig:Creation_time}.
+All of the muons from the BDS are created up to \unit{0.5}\,{ns} after the bunch passing the material, as can be seen in Figure~\ref{fig:Creation_time}.
 Although the muons are created instantaneously, it takes a long time for them to hit certain subdetectors, such as the inner lying ECAL.
-The muons have to travel through the outer subdetectors before they reach the ECAL endcaps, which takes about \unit{20}{ns}.
-After roughly another \unit{20}{ns} the second endcap has been reached, so that hits in the ECAL endcaps can be registered several tens of nanoseconds after the bunch crossing .
+The muons have to travel through the outer subdetectors before they reach the ECAL endcaps, which takes about \unit{20}\,{ns}.
+After roughly another \unit{20}\,{ns} the second endcap has been reached, so that hits in the ECAL endcaps can be registered several tens of nanoseconds after the bunch crossing .
 The muons also produce shower particles when passing through the whole detector material.
 The low energy shower particles then hit the ECAL endcaps even later than the primary muons.
 
@@ -190,7 +194,7 @@ The low energy shower particles then hit the ECAL endcaps even later than the pr
     \includegraphics[width=0.7\textwidth]{figures/muon_creationtime.pdf}
     \caption[Creation time of the muons]{
     The creation time of the muons from the two shielding scenarios for a full bunch train.
-    All of the muons from the BDS are created up to \unit{0.5}{ns} after the bunch passing the material, whereas the lower energy muons, which have a broader creation time, do not reach the detector in the ``5 Spoilers + Wall'' case.
+    All of the muons from the BDS are created up to \unit{0.5}\,{ns} after the bunch passing the material, whereas the lower energy muons, which have a broader creation time, do not reach the detector in the ``5 Spoilers + Wall'' case.
     }
     \label{fig:Creation_time}
 \end{figure}
@@ -211,8 +215,8 @@ The low energy shower particles then hit the ECAL endcaps even later than the pr
     \caption[Hit time distributions in the ECAL endcaps]{
     The distributions of the hit time of the primary muons and the shower particles hitting the ECAL endcaps.
     For both shielding scenarios, the time distributions are similar.
-    The primary muons leave hits between about 23 and \unit{50}{ns} after the bunch crossing, since they have to travel through the whole detector before they reach the ECAL endcaps.
-    The shower particles on the other hand hit the ECAL endcaps about \unit{60}{ns} after the crossing.
+    The primary muons leave hits between about 23 and \unit{50}\,{ns} after the bunch crossing, since they have to travel through the whole detector before they reach the ECAL endcaps.
+    The shower particles on the other hand hit the ECAL endcaps about \unit{60}\,{ns} after the crossing.
     }
     \label{fig:Hit_time}
 \end{figure}
