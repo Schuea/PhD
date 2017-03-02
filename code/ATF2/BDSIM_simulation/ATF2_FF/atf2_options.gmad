@@ -22,3 +22,10 @@ option, physicsList="em",
   
 option, maximumTrackingTime=300;!time after which a particle tracking loop is killed, in [s]
 option, storeTrajectories=1;
+option, storeTrajectoryDepth=10000;
+! option, storeTrajectoryParticle="e+";
+! option, trajNoTransportation=1;
+! option, trajConnect=1;
+option, storeElossLocal=0;
+option, storeElossGlobal=0;
+option, storeElossLinks=1;
