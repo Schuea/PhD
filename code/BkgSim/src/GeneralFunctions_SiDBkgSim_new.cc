@@ -1,18 +1,6 @@
 #include "GeneralFunctions_SiDBkgSim_new.h"
 
 
-TTree* Get_TTree(TFile* inputfile, std::string subdetector_name) {
-	std::stringstream temp;
-	temp << "Tree_" << subdetector_name;
-
-	TTree* Tree = nullptr;
-	inputfile->GetObject(temp.str().c_str(), Tree);
-	if (!Tree) {
-		throw std::exception();
-	}
-	return Tree;
-}
-
 std::pair<int, int> Set_train_bunch_number(int number_of_file) {
   int number_of_train = 0;
   int number_of_bunch = 0;

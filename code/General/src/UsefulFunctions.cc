@@ -81,3 +81,15 @@ std::pair< double, double> GetMinMaxForMultipleOverlappingHistograms(std::vector
   std::pair< double, double > result(min,max);
   return result;
 }
+
+TTree* Get_TTree(TFile* inputfile, std::string subdetector_name) {
+	std::stringstream temp;
+	temp << "Tree_" << subdetector_name;
+
+	TTree* Tree = nullptr;
+	inputfile->GetObject(temp.str().c_str(), Tree);
+	if (!Tree) {
+		throw std::exception();
+	}
+	return Tree;
+}

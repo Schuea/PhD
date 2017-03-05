@@ -1,6 +1,8 @@
 #ifndef USEFULFUNCTIONS
 #define USEFULFUNCTIONS
 
+#include "TTree.h"
+#include "TFile.h"
 #include "TH1.h"
 #include "TCanvas.h"
 #include <vector>
@@ -20,6 +22,7 @@ std::string Convert_FloatToString (float number);
 void NormalizeHistogram(TH1* histo, float size = 1.0);
 void PRINT(TCanvas* canvas, std::string title, std::string PDFtitle);
 std::pair< double, double> GetMinMaxForMultipleOverlappingHistograms(const std::vector< TH1D* > histos, bool logscale);
+TTree* Get_TTree(TFile* inputfile, std::string subdetector_name); 
 
 template <class T, class Q>
 std::vector <T> operator* (const Q c, std::vector <T> A)
