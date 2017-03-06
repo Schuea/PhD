@@ -7,7 +7,7 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include -g -Wall -Wextra -pthread -O2 -std=c++
 CXXFLAGS +=  $(shell root-config --glibs) -l TreePlayer
 
 # Executables produced by this Makefile
-RUN = ../CollimatorProcessAnaPlotter
+RUN = ../CollimatorProcessAnaPlotter ../CollimatorBkgLevelAna
 
 
 # All tests produced by this Makefile.  Remember to add new tests you
@@ -16,6 +16,7 @@ TESTS = #Test
 
 # Useful variables
 COLLIMATORPROCESS = ../objects/Collimator_Process_Analysis.o
+COLLIMATORBKG = ../objects/Collimator_BkgLevel_Analysis.o
 USEFUL = ../objects/UsefulFunctions.o
 STYLE = ../objects/Style.o
 STYLEUTILS = ../objects/Style_Utils.o
@@ -77,13 +78,19 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 ../CollimatorProcessAnaPlotter : $(COLLIMATORPROCESS) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
+../CollimatorBkgLevelAna : $(COLLIMATORBKG) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
+../objects/Collimator_Process_Analysis.o : ../src/Collimator_Process_Analysis.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/Collimator_BkgLevel_Analysis.o : ../src/Collimator_BkgLevel_Analysis.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
 ../objects/ConfigReader.o : ../src/ConfigReader.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/ConfigReaderAnalysis.o : ../src/ConfigReaderAnalysis.cc
-	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
-
-../objects/Collimator_Process_Analysis.o : ../src/Collimator_Process_Analysis.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/UsefulFunctions.o : ../../../../General/src/UsefulFunctions.cc
