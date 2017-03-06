@@ -10,6 +10,7 @@
 #include <map>
 
 #include "UsefulFunctions.h"
+#include "Style.h"
 
 //enum EEntryStatus {
 //  kEntryValid = 0, // data read okay
@@ -25,6 +26,7 @@ bool Check_TTreeReader_EntryStatus(TTreeReader const & redr);
 bool CheckValue(ROOT::Internal::TTreeReaderValueBase* value); 
 
 int main(){
+  UsePhDStyle();
   std::string inputfilename = "test1_02032017_event.root";
   TFile* inputfile = new TFile(inputfilename.c_str());
 
