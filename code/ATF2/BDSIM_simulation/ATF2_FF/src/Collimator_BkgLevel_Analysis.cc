@@ -22,12 +22,26 @@
 //  kEntryDictionaryError, // problem reading dictionary info from tree
 //};
 
+bool Check_Set_InputArguments(int const argc, char const * const * const argv);
 bool Check_TTreeReader_EntryStatus(TTreeReader const & redr);
 bool CheckValue(ROOT::Internal::TTreeReaderValueBase* value); 
 
-int main(){
+int main(int const argc, char const * const * const argv){
   UsePhDStyle();
-  std::string inputfilename = "test1_02032017_event.root";
+
+  std::string inputfilename;
+  std::string outputfilename;
+  float aperture = 0.0;
+  float upperjaw = 0.0;
+  float lowerjaw = 0.0;
+  bool inputfilename_set = false;
+  bool outputfilename_set = false;
+  bool aperture_set = false;
+  bool upperjaw_set = false;
+  bool lowerjaw_set = false;
+  
+  if (Check_Set_InputArguments(argc, argv) == false) return -1;
+
   TFile* inputfile = new TFile(inputfilename.c_str());
 
   // Create a TTreeReader named "MyTree" from the given TDirectory.
@@ -45,16 +59,33 @@ int main(){
   TTreeReaderValue< std::vector< float > > x (reader, "RHUL_dector2.x");
   TTreeReaderValue< std::vector< float > > y (reader, "RHUL_dector2.y");
 
-  // Make histogramms:
+  // Variables for ROOT output file:
+  int BkgLevel = 0;
+  float Coll_Aperture = apertue;
+  float Coll_UpperJaw_Position = upperjaw;
+  float Coll_LowerJaw_Position = lowerjaw;
+
 
   // Now iterate through the TTree entries and fill a histogram.
   while (reader.Next()) {
    if (Check_TTreeReader_EntryStatus(reader) == false) return -1; 
 
-    for(auto i = trackIndex_modelIndex->begin(); i != trackIndex_modelIndex->end(); ++i){
-      std::cout << i->second << std::endl;
+    for(auto i = x->begin(); i != x->end(); ++i){
+      std::cout << i << std::endl;
+	if(x.at(i) >= -0.047 && x.at(i) <= -0.02 
+	&& y.at(i) >= -0.0135 && y.at(i) <= 0.0135 ){
+		BkgLevel++;
+	}
     }
   } // TTree entry / event loop
+  
+  TFile* OutputROOTFile = new TFile(outputfilename.c_str(),"CREATE","RHUL_Cherenkov_detector_signal_simulation");
+  TTree* Detector1 = new TTree("Tree_Detector1","TTree for detector 1");
+  
+  Detector1->Branch("CollAperture",&Coll_Aperture,"CollAperture/F");
+  Detector1->Branch("CollUpperJawPosition",&Coll_UpperJaw_Position,"CollUpperJawPosition/F");
+  Detector1->Branch("CollLowerJawPosition",&Coll_LowerJaw_Position,"CollLowerJawPosition/F");
+  Detector1->Branch("Signal",&BkgLevel,"Signal/I");
   return 0;
 }
 
@@ -89,4 +120,83 @@ bool CheckValue(ROOT::Internal::TTreeReaderValueBase* value) {
     return false;
   }
   return true;
+}
+bool Check_Set_InputArguments(int const argc, char const * const * const argv){
+	for (int i = 1; i < argc; i++) {
+		if (argv[i] == std::string("-i")) {
+			if (argv[i + 1] != NULL 
+					&& argv[i + 1] != std::string("-o")
+					&& argv[i + 1] != std::string("-u")
+					&& argv[i + 1] != std::string("-l")
+					&& argv[i + 1] != std::string("-a")){
+				inputfilename = argv[i + 1];
+				inputfilename_set = true;
+			} else {
+				std::cerr << "You didn't give an argument for the inputfilename!"
+					<< std::endl;
+			}
+		}
+		if (argv[i] == std::string("-o")) {
+			if (argv[i + 1] != NULL 
+					&& argv[i + 1] != std::string("-a")
+					&& argv[i + 1] != std::string("-u")
+					&& argv[i + 1] != std::string("-l")
+					&& argv[i + 1] != std::string("-i")) {
+				outputfilename = argv[i + 1];
+				outputfilename_set = true;
+			} else {
+				std::cerr << "You didn't give an argument for the outputfilename!"
+					<< std::endl;
+			}
+		}
+		if (argv[i] == std::string("-a")) {
+			if (argv[i + 1] != NULL 
+					&& argv[i + 1] != std::string("-o")
+					&& argv[i + 1] != std::string("-u")
+					&& argv[i + 1] != std::string("-l")
+					&& argv[i + 1] != std::string("-i")) {
+				aperture = std::stof(argv[i + 1]);
+				aperture_set = true;
+			} else {
+				std::cerr << "You didn't give an argument for the collimator aperture!"
+					<< std::endl;
+			}
+		}
+		if (argv[i] == std::string("-u")) {
+			if (argv[i + 1] != NULL 
+					&& argv[i + 1] != std::string("-o")
+					&& argv[i + 1] != std::string("-a")
+					&& argv[i + 1] != std::string("-l")
+					&& argv[i + 1] != std::string("-i")) {
+				upperjaw = std::stof(argv[i + 1]);
+				upperjaw_set = true;
+			} else {
+				std::cerr << "You didn't give an argument for the upper jaw position!"
+					<< std::endl;
+			}
+		}
+		if (argv[i] == std::string("-l")) {
+			if (argv[i + 1] != NULL 
+					&& argv[i + 1] != std::string("-o")
+					&& argv[i + 1] != std::string("-a")
+					&& argv[i + 1] != std::string("-u")
+					&& argv[i + 1] != std::string("-i")) {
+				lowerjaw = std::stof(argv[i + 1]);
+				lowerjaw_set = true;
+			} else {
+				std::cerr << "You didn't give an argument for the lower jaw position!"
+					<< std::endl;
+			}
+		}
+
+	}
+	if(!inputfilename_set || !outputfilename_set || !aperture_set || !lowerjaw_set || !upperjaw_set){
+		std::cerr << "You didn't set the input arguments correctly!" << std::endl;
+		std::cerr << "Try:\n";
+		std::cerr << "./CollimatorBkgLevelAna -i inputfilename -o outputfilename -a 24 -u 12 -l 12\n";
+		std::cerr << "-a: Collimator Apertur\n";
+		std::cerr << "-u: Upper jaw position\n";
+		std::cerr << "-l: Lower jaw position" << std::endl;
+		return false;
+	}
 }
