@@ -5,6 +5,7 @@
 #include "TTreeReaderArray.h"
 #include "TH1.h"
 
+#include <iomanip>
 #include <iostream>
 #include <vector>
 #include <map>
@@ -22,7 +23,7 @@
 //  kEntryDictionaryError, // problem reading dictionary info from tree
 //};
 
-bool Check_Set_InputArguments(int const argc, char const * const * const argv);
+bool Check_Set_InputArguments(int const argc, char const * const * const argv, std::string &in, std::string &out, float &ap, float &up, float &lo);
 bool Check_TTreeReader_EntryStatus(TTreeReader const & redr);
 bool CheckValue(ROOT::Internal::TTreeReaderValueBase* value); 
 
@@ -34,13 +35,8 @@ int main(int const argc, char const * const * const argv){
   float aperture = 0.0;
   float upperjaw = 0.0;
   float lowerjaw = 0.0;
-  bool inputfilename_set = false;
-  bool outputfilename_set = false;
-  bool aperture_set = false;
-  bool upperjaw_set = false;
-  bool lowerjaw_set = false;
   
-  if (Check_Set_InputArguments(argc, argv) == false) return -1;
+  if (Check_Set_InputArguments(argc, argv, inputfilename, outputfilename, aperture, upperjaw, lowerjaw) == false) return -1;
 
   TFile* inputfile = new TFile(inputfilename.c_str());
 
@@ -48,7 +44,7 @@ int main(int const argc, char const * const * const argv){
   // The TTreeReader gives access to the TTree to the TTreeReaderValue and
   // TTreeReaderArray objects. It knows the current entry number and knows
   // how to iterate through the TTree.
-  TTreeReader reader("RHUL_detector2", inputfile);
+  TTreeReader reader("Event", inputfile);
 
   if(reader.IsZombie()){
     std::cerr << "Tree or filename is invalid" << std::endl;
@@ -56,28 +52,32 @@ int main(int const argc, char const * const * const argv){
   }
 
   // Read a single float value in each tree entries:
-  TTreeReaderValue< std::vector< float > > x (reader, "RHUL_dector2.x");
-  TTreeReaderValue< std::vector< float > > y (reader, "RHUL_dector2.y");
+  TTreeReaderValue< std::vector< float > > x (reader, "RHUL_detector2.x");
+  TTreeReaderValue< std::vector< float > > y (reader, "RHUL_detector2.y");
 
   // Variables for ROOT output file:
   int BkgLevel = 0;
-  float Coll_Aperture = apertue;
+  float Coll_Aperture = aperture;
   float Coll_UpperJaw_Position = upperjaw;
   float Coll_LowerJaw_Position = lowerjaw;
 
 
   // Now iterate through the TTree entries and fill a histogram.
   while (reader.Next()) {
-   if (Check_TTreeReader_EntryStatus(reader) == false) return -1; 
+    if (Check_TTreeReader_EntryStatus(reader) == false) return -1; 
 
     for(auto i = x->begin(); i != x->end(); ++i){
-      std::cout << i << std::endl;
-	if(x.at(i) >= -0.047 && x.at(i) <= -0.02 
-	&& y.at(i) >= -0.0135 && y.at(i) <= 0.0135 ){
-		BkgLevel++;
-	}
+      //std::cout << *i << std::endl;
+      //std::cout << std::fixed << std::setprecision(3) << (*x)[*i] << std::endl;
+      for(auto j = y->begin(); j != y->end(); ++j){
+        if(*i >= -0.03  && *i <= 0.0 
+            && *j >= -0.015 && *j <= 0.015 ){
+          BkgLevel++;
+        }
+      }
     }
   } // TTree entry / event loop
+  inputfile->Close();
   
   TFile* OutputROOTFile = new TFile(outputfilename.c_str(),"CREATE","RHUL_Cherenkov_detector_signal_simulation");
   TTree* Detector1 = new TTree("Tree_Detector1","TTree for detector 1");
@@ -86,12 +86,17 @@ int main(int const argc, char const * const * const argv){
   Detector1->Branch("CollUpperJawPosition",&Coll_UpperJaw_Position,"CollUpperJawPosition/F");
   Detector1->Branch("CollLowerJawPosition",&Coll_LowerJaw_Position,"CollLowerJawPosition/F");
   Detector1->Branch("Signal",&BkgLevel,"Signal/I");
+  
+  Detector1->Fill();
+  OutputROOTFile->Write();
+  OutputROOTFile->Close();
+
   return 0;
 }
 
 bool Check_TTreeReader_EntryStatus(TTreeReader const & redr){
   if (redr.GetEntryStatus() == TTreeReader::kEntryValid) {
-    std::cout << "Loaded entry " << redr.GetCurrentEntry() << '\n';
+    //std::cout << "Loaded entry " << redr.GetCurrentEntry() << '\n';
     return true;
   } else { 
     if(redr.GetEntryStatus() == TTreeReader::kEntryNotLoaded){
@@ -121,7 +126,13 @@ bool CheckValue(ROOT::Internal::TTreeReaderValueBase* value) {
   }
   return true;
 }
-bool Check_Set_InputArguments(int const argc, char const * const * const argv){
+bool Check_Set_InputArguments(int const argc, char const * const * const argv, std::string &in, std::string &out, float &ap, float &up, float &lo)
+{
+  bool inputfilename_set = false;
+  bool outputfilename_set = false;
+  bool aperture_set = false;
+  bool upperjaw_set = false;
+  bool lowerjaw_set = false;
 	for (int i = 1; i < argc; i++) {
 		if (argv[i] == std::string("-i")) {
 			if (argv[i + 1] != NULL 
@@ -129,7 +140,7 @@ bool Check_Set_InputArguments(int const argc, char const * const * const argv){
 					&& argv[i + 1] != std::string("-u")
 					&& argv[i + 1] != std::string("-l")
 					&& argv[i + 1] != std::string("-a")){
-				inputfilename = argv[i + 1];
+				in = argv[i + 1];
 				inputfilename_set = true;
 			} else {
 				std::cerr << "You didn't give an argument for the inputfilename!"
@@ -142,7 +153,7 @@ bool Check_Set_InputArguments(int const argc, char const * const * const argv){
 					&& argv[i + 1] != std::string("-u")
 					&& argv[i + 1] != std::string("-l")
 					&& argv[i + 1] != std::string("-i")) {
-				outputfilename = argv[i + 1];
+				out = argv[i + 1];
 				outputfilename_set = true;
 			} else {
 				std::cerr << "You didn't give an argument for the outputfilename!"
@@ -155,7 +166,7 @@ bool Check_Set_InputArguments(int const argc, char const * const * const argv){
 					&& argv[i + 1] != std::string("-u")
 					&& argv[i + 1] != std::string("-l")
 					&& argv[i + 1] != std::string("-i")) {
-				aperture = std::stof(argv[i + 1]);
+				ap = std::stof(argv[i + 1]);
 				aperture_set = true;
 			} else {
 				std::cerr << "You didn't give an argument for the collimator aperture!"
@@ -168,7 +179,7 @@ bool Check_Set_InputArguments(int const argc, char const * const * const argv){
 					&& argv[i + 1] != std::string("-a")
 					&& argv[i + 1] != std::string("-l")
 					&& argv[i + 1] != std::string("-i")) {
-				upperjaw = std::stof(argv[i + 1]);
+				up = std::stof(argv[i + 1]);
 				upperjaw_set = true;
 			} else {
 				std::cerr << "You didn't give an argument for the upper jaw position!"
@@ -181,7 +192,7 @@ bool Check_Set_InputArguments(int const argc, char const * const * const argv){
 					&& argv[i + 1] != std::string("-a")
 					&& argv[i + 1] != std::string("-u")
 					&& argv[i + 1] != std::string("-i")) {
-				lowerjaw = std::stof(argv[i + 1]);
+				lo = std::stof(argv[i + 1]);
 				lowerjaw_set = true;
 			} else {
 				std::cerr << "You didn't give an argument for the lower jaw position!"
@@ -199,4 +210,5 @@ bool Check_Set_InputArguments(int const argc, char const * const * const argv){
 		std::cerr << "-l: Lower jaw position" << std::endl;
 		return false;
 	}
+  else return true;
 }
