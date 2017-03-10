@@ -54,6 +54,7 @@ int main(int const argc, char const * const * const argv){
   // Read a single float value in each tree entries:
   TTreeReaderValue< std::vector< float > > x (reader, "RHUL_detector2.x");
   TTreeReaderValue< std::vector< float > > y (reader, "RHUL_detector2.y");
+  TTreeReaderValue< std::vector< int > > trackID (reader, "RHUL_detector2.trackID");
 
   // Variables for ROOT output file:
   int BkgLevel = 0;
@@ -64,18 +65,32 @@ int main(int const argc, char const * const * const argv){
 
   // Now iterate through the TTree entries and fill a histogram.
   while (reader.Next()) {
-    if (Check_TTreeReader_EntryStatus(reader) == false) return -1; 
+	  if (Check_TTreeReader_EntryStatus(reader) == false) return -1; 
 
-    for(auto i = x->begin(); i != x->end(); ++i){
-      //std::cout << *i << std::endl;
-      //std::cout << std::fixed << std::setprecision(3) << (*x)[*i] << std::endl;
-      for(auto j = y->begin(); j != y->end(); ++j){
-        if(*i >= -0.03  && *i <= 0.0 
-            && *j >= -0.015 && *j <= 0.015 ){
-          BkgLevel++;
-        }
-      }
-    }
+	  if(trackID->size() != x->size() || y->size() != x->size()){
+		std::cerr << "The vector sizes are not corresponding!" << std::endl;
+		return -1;
+	  }
+	  for(auto t = trackID->begin(); t != trackID->end(); ++t){
+		  if (*t == 1) continue;
+		  //std::vector<int>::iterator it = std::find(trackID->begin(), trackID->end(), t);
+		  //auto pos = std::distance( trackID->begin(), it );
+		  auto pos = std::distance( trackID->begin(), t );
+		  if((*x)[pos] >= -0.04  && (*x)[pos] <= 0.009 
+		  && (*y)[pos] >= -0.015 && (*y)[pos] <= 0.015 ){
+		  	  BkgLevel++;
+		  }
+		  //for(auto i = x->begin(); i != x->end(); ++i){
+		  //        //std::cout << *i << std::endl;
+		  //        //std::cout << std::fixed << std::setprecision(3) << (*x)[*i] << std::endl;
+		  //        for(auto j = y->begin(); j != y->end(); ++j){
+		  //      	  if(*i >= -0.03  && *i <= 0.0 
+		  //      			  && *j >= -0.015 && *j <= 0.015 ){
+		  //      		  BkgLevel++;
+		  //      	  }
+		  //        }
+		  //}
+	  }
   } // TTree entry / event loop
   inputfile->Close();
   
