@@ -1,0 +1,23 @@
+! Sun, 14 Jun 2015 13:16:58 +0000
+! pybdsim.Builder 
+! BEAM DEFINITION 
+
+emittancefactor=1.0;
+
+beam,	distrType="gausstwiss",
+	emitx=2e-09*m*emittancefactor,
+	emity=1.195785323e-11*m*emittancefactor,
+	particle="e-", 
+	energy=1.282*GeV,
+	betx=1.348753532*m, 
+	alfx=-0.7862388903*m, 
+	alfy=-3.285248127*m, 
+	bety=19.79462726*m,
+  sigmaE = 0.0008;
+! beam sizes at start location
+! sqrt(emittancex) * sqrt(betax);
+! sqrt(emittancex) * sqrt((1 + alphax^2)/betax);
+sigmax  = 1.16135849 * 4.47213595e-05;
+sigmaxp = 4.8984760e-05;
+sigmay  = 4.44911533 * 3.45801290e-06;
+sigmayp = 2.6690852e-06;

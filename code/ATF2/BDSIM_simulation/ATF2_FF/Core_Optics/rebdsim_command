@@ -1,0 +1,5 @@
+#rebdsim analysisConfig.txt CoreOptics_10032017_event_0.root CoreOptics_10032017_event_0_OpticsOutput.root
+#rebdsim analysisConfig.txt CoreOptics_10032017_event_1.root CoreOptics_10032017_event_1_OpticsOutput.root
+#rebdsim analysisConfig.txt CoreOptics_10032017_event_2.root CoreOptics_10032017_event_2_OpticsOutput.root
+#rebdsim analysisConfig.txt CoreOptics_10032017_event_3.root CoreOptics_10032017_event_3_OpticsOutput.root
+rebdsim analysisConfig.txt CoreOptics_10032017_event_4.root CoreOptics_10032017_event_4_OpticsOutput.root

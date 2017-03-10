@@ -1,0 +1,9 @@
+Debug						0
+InputFilePath					./output_event.root
+OutputFileName					./ana_1.root
+CalculateOpticalFunctions			1
+CalculateOpticalFunctionsFileName		./ana_1.dat
+# Object	treeName	Histogram Name           # Bins     Binning	        variable            selection
+Histogram	Event.		Primaryx                 {100}       {-0.1:0.1}     Primary.x           1
+Histogram	Event.		Primaryy                 {100}       {-0.1:0.1}     Primary.y           1
+Histogram	Event.		Track_ID                 {100}       {-1:1}     Trajectory.trackID           1
