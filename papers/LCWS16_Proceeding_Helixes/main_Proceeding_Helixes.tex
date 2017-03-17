@@ -47,29 +47,31 @@
 \usepackage{authblk}
 \usepackage{fixltx2e}
 
+
 \begin{document}
 
 %% Title, authors and addresses
 
-\title{Pair Background Envelopes\\in the SiD Detector}
+\title{Pair Background Envelopes\\in the SiD Detector\vspace*{0.3cm}\\{\normalsize Talk presented at the\\International Workshop on Future Linear Colliders (LCWS2016)\\Morioka, Japan, 5-9 December 2016. C16-12-05.4.}}
 
 \author[1,2]{Anne Sch\"utz}
 
-\affil[1]{Karlsruhe Institute of Technology (KIT), Department of Physics, Institute of Experimental Nuclear Physics (IEKP), Wolfgang-Gaede-Str. 1, 76131 Karlsruhe, Germany}
-\affil[2]{Deutsches Elektronen-Synchrotron (DESY), Notkestr. 85, 22607 Hamburg, Germany}
+\affil[1]{\normalsize Karlsruhe Institute of Technology (KIT), Department of Physics, Institute of Experimental Nuclear Physics (IEKP), Wolfgang-Gaede-Str. 1, 76131 Karlsruhe}
+\affil[2]{\normalsize Deutsches Elektronen-Synchrotron (DESY), Notkestr. 85, 22607 Hamburg}
 
 \maketitle
 
 %%
 %% Start line numbering here if you want
 %%
-\linenumbers
+%\linenumbers
 
 \begin{abstract}
 %% Text of abstract
-The study of the pair background envelopes and the beam pipe radius, previously done by Takashi Maruyama (SLAC), was redone with the up-to-date pair background data set simulated with \guineapig.
-Unlike before, the full data set of pairs produced in one bunch crossing was used to calculate the helix tracks the particles form in the solenoid field of the SiD detector.
-The results suggest to further study the reduction of the beam pipe radius and therefore to either add another SiD vertex detector layer, or reduce the radius of the existing vertex detector layers.
+The beams at the ILC produce electron positron pairs due to beam-beam interactions.
+This proceeding presents for the first time a study of these processes in a detailed simulation, which shows that these pair background particles appear at angles that extend to the inner layers of the detector.
+The full data set of pairs produced in one bunch crossing was used to calculate the helix tracks, which the particles form in the solenoid field of the SiD detector.
+The results suggest to further study the reduction of the beam pipe radius and therefore to either add another SiD vertex detector layer, or reduce the radius of the existing vertex detector layers, without increasing the detector occupancy significantly.
 This has to go along with additional studies whether the improvement in physics reconstruction methods, like c-tagging, is worth the increased background level at smaller radii.
 \end{abstract}
 
@@ -82,12 +84,12 @@ Takashi Maruyama has previously done this study with different beam parameters~\
 The plots shown in this proceeding, in contrast, were done with a full pair background data set from the most recent simulations without any cuts applied.\\
 With the beam pipe radius of \unit{1.2}\,{cm} in the immediate interaction point region and the beam pipe increasing in radius in a cone shape, the fraction of pairs leaving the beam pipe can be calculated in order to convey an understanding of how many pair background particles enter the SiD detector and interact with the material. 
 
-\include{PairHelixesSiD}
-\include{Conclusions}
+\input{PairHelixesSiD}
+\input{Conclusions}
 
 
-%\section*{Acknowledgments}
-%Grateful acknowledgments to Lewis Keller and Glen White from SLAC for the simulation of the muons from the BDS and their support.
+\section*{Acknowledgments}
+The author would like to thank Takashi Murayama (SLAC) for useful discussions and clarifications of his work in \cite{Takashi_plot}.
 
 %\include{Appendix}
 
