@@ -9,9 +9,6 @@
 #include <vector>
 #include <map>
 
-#include "UsefulFunctions.h"
-#include "Style.h"
-
 //enum EEntryStatus {
 //  kEntryValid = 0, // data read okay
 //  kEntryNotLoaded, // no entry has been loaded yet
@@ -23,11 +20,16 @@
 //};
 
 bool Check_TTreeReader_EntryStatus(TTreeReader const & redr);
+//bool CheckValue(ROOT::TTreeReaderValueBase* value); 
 bool CheckValue(ROOT::Internal::TTreeReaderValueBase* value); 
 
-int main(){
-  UsePhDStyle();
-  std::string inputfilename = "test1_02032017_event.root";
+int main(int const argc, char const * const * const argv){
+  std::string outputfilename("");
+  std::string inputfilename("");
+  for(int i = 1; i < argc; ++i){
+    if(std::string(argv[i]) == "-i") inputfilename = argv[i+1];
+    if(std::string(argv[i]) == "-o") outputfilename = argv[i+1];
+  }
   TFile* inputfile = new TFile(inputfilename.c_str());
 
   // Create a TTreeReader named "MyTree" from the given TDirectory.
@@ -40,26 +42,35 @@ int main(){
     std::cerr << "Tree or filename is invalid" << std::endl;
     exit(-3);
   }
+  TFile *outputfile = new TFile(outputfilename.c_str(), "CREATE", "Track and Model Index");
+  TTree *outputtree = new TTree("TrackModelIndex","Contains the tracking and model index for each particle");
 
   // Read a single float value in each tree entries:
   TTreeReaderValue< std::map< int, int > > trackIndex_modelIndex(reader, "Trajectory.trackIndex_modelIndex");
-
+  //TTreeReaderValue< std::map< int, std::vector< int > > > modelIndex_trackIndex(reader, "Trajectory.modelIndex_trackIndex");
   // Make histogramms:
+  int trackIndex(0), modelIndex(0);
+  outputtree->Branch("trackIndex",&trackIndex,"trackIndex/I");
+  outputtree->Branch("modelIndex",&modelIndex,"modelIndex/I");
 
   // Now iterate through the TTree entries and fill a histogram.
   while (reader.Next()) {
    if (Check_TTreeReader_EntryStatus(reader) == false) return -1; 
 
     for(auto i = trackIndex_modelIndex->begin(); i != trackIndex_modelIndex->end(); ++i){
-      std::cout << i->second << std::endl;
+      trackIndex = i->first;
+      modelIndex = i->second;
+      outputtree->Fill();
     }
   } // TTree entry / event loop
+  outputtree->Write();
+  outputfile->Close();
+  inputfile->Close();
   return 0;
 }
 
 bool Check_TTreeReader_EntryStatus(TTreeReader const & redr){
   if (redr.GetEntryStatus() == TTreeReader::kEntryValid) {
-    std::cout << "Loaded entry " << redr.GetCurrentEntry() << '\n';
     return true;
   } else { 
     if(redr.GetEntryStatus() == TTreeReader::kEntryNotLoaded){
@@ -82,6 +93,7 @@ bool Check_TTreeReader_EntryStatus(TTreeReader const & redr){
   }
 }
 bool CheckValue(ROOT::Internal::TTreeReaderValueBase* value) {
+//bool CheckValue(ROOT::TTreeReaderValueBase* value) {
   if (value->GetSetupStatus() < 0) {
     std::cerr << "Error " << value->GetSetupStatus()
       << "setting up reader for " << value->GetBranchName() << '\n';

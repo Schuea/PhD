@@ -7,11 +7,12 @@ option,
 	outerDiameter=50*cm,
 	beampipeThickness=2*mm,
 	beampipeRadius=12*mm,
+!	beampipeRadius=50*mm,
 	beampipeMaterial="stainlesssteel",
 	ngenerate=5000;
 
 option, magnetGeometryType="polesfacetcrop";
-!option, nperfile=1000;
+option, nperfile=10000;
 
 !physics
 option, physicsList="em",
@@ -19,7 +20,8 @@ option, physicsList="em",
       	chordStepMinimum    = 0.0000000001 * m,
         deltaIntersection   = 0.00000000000001 * m;!,
         !deltaChord          = 0.0000000001 * m;
-  
+
+option, writeSeedState=1; 
 option, maximumTrackingTime=300;!time after which a particle tracking loop is killed, in [s]
 option, storeTrajectories=1;
 option, storeTrajectoryDepth=10000;

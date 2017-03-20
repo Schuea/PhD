@@ -101,7 +101,7 @@
 \title[ILC \& Background Simulations]{\textbf{\LARGE The International Linear Collider \\ \normalsize- \\ \small Background Simulations \& Optimizing the Final Focus Region}}
 \author{\textbf{Anne Sch\"utz}}
 \institute{\textbf{KIT, DESY}}
-\date{\textbf{March 23rd 2016}}
+\date[March 28th 2016]{\textbf{March 28th 2016}\\DPG 2017, M\"unster}
 
 \titlegraphic{\includegraphics[height=1.0cm]{figures/KIT.png}\hspace*{6cm}~%
    \includegraphics[height=1.2cm]{figures/DESY_Logo.png}
@@ -127,20 +127,20 @@
 \subsection{The layout}
 \begin{frame}{The layout of the ILC}
 \ilclogo
-
-e$^+$e$^-$ linear collider with adjustable center-of-mass energy, and polarized beams\\
+e$^+$e$^-$ linear collider:
+\begin{itemize}
+ \item \SI{30}{\kilo\metre} long
+ \item adjustable center-of-mass energy
+ \item polarized beams
+\end{itemize}
 \begin{center}
 \includegraphics[width=\textwidth]{figures/ILC_schematic_layout.png}
 \end{center}
-\begin{flushright}
- \href{https://www.youtube.com/watch?v=ep5496vdEFI}{\beamergotobutton{\begin{CJK}{UTF8}{min}国際リニアコライダー\end{CJK}}}
-\end{flushright}
-
 \end{frame}
 
-\subsection{Site}
+\subsection{The candidate site of the ILC}
 
-\begin{frame}{The site of the ILC - The Kitakami mountains}
+\begin{frame}{The candidate site - The Kitakami mountains}
 \ilclogo
 \begin{center}
 \begin{minipage}[t]{0.49\textwidth}
@@ -167,32 +167,31 @@ The two detectors can be swapped in the so-called \textbf{push-pull-system}.
 \end{block}
 
 \begin{columns}
-\begin{column}{0.48\textwidth}
+\begin{column}{0.5\textwidth}
 \begin{center}
 \visible<2->{\alert{SiD - Silicon Detector}
 \begin{itemize}
 \item Height: $\sim$\SI{14}{\metre}, length:  $\sim$\SI{11}{\metre}
 \item Weight: $\sim$\SI{10100}{\tonne}
-\item Superconducting solenoid field: \SI{5}{\tesla}
+\item Supercond. solenoid field: \SI{5}{\tesla}
 \item Full silicon tracker
 \end{itemize}
-
-\includegraphics[width=0.5\textwidth]{figures/SiDmodel.jpg}
+\includegraphics[width=0.45\textwidth]{figures/SiDmodel.jpg}\\
+$\rightarrow$ SiD is a compact detector, designed for Particle Flow.
 }
 \end{center}
 \end{column}
-
-\begin{column}{0.48\textwidth}
+\begin{column}{0.5\textwidth}
 \begin{center}
 \visible<2->{\alert{ILD - International Large Detector}
 \begin{itemize}
 \item Height: $\sim$\SI{16}{\metre}, length:  $\sim$\SI{14}{\metre}
 \item Weight: $\sim$\SI{14000}{\tonne}
-\item Superconducting solenoid field: \SI{3.5}{\tesla}
+\item Supercond. solenoid field: \SI{3.5}{\tesla}
 \item TPC
 \end{itemize}
-
-\includegraphics[width=0.5\textwidth]{figures/ILDmodel.jpg}
+\includegraphics[width=0.45\textwidth]{figures/ILDmodel.jpg}\\
+\textcolor{white}{line filler line filler line filler line filler line filler}
 }
 \end{center}
 \end{column}
@@ -309,7 +308,7 @@ The main sources of background:
 \begin{frame}{Pair background - Helix Envelopes}
 \sidlogo
 Per bunch, there are about \num{200000} \positron \electron background particles from beam-beam interactions.
-Due to their momentum distributions, the particles form helix tracks in the solenoid field.
+Due to their momentum distributions, the particles form \textbf{helix tracks} in the solenoid field.
 The envelopes of all pair background helixes have a characteristic shape.
    \includegraphics[width=0.51\textwidth]{figures/PairHelixes_500GeV_5T.png}\hspace*{0.1cm}
    \includegraphics[width=0.51\textwidth]{figures/PairEnvelopes_500GeV_5T.png}\\
@@ -551,7 +550,7 @@ Therefore a linear collider:
  \begin{column}{0.4\textwidth}
  \begin{block}{}
   \begin{center}
-      \textcolor{Gray}{P$_S=\frac{e^2c}{6\pi\epsilon_0}\frac{1}{(m_0c^2)^4}\frac{E^4}{R^2}$\\
+      \textcolor{CadetBlue}{P$_S=\frac{e^2c}{6\pi\epsilon_0}\frac{1}{(m_0c^2)^4}\frac{E^4}{R^2}$\\
   $\Delta$E$=\frac{e}{3\epsilon_0(m_0c^2)^4}\frac{E^4}{R}$}
    \end{center}
  \end{block}

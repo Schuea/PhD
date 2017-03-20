@@ -169,59 +169,16 @@ My supervisors\\
 \begin{frame}{My Ph.D topic}
 \ilclogo
 \begin{center}
-\visible<3->{
 \includegraphics[width=0.4\textwidth]{figures/ILCTDR-VOLUME_3-PART_II_FFRegion.png}
-}
 \begin{block}{}
 \centering
 \textit{Optimizing the design of the Final-Focus Region\\for the International Linear Collider}
 \end{block}
-\visible<2->{
 \includegraphics[width=0.7\textwidth]{figures/ILC_schematic_layout.png}
-}
 \end{center}
 \end{frame}
 
 \section{The International Linear Collider}
-\subsection{Site}
-
-\begin{frame}{The site of the ILC - The Kitakami mountains}
-\ilclogo
-\begin{center}
-\only<1>{
-\begin{tikzpicture}[every node/.style={anchor=center}]
- \node(b) at (16,8){
-\begin{minipage}[t]{0.49\textwidth}
-\centering
- \includegraphics[width=\textwidth]{figures/japan-map.jpg}
-\end{minipage}
-\begin{minipage}[t]{0.48\textwidth}
-\centering
-   \includegraphics[width=\textwidth]{figures/Kitakami_site.jpg}
-\end{minipage}
-};
-\end{tikzpicture}
-}
-	\iffunny 
-\only<2>{
- \begin{tikzpicture}[every node/.style={anchor=center}]
-  \node(b) at (16,8){
-\begin{minipage}[t]{0.49\textwidth}
-\centering
- \includegraphics[width=\textwidth]{figures/japan-map.jpg}
-\end{minipage}
-\begin{minipage}[t]{0.48\textwidth}
-\centering
-   \includegraphics[width=\textwidth]{figures/Kitakami_site.jpg}
-\end{minipage}
-};
-    \pause
-   		\node(b) at (16,8){\includegraphics[width=0.3\textwidth]{figures/japaneseMyself.png}};
-  \end{tikzpicture}
-}
-	\fi
-\end{center}
-\end{frame}
 
 \subsection{The layout}
 \begin{frame}{The layout of the ILC}
@@ -265,6 +222,22 @@ Therefore a linear collider:
 
 \end{frame}
 
+\subsection{The candidate site of the ILC}
+\begin{frame}{The candidate site - The Kitakami mountains}
+\ilclogo
+\begin{center}
+\begin{minipage}[t]{0.49\textwidth}
+\centering
+ \includegraphics[width=\textwidth]{figures/japan-map.jpg}
+\end{minipage}
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+   \includegraphics[width=\textwidth]{figures/Kitakami_site.jpg}
+\end{minipage}
+\end{center}
+\end{frame}
+
+
 
 %------Definition for column color in table
 \definecolor{Gray}{gray}{0.9}
@@ -307,7 +280,7 @@ The two detectors can be swapped in the so-called \textbf{push-pull-system}.
 \begin{columns}
 \begin{column}{0.48\textwidth}
 \begin{center}
-\visible<2->{\alert{SiD - Silicon Detector}
+\alert{SiD - Silicon Detector}
 \begin{itemize}
 \item Height: $\sim$\SI{14}{\metre}, length:  $\sim$\SI{11}{\metre}
 \item Weight: $\sim$\SI{10100}{\tonne}
@@ -316,13 +289,13 @@ The two detectors can be swapped in the so-called \textbf{push-pull-system}.
 \end{itemize}
 
 \includegraphics[width=0.5\textwidth]{figures/SiDmodel.jpg}
-}
+
 \end{center}
 \end{column}
 
 \begin{column}{0.48\textwidth}
 \begin{center}
-\visible<2->{\alert{ILD - International Large Detector}
+\alert{ILD - International Large Detector}
 \begin{itemize}
 \item Height: $\sim$\SI{16}{\metre}, length:  $\sim$\SI{14}{\metre}
 \item Weight: $\sim$\SI{14000}{\tonne}
@@ -331,7 +304,7 @@ The two detectors can be swapped in the so-called \textbf{push-pull-system}.
 \end{itemize}
 
 \includegraphics[width=0.5\textwidth]{figures/ILDmodel.jpg}
-}
+
 \end{center}
 \end{column}
 \end{columns}
@@ -474,7 +447,7 @@ In pp: \num{e-9}, in e$^+$e$^-$: \num{e-2} $\approx$ 1\%
 \centering The ILC will be a \textcolor{Periwinkle}{high luminosity} particle accelerator \\with \textcolor{JungleGreen}{extraordinary precision}.
 \end{block}
 \vspace*{1cm}
-\textcolor{JungleGreen}{The high precision depends on the cleanliness}, \textcolor{Periwinkle}{the high luminosity on the capability to focus the beam to nanometer size.}.\\
+\textcolor{JungleGreen}{The high precision depends on the cleanliness}, \textcolor{Periwinkle}{the high luminosity on the capability to focus the beam to nanometer size}.\\
 \vspace*{0.5cm}
 \visible<2->{In order to minimize the effect of the background on the detectors and the measurements, the different background sources need to be modeled in great detail, \\also with respect to a possible optimization of the Final-Focus layout.}
 \end{frame}
@@ -485,7 +458,6 @@ In pp: \num{e-9}, in e$^+$e$^-$: \num{e-2} $\approx$ 1\%
  I am in the SiD-Optimization group.\\
  Marcel Stanitzki is currently the SiD co-spokesperson.\\
  \vspace*{0.3cm}
- \visible<2->{
  \begin{columns}
   \begin{column}{0.7\textwidth}
     SiD has a very convincing design:
@@ -510,7 +482,6 @@ In pp: \num{e-9}, in e$^+$e$^-$: \num{e-2} $\approx$ 1\%
  \end{flushright}
   \end{column}
  \end{columns}
-}
 \end{frame}
 
 \begin{frame}{SiD detector}
@@ -525,8 +496,8 @@ In pp: \num{e-9}, in e$^+$e$^-$: \num{e-2} $\approx$ 1\%
 \centering
 \includegraphics[height=0.65\textheight]{figures/SiD_detector_model_Ausschnitt.pdf}
 \end{subfigure}
-\caption{\small SiD detector model: Vertex detector (red), ECAL (green), HCAL (pink), Muon system (blue)}
 \end{figure}
+{\small SiD detector model: Vertex detector (red), ECAL (green), HCAL (pink), Muon system (blue)}
 \end{frame}
 
 \subsection{Background generators}
@@ -546,7 +517,7 @@ The background events are then simulated in a \alert{full detector simulation} w
         \column{0.7\linewidth} \flushright
         \includegraphics[width=0.61\textwidth]{figures/Full_bunchcrossing_rhoz.png}
         \column{0.3\linewidth}
-        \caption{\small The inner detector part of SiD. WIRED4 event display of the pair background of one bunch crossing.}
+        {\small The inner detector part of SiD. WIRED4 event display of the pair background of one bunch crossing.}
       \end{columns}
 \end{figure}
 	
@@ -580,11 +551,11 @@ The main sources of background:
 \begin{frame}{Pair background - Hit time}
 \sidlogo
 Per bunch, there are about \num{200000} \positron \electron background particles from beam-beam interactions.\\
-What is the timing of this important background in comparison to the beam crossing?
+What is the \textbf{timing} of this important background \textbf{wrt the bunch crossing}?\\\vspace*{0.3cm}
 \includegraphics[width=0.52\textwidth]{figures/hittime_SiVertexBarrel.pdf}
 \includegraphics[width=0.52\textwidth]{figures/hittime_SiVertexEndcap.pdf}\\
 The vertex detector gets hits up to $\sim$ 50ns after the bunch crossing.\\
-This is an opportunity of applying \textbf{time gates $\rightarrow$ background reduction!}
+This is an opportunity to apply \textbf{time gates $\rightarrow$ background reduction!}
 \end{frame}
 \begin{frame}{Where are these time structures coming from?}
 \sidlogo
