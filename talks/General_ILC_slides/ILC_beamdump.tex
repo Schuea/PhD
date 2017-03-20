@@ -1,13 +1,14 @@
 {
 \usebackgroundtemplate{
- \tikz\node[opacity=0.1]{\includegraphics[width=1.1\paperwidth]{figures/TB-0067-300-00-A_stamp.pdf}};
+ \tikz\node[opacity=0.05]{\includegraphics[width=1.1\paperwidth]{figures/TB-0067-300-00-A_stamp.pdf}};
  % \tikz\node[opacity=0.2]{\centering\includegraphics[height=\paperheight]{figures/Iwatecomics.jpg}};
  }
 \begin{frame}{FLUKA simulation of the ILC Beam Dump}
 \flukalogo
-The beam is dumped into a water tank after collision.\\Neutrons ($\lesssim$\SI{e10}{\per\square\centi\metre\per\year}) are emitted that radiate the surroundings, and travel back towards the detectors.\\
+The 16 MW beam is dumped into a water tank after collision.\\Neutrons ($\lesssim$\SI{e10}{\per\square\centi\metre\per\year}) are emitted that radiate the surroundings, and travel back towards the detectors.\\
 \vspace*{0.1cm}
-Redoing the simulation studies that were done in 2007 (design was not decided yet).
+%Redoing the simulation studies that were done in 2007, when the design was not decided yet.
+Concern about the safety and the functionallity of the beam dump design.
 \begin{block}{Simulation step 1}
 Simulating the neutrons from the beam dump with FLUKA, using the design drawings by B. Smith~\cite{Smith} to model the dump and the surrounding.
 \end{block}
@@ -38,17 +39,20 @@ Simulating the neutrons reaching the interaction point in a full detector simula
 \end{columns}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Beam dump simulation goals}
  \flukalogo
  All goals of this study in an overview:
 \begin{itemize}
  \item Simulating the neutron flux,
  \item the number of neutrons reaching the IP,
- \item the dosis of the surrounding,
+ \item the neutron occupancy in SiD,
+ \item the dosis of the beam dump surrounding,
  \item the influence of the water composition (amount of Deuterium),
+ \item the influence of the steel composition of the tank container,
+ \item the amount of Tritium produced in the water,
  \item the effect of the beam dump design.
 \end{itemize}
-\vspace*{0.6cm}
+\vspace*{0.5cm}
 \rule{12cm}{.1pt}
 \begin{thebibliography}{9}
 \setbeamertemplate{bibliography item}[text]
