@@ -8,7 +8,7 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include -g3 -Wall -Wextra -pthread -std=c++1y 
 CXXFLAGS +=  $(shell root-config --glibs) -l TreePlayer -L /usr/local/lib -l rebdsimLib
 
 # Executables produced by this Makefile
-RUN = ../CollimatorProcessAnaPlotter ../CollimatorBkgLevelAna ../SigmaBetaHistoMaker ../AddBranchIsMC ../DrawSymApertureScan ../DrawTracksPerModel
+RUN = ../CollimatorProcessAnaPlotter ../CollimatorBkgLevelAna ../SigmaBetaHistoMaker ../AddBranchIsMC ../DrawSymApertureScan ../DrawTracksPerModel ../DataMCComparison
 
 
 # All tests produced by this Makefile.  Remember to add new tests you
@@ -16,10 +16,11 @@ RUN = ../CollimatorProcessAnaPlotter ../CollimatorBkgLevelAna ../SigmaBetaHistoM
 TESTS = #Test
 
 # Useful variables
+DATAMC = ../objects/DataMCGraphComparison.o
 DRAWTRACKSMODEL = ../objects/ModelIndex_Analysis.o
 DRAWSYMAPERTURESCAN = ../objects/main_Draw_AverageSignal_CollAperture.o
 ADDBRANCH = ../objects/main_AddBranch_rhulcherenkov_IsMC.o
-SIGMABETA = ../objects/SigmaBeta.o
+SIGMABETA = ../objects/ATF2_Optics.o
 COLLIMATORPROCESS = ../objects/Collimator_Process_Analysis.o
 COLLIMATORBKG = ../objects/Collimator_BkgLevel_Analysis.o
 USEFUL = ../objects/UsefulFunctions.o
@@ -80,6 +81,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 
 # Building the graviton code
 
+../DataMCComparison : $(DATAMC) $(OBJECTS)
+	$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS) $(CPPFLAGS)
+
 ../CollimatorProcessAnaPlotter : $(COLLIMATORPROCESS) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
@@ -98,7 +102,10 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 ../DrawTracksPerModel : $(DRAWTRACKSMODEL) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
-../objects/SigmaBeta.o: ../src/ATF2_Optics.cc
+../objects/DataMCGraphComparison.o : ../src/DataMCGraphComparison.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/ATF2_Optics.o: ../src/ATF2_Optics.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_AddBranch_rhulcherenkov_IsMC.o: ../src/main_AddBranch_rhulcherenkov_IsMC.cc
