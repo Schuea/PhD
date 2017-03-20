@@ -8,7 +8,7 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include -g3 -Wall -Wextra -pthread -std=c++1y 
 CXXFLAGS +=  $(shell root-config --glibs) -l TreePlayer -L /usr/local/lib -l rebdsimLib
 
 # Executables produced by this Makefile
-RUN = ../CollimatorProcessAnaPlotter ../CollimatorBkgLevelAna ../SigmaBetaHistoMaker ../AddBranchIsMC ../DrawSymApertureScan ../DrawTracksPerModel ../DataMCComparison
+RUN = ../CollimatorProcessAnaPlotter ../CollimatorBkgLevelAna ../SigmaBetaHistoMaker ../AddBranchIsMC ../DrawSymApertureScan ../DrawTracksPerModel ../DataMCComparison ../VertexModelSamplerPlotter
 
 
 # All tests produced by this Makefile.  Remember to add new tests you
@@ -16,6 +16,7 @@ RUN = ../CollimatorProcessAnaPlotter ../CollimatorBkgLevelAna ../SigmaBetaHistoM
 TESTS = #Test
 
 # Useful variables
+VERTEXMODELSAMPLER = ../objects/VertexModelPerSampler.o
 DATAMC = ../objects/DataMCGraphComparison.o
 DRAWTRACKSMODEL = ../objects/ModelIndex_Analysis.o
 DRAWSYMAPERTURESCAN = ../objects/main_Draw_AverageSignal_CollAperture.o
@@ -81,6 +82,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 
 # Building the graviton code
 
+../VertexModelSamplerPlotter : $(VERTEXMODELSAMPLER) $(OBJECTS)
+	$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS) $(CPPFLAGS)
+
 ../DataMCComparison : $(DATAMC) $(OBJECTS)
 	$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS) $(CPPFLAGS)
 
@@ -101,6 +105,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 
 ../DrawTracksPerModel : $(DRAWTRACKSMODEL) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
+../objects/VertexModelPerSampler.o : ../src/VertexModelPerSampler.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/DataMCGraphComparison.o : ../src/DataMCGraphComparison.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
