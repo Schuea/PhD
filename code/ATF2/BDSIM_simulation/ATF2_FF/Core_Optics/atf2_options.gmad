@@ -6,13 +6,13 @@ option,
         tunnelRadius=1*m,
 	outerDiameter=50*cm,
 	beampipeThickness=2*mm,
-	beampipeRadius=12*mm,
-!	beampipeRadius=50*mm,
+!	beampipeRadius=12*mm,
+	beampipeRadius=240*mm,
 	beampipeMaterial="stainlesssteel",
 	ngenerate=5000;
 
 option, magnetGeometryType="polesfacetcrop";
-option, nperfile=100000;
+!option, nperfile=100000;
 
 !physics
 option, physicsList="em",
