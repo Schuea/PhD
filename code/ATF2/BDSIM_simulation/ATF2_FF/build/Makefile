@@ -1,13 +1,14 @@
 # Flags passed to the preprocessor.
 # Set Google Test's header directory as a system directory, such that
 # the compiler doesn't generate warnings in Google Test headers.
-CPPFLAGS += -isystem $(GTEST_DIR)/include -g -Wall -Wextra -pthread -O2 -std=c++1y $(shell root-config --cflags) -Wfatal-errors 
+CPPFLAGS += -isystem $(GTEST_DIR)/include -g3 -Wall -Wextra -pthread -std=c++1y $(shell root-config --cflags) -Wfatal-errors
+#CPPFLAGS += -isystem $(GTEST_DIR)/include -g -Wall -Wextra -pthread -O2 -std=c++1y $(shell root-config --cflags) -Wfatal-errors
 
 # Flags passed to the C++ compiler.
-CXXFLAGS +=  $(shell root-config --glibs) -l TreePlayer
+CXXFLAGS +=  $(shell root-config --glibs) -l TreePlayer -L /usr/local/lib -l rebdsimLib
 
 # Executables produced by this Makefile
-RUN = ../CollimatorProcessAnaPlotter ../CollimatorBkgLevelAna
+RUN = ../CollimatorProcessAnaPlotter ../CollimatorBkgLevelAna 
 
 
 # All tests produced by this Makefile.  Remember to add new tests you
@@ -21,7 +22,7 @@ USEFUL = ../objects/UsefulFunctions.o
 STYLE = ../objects/Style.o
 STYLEUTILS = ../objects/Style_Utils.o
 
-INCLUDES = -I ../include/ -I ../test/include/ -I ../../../../General/include/
+INCLUDES = -I ../include/ -I ../test/include/ -I ../../../../General/include/ -I /space/vol2/bdsim/ -I /space/vol2/bdsim/include/ -I /space/vol2/bdsim/parser/ -I /space/vol2/bdsim/analysis/ -I /space/vol2/geant4.10.02.p03/source/global/management/include
 
 OBJECTS = $(CONFIG) $(USEFUL) $(STYLE) $(STYLEUTILS)
 
