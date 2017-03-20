@@ -7,7 +7,7 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include -g -Wall -Wextra -pthread -O2 -std=c++
 CXXFLAGS +=  $(shell root-config --glibs) -l TreePlayer
 
 # Executables produced by this Makefile
-RUN = ../CollimatorProcessAnaPlotter ../CollimatorBkgLevelAna
+RUN = ../CollimatorProcessAnaPlotter ../CollimatorBkgLevelAna ../SigmaBetaHistoMaker ../AddBranchIsMC ../DrawSymApertureScan ../DrawTracksPerModel
 
 
 # All tests produced by this Makefile.  Remember to add new tests you
@@ -15,6 +15,10 @@ RUN = ../CollimatorProcessAnaPlotter ../CollimatorBkgLevelAna
 TESTS = #Test
 
 # Useful variables
+DRAWTRACKSMODEL = ../objects/ModelIndex_Analysis.o
+DRAWSYMAPERTURESCAN = ../objects/main_Draw_AverageSignal_CollAperture.o
+ADDBRANCH = ../objects/main_AddBranch_rhulcherenkov_IsMC.o
+SIGMABETA = ../objects/SigmaBeta.o
 COLLIMATORPROCESS = ../objects/Collimator_Process_Analysis.o
 COLLIMATORBKG = ../objects/Collimator_BkgLevel_Analysis.o
 USEFUL = ../objects/UsefulFunctions.o
@@ -80,6 +84,30 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 
 ../CollimatorBkgLevelAna : $(COLLIMATORBKG) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
+../SigmaBetaHistoMaker : $(SIGMABETA) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
+../AddBranchIsMC : $(ADDBRANCH) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
+../DrawSymApertureScan : $(DRAWSYMAPERTURESCAN) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
+../DrawTracksPerModel : $(DRAWTRACKSMODEL) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
+../objects/SigmaBeta.o: ../src/ATF2_Optics.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/main_AddBranch_rhulcherenkov_IsMC.o: ../src/main_AddBranch_rhulcherenkov_IsMC.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/main_Draw_AverageSignal_CollAperture.o: ../src/main_Draw_AverageSignal_CollAperture.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/ModelIndex_Analysis.o: ../src/ModelIndex_Analysis.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/Collimator_Process_Analysis.o : ../src/Collimator_Process_Analysis.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
