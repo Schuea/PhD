@@ -1,1 +1,0 @@
-~/software/bdsim-build/bdsim-0.9.develop --file=atf2.gmad --output=rootevent --outfile=TestBeamSizeIP_10000_11032017 --ngenerate=10000 --batch 
