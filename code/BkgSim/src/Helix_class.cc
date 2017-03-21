@@ -61,12 +61,12 @@ void Helix::Set_particlevalues(std::vector< double > const mom, float const part
 				py = mom.at(1);
 				pz = mom.at(2);
 				charge = particle_charge;
-				x0 = 0.0;
-				y0 = 0.0;
-				z0 = 0.0;
-				//x0 = origin.at(0);
-				//y0 = origin.at(1);
-				//z0 = origin.at(2);
+				//x0 = 0.0;
+				//y0 = 0.0;
+				//z0 = 0.0;
+				x0 = origin.at(0);
+				y0 = origin.at(1);
+				z0 = origin.at(2);
 				
 				//Everything that depends only on px and py can be calculated already here:
 				Calculate_radius();
