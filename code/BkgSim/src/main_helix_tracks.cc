@@ -107,16 +107,19 @@ int main(int const argc, char const * const * const argv) {
 	//Make histogram for storing the information
 	float const zmin = 0.0;
 	float const zmax = 300.0;
-	int const zbin = 10000;
+	int const zbin = 800;
+	//int const zbin = 10000;
 	float const ymin = -29;
 	float const ymax = 29;
-	int const ybin = 100;
+	int const ybin = 200;
 	float const xmin = -29;
 	float const xmax = 29;
-	int const xbin = 100;
+	int const xbin = 200;
 
-	std::string const title_x = "Pairs spiraling in the magnetic field;z [mm];x [mm];# of particles per (0.03mm x 0.58mm)";
-	std::string const title_y = "Pairs spiraling in the magnetic field;z [mm];y [mm];# of particles per (0.03mm x 0.58mm)";
+	std::string const title_x = "Pairs spiraling in the magnetic field;z [mm];x [mm];# of particles per (0.375mm x 0.29mm)";
+	//std::string const title_x = "Pairs spiraling in the magnetic field;z [mm];x [mm];# of particles per (0.03mm x 0.58mm)";
+	std::string const title_y = "Pairs spiraling in the magnetic field;z [mm];y [mm];# of particles per (0.375mm x 0.29mm)";
+	//std::string const title_y = "Pairs spiraling in the magnetic field;z [mm];y [mm];# of particles per (0.03mm x 0.58mm)";
 	TH2D* histo_x = new TH2D("Helix_tracks_xz", title_x.c_str(), zbin,zmin,zmax, xbin, xmin, xmax);
 	TH2D* histo_y = new TH2D("Helix_tracks_yz", title_y.c_str(), zbin,zmin,zmax, ybin, ymin, ymax);
 	//TH1D* histo_x_projected = new TH1D("Helix_tracks_x_projected", "Projected x position;x [mm];# of particles per (0.03mm x 0.58mm)", xbin,xmin,xmax);
@@ -167,8 +170,8 @@ int main(int const argc, char const * const * const argv) {
 		tree->SetBranchAddress("Charge", &charge);
 		//tree->SetBranchStatus("Particle_ID", 1);
 		//tree->SetBranchAddress("Particle_ID", &particleID);
-		tree->SetBranchStatus("Particle_PDG", 1);
-		tree->SetBranchAddress("Particle_PDG", &particleID);
+		//tree->SetBranchStatus("Particle_PDG", 1);
+		//tree->SetBranchAddress("Particle_PDG", &particleID);
 		tree->SetBranchStatus("CreatedInSimulation_Status", 1);
 		tree->SetBranchAddress("CreatedInSimulation_Status", &CreatedInSimulation_Status);
 		//tree->SetBranchStatus("CreationTime", 1);
@@ -192,6 +195,7 @@ int main(int const argc, char const * const * const argv) {
 		double* x_array = new double[zbin];
 		double* y_array = new double[zbin];
 		double* z_array = new double[zbin];
+		double* w_array = new double[zbin];
 
 		long long int const entries = tree->GetEntries();
 		for (long long int i = 0; i < entries; ++i) {
@@ -214,6 +218,8 @@ int main(int const argc, char const * const * const argv) {
 				x_array[step-1]=helix_positions[0]*1000.0;
 				y_array[step-1]=helix_positions[1]*1000.0;
 				z_array[step-1]=helix_positions[2]*1000.0;
+        w_array[step-1]=1.0/(double)NUMBER_OF_FILES;
+        if(i == 1 && step==1) std::cout << w_array[step-1] << std::endl;
 				//if(step > 190/300*zbin){
 				//histo_x_projected->Fill(x_array[step-1]);
 				//histo_y_projected->Fill(y_array[step-1]);
@@ -237,8 +243,8 @@ int main(int const argc, char const * const * const argv) {
 				z = step*(zmax-zmin)/zbin;
 				helix_positions = nullptr;
 			}
-			histo_x->FillN(zbin, z_array, x_array,nullptr,1);//number of entries in arrays, array for x, array for y, array for weights (if NULL then weight=1),step size through arrays
-			histo_y->FillN(zbin, z_array, y_array,nullptr,1);
+			histo_x->FillN(zbin, z_array, x_array, w_array,1);//number of entries in arrays, array for x, array for y, array for weights (if NULL then weight=1),step size through arrays
+			histo_y->FillN(zbin, z_array, y_array, w_array,1);
 
 			if (particle_went_outside_beampipe == true){
 				particles_outside_beampipe++;
@@ -316,6 +322,12 @@ int main(int const argc, char const * const * const argv) {
 	nline2->SetLineColor(2);
 	line3->SetLineColor(2);
 	nline3->SetLineColor(2);
+	line->SetLineWidth(6);
+	nline->SetLineWidth(6);
+	line2->SetLineWidth(6);
+	nline2->SetLineWidth(6);
+	line3->SetLineWidth(6);
+	nline3->SetLineWidth(6);
 
 
 	gStyle->SetOptStat(0);
