@@ -64,6 +64,7 @@ TLegend* MakeLegend(vector< TGraph* > const & all_graphs){
 void SetAllLineStyles(vector< TLine* > & all_lines){
   for(int i = 0; i < all_lines.size(); ++i){
     all_lines.at(i)->SetLineColor(2);
+    all_lines.at(i)->SetLineWidth(6);
   }
 }
 
@@ -136,13 +137,21 @@ vector< TGraph* > GetAllGraphs(TH2D * hx){
 }
 
 
-
-
-
-int main(){
+int main(int const argc, char const * const * const argv){
   UsePhDStyle();
-  std::string specialname = "1bunch_500GeV_5T_onlyPrimaries";
-  //std::string specialname = "1bunch_500GeV_3T";
+  std::string specialname("");
+
+  try{
+    if(argc <=2) throw;
+    for(int i = 0; i < argc; ++i){
+      if(string(argv[i]) == "-i") specialname = argv[i+1];
+    }
+  } catch(...){
+    cerr << "Input arguments were invalid" << endl;
+    cerr << "Give the specifications of the input file, e.g. 1bunch_500GeV_3T" << endl;
+    exit(1);
+  }
+
   std::string plane1 = "Helix_tracks_xz";
   std::string plane2 = "Helix_tracks_yz";
   TFile *file = TFile::Open( ("output/Helix_in_beampipe_"+specialname+".root").c_str() );
