@@ -21,8 +21,8 @@ double * InvertYaxis(int const n, double *y){
 TGraph * MakeTheGraph(TH2D *h, float const acceptance){
   int const sizeX = h->GetNbinsX();
   int const sizeY = h->GetNbinsY();
-  double const binSizeY = 29*2/100.; //Maybe be wrong
-  double const binSizeX = 300.0/10000.; //Maybe be wrong
+  double const binSizeY = 29*2/200.; //Maybe be wrong
+  double const binSizeX = 300.0/800.; //Maybe be wrong
   int const n = sizeX-1;
   double x1[n], y1[n];
   for(int i = 1; i < sizeX; ++i){ //Maybe be wrong
