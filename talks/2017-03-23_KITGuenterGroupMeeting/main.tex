@@ -273,7 +273,7 @@ L &[\si{\per\centi\metre\squared\per\second}] & \num{1.8e34} & \num{3.6e34} & \n
 \begin{frame}{The two detectors - SiD and ILD}
 \ilclogo
 \begin{block}{}
-The ILC has only one interaction point (IP)!\\
+The ILC has only one Interaction Point (IP).\\
 The two detectors can be swapped in the so-called \textbf{push-pull-system}.
 \end{block}
 
@@ -429,7 +429,7 @@ In pp: \num{e-9}, in e$^+$e$^-$: \num{e-2} $\approx$ 1\%
 \end{itemize}
 \alert{\MakeUppercase{Clean environment:}}\\
 \begin{itemize}
-\item Due to polarization of both beams, background can be 'switched off'.
+\item Due to polarization of both beams, background can be ``switched off''.
 \item Small background and no underlying events or out-of-time pileup.
 \end{itemize}
 \alert{\MakeUppercase{Model independent:}}\\
@@ -503,15 +503,14 @@ In pp: \num{e-9}, in e$^+$e$^-$: \num{e-2} $\approx$ 1\%
 \subsection{Background generators}
 \sidlogo
 \begin{frame}{Generator/Simulation tools}
-The background is first modeled in different simulation tools:\\
+The background is first modeled with different simulation tools:\\
 \begin{itemize}
 \item \alert{GuineaPig} (Generator of background events from beam-beam interactions)
 \item \alert{BDSIM} (Geant4 based extension toolkit for beam line simulations)
 \item \alert{FLUKA} (Fully integrated particle physics MonteCarlo simulation package)
+\item \alert{MUCARLO} (Fortran tool to generate muons from the ILC Beam Delivery System)
 \end{itemize}
-\vspace*{0.5cm}
-The background events are then simulated in a \alert{full detector simulation} with a Geant4 toolkit.\\
-\vspace*{0.2cm}
+The background events are then simulated in a \alert{full detector simulation} with a Geant4 toolkit.
 \begin{figure}
 	\begin{columns}
         \column{0.7\linewidth} \flushright
@@ -527,13 +526,21 @@ The background events are then simulated in a \alert{full detector simulation} w
 \ilclogo
 The main sources of background:
 \begin{columns}
- \begin{column}{0.55\textwidth}
+ \begin{column}{0.6\textwidth}
   \begin{itemize}
-    \item Pair background
-    \item Bhabha scattering
-    \item \textgamma \textgamma $\rightarrow$ hadrons
-    \item Neutrons from the beam dumps
-    \item Background from Final-Focus system (beam halo collimators, muon spoilers)
+    \item Beam-beam interactions:
+    \begin{itemize}
+      \item Pair background
+      \item Bhabha scattering
+      \item \textgamma \textgamma $\rightarrow$ hadrons
+    \end{itemize}
+    \vspace*{0.5cm}
+    \item Machine background:
+    \begin{itemize}
+      \item Muons from the Beam Delivery System
+      \item Background from the Final-Focus system (beam halo collimators)
+      \item Neutrons from the Beam Dumps
+    \end{itemize}
   \end{itemize}
  \end{column}
  \begin{column}{0.45\textwidth}
@@ -541,7 +548,9 @@ The main sources of background:
  \includegraphics[width=0.33\textwidth]{figures/Breit-Wheeler.pdf}
  \includegraphics[width=0.33\textwidth]{figures/Landau-Lifshitz.pdf}\\
  \includegraphics[height=0.15\textheight]{figures/bhabha_scattering.pdf} 
- \includegraphics[height=0.15\textheight]{figures/gammagamma_hadrons.pdf}
+ \includegraphics[height=0.15\textheight]{figures/gammagamma_hadrons.pdf}\\
+ \vspace*{0.5cm}
+ \includegraphics[width=0.8\textwidth]{figures/wall_shielding.png}
  \end{column}
 \end{columns}
 \end{frame}
@@ -591,7 +600,7 @@ The particles still originate from the IP, the detector barrel and the endcaps.
 
 \begin{frame}{Pair background -  P\textsubscript{T}}
 \sidlogo
-Since their P\textsubscript{T} ranges between 0 and 2GeV, they form helix tracks in the solenoid field. The tracks extend to the inner detector layers, and leave up to several tens of hits.
+Since their P\textsubscript{T} ranges between 0 and 2\,GeV, they form \textbf{helix tracks in the solenoid field}. The tracks extend to the inner detector layers, and leave up to several tens of hits.
 \begin{center}
 \includegraphics[width=0.7\textwidth]{figures/PT_hittime_primaries_SiVertexEndcapSiVertexBarrel.pdf}
 \end{center}
@@ -600,8 +609,8 @@ Since their P\textsubscript{T} ranges between 0 and 2GeV, they form helix tracks
 \begin{frame}{Pair background envelopes - 500GeV}
 %The helix tracks were calculated by a Helix algorithm that I have written.\\
 Due to their momentum distributions, the envelopes of all pair background helixes have a characteristic shape.
-   \includegraphics[width=0.51\textwidth]{figures/PairHelixes_500GeV_5T.png}\hspace*{0.1cm}
-   \includegraphics[width=0.51\textwidth]{figures/PairEnvelopes_500GeV_5T.png}\\
+   \includegraphics[width=0.51\textwidth]{figures/PairHelixes_500GeV_5T_10bunches_xz.png}\hspace*{0.1cm}
+   \includegraphics[width=0.51\textwidth]{figures/HelixEnvelopes_Helix_tracks_xz_Helix_in_beampipe_10bunches_500GeV_5T.pdf}\\
 The envelopes show that at any given point the beam pipe is 4mm away from 99.9\% of all pair particle tracks.\\
 This suggests the possibility to \textbf{reduce the beam pipe and vertex detector radius} by $\sim$2mm.
 \end{frame}
@@ -636,13 +645,13 @@ Muons are created along the BDS, when the beam halo interacts with the beam line
   \begin{itemize}
    \item 5 Spoilers
    \begin{itemize}
-    \item 7cm radius, 5m long
+    \item 70\,cm radius, 5\,m long
     \item magnetized iron
     \item at 5 locations along the BDS
    \end{itemize}
    \item 5 Spoilers + Wall
     \begin{itemize}
-    \item 4m x 5m, 5m long
+    \item 4\,m x 5\,m, 5\,m long
     \item magnetized iron
     \item close to the interaction region
    \end{itemize}
@@ -650,24 +659,36 @@ Muons are created along the BDS, when the beam halo interacts with the beam line
 
  \end{column}
  \begin{column}{0.6\textwidth}
-  \includegraphics[width=\textwidth]{figures/Spoiler.png}\\\vspace*{0.3cm}
-  \includegraphics[width=\textwidth]{figures/Muon_wall.pdf}
+  \fbox{\includegraphics[width=\textwidth]{figures/Spoiler.png}}\\\vspace*{0.3cm}
+  \fbox{\includegraphics[width=\textwidth]{figures/Muon_wall.pdf}}
  \end{column}
 \end{columns} 
 \end{frame}
 
-\begin{frame}{The Muons in SiD - 5 Spoilers + Wall}
+\begin{frame}{WIRED4 event display - 5 Spoilers + Wall}
+\sidlogo
+1 train's worth of muons ($\sim$ 515 muons) \textbf{from the positron line only}:
 \begin{center}
- \includegraphics[height=0.7\textheight]{figures/muons_positron_5spoilers_wall_515_xyview_croped.png}\hspace*{0.1cm}
- \includegraphics[height=0.7\textheight]{figures/muons_positron_5spoilers_wall_515_zyview_croped.png}
+\includegraphics[height=0.6\textheight]{figures/muons_positron_5spoilers_wall_515_xyview_croped.png}
+{\tiny xy-view}
+\includegraphics[height=0.6\textheight]{figures/muons_positron_5spoilers_wall_515_zyview_croped.png}
+{\tiny zy-view}
 \end{center}
- \end{frame}
-\begin{frame}{The Muons in SiD - 5 Spoilers}
-\begin{center}
-   \includegraphics[height=0.7\textheight]{figures/muons_positron_5spoilers_2961_xyview_croped.png}\hspace*{0.1cm}
- \includegraphics[height=0.7\textheight]{figures/muons_positron_5spoilers_2961_zyview_croped.png}
- \end{center}
+Together with the muons from the e\textsuperscript{-} line, there will be \textbf{$\sim$ 900 muons per train in the '5 Spoilers + Wall' scenario}.
 \end{frame}
+\begin{frame}{WIRED4 event display - 5 Spoilers}
+\sidlogo
+1 train's worth of muons ($\sim$ 2961 muons) \textbf{from the positron line only}:
+\begin{center}
+\includegraphics[height=0.6\textheight]{figures/muons_positron_5spoilers_2961_xyview_croped.png}
+{\tiny xy-view}
+\includegraphics[height=0.6\textheight]{figures/muons_positron_5spoilers_2961_zyview_croped.png}
+{\tiny zy-view}
+\end{center}
+Together with the muons from the e\textsuperscript{-} line, there will be \textbf{$\sim$ 5600 muons per train in the '5 Spoilers' scenario}.\\
+The spatial distribution is due to the tunnel shape and its shielding effects.
+\end{frame}
+
 \begin{frame}{The Muons in SiD - Spatial Distribution}
  \includegraphics[width=0.9\textwidth]{figures/Explanation_Spatial_distribution_NEW.pdf}
 \end{frame}
@@ -681,10 +702,10 @@ The number of hits depends on the effective area of the subdetector system.
  
 \begin{frame}{The Muon Occupancy in SiD ECAL endcaps}
 \begin{center}
-  \includegraphics[width=0.6\textwidth]{figures/EcalEndcap_DeadCells.png}
+  \includegraphics[width=0.61\textwidth]{figures/EcalEndcap_DeadCells.png}
 \end{center}
 {\small A readout cell is ``dead'' when all buffers of the sensor are already filled. No more hits can be stored.}\\
-The current SiD design has a \textcolor{Green}{buffer depth of 4}, i.e. \textcolor{Blue}{10\textsuperscript{-6}} - \textcolor{Red}{10\textsuperscript{-4}} of all hits are dead in the ECAL endcaps.
+The current SiD electronics design has a \textcolor{Green}{buffer depth of 4}, i.e. \textcolor{Blue}{10\textsuperscript{-6}} - \textcolor{Red}{10\textsuperscript{-4}} of all hits are dead in the ECAL endcaps.
 \end{frame}
 \begin{frame}
  With the shown results from the occupancy analysis of the muons from the current MUCARLO simulations, the \textbf{SiD group prefers to keep the magnetized wall} in order to keep the occupancy in the SiD detector as low as possible.
@@ -803,7 +824,7 @@ View inside the collimator model \hspace*{1cm} Collimator in ATF2 beam line\\
   \item Studied the \textbf{timing and origin of pair background and backscattering particles} \textcolor{Green}{$\rightarrow$ possible reduction of background with time gates}
   \item Looked at the \textbf{pair helix envelopes} for 500, 350 and 250GeV ILC staging scenarios \textcolor{Green}{$\rightarrow$ suggested reducing the radius of beam pipe and vertex detector}
   \item Studied two different \textbf{muon shielding possibilies} and the muon occupancy in SiD \textcolor{Green}{$\rightarrow$ Spoilers + magnetized wall is prefered shielding option}
-  \item Collaboration with RHUL to \textbf{improve BDSIM tool and ATF2 geometry model}
+  \item Collaboration with RHUL to \textbf{improve the BDSIM tool and ATF2 geometry model}
   \item \textbf{Modelled the Beam Dump and the EXT line with FLUKA} in collaboration with Benno List (DESY)
   \item \textbf{Successful supervision of two Summer Students} in 2015 and 2016
  \end{itemize}
