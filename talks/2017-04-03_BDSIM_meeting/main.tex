@@ -18,6 +18,8 @@
 \usepackage{animate}
 \usepackage{multimedia}
 
+\usepackage{amsfonts} % for the \checkmark command 
+
 \mode<presentation>
 {
   \usetheme{CambridgeUS}     
@@ -111,7 +113,7 @@
 \title[ATF2 Background Simulations]{\textbf{BDSIM simulation model of ATF2 \& Background Studies\\for the Vertical Collimator System}}
 \author{\textbf{Anne Sch\"utz}}
 \institute{\textbf{KIT, DESY}}
-\date{\textbf{April 3, 2017}}
+\date{\textbf{April 10, 2017}}
 
 \titlegraphic{
   %\includegraphics[height=1.1cm]{figures/EJADE.png}\hspace*{0.5cm}~%
@@ -140,7 +142,49 @@
 
 %--------------------------------------------------------------
 
-\section{Running BDSIM on the BIRD cluster at DESY}
+\section{BDSIM simulations}
+\begin{frame}
+Original strategy for BDSIM simulations, and things that have been done already thanks to the RHUL BDSIM group:
+\begin{itemize}
+    \item[\checkmark] Using PyGDML for modelling the vertical collimator
+    \item[\checkmark] Setting up BDSIM on the DESY NFS system, so that BDSIM jobs can be sent to the DESY BIRD cluster
+    \item[\checkmark] Writing analysis code (e.g. AnalysisUser) to compare taken data to simulation, and to find origins of secondary particles, i.e. background
+    \item[\checkmark] Putting together all new component models for a more accurate ATF geometry model
+    \item[$\times$] More accurate Aperture Model of ATF2 (especially at places with large beta)
+    \item[$\times$] Studying effect of the tapered beam pipe (collimator) on background level at the RHUL cherenkov detector and the IP
+    \item[$\times$] Introducing beam bumps in simulation to study the effect of beam orbit changes  on background level at the RHUL cherenkov detector and the IP
+    \item[$\times$] Changing vacuum pressure in the simulation to also compare these data taken
+\end{itemize}
+
+\end{frame}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>
+     \tableofcontents[currentsection,
+     currentsubsection,
+     %hideothersubsections,
+     subsectionstyle=show/shaded/hide]
+  \end{frame}
+}
+
+\subsection{Using PyGDML for the Collimator Model}
+\begin{frame}{Modelling the Vertical Beam Halo Collimator}
+\ATFlogo
+\begin{center}
+View inside the collimator model \hspace*{1cm} Collimator in ATF2 beam line\\
+\vspace*{0.2cm}
+ \includegraphics[width=0.5\textwidth]{figures/Collimator_model.pdf}
+ \includegraphics[width=0.5\textwidth]{figures/Collimator_in_ATF2.png}
+\end{center}
+The collimator was modelled with \textbf{PyGDML} according to the technical drawings provided by Nuria Fuster Martinez.\\
+Its jaws can be placed as desired.
+$\Rightarrow$ Individual jaw movement is now possible!\\
+\vspace*{0.2cm}
+Jaws are not modelled correctly, because ``Trap'' class within PyGDML is not completed yet.
+\end{frame}
+
+\subsection{Running BDSIM on the BIRD cluster at DESY}
 \begin{frame}
 \RHULlogo
 Stewart has set up BDSIM at DESY:
@@ -163,21 +207,90 @@ Submitting jobs to the BIRD cluster for all vertical collimator settings:\\
 $\rightarrow$ \textit{10000 particles only because BDSIM would enter ``infinite'' loop for very low momentum particles}
 \end{frame}
 
+\subsection{ATF2 optics \& ATF2 model}
+\begin{frame}{$\sigma$ and $\beta$ as function of S}
+Running BDSIM with the beam core, large beam pipe radius (240mm) and collimators as drifts. 
+Then running rebdsim on the output files.\\
+With the gmad file from Nuria:
+ \includegraphics[width=0.5\textwidth]{figures/histo_beta_s.pdf}
+ \includegraphics[width=0.5\textwidth]{figures/histo_sigma_s.pdf}\\
+Large beam sizes, but fine at IP (S = 38m).\\
+\textcolor{Gray}{Vertical collimator: S = 9.25m\\
+RHUL Cherenkov detector: S = 17.75m}
+\end{frame}
+
+\begin{frame}{Test optics}
+With PyBDSIM, compare MADX tfs file of ATF with the rebdsim analysis output.\\
+ \includegraphics[width=0.9\textwidth]{figures/pybdsim_sigma_gmadNuria.png}\\
+Optics seem to be fine!
+\end{frame}
+
+\begin{frame}{Putting together new component models}
+List of all ATF magnets and their types:\\
+\vspace*{0.5cm}
+\includegraphics[width=0.9\textwidth]{figures/RHUL_Twiki_ATFmagnets.png}
+\end{frame}
+
+\begin{frame}{Putting together new component models}
+Python script that adds the gdml file paths to the atf\_components.gmad file when generated from MADX tfs file:\\
+\vspace*{0.2cm}
+\textcolor{Gray}{\texttt{\small pybdsim.Convert.MadxTfs2Gmad(\\
+"./twiss\_v5.2.tfs","atf2",flipmagnets=True,\\
+\textbf{collimatordict}=\{\\
+'COLLBY' : \{'outerDiameter':0.8, 'geometryFile' : 'gdml:/scratch/atf2model/geom/collimator/realistic\_collim.gdml'\}\},\\
+\textbf{userdict}=\{\\
+\# Damping ring:\\
+\#'KEX1A' : \{'geometry' : 'gdml:/scratch/atf2model/geom/mag/'\},\\
+\#'KEX1B' : \{'geometry' : 'gdml:/scratch/atf2model/geom/mag/'\},\\
+'QM6RX' : \{'geometry' : 'gdml:/scratch/atf2model/geom/mag/hitachi/hitachiIV.gdml'\},\\
+...)
+}}\\
+\vspace*{0.2cm}
+I commented out the ones without available gdml file.
+\end{frame}
 
 
+\begin{frame}{Putting together new component models}
+The atf\_components.gmad file then looks like:\\
+\textcolor{Gray}{\texttt{\small ! Mon, 10 Apr 2017 08:43:40 +0000\\
+! pybdsim.Builder Lattice \\
+! COMPONENT DEFINITION\\
+KEX1A: sbend, angle=0.0025, fint=0.5, l=0.2500010417;\\
+KEX1B: sbend, angle=0.0025, l=0.2500010417, fintx=0.5, e2=0.005;\\
+L001: drift, l=0.9231390392;\\
+QM6RX: sbend, geometry="gdml:/scratch/atf2model/geom/mag/hitachi/hitachiIV.gdml", k1=3.66724845038, angle=0.0023109657, l=0.09937458845;\\
+...
+}}\\
+If gdml addition in userdict, the length is still be taken from the tfs file, not the gdml file.
+$\rightarrow$ Different values! Which one is correct?\\
+\vspace*{0.2cm}
+In ``withgeometry'' branch of the ``atf2model'' repository, atf2\_magnetgeom.gmad:\\
+\textcolor{Gray}{\texttt{\small 
+QF1X: magnetGeometryType="gdml:geom/hitachiVhalf.gdml";\\
+QF1X\_1: magnetGeometryType="gdml:geom/hitachiVhalf.gdml";
+}}
+\end{frame}
+
+\begin{frame}{Test optics - Final Focus}
+Again, with PyBDSIM, compare MADX tfs file of ATF with the rebdsim analysis output.\\
+ \includegraphics[width=0.5\textwidth]{figures/sigma_COLLdrifts.png}
+ \includegraphics[width=0.5\textwidth]{figures/sigma2_COLLdrifts.png}\\
+Good agreement in beginning, then phase shift?
+\end{frame}
+
+\begin{frame}{Test optics - Whole ATF}
+Again, with PyBDSIM, compare MADX tfs file of ATF with the rebdsim analysis output.\\
+ \includegraphics[width=0.5\textwidth]{figures/wholeATF_sigma_COLLdrifts.png}
+ \includegraphics[width=0.5\textwidth]{figures/wholeATF_sigma2_COLLdrifts.png}\\
+Some agreement 
+\end{frame}
 
 
 \section{Background studies for the Vertical Collimator System}
-\begin{frame}
-\ATFlogo
- \begin{center}
-    \LARGE Background studies\\for the Vertical Beam Halo Collimator
- \end{center}
-\end{frame}
 
 \subsection{Background Measurements at ATF2}
 \begin{frame}{The Vertical Beam Halo Collimator and the\\RHUL Cherenkov detector}
-
+\ATFlogo
 \begin{center}
 \includegraphics[width=\textwidth]{figures/ATF2schematic.pdf}\\
   \includegraphics[width=\textwidth]{figures/RHUL_detector_Collimator.png}
@@ -199,29 +312,34 @@ Individual jaw movement gives conflicting results.
 %\end{block}
 \end{frame}
 
-\subsection{BDSIM simulation of the Backgrounds at ATF2}
-\begin{frame}{Modelling the Vertical Beam Halo Collimator}
-\ATFlogo
-\begin{center}
-View inside the collimator model \hspace*{1cm} Collimator in ATF2 beam line\\
-\vspace*{0.2cm}
- \includegraphics[width=0.5\textwidth]{figures/Collimator_model.pdf}
- \includegraphics[width=0.5\textwidth]{figures/Collimator_in_ATF2.png}
-\end{center}
-The collimator was modelled with \textbf{PyGDML} according to the technical drawings provided by Nuria Fuster Martinez.\\
-Its jaws can be placed as desired.
-$\Rightarrow$ Individual jaw movement is now possible!
+\subsection{Analysis objectives}
+\begin{frame}
+Plots that I produce:
+ \begin{itemize}
+  \item data/MC comparison of the RHUL detector signal in dependency of the collimator aperture
+  \item the number of particles created in the single ATF2 beam line components
+  \item the number of particles created in the single ATF2 beam line components, hitting:
+  \begin{itemize}
+   \item the vertical collimator (COLLBY)
+   \item the RHUL cherenkov detector (RHUL\_detector2)
+   \item the IP (IP)
+  \end{itemize}
+ \end{itemize}
+
 \end{frame}
 
+
+\subsection{Data to MC comparison}
 \begin{frame}{First Data to MC comparison}
 \ATFlogo
 \begin{center}
 \includegraphics[width=0.7\textwidth]{figures/data_mc_comparison.pdf}
 \end{center}
 First data to MC comparison is not satisfactory.\\
-More statistics of the MC is needed, and the ATF2 model in BDSIM needs to be reviewed.
+The ATF2 model in BDSIM needs to be reviewed.
 \end{frame}
 
+\subsection{Vertex studies}
 \begin{frame}{Study of the ATF2 components producing secondary particles}
  \begin{center}
  \only<1>{
@@ -293,22 +411,21 @@ These components create particles that reach explicitly the IP:
 \end{center}
 \end{frame}
 
-\subsection{Outlook}
+\section{Outlook}
 \begin{frame}{BDSIM simulation: Outlook}
 \ATFlogo
-Plans for further BDSIM simulations in collaboration with RHUL:\\
+Possible plan for cross checking the ATF2 model \& hopefully correcting the data/MC comparison:\\
 \begin{itemize}
- \item Reviewing the BDSIM geometry model of ATF2
- \item More accurate Aperture Model of ATF2
- \item Put together all new component models for a more accurate ATF geometry model
  \item Improve the Vertical Collimator model
+ \item Reviewing the BDSIM geometry model of ATF2 (large sigma at IP!)
+ \item More accurate Aperture Model of ATF2 (especially at places with large beta)
+\end{itemize}
+When the first data to MC comparison looks fine, then:
+\begin{itemize}
+ \item Study the effect of the tapered beam pipe
  \item Introduce beam bumps in simulation to study effect of beam orbit changes on background level at the RHUL cherenkov detector and the IP
  \item Change vacuum pressure in the simulation to also compare these data taken
 \end{itemize}
-
-\begin{center}
-  \includegraphics[width=0.8\textwidth]{figures/atf_bdsim.png}\\
-\end{center}
 
 \end{frame}
 
@@ -325,13 +442,38 @@ Plans for further BDSIM simulations in collaboration with RHUL:\\
 \begin{center}
 \textcolor{RubineRed}{
 	\LARGE Thank you very much!\\
-	\vspace*{0.5cm}
-	\begin{CJK}{UTF8}{min}
-	どうもありがとうございます。
-	\end{CJK}
+	%\vspace*{0.5cm}
+	%\begin{CJK}{UTF8}{min}
+	%どうもありがとうございます。
+	%\end{CJK}
 }
 \end{center}
 \end{frame}
 }
+
+%--------------------------------------------------------------------------------
+\appendix
+
+\begin{frame}
+\begin{center}
+\LARGE Additional Material
+\end{center}
+\end{frame}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+     \tableofcontents[currentsection,
+     hideothersubsections]
+  \end{frame}
+}
+
+\section{The Tapered Beam Pipe}
+\begin{frame}
+ \includegraphics[width=\textwidth]{figures/TBP2.png}\\
+ In atf2\_components.gmad:\\
+ {\small COLL: ecol, l=0.094, xsize=8*mm, ysize=8*mm, material="stainlesssteel";}
+\end{frame}
+
 
 \end{document}
