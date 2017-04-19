@@ -479,16 +479,6 @@ there are lots of possible Master's and Ph.D topics.\\
 \emph{The International Linear Collider - Technical Design Report}, 2013.
 \bibitem{LHC TDR} \emph{LHC - Design Report}, \url{http://ab-div.web.cern.ch/ab-div/Publications/LHC-DesignReport.html}
 \bibitem{IP beam parameters} ATLAS-CONF-2010-027. \emph{Characterization of Interaction-Point Beam Parameters Using the pp Event-Vertex Distribution Reconstructed in the ATLAS Detector at the LHC}, 2010. \url{http://cds.cern.ch/record/1277659/files/ATLAS-CONF-2010-027.pdf}
-\bibitem{ILCPAC2012} M. Peskin. \emph{Physics Motivation for the ILC}, 2012. \url{http://www.fnal.gov/directorate/ILCPAC/2012Dec/Physics-ILCPAC2012-Peskin.pdf}
-\end{frame}
-\begin{frame}{References}
-\bibitem{MIT2013} Klute, Markus, Rémi Lafaye, Tilman Plehn, Michael Rauch, and
-Dirk Zerwas. \emph{Measuring Higgs Couplings at a Linear Collider}
-EPL (Europhysics Letters) 101, no. 5 (March 1, 2013): 51001. \url{http://dx.doi.org/10.1209/0295-5075/101/51001}
-\bibitem{RHUL} Mark Thomson. \emph{Physics and Detectors at the ILC}, 2013. \url{https://www.royalholloway.ac.uk/physics/documents/pdf/events/particlephysicsseminars/13-14markthomson23oct2013.pdf}
-\bibitem{ATF2} Kuroda et al. \emph{A plan of KEK-ATF Final Focus Test Beam Line (ATF2)
-}. \url{http://icfa-nanobeam.web.cern.ch/icfa-nanobeam/paper/urakawa_ATF2-2.pdf}
-
 \end{frame}
 \end{thebibliography}
 
@@ -535,6 +525,7 @@ L &[\si{\per\centi\metre\squared\per\second}] & \num{1.8e34} & \num{3.6e34} & \n
 \end{table}
 \end{frame}
 
+
 \subsection{ILC baseline parameters}
 \begin{frame}{ILC baseline parameters}
 \ilclogo
@@ -575,35 +566,6 @@ Therefore a linear collider:
 
 \end{frame}
 
-\subsection{Basic accelerating structure}
-\begin{frame}{Basic accelerating structure}
-\ilclogo
-The main accelerating structures are the two 11km long LINACs.
-\begin{itemize}
-\item 9-cell superconducting RF cavities operating at 1.3 GHz 
-\item Accelerating gradient of >30 MV/m
-\item Electrons and positrons accelerated in RF standing waves in the cavities 
-\end{itemize}
-\begin{center}
-\includegraphics[width=0.45\textwidth]{figures/cavity.jpg}
-\end{center}
-The cavities are also developed, built and tested at DESY.
-\end{frame}
-
-\subsection{The Final-Focus system}
-\begin{frame}{The Final-Focus system}
- \ilclogo
- The Final-Focus (FF) uses:
-\begin{itemize}
- \item Strong compact superconducting quadrupoles to focus the
-beam at the IP (single collision point with a 14 mrad beam-crossing angle)
-\item Sextupoles providing local chromaticity correction
-\item Two superconducting octupole doublets, which use nonlinear
-focusing to reduce the amplitude of beam-halo particles while leaving the beam core untouched $\rightarrow$ permitting larger collimation amplitude
-\item Collimators and spoilers to prevent the beam halo and background particles from entering the detectors
-\end{itemize}
-\end{frame}
-
 \subsection{SiD}
 \begin{frame}{SiD detector}
 \sidlogo
@@ -637,6 +599,15 @@ focusing to reduce the amplitude of beam-halo particles while leaving the beam c
  \end{columns}
 }
 \end{frame}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+     \tableofcontents[
+     currentsection,
+     hideothersubsections]
+  \end{frame}
+}
 
 \section{Pair background}
 
