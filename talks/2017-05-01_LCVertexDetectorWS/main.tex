@@ -13,6 +13,8 @@
 \usepackage{tikz}
 \usepackage{textgreek}
 \usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{adjustbox}
 \usepackage{booktabs}
 \usepackage{siunitx}
 \usepackage{units}
@@ -95,6 +97,39 @@
   \end{textblock}
 } 
 
+\newcommand{\paper}{
+  \setlength{\TPHorizModule}{1pt}
+  \setlength{\TPVertModule}{1pt}
+   % textblock{}{x,y}: pos(x) = rightUpperCorner + (x * \TPHorizModule), pos(y) = leftUpperCorner - (y * \TPVertModule)
+  \begin{textblock}{65}(256,12)
+  \centering
+  \textblockcolour{SpringGreen}
+  \vspace*{0.8mm}{arXiv:\\1609.07816v1}\vspace*{0.8mm}
+  \end{textblock}
+} 
+
+\newcommand{\proceedigHelix}{
+  \setlength{\TPHorizModule}{1pt}
+  \setlength{\TPVertModule}{1pt}
+   % textblock{}{x,y}: pos(x) = rightUpperCorner + (x * \TPHorizModule), pos(y) = leftUpperCorner - (y * \TPVertModule)
+  \begin{textblock}{55}(266,12)
+  \centering
+  \textblockcolour{SpringGreen}
+  \vspace*{0.8mm}{arXiv:\\1703.05737}\vspace*{0.8mm}
+  \end{textblock}
+} 
+
+\newcommand{\proceedigBDS}{
+  \setlength{\TPHorizModule}{1pt}
+  \setlength{\TPVertModule}{1pt}
+   % textblock{}{x,y}: pos(x) = rightUpperCorner + (x * \TPHorizModule), pos(y) = leftUpperCorner - (y * \TPVertModule)
+  \begin{textblock}{55}(266,12)
+  \centering
+  \textblockcolour{SpringGreen}
+  \vspace*{0.8mm}{arXiv:\\1703.05738}\vspace*{0.8mm}
+  \end{textblock}
+} 
+
 \newcommand{\electron}{e$^-$}
 \newcommand{\positron}{e$^+$}
 
@@ -130,6 +165,8 @@
   \tableofcontents
 %\end{multicols}
 \end{frame}
+
+\begingroup
 
 \section{The SiD Detector}
 
@@ -178,8 +215,8 @@
 SiD detector model: Vertex/Tracker detector (red), ECAL (green), HCAL (pink), Muon system (blue)
 \end{frame}
 
-\AtBeginSubsection[]
-{
+
+\AtBeginSubsection[] {
   \begin{frame}<beamer>
      \tableofcontents[currentsection,
      currentsubsection,
@@ -191,6 +228,7 @@ SiD detector model: Vertex/Tracker detector (red), ECAL (green), HCAL (pink), Mu
 
 \subsection{SiD Detector Variants}
 \begin{frame}{Anti-DiD Field, L*, and the BeamCal ``plug''}
+\sidlogo
 \begin{columns}
  \begin{column}{0.7\textwidth}
  \alert{L* - Distance between IP and QD0}
@@ -295,6 +333,8 @@ The background events are then simulated in a \alert{full detector simulation} w
 
 \subsubsection{FCAL Occupancy}
 \begin{frame}{Fractional loss of hits in the FCAL}
+\sidlogo
+\paper
   \begin{columns}
    \begin{column}{0.52\textwidth}
      \vspace*{0.5cm}\\
@@ -312,26 +352,79 @@ The background events are then simulated in a \alert{full detector simulation} w
 
 \subsubsection{BeamCal Reconstruction Efficiency}
 \begin{frame}{BeamCal Reconstruction Efficiency}
- The pair background is a specific brachground to the detection of individual high-energy \positron and \electron \,in the BeamCal.
+\sidlogo
+\paper
+\begin{columns}
+ \begin{column}{0.45\textwidth}
+   The pair background is a specific brackground to the detection of individual high-energy \positron and \electron \,in the BeamCal.\\
+   Especially at small radii, the \textbf{overall BeamCal reconstruction efficiency improves} with:
+   \begin{itemize}
+    \item an increase of L* from 3.5\,m (\textcolor{Blue}{blue}/\textcolor{Yellow}{yellow}) to 4.1\,m (\textcolor{Red}{red}/\textcolor{Green}{green})
+    \item including the anti-DiD field (\textcolor{Green}{green} and \textcolor{Yellow}{yellow})
+   \end{itemize}
+ \end{column}
+ \begin{column}{0.6\textwidth}
+   \includegraphics[width=\textwidth]{figures/RadialEfficiency_total_160905.png}\\
+    {\hfill \tiny Study done by B. Schumm and students at UCSC}
+ \end{column}
+\end{columns}
+\begin{block}{}
+ Dedicated physics studies need to be undertaken in order to fully assess the advantage of including the anti-DiD field.
+\end{block}
 \end{frame}
 
 
 \subsubsection{Vertex Detector Occupancy}
-
-\begin{frame}{Pair background - Hit time}
+\begin{frame}{Vertex Detector Occupancy}
 \sidlogo
-Per bunch, there are about \num{200000} \positron \electron background particles from beam-beam interactions.\\
-What is the \textbf{timing} of this important background \textbf{wrt the bunch crossing}?\\\vspace*{0.3cm}
-\includegraphics[width=0.52\textwidth]{figures/hittime_SiVertexBarrel.pdf}
-\includegraphics[width=0.52\textwidth]{figures/hittime_SiVertexEndcap.pdf}\\
+\paper
+\begin{columns}
+ \begin{column}{0.4\textwidth}
+  Study of the \textbf{pair background occupancy in the VXD} in dependency of the SiD design choices:
+ \end{column}
+ \begin{column}{0.6\textwidth}
+\adjustbox{max height=\dimexpr\textheight-5.5cm\relax,
+           max width=\textwidth}{
+\begin{tabular}{l|cc}
+L* 4.1\,m & BeamCal ``plug'' design & anti-DiD \\ 
+\hline
+\textcolor{Red}{red}  & instrumented & $\times$\\
+\textcolor{LimeGreen}{green}  & instrumented & \checkmark\\
+\textcolor{Blue}{blue}  & circle cutout & $\times$\\
+\textcolor{Turquoise}{turquoise} & wedge cutout & $\times$
+\end{tabular}
+}
+ \end{column}
+\end{columns}
+   \includegraphics[width=0.51\textwidth]{figures/VradOccupancy_allGeoms_brl.png}\hspace*{0.1cm}
+   \includegraphics[width=0.51\textwidth]{figures/VradOccupancy_allGeoms_ecp.png}\\
+    {\hfill \tiny Study done by B. Schumm and students at UCSC}\\
+  \textbf{Overall occupancies are small \& show little dependency on design.}
+\end{frame}
+
+\subsubsection{Vertex Detector Hit Time}
+\begin{frame}{VXD - Pair background hit time}
+\sidlogo
+\paper
+\textbf{Timing of the pair background wrt the bunch crossing}\\\vspace*{0.3cm}
+\only<1>{
+\includegraphics[width=0.5\textwidth]{figures/hittime_SiVertexBarrel.png}
+\includegraphics[width=0.5\textwidth]{figures/hittime_SiVertexEndcap.png}\\
+}
+\only<2>{
+\includegraphics[width=0.5\textwidth]{figures/hittime_SiVertexBarrel_timeintervals.png}
+\includegraphics[width=0.5\textwidth]{figures/hittime_SiVertexEndcap_timeintervals.png}\\
+}
 The vertex detector gets hits up to $\sim$ 50ns after the bunch crossing.\\
 This is an opportunity to apply \textbf{time gates $\rightarrow$ background reduction!}
 \end{frame}
-\begin{frame}{Where are these time structures coming from?}
+
+\begin{frame}{Pair background - Particle origins}
 \sidlogo
+\paper
 \only<1>{
 \begin{center}
-Particle origins of particles hitting the vertex detector in \textcolor{Red}{$[\unit[0]{ns};\unit[10]{ns}]$}
+Particle origins of particles hitting the Vertex Detector in \textcolor{Red}{$[\unit[0]{ns};\unit[10]{ns}]$}
 \includegraphics[width=0.7\textwidth]{figures/hitmaps_particleorigins_hittime_histo1_SiVertexEndcapSiVertexBarrel_SiDNote.pdf}
 \end{center}
 As expected, the pairs originate from the IP and the inner part of the detector.
@@ -368,18 +461,21 @@ Since their P\textsubscript{T} ranges between 0 and 2\,GeV, they form \textbf{he
 \end{frame}
 
 \begin{frame}{Pair background envelopes - 500GeV}
-%The helix tracks were calculated by a Helix algorithm that I have written.\\
-Due to their momentum distributions, the envelopes of all pair background helixes have a characteristic shape.
-   \includegraphics[width=0.51\textwidth]{figures/PairHelixes_500GeV_5T_10bunches_xz.png}\hspace*{0.1cm}
-   \includegraphics[width=0.51\textwidth]{figures/HelixEnvelopes_Helix_tracks_xz_Helix_in_beampipe_10bunches_500GeV_5T.pdf}\\
-The envelopes show that at any given point the beam pipe is 4mm away from 99.9\% of all pair particle tracks.\\
-This suggests the possibility to \textbf{reduce the beam pipe and vertex detector radius} by $\sim$2mm.
+\proceedigHelix
+Due to their momentum distributions, the envelopes of all pair background helixes have a characteristic shape:
+   \includegraphics[width=0.52\textwidth]{figures/PairHelixes_500GeV_5T_10bunches_xz.png}\hspace*{0.1cm}
+   \includegraphics[width=0.5\textwidth]{figures/HelixEnvelopes_Helix_tracks_xz_Helix_in_beampipe_10bunches_500GeV_5T.pdf}\\
+The envelopes show that at any given point the beam pipe is 4mm away from 99.9\% of all pair particle tracks.
+$\Rightarrow$ Possibility to \textbf{reduce the beam pipe \& vertex detector radius} by $\sim$2mm.\\
+\textit{Study of possible \textbf{improvement in physics event reconstruction} needed, whilst looking at the increase in the background level at smaller radii.}
 \end{frame}
 %\begin{frame}{Pair background envelopes - 350GeV}
+%\proceedigHelix
 %   \includegraphics[width=0.51\textwidth]{figures/PairHelixes_350GeV_5T.png}\hspace*{0.1cm}
 %   \includegraphics[width=0.51\textwidth]{figures/PairEnvelopes_350GeV_5T.png}
 %\end{frame}
 %\begin{frame}{Pair background envelopes - 250GeV}
+%\proceedigHelix
 %   \includegraphics[width=0.51\textwidth]{figures/PairHelixes_250GeV_5T.png}\hspace*{0.1cm}
 %   \includegraphics[width=0.51\textwidth]{figures/PairEnvelopes_250GeV_5T.png}
 %\end{frame}
@@ -387,12 +483,14 @@ This suggests the possibility to \textbf{reduce the beam pipe and vertex detecto
 \subsection{Muons from the BDS}
 
 \begin{frame}{The BDS}
+\proceedigBDS
 \begin{center}
   \includegraphics[width=0.9\textwidth]{figures/BDS_electron_tunnel.pdf}
   \end{center}
 The Beam Delivery System (BDS) contains the Final Focus System, and therefore focusses the beam on its way to the Interaction Point (IP).
 \end{frame}
-  \begin{frame}{The BDS}
+\begin{frame}{The BDS}
+\proceedigBDS
 \begin{center}
   \includegraphics[width=0.7\textwidth]{figures/BDS_Tunnel_Spoilers+Wall.png}
 \end{center}
@@ -400,6 +498,7 @@ Muons are created along the BDS, when the beam halo interacts with the beam line
 \end{frame}
 
 \begin{frame}{The Muon Spoilers}
+\proceedigBDS
 \begin{columns}
  \begin{column}{0.4\textwidth}
  The two suggested shielding scenarios:
@@ -426,8 +525,9 @@ Muons are created along the BDS, when the beam halo interacts with the beam line
 \end{columns} 
 \end{frame}
 
-\begin{frame}{WIRED4 event display - 5 Spoilers + Wall}
+\begin{frame}{WIRED4 event display - 5 Spoilers+Wall}
 \sidlogo
+\proceedigBDS
 1 train's worth of muons ($\sim$ 515 muons) \textbf{from the positron line only}:
 \begin{center}
 \includegraphics[height=0.6\textheight]{figures/muons_positron_5spoilers_wall_515_xyview_croped.png}
@@ -439,6 +539,7 @@ Together with the muons from the e\textsuperscript{-} line, there will be \textb
 \end{frame}
 \begin{frame}{WIRED4 event display - 5 Spoilers}
 \sidlogo
+\proceedigBDS
 1 train's worth of muons ($\sim$ 2961 muons) \textbf{from the positron line only}:
 \begin{center}
 \includegraphics[height=0.6\textheight]{figures/muons_positron_5spoilers_2961_xyview_croped.png}
@@ -450,25 +551,18 @@ Together with the muons from the e\textsuperscript{-} line, there will be \textb
 The spatial distribution is due to the tunnel shape and its shielding effects.
 \end{frame}
 
-\begin{frame}{The Muons in SiD - Spatial Distribution}
- \includegraphics[width=0.9\textwidth]{figures/Explanation_Spatial_distribution_NEW.pdf}
-\end{frame}
-
-\begin{frame}{The Muon Occupancy in SiD}
- \includegraphics[width=0.6\textwidth]{figures/Hits_in_SiD_subdetectors_MuonSpoilerStudy.pdf}
-  \includegraphics[width=0.45\textwidth]{figures/Explanation_Hits_Subdetectors.pdf}\\
-The number of hits in the different SiD subdetectors for both shielding scenarios (\textcolor{Red}{``5 Spoilers''} and \textcolor{Blue}{``5 Spoilers + Wall''}) is not evenly distributed.\\
-The number of hits depends on the effective area of the subdetector system.
- \end{frame}
- 
-\begin{frame}{The Muon Occupancy in SiD ECAL endcaps}
+\begin{frame}{Muon Occupancy in SiD ECAL endcaps}
+\sidlogo
+\proceedigBDS
 \begin{center}
   \includegraphics[width=0.61\textwidth]{figures/EcalEndcap_DeadCells.png}
 \end{center}
 {\small A readout cell is ``dead'' when all buffers of the sensor are already filled. No more hits can be stored.}\\
 The current SiD electronics design has a \textcolor{Green}{buffer depth of 4}, i.e. \textcolor{Blue}{10\textsuperscript{-6}} - \textcolor{Red}{10\textsuperscript{-4}} of all hits are dead in the ECAL endcaps.
 \end{frame}
-\begin{frame}
+
+\begin{frame}{BDS Muon Study Conclusion}
+\proceedigBDS
  With the shown results from the occupancy analysis of the muons from the current MUCARLO simulations, the \textbf{SiD group prefers to keep the magnetized wall} in order to keep the occupancy in the SiD detector as low as possible.
  \begin{columns}
   \begin{column}{0.4\textwidth}
@@ -481,130 +575,30 @@ The current SiD electronics design has a \textcolor{Green}{buffer depth of 4}, i
 \end{frame}
 
 \section{Further Ongoing Background Studies}
-\subsection{Machine Backgrounds at ATF2}
-
-\begin{frame}{Accelerator Test Facility 2}
-\ATFlogo
-ATF2
-\begin{itemize}
-\item Extension of the Accelerator Test Facility (ATF) at KEK in Japan
-\item Test bench for the Final-Focus system of the ILC $\rightarrow$ very close to the ILC 500
-\item Achieving \SI{42}{\nano\metre} beam size (goal: \SI{39}{\nano\metre})
-\end{itemize}
-\vspace*{0.3cm}
-\begin{center}
- 	\includegraphics[width=0.8\textwidth]{figures/ATF.jpg}
-\end{center}
-
-\end{frame}
-
-\begin{frame}{Data taking}
-\ejadelogo
-Thanks to the E-JADE program {\tiny(www.e-jade.eu)}, I was allowed to travel to Japan for participating in the ATF2 beam operation time in March and October 2016.\\
-A vertical beam halo collimator was installed by N. Fuster Martinez (IFIC), and its functionallity to reduce the background was to be proven.
-\begin{itemize}
-\item Operating the ATF beam
-\item Studies of the background in the region of the collimator
-\end{itemize}
-%\vspace*{0.5cm}
-\begin{center}
-\includegraphics[width=0.65\textwidth]{figures/ATF2_beamhalo_collimator.pdf}
-\end{center}
-\end{frame}
-\begin{frame}{The Vertical Beam Halo Collimator and the\\RHUL Cherenkov detector}
-\ATFlogo
-\begin{center}
-\includegraphics[width=\textwidth]{figures/ATF2schematic.pdf}\\
-  \includegraphics[width=\textwidth]{figures/RHUL_detector_Collimator.png}
-\end{center}
-\end{frame}
-
-\begin{frame}{Background Data taken with the RHUL Cherenkov detector}
-\ATFlogo
-\begin{center}
- Symmentric jaw movement \hspace*{2.5cm} Jaws moving separately\\
-\vspace*{0.2cm}
- \includegraphics[width=0.55\textwidth]{figures/AverageSignal_perAperture.pdf}
-  \includegraphics[width=0.55\textwidth]{figures/AverageSignal_perJawPosition_12April2016.pdf}
-\end{center}
-Background is reduced, but then rises again when collimator jaws are driven closer into the beam halo.\\
-Individual jaw movement gives conflicting results.
-%\begin{block}{}
-%The vertical beam size at the location of the collimator was about \SI{0.32}{mm} with an offset of 0.2-\SI{0.5}{mm}.
-%\end{block}
-\end{frame}
-\begin{frame}{BDSIM simulations of ATF2}
-\RHULlogo
-\begin{center}
- \includegraphics[width=0.9\textwidth]{figures/atf_bdsim.png}
-\end{center}
-BDSIM was developed by RHUL: {\small http://www.pp.rhul.ac.uk/bdsim/manual/index.html}\\
-BDSIM is a MC simulation tool for simulations of particle accelerators:
-\begin{itemize}
- \item C++ program utilising the Geant4 toolkit
- \item simulating the transport of particles in an accelerator
- \item simulating the interaction of particles with the accelerator material
- \item simulating detector backgrounds from the beam halo and machine background sources
- \item Geant4 geometry dynamically and easily built
-\end{itemize}
-Example applications are background studies for ATF2, CLIC, LHC, ...
-\end{frame}
-
-\begin{frame}{BDSIM: Modelling the Vertical Collimator}
-\RHULlogo
-Collaborating with RHUL to improve BDSIM and the ATF2 geometry model.\\
-Any geometry can be modelled and be plugged into BDSIM.
-\begin{center}
-View inside the collimator model \hspace*{1cm} Collimator in ATF2 beam line\\
-\vspace*{0.2cm}
- \includegraphics[width=0.5\textwidth]{figures/Collimator_model.pdf}%\hspace*{1cm}
- \includegraphics[width=0.5\textwidth]{figures/Collimator_in_ATF2.png}
- \end{center}
- Improving the Vertical Collimator model so that the jaws can be placed in any position $\rightarrow$ simulating the different data taking methods
-\end{frame}
-
-\begin{frame}{BDSIM: Find places of particle scattering and beam loss}
-  \begin{columns}
-  \begin{column}{0.3\textwidth}
-   Number of secondary particles created in components along the ATF2 beam line
-  \end{column}
-  \begin{column}{0.7\textwidth}
-   \includegraphics[width=1.1\textwidth]{figures/TracksPerModel_firstPart}
-  \end{column}
- \end{columns}
-\end{frame}
-
 
 \subsection{Neutrons from the Beam Dumps}
 \input{../General_ILC_slides/ILC_beamdump.tex}
 
+\AtBeginSection[] {
+  \begin{frame}<beamer>
+     \tableofcontents[currentsection,
+     currentsubsection,
+     %hideothersubsections,
+     subsectionstyle=show/shaded/hide,
+     subsubsectionstyle=show/show/hide]
+  \end{frame}
+}
+
 \section{Summary and Outlook}
 \begin{frame}
-\textit{What I have done so far:}
+\textit{Finished and ongoing background studies:}
  \begin{itemize} 
-  \item Generated \textbf{pair background for 2 full ILC bunch trains} (available on the Grid), wrote a tool for converting GuineaPig output to stdhep or slcio format
-  \item Studied the \textbf{timing and origin of pair background and backscattering particles} \textcolor{Green}{$\rightarrow$ possible reduction of background with time gates}
-  \item Looked at the \textbf{pair helix envelopes} for 500, 350 and 250GeV ILC staging scenarios \textcolor{Green}{$\rightarrow$ suggested reducing the radius of beam pipe and vertex detector}
-  \item Studied two different \textbf{muon shielding possibilies} and the muon occupancy in SiD \textcolor{Green}{$\rightarrow$ Spoilers + magnetized wall is prefered shielding option}
-  \item Collaboration with RHUL to \textbf{improve the BDSIM tool and ATF2 geometry model}
-  \item \textbf{Modelled the Beam Dump and the EXT line with FLUKA} in collaboration with Benno List (DESY)
-  \item \textbf{Successful supervision of two Summer Students} in 2015 and 2016
- \end{itemize}
-\end{frame}
-\begin{frame}
-\textit{What will be done in the next months:}
- \begin{itemize}
-  \item Studying the \textbf{occupancy in the vertex detector from the pair background helixes} for different ILC staging scenarios
-  \item Finalize the \textbf{BDSIM simulation of ATF2 to compare data to simulation}
-  \item \textbf{FLUKA simulations of the neutron fluxes from the beam dump}, through the EXT line, towards the IP
-  \item Implement \textbf{PACMAN} (detector shield clamp) in the SiD geometry
- \end{itemize}
-\textit{What I also want to do:}
- \begin{itemize}
-  \item Put together all simulated background sources to study \textbf{overall background occupancy}
-  \item Study possible \textbf{improvement in physics event reconstruction when reducing the beam pipe and vertex detector radius}, whilst looking at the increase in background level at such radii
-  \item Vary the ILC running parameters (and redo the background studies) to \textbf{find further limits and requirements for the ILC Final Focus design}
-  \item \textbf{Writing up my thesis} in winter 2017/2018
+  \item Generation of \textbf{pair background GuineaPig files for 2 full ILC bunch trains} (available on the Grid)
+  \item Study of the \textbf{timing and origin of pair background and backscattering particles} \textcolor{Green}{$\rightarrow$ possible reduction of background with time gates}
+  \item \textbf{Pair helix envelopes} for 500, 350 and 250GeV ILC staging scenarios \textcolor{Green}{$\rightarrow$ suggested reducing the radius of beam pipe and vertex detector}
+  \item Comparison between two different \textbf{muon shielding possibilies} and the muon occupancy in SiD \textcolor{Green}{$\rightarrow$ Spoilers + magnetized wall is prefered shielding option}
+   \item \textbf{Modellation of the Beam Dump and the EXT line with FLUKA} in collaboration with Benno List (DESY). \textbf{FLUKA simulations of the neutron fluxes from the beam dump}, through the EXT line, towards the IP
+  \item Implementing \textbf{PACMAN} (detector shield clamp) in the SiD geometry
  \end{itemize}
 \end{frame}
 
@@ -618,16 +612,9 @@ View inside the collimator model \hspace*{1cm} Collimator in ATF2 beam line\\
 \begin{frame}
 \ilclogo
 \begin{center}
-If you are interested in SiD and keen on working for the ILC, \\
-if you like working in a very international environment, \\
-or if you love Japan,\\
-there are lots of possible Master's and Ph.D topics.\\
 \vspace*{1cm}
 \textcolor{RubineRed}{
-	\LARGE Thanks!\\
-	\begin{CJK}{UTF8}{min}
-	どうもありがとうございます。
-	\end{CJK}
+	\LARGE Thanks!
 }
 \end{center}
 \end{frame}
@@ -636,25 +623,21 @@ there are lots of possible Master's and Ph.D topics.\\
 \section*{References}
 \begin{thebibliography}{9}
 \begin{frame}{References}
+\bibitem{Paper} T. Barklow, et al. \emph{A Study of the Impact of High Cross Section ILC Processes on the SiD Detector Design}, arXiv:1609.07816
+\bibitem{ProceedingBDS} A. Schuetz \emph{Pair Background Envelopes in the SiD Detector}, arXiv:1703.05737
+\bibitem{ProceedingBDS} A. Schuetz, L. Keller, G. White \emph{A Study of the Impact of Muons from the Beam Delivery System on the SiD Performance}, arXiv:1703.05738
 \bibitem{TDR} T. Behnke, et al.
 \emph{The International Linear Collider - Technical Design Report}, 2013.
 \bibitem{LHC TDR} \emph{LHC - Design Report}, \url{http://ab-div.web.cern.ch/ab-div/Publications/LHC-DesignReport.html}
 \bibitem{IP beam parameters} ATLAS-CONF-2010-027. \emph{Characterization of Interaction-Point Beam Parameters Using the pp Event-Vertex Distribution Reconstructed in the ATLAS Detector at the LHC}, 2010. \url{http://cds.cern.ch/record/1277659/files/ATLAS-CONF-2010-027.pdf}
-\bibitem{ILCPAC2012} M. Peskin. \emph{Physics Motivation for the ILC}, 2012. \url{http://www.fnal.gov/directorate/ILCPAC/2012Dec/Physics-ILCPAC2012-Peskin.pdf}
-\end{frame}
-\begin{frame}{References}
-\bibitem{MIT2013} Klute, Markus, Rémi Lafaye, Tilman Plehn, Michael Rauch, and
-Dirk Zerwas. \emph{Measuring Higgs Couplings at a Linear Collider}
-EPL (Europhysics Letters) 101, no. 5 (March 1, 2013): 51001. \url{http://dx.doi.org/10.1209/0295-5075/101/51001}
-\bibitem{RHUL} Mark Thomson. \emph{Physics and Detectors at the ILC}, 2013. \url{https://www.royalholloway.ac.uk/physics/documents/pdf/events/particlephysicsseminars/13-14markthomson23oct2013.pdf}
-\bibitem{ATF2} Kuroda et al. \emph{A plan of KEK-ATF Final Focus Test Beam Line (ATF2)
-}. \url{http://icfa-nanobeam.web.cern.ch/icfa-nanobeam/paper/urakawa_ATF2-2.pdf}
-
 \end{frame}
 \end{thebibliography}
 
+\endgroup
 %--------------------------------------------------------------------------------
+\begingroup 
 \appendix
+\newif\iflattersubsect
 
 \begin{frame}
 \begin{center}
@@ -705,37 +688,16 @@ L &[\si{\per\centi\metre\squared\per\second}] & \num{1.8e34} & \num{3.6e34} & \n
 	\includegraphics[width=0.8\textwidth]{figures/ILCTDR-VOLUME_3-PART_II_ILCparametersUpgrades.pdf}
 \end{frame}
 
-\subsection{Basic accelerating structure}
-\begin{frame}{Basic accelerating structure}
-\ilclogo
-The main accelerating structures are the two 11km long LINACs.
-\begin{itemize}
-\item 9-cell superconducting RF cavities operating at 1.3 GHz 
-\item Accelerating gradient of >30 MV/m
-\item Electrons and positrons accelerated in RF standing waves in the cavities 
-\end{itemize}
-\begin{center}
-\includegraphics[width=0.45\textwidth]{figures/cavity.jpg}
-\end{center}
-The cavities are also developed, built and tested at DESY.
-\end{frame}
+\AtBeginSection[] {
+  \begin{frame}<beamer>
+     \tableofcontents[currentsection,
+     currentsubsection,
+     %hideothersubsections,
+     subsectionstyle=show/show/hide]
+  \end{frame}
+}
 
-\subsection{The Final-Focus system}
-\begin{frame}{The Final-Focus system}
- \ilclogo
- The Final-Focus (FF) uses:
-\begin{itemize}
- \item Strong compact superconducting quadrupoles to focus the
-beam at the IP (single collision point with a 14 mrad beam-crossing angle)
-\item Sextupoles providing local chromaticity correction
-\item Two superconducting octupole doublets, which use nonlinear
-focusing to reduce the amplitude of beam-halo particles while leaving the beam core untouched $\rightarrow$ permitting larger collimation amplitude
-\item Collimators and spoilers to prevent the beam halo and background particles from entering the detectors
-\end{itemize}
-\end{frame}
-
-\section{SiD}
-\subsection{Subdetector Specifications}
+\section{SiD - Subdetector Specifications}
 \begin{frame}
  \begin{table}
 \caption{Key parameters of the baseline SiD design, including the measurements of the subdetectors, and their readout cell dimensions. The given readout cell dimension are the pixelation cell sizes used for the full detector Geant4 simulation.}
@@ -774,7 +736,7 @@ BeamCal & Semicond.- W & 3.5 x 3.5 & 326.5 & 344 & 14.0 \tabularnewline
 \end{frame}
 
 \section{Background from High Cross Section ILC Processes}
-\subsubsection{FCAL Occupancy}
+\subsection{FCAL Occupancy}
 \begin{frame}{Occupancy in the FCAL}
   \begin{center}
      \includegraphics[width=0.7\textwidth]{figures/fig_raw_occupancy.png}
@@ -783,18 +745,39 @@ BeamCal & Semicond.- W & 3.5 x 3.5 & 326.5 & 344 & 14.0 \tabularnewline
   {\hfill \tiny Study done by B. Schumm and students at UCSC}
 \end{frame}
 
+\AtBeginSubsection[] {
+  \begin{frame}<beamer>
+     \tableofcontents[currentsection,
+     currentsubsection,
+     %hideothersubsections,
+     subsectionstyle=show/shaded/hide,
+     subsubsectionstyle=show/show/hide]
+  \end{frame}
+}
+
 \subsection{Pair background timing}
 \begin{frame}{Creation time of particles hitting the Vertex Detector}
 \begin{columns}
- \begin{column}{0.4\textwidth}
-Distribution of the time of creation (relative to the instant of the bunch crossing at \unit[0]{ns}) of pair background particles (from 1312 bunches) that hit the endcaps of the vertex detector.
-At the time of the bunch crossing about \num{1.6e6} particles are created.\\
-{\footnotesize The creation time here is plotted for pair background particles hitting the vertex endcaps only. This is to avoid double counting of particles that would hit both, the barrel and the endcaps.}
+ \begin{column}{0.5\textwidth}
+Distribution of the time of creation (relative to the bunch crossing) of pair background particles (from 1312 bunches) that hit the endcaps of the VXD.
+At the time of the bunch crossing about \num{1.6e6} particles are created (underflow bin).\\
+ {\footnotesize The creation time is plotted for pair background particles hitting the vertex endcaps only. This is to avoid double counting of particles that would hit both, the barrel and the endcaps.}
  \end{column}
- \begin{column}{0.6\textwidth}
- \includegraphics[width=1.05\textwidth]{figures/creationtime_histo_SiVertexEndcap_SiDNote.pdf}
+ \begin{column}{0.55\textwidth}
+ \includegraphics[width=1\textwidth]{figures/creationtime_histo_SiVertexEndcap_SiDNote.pdf}
  \end{column}
 \end{columns}
+ %\adjustbox{max height=\dimexpr\textheight-5.5cm\relax,
+%           max width=\textwidth}{
+\begin{table}
+\footnotesize
+\begin{tabular}{>{\RaggedRight}p{1.8cm}>{\RaggedRight}p{1.9cm}>{\RaggedRight}p{1.7cm}>{\RaggedRight}p{2.4cm}>{\RaggedRight}p{2.3cm}}
+Overall pairs & Primary pairs [\unit[0]{ns};\unit[11]{ns}] & Late pairs ]\unit[11]{ns};\unit[50]{ns}] & Out-of-time backscatter pairs ]\unit[50]{ns};\unit[554]{ns}] & Out-of-time backscatter pairs ]\unit[554]{ns};\unit[1000]{ns}]\\
+\hline
+$\sim$ \num{1.9e6} & 87.33\% & 12.38\% & 0.16\% &  0.029\% 
+\end{tabular}
+\end{table}
+%}
 \end{frame}
 
 \begin{frame}{Momentum distribution particles hitting the Vertex Detector}
@@ -806,17 +789,51 @@ At the time of the bunch crossing about \num{1.6e6} particles are created.\\
 
 \subsection{Pair background helixes}
 \begin{frame}{Explanation of helix track calculations}
+\proceedigHelix
  \begin{center}
   \includegraphics[width=0.65\textwidth]{figures/Helix_explanation.png}
 \end{center}
 \end{frame}
 
 \section{Muons from the BDS}
+\begin{frame}{The Muons in SiD - Spatial Distribution}
+\proceedigBDS
+ \includegraphics[width=0.9\textwidth]{figures/Explanation_Spatial_distribution_NEW.pdf}
+\end{frame}
+
+\begin{frame}{The Muon Occupancy in SiD}
+\proceedigBDS
+ \includegraphics[width=0.6\textwidth]{figures/Hits_in_SiD_subdetectors_MuonSpoilerStudy.pdf}
+  \includegraphics[width=0.45\textwidth]{figures/Explanation_Hits_Subdetectors.pdf}\\
+The number of hits in the different SiD subdetectors for both shielding scenarios (\textcolor{Red}{``5 Spoilers''} and \textcolor{Blue}{``5 Spoilers + Wall''}) is not evenly distributed.\\
+The number of hits depends on the effective area of the subdetector system.
+ \end{frame}
+ 
+ \begin{frame}{Muon Occupancy in SiD HCAL endcaps}
+ \proceedigBDS
+  \includegraphics[width=0.53\textwidth]{figures/muon_occupancy_deadcells_all_layers_HcalBarrel.pdf}
+  \includegraphics[width=0.53\textwidth]{figures/muon_occupancy_deadcells_all_layers_HcalEndcap.pdf}\\
+The current SiD electronics design has a \textcolor{Green}{buffer depth of 4}:\\
+$\sim$\textcolor{Blue}{1$\times$10\textsuperscript{-6}} - \textcolor{Red}{4$\times$10\textsuperscript{-6}} of all hits are dead in the \textbf{HCAL barrel}\\
+$\sim$\textcolor{Blue}{2$\times$10\textsuperscript{-4}} - \textcolor{Red}{1$\times$10\textsuperscript{-3}} of all hits are dead in the \textbf{HCAL endcaps}
+\end{frame}
+
+\begin{frame}{Muon Occupancy in SiD Tracker endcaps}
+\proceedigBDS
+\begin{center}
+  \includegraphics[width=0.65\textwidth]{figures/SiTrackerEndcap_DeadCells.png}
+\end{center}
+The current SiD electronics design has a \textcolor{Green}{buffer depth of 4}, i.e. \textcolor{Blue}{10\textsuperscript{-8}} - \textcolor{Red}{10\textsuperscript{-7}} of all hits are dead in the Tracker endcaps.
+\end{frame}
+ 
 \begin{frame}{The Muon Energy}
+\proceedigBDS
 \begin{center}
   \includegraphics[width=0.65\textwidth]{figures/muon_energy.pdf}
 \end{center}
 The energy distribution of the muons from the ``5 Spoilers + Wall'' scenario does not reach the same maximum energy. The muons are decelerated and stopped within the magnetized wall.
 \end{frame}
+
+\endgroup
 
 \end{document}
