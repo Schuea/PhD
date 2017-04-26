@@ -197,6 +197,16 @@ L &[\si{\per\centi\metre\squared\per\second}] & \num{1.8e34} & \num{3.6e34} & \n
 %	\includegraphics[width=0.8\textwidth]{figures/ILCTDR-VOLUME_3-PART_II_ILCparametersUpgrades.pdf}
 %\end{frame}
 
+\AtBeginSection[] {
+  \begin{frame}<beamer>
+     \tableofcontents[currentsection,
+     currentsubsection,
+     %hideothersubsections,
+     subsectionstyle=show/show/hide,
+     subsubsectionstyle=show/show/hide]
+  \end{frame}
+}
+
 \section{SiD - Subdetector Specifications}
 \begin{frame}
  \begin{table}
@@ -245,7 +255,15 @@ BeamCal & Semicond.- W & 3.5 x 3.5 & 326.5 & 344 & 14.0 \tabularnewline
   {\hfill \tiny Study done by B. Schumm and students at UCSC}
 \end{frame}
 
-
+\AtBeginSubsection[] {
+  \begin{frame}<beamer>
+     \tableofcontents[currentsection,
+     currentsubsection,
+     %hideothersubsections,
+     subsectionstyle=show/shaded/hide,
+     subsubsectionstyle=show/show/hide]
+  \end{frame}
+}
 \subsection{Pair background timing}
 \begin{frame}{Creation time of particles hitting the Vertex Detector}
 \begin{columns}
@@ -279,6 +297,22 @@ $\sim$ \num{1.9e6} & 87.33\% & 12.38\% & 0.16\% &  0.029\%
 \end{frame}
 
 \subsection{Pair background helixes}
+\begin{frame}{Comparison of P\textsubscript{T} and P\textsubscript{z} of the ILC pairs}
+Comparison between pairs from ILC \textbf{500}, \textbf{\textcolor{Red}{350}} and \textbf{\textcolor{Blue}{250}\,GeV}\\
+\vspace*{0.5cm}
+  \includegraphics[width=0.5\textwidth]{figures/pairs_comparison_PT.png}
+  \includegraphics[width=0.5\textwidth]{figures/pairs_comparison_Pz.png}
+\end{frame}
+
+\begin{frame}{P\textsubscript{T} vs. P\textsubscript{z} of the pairs from ILC 500, 350 and 250\,GeV}
+\hspace*{1.4cm}500\,GeV \hspace*{2.5cm} 350\,GeV \hspace*{2.5cm} 250\,GeV\\
+\vspace*{0.5cm}
+  \includegraphics[width=0.34\textwidth]{figures/pairs500_PTvsPz.png}
+  \includegraphics[width=0.34\textwidth]{figures/pairs350_PTvsPz.png}
+  \includegraphics[width=0.34\textwidth]{figures/pairs250_PTvsPz.png}
+\end{frame}
+
+
 \begin{frame}{Explanation of helix track calculations}
 \proceedigHelix
  \begin{center}

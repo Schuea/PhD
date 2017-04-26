@@ -134,18 +134,18 @@
 \newcommand{\positron}{e$^+$}
 
 \title[ILC \& Background Simulations]{\textbf{\LARGE The International Linear Collider \\ \large Background Simulations \& the Impact on SiD}}
-\author[Anne Sch\"utz]{\underline{Anne Sch\"utz} \inst{1}, M. Stanitzki \inst {1}, J. Strube \inst{2}, B. Schumm \inst{3}, C. Milke \inst{3}, L. d`Hautuille \inst{3}, G. White \inst{4}, L. Keller \inst{4}, T. Barklow \inst{4}\\
+\author[Anne Sch\"utz]{\underline{Anne Sch\"utz} \inst{1}, M. Stanitzki \inst {1}, J. Strube \inst{2}, T. Barklow \inst{3}, L. Keller \inst{3},  G. White \inst{3},  L. d`Hautuille \inst{4}, C. Milke \inst{4}, B. Schumm \inst{4}\\
 \& SiD Optimization Group}
 
-\institute[DESY]{\inst{1} DESY \inst{2} PNNL \inst{3} UCSC \inst{4} SLAC}
+\institute[DESY]{\inst{1} DESY \inst{2} PNNL \inst{3} SLAC \inst{4} UCSC}
 \date[May 1st 2017]{May 1st 2017\\\textbf{LC Vertex Detector Workshop 2017}}
 
 \titlegraphic{
-\includegraphics[height=1.2cm]{figures/DESY_Logo.png}\hspace*{1cm}~%
-\includegraphics[height=1.2cm]{figures/PNNL_Logo.png}\hspace*{1cm}~%
-\includegraphics[height=1.2cm]{figures/SiD.jpeg}\hspace*{1cm}~%
-\includegraphics[height=1.2cm]{figures/UCSC_Logo.png}\hspace*{1cm}~%
-\includegraphics[height=1.2cm]{figures/SLAC_Logo.png}
+\includegraphics[height=1.2cm]{figures/DESY_Logo.png}\hspace*{1.2cm}~%
+\includegraphics[height=1.2cm]{figures/PNNL_Logo.png}\hspace*{1.3cm}~%
+\includegraphics[height=1.2cm]{figures/SiD.jpeg}\hspace*{0.8cm}~%
+\includegraphics[height=0.85cm]{figures/SLAC_Logo.png}\hspace*{0.7cm}~%
+\includegraphics[height=1.2cm]{figures/UCSC_Logo.png}
 }
 
 \begin{document}
@@ -193,7 +193,7 @@
   \item cos($\theta$)$\approx$0.984
   \end{itemize}
 
-  \item Highly granular calorimetry optimized for Particle Flow (ECAL: radation length = 26 X$_0$, \\EM energy resolution = 0.17/$\sqrt{E}\bigoplus$1\%)
+  \item Highly granular calorimetry optimized for Particle Flow (ECAL: radation length = 26 X$_0$)
  \end{itemize}
 \end{column}
 
@@ -337,13 +337,13 @@ The background events are then simulated in a \alert{full detector simulation} w
   \begin{columns}
    \begin{column}{0.52\textwidth}
      \vspace*{0.5cm}\\
-     With a \textbf{buffer depth of 4} in the current SiD electronics design, $\sim$ 0.3\% of all hits will be lost because of full buffers.\\
+     With a \textbf{buffer depth of 4} in the currently foreseen SiD electronics design, $\sim$ 0.3\% of all hits will be lost because of full buffers.\\
      \vspace*{1cm}
      \includegraphics[width=\textwidth]{figures/fig_radial_buffer_depth_all.png}
    \end{column}
    \begin{column}{0.52\textwidth}
      \includegraphics[width=0.95\textwidth]{figures/fig_buffer_depth.png}\\
-     The fractional loss is clearly dependent on the radial position of the hit, so that this study suggests to \textbf{increase the number of buffers to 6} to reduce the fractional hit loss to below 10\textsuperscript{-3} at any radius.\\
+     The fractional loss is clearly dependent on the radial position of the hit, so that this study suggests to \textbf{increase the number of buffers to 6} to reduce the fractional hit loss to below at least 10\textsuperscript{-3} at any radius.\\
     {\hfill \tiny Study done by B. Schumm and students at UCSC}
    \end{column}
   \end{columns}
@@ -414,7 +414,7 @@ L* 4.1\,m & BeamCal ``plug'' design & anti-DiD \\
 \includegraphics[width=0.5\textwidth]{figures/hittime_SiVertexBarrel_timeintervals.png}
 \includegraphics[width=0.5\textwidth]{figures/hittime_SiVertexEndcap_timeintervals.png}\\
 }
-The vertex detector gets hits up to $\sim$ 50ns after the bunch crossing.\\
+The vertex detector gets hits up to $\sim$ 50\,ns after the bunch crossing.\\
 This is an opportunity to apply \textbf{time gates $\rightarrow$ background reduction!}
 \end{frame}
 
