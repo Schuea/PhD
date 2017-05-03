@@ -278,6 +278,7 @@ In order to minimize the effect of the background on the detectors and the measu
 \begin{columns}
  \begin{column}{0.65\textwidth}
  The main sources of background:
+ \vspace*{0.2cm}
   \begin{itemize}
     \item Beam-beam interactions:
     \begin{itemize}
@@ -285,11 +286,10 @@ In order to minimize the effect of the background on the detectors and the measu
       \item Bhabha scattering
       \item \textgamma \textgamma $\rightarrow$ hadrons
     \end{itemize}
-    \vspace*{0.3cm}
+    \vspace*{0.5cm}
     \item Machine background:
     \begin{itemize}
       \item Muons from the Beam Delivery System
-      \item Background from the Final-Focus system (beam halo collimators)
       \item Neutrons from the Beam Dumps
     \end{itemize}
   \end{itemize}
@@ -311,18 +311,18 @@ In order to minimize the effect of the background on the detectors and the measu
 \begin{frame}{Generator/Simulation tools}
 The background is first modeled with different simulation tools:\\
 \begin{itemize}
-\item \alert{GuineaPig} (Generator of background events from beam-beam interactions)
-\item \alert{BDSIM} (Geant4 based extension toolkit for beam line simulations)
-\item \alert{FLUKA} (Fully integrated particle physics MonteCarlo simulation package)
-\item \alert{MUCARLO} (Fortran tool to generate muons from the ILC Beam Delivery System)
+\item \alert{GuineaPig}\\(Generator of background events from beam-beam interactions)
+\item \alert{WHIZARD}\\(Generic MC integration and event generation package)
+\item \alert{FLUKA}\\(Fully integrated particle physics MonteCarlo simulation package)
+\item \alert{MUCARLO}\\(Fortran tool to generate muons from the ILC Beam Delivery System)
 \end{itemize}
 The background events are then simulated in a \alert{full detector simulation} with a Geant4 toolkit.
 \begin{figure}
 	\begin{columns}
         \column{0.7\linewidth} \flushright
-        \includegraphics[width=0.61\textwidth]{figures/Full_bunchcrossing_rhoz.png}
+        \includegraphics[width=0.5\textwidth]{figures/Full_bunchcrossing_rhoz.png}
         \column{0.3\linewidth}
-        {\small The inner detector part of SiD. WIRED4 event display of the pair background of one bunch crossing.}
+        {\footnotesize WIRED4 event display of the pair background of one bunch crossing in SiD.}
       \end{columns}
 \end{figure}
 	
@@ -405,7 +405,7 @@ L* 4.1\,m & BeamCal ``plug'' design & anti-DiD \\
 \begin{frame}{VXD - Pair background hit time}
 \sidlogo
 \paper
-\textbf{Timing of the pair background wrt the bunch crossing}\\\vspace*{0.3cm}
+\textbf{Timing of the pair background hitting the VXD wrt the bunch crossing}\\\vspace*{0.3cm}
 \only<1>{
 \includegraphics[width=0.5\textwidth]{figures/hittime_SiVertexBarrel.png}
 \includegraphics[width=0.5\textwidth]{figures/hittime_SiVertexEndcap.png}\\
@@ -423,37 +423,63 @@ This is an opportunity to apply \textbf{time gates $\rightarrow$ background redu
 \paper
 \only<1>{
 \begin{center}
-Particle origins of particles hitting the Vertex Detector in \textcolor{Red}{$[\unit[0]{ns};\unit[10]{ns}]$}
+Particle origins of particles hitting the Vertex Detector in \textbf{\textcolor{Red}{$[\unit[0]{ns};\unit[10]{ns}]$}}
 \includegraphics[width=0.7\textwidth]{figures/hitmaps_particleorigins_hittime_histo1_SiVertexEndcapSiVertexBarrel_SiDNote.pdf}
 \end{center}
 As expected, the pairs originate from the IP and the inner part of the detector.
 }
 \only<2>{
 \begin{center}
-Particle origins of particles hitting the vertex detector in \textcolor{Red}{$[\unit[10]{ns};\unit[20]{ns}]$}
+Particle origins of particles hitting the vertex detector in \textbf{\textcolor{Red}{$[\unit[10]{ns};\unit[20]{ns}]$}}
 \includegraphics[width=0.7\textwidth]{figures/hitmaps_particleorigins_hittime_histo2_SiVertexEndcapSiVertexBarrel_SiDNote.pdf}
 \end{center}
 The number of hits decreased, but there are still particles originating from the IP.
 }
 \only<3>{
 \begin{center}
-Particle origins of particles hitting the vertex detector in \textcolor{Red}{$[\unit[20]{ns};\unit[30]{ns}]$}
+Particle origins of particles hitting the vertex detector in \textbf{\textcolor{Red}{$[\unit[20]{ns};\unit[30]{ns}]$}}
 \includegraphics[width=0.7\textwidth]{figures/hitmaps_particleorigins_hittime_histo3_SiVertexEndcapSiVertexBarrel_SiDNote.pdf}
 \end{center}
 The pairs have travelled towards the detector endcaps and have backscattered there.
 }
 \only<4>{
 \begin{center}
-Particle origins of particles hitting the vertex detector in \textcolor{Red}{$[\unit[30]{ns};\unit[50]{ns}]$}
+Particle origins of particles hitting the vertex detector in \textbf{\textcolor{Red}{$[\unit[30]{ns};\unit[50]{ns}]$}}
 \includegraphics[width=0.7\textwidth]{figures/hitmaps_particleorigins_hittime_histo4_SiVertexEndcapSiVertexBarrel_SiDNote.pdf}
 \end{center}
 The particles still originate from the IP, the detector barrel and the endcaps.
 }
 \end{frame}
 
+\begin{frame}{Creation time of particles hitting VXD}
+\sidlogo
+\paper
+\begin{columns}
+ \begin{column}{0.4\textwidth}
+Distribution of the \textbf{time of creation} {\small(relative to the instant of the bunch crossing)} of pair background particles {\small(from 1312 bunches)} that hit the endcaps of the VXD.\\
+At the time of the bunch crossing about \num{1.6e6} particles are created {\small(underflow bin)}.
+ \end{column}
+ \begin{column}{0.6\textwidth}
+ \includegraphics[width=0.97\textwidth]{figures/creationtime_histo_SiVertexEndcap_SiDNote.pdf}
+ \end{column}
+\end{columns}
+ %\adjustbox{max height=\dimexpr\textheight-5.5cm\relax,
+%           max width=\textwidth}{
+\begin{table}
+\footnotesize
+\begin{tabular}{>{\RaggedRight}p{1.8cm}>{\RaggedRight}p{1.9cm}>{\RaggedRight}p{1.7cm}>{\RaggedRight}p{2.4cm}>{\RaggedRight}p{2.3cm}}
+Overall pairs & Primary pairs [\unit[0]{ns};\unit[11]{ns}] & Late pairs ]\unit[11]{ns};\unit[50]{ns}] & Out-of-time backscatter pairs ]\unit[50]{ns};\unit[554]{ns}] & Out-of-time backscatter pairs ]\unit[554]{ns};\unit[1000]{ns}]\\
+\hline
+$\sim$ \num{1.9e6} & 87.33\% & 12.38\% & 0.16\% &  0.029\% 
+\end{tabular}
+\end{table}
+%}
+\end{frame}
+
 \subsubsection{Pair background envelopes}
 \begin{frame}{Pair background -  P\textsubscript{T}}
 \sidlogo
+\paper
 Since their P\textsubscript{T} ranges between 0 and 2\,GeV, they form \textbf{helix tracks in the solenoid field}. The tracks extend to the inner detector layers, and leave up to several tens of hits.
 \begin{center}
 \includegraphics[width=0.7\textwidth]{figures/PT_hittime_primaries_SiVertexEndcapSiVertexBarrel.pdf}
@@ -471,7 +497,7 @@ $\sigma^*_x$=474\,nm, $\sigma^*_y$=5.9\,nm
 \includegraphics[width=0.52\textwidth]{figures/Helix_tracks_xz_100bunches_500GeV_5T.png}\hspace*{0.1cm}
    \includegraphics[width=0.5\textwidth]{figures/HelixEnvelopes_Helix_tracks_xz_10bunches_500GeV_5T.png}\\
 Due to their momentum distributions, the envelopes of all pair background helixes have a characteristic shape.
-At any given point the \textbf{beam pipe is at leasy 4mm away from 99.9\%} of all pair particle tracks.
+At any given point the \textbf{beam pipe is at least 4\,mm away from 99.9\%} of all pair particle tracks.
 \end{frame}
 \begin{frame}{Pair background envelopes - \textbf{350GeV}}
 \begin{center}
@@ -482,7 +508,7 @@ $\sigma^*_x$=683.5\,nm, $\sigma^*_y$=5.9\,nm
 \end{center}
    \includegraphics[width=0.52\textwidth]{figures/Helix_tracks_xz_100bunches_350GeV_5T.png}\hspace*{0.1cm}
    \includegraphics[width=0.5\textwidth]{figures/HelixEnvelopes_Helix_tracks_xz_100bunches_350GeV_5T.png}\\
-\invisible<1->{Possibility to \textbf{reduce the beam pipe \& VXD radius} by $\sim$2mm.\\
+\invisible<1->{Possibility to \textbf{reduce the beam pipe \& VXD radius} by $\sim$2\,mm.\\
 Study of possible \textbf{improvement in physics event reconstruction} needed, whilst looking at the increase in the background level at smaller radii.}
 \end{frame}
 \begin{frame}{Pair background envelopes - \textbf{250GeV}}
@@ -494,7 +520,14 @@ $\sigma^*_x$=729\,nm, $\sigma^*_y$=7.7\,nm
 \end{center}
    \includegraphics[width=0.52\textwidth]{figures/Helix_tracks_xz_100bunches_250GeV_5T.png}\hspace*{0.1cm}
    \includegraphics[width=0.5\textwidth]{figures/HelixEnvelopes_Helix_tracks_xz_100bunches_250GeV_5T.png}\\
-Possibility to \textbf{reduce the beam pipe \& VXD radius} by $\sim$2mm.\\
+\invisible<1->{Possibility to \textbf{reduce the beam pipe \& VXD radius} by $\sim$2\,mm.\\
+\textit{Study of possible \textbf{improvement in physics event reconstruction} needed, whilst looking at the increase in the background level at smaller radii.}}
+\end{frame}
+\begin{frame}{Pair background envelopes - \textbf{Comparison}}
+\begin{center}
+   \includegraphics[width=0.67\textwidth]{figures/HelixEnvelopes_COMPARISON_xz_.png}
+\end{center}
+Possibility to \textbf{reduce the beam pipe \& VXD radius} by $\sim$2\,mm.\\
 \textit{Study of possible \textbf{improvement in physics event reconstruction} needed, whilst looking at the increase in the background level at smaller radii.}
 \end{frame}
 
@@ -611,12 +644,12 @@ The current SiD electronics design has a \textcolor{Green}{buffer depth of 4}, i
 \begin{frame}
 \textit{Finished and ongoing background studies:}
  \begin{itemize} 
-  \item Generation of \textbf{pair background GuineaPig files for 2 full ILC bunch trains} (available on the Grid)
+  \item Studies of the \textbf{background occupancies in the FCAL and Vertex Detector} \textcolor{Green}{$\rightarrow$ Occupancy low, but increase in the buffer depth of the SiD sensors should be considered}
+  \item Looking at the \textbf{impact of the SiD design choices on the reconstruction efficiency of the BeamCal} \textcolor{Green}{$\rightarrow$ Anti-DiD field has a positive effect}
   \item Study of the \textbf{timing and origin of pair background and backscattering particles} \textcolor{Green}{$\rightarrow$ possible reduction of background with time gates}
   \item \textbf{Pair helix envelopes} for 500, 350 and 250GeV ILC staging scenarios \textcolor{Green}{$\rightarrow$ suggested reducing the radius of beam pipe and vertex detector}
   \item Comparison between two different \textbf{muon shielding possibilies} and the muon occupancy in SiD \textcolor{Green}{$\rightarrow$ Spoilers + magnetized wall is prefered shielding option}
-   \item \textbf{Modellation of the Beam Dump and the EXT line with FLUKA} in collaboration with Benno List (DESY). \textbf{FLUKA simulations of the neutron fluxes from the beam dump}, through the EXT line, towards the IP
-  \item Implementing \textbf{PACMAN} (detector shield clamp) in the SiD geometry
+   \item \textbf{Modellation of the main beam dump and the EXT line with FLUKA} in collaboration with Benno List (DESY). \textbf{FLUKA simulations of the neutron fluxes from the beam dump}
  \end{itemize}
 \end{frame}
 
