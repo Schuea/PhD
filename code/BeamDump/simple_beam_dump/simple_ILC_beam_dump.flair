@@ -5,7 +5,7 @@ Title: simple_ILC_beam_dump
 Input: simple_ILC_beam_dump.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Plot
+Page: Input
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -400,7 +400,7 @@ Plot: simple_ILC_beam_dump_21_plot
 	Format: .eps
 	Type:   USRBIN
 	axes: Z-Y
-	bymax: 400.
+	bymax: 400
 	bymin: -200.
 	bzmax: 700
 	bzmin: -1000.
@@ -464,6 +464,7 @@ Plot: simple_ILC_beam_dump_22_plot
 	det: 1
 	errors: 0
 	geo: -Auto-
+	geopos: 0.0
 	grid: 0
 	hist: 2D Projection
 	index: 2

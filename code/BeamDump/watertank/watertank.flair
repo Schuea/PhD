@@ -17,7 +17,7 @@ Run: <default>
 	Last:     5
 	Status:   3
 	Pid:      0
-	StartRun: 1464965526
+	StartRun: 1495547817
 
 	# USRxxx data file: watertank_51.bnn
 	Data: \I_\U.\e
@@ -45,6 +45,42 @@ Geometry:
 	Frame.vsplit: 0.5
 End
 
+# Geometry plot "Geometry-YZ"
+Plot: geometry_yz
+	Format: .eps
+	Type:   Geometry
+	basisu: 0 0 1
+	basisv: 0 1 0
+	boundaries: 0
+	cbcolors: 0
+	cblog: 0
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	coord: Z-Y
+	cpd: 0
+	extends: 640 235
+	grid: 0
+	index: 0
+	labels: 1
+	nu: 200
+	nv: 200
+	origin: 0 0 -160
+	subtype: Material
+	title: Geometry-YZ
+	vectscale: 0.1
+	x2log: 0
+	x2tics: 0
+	xlabel: z [cm]
+	xlog: 0
+	y2log: 0
+	y2tics: 0
+	ylabel: y [cm]
+	ylog: 0
+	zlog: 0
+	ztics: 0
+End
+
 # Geometry plot "GeoViewer Red plot"
 Plot: Red
 	Format: .eps
@@ -59,7 +95,7 @@ Plot: Red
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 758.179 568.634
+	extends: 758.179 970.949
 	grid: 0
 	index: 0
 	labels: 1
@@ -85,7 +121,7 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 1069.93 802.448
+	extends: 1069.93 1370.19
 	labels: 1
 	layer: Media
 	origin: 231.932 0 54.2233
@@ -101,7 +137,7 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 679.259 509.444
+	extends: 679.259 869.881
 	labels: 1
 	layer: Media
 	origin: 0 -17.5001 -154.886
@@ -123,7 +159,7 @@ Plot: Magenta
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 619.174 464.38
+	extends: 619.174 792.934
 	grid: 0
 	index: 0
 	labels: 1
@@ -141,13 +177,18 @@ Plot: Magenta
 	ztics: 0
 End
 
-# USRBIN plot "USRBIN watertank 51"
+# USRBIN plot "Neutron flux"
 Plot: watertank_51_plot
 	Format: .eps
 	Type:   USRBIN
 	axes: Auto
+	bymax: 196
+	bymin: -196.8
+	bzmax: 394
+	bzmin: -780.5
 	cbcolors: 30
-	cblog: 1
+	cblabel: #/cm2 per electron
+	cblog: True
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 1
@@ -156,25 +197,28 @@ Plot: watertank_51_plot
 	det: 1
 	errors: 0
 	geo: -Auto-
+	geopos: 0.0
 	grid: 0
 	hist: 2D Projection
-	index: 0
-	int: 66496.226069321201
+	index: 1
+	int: 1836.3492741090115
 	lw.0: 0
-	max: 0.168734685
-	min: 8.71527561E-09
+	max: 3.16468038E-04
+	min: 4.10688705E-10
 	proj: X
 	ps.0: 0
 	pt.0: 0
 	swap: 0
-	title: USRBIN watertank 51
+	title: Neutron flux
 	with.0: errorbars
 	x2log: 0
 	x2tics: 0
+	xlabel: z [cm]
 	xlog: 0
 	xrebin: 1
 	y2log: 0
 	y2tics: 0
+	ylabel: y [cm]
 	ylog: 0
 	yrebin: 1
 	zlog: 0

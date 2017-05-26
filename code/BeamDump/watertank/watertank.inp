@@ -1,11 +1,12 @@
 TITLE
-simple_ILC_beam_dump
+watertank_beam_dump
 GLOBAL                                          1.
-BEAM          -250.0  -0.00282            -0.24697  -0.30522          ELECTRON
-!@what.3=-0.0*mm
-BEAMPOS          0.0       0.0       0.0       0.0       0.0
+DEFAULTS                                                              PRECISIO
+BEAM           -250.  -0.00282          -2.4697E-4-3.0522E-6          ELECTRON
+!@what.3=-750.0*cm
+BEAMPOS          0.0       0.0     -750.       0.0       0.0
 GEOBEGIN                                                              COMBNAME
-    0    0          simple_ILC_beam_dump
+    0    0          watertank_beam_dump
 !@what.1=-1400.0*mm
 !@what.2=4500.0*mm
 !@what.3=-2400.0*mm
@@ -58,8 +59,8 @@ MATERIAL         24.                7.18                              CHROMIUM
 * Stainless-Steel (typical)
 * Stainless-Steel is produced with Cr content ranging from
 * 4 - 19 Atomic Percent, and with C content from 0 - 4 percent.
-MATERIAL                             8.0                              Stainles
-COMPOUND        18.0  CHROMIUM      74.0      IRON       8.0    NICKELStainles
+MATERIAL                              8.                              Stainles
+COMPOUND         18.  CHROMIUM       74.      IRON        8.    NICKELStainles
 * Concrete
 * Concrete has a wide variation in density and composition. The above
 * description is for poured structural concrete with 10% moisture
@@ -67,8 +68,8 @@ COMPOUND        18.0  CHROMIUM      74.0      IRON       8.0    NICKELStainles
 * Ranges of concrete composition are : C (8-25%), O (38-60%), Si (8-18%).
 * Concrete composition can be analyzed cheaply by commercial laboratories.
 MATERIAL                            2.34                              Concrete
-COMPOUND        23.0    CARBON      40.0    OXYGEN      12.0   SILICONConcrete
-COMPOUND        12.0   CALCIUM      10.0  HYDROGEN       2.0  MAGNESIUConcrete
+COMPOUND         23.    CARBON       40.    OXYGEN       12.   SILICONConcrete
+COMPOUND         12.   CALCIUM       10.  HYDROGEN        2.  MAGNESIUConcrete
 ASSIGNMA    BLCKHOLE   BLKBODY   BLKBODY                 0.0
 ASSIGNMA         AIR       Air       Air                 0.0
 ASSIGNMA       WATER     Water     Water                 0.0
@@ -76,7 +77,7 @@ ASSIGNMA    Stainles      Tank      Tank                 0.0
 ASSIGNMA    Stainles  BeamPipe  BeamPipe                 0.0
 ASSIGNMA    TITANIUM    Window    Window                 0.0
 ASSIGNMA      VACUUM   PipeVac   PipeVac                 0.0
-PHOTONUC          1.                                                1.
+PHOTONUC          1.                        VACUUM     WATER        1.
 LAM-BIAS         0.0      0.02     WATER   NEUTRON                    INEPRI
 *USRBDX            1.   NEUTRON       49.   PipeVac   BLKBODY       20.Neutrons
 *USRBDX                              100.                          100. &
@@ -87,16 +88,16 @@ LAM-BIAS         0.0      0.02     WATER   NEUTRON                    INEPRI
 !@what.8=-2000.0*mm
 !@what.9=-4000.0*mm
 *USRBIN           10.    ENERGY      -50.       80.      200.      400.Energy
-*USRBIN          -80.     -200.     -400.     500.0     500.0     500.0 &
-!@what.4=800.0*mm
-!@what.5=2000.0*mm
-!@what.6=4000.0*mm
-!@what.7=-800.0*mm
-!@what.8=-2000.0*mm
-!@what.9=-4000.0*mm
-USRBIN           10.  ELECTRON      -51.       80.      200.      400.Energy
-USRBIN          -80.     -200.     -400.     100.0     100.0     100.0 &
+*USRBIN          -80.     -200.     -400.      500.      500.      500. &
+!@what.4=400.0*cm
+!@what.5=200.0*cm
+!@what.6=430.0*cm
+!@what.7=-120.0*cm
+!@what.8=-200.0*cm
+!@what.9=-770.0*cm
+USRBIN           10.   NEUTRON      -51.      400.      200.      430.Neutrons
+USRBIN         -120.     -200.     -770.      100.      100.      200. &
 DISCARD        MUONS
-RANDOMIZ          1.
-START            10.                                     0.0 99999999.
+RANDOMIZ          1.        1.
+START            50.                                     0.0 99999999.
 STOP
