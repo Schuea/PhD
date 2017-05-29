@@ -46,32 +46,32 @@ int main(int const argc, char const * const * const argv){
 
   shared_ptr< TTree > tree(static_cast< TTree* >(input_file->Get("optics")));
   
-  shared_ptr< TH2D > histo_sigmax_s(new TH2D("histo_sigmax_s",";The path along the beam line [m];Beam size [mm]",45,0,45,30,0,3.5));
+  shared_ptr< TH2D > histo_sigmax_s(new TH2D("histo_sigmax_s",";The path along the beam line [m];Beam size [mm]",45,0,45,50,0,0.0020));
   int entries_sigmax_s = tree->Draw("Sigma_x:S >>+ histo_sigmax_s","","p");
   cout << "Histogram histo_sigmax_s has " << entries_sigmax_s << " entries" << endl;
   
-  shared_ptr< TH2D > histo_sigmay_s(new TH2D("histo_sigmay_s",";The path along the beam line [m];Beam size [mm]",45,0,45,30,0,3.5));
+  shared_ptr< TH2D > histo_sigmay_s(new TH2D("histo_sigmay_s",";The path along the beam line [m];Beam size [mm]",45,0,45,50,0,0.0020));
   int entries_sigmay_s = tree->Draw("Sigma_y:S >>+ histo_sigmay_s","","p");
   cout << "Histogram histo_sigmay_s has " << entries_sigmay_s << " entries" << endl;
 
-  shared_ptr< TH2D > histo_betax_s(new TH2D("histo_betax_s",";The path along the beam line [m];#beta Function [mm^{2}]",45,0,45,100,0,3000));
+  shared_ptr< TH2D > histo_betax_s(new TH2D("histo_betax_s",";The path along the beam line [m];#beta Function [mm^{2}]",45,0,45,120,0,4500));
   int entries_betax_s = tree->Draw("Beta_x:S >>+ histo_betax_s","","p");
   cout << "Histogram histo_betax_s has " << entries_betax_s << " entries" << endl;
   
-  shared_ptr< TH2D > histo_betay_s(new TH2D("histo_betay_s",";The path along the beam line [m];#beta Function [mm^{2}]",45,0,45,100,0,3000));
+  shared_ptr< TH2D > histo_betay_s(new TH2D("histo_betay_s",";The path along the beam line [m];#beta Function [mm^{2}]",45,0,45,120,0,4500));
   int entries_betay_s = tree->Draw("Beta_y:S >>+ histo_betay_s","","p");
   cout << "Histogram histo_betay_s has " << entries_betay_s << " entries" << endl;
 
-  histo_sigmax_s->SetMarkerStyle(10);
+  histo_sigmax_s->SetMarkerStyle(8);
   histo_sigmax_s->SetMarkerColor(kPink-6);
-  histo_sigmay_s->SetMarkerStyle(10);
+  histo_sigmay_s->SetMarkerStyle(8);
   histo_sigmay_s->SetMarkerColor(kTeal+3);
-  histo_betax_s->SetMarkerStyle(10);
+  histo_betax_s->SetMarkerStyle(8);
   histo_betax_s->SetMarkerColor(kPink-6);
-  histo_betay_s->SetMarkerStyle(10);
+  histo_betay_s->SetMarkerStyle(8);
   histo_betay_s->SetMarkerColor(kTeal+3);
 
-  TLegend legsigma(0.35,0.4,0.45,0.65), legbeta(0.75,0.4,0.85,0.65);
+  TLegend legsigma(0.35,0.5,0.45,0.75), legbeta(0.35,0.5,0.45,0.75);
   legsigma.AddEntry(histo_sigmax_s.get(),"#sigma_{x}","p");
   legsigma.AddEntry(histo_sigmay_s.get(),"#sigma_{y}","p");
   legbeta.AddEntry(histo_betax_s.get(),"#beta_{x}","p");

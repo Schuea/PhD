@@ -10,7 +10,8 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include -g -Wall -Wextra -pthread -O2 -std=c++
 CXXFLAGS +=  $(shell root-config --glibs)
 
 # Executables produced by this Makefile
-RUN = ../NewOccupancyPlotter ../HelixPlotter ../HelixEnvelopePlotter
+RUN = ../NewOccupancyPlotter ../HelixPlotter ../HelixEnvelopePlotter ../HelixEnvelopeComparison
+
 #RUN = ../NewOccupancyPlotter ../OccupancyPlotter ../ParticleCountPlotter ../FullBufferMapsPlotter ../FullBufferHistoPlotter ../ParticleOriginsTimePlotter ../HittimePlotter ../ggHadrons_HittimePlotter ../ggHadrons_pairs_HittimePlotter ../ggHadrons_pairs_PT_Plotter ../MomentumTimePlotter ../LatePrimariesCalculater ../HelixPlotter ../HelixEnvelopePlotter
 
 
@@ -33,6 +34,7 @@ MAIN_OCCUPANCY_NEW = ../objects/main_occupancy_new.o
 #MAIN_CALC_LATE = ../objects/main_calculate_late_arriving_primaries.o
 MAIN_HELIX = ../objects/main_helix_tracks.o
 MAIN_HELIX_ENVELOPES = ../objects/main_helix_tracks_envelopes.o
+MAIN_HELIX_COMPARISON = ../objects/main_helix_tracks_envelopes_comparison.o
 CONFIG = ../objects/ConfigReader.o ../objects/ConfigReaderAnalysis.o
 USEFUL = ../objects/UsefulFunctions.o
 STYLE = ../objects/Style.o
@@ -144,6 +146,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 ../HelixEnvelopePlotter : $(MAIN_HELIX_ENVELOPES) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
+../HelixEnvelopeComparison : $(MAIN_HELIX_COMPARISON) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
 ../objects/ConfigReader.o : ../src/ConfigReader.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
@@ -190,6 +195,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_helix_tracks_envelopes.o : ../src/main_helix_tracks_envelopes.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/main_helix_tracks_envelopes_comparison.o : ../src/main_helix_tracks_envelopes_comparison.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/UsefulFunctions.o : ../../General/src/UsefulFunctions.cc

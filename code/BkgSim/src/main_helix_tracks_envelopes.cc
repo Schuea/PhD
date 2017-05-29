@@ -87,6 +87,7 @@ void DrawAllGraphs(vector< TGraph* > const & all_graphs){
   all_graphs.at(0)->Draw("AP");
   for(size_t i = 1; i < all_graphs.size(); ++i){
     all_graphs.at(i)->Draw("PSAME");
+    all_graphs.at(i)->Write();
   }
 }
 
@@ -116,6 +117,22 @@ vector< TGraph* > GetAllGraphs(TH2D * hx){
   TGraph *graph_997_neg = new TGraph(n, graph_997->GetX(), InvertYaxis(n, graph_997->GetY()));
   TGraph *graph_999_neg = new TGraph(n, graph_999->GetX(), InvertYaxis(n, graph_999->GetY()));
   TGraph *graph_9999_neg = new TGraph(n, graph_9999->GetX(), InvertYaxis(n, graph_9999->GetY()));
+
+  graph_68->SetName("gr68");
+  graph_90->SetName("gr90");
+  graph_95->SetName("gr95");
+  graph_99->SetName("gr99");
+  graph_997->SetName("gr997");
+  graph_999->SetName("gr999");
+  graph_9999->SetName("gr9999");
+                
+  graph_68_neg->SetName("gr68neg"); 
+  graph_90_neg->SetName("gr90neg");
+  graph_95_neg->SetName("gr95neg");
+  graph_99_neg->SetName("gr99neg");
+  graph_997_neg->SetName("gr997neg");
+  graph_999_neg->SetName("gr999neg");
+  graph_9999_neg->SetName("gr9999neg");
 
   vector< TGraph* > all_graphs;
   all_graphs.push_back(graph_68);
@@ -151,6 +168,7 @@ int main(int const argc, char const * const * const argv){
     cerr << "Give the specifications of the input file, e.g. 1bunch_500GeV_3T" << endl;
     exit(1);
   }
+  
 
   std::string plane1 = "Helix_tracks_xz";
   std::string plane2 = "Helix_tracks_yz";
@@ -158,16 +176,13 @@ int main(int const argc, char const * const * const argv){
   TH2D *hx = (TH2D*)file->Get( plane1.c_str() );
   TH2D *hy = (TH2D*)file->Get( plane2.c_str() );
 
-  vector< TGraph* > all_graphs1 = GetAllGraphs(hx);
-  vector< TGraph* > all_graphs2 = GetAllGraphs(hy);
-
-  SetAllGraphStyles(all_graphs1,"x");
-  SetAllGraphStyles(all_graphs2,"y");
-
   TCanvas c;
   c.SetGridx();
   c.SetGridy();
 
+  TFile *outputfile1 = new TFile( ("output/HelixEnvelopes_xz_"+specialname+".root").c_str(),"RECREATE" );
+  vector< TGraph* > all_graphs1 = GetAllGraphs(hx);
+  SetAllGraphStyles(all_graphs1,"x");
   DrawAllGraphs(all_graphs1);
 
   vector< TLine* > all_lines = GetAllLines();
@@ -182,12 +197,17 @@ int main(int const argc, char const * const * const argv){
   //resultx->Draw("hist");
   c.Print( ("output/HelixEnvelopes_"+plane1+"_"+specialname+".pdf").c_str() );
   c.Print( ("output/HelixEnvelopes_"+plane1+"_"+specialname+".cxx").c_str() );
+  outputfile1->Write();
 
+  TFile *outputfile2 = new TFile( ("output/HelixEnvelopes_yz_"+specialname+".root").c_str(),"RECREATE" );
+  vector< TGraph* > all_graphs2 = GetAllGraphs(hy);
+  SetAllGraphStyles(all_graphs2,"y");
   DrawAllGraphs(all_graphs2);
   DrawAllLines(all_lines);
   TLegend* leg2 = MakeLegend(all_graphs2);
   leg2->Draw();
   c.Print( ("output/HelixEnvelopes_"+plane2+"_"+specialname+".pdf").c_str() );
   c.Print( ("output/HelixEnvelopes_"+plane2+"_"+specialname+".cxx").c_str() );
+  outputfile2->Write();
   return 0;
 }

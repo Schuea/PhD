@@ -33,14 +33,30 @@ int main(int const argc, char const * const * const argv) {
 	float BField = 0.0;
 
 	int NUMBER_OF_FILES = 0;
+	int NUMBER_OF_BUNCHES = 0;
 	bool NUMBER_OF_FILES_set = false;
+	bool NUMBER_OF_BUNCHES_set = false;
 	bool inputfile_set = false;
 	bool outputfilename_set = false;
 	bool bfield_set = false;
 
 	for (int i = 1; i < argc; i++) {
-		if (argv[i] == std::string("-n")) {
+		if (argv[i] == std::string("-nb")) {
 			if (argv[i + 1] != NULL 
+					&& argv[i + 1] != std::string("-n") 
+					&& argv[i + 1] != std::string("-b") 
+					&& argv[i + 1] != std::string("-o") 
+					&& argv[i + 1] != std::string("-i")) {
+				NUMBER_OF_BUNCHES = std::stoi(argv[i + 1]);
+				std::cout << "Number of bunches = " << NUMBER_OF_BUNCHES << std::endl;
+				NUMBER_OF_BUNCHES_set = true;
+			} else {
+				std::cerr << "You didn't give an argument for the number of bunches!" << std::endl;
+			}
+		}
+    if (argv[i] == std::string("-n")) {
+			if (argv[i + 1] != NULL 
+					&& argv[i + 1] != std::string("-nb") 
 					&& argv[i + 1] != std::string("-b") 
 					&& argv[i + 1] != std::string("-o") 
 					&& argv[i + 1] != std::string("-i")) {
@@ -59,6 +75,7 @@ int main(int const argc, char const * const * const argv) {
 				do {
 					if (argv[i + j] != std::string("-n") 
 							&& argv[i + j] != std::string("-b")
+							&& argv[i + j] != std::string("-nb")
 							&& argv[i + j] != std::string("-o")) {
 						inputfilenames->push_back(argv[i + j]);
 						++j;
@@ -75,6 +92,7 @@ int main(int const argc, char const * const * const argv) {
 			if (argv[i + 1] != NULL 
 				&& argv[i + 1] != std::string("-b") 
 				&& argv[i + 1] != std::string("-n") 
+				&& argv[i + 1] != std::string("-nb") 
 				&& argv[i + 1] != std::string("-i")) {
 				specialname = argv[i + 1];
 				outputfilename_set = true;
@@ -85,6 +103,7 @@ int main(int const argc, char const * const * const argv) {
 		if (argv[i] == std::string("-b")){
 			if (argv[i + 1] != NULL 
 				&& argv[i + 1] != std::string("-n") 
+				&& argv[i + 1] != std::string("-nb") 
 				&& argv[i + 1] != std::string("-o") 
 				&& argv[i + 1] != std::string("-i")) {
 				BField = std::stof(argv[i + 1]);
@@ -94,9 +113,9 @@ int main(int const argc, char const * const * const argv) {
 			}
 		}
 	}
-	if (!inputfile_set || !outputfilename_set || !NUMBER_OF_FILES_set || !bfield_set) {
+	if (!inputfile_set || !outputfilename_set || !NUMBER_OF_FILES_set || !NUMBER_OF_BUNCHES_set || !bfield_set) {
 		std::cerr
-			<< "You didn't give the name for the inputfiles, the amount of inputfiles, the name for the outputfile, or the B-field. Please try again!"
+			<< "You didn't give the name for the inputfiles, the amount of inputfiles, the name for the outputfile, the number of bunches, or the B-field. Please try again!"
 			<< std::endl;
 		exit(1);
 	}
@@ -218,7 +237,7 @@ int main(int const argc, char const * const * const argv) {
 				x_array[step-1]=helix_positions[0]*1000.0;
 				y_array[step-1]=helix_positions[1]*1000.0;
 				z_array[step-1]=helix_positions[2]*1000.0;
-        w_array[step-1]=1.0/(double)NUMBER_OF_FILES;
+        w_array[step-1]=1.0/(double)NUMBER_OF_BUNCHES;
         if(i == 1 && step==1) std::cout << w_array[step-1] << std::endl;
 				//if(step > 190/300*zbin){
 				//histo_x_projected->Fill(x_array[step-1]);
