@@ -1,10 +1,10 @@
 TITLE
 simple_ILC_beam_dump
 GLOBAL                                          1.
-DEFAULTS                                                              NEW-DEFA
-BEAM          -250.0  -0.00282          -2.4697E-4-3.0522E-6          ELECTRON
-!@what.3=-4500.0*mm
-BEAMPOS          0.0       0.0     -450.       0.0       0.0
+DEFAULTS                                                              PRECISIO
+BEAM           -250.  -0.00282          -2.4697E-4-3.0522E-6          ELECTRON
+!@what.3=-1900.0*cm
+BEAMPOS          0.0       0.0    -1900.       0.0       0.0
 GEOBEGIN                                                              COMBNAME
     0    0          simple_ILC_beam_dump
 !@what.1=-6550.0*mm
@@ -98,8 +98,8 @@ MATERIAL         24.                7.18                              CHROMIUM
 * Stainless-Steel (typical)
 * Stainless-Steel is produced with Cr content ranging from
 * 4 - 19 Atomic Percent, and with C content from 0 - 4 percent.
-MATERIAL                             8.0                              Stainles
-COMPOUND        18.0  CHROMIUM      74.0      IRON       8.0    NICKELStainles
+MATERIAL                              8.                              Stainles
+COMPOUND         18.  CHROMIUM       74.      IRON        8.    NICKELStainles
 * Concrete
 * Concrete has a wide variation in density and composition. The above
 * description is for poured structural concrete with 10% moisture
@@ -107,19 +107,19 @@ COMPOUND        18.0  CHROMIUM      74.0      IRON       8.0    NICKELStainles
 * Ranges of concrete composition are : C (8-25%), O (38-60%), Si (8-18%).
 * Concrete composition can be analyzed cheaply by commercial laboratories.
 MATERIAL                            2.34                              Concrete
-COMPOUND        23.0    CARBON      40.0    OXYGEN      12.0   SILICONConcrete
-COMPOUND        12.0   CALCIUM      10.0  HYDROGEN       2.0  MAGNESIUConcrete
+COMPOUND         23.    CARBON       40.    OXYGEN       12.   SILICONConcrete
+COMPOUND         12.   CALCIUM       10.  HYDROGEN        2.  MAGNESIUConcrete
 MATERIAL                             2.5                              SiO2
 COMPOUND       33.33   SILICON     66.66    OXYGEN                    SiO2
 MATERIAL                            3.58                              MgO
-COMPOUND        50.0  MAGNESIU      50.0    OXYGEN                    MgO
+COMPOUND         50.  MAGNESIU       50.    OXYGEN                    MgO
 MATERIAL         25.    54.938      7.44                           0.0Mangan
 MATERIAL                            5.45                              MnO
-COMPOUND        50.0    Mangan      50.0    OXYGEN                    MnO
+COMPOUND         50.    Mangan       50.    OXYGEN                    MnO
 MATERIAL                            3.94                              Al2O3
-COMPOUND        40.0  ALUMINUM      60.0    OXYGEN                    Al2O3
+COMPOUND         40.  ALUMINUM       60.    OXYGEN                    Al2O3
 MATERIAL                            3.37                              CaO
-COMPOUND        50.0   CALCIUM      50.0    OXYGEN                    CaO
+COMPOUND         50.   CALCIUM       50.    OXYGEN                    CaO
 MATERIAL         55.    132.91     1.873                           0.0Cs
 MATERIAL                            2.27                              Na2O
 COMPOUND       66.66    SODIUM     33.33    OXYGEN                    Na2O
@@ -129,7 +129,7 @@ COMPOUND       66.66    Kalium     33.33    OXYGEN                    K2O
 MATERIAL                            4.24                              TiO2
 COMPOUND       33.33  TITANIUM     66.66    OXYGEN                    TiO2
 MATERIAL                            5.24                              Fe2O3
-COMPOUND        40.0      IRON      60.0    OXYGEN                    Fe2O3
+COMPOUND         40.      IRON       60.    OXYGEN                    Fe2O3
 MATERIAL         63.    151.96     5.243                           0.0Eu
 MATERIAL         27.    58.933      8.86                           0.0Cobalt
 MATERIAL                             2.2                              NormConc
@@ -139,20 +139,20 @@ COMPOUND       -0.01        Cs     -2.29      Na2O     -0.86       K2ONormConc
 COMPOUND       -0.39      TiO2     -3.47     Fe2O3     -0.01        EuNormConc
 COMPOUND       -0.01    Cobalt                                        NormConc
 MATERIAL                              6.                              CoO
-COMPOUND        50.0    Cobalt      50.0    OXYGEN                    CoO
+COMPOUND         50.    Cobalt       50.    OXYGEN                    CoO
 MATERIAL         16.    32.065     2.067                           0.0Sulfur
-MATERIAL                            2.00                              SO3
-COMPOUND        25.0    Sulfur      75.0    OXYGEN                    SO3
+MATERIAL                              2.                              SO3
+COMPOUND         25.    Sulfur       75.    OXYGEN                    SO3
 MATERIAL         17.    35.453  0.003214                           0.0Chlorine
 MATERIAL          5.    10.811      2.34                           0.0Boron
 MATERIAL                            1.83                              B2O3
-COMPOUND        40.0     Boron      60.0    OXYGEN                    B2O3
+COMPOUND         40.     Boron       60.    OXYGEN                    B2O3
 MATERIAL         15.    30.974      1.82                           0.0Phosphor
 MATERIAL                            2.39                              P2O5
 COMPOUND       28.57  Phosphor     71.42    OXYGEN                    P2O5
 MATERIAL                             2.2                              NeutConc
 COMPOUND       -33.1      SiO2     -14.8     WATER     -29.1       MgONeutConc
-COMPOUND       -0.09       MnO     -1.54     Al2O3     -11.0       CaONeutConc
+COMPOUND       -0.09       MnO     -1.54     Al2O3      -11.       CaONeutConc
 COMPOUND       -0.01        Cs     -0.05      Na2O     -0.06       K2ONeutConc
 COMPOUND       -0.07      TiO2     -6.23     Fe2O3     -0.01        EuNeutConc
 COMPOUND       -0.01       CoO    -0.016  Chlorine     -0.11      P2O5NeutConc
@@ -168,29 +168,38 @@ ASSIGNMA    Stainles      Tank      Tank                 0.0
 ASSIGNMA    Stainles  BeamPipe  BeamPipe                 0.0
 ASSIGNMA    TITANIUM    Window    Window                 0.0
 ASSIGNMA      VACUUM   PipeVac   PipeVac                 0.0
+LOW-MAT       Mangan       25.       55.      296.                    MANGANES
+LOW-MAT           Cs       55.      133.      296.                    CESIUM
+LOW-MAT       Kalium       19.       -2.      296.                    POTASSIU
+LOW-MAT           Eu       63.       -2.      296.                    EUROPIUM
+LOW-MAT       Cobalt       27.       59.      296.                    COBALT
+LOW-MAT       Sulfur       16.       -2.      296.                    SULFUR
+LOW-MAT     Chlorine       17.       -2.      296.                    CHLORINE
+LOW-MAT        Boron        5.       -2.      296.                    BORON
+LOW-MAT     Phosphor       15.       31.      296.                    PHOSPHO
 PHOTONUC          1.                        VACUUM     WATER        1.
-LAM-BIAS         0.0      0.02              PHOTON                    INEPRI
+LAM-BIAS         0.0      0.02     WATER   NEUTRON                    INEPRI
 *USRBDX            1.   NEUTRON       49.   PipeVac   BLKBODY       20.Neutrons
 *USRBDX                               50.                           10. &
-!@what.4=900.0*mm
-!@what.5=2000.0*mm
-!@what.6=4000.0*mm
-!@what.7=-900.0*mm
-!@what.8=-2000.0*mm
-!@what.9=-4000.0*mm
-USRBIN           10.    ENERGY      -50.       90.      200.      400.Energy
-USRBIN          -90.     -200.     -400.      20.0       1.0      30.0 &
-!@what.4=900.0*mm
-!@what.5=2000.0*mm
-!@what.6=4000.0*mm
-!@what.7=-900.0*mm
-!@what.8=-2000.0*mm
-!@what.9=-4000.0*mm
-*USRBIN           10.   NEUTRON      -51.       90.      200.      400.Neutrons
-*USRBIN          -90.     -200.     -400.      20.0       1.0      30.0 &
+!@what.4=850.0*cm
+!@what.5=650.0*cm
+!@what.6=800.0*cm
+!@what.7=-300.0*cm
+!@what.8=-200.0*cm
+!@what.9=-1700.0*cm
+USRBIN           10.    ENERGY      -21.      850.      650.      800.Energy
+USRBIN         -300.     -200.    -1700.      150.       85.      250. &
+!@what.4=850.0*cm
+!@what.5=650.0*cm
+!@what.6=800.0*cm
+!@what.7=-300.0*cm
+!@what.8=-200.0*cm
+!@what.9=-1700.0*cm
+USRBIN           10.   NEUTRON      -22.      850.      650.      800.Neutrons
+USRBIN         -300.     -200.    -1700.      150.       85.      250. &
 *USRYIELD       3301.   NEUTRON       52.                              Ekin_n
 *USRYIELD                                     1000.                     &
 DISCARD        MUONS
-RANDOMIZ          1.
-START          3000.                                     0.0 99999999.
+RANDOMIZ          1.        1.
+START            50.                                     0.0 99999999.
 STOP
