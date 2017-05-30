@@ -2,10 +2,10 @@
 # FLUKA Project file
 Version: 2
 Title: BeamDump_Design_BSmith_0_TB_0067_210_00_A
-Input: 
+Input: BeamDump_Design_BSmith_0_TB_0067_210_00_A.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Flair
+Page: Geometry
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -22,4 +22,86 @@ End
 
 # Geometry Information
 Geometry:
+	Frame.bsplit: 0.5
+	Frame.tsplit: 0.01
+	Frame.vsplit: 0.99
+
+	# Layer
+	Layer: Image
+		Image: True
+		Image._visible: True
+		Image.file: TB-0067-210-00-A_xz_view.png
+		Image.marker: 5
+		Image.marker.0: 257.442857143 231.585714286 0.0 0.0 -3250.0
+		Image.marker.1: 257.4375 277.5 -300.0 0.0 -3250.0
+		Image.marker.2: 1242.42857143 277.452380952 -300.0 0.0 3250.0
+		Image.marker.3: 257.5 163.444444444 450.0 0.0 -3250.0
+		Image.marker.4: 1242.55 163.5 450.0 0.0 3250.0
+		Image.prompt: 1
+		Show._visible: True
+	End
+End
+
+# Geometry plot "GeoViewer Red plot"
+Plot: Red
+	Format: .eps
+	Type:   Geometry
+	basisu: 1 0 0
+	basisv: 0 1 0
+	boundaries: 1
+	coord: X-Y
+	extends: 100 7114.29
+	labels: 1
+	layer: Media
+	origin: 0 0 0
+	subtype: Material
+	title: GeoViewer Red plot
+End
+
+# Geometry plot "GeoViewer Green plot"
+Plot: Green
+	Format: .eps
+	Type:   Geometry
+	basisu: 0 0 1
+	basisv: 1 0 0
+	boundaries: 1
+	coord: Z-X
+	extends: 4600.51 2901.91
+	labels: 1
+	layer: Image
+	origin: -735.598 0 -1245.96
+	subtype: Material
+	title: GeoViewer Green plot
+End
+
+# Geometry plot "GeoViewer Blue plot"
+Plot: Blue
+	Format: .eps
+	Type:   Geometry
+	basisu: 0 0 1
+	basisv: 0 1 0
+	boundaries: 1
+	coord: Z-Y
+	extends: 100 0.125471
+	labels: 1
+	layer: Media
+	origin: 0 0 0
+	subtype: Material
+	title: GeoViewer Blue plot
+End
+
+# Geometry plot "GeoViewer Magenta plot"
+Plot: Magenta
+	Format: .eps
+	Type:   Geometry
+	basisu: -1 0 0
+	basisv: 0 1 0
+	boundaries: 1
+	coord: X-Y
+	extends: 100 0.125628
+	labels: 1
+	layer: Media
+	origin: 0 0 0
+	subtype: Material
+	title: GeoViewer Magenta plot
 End

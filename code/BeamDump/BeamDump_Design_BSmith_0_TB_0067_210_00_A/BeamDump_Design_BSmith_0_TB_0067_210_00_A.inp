@@ -1,0 +1,51 @@
+TITLE
+BeamDump_Design_BSmith_0_TB_0067_210_00_A
+GLOBAL                                          1.        1.
+* Set the defaults for precision simulations
+DEFAULTS                                                              PRECISIO
+* Define the beam characteristics
+BEAM           -250.  -0.00282          -2.4697E-4-3.0522E-6          ELECTRON
+* Define the beam position
+!@what.3=-19000.0*mm
+BEAMPOS          0.0       0.0    -1900.
+!point           0.0       0.0   -3250.0                              marker1
+!point        -300.0       0.0   -3250.0                              marker2
+!point        -300.0       0.0    3250.0                              marker3
+!point         450.0       0.0   -3250.0                              marker4
+!point         450.0       0.0    3250.0                              marker5
+GEOBEGIN                                                              COMBNAME
+    0    0          BeamDump_Design_BSmith_0_TB_0067_210_00_A
+ZCC body1      -300.0 0.0 750.0
+ZCC body2      0.0 0.0 200.0
+ZCC body3      -550.0 0.0 100.0
+XYP body4      -3300.
+XYP body5      -3950.0
+XYP body6      -3550.0
+XYP body7      3290.0
+XYP body8      1350.0
+XYP body9      -3100.0
+XCC body10     0.0 -2820.0 100.0
+XCC body11     0.0 -1810.0 100.0
+XCC body12     0.0 740.0 100.0
+ELL body13     -963.3249580711 0.0 -3300.0 363.32495807108 0.0 -3300.0 1500.
+ELL body14     -963.3249580711 0.0 3290.0 363.3249580711 0.0 3290.0 1500.0
+END
+WindPipe     5 +body2 +body6 -body5
+END
+GEOEND
+ASSIGNMA         AIR  WindPipe
+!@what.4=3000.0*mm
+!@what.5=2000.0*mm
+!@what.6=4000.0*mm
+!@what.7=-3000.0*mm
+!@what.8=-2000.0*mm
+!@what.9=-13000.0*mm
+*USRBIN           10.    ENERGY      -50.      300.      200.      400.Energy
+*USRBIN         -300.     -200.    -1300.      100.      100.      100. &
+*RESNUCLE          3.      -52.                         Water        1.BeamDump
+DISCARD        MUONS
+* Set the random number seed
+RANDOMIZ          1.        1.
+* Set the number of primary histories to be simulated in the run
+START           100.         .
+STOP
