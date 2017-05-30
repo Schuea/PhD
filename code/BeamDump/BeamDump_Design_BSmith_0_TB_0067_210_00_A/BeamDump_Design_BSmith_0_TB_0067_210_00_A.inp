@@ -8,32 +8,33 @@ BEAM           -250.  -0.00282          -2.4697E-4-3.0522E-6          ELECTRON
 * Define the beam position
 !@what.3=-19000.0*mm
 BEAMPOS          0.0       0.0    -1900.
-!point           0.0       0.0   -3250.0                              marker1
-!point        -300.0       0.0   -3250.0                              marker2
-!point        -300.0       0.0    3250.0                              marker3
-!point         450.0       0.0   -3250.0                              marker4
-!point         450.0       0.0    3250.0                              marker5
+!point           0.0       0.0    -3250.                              marker1
+!point         -300.       0.0    -3250.                              marker2
+!point         -300.       0.0     3250.                              marker3
+!point          450.       0.0    -3250.                              marker4
+!point          450.       0.0     3250.                              marker5
 GEOBEGIN                                                              COMBNAME
     0    0          BeamDump_Design_BSmith_0_TB_0067_210_00_A
-ZCC body1      -300.0 0.0 750.0
-ZCC body2      0.0 0.0 200.0
-ZCC body3      -550.0 0.0 100.0
+ZCC body1      -300. 0.0 750.
+ZCC body2      0.0 0.0 200.
+ZCC body3      -550. 0.0 100.
 XYP body4      -3300.
-XYP body5      -3950.0
-XYP body6      -3550.0
-XYP body7      3290.0
-XYP body8      1350.0
-XYP body9      -3100.0
-XCC body10     0.0 -2820.0 100.0
-XCC body11     0.0 -1810.0 100.0
-XCC body12     0.0 740.0 100.0
-ELL body13     -963.3249580711 0.0 -3300.0 363.32495807108 0.0 -3300.0 1500.
-ELL body14     -963.3249580711 0.0 3290.0 363.3249580711 0.0 3290.0 1500.0
+XYP body5      -3950.
+XYP body6      -3550.
+XYP body7      3290.
+XYP body8      1350.
+XYP body9      -3100.
+XCC body10     0.0 -2820. 100.
+XCC body11     0.0 -1810. 100.
+XCC body12     0.0 740. 100.
+ELL body13     -963.3249580711 0.0 -3300. 363.32495807108 0.0 -3300. 1500.
+ELL body14     -963.3249580711 0.0 3290. 363.3249580711 0.0 3290. 1500.
+YZP body15     -1950.0
+YZP body16     -640.0
+ZCC body17     0.0 0.0 180.0
 END
-WindPipe     5 +body2 +body6 -body5
 END
 GEOEND
-ASSIGNMA         AIR  WindPipe
 !@what.4=3000.0*mm
 !@what.5=2000.0*mm
 !@what.6=4000.0*mm

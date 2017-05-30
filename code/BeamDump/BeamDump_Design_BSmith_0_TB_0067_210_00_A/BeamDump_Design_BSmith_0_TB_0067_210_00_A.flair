@@ -30,6 +30,7 @@ Geometry:
 	Layer: Image
 		Image: True
 		Image._visible: True
+		Image.alpha: 112
 		Image.file: TB-0067-210-00-A_xz_view.png
 		Image.marker: 5
 		Image.marker.0: 257.442857143 231.585714286 0.0 0.0 -3250.0
@@ -37,9 +38,21 @@ Geometry:
 		Image.marker.2: 1242.42857143 277.452380952 -300.0 0.0 3250.0
 		Image.marker.3: 257.5 163.444444444 450.0 0.0 -3250.0
 		Image.marker.4: 1242.55 163.5 450.0 0.0 3250.0
-		Image.prompt: 1
+		Image.prompt: True
 		Show._visible: True
 	End
+End
+
+# Pet
+Pet: pet
+	ma: 1
+	modules: 0
+	mr: 1
+	mz: 1
+	na: 1
+	nr: 1
+	nz: 1
+	region: Inlet4
 End
 
 # Geometry plot "GeoViewer Red plot"
@@ -50,10 +63,10 @@ Plot: Red
 	basisv: 0 1 0
 	boundaries: 1
 	coord: X-Y
-	extends: 100 7114.29
+	extends: 1500 107062
 	labels: 1
 	layer: Media
-	origin: 0 0 0
+	origin: 695 0 -5
 	subtype: Material
 	title: GeoViewer Red plot
 End
@@ -66,10 +79,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 4600.51 2901.91
+	extends: 1911.13 1058.44
 	labels: 1
 	layer: Image
-	origin: -735.598 0 -1245.96
+	origin: -39.8859 0 -68.0321
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -82,10 +95,10 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 100 0.125471
+	extends: 780000 1500
 	labels: 1
 	layer: Media
-	origin: 0 0 0
+	origin: -300 0 -750
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -98,10 +111,10 @@ Plot: Magenta
 	basisv: 0 1 0
 	boundaries: 1
 	coord: X-Y
-	extends: 100 0.125628
+	extends: 778500 1500
 	labels: 1
 	layer: Media
-	origin: 0 0 0
+	origin: 695 0 -5
 	subtype: Material
 	title: GeoViewer Magenta plot
 End
