@@ -15,26 +15,53 @@ BEAMPOS          0.0       0.0    -1900.
 !point          450.       0.0     3250.                              marker5
 GEOBEGIN                                                              COMBNAME
     0    0          BeamDump_Design_BSmith_0_TB_0067_210_00_A
-ZCC body1      -300. 0.0 750.
-ZCC body2      0.0 0.0 200.
-ZCC body3      -550. 0.0 100.
-XYP body4      -3300.
-XYP body5      -3950.
-XYP body6      -3550.
-XYP body7      3290.
-XYP body8      1350.
-XYP body9      -3100.
-XCC body10     0.0 -2820. 100.
-XCC body11     0.0 -1810. 100.
-XCC body12     0.0 740. 100.
-ELL body13     -963.3249580711 0.0 -3300. 363.32495807108 0.0 -3300. 1500.
-ELL body14     -963.3249580711 0.0 3290. 363.3249580711 0.0 3290. 1500.
-YZP body15     -1950.0
-YZP body16     -640.0
-ZCC body17     0.0 0.0 180.0
+ZCC OutTank    -300. 0.0 750.
+XYP TaEnPla1   -3335.0
+XYP TaEnPla2   3325.0
+ZCC InTank     -300.0 0.0 730.0
+RCC OutWatJe   -550.0 0.0 -3100.0 0.0 0.0 4460.0 100.0
+RCC InWatJe    -550.0 0.0 -3090.0 0.0 0.0 4440.0 90.0
+RCC OutInl1    -1850.0 0.0 -2815.0 1300.0 0.0 0.0 100.0
+RCC InInl1     -1850.0 0.0 -2815.0 1300.0 0.0 0.0 90.0
+RCC OutInl2    -1850.0 0.0 -1815.0 1300.0 0.0 0.0 100.0
+RCC InInl2     -1850.0 0.0 -1815.0 1300.0 0.0 0.0 90.0
+RCC OutInl3    -1850.0 0.0 745.0 1300.0 0.0 0.0 100.0
+RCC InInl3     -1850.0 0.0 745.0 1300.0 0.0 0.0 90.0
+RCC OutBeaPi   0.0 0.0 -3950.0 0.0 0.0 431.96 200.0
+RCC InBeaPi    0.0 0.0 -3950.0 0.0 0.0 431.96024 180.0
+SPH OutTaEn1   -300.0 0.0 -2600.0 1050.0
+SPH InTaEn1    -300.0 0.0 -2600.0 1035.9522189754
+SPH OutTaEn2   -300.0 0.0 2590.0 1050.0
+SPH InTaEn2    -300.0 0.0 2590.0 1035.9522189754
 END
+Inlet1       5 +OutInl1 -InInl1 -InWatJe
+Inlet2       5 +OutInl2 -InInl2 -InWatJe
+Inlet3       5 +OutInl3 -InInl3 -InWatJe
+WaterJet     5 +OutWatJe -InWatJe -OutInl1 -OutInl2 -OutInl3
+BeaPi        5 +OutBeaPi -InBeaPi -OutTaEn1
+BeaPiWat     5 +InBeaPi -OutTaEn1
+WatJetWa     5 +InWatJe
+Inlet2Wa     5 +InInl2 -InWatJe
+Inlet3Wa     5 +InInl3 -InWatJe
+Tank         5 +OutTank +TaEnPla2 -TaEnPla1 -InTank -OutInl1 -OutInl2 -OutInl3
+TankEnd2     5 +OutTaEn2 -TaEnPla2 -InTaEn2
+TankEnd1     5 +TaEnPla1 +OutTaEn1 -InTaEn1 -InBeaPi
+Inlet1Wa     5 +InInl1 -InWatJe
 END
 GEOEND
+ASSIGNMA    TITANIUM    Inlet1
+ASSIGNMA    TITANIUM    Inlet2
+ASSIGNMA    TITANIUM    Inlet3
+ASSIGNMA    TITANIUM  WaterJet
+ASSIGNMA    TITANIUM     BeaPi
+ASSIGNMA       WATER  BeaPiWat
+ASSIGNMA       WATER  WatJetWa
+ASSIGNMA       WATER  Inlet2Wa
+ASSIGNMA       WATER  Inlet3Wa
+ASSIGNMA    TITANIUM      Tank
+ASSIGNMA    TITANIUM  TankEnd2
+ASSIGNMA    TITANIUM  TankEnd1
+ASSIGNMA       WATER  Inlet1Wa
 !@what.4=3000.0*mm
 !@what.5=2000.0*mm
 !@what.6=4000.0*mm
