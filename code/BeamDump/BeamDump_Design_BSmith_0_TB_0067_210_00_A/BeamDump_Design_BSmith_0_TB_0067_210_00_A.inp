@@ -13,80 +13,160 @@ BEAMPOS          0.0       0.0    -1900.
 !point         -300.       0.0     3250.                              marker3
 !point          450.       0.0    -3250.                              marker4
 !point          450.       0.0     3250.                              marker5
+!point        -300.0    -750.0   -3250.0                              marker6
 GEOBEGIN                                                              COMBNAME
     0    0          BeamDump_Design_BSmith_0_TB_0067_210_00_A
 ZCC OutTank    -300. 0.0 750.
-XYP TaEnPla1   -3335.0
-XYP TaEnPla2   3325.0
+XYP TaEnPla1   -3335.
+XYP TaEnPla2   3325.
 ZCC InTank     -300.0 0.0 730.0
-RCC OutWatJe   -550.0 0.0 -3100.0 0.0 0.0 4460.0 100.0
-RCC InWatJe    -550.0 0.0 -3090.0 0.0 0.0 4440.0 90.0
-RCC OutInl1    -1850.0 0.0 -2815.0 1300.0 0.0 0.0 100.0
-RCC InInl1     -1850.0 0.0 -2815.0 1300.0 0.0 0.0 90.0
-RCC OutInl2    -1850.0 0.0 -1815.0 1300.0 0.0 0.0 100.0
-RCC InInl2     -1850.0 0.0 -1815.0 1300.0 0.0 0.0 90.0
-RCC OutInl3    -1850.0 0.0 745.0 1300.0 0.0 0.0 100.0
-RCC InInl3     -1850.0 0.0 745.0 1300.0 0.0 0.0 90.0
-RCC OutBeaPi   0.0 0.0 -3950.0 0.0 0.0 431.96 200.0
-RCC InBeaPi    0.0 0.0 -3950.0 0.0 0.0 431.96024 180.0
-SPH OutTaEn1   -300.0 0.0 -2600.0 1050.0
-SPH InTaEn1    -300.0 0.0 -2600.0 1035.9522189754
-SPH OutTaEn2   -300.0 0.0 2590.0 1050.0
-SPH InTaEn2    -300.0 0.0 2590.0 1035.9522189754
-RCC OutVorte   0.0 0.0 -2315.0 0.0 0.0 3555.0 250.0
-RCC InVorte    0.0 0.0 -2305.0 0.0 0.0 3535.0 240.0
-RCC OutVoP3    -475.0 0.0 -1815.0 250.0 0.0 0.0 50.0
-RCC InVoP3     -475.0 0.0 -1815.0 250.0 0.0 0.0 40.0
-RCC OutVoP16   -475.0 0.0 775.0 250.0 0.0 0.0 50.0
-RCC InVoP16    -475.0 0.0 775.0 250.0 0.0 0.0 40.0
-RCC OutVoP17   -475.0 0.0 975.0 250.0 0.0 0.0 50.0
-RCC InVoP17    -475.0 0.0 975.0 250.0 0.0 0.0 40.0
-RCC OutVoP2    -475.0 0.0 -2015.0 250.0 0.0 0.0 50.0
-RCC InVoP2     -475.0 0.0 -2015.0 250.0 0.0 0.0 40.0
-RCC OutVoP1    -475.0 0.0 -2215.0 250.0 0.0 0.0 50.0
-RCC InVoP1     -475.0 0.0 -2215.0 250.0 0.0 0.0 40.0
-RCC OutVoP4    -475.0 0.0 -1615.0 250.0 0.0 0.0 50.0
-RCC InVoP4     -475.0 0.0 -1615.0 250.0 0.0 0.0 40.0
-RCC OutVoP5    -475.0 0.0 -1415.0 250.0 0.0 0.0 50.0
-RCC InVoP5     -475.0 0.0 -1415.0 250.0 0.0 0.0 40.0
-RCC OutVoP6    -475.0 0.0 -1215.0 250.0 0.0 0.0 50.0
-RCC InVoP6     -475.0 0.0 -1215.0 250.0 0.0 0.0 40.0
-RCC OutVoP7    -475.0 0.0 -1015.0 250.0 0.0 0.0 50.0
-RCC InVoP7     -475.0 0.0 -1015.0 250.0 0.0 0.0 40.0
-RCC OutVoP8    -475.0 0.0 -815.0 250.0 0.0 0.0 50.0
-RCC InVoP8     -475.0 0.0 -815.0 250.0 0.0 0.0 40.0
-RCC OutVoP9    -475.0 0.0 -615.0 250.0 0.0 0.0 50.0
-RCC InVoP9     -475.0 0.0 -615.0 250.0 0.0 0.0 40.0
-RCC OutVoP10   -475.0 0.0 -415.0 250.0 0.0 0.0 50.0
-RCC InVoP10    -475.0 0.0 -415.0 250.0 0.0 0.0 40.0
-RCC OutVoP11   -475.0 0.0 -215.0 250.0 0.0 0.0 50.0
-RCC InVoP11    -475.0 0.0 -215.0 250.0 0.0 0.0 40.0
-RCC OutVoP12   -475.0 0.0 -15.0 250.0 0.0 0.0 50.0
-RCC InVoP12    -475.0 0.0 -15.0 250.0 0.0 0.0 40.0
-RCC OutVoP13   -475.0 0.0 175.0 250.0 0.0 0.0 50.0
-RCC InVoP13    -475.0 0.0 175.0 250.0 0.0 0.0 40.0
-RCC OutVoP14   -475.0 0.0 375.0 250.0 0.0 0.0 50.0
-RCC InVoP14    -475.0 0.0 375.0 250.0 0.0 0.0 40.0
-RCC OutVoP15   -475.0 0.0 575.0 250.0 0.0 0.0 50.0
-RCC InVoP15    -475.0 0.0 575.0 250.0 0.0 0.0 40.0
+RCC OutWatJe   -550.0 0.0 -3120.0 0.0 0.0 4460.0 100.
+RCC InWatJe    -550.0 0.0 -3110.0 0.0 0.0 4440.0 90.
+RCC OutInl1    -1850. 0.0 -2815. 1300. 0.0 0.0 100.
+RCC InInl1     -1850. 0.0 -2815. 1300. 0.0 0.0 90.
+RCC OutInl2    -1840.0 0.0 -1815.0 1300.0 0.0 0.0 100.0
+RCC InInl2     -1840.0 0.0 -1815.0 1300.0 0.0 0.0 90.0
+RCC OutInl3    -1850.0 0.0 745.0 1300. 0.0 0.0 100.0
+RCC InInl3     -1850. 0.0 745. 1300. 0.0 0.0 90.
+RCC OutBeaPi   0.0 0.0 -3950. 0.0 0.0 431.96 200.
+RCC InBeaPi    0.0 0.0 -3950. 0.0 0.0 431.96024 180.
+SPH OutTaEn1   -300. 0.0 -2600. 1050.
+SPH InTaEn1    -300. 0.0 -2600. 1035.9522189754
+SPH OutTaEn2   -300. 0.0 2590. 1050.
+SPH InTaEn2    -300. 0.0 2590. 1035.9522189754
+RCC OutVorte   0.0 0.0 -2315. 0.0 0.0 3555. 250.
+RCC InVorte    0.0 0.0 -2305. 0.0 0.0 3535. 240.
+RCC OutVoP1    -475.0 0.0 -3020.0 250.0 0.0 0.0 40.0
+RCC InVoP1     -475.0 0.0 -3020.0 250.0 0.0 0.0 30.0
+RCC OutVoP2    -475.0 0.0 -2820.0 250.0 0.0 0.0 40.0
+RCC InVoP2     -475.0 0.0 -2820.0 250.0 0.0 0.0 30.0
+RCC OutVoP3    -475.0 0.0 -2620.0 250.0 0.0 0.0 40.0
+RCC InVoP3     -475.0 0.0 -2620.0 250.0 0.0 0.0 30.0
+RCC OutVoP4    -475.0 0.0 -2420.0 250.0 0.0 0.0 40.0
+RCC InVoP4     -475.0 0.0 -2420.0 250.0 0.0 0.0 30.0
+RCC OutVoP5    -475.0 0.0 -2215.0 250.0 0.0 0.0 40.0
+RCC InVoP5     -475.0 0.0 -2215.0 250.0 0.0 0.0 30.0
+RCC OutVoP6    -475.0 0.0 -2015.0 250.0 0.0 0.0 40.0
+RCC InVoP6     -475.0 0.0 -2015.0 250.0 0.0 0.0 30.0
+RCC OutVoP7    -475.0 0.0 -1815.0 250.0 0.0 0.0 40.0
+RCC InVoP7     -475.0 0.0 -1815.0 250.0 0.0 0.0 30.0
+RCC OutVoP8    -475.0 0.0 -1615.0 250.0 0.0 0.0 40.0
+RCC InVoP8     -475.0 0.0 -1615.0 250.0 0.0 0.0 30.0
+RCC OutVoP9    -475.0 0.0 -1414.8 250.0 0.0 0.0 40.0
+RCC InVoP9     -475.0 0.0 -1414.8 250.0 0.0 0.0 30.0
+RCC OutVoP10   -475.0 0.0 -1214.8 250.0 0.0 0.0 40.0
+RCC InVoP10    -475.0 0.0 -1214.8 250.0 0.0 0.0 30.0
+RCC OutVoP11   -475.0 0.0 -1014.8 250.0 0.0 0.0 40.0
+RCC InVoP11    -475.0 0.0 -1014.8 250.0 0.0 0.0 30.0
+RCC OutVoP12   -475.0 0.0 -814.8 250.0 0.0 0.0 40.0
+RCC InVoP12    -475.0 0.0 -814.8 250.0 0.0 0.0 30.0
+RCC OutVoP13   -475.0 5.0 -615.0 250.0 0.0 0.0 40.0
+RCC InVoP13    -475.0 5.0 -615.0 250.0 0.0 0.0 30.0
+RCC OutVoP14   -475.0 0.0 -415.0 250.0 0.0 0.0 40.0
+RCC InVoP14    -475.0 0.0 -415.0 250.0 0.0 0.0 30.0
+RCC OutVoP15   -475.0 0.0 -210.0 250.0 0.0 0.0 40.0
+RCC InVoP15    -475.0 0.0 -210.0 250.0 0.0 0.0 30.0
+RCC OutVoP16   -475.0 0.0 -15.0 250.0 0.0 0.0 40.0
+RCC InVoP16    -475.0 0.0 -15.0 250.0 0.0 0.0 30.0
+RCC OutVoP17   -475.0 0.0 190.0 250.0 0.0 0.0 40.0
+RCC InVoP17    -475.0 0.0 190.0 250.0 0.0 0.0 30.0
+RCC OutVoP18   -475.0 0.0 385.0 250.0 0.0 0.0 40.0
+RCC InVoP18    -475.0 0.0 385.0 250.0 0.0 0.0 30.0
+RCC OutVoP19   -475.0 0.0 590.0 250.0 0.0 0.0 40.0
+RCC InVoP19    -475.0 0.0 590.0 250.0 0.0 0.0 30.0
+RCC OutVoP20   -475.0 0.0 785.0 250.0 0.0 0.0 40.0
+RCC InVoP20    -475.0 0.0 785.0 250.0 0.0 0.0 30.0
+RCC OutVoP21   -475.0 0.0 990.0 250.0 0.0 0.0 40.0
+RCC InVoP21    -475.0 0.0 990.0 250.0 0.0 0.0 30.0
+RCC OutWatJ2   -300.0 -420.0 -3115.0 0.0 0.0 4460.0 100.
+RCC InWatJe2   -300.0 -420.0 -3105.0 0.0 0.0 4440.0 90.
+RCC OutInl4    -300.0 -1060.0 -2820.0 0.0 630.0 0.0 100.0
+RCC InInl4     -300.0 -1060.0 -2820.0 0.0 630.0 0.0 90.0
+RCC OutInl5    -300.0 -1060.0 -1815.0 0.0 630.0 0.0 100.0
+RCC InInl5     -300.0 -1060.0 -1815.0 0.0 630.0 0.0 90.0
+RCC OutInl6    -300.0 -1060.0 740.0 0.0 630.0 0.0 100.0
+RCC InInl6     -300.0 -1060.0 740.0 0.0 630.0 0.0 90.0
+RCC OutOutl1   -300.0 -970.0 2935.0 0.0 255.56 0.0 150.0
+RCC InOutl1    -300.0 -970.0 2935.0 0.0 255.56 0.0 140.0
+RCC OutOutl2   -300.0 714.5 2730.0 0.0 375.5 0.0 150.0
+RCC InOutl2    -300.0 714.5 2730.0 0.0 375.5 0.0 140.0
+RCC OutVoP22   -255.0 -360.0 985.0 125. 175.0 0.0 40.0
+RCC InVoP22    -255.0 -360.0 985.0 125. 175.0 0.0 30.0
+RCC OutVoP23   -255. -360. 782.26209562883 125. 175.0 0.0 40.0
+RCC InVoP23    -255. -360. 782.26209562883 125. 175.0 0.0 30.0
+RCC OutVoP24   -255.0 -360.0 585.0 125. 175.0 0.0 40.0
+RCC InVoP24    -255.0 -360.0 585.0 125. 175.0 0.0 30.0
+RCC OutVoP25   -255.0 -360.0 385.0 125. 175.0 0.0 40.0
+RCC InVoP25    -255.0 -360.0 385.0 125. 175.0 0.0 30.0
+RCC OutVoP26   -255.0 -360.0 185.0 125. 175.0 0.0 40.0
+RCC InVoP26    -255.0 -360.0 185.0 125. 175.0 0.0 30.0
+RCC OutVoP27   -255.0 -360.0 -15.0 125. 175.0 0.0 40.0
+RCC InVoP27    -255.0 -360.0 -15.0 125. 175.0 0.0 30.0
+RCC OutVoP28   -255.0 -360.0 -215.0 125. 175.0 0.0 40.0
+RCC InVoP28    -255.0 -360.0 -215.0 125. 175.0 0.0 30.0
+RCC OutVoP29   -255.0 -360.0 -415.0 125. 175.0 0.0 40.0
+RCC InVoP29    -255.0 -360.0 -415.0 125. 175.0 0.0 30.0
+RCC OutVoP30   -255.0 -360.0 -615.0 125. 175.0 0.0 40.0
+RCC InVoP30    -255.0 -360.0 -615.0 125. 175.0 0.0 30.0
+RCC OutVoP31   -255.0 -360.0 -815.0 125. 175.0 0.0 40.0
+RCC InVoP31    -255.0 -360.0 -815.0 125. 175.0 0.0 30.0
+RCC OutVoP32   -255.0 -360.0 -1015.0 125. 175.0 0.0 40.0
+RCC InVoP32    -255.0 -360.0 -1015.0 125. 175.0 0.0 30.0
+RCC OutVoP33   -255.0 -360.0 -1215.0 125. 175.0 0.0 40.0
+RCC InVoP33    -255.0 -360.0 -1215.0 125. 175.0 0.0 30.0
+RCC OutVoP34   -255.0 -360.0 -1415.0 125. 175.0 0.0 40.0
+RCC InVoP34    -255.0 -360.0 -1415.0 125. 175.0 0.0 30.0
+RCC OutVoP35   -255.0 -360.0 -1620.0 125. 175.0 0.0 40.0
+RCC InVoP35    -255.0 -360.0 -1620.0 125. 175.0 0.0 30.0
+RCC OutVoP36   -255.0 -360.0 -1815.0 125. 175.0 0.0 40.0
+RCC InVoP36    -255.0 -360.0 -1815.0 125. 175.0 0.0 30.0
+RCC OutVoP37   -255.0 -360.0 -2015.0 125. 175.0 0.0 40.0
+RCC InVoP37    -255.0 -360.0 -2015.0 125. 175.0 0.0 30.0
+RCC OutVoP38   -255.0 -360.0 -2215.0 125. 175.0 0.0 40.0
+RCC InVoP38    -255.0 -360.0 -2215.0 125. 175.0 0.0 30.0
+RCC OutVoP39   -255.0 -360.0 -2415.0 125. 175.0 0.0 40.0
+RCC InVoP39    -255.0 -360.0 -2415.0 125. 175.0 0.0 30.0
+RCC OutVoP40   -255.0 -360.0 -2615.0 125. 175.0 0.0 40.0
+RCC InVoP40    -255.0 -360.0 -2615.0 125. 175.0 0.0 30.0
+RCC OutVoP41   -255.0 -360.0 -2815.0 125. 175.0 0.0 40.0
+RCC InVoP41    -255.0 -360.0 -2815.0 125. 175.0 0.0 30.0
+RCC OutVoP42   -255.0 -360.0 -3015.0 125. 175.0 0.0 40.0
+RCC InVoP42    -255.0 -360.0 -3015.0 125. 175.0 0.0 30.0
 END
 Inlet1       5 +OutInl1 -InInl1 -InWatJe
 Inlet2       5 +OutInl2 -InInl2 -InWatJe
 Inlet3       5 +OutInl3 -InInl3 -InWatJe
-WaterJet     5 +OutWatJe -InWatJe -OutInl1 -OutInl2 -OutInl3 -OutVoP1 -OutVoP2 -OutVoP3 -OutVoP4 -OutVoP5
-               -OutVoP6 -OutVoP7 -OutVoP8 -OutVoP9 -OutVoP10 -OutVoP11 -OutVoP12 -OutVoP13 -OutVoP14 -OutVoP15 
-               -OutVoP16 -OutVoP17
-BeaPi        5 +OutBeaPi -InBeaPi -OutTaEn1
-BeaPiWat     5 +InBeaPi -OutTaEn1
-WatJetWa     5 +InWatJe
+Inlet4       5 +OutInl4 -InWatJe2 -InInl4
+Inlet5       5 +OutInl5 -InWatJe2 -InInl5
+Inlet6       5 +OutInl6 -InWatJe2 -InInl6
+Inlet1Wa     5 +InInl1 -InWatJe
 Inlet2Wa     5 +InInl2 -InWatJe
 Inlet3Wa     5 +InInl3 -InWatJe
-Tank         5 +OutTank +TaEnPla2 -TaEnPla1 -InTank -OutInl1 -OutInl2 -OutInl3
+Inlet4Wa     5 +InInl4 -InWatJe2
+Inlet5Wa     5 +InInl5 -InWatJe2
+Inlet6Wa     5 +InInl6 -InWatJe2
+Outlet1      5 +OutOutl1 -InTank -InOutl1
+Outl1Wa      5 +InOutl1 -InTank
+Outlet2      5 +OutOutl2 -InTank -InOutl2
+Outl2Wa      5 +InOutl2 -InTank
+WaterJet     5 +OutWatJe -InWatJe -OutInl1 -OutInl2 -OutInl3 -OutVoP1 -OutVoP2 -OutVoP3 -OutVoP4 -OutVoP5
+               -OutVoP6 -OutVoP7 -OutVoP8 -OutVoP9 -OutVoP10 -OutVoP11 -OutVoP12 -OutVoP13 -OutVoP14 -OutVoP15
+               -OutVoP16 -OutVoP17
+WatJetWa     5 +InWatJe
+WaterJe2     5 +OutWatJ2 -InWatJe2 -OutInl4 -OutInl5 -OutInl6 -OutVoP22 -OutVoP23 -OutVoP24 -OutVoP25 -OutVoP26
+               -OutVoP27 -OutVoP28 -OutVoP29 -OutVoP30 -OutVoP31 -OutVoP32 -OutVoP33 -OutVoP34 -OutVoP35 
+               -OutVoP36 -OutVoP37 -OutVoP38 -OutVoP39 -OutVoP40 -OutVoP41 -OutVoP42
+WatJe2Wa     5 +InWatJe2
+BeaPi        5 +OutBeaPi -InBeaPi -OutTaEn1
+BeaPiWat     5 +InBeaPi -OutTaEn1
+Tank         5 +OutTank +TaEnPla2 -TaEnPla1 -InTank -OutInl1 -OutInl2 -OutInl3 -OutInl4 -OutInl5 -OutInl6
+               -OutOutl1 -OutOutl2
 TankEnd2     5 +OutTaEn2 -TaEnPla2 -InTaEn2
 TankEnd1     5 +TaEnPla1 +OutTaEn1 -InTaEn1 -InBeaPi
-Inlet1Wa     5 +InInl1 -InWatJe
-Vortex       5 +OutVorte -InVorte -OutVoP1  -OutVoP1 -OutVoP2 -OutVoP3 -OutVoP4 -OutVoP5 -OutVoP6 -OutVoP7
-               -OutVoP8 -OutVoP9 -OutVoP10 -OutVoP11 -OutVoP12 -OutVoP13 -OutVoP14 -OutVoP15 -OutVoP16 -OutVoP17
+Vortex       5 +OutVorte -InVorte -OutVoP1 -OutVoP2 -OutVoP3 -OutVoP4 -OutVoP5 -OutVoP6 -OutVoP7 -OutVoP8
+               -OutVoP9 -OutVoP10 -OutVoP11 -OutVoP12 -OutVoP13 -OutVoP14 -OutVoP15 -OutVoP16 -OutVoP17 -OutVoP22 
+               -OutVoP23 -OutVoP24 -OutVoP25 -OutVoP26 -OutVoP27 -OutVoP28 -OutVoP29 -OutVoP30 -OutVoP31 
+               -OutVoP32 -OutVoP33 -OutVoP34 -OutVoP35 -OutVoP36 -OutVoP37 -OutVoP38
 VoPipe1      5 +OutVoP1 -InWatJe -InVorte -InVoP1
 VoPipe2      5 +OutVoP2 -InWatJe -InVorte -InVoP2
 VoPipe3      5 +OutVoP3 -InVoP3 -InVorte -InWatJe
@@ -105,12 +185,69 @@ VoPipe15     5 +OutVoP15 -InVoP15 -InVorte -InWatJe
 VoPipe16     5 +OutVoP16 -InVoP16 -InVorte -InWatJe
 VoPipe17     5 +OutVoP17 -InVoP17 -InVorte -InWatJe
 VoPiWa1      5 +InVoP1 -InWatJe -InVorte
+VoPiWa2      5 +InVoP2 -InWatJe -InVorte
+VoPiWa3      5 +InVoP3 -InWatJe -InVorte
+VoPiWa4      5 +InVoP4 -InWatJe -InVorte
+VoPiWa5      5 +InVoP5 -InWatJe -InVorte
+VoPiWa6      5 +InVoP6 -InWatJe -InVorte
+VoPiWa7      5 +InVoP7 -InWatJe -InVorte
+VoPiWa8      5 +InVoP8 -InWatJe -InVorte
+VoPiWa9      5 +InVoP9 -InWatJe -InVorte
+VoPiWa10     5 +InVoP10 -InWatJe -InVorte
+VoPiWa11     5 +InVoP11 -InWatJe -InVorte
+VoPiWa12     5 +InVoP12 -InWatJe -InVorte
+VoPiWa13     5 +InVoP13 -InWatJe -InVorte
+VoPiWa14     5 +InVoP14 -InWatJe -InVorte
+VoPiWa15     5 +InVoP15 -InWatJe -InVorte
+VoPiWa16     5 +InVoP16 -InWatJe -InVorte
+VoPiWa17     5 +InVoP17 -InWatJe -InVorte
+VoPipe18     5 +OutVoP18 -InVorte -InWatJe -InVoP18
+VoPipe19     5 +OutVoP19 -InVorte -InWatJe -InVoP19
+VoPipe20     5 +OutVoP20 -InVorte -InWatJe -InVoP20
+VoPipe21     5 +OutVoP21 -InVorte -InWatJe -InVoP21
+VoPipe22     5 +OutVoP22 -InVorte -InWatJe2 -InVoP22
+VoPipe23     5 +OutVoP23 -InVorte -InWatJe2 -InVoP23
+VoPipe24     5 +OutVoP24 -InVorte -InWatJe2 -InVoP24
+VoPipe25     5 +OutVoP25 -InVorte -InWatJe2 -InVoP25
+VoPipe26     5 +OutVoP26 -InVorte -InWatJe2 -InVoP26
+VoPipe27     5 +OutVoP27 -InVorte -InWatJe2 -InVoP27
+VoPipe28     5 +OutVoP28 -InVorte -InWatJe2 -InVoP28
+VoPipe29     5 +OutVoP29 -InVorte -InWatJe2 -InVoP29
+VoPipe30     5 +OutVoP30 -InVorte -InWatJe2 -InVoP30
+VoPipe31     5 +OutVoP31 -InVorte -InWatJe2 -InVoP31
+VoPipe32     5 +OutVoP32 -InVorte -InWatJe2 -InVoP32
+VoPipe33     5 +OutVoP33 -InVorte -InWatJe2 -InVoP33
+VoPipe34     5 +OutVoP34 -InVorte -InWatJe2 -InVoP34
+VoPipe35     5 +OutVoP35 -InVorte -InWatJe2 -InVoP35
+VoPipe36     5 +OutVoP36 -InVorte -InWatJe2 -InVoP36
+VoPipe37     5 +OutVoP37 -InVorte -InWatJe2 -InVoP37
+VoPipe38     5 +OutVoP38 -InVorte -InWatJe2 -InVoP38
+VoPipe39     5 +OutVoP39 -InVorte -InWatJe2 -InVoP39
+VoPipe40     5 +OutVoP40 -InVorte -InWatJe2 -InVoP40
+VoPipe41     5 +OutVoP41 -InVorte -InWatJe2 -InVoP41
+VoPipe42     5 +OutVoP42 -InVorte -InWatJe2 -InVoP42
+VoPiWa18     5 +InVoP18 -InWatJe -InVorte
+VoPiWa19     5 +InVoP19 -InWatJe -InVorte
+VoPiWa20     5 +InVoP20 -InWatJe -InVorte
+VoPiWa21     5 +InVoP21 -InWatJe -InVorte
+VoPiWa22     5 +InVoP22 -InWatJe2 -InVorte
+VoPiWa23     5 +InVoP23 -InWatJe2 -InVorte
+VoPiWa24     5 +InVoP24 -InWatJe2 -InVorte
+VoPiWa25     5 +InVoP25 -InWatJe2 -InVorte
+VoPiWa26     5 +InVoP26 -InWatJe2 -InVorte
+VoPiWa27     5 +InVoP27 -InWatJe2 -InVorte
+VoPiWa28     5 +InVoP28 -InWatJe2 -InVorte
+VoPiWa29     5 +InVoP29 -InWatJe2 -InVorte
+VoPiWa30     5 +InVoP30 -InWatJe2 -InVorte
+VoPiWa31     5 +InVoP31 -InWatJe2 -InVorte
+VoPiWa32     5 +InVoP32 -InWatJe2 -InVorte
+VoPiWa33     5 +InVoP33 -InWatJe2 -InVorte
 END
 GEOEND
 ASSIGNMA    TITANIUM    Inlet1
 ASSIGNMA    TITANIUM    Inlet2
 ASSIGNMA    TITANIUM    Inlet3
-ASSIGNMA    TITANIUM  WaterJet
+ASSIGNMA    TITANIUM  WaterJe2
 ASSIGNMA    TITANIUM     BeaPi
 ASSIGNMA       WATER  BeaPiWat
 ASSIGNMA       WATER  WatJetWa
@@ -139,6 +276,75 @@ ASSIGNMA    TITANIUM  VoPipe15
 ASSIGNMA    TITANIUM  VoPipe16
 ASSIGNMA    TITANIUM  VoPipe17
 ASSIGNMA       WATER   VoPiWa1
+ASSIGNMA       WATER   VoPiWa2
+ASSIGNMA       WATER   VoPiWa3
+ASSIGNMA       WATER   VoPiWa4
+ASSIGNMA       WATER   VoPiWa5
+ASSIGNMA       WATER   VoPiWa6
+ASSIGNMA       WATER   VoPiWa7
+ASSIGNMA       WATER   VoPiWa8
+ASSIGNMA       WATER   VoPiWa9
+ASSIGNMA       WATER  VoPiWa10
+ASSIGNMA       WATER  VoPiWa11
+ASSIGNMA       WATER  VoPiWa12
+ASSIGNMA       WATER  VoPiWa13
+ASSIGNMA       WATER  VoPiWa14
+ASSIGNMA       WATER  VoPiWa15
+ASSIGNMA       WATER  VoPiWa16
+ASSIGNMA       WATER  VoPiWa17
+ASSIGNMA    TITANIUM    Inlet4
+ASSIGNMA    TITANIUM    Inlet5
+ASSIGNMA    TITANIUM    Inlet6
+ASSIGNMA       WATER  Inlet4Wa
+ASSIGNMA       WATER  Inlet5Wa
+ASSIGNMA       WATER  Inlet6Wa
+ASSIGNMA    TITANIUM   Outlet1
+ASSIGNMA       WATER   Outl1Wa
+ASSIGNMA    TITANIUM   Outlet2
+ASSIGNMA       WATER   Outl2Wa
+ASSIGNMA    TITANIUM  WaterJe2
+ASSIGNMA       WATER  WatJe2Wa
+ASSIGNMA    TITANIUM  VoPipe22
+ASSIGNMA    TITANIUM  VoPipe23
+ASSIGNMA    TITANIUM  VoPipe24
+ASSIGNMA    TITANIUM  VoPipe25
+ASSIGNMA    TITANIUM  VoPipe26
+ASSIGNMA    TITANIUM  VoPipe18
+ASSIGNMA    TITANIUM  VoPipe19
+ASSIGNMA    TITANIUM  VoPipe20
+ASSIGNMA    TITANIUM  VoPipe21
+ASSIGNMA    TITANIUM  VoPipe27
+ASSIGNMA    TITANIUM  VoPipe28
+ASSIGNMA    TITANIUM  VoPipe29
+ASSIGNMA    TITANIUM  VoPipe30
+ASSIGNMA    TITANIUM  VoPipe31
+ASSIGNMA    TITANIUM  VoPipe32
+ASSIGNMA    TITANIUM  VoPipe33
+ASSIGNMA    TITANIUM  VoPipe34
+ASSIGNMA    TITANIUM  VoPipe35
+ASSIGNMA    TITANIUM  VoPipe36
+ASSIGNMA    TITANIUM  VoPipe37
+ASSIGNMA    TITANIUM  VoPipe38
+ASSIGNMA    TITANIUM  VoPipe39
+ASSIGNMA    TITANIUM  VoPipe40
+ASSIGNMA    TITANIUM  VoPipe41
+ASSIGNMA    TITANIUM  VoPipe42
+ASSIGNMA       WATER  VoPiWa18
+ASSIGNMA       WATER  VoPiWa19
+ASSIGNMA       WATER  VoPiWa20
+ASSIGNMA       WATER  VoPiWa21
+ASSIGNMA       WATER  VoPiWa22
+ASSIGNMA       WATER  VoPiWa23
+ASSIGNMA       WATER  VoPiWa24
+ASSIGNMA       WATER  VoPiWa25
+ASSIGNMA       WATER  VoPiWa26
+ASSIGNMA       WATER  VoPiWa27
+ASSIGNMA       WATER  VoPiWa28
+ASSIGNMA       WATER  VoPiWa29
+ASSIGNMA       WATER  VoPiWa30
+ASSIGNMA       WATER  VoPiWa31
+ASSIGNMA       WATER  VoPiWa32
+ASSIGNMA       WATER  VoPiWa33
 !@what.4=3000.0*mm
 !@what.5=2000.0*mm
 !@what.6=4000.0*mm
