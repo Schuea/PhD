@@ -22,9 +22,9 @@ End
 
 # Geometry Information
 Geometry:
-	Frame.bsplit: 0.99
+	Frame.bsplit: 0.5
 	Frame.tsplit: 0.5
-	Frame.vsplit: 0.01
+	Frame.vsplit: 0.5
 
 	# Layer
 	Layer: Image
@@ -61,14 +61,14 @@ End
 Plot: Red
 	Format: .eps
 	Type:   Geometry
-	basisu: 1 0 0
-	basisv: 0 1 0
+	basisu: 0.99999 -1.39681e-05 0.00446164
+	basisv: -1.39681e-05 0.99998 0.00626132
 	boundaries: 1
-	coord: X-Y
-	extends: 1719.92 2.158
+	coord: U-V
+	extends: 1433.27 834.425
 	labels: 1
 	layer: Media
-	origin: -594.504 -7.68349 -2415.86
+	origin: -150.217 -190.714 787.521
 	subtype: Material
 	title: GeoViewer Red plot
 End
@@ -81,10 +81,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 10219.2 12.8381
+	extends: 4928.22 3021.32
 	labels: 1
 	layer: Media
-	origin: 318.376 381.913 809.155
+	origin: -545.721 381.913 1075.03
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -97,10 +97,10 @@ Plot: Blue
 	basisv: -0.580314 -0.814393 0
 	boundaries: 1
 	coord: U-V
-	extends: 1128.87 712.065
+	extends: 2808.98 3510.35
 	labels: 1
 	layer: Media
-	origin: -99.0697 -139.031 -958.849
+	origin: 203.899 286.145 -1401.14
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -113,10 +113,10 @@ Plot: Magenta
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 5038.01 358419
+	extends: 976.4 598.597
 	labels: 1
 	layer: Image
-	origin: -250 -1096.54 -1518.53
+	origin: -460 -274.637 -2379.27
 	subtype: Material
 	title: GeoViewer Magenta plot
 End

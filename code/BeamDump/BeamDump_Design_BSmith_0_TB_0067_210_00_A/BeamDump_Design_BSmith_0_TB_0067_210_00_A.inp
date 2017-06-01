@@ -242,6 +242,16 @@ VoPiWa30     5 +InVoP30 -InWatJe2 -InVorte
 VoPiWa31     5 +InVoP31 -InWatJe2 -InVorte
 VoPiWa32     5 +InVoP32 -InWatJe2 -InVorte
 VoPiWa33     5 +InVoP33 -InWatJe2 -InVorte
+VoPiWa34     5 +InVoP34 -InWatJe2 -InVorte
+VoPiWa35     5 +InVoP35 -InWatJe2 -InVorte
+VoPiWa36     5 +InVoP36 -InWatJe2 -InVorte
+VoPiWa37     5 +InVoP37 -InWatJe2 -InVorte
+VoPiWa38     5 +InVoP38 -InWatJe2 -InVorte
+VoPiWa39     5 +InVoP39 -InWatJe2 -InVorte
+VoPiWa40     5 +InVoP40 -InWatJe2 -InVorte
+VoPiWa41     5 +InVoP41 -InWatJe2 -InVorte
+VoPiWa42     5 +InVoP42 -InWatJe2 -InVorte
+VortexWa     5 +InVorte
 END
 GEOEND
 ASSIGNMA    TITANIUM    Inlet1
@@ -345,6 +355,16 @@ ASSIGNMA       WATER  VoPiWa30
 ASSIGNMA       WATER  VoPiWa31
 ASSIGNMA       WATER  VoPiWa32
 ASSIGNMA       WATER  VoPiWa33
+ASSIGNMA       WATER  VoPiWa34
+ASSIGNMA       WATER  VoPiWa35
+ASSIGNMA       WATER  VoPiWa36
+ASSIGNMA       WATER  VoPiWa37
+ASSIGNMA       WATER  VoPiWa38
+ASSIGNMA       WATER  VoPiWa39
+ASSIGNMA       WATER  VoPiWa40
+ASSIGNMA       WATER  VoPiWa41
+ASSIGNMA       WATER  VoPiWa42
+ASSIGNMA       WATER  VortexWa
 !@what.4=3000.0*mm
 !@what.5=2000.0*mm
 !@what.6=4000.0*mm
