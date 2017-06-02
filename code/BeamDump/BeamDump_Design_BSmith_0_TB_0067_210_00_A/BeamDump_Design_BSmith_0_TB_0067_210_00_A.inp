@@ -6,8 +6,8 @@ DEFAULTS                                                              PRECISIO
 * Define the beam characteristics
 BEAM           -250.  -0.00282          -2.4697E-4-3.0522E-6          ELECTRON
 * Define the beam position
-!@what.3=-19000.0*mm
-BEAMPOS          0.0       0.0    -1900.
+!@what.3=-7500.0*mm
+BEAMPOS          0.0       0.0     -750.
 !point           0.0       0.0    -3250.                              marker1
 !point         -300.       0.0    -3250.                              marker2
 !point         -300.       0.0     3250.                              marker3
@@ -27,12 +27,12 @@ RCC OutInl2    -1840. 0.0 -1815. 1300. 0.0 0.0 100.
 RCC InInl2     -1840. 0.0 -1815. 1300. 0.0 0.0 90.
 RCC OutInl3    -1850. 0.0 745. 1300. 0.0 0.0 100.
 RCC InInl3     -1850. 0.0 745. 1300. 0.0 0.0 90.
-RCC OutBeaPi   0.0 0.0 -3950. 0.0 0.0 431.96 200.
-RCC InBeaPi    0.0 0.0 -3950. 0.0 0.0 431.96024 180.
+RCC OutBeaPi   0.0 0.0 -7750.0 0.0 0.0 4235.0 200.0
+RCC InBeaPi    0.0 0.0 -7750.0 0.0 0.0 4235.0 180.0
 SPH OutTaEn1   -300. 0.0 -2600. 1050.
-SPH InTaEn1    -300. 0.0 -2600. 1035.9522189754
+SPH InTaEn1    -300. 0.0 -2600. 1035.95
 SPH OutTaEn2   -300. 0.0 2590. 1050.
-SPH InTaEn2    -300. 0.0 2590. 1035.9522189754
+SPH InTaEn2    -300. 0.0 2590. 1035.95
 RCC OutVorte   0.0 0.0 -2315. 0.0 0.0 3555. 250.
 RCC InVorte    0.0 0.0 -2305. 0.0 0.0 3535. 240.
 RCC OutVoP1    -475. 0.0 -3020. 250. 0.0 0.0 40.
@@ -59,8 +59,8 @@ RCC OutVoP11   -475. 0.0 -1014.8 250. 0.0 0.0 40.
 RCC InVoP11    -475. 0.0 -1014.8 250. 0.0 0.0 30.
 RCC OutVoP12   -475. 0.0 -814.8 250. 0.0 0.0 40.
 RCC InVoP12    -475. 0.0 -814.8 250. 0.0 0.0 30.
-RCC OutVoP13   -475. 5. -615. 250. 0.0 0.0 40.
-RCC InVoP13    -475. 5. -615. 250. 0.0 0.0 30.
+RCC OutVoP13   -475. 0.0 -615. 250. 0.0 0.0 40.
+RCC InVoP13    -475. 0.0 -615. 250. 0.0 0.0 30.
 RCC OutVoP14   -475. 0.0 -415. 250. 0.0 0.0 40.
 RCC InVoP14    -475. 0.0 -415. 250. 0.0 0.0 30.
 RCC OutVoP15   -475. 0.0 -210. 250. 0.0 0.0 40.
@@ -91,8 +91,8 @@ RCC OutOutl2   -300. 714.5 2730. 0.0 375.5 0.0 150.
 RCC InOutl2    -300. 714.5 2730. 0.0 375.5 0.0 140.
 RCC OutVoP22   -255. -360. 985. 125. 175. 0.0 40.
 RCC InVoP22    -255. -360. 985. 125. 175. 0.0 30.
-RCC OutVoP23   -255. -360. 782.26209562883 125. 175. 0.0 40.
-RCC InVoP23    -255. -360. 782.26209562883 125. 175. 0.0 30.
+RCC OutVoP23   -255. -360. 782.26 125. 175. 0.0 40.
+RCC InVoP23    -255. -360. 782.26 125. 175. 0.0 30.
 RCC OutVoP24   -255. -360. 585. 125. 175. 0.0 40.
 RCC InVoP24    -255. -360. 585. 125. 175. 0.0 30.
 RCC OutVoP25   -255. -360. 385. 125. 175. 0.0 40.
@@ -124,80 +124,80 @@ RCC InVoP37    -255. -360. -2015. 125. 175. 0.0 30.
 RCC OutVoP38   -255. -360. -2215. 125. 175. 0.0 40.
 RCC InVoP38    -255. -360. -2215. 125. 175. 0.0 30.
 RCC OutVoP39   -255. -360. -2415. 125. 175. 0.0 40.
-RCC InVoP39    -255. -360. -2415. 125. 175. 0.0 30.
-RCC OutVoP40   -255. -360. -2615. 125. 175. 0.0 40.
-RCC InVoP40    -255. -360. -2615. 125. 175. 0.0 30.
-RCC OutVoP41   -255. -360. -2815. 125. 175. 0.0 40.
-RCC InVoP41    -255. -360. -2815. 125. 175. 0.0 30.
-RCC OutVoP42   -255. -360. -3015. 125. 175. 0.0 40.
-RCC InVoP42    -255. -360. -3015. 125. 175. 0.0 30.
-XYP Plate1     1750.
-XYP Plate2     1770.
-XYP Plate3     1815.
-XYP Plate4     1835.
-XYP Plate5     1885.
-XYP Plate6     1905.
-XYP Plate7     1960.
-XYP Plate8     1980.
-XYP Plate9     2025.
-XYP Plate10    2045.
-XYP Plate11    2095.
-XYP Plate12    2115.
-XYP Plate13    2170.
-XYP Plate14    2190.
-XYP Plate15    2235.
-XYP Plate16    2255.
-XYP Plate17    2305.
-XYP Plate18    2325.
-XYP Plate19    2380.
-XYP Plate20    2400.
-XYP Plate21    2445.
-XYP Plate22    2465.
-XYP Plate23    2515.
-XYP Plate24    2535.
-XYP Plate25    2585.
-XYP Plate26    2605.
-XYP Plate27    2650.
-XYP Plate28    2670.
-XYP Plate29    2720.
-XYP Plate30    2740.
-XYP Plate31    2795.
-XYP Plate32    2815.
-XYP Plate33    2860.
-XYP Plate34    2880.
-XYP Plate35    2930.
-XYP Plate36    2950.
-XYP Plate37    3005.
-XYP Plate38    3025.
-XYP Plate39    3070.
-XYP Plate40    3090.
-XYP Plate41    3140.
-XYP Plate42    3160.
-XZP zPlate1    630.
-XZP zPlate2    580.
-XZP zPlate3    390.
-XZP zPlate4    340.
-XZP zPlate5    150.
-XZP zPlate6    100.
-XZP zPlate7    -90.
-XZP zPlate8    -140.
-XZP zPlate9    -330.
-XZP zPlate10   -380.
-XZP zPlate11   -570.
-XZP zPlate12   -620.
-YZP yPlate1    -925.
-YZP yPlate2    -875.
-YZP yPlate3    -685.
-YZP yPlate4    -635.
-YZP yPlate5    -445.
-YZP yPlate6    -395.
-YZP yPlate7    -205.
-YZP yPlate8    -155.
-YZP yPlate9    35.
-YZP yPlate10   85.
-YZP yPlate11   275.
-YZP yPlate12   325.
-XYP TaEnPla2   3325.04897796
+RCC InVoP39    -255.0 -360.0 -2415.0 125.0 175.0 0.0 30.0
+RCC OutVoP40   -255.0 -360.0 -2615.0 125.0 175.0 0.0 40.0
+RCC InVoP40    -255.0 -360.0 -2615.0 125.0 175.0 0.0 30.0
+RCC OutVoP41   -255.0 -360.0 -2815.0 125.0 175.0 0.0 40.0
+RCC InVoP41    -255.0 -360.0 -2815.0 125.0 175.0 0.0 30.0
+RCC OutVoP42   -255.0 -360.0 -3015.0 125.0 175.0 0.0 40.0
+RCC InVoP42    -255.0 -360.0 -3015.0 125.0 175.0 0.0 30.0
+XYP Plate1     1750.0
+XYP Plate2     1770.0
+XYP Plate3     1815.0
+XYP Plate4     1835.0
+XYP Plate5     1885.0
+XYP Plate6     1905.0
+XYP Plate7     1960.0
+XYP Plate8     1980.0
+XYP Plate9     2025.0
+XYP Plate10    2045.0
+XYP Plate11    2095.0
+XYP Plate12    2115.0
+XYP Plate13    2170.0
+XYP Plate14    2190.0
+XYP Plate15    2235.0
+XYP Plate16    2255.0
+XYP Plate17    2305.0
+XYP Plate18    2325.0
+XYP Plate19    2380.0
+XYP Plate20    2400.0
+XYP Plate21    2445.0
+XYP Plate22    2465.0
+XYP Plate23    2515.0
+XYP Plate24    2535.0
+XYP Plate25    2585.0
+XYP Plate26    2605.0
+XYP Plate27    2650.0
+XYP Plate28    2670.0
+XYP Plate29    2720.0
+XYP Plate30    2740.0
+XYP Plate31    2795.0
+XYP Plate32    2815.0
+XYP Plate33    2860.0
+XYP Plate34    2880.0
+XYP Plate35    2930.0
+XYP Plate36    2950.0
+XYP Plate37    3005.0
+XYP Plate38    30250.
+XYP Plate39    3070.0
+XYP Plate40    3090.0
+XYP Plate41    3140.0
+XYP Plate42    3160.0
+XZP zPlate1    630.0
+XZP zPlate2    580.0
+XZP zPlate3    390.0
+XZP zPlate4    340.0
+XZP zPlate5    100.0
+XZP zPlate6    50.0
+XZP zPlate7    -90.0
+XZP zPlate8    -140.0
+XZP zPlate9    -330.0
+XZP zPlate10   -380.0
+XZP zPlate11   -570.0
+XZP zPlate12   -620.0
+YZP yPlate1    -925.0
+YZP yPlate2    -875.0
+YZP yPlate3    -685.0
+YZP yPlate4    -635.0
+YZP yPlate5    -445.0
+YZP yPlate6    -395.0
+YZP yPlate11   275.0
+YZP yPlate12   325.0
+XYP TaEnPla2   3325.05
+RPP Airbox     -4250.0 1150.0 -1180.0 2000.0 -7750.0 4250.0
+RPP Blackbox   -4300.0 1200.0 -1300.0 2100.0 -7800.0 4300.0
+XYP WindoPl1   -3990.0
+XYP WindoPl2   -3991.0
 END
 Inlet1       5 +OutInl1 -InInl1 -InWatJe
 Inlet2       5 +OutInl2 -InInl2 -InWatJe
@@ -216,23 +216,24 @@ Outl1Wa      5 +InOutl1 -InTank
 Outlet2      5 +OutOutl2 -InTank -InOutl2
 Outl2Wa      5 +InOutl2 -InTank
 WaterJet     5 +OutWatJe -InWatJe -OutInl1 -OutInl2 -OutInl3 -OutVoP1 -OutVoP2 -OutVoP3 -OutVoP4 -OutVoP5
-               -OutVoP6 -OutVoP7 -OutVoP8 -OutVoP9 -OutVoP10 -OutVoP11 -OutVoP12 -OutVoP13 -OutVoP14 -OutVoP15
-               -OutVoP16 -OutVoP17
+               -OutVoP6 -OutVoP7 -OutVoP8 -OutVoP9 -OutVoP10 -OutVoP11 -OutVoP12 -OutVoP13 -OutVoP14 -OutVoP15 
+               -OutVoP16 -OutVoP17 -OutVoP18 -OutVoP19 -OutVoP20 -OutVoP21
 WatJetWa     5 +InWatJe
 WaterJe2     5 +OutWatJ2 -InWatJe2 -OutInl4 -OutInl5 -OutInl6 -OutVoP22 -OutVoP23 -OutVoP24 -OutVoP25 -OutVoP26
                -OutVoP27 -OutVoP28 -OutVoP29 -OutVoP30 -OutVoP31 -OutVoP32 -OutVoP33 -OutVoP34 -OutVoP35
                -OutVoP36 -OutVoP37 -OutVoP38 -OutVoP39 -OutVoP40 -OutVoP41 -OutVoP42
 WatJe2Wa     5 +InWatJe2
 BeaPi        5 +OutBeaPi -InBeaPi -OutTaEn1
-BeaPiWat     5 +InBeaPi -OutTaEn1
+BeaPiWat     5 +InBeaPi -InTaEn1 -WindoPl1
 Tank         5 +OutTank -TaEnPla1 +TaEnPla2 -InTank -OutInl1 -OutInl2 -OutInl3 -OutInl4 -OutInl5 -OutInl6
                -OutOutl1 -OutOutl2
 TankEnd2     5 +OutTaEn2 -InTaEn2 -TaEnPla2
 TankEnd1     5 +TaEnPla1 +OutTaEn1 -InTaEn1 -InBeaPi
 Vortex       5 +OutVorte -InVorte -OutVoP1 -OutVoP2 -OutVoP3 -OutVoP4 -OutVoP5 -OutVoP6 -OutVoP7 -OutVoP8
-               -OutVoP9 -OutVoP10 -OutVoP11 -OutVoP12 -OutVoP13 -OutVoP14 -OutVoP15 -OutVoP16 -OutVoP17 -OutVoP22
-               -OutVoP23 -OutVoP24 -OutVoP25 -OutVoP26 -OutVoP27 -OutVoP28 -OutVoP29 -OutVoP30 -OutVoP31
-               -OutVoP32 -OutVoP33 -OutVoP34 -OutVoP35 -OutVoP36 -OutVoP37 -OutVoP38
+               -OutVoP9 -OutVoP10 -OutVoP11 -OutVoP12 -OutVoP13 -OutVoP14 -OutVoP15 -OutVoP16 -OutVoP17 -OutVoP18 
+               -OutVoP19 -OutVoP20 -OutVoP21 -OutVoP22 -OutVoP23 -OutVoP24 -OutVoP25 -OutVoP26 -OutVoP27 
+               -OutVoP28 -OutVoP29 -OutVoP30 -OutVoP31 -OutVoP32 -OutVoP33 -OutVoP34 -OutVoP35 -OutVoP36 
+               -OutVoP37 -OutVoP38
 VoPipe1      5 +OutVoP1 -InWatJe -InVorte -InVoP1
 VoPipe2      5 +OutVoP2 -InWatJe -InVorte -InVoP2
 VoPipe3      5 +OutVoP3 -InVoP3 -InVorte -InWatJe
@@ -318,69 +319,340 @@ VoPiWa40     5 +InVoP40 -InWatJe2 -InVorte
 VoPiWa41     5 +InVoP41 -InWatJe2 -InVorte
 VoPiWa42     5 +InVoP42 -InWatJe2 -InVorte
 VortexWa     5 +InVorte
+#if 0
 CuPlate1     5 +InTank +Plate2 -Plate1 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(+zPlate7
                -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 +yPlate4) -(
                -yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
-CuPlate2     5 +InTank +Plate4 -Plate3 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(+zPlate7
-               -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 +yPlate4) -(
-               -yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlate3     5 +InTank +Plate6 -Plate5 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(+zPlate7
                -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 +yPlate4) -(
                -yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlate4     5 +InTank +Plate8 -Plate7 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(+zPlate7
                -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 +yPlate4) -(
                -yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlate5     5 +InTank +Plate10 -Plate9 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(+zPlate7
                -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 +yPlate4) -(
                -yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlate6     5 +InTank +Plate12 -Plate11 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
                +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 
                +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlate7     5 +InTank +Plate14 -Plate13 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
                +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 
                +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlate8     5 +InTank +Plate16 -Plate15 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
                +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 
                +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlate9     5 +InTank +Plate18 -Plate17 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
                +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 
                +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlat10     5 +InTank +Plate20 -Plate19 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
                +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 
                +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlat11     5 +InTank +Plate22 -Plate21 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
                +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 
                +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlat12     5 +InTank +Plate24 -Plate23 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
                +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 
                +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlat13     5 +InTank +Plate26 -Plate25 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
                +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 
                +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlat14     5 +InTank +Plate28 -Plate27 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
                +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 
                +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlat15     5 +InTank +Plate30 -Plate29 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
                +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 
                +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlat16     5 +InTank +Plate32 -Plate31 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
                +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 
                +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlat17     5 +InTank +Plate34 -Plate33 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
                +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 
                +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlat18     5 +InTank +Plate36 -Plate35 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
                +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 
                +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlat19     5 +InTank +Plate38 -Plate37 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
                +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 
                +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlat20     5 +InTank +Plate40 -Plate39 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
                +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 
                +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlat21     5 +InTank +Plate42 -Plate41 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
                +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 
                +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+TankWa1      5 +TaEnPla1 +InTaEn1
+               | -TaEnPla2 +InTaEn2
+               | +InTank -TaEnPla1 +TaEnPla2 -OutVorte -OutWatJe -OutWatJ2 -OutInl1 -OutInl2 -OutInl3 -OutInl4 
+               -OutInl5 -OutInl6 -OutVoP1 -OutVoP2 -OutVoP3 -OutVoP4 -OutVoP5 -OutVoP6 -OutVoP7 -OutVoP8 -OutVoP9 
+               -OutVoP10 -OutVoP11 -OutVoP12 -OutVoP13 -OutVoP14 -OutVoP15 -OutVoP16 -OutVoP17 -OutVoP18 
+               -OutVoP19 -OutVoP20 -OutVoP21 -OutVoP22 -OutVoP23 -OutVoP24 -OutVoP25 -OutVoP26 -OutVoP27 
+               -OutVoP28 -OutVoP29 -OutVoP30 -OutVoP31 -OutVoP32 -OutVoP33 -OutVoP34 -OutVoP35 -OutVoP36 
+               -OutVoP37 -OutVoP38 -OutVoP39 -OutVoP40 -OutVoP41 -OutVoP42
+#if 0
+TankWa23     5 +InTank -TaEnPla1 -OutVorte -OutWatJe -OutWatJ2 -OutInl1 -OutInl2 -OutInl3 -OutInl4 -OutInl5
+               -OutInl6 -OutVoP1 -OutVoP2 -OutVoP3 -OutVoP4 -OutVoP5 -OutVoP6 -OutVoP7 -OutVoP8 -OutVoP9 
+               -OutVoP10 -OutVoP11 -OutVoP12 -OutVoP13 -OutVoP14 -OutVoP15 -OutVoP16 -OutVoP17 -OutVoP18 
+               -OutVoP19 -OutVoP20 -OutVoP21 -OutVoP22 -OutVoP23 -OutVoP24 -OutVoP25 -OutVoP26 -OutVoP27 
+               -OutVoP28 -OutVoP29 -OutVoP30 -OutVoP31 -OutVoP32 -OutVoP33 -OutVoP34 -OutVoP35 -OutVoP36 
+               -OutVoP37 -OutVoP38 -OutVoP39 -OutVoP40 -OutVoP41 -OutVoP42 +Plate1
+               | +TaEnPla1 +InTaEn1
+               | -TaEnPla2 +InTaEn2
+               | +InTank +Plate3 -Plate1 -(+InTank +Plate2 -Plate1 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+               | +InTank +Plate5 -Plate3 -(+InTank +Plate4 -Plate3 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+               | +InTank +Plate7 -Plate5 -(+InTank +Plate6 -Plate5 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+               | +InTank +Plate9 -Plate7 -(+InTank +Plate8 -Plate7 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+               | +InTank +Plate11 -Plate9 -(+InTank +Plate10 -Plate9 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+               | +InTank +Plate13 -Plate11 -(+InTank +Plate12 -Plate11 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -
+               (+zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+               | +InTank +Plate15 -Plate13 -(+InTank +Plate14 -Plate13 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -
+               (+zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+               | +InTank +Plate17 -Plate15 -(+InTank +Plate16 -Plate15 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -
+               (+zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+               | +InTank +Plate19 -Plate17 -(+InTank +Plate18 -Plate17 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -
+               (+zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+               | +InTank +Plate21 -Plate19 -(+InTank +Plate20 -Plate19 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -
+               (+zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+               | +InTank +Plate23 -Plate21 -(+InTank +Plate22 -Plate21 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -
+               (+zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+               | +InTank +Plate25 -Plate23 -(+InTank +Plate24 -Plate23 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -
+               (+zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+               | +InTank +Plate27 -Plate25 -(+InTank +Plate26 -Plate25 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -
+               (+zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+               | +InTank +Plate29 -Plate27 -(+InTank +Plate28 -Plate27 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -
+               (+zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+               | +InTank +Plate31 -Plate29 -(+InTank +Plate30 -Plate29 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -
+               (+zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+               | +InTank +Plate33 -Plate31 -(+InTank +Plate32 -Plate31 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -
+               (+zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+               | +InTank +Plate35 -Plate33 -(+InTank +Plate34 -Plate33 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -
+               (+zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+               | +InTank +Plate37 -Plate35 -(+InTank +Plate36 -Plate35 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -
+               (+zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+               | +InTank +Plate39 -Plate37 -(+InTank +Plate38 -Plate37 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -
+               (+zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+               | +InTank +Plate41 -Plate39 -(+InTank +Plate40 -Plate39 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -
+               (+zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+               | +InTank +TaEnPla2 -Plate41 -(+InTank +Plate42 -Plate41 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) 
+               -(+zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+#endif
+#if 0
+TankWa2      5 +InTank +Plate3 -Plate1 -(+InTank +Plate2 -Plate1 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+#endif
+#if 0
+TankWa3      5 +InTank +Plate5 -Plate3 -(+InTank +Plate4 -Plate3 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+#endif
+#if 0
+TankWa4      5 +InTank +Plate7 -Plate5 -(+InTank +Plate6 -Plate5 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+#endif
+#if 0
+TankWa5      5 +InTank +Plate9 -Plate7 -(+InTank +Plate8 -Plate7 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+#endif
+#if 0
+TankWa6      5 +InTank +Plate11 -Plate9 -(+InTank +Plate10 -Plate9 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+#endif
+#if 0
+TankWa7      5 +InTank +Plate13 -Plate11 -(+InTank +Plate12 -Plate11 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+#endif
+#if 0
+TankWa8      5 +InTank +Plate15 -Plate13 -(+InTank +Plate14 -Plate13 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+#endif
+#if 0
+TankWa9      5 +InTank +Plate17 -Plate15 -(+InTank +Plate16 -Plate15 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+#endif
+#if 0
+TankWa10     5 +InTank +Plate19 -Plate17 -(+InTank +Plate18 -Plate17 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+#endif
+#if 0
+TankWa11     5 +InTank +Plate21 -Plate19 -(+InTank +Plate20 -Plate19 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+#endif
+#if 0
+TankWa12     5 +InTank +Plate23 -Plate21 -(+InTank +Plate22 -Plate21 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+#endif
+#if 0
+TankWa13     5 +InTank +Plate25 -Plate23 -(+InTank +Plate24 -Plate23 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+#endif
+#if 0
+TankWa14     5 +InTank +Plate27 -Plate25 -(+InTank +Plate26 -Plate25 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+#endif
+#if 0
+TankWa15     5 +InTank +Plate29 -Plate27 -(+InTank +Plate28 -Plate27 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+#endif
+#if 0
+TankWa16     5 +InTank +Plate31 -Plate29 -(+InTank +Plate30 -Plate29 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+#endif
+#if 0
+TankWa17     5 +InTank +Plate33 -Plate31 -(+InTank +Plate32 -Plate31 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+#endif
+#if 0
+TankWa18     5 +InTank +Plate35 -Plate33 -(+InTank +Plate34 -Plate33 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+#endif
+#if 0
+TankWa19     5 +InTank +Plate37 -Plate35 -(+InTank +Plate36 -Plate35 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+#endif
+#if 0
+TankWa20     5 +InTank +Plate39 -Plate37 -(+InTank +Plate38 -Plate37 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+#endif
+#if 0
+TankWa21     5 +InTank +Plate41 -Plate39 -(+InTank +Plate40 -Plate39 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+#endif
+#if 0
+TankWa22     5 +InTank +TaEnPla2 -Plate41 -(+InTank +Plate42 -Plate41 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
+               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 
+               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
+               -yPlate11 +yPlate12))
+#endif
+Blackbod     5 +Blackbox -Airbox
+Air          5 +Airbox -OutTank -OutInl1 -OutInl2 -OutInl3 -OutInl4 -OutInl5 -OutInl6 -OutOutl1 -OutOutl2
+               | +OutTank +Airbox -OutTaEn2 -TaEnPla2
+               | +OutTank +TaEnPla1 +Airbox -OutTaEn1  -OutBeaPi
+Window       5 +InBeaPi +WindoPl1 -WindoPl2
+BeaPiVac     5 +InBeaPi +WindoPl2
 END
 GEOEND
 ASSIGNMA    TITANIUM    Inlet1
@@ -494,40 +766,53 @@ ASSIGNMA       WATER  VoPiWa40
 ASSIGNMA       WATER  VoPiWa41
 ASSIGNMA       WATER  VoPiWa42
 ASSIGNMA       WATER  VortexWa
-ASSIGNMA      COPPER  CuPlate1
-ASSIGNMA       WATER  WaterJet
-ASSIGNMA      COPPER  CuPlate2
-ASSIGNMA      COPPER  CuPlate3
-ASSIGNMA      COPPER  CuPlate4
-ASSIGNMA      COPPER  CuPlate5
-ASSIGNMA      COPPER  CuPlate6
-ASSIGNMA      COPPER  CuPlate7
-ASSIGNMA      COPPER  CuPlate8
-ASSIGNMA      COPPER  CuPlate9
-ASSIGNMA      COPPER  CuPlat10
-ASSIGNMA      COPPER  CuPlat11
-ASSIGNMA      COPPER  CuPlat12
-ASSIGNMA      COPPER  CuPlat13
-ASSIGNMA      COPPER  CuPlat14
-ASSIGNMA      COPPER  CuPlat15
-ASSIGNMA      COPPER  CuPlat16
-ASSIGNMA      COPPER  CuPlat17
-ASSIGNMA      COPPER  CuPlat18
-ASSIGNMA      COPPER  CuPlat19
-ASSIGNMA      COPPER  CuPlat20
-ASSIGNMA      COPPER  CuPlat21
-!@what.4=3000.0*mm
+ASSIGNMA    TITANIUM  WaterJet
+*ASSIGNMA      COPPER  CuPlate1
+*ASSIGNMA      COPPER  CuPlate2
+*ASSIGNMA      COPPER  CuPlate3
+*ASSIGNMA      COPPER  CuPlate4
+*ASSIGNMA      COPPER  CuPlate5
+*ASSIGNMA      COPPER  CuPlate6
+*ASSIGNMA      COPPER  CuPlate7
+*ASSIGNMA      COPPER  CuPlate8
+*ASSIGNMA      COPPER  CuPlate9
+*ASSIGNMA      COPPER  CuPlat10
+*ASSIGNMA      COPPER  CuPlat11
+*ASSIGNMA      COPPER  CuPlat12
+*ASSIGNMA      COPPER  CuPlat13
+*ASSIGNMA      COPPER  CuPlat14
+*ASSIGNMA      COPPER  CuPlat15
+*ASSIGNMA      COPPER  CuPlat16
+*ASSIGNMA      COPPER  CuPlat17
+*ASSIGNMA      COPPER  CuPlat18
+*ASSIGNMA      COPPER  CuPlat19
+*ASSIGNMA      COPPER  CuPlat20
+*ASSIGNMA      COPPER  CuPlat21
+ASSIGNMA       WATER   TankWa1
+ASSIGNMA    BLCKHOLE  Blackbod
+ASSIGNMA         AIR       Air
+ASSIGNMA    TITANIUM    Window
+ASSIGNMA      VACUUM  BeaPiVac
+!@what.4=1100.0*mm
 !@what.5=2000.0*mm
-!@what.6=4000.0*mm
+!@what.6=4200.0*mm
 !@what.7=-3000.0*mm
 !@what.8=-2000.0*mm
-!@what.9=-13000.0*mm
-*USRBIN           10.    ENERGY      -50.      300.      200.      400.Energy
-*USRBIN         -300.     -200.    -1300.      100.      100.      100. &
+!@what.9=-7000.0*mm
+USRBIN           10.    ENERGY      -21.      110.      200.      420.Energy
+USRBIN         -300.     -200.     -700.      100.      100.      150. &
+!@what.4=1100.0*mm
+!@what.5=2000.0*mm
+!@what.6=4200.0*mm
+!@what.7=-3000.0*mm
+!@what.8=-2000.0*mm
+!@what.9=-7000.0*mm
+USRBIN           10.   NEUTRON      -22.      110.      200.      420.Neutrons
+USRBIN         -300.     -200.     -700.      100.      100.      150. &
 *RESNUCLE          3.      -52.                         Water        1.BeamDump
 DISCARD        MUONS
 * Set the random number seed
 RANDOMIZ          1.        1.
 * Set the number of primary histories to be simulated in the run
-START           100.         .
+START            50.         .                                 999999.
 STOP
