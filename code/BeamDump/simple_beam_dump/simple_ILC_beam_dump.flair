@@ -17,7 +17,7 @@ Run: <default>
 	Last:     5
 	Status:   3
 	Pid:      0
-	StartRun: 1495022032
+	StartRun: 1496406257
 
 	# USRxxx data file: simple_ILC_beam_dump_21.bnn
 	Data: \I_\U.\e
@@ -57,9 +57,9 @@ Material: MgO
 End
 
 # Material
-Material: Sulfur
+Material: Stainles
 	alpha: 0
-	color: #209010
+	color: #40D0D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -67,9 +67,9 @@ Material: Sulfur
 End
 
 # Material
-Material: Stainles
+Material: Sulfur
 	alpha: 0
-	color: #40D0D0
+	color: #209010
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -107,9 +107,9 @@ Material: Fe2O3
 End
 
 # Material
-Material: Na2O
+Material: POTASSIU
 	alpha: 0
-	color: #301070
+	color: #70B0B0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -167,6 +167,16 @@ Material: Chlorine
 End
 
 # Material
+Material: Cs
+	alpha: 0
+	color: #901070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
 Material: SiO2
 	alpha: 0
 	color: #60D0B0
@@ -200,16 +210,6 @@ End
 Material: SO3
 	alpha: 0
 	color: #9010D0
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: Eu
-	alpha: 0
-	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -257,9 +257,9 @@ Material: Cobalt
 End
 
 # Material
-Material: POTASSIU
+Material: Na2O
 	alpha: 0
-	color: #70B0B0
+	color: #301070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -287,9 +287,9 @@ Material: Phosphor
 End
 
 # Material
-Material: Cs
+Material: Eu
 	alpha: 0
-	color: #901070
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -507,7 +507,7 @@ Plot: Red
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 1540.7 1973.07
+	extends: 1540.7 1155.53
 	grid: 0
 	index: 0
 	labels: 1
@@ -541,7 +541,7 @@ Plot: Green
 	cbtics: 0
 	coord: Z-X
 	cpd: 0
-	extends: 1341.62 1718.12
+	extends: 1341.62 1006.21
 	grid: 0
 	index: 0
 	labels: 1
@@ -577,7 +577,7 @@ Plot: Blue
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 743.008 951.52
+	extends: 743.008 557.256
 	grid: 0
 	index: 0
 	labels: 1
@@ -610,7 +610,7 @@ Plot: Magenta
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 4600.51 5891.56
+	extends: 4600.51 3450.38
 	grid: 0
 	index: 0
 	labels: 1

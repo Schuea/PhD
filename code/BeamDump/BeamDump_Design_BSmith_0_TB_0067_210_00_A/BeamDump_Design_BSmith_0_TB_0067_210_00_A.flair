@@ -5,7 +5,7 @@ Title: BeamDump_Design_BSmith_0_TB_0067_210_00_A
 Input: BeamDump_Design_BSmith_0_TB_0067_210_00_A.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Input
+Page: Run
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -15,9 +15,9 @@ F77dline: False
 Run: <default>
 	Prev:     0
 	Last:     5
-	Status:   5
-	Pid:      23523
-	StartRun: 1496403281
+	Status:   2
+	Pid:      19591
+	StartRun: 1496420252
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_21.bnn
 	Data: \I_\U.\e
@@ -51,9 +51,9 @@ Geometry:
 		Image.alpha: 112
 		Image.file: TB-0067-210-00-A_yz_view.png
 		Image.marker: 3
-		Image.marker.0: 200.476190476 193.523809524 -300.0 0.0 -3250.0
-		Image.marker.1: 1185.5 193.333333333 -300.0 0.0 3250.0
-		Image.marker.2: 200.476190476 307.5 -300.0 -750.0 -3250.0
+		Image.marker.0: 200.476190476 193.523809524 -30.0 0.0 -325.0
+		Image.marker.1: 1185.5 193.333333333 -30.0 0.0 325.0
+		Image.marker.2: 200.476190476 307.5 -30.0 -75.0 -325.0
 		Image.marker.3: 175.457142857 245.554761905 -300.0 -450.0 0.0
 		Image.marker.4: 175.476190476 181.547619048 -300.0 0.0 0.0
 		Image.prompt: 1
@@ -87,12 +87,12 @@ Plot: Red
 	cbtics: 0
 	coord: U-V
 	cpd: 0
-	extends: 3512.84 2150.9
+	extends: 472.786 289.485
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Media
-	origin: -834.987 -614.764 -3015.14
+	origin: -152.414 30.993 -259.605
 	subtype: Material
 	title: GeoViewer Red plot
 	x2log: 0
@@ -109,14 +109,14 @@ End
 Plot: Green
 	Format: .eps
 	Type:   Geometry
-	basisu: 0 0.000671064 1
+	basisu: 0 0 1
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 3422.37 2098.14
+	extends: 17.301 10.6066
 	labels: 1
 	layer: Media
-	origin: -363.32 2.78806 -977.062
+	origin: 34.888 0.571654 332.644
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -129,10 +129,10 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 5824.7 3566.44
+	extends: 182.318 111.633
 	labels: 1
-	layer: 3D
-	origin: -797.463 -1046.69 -1606.69
+	layer: Media
+	origin: -81.9612 39.1538 -367.966
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -141,14 +141,14 @@ End
 Plot: Magenta
 	Format: .eps
 	Type:   Geometry
-	basisu: 0 0 1
-	basisv: 0 1 0
+	basisu: 1.44521e-05 -1.03234e-05 1
+	basisv: 0.00230999 0.999997 1.029e-05
 	boundaries: 1
-	coord: Z-Y
-	extends: 976.399 34034.5
+	coord: U-V
+	extends: 272.495 167.057
 	labels: 1
 	layer: Image
-	origin: 56.5046 -76.6364 -3400.18
+	origin: 0.177202 -50.3544 -595.206
 	subtype: Material
 	title: GeoViewer Magenta plot
 End
