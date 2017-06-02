@@ -4,7 +4,10 @@ GLOBAL                                          1.
 * Set the defaults for precision simulations
 DEFAULTS                                                              PRECISIO
 * Define the beam characteristics
-BEAM           -250.  -0.00282          -2.4697E-4-3.0522E-6          ELECTRON
+!@what.1=250.0*GeV
+!@what.4=246.97*nm
+!@what.5=30.522*nm
+BEAM            250.   0.00282           2.4697E-5 3.0522E-6          ELECTRON
 * Define the beam position
 !@what.3=-7500.0*mm
 BEAMPOS          0.0       0.0     -750.       0.0       0.0
@@ -75,16 +78,14 @@ RCC InBeaPi    0.0 0.0 -775. 0.0 0.0 423.5 18.
 SPH OutTaEn1   -30. 0.0 -260. 105.
 !@what.1=-300.0*mm
 !@what.3=-2600.0*mm
-!@what.4=1035.9*mm
-SPH InTaEn1    -30. 0.0 -260. 103.59000000000002
+SPH InTaEn1    -30. 0.0 -260. 103.59
 !@what.1=-300.0*mm
 !@what.3=2590.0*mm
 !@what.4=1050.0*mm
 SPH OutTaEn2   -30. 0.0 259. 105.
 !@what.1=-300.0*mm
 !@what.3=2590.0*mm
-!@what.4=1035.9*mm
-SPH InTaEn2    -30. 0.0 259. 103.59000000000002
+SPH InTaEn2    -30. 0.0 259. 103.59
 !@what.3=-2315.0*mm
 !@what.6=3555.0*mm
 !@what.7=250.0*mm
@@ -372,15 +373,13 @@ RCC InOutl1    -30. -97. 293.5 0.0 25.556 0.0 14.
 !@what.1=-300*mm
 !@what.2=714.5*mm
 !@what.3=2730*mm
-!@what.5=375.5*mm
 !@what.7=150*mm
-RCC OutOutl2   -30. 71.45 273. 0.0 37.550000000000004 0.0 15.
+RCC OutOutl2   -30. 71.45 273. 0.0 37.55 0.0 15.
 !@what.1=-300*mm
 !@what.2=714.5*mm
 !@what.3=2730*mm
-!@what.5=375.5*mm
 !@what.7=140*mm
-RCC InOutl2    -30. 71.45 273. 0.0 37.550000000000004 0.0 14.
+RCC InOutl2    -30. 71.45 273. 0.0 37.55 0.0 14.
 !@what.1=-255*mm
 !@what.2=-360*mm
 !@what.3=985*mm

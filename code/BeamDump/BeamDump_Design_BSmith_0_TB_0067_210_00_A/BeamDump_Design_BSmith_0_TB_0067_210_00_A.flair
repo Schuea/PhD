@@ -5,7 +5,7 @@ Title: BeamDump_Design_BSmith_0_TB_0067_210_00_A
 Input: BeamDump_Design_BSmith_0_TB_0067_210_00_A.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Run
+Page: Viewer
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -16,8 +16,8 @@ Run: <default>
 	Prev:     0
 	Last:     5
 	Status:   2
-	Pid:      19591
-	StartRun: 1496420252
+	Pid:      21299
+	StartRun: 1496422372
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_21.bnn
 	Data: \I_\U.\e
@@ -39,8 +39,8 @@ End
 # Geometry Information
 Geometry:
 	Frame.bsplit: 0.5
-	Frame.tsplit: 0.5
-	Frame.vsplit: 0.5
+	Frame.tsplit: 0.01
+	Frame.vsplit: 0.99
 
 	# Layer
 	Layer: Image
@@ -87,12 +87,12 @@ Plot: Red
 	cbtics: 0
 	coord: U-V
 	cpd: 0
-	extends: 472.786 289.485
+	extends: 109.955 3832.71
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Media
-	origin: -152.414 30.993 -259.605
+	origin: -31.83 -22.2669 -259.4
 	subtype: Material
 	title: GeoViewer Red plot
 	x2log: 0
@@ -113,10 +113,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 17.301 10.6066
+	extends: 266.557 168.138
 	labels: 1
 	layer: Media
-	origin: 34.888 0.571654 332.644
+	origin: -140.866 0.571654 -214.214
 	subtype: Material
 	title: GeoViewer Green plot
 End
