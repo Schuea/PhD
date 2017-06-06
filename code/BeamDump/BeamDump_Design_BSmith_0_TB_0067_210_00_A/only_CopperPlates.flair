@@ -1,0 +1,92 @@
+#!/usr/local/flair/flair
+# FLUKA Project file
+Version: 2
+Title: Copper plates
+Input: only_CopperPlates.inp
+Submit: *Default
+Tabs: 0.1 0.32 0.56 0.81 1.0
+Page: Flair
+DefMain: True
+LinkPrg: lfluka
+F77bound: True
+F77dline: False
+
+# Run information
+Run: <default>
+	Prev:     0
+	Last:     5
+	Status:   5
+	Pid:      21364
+	StartRun: 1496758365
+End
+
+# Geometry Information
+Geometry:
+	Frame.bsplit: 0.5
+	Frame.tsplit: 0.5
+	Frame.vsplit: 0.5
+End
+
+# Geometry plot "GeoViewer Red plot"
+Plot: Red
+	Format: .eps
+	Type:   Geometry
+	basisu: 1 0 0
+	basisv: 0 1 0
+	boundaries: 1
+	coord: X-Y
+	extends: 144 88.1706
+	labels: 1
+	layer: Media
+	origin: -30.5 0 216
+	subtype: Material
+	title: GeoViewer Red plot
+End
+
+# Geometry plot "GeoViewer Green plot"
+Plot: Green
+	Format: .eps
+	Type:   Geometry
+	basisu: 0 0 1
+	basisv: 1 0 0
+	boundaries: 1
+	coord: Z-X
+	extends: 358.318 219.672
+	labels: 1
+	layer: Media
+	origin: -44.1315 0 96.9926
+	subtype: Material
+	title: GeoViewer Green plot
+End
+
+# Geometry plot "GeoViewer Blue plot"
+Plot: Blue
+	Format: .eps
+	Type:   Geometry
+	basisu: 0 0 1
+	basisv: 0 1 0
+	boundaries: 1
+	coord: Z-Y
+	extends: 358.318 219.397
+	labels: 1
+	layer: Media
+	origin: -30 37.6409 86.2977
+	subtype: Material
+	title: GeoViewer Blue plot
+End
+
+# Geometry plot "GeoViewer Magenta plot"
+Plot: Magenta
+	Format: .eps
+	Type:   Geometry
+	basisu: -1 0 0
+	basisv: 0 1 0
+	boundaries: 1
+	coord: X-Y
+	extends: 172.8 105.938
+	labels: 1
+	layer: Media
+	origin: -10.2284 16.9102 0
+	subtype: Material
+	title: GeoViewer Magenta plot
+End
