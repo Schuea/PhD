@@ -5,7 +5,7 @@ Title: BeamDump_Design_BSmith_0_TB_0067_210_00_A
 Input: BeamDump_Design_BSmith_0_TB_0067_210_00_A.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Run
+Page: Input
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -15,9 +15,9 @@ F77dline: False
 Run: <default>
 	Prev:     0
 	Last:     5
-	Status:   3
-	Pid:      0
-	StartRun: 1496738014
+	Status:   5
+	Pid:      15750
+	StartRun: 1496752514
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_21.bnn
 	Data: \I_\U.\e
@@ -77,8 +77,8 @@ End
 Plot: Red
 	Format: .eps
 	Type:   Geometry
-	basisu: 0.999999 4.296e-05 -0.00147681
-	basisv: -5.2643e-05 0.999978 -0.00655722
+	basisu: 0.999999 5.41828e-05 -0.00147644
+	basisv: -5.2643e-05 0.999999 0.00104299
 	boundaries: 1
 	cbcolors: 0
 	cblog: 0
@@ -87,12 +87,12 @@ Plot: Red
 	cbtics: 0
 	coord: U-V
 	cpd: 0
-	extends: 393.989 241.238
+	extends: 63.6314 38.9613
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Media
-	origin: -137.683 -84.0091 -179.149
+	origin: -1.63607 54.6469 231.418
 	subtype: Material
 	title: GeoViewer Red plot
 	x2log: 0
@@ -113,10 +113,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 955.122 585.552
+	extends: 222.131 136.181
 	labels: 1
 	layer: Media
-	origin: -32.9163 -1.15486 -169.156
+	origin: -8.50175 -1.15486 174.604
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -129,10 +129,10 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 653.278 400
+	extends: 151.932 93.0271
 	labels: 1
 	layer: Media
-	origin: -21.2851 43.9618 -22.4375
+	origin: -21.2851 -16.8272 201.14
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -141,14 +141,104 @@ End
 Plot: Magenta
 	Format: .eps
 	Type:   Geometry
-	basisu: 1.44521e-05 0.00877583 0.999961
-	basisv: 0.00230999 0.999959 -0.00877584
+	basisu: 0 0 1
+	basisv: 0 1 0
 	boundaries: 1
-	coord: U-V
-	extends: 565.046 346.41
+	coord: Z-Y
+	extends: 470.872 288.675
 	labels: 1
 	layer: Image
-	origin: -0.0589456 -95.9582 -135.169
+	origin: -23.0496 -36.5425 -23.1859
 	subtype: Material
 	title: GeoViewer Magenta plot
+End
+
+# USRBIN plot "Energy deposition density in the ILC main beam dump"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_21_plot
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	cbcolors: 30
+	cblabel: GeV/cm3 per electron
+	cblog: 1
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_21.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	geopos: 0.0
+	grid: 0
+	hist: 2D Projection
+	index: 0
+	int: 246.68697052109465
+	lw.0: 0
+	max: 3.27738497E-04
+	min: 5.70620474E-16
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: Energy deposition density in the ILC main beam dump
+	with.0: errorbars
+	x2log: 0
+	x2tics: 0
+	xlabel: z [cm]
+	xlog: 0
+	xrebin: 1
+	y2log: 0
+	y2tics: 0
+	ylabel: x [cm]
+	ylog: 0
+	yrebin: 1
+	zlog: 0
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "Neutron flux in the ILC main beam dump"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_22_plot
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	cbcolors: 30
+	cblabel: #/cm2 per electron
+	cblog: 1
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_22.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	geopos: 0.0
+	grid: 0
+	hist: 2D Projection
+	index: 1
+	int: 1914.4559619706456
+	lw.0: 0
+	max: 6.66228938E-04
+	min: 6.10469120E-10
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: Neutron flux in the ILC main beam dump
+	with.0: errorbars
+	x2log: 0
+	x2tics: 0
+	xlabel: z [cm]
+	xlog: 0
+	xrebin: 1
+	y2log: 0
+	y2tics: 0
+	ylabel: x [cm]
+	ylog: 0
+	yrebin: 1
+	zlog: 0
+	zrebin: 1
+	ztics: 0
 End
