@@ -4,819 +4,197 @@ GLOBAL                                          1.
 * Set the defaults for precision simulations
 DEFAULTS                                                              PRECISIO
 * Define the beam characteristics
-!@what.1=250.0*GeV
 !@what.4=246.97*nm
 !@what.5=30.522*nm
-BEAM            250.   0.00282           2.4697E-5 3.0522E-6          ELECTRON
+BEAM           250.0   0.00282           2.4697E-5 3.0522E-6          ELECTRON
 * Define the beam position
-!@what.3=-7500.0*mm
-BEAMPOS          0.0       0.0     -750.       0.0       0.0
+BEAMPOS          0.0       0.0    -750.0       0.0       0.0
 !point          -30.       0.0     -325.                              marker7
 !point          -30.       0.0      325.                              marker8
 !point          -30.      -75.     -325.                              marker9
 GEOBEGIN                                                              COMBNAME
     0    0          0_TB_0067_210_00_A
-!@what.1=-300.0*mm
-!@what.3=750.0*mm
-ZCC OutTank    -30. 0.0 75.
-!@what.1=-3335.0*mm
+ZCC OutTank    -30.0 0.0 75.0
 XYP TaEnPla1   -333.5
-!@what.1=-300.0*mm
-!@what.3=730.0*mm
-ZCC InTank     -30. 0.0 73.
-!@what.1=-550.0*mm
-!@what.3=-3120*mm
-!@what.6=4460*mm
-!@what.7=100.0*mm
-RCC OutWatJe   -55. 0.0 -312. 0.0 0.0 446. 10.
-!@what.1=-550.0*mm
-!@what.3=-3110*mm
-!@what.6=4440*mm
-!@what.7=90.0*mm
-RCC InWatJe    -55. 0.0 -311. 0.0 0.0 444. 9.
-!@what.1=-1850.0*mm
-!@what.3=-2815.0*mm
-!@what.4=1300.0*mm
-!@what.7=100.0*mm
-RCC OutInl1    -185. 0.0 -281.5 130. 0.0 0.0 10.
-!@what.1=-1850.0*mm
-!@what.3=-2815.0*mm
-!@what.4=1300.0*mm
-!@what.7=90.0*mm
-RCC InInl1     -185. 0.0 -281.5 130. 0.0 0.0 9.
-!@what.1=-1840.0*mm
-!@what.3=-1815.0*mm
-!@what.4=1300.0*mm
-!@what.7=100.0*mm
-RCC OutInl2    -184. 0.0 -181.5 130. 0.0 0.0 10.
-!@what.1=-1840.0*mm
-!@what.3=-1815.0*mm
-!@what.4=1300.0*mm
-!@what.7=90.0*mm
-RCC InInl2     -184. 0.0 -181.5 130. 0.0 0.0 9.
-!@what.1=-1850.0*mm
-!@what.3=745.0*mm
-!@what.4=1300.0*mm
-!@what.7=100.0*mm
-RCC OutInl3    -185. 0.0 74.5 130. 0.0 0.0 10.
-!@what.1=-1850.0*mm
-!@what.3=745.0*mm
-!@what.4=1300.0*mm
-!@what.7=90.0*mm
-RCC InInl3     -185. 0.0 74.5 130. 0.0 0.0 9.
-!@what.3=-7750.0*mm
-!@what.6=4235.0*mm
-!@what.7=200.0*mm
-RCC OutBeaPi   0.0 0.0 -775. 0.0 0.0 423.5 20.
-!@what.3=-7750.0*mm
-!@what.6=4235.0*mm
-!@what.7=180.0*mm
-RCC InBeaPi    0.0 0.0 -775. 0.0 0.0 423.5 18.
-!@what.1=-300.0*mm
-!@what.3=-2600.0*mm
-!@what.4=1050.0*mm
-SPH OutTaEn1   -30. 0.0 -260. 105.
-!@what.1=-300.0*mm
-!@what.3=-2600.0*mm
-SPH InTaEn1    -30. 0.0 -260. 103.59
-!@what.1=-300.0*mm
-!@what.3=2590.0*mm
-!@what.4=1050.0*mm
-SPH OutTaEn2   -30. 0.0 259. 105.
-!@what.1=-300.0*mm
-!@what.3=2590.0*mm
-SPH InTaEn2    -30. 0.0 259. 103.59
-!@what.3=-2315.0*mm
-!@what.6=3555.0*mm
-!@what.7=250.0*mm
-RCC OutVorte   0.0 0.0 -231.5 0.0 0.0 355.5 25.
-!@what.3=-2305.0*mm
-!@what.6=3535.0*mm
-!@what.7=240.0*mm
-RCC InVorte    0.0 0.0 -230.5 0.0 0.0 353.5 24.
-!@what.1=-475.0*mm
-!@what.3=-3020.0*mm
-!@what.4=250.0*mm
-!@what.7=40.0*mm
-RCC OutVoP1    -47.5 0.0 -302. 25. 0.0 0.0 4.
-!@what.1=-475.0*mm
-!@what.3=-3020.0*mm
-!@what.4=250.0*mm
-!@what.7=30.0*mm
-RCC InVoP1     -47.5 0.0 -302. 25. 0.0 0.0 3.
-!@what.1=-475.0*mm
-!@what.3=-2820.0*mm
-!@what.4=250.0*mm
-!@what.7=30.0*mm
-RCC InVoP2     -47.5 0.0 -282. 25. 0.0 0.0 3.
-!@what.1=-475.0*mm
-!@what.3=-2820.0*mm
-!@what.4=250.0*mm
-!@what.7=40.0*mm
-RCC OutVoP2    -47.5 0.0 -282. 25. 0.0 0.0 4.
-!@what.1=-475.0*mm
-!@what.3=-2620.0*mm
-!@what.4=250.0*mm
-!@what.7=40.0*mm
-RCC OutVoP3    -47.5 0.0 -262. 25. 0.0 0.0 4.
-!@what.1=-475.0*mm
-!@what.3=-2620.0*mm
-!@what.4=250.0*mm
-!@what.7=30.0*mm
-RCC InVoP3     -47.5 0.0 -262. 25. 0.0 0.0 3.
-!@what.1=-475.0*mm
-!@what.3=-2420*mm
-!@what.4=250.0*mm
-!@what.7=40.0*mm
-RCC OutVoP4    -47.5 0.0 -242. 25. 0.0 0.0 4.
-!@what.1=-475.0*mm
-!@what.3=-2420*mm
-!@what.4=250.0*mm
-!@what.7=30.0*mm
-RCC InVoP4     -47.5 0.0 -242. 25. 0.0 0.0 3.
-!@what.1=-475.0*mm
-!@what.3=-2215*mm
-!@what.4=250.0*mm
-!@what.7=30.0*mm
-RCC InVoP5     -47.5 0.0 -221.5 25. 0.0 0.0 3.
-!@what.1=-475.0*mm
-!@what.3=-2215*mm
-!@what.4=250.0*mm
-!@what.7=40.0*mm
-RCC OutVoP5    -47.5 0.0 -221.5 25. 0.0 0.0 4.
-!@what.1=-475.0*mm
-!@what.3=-2015*mm
-!@what.4=250.0*mm
-!@what.7=30*mm
-RCC InVoP6     -47.5 0.0 -201.5 25. 0.0 0.0 3.
-!@what.1=-475.0*mm
-!@what.3=-2015*mm
-!@what.4=250.0*mm
-!@what.7=40.0*mm
-RCC OutVoP6    -47.5 0.0 -201.5 25. 0.0 0.0 4.
-!@what.1=-475*mm
-!@what.3=-1815*mm
-!@what.4=250*mm
-!@what.7=30*mm
-RCC InVoP7     -47.5 0.0 -181.5 25. 0.0 0.0 3.
-!@what.1=-475*mm
-!@what.3=-1815*mm
-!@what.4=250*mm
-!@what.7=40*mm
-RCC OutVoP7    -47.5 0.0 -181.5 25. 0.0 0.0 4.
-!@what.1=-475*mm
-!@what.3=-1615*mm
-!@what.4=250*mm
-!@what.7=30*mm
-RCC InVoP8     -47.5 0.0 -161.5 25. 0.0 0.0 3.
-!@what.1=-475*mm
-!@what.3=-1615*mm
-!@what.4=250*mm
-!@what.7=40*mm
-RCC OutVoP8    -47.5 0.0 -161.5 25. 0.0 0.0 4.
-!@what.1=-475*mm
-!@what.3=-1414.8*mm
-!@what.4=250*mm
-!@what.7=40*mm
-RCC OutVoP9    -47.5 0.0 -141.48 25. 0.0 0.0 4.
-!@what.1=-475*mm
-!@what.3=-1414.8*mm
-!@what.4=250*mm
-!@what.7=30*mm
-RCC InVoP9     -47.5 0.0 -141.48 25. 0.0 0.0 3.
-!@what.1=-475*mm
-!@what.3=-1214.8*mm
-!@what.4=250*mm
-!@what.7=40*mm
-RCC OutVoP10   -47.5 0.0 -121.48 25. 0.0 0.0 4.
-!@what.1=-475*mm
-!@what.3=-1214.8*mm
-!@what.4=250*mm
-!@what.7=30*mm
-RCC InVoP10    -47.5 0.0 -121.48 25. 0.0 0.0 3.
-!@what.1=-475*mm
-!@what.3=-1014.8*mm
-!@what.4=250*mm
-!@what.7=30*mm
-RCC InVoP11    -47.5 0.0 -101.48 25. 0.0 0.0 3.
-!@what.1=-475*mm
-!@what.3=-1014.8*mm
-!@what.4=250*mm
-!@what.7=40*mm
-RCC OutVoP11   -47.5 0.0 -101.48 25. 0.0 0.0 4.
-!@what.1=-475*mm
-!@what.3=-814.8*mm
-!@what.4=250*mm
-!@what.7=40*mm
-RCC OutVoP12   -47.5 0.0 -81.48 25. 0.0 0.0 4.
-!@what.1=-475*mm
-!@what.3=-814.8*mm
-!@what.4=250*mm
-!@what.7=30*mm
-RCC InVoP12    -47.5 0.0 -81.48 25. 0.0 0.0 3.
-!@what.1=-475*mm
-!@what.3=-615*mm
-!@what.4=250*mm
-!@what.7=40*mm
-RCC OutVoP13   -47.5 0.0 -61.5 25. 0.0 0.0 4.
-!@what.1=-475*mm
-!@what.3=-615*mm
-!@what.4=250*mm
-!@what.7=30*mm
-RCC InVoP13    -47.5 0.0 -61.5 25. 0.0 0.0 3.
-!@what.1=-475*mm
-!@what.3=-415*mm
-!@what.4=250*mm
-!@what.7=40*mm
-RCC OutVoP14   -47.5 0.0 -41.5 25. 0.0 0.0 4.
-!@what.1=-475*mm
-!@what.3=-415*mm
-!@what.4=250*mm
-!@what.7=30*mm
-RCC InVoP14    -47.5 0.0 -41.5 25. 0.0 0.0 3.
-!@what.1=-475*mm
-!@what.3=-210*mm
-!@what.4=250*mm
-!@what.7=40*mm
-RCC OutVoP15   -47.5 0.0 -21. 25. 0.0 0.0 4.
-!@what.1=-475*mm
-!@what.3=-210*mm
-!@what.4=250*mm
-!@what.7=30*mm
-RCC InVoP15    -47.5 0.0 -21. 25. 0.0 0.0 3.
-!@what.1=-475*mm
-!@what.3=-15*mm
-!@what.4=250*mm
-!@what.7=40*mm
-RCC OutVoP16   -47.5 0.0 -1.5 25. 0.0 0.0 4.
-!@what.1=-475*mm
-!@what.3=-15*mm
-!@what.4=250*mm
-!@what.7=30*mm
-RCC InVoP16    -47.5 0.0 -1.5 25. 0.0 0.0 3.
-!@what.1=-475*mm
-!@what.3=190*mm
-!@what.4=250*mm
-!@what.7=40*mm
-RCC OutVoP17   -47.5 0.0 19. 25. 0.0 0.0 4.
-!@what.1=-475*mm
-!@what.3=190*mm
-!@what.4=250*mm
-!@what.7=30*mm
-RCC InVoP17    -47.5 0.0 19. 25. 0.0 0.0 3.
-!@what.1=-475*mm
-!@what.3=385*mm
-!@what.4=250*mm
-!@what.7=30*mm
-RCC InVoP18    -47.5 0.0 38.5 25. 0.0 0.0 3.
-!@what.1=-475*mm
-!@what.3=385*mm
-!@what.4=250*mm
-!@what.7=40*mm
-RCC OutVoP18   -47.5 0.0 38.5 25. 0.0 0.0 4.
-!@what.1=-475*mm
-!@what.3=590*mm
-!@what.4=250*mm
-!@what.7=40*mm
-RCC OutVoP19   -47.5 0.0 59. 25. 0.0 0.0 4.
-!@what.1=-475*mm
-!@what.3=590*mm
-!@what.4=250*mm
-!@what.7=30*mm
-RCC InVoP19    -47.5 0.0 59. 25. 0.0 0.0 3.
-!@what.1=-475*mm
-!@what.3=785*mm
-!@what.4=250*mm
-!@what.7=40*mm
-RCC OutVoP20   -47.5 0.0 78.5 25. 0.0 0.0 4.
-!@what.1=-475*mm
-!@what.3=785*mm
-!@what.4=250*mm
-!@what.7=30*mm
-RCC InVoP20    -47.5 0.0 78.5 25. 0.0 0.0 3.
-!@what.1=-475*mm
-!@what.3=990*mm
-!@what.4=250*mm
-!@what.7=40*mm
-RCC OutVoP21   -47.5 0.0 99. 25. 0.0 0.0 4.
-!@what.1=-475*mm
-!@what.3=990*mm
-!@what.4=250*mm
-!@what.7=30*mm
-RCC InVoP21    -47.5 0.0 99. 25. 0.0 0.0 3.
-!@what.1=-300*mm
-!@what.2=-420*mm
-!@what.3=-3115*mm
-!@what.4=0*mm
-!@what.6=4460*mm
-!@what.7=100*mm
-RCC OutWatJ2   -30. -42. -311.5 0.0 0.0 446. 10.
-!@what.1=-300*mm
-!@what.2=-420*mm
-!@what.3=-3105*mm
-!@what.4=0*mm
-!@what.6=4440*mm
-!@what.7=90*mm
-RCC InWatJe2   -30. -42. -310.5 0.0 0.0 444. 9.
-!@what.1=-300*mm
-!@what.2=-1060*mm
-!@what.3=-2820*mm
-!@what.4=0*mm
-!@what.5=630*mm
-!@what.7=100*mm
-RCC OutInl4    -30. -106. -282. 0.0 63. 0.0 10.
-!@what.1=-300*mm
-!@what.2=-1060*mm
-!@what.3=-2820*mm
-!@what.4=0
-!@what.5=630*mm
-!@what.7=90*mm
-RCC InInl4     -30. -106. -282. 0.0 63. 0.0 9.
-!@what.1=-300*mm
-!@what.2=-1060*mm
-!@what.3=-1815*mm
-!@what.4=0
-!@what.5=630*mm
-!@what.7=100*mm
-RCC OutInl5    -30. -106. -181.5 0.0 63. 0.0 10.
-!@what.1=-300*mm
-!@what.2=-1060*mm
-!@what.3=-1815*mm
-!@what.4=0*mm
-!@what.5=630*mm
-!@what.7=90*mm
-RCC InInl5     -30. -106. -181.5 0.0 63. 0.0 9.
-!@what.1=-300*mm
-!@what.2=-1060*mm
-!@what.3=740*mm
-!@what.5=630*mm
-!@what.7=100*mm
-RCC OutInl6    -30. -106. 74. 0.0 63. 0.0 10.
-!@what.1=-300*mm
-!@what.2=-1060*mm
-!@what.3=740*mm
-!@what.5=630*mm
-!@what.7=90*mm
-RCC InInl6     -30. -106. 74. 0.0 63. 0.0 9.
-!@what.1=-300*mm
-!@what.2=-970*mm
-!@what.3=2935*mm
-!@what.5=255.56*mm
-!@what.7=150*mm
-RCC OutOutl1   -30. -97. 293.5 0.0 25.556 0.0 15.
-!@what.1=-300*mm
-!@what.2=-970*mm
-!@what.3=2935*mm
-!@what.5=255.56*mm
-!@what.7=140*mm
-RCC InOutl1    -30. -97. 293.5 0.0 25.556 0.0 14.
-!@what.1=-300*mm
-!@what.2=714.5*mm
-!@what.3=2730*mm
-!@what.7=150*mm
-RCC OutOutl2   -30. 71.45 273. 0.0 37.55 0.0 15.
-!@what.1=-300*mm
-!@what.2=714.5*mm
-!@what.3=2730*mm
-!@what.7=140*mm
-RCC InOutl2    -30. 71.45 273. 0.0 37.55 0.0 14.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=985*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=40*mm
-RCC OutVoP22   -25.5 -36. 98.5 12.5 17.5 0.0 4.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=985*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=30*mm
-RCC InVoP22    -25.5 -36. 98.5 12.5 17.5 0.0 3.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=782.26*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=40*mm
-RCC OutVoP23   -25.5 -36. 78.226 12.5 17.5 0.0 4.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=782.26*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=30*mm
-RCC InVoP23    -25.5 -36. 78.226 12.5 17.5 0.0 3.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=585*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=40*mm
-RCC OutVoP24   -25.5 -36. 58.5 12.5 17.5 0.0 4.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=585*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=30*mm
-RCC InVoP24    -25.5 -36. 58.5 12.5 17.5 0.0 3.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=385*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=40*mm
-RCC OutVoP25   -25.5 -36. 38.5 12.5 17.5 0.0 4.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=385*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=30*mm
-RCC InVoP25    -25.5 -36. 38.5 12.5 17.5 0.0 3.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=185*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=40*mm
-RCC OutVoP26   -25.5 -36. 18.5 12.5 17.5 0.0 4.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=185*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=30*mm
-RCC InVoP26    -25.5 -36. 18.5 12.5 17.5 0.0 3.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-15*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=40*mm
-RCC OutVoP27   -25.5 -36. -1.5 12.5 17.5 0.0 4.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-15*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=30*mm
-RCC InVoP27    -25.5 -36. -1.5 12.5 17.5 0.0 3.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-215*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=40*mm
-RCC OutVoP28   -25.5 -36. -21.5 12.5 17.5 0.0 4.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-215*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=30*mm
-RCC InVoP28    -25.5 -36. -21.5 12.5 17.5 0.0 3.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-415*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=40*mm
-RCC OutVoP29   -25.5 -36. -41.5 12.5 17.5 0.0 4.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-415*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=30*mm
-RCC InVoP29    -25.5 -36. -41.5 12.5 17.5 0.0 3.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-615*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=40*mm
-RCC OutVoP30   -25.5 -36. -61.5 12.5 17.5 0.0 4.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-615*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=30*mm
-RCC InVoP30    -25.5 -36. -61.5 12.5 17.5 0.0 3.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-815*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=40*mm
-RCC OutVoP31   -25.5 -36. -81.5 12.5 17.5 0.0 4.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-815*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=30*mm
-RCC InVoP31    -25.5 -36. -81.5 12.5 17.5 0.0 3.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-1015*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=40*mm
-RCC OutVoP32   -25.5 -36. -101.5 12.5 17.5 0.0 4.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-1015*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=30*mm
-RCC InVoP32    -25.5 -36. -101.5 12.5 17.5 0.0 3.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-1215*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=40*mm
-RCC OutVoP33   -25.5 -36. -121.5 12.5 17.5 0.0 4.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-1215*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=30*mm
-RCC InVoP33    -25.5 -36. -121.5 12.5 17.5 0.0 3.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-1415*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=40*mm
-RCC OutVoP34   -25.5 -36. -141.5 12.5 17.5 0.0 4.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-1415*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=30*mm
-RCC InVoP34    -25.5 -36. -141.5 12.5 17.5 0.0 3.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-1620*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=40*mm
-RCC OutVoP35   -25.5 -36. -162. 12.5 17.5 0.0 4.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-1620*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=30*mm
-RCC InVoP35    -25.5 -36. -162. 12.5 17.5 0.0 3.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-1815*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=40*mm
-RCC OutVoP36   -25.5 -36. -181.5 12.5 17.5 0.0 4.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-1815*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=30*mm
-RCC InVoP36    -25.5 -36. -181.5 12.5 17.5 0.0 3.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-2015*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=30*mm
-RCC InVoP37    -25.5 -36. -201.5 12.5 17.5 0.0 3.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-2015*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=40*mm
-RCC OutVoP37   -25.5 -36. -201.5 12.5 17.5 0.0 4.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-2215*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=40*mm
-RCC OutVoP38   -25.5 -36. -221.5 12.5 17.5 0.0 4.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-2215*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=30*mm
-RCC InVoP38    -25.5 -36. -221.5 12.5 17.5 0.0 3.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-2415*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=40*mm
-RCC OutVoP39   -25.5 -36. -241.5 12.5 17.5 0.0 4.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-2415*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=30*mm
-RCC InVoP39    -25.5 -36. -241.5 12.5 17.5 0.0 3.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-2615*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=40*mm
-RCC OutVoP40   -25.5 -36. -261.5 12.5 17.5 0.0 4.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-2615*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=30*mm
-RCC InVoP40    -25.5 -36. -261.5 12.5 17.5 0.0 3.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-2815*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=40*mm
-RCC OutVoP41   -25.5 -36. -281.5 12.5 17.5 0.0 4.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-2815*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=30*mm
-RCC InVoP41    -25.5 -36. -281.5 12.5 17.5 0.0 3.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-3015*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=40*mm
-RCC OutVoP42   -25.5 -36. -301.5 12.5 17.5 0.0 4.
-!@what.1=-255*mm
-!@what.2=-360*mm
-!@what.3=-3015*mm
-!@what.4=125*mm
-!@what.5=175*mm
-!@what.7=30*mm
-RCC InVoP42    -25.5 -36. -301.5 12.5 17.5 0.0 3.
-!@what.1=1750*mm
-XYP Plate1     175.
-!@what.1=1770*mm
-XYP Plate2     177.
-!@what.1=1815*mm
+ZCC InTank     -30.0 0.0 73.0
+RCC OutWatJe   -55.0 0.0 -312.0 0.0 0.0 446.0 10.0
+RCC InWatJe    -55.0 0.0 -311.0 0.0 0.0 444.0 9.0
+RCC OutInl1    -185.0 0.0 -281.50 130.0 0.0 0.0 10.0
+RCC InInl1     -185.0 0.0 -281.50 130.0 0.0 0.0 9.0
+RCC OutInl2    -184.0 0.0 -181.50 130.0 0.0 0.0 10.0
+RCC InInl2     -184.0 0.0 -181.50 130.0 0.0 0.0 9.0
+RCC OutInl3    -185.0 0.0 74.50 130.0 0.0 0.0 10.0
+RCC InInl3     -185.0 0.0 74.50 130.0 0.0 0.0 9.0
+RCC OutBeaPi   0.0 0.0 -775.0 0.0 0.0 423.50 20.0
+RCC InBeaPi    0.0 0.0 -775.0 0.0 0.0 423.50 18.0
+SPH OutTaEn1   -30.0 0.0 -260.0 105.0
+SPH InTaEn1    -30.0 0.0 -260.0 103.59
+SPH OutTaEn2   -30.0 0.0 259.0 105.0
+SPH InTaEn2    -30.0 0.0 259.0 103.59
+RCC OutVorte   0.0 0.0 -231.50 0.0 0.0 355.50 25.0
+RCC InVorte    0.0 0.0 -230.50 0.0 0.0 353.50 24.0
+RCC OutVoP1    -47.50 0.0 -302.0 25.0 0.0 0.0 4.0
+RCC InVoP1     -47.50 0.0 -302.0 25.0 0.0 0.0 3.0
+RCC InVoP2     -47.50 0.0 -282.0 25.0 0.0 0.0 3.0
+RCC OutVoP2    -47.50 0.0 -282.0 25.0 0.0 0.0 4.0
+RCC OutVoP3    -47.50 0.0 -262.0 25.0 0.0 0.0 4.0
+RCC InVoP3     -47.50 0.0 -262.0 25.0 0.0 0.0 3.0
+RCC OutVoP4    -47.50 0.0 -242.0 25.0 0.0 0.0 4.0
+RCC InVoP4     -47.50 0.0 -242.0 25.0 0.0 0.0 3.0
+RCC InVoP5     -47.50 0.0 -221.5 25.0 0.0 0.0 3.0
+RCC OutVoP5    -47.50 0.0 -221.5 25.0 0.0 0.0 4.0
+RCC InVoP6     -47.50 0.0 -201.5 25.0 0.0 0.0 3.0
+RCC OutVoP6    -47.50 0.0 -201.5 25.0 0.0 0.0 4.0
+RCC InVoP7     -47.50 0.0 -181.5 25.0 0.0 0.0 3.0
+RCC OutVoP7    -47.50 0.0 -181.5 25.0 0.0 0.0 4.0
+RCC InVoP8     -47.50 0.0 -161.5 25.0 0.0 0.0 3.0
+RCC OutVoP8    -47.50 0.0 -161.5 25.0 0.0 0.0 4.0
+RCC OutVoP9    -47.50 0.0 -141.48 25.0 0.0 0.0 4.0
+RCC InVoP9     -47.50 0.0 -141.48 25.0 0.0 0.0 3.0
+RCC OutVoP10   -47.50 0.0 -121.48 25.0 0.0 0.0 4.0
+RCC InVoP10    -47.50 0.0 -121.48 25.0 0.0 0.0 3.0
+RCC InVoP11    -47.50 0.0 -101.48 25.0 0.0 0.0 3.0
+RCC OutVoP11   -47.50 0.0 -101.48 25.0 0.0 0.0 4.0
+RCC OutVoP12   -47.50 0.0 -81.48 25.0 0.0 0.0 4.0
+RCC InVoP12    -47.50 0.0 -81.48 25.0 0.0 0.0 3.0
+RCC OutVoP13   -47.50 0.0 -61.5 25.0 0.0 0.0 4.0
+RCC InVoP13    -47.50 0.0 -61.5 25.0 0.0 0.0 3.0
+RCC OutVoP14   -47.50 0.0 -41.5 25.0 0.0 0.0 4.0
+RCC InVoP14    -47.50 0.0 -41.5 25.0 0.0 0.0 3.0
+RCC OutVoP15   -47.50 0.0 -21.0 25.0 0.0 0.0 4.0
+RCC InVoP15    -47.50 0.0 -21.0 25.0 0.0 0.0 3.0
+RCC OutVoP16   -47.50 0.0 -1.5 25.0 0.0 0.0 4.0
+RCC InVoP16    -47.50 0.0 -1.5 25.0 0.0 0.0 3.0
+RCC OutVoP17   -47.50 0.0 19.0 25.0 0.0 0.0 4.0
+RCC InVoP17    -47.50 0.0 19.0 25.0 0.0 0.0 3.0
+RCC InVoP18    -47.50 0.0 38.5 25.0 0.0 0.0 3.0
+RCC OutVoP18   -47.5 0.0 38.5 25.0 0.0 0.0 4.0
+RCC OutVoP19   -47.5 0.0 59.0 25.0 0.0 0.0 4.0
+RCC InVoP19    -47.5 0.0 59.0 25.0 0.0 0.0 3.0
+RCC OutVoP20   -47.5 0.0 78.5 25.0 0.0 0.0 4.0
+RCC InVoP20    -47.5 0.0 78.5 25.0 0.0 0.0 3.0
+RCC OutVoP21   -47.5 0.0 99.0 25.0 0.0 0.0 4.0
+RCC InVoP21    -47.5 0.0 99.0 25.0 0.0 0.0 3.0
+RCC OutWatJ2   -30.0 -42.0 -311.5 0.0 0.0 446.0 10.0
+RCC InWatJe2   -30.0 -42.0 -310.5 0.0 0.0 444.0 9.0
+RCC OutInl4    -30.0 -106.0 -282.0 0.0 63.0 0.0 10.0
+RCC InInl4     -30.0 -106.0 -282.0 0.0 63.0 0.0 9.0
+RCC OutInl5    -30.0 -106.0 -181.5 0.0 63.0 0.0 10.0
+RCC InInl5     -30.0 -106.0 -181.5 0.0 63.0 0.0 9.0
+RCC OutInl6    -30.0 -106.0 74.0 0.0 63.0 0.0 10.0
+RCC InInl6     -30.0 -106.0 74.0 0.0 63.0 0.0 9.0
+RCC OutOutl1   -30.0 -97.0 293.5 0.0 25.556 0.0 15.0
+RCC InOutl1    -30.0 -97.0 293.5 0.0 25.556 0.0 14.0
+RCC OutOutl2   -30.0 71.45 273.0 0.0 37.55 0.0 15.0
+RCC InOutl2    -30.0 71.45 273.0 0.0 37.55 0.0 14.0
+RCC OutVoP22   -25.5 -36.0 98.5 12.5 17.5 0.0 4.0
+RCC InVoP22    -25.5 -36.0 98.5 12.5 17.5 0.0 3.0
+RCC OutVoP23   -25.5 -36.0 78.226 12.5 17.5 0.0 4.0
+RCC InVoP23    -25.5 -36.0 78.226 12.5 17.5 0.0 3.0
+RCC OutVoP24   -25.5 -36.0 58.5 12.5 17.5 0.0 4.0
+RCC InVoP24    -25.5 -36.0 58.5 12.5 17.5 0.0 3.0
+RCC OutVoP25   -25.5 -36.0 38.5 12.5 17.5 0.0 4.0
+RCC InVoP25    -25.5 -36.0 38.5 12.5 17.5 0.0 3.0
+RCC OutVoP26   -25.5 -36.0 18.5 12.5 17.5 0.0 4.0
+RCC InVoP26    -25.5 -36.0 18.5 12.5 17.5 0.0 3.0
+RCC OutVoP27   -25.5 -36.0 -1.5 12.5 17.5 0.0 4.0
+RCC InVoP27    -25.5 -36.0 -1.5 12.5 17.5 0.0 3.0
+RCC OutVoP28   -25.5 -36.0 -21.5 12.5 17.5 0.0 4.0
+RCC InVoP28    -25.5 -36.0 -21.5 12.5 17.5 0.0 3.0
+RCC OutVoP29   -25.5 -36.0 -41.5 12.5 17.5 0.0 4.0
+RCC InVoP29    -25.5 -36.0 -41.5 12.5 17.5 0.0 3.0
+RCC OutVoP30   -25.5 -36.0 -61.5 12.5 17.5 0.0 4.0
+RCC InVoP30    -25.5 -36.0 -61.5 12.5 17.5 0.0 3.0
+RCC OutVoP31   -25.5 -36.0 -81.5 12.5 17.5 0.0 4.0
+RCC InVoP31    -25.5 -36.0 -81.5 12.5 17.5 0.0 3.0
+RCC OutVoP32   -25.5 -36.0 -101.5 12.5 17.5 0.0 4.0
+RCC InVoP32    -25.5 -36.0 -101.5 12.5 17.5 0.0 3.0
+RCC OutVoP33   -25.5 -36.0 -121.5 12.5 17.5 0.0 4.0
+RCC InVoP33    -25.5 -36.0 -121.5 12.5 17.5 0.0 3.0
+RCC OutVoP34   -25.5 -36.0 -141.5 12.5 17.5 0.0 4.0
+RCC InVoP34    -25.5 -36.0 -141.5 12.5 17.5 0.0 3.0
+RCC OutVoP35   -25.5 -36.0 -162.0 12.5 17.5 0.0 4.0
+RCC InVoP35    -25.5 -36.0 -162.0 12.5 17.5 0.0 3.0
+RCC OutVoP36   -25.5 -36.0 -181.5 12.5 17.5 0.0 4.0
+RCC InVoP36    -25.5 -36.0 -181.5 12.5 17.5 0.0 3.0
+RCC InVoP37    -25.5 -36.0 -201.5 12.5 17.5 0.0 3.0
+RCC OutVoP37   -25.5 -36.0 -201.5 12.5 17.5 0.0 4.0
+RCC OutVoP38   -25.5 -36.0 -221.5 12.5 17.5 0.0 4.0
+RCC InVoP38    -25.5 -36.0 -221.5 12.5 17.5 0.0 3.0
+RCC OutVoP39   -25.5 -36.0 -241.5 12.5 17.5 0.0 4.0
+RCC InVoP39    -25.5 -36.0 -241.5 12.5 17.5 0.0 3.0
+RCC OutVoP40   -25.5 -36.0 -261.5 12.5 17.5 0.0 4.0
+RCC InVoP40    -25.5 -36.0 -261.5 12.5 17.5 0.0 3.0
+RCC OutVoP41   -25.5 -36.0 -281.5 12.5 17.5 0.0 4.0
+RCC InVoP41    -25.5 -36.0 -281.5 12.5 17.5 0.0 3.0
+RCC OutVoP42   -25.5 -36.0 -301.5 12.5 17.5 0.0 4.0
+RCC InVoP42    -25.5 -36.0 -301.5 12.5 17.5 0.0 3.0
+XYP Plate1     175.0
+XYP Plate2     177.0
 XYP Plate3     181.5
-!@what.1=1835*mm
 XYP Plate4     183.5
-!@what.1=1885*mm
 XYP Plate5     188.5
-!@what.1=1905*mm
 XYP Plate6     190.5
-!@what.1=1960*mm
-XYP Plate7     196.
-!@what.1=1980*mm
-XYP Plate8     198.
-!@what.1=2025*mm
+XYP Plate7     196.0
+XYP Plate8     198.0
 XYP Plate9     202.5
-!@what.1=2045*mm
 XYP Plate10    204.5
-!@what.1=2095*mm
 XYP Plate11    209.5
-!@what.1=2115*mm
 XYP Plate12    211.5
-!@what.1=2170*mm
-XYP Plate13    217.
-!@what.1=2190*mm
-XYP Plate14    219.
-!@what.1=2235*mm
+XYP Plate13    217.0
+XYP Plate14    219.0
 XYP Plate15    223.5
-!@what.1=2255*mm
 XYP Plate16    225.5
-!@what.1=2305*mm
 XYP Plate17    230.5
-!@what.1=2325*mm
 XYP Plate18    232.5
-!@what.1=2380*mm
-XYP Plate19    238.
-!@what.1=2400*mm
-XYP Plate20    240.
-!@what.1=2445*mm
+XYP Plate19    238.0
+XYP Plate20    240.0
 XYP Plate21    244.5
-!@what.1=2465*mm
 XYP Plate22    246.5
-!@what.1=2515*mm
 XYP Plate23    251.5
-!@what.1=2535*mm
 XYP Plate24    253.5
-!@what.1=2585*mm
 XYP Plate25    258.5
-!@what.1=2605*mm
 XYP Plate26    260.5
-!@what.1=2650*mm
-XYP Plate27    265.
-!@what.1=2670*mm
-XYP Plate28    267.
-!@what.1=2720*mm
-XYP Plate29    272.
-!@what.1=2740*mm
-XYP Plate30    274.
-!@what.1=2795*mm
+XYP Plate27    265.0
+XYP Plate28    267.0
+XYP Plate29    272.0
+XYP Plate30    274.0
 XYP Plate31    279.5
-!@what.1=2815*mm
 XYP Plate32    281.5
-!@what.1=2860*mm
-XYP Plate33    286.
-!@what.1=2880*mm
-XYP Plate34    288.
-!@what.1=2930*mm
-XYP Plate35    293.
-!@what.1=2950*mm
-XYP Plate36    295.
-!@what.1=3005*mm
+XYP Plate33    286.0
+XYP Plate34    288.0
+XYP Plate35    293.0
+XYP Plate36    295.0
 XYP Plate37    300.5
-!@what.1=30250*mm
-XYP Plate38    3025.
-!@what.1=3070*mm
-XYP Plate39    307.
-!@what.1=3090*mm
-XYP Plate40    309.
-!@what.1=3140*mm
-XYP Plate41    314.
-!@what.1=3160*mm
-XYP Plate42    316.
-!@what.1=630*mm
-XZP zPlate1    63.
-!@what.1=580*mm
-XZP zPlate2    58.
-!@what.1=390*mm
-XZP zPlate3    39.
-!@what.1=340*mm
-XZP zPlate4    34.
-!@what.1=100*mm
-XZP zPlate5    10.
-!@what.1=50*mm
-XZP zPlate6    5.
-!@what.1=-90*mm
-XZP zPlate7    -9.
-!@what.1=-140*mm
-XZP zPlate8    -14.
-!@what.1=-330*mm
-XZP zPlate9    -33.
-!@what.1=-380*mm
-XZP zPlate10   -38.
-!@what.1=-570*mm
-XZP zPlate11   -57.
-!@what.1=-620*mm
-XZP zPlate12   -62.
-!@what.1=-925*mm
+XYP Plate38    302.5
+XYP Plate39    307.0
+XYP Plate40    309.0
+XYP Plate41    314.0
+XYP Plate42    316.0
+XZP zPlate1    63.0
+XZP zPlate2    58.0
+XZP zPlate3    39.0
+XZP zPlate4    34.0
+XZP zPlate5    10.0
+XZP zPlate6    5.0
+XZP zPlate7    -9.0
+XZP zPlate8    -14.0
+XZP zPlate9    -33.0
+XZP zPlate10   -38.0
+XZP zPlate11   -57.0
+XZP zPlate12   -62.0
 YZP yPlate1    -92.5
-!@what.1=-875*mm
 YZP yPlate2    -87.5
-!@what.1=-685*mm
 YZP yPlate3    -68.5
-!@what.1=-635*mm
 YZP yPlate4    -63.5
-!@what.1=-445*mm
 YZP yPlate5    -44.5
-!@what.1=-395*mm
 YZP yPlate6    -39.5
-!@what.1=275*mm
 YZP yPlate11   27.5
-!@what.1=325*mm
 YZP yPlate12   32.5
-!@what.1=3325.0*mm
-XYP TaEnPla2   332.5
-!@what.1=-4250*mm
-!@what.2=1150*mm
-!@what.3=-2000*mm
-!@what.4=2000*mm
-!@what.5=-7750*mm
-!@what.6=4250*mm
-RPP Airbox     -425. 115. -200. 200. -775. 425.
-!@what.1=-4300*mm
-!@what.2=1200*mm
-!@what.3=-2100*mm
-!@what.4=2100*mm
-!@what.5=-7800*mm
-!@what.6=4300*mm
-RPP Blackbox   -430. 120. -210. 210. -780. 430.
-!@what.1=-3990*mm
-XYP WindoPl1   -399.
-!@what.1=-3991*mm
+XYP TaEnPla2   332.50
+RPP Airbox     -425.0 115.0 -200.0 200.0 -775.0 425.0
+RPP Blackbox   -430.0 120.0 -210.0 210.0 -780.0 430.0
+XYP WindoPl1   -399.0
 XYP WindoPl2   -399.1
 END
 #if 0
@@ -1171,13 +549,7 @@ Air1         5 +Airbox -OutTank -OutInl1 -OutInl2 -OutInl3 -OutInl4 -OutInl5 -Ou
 Window       5 +InBeaPi +WindoPl1 -WindoPl2
 BeaPiVac     5 +InBeaPi +WindoPl2
 END
-!@what.1=1150*mm
-!@what.2=2000*mm
-!@what.3=4250*mm
-!@what.4=-4250*mm
-!@what.5=-2000*mm
-!@what.6=-7750*mm
-GEOEND          115.      200.      425.     -425.     -200.     -775.DEBUG
+GEOEND         115.0     200.0     425.0    -425.0    -200.0    -775.0DEBUG
 GEOEND          500.      400.      500.                               &
 ASSIGNMA    TITANIUM     BeaPi
 ASSIGNMA       WATER  BeaPiWat
@@ -1319,5 +691,5 @@ DISCARD        MUONS
 * Set the random number seed
 RANDOMIZ          1.        1.
 * Set the number of primary histories to be simulated in the run
-START            50.         .                               99999999.
+START            50.                                     0.0  9999999.
 STOP
