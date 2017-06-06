@@ -8,10 +8,7 @@ DEFAULTS                                                              PRECISIO
 !@what.5=30.522*nm
 BEAM            250.   0.00282           2.4697E-5 3.0522E-6          ELECTRON
 * Define the beam position
-BEAMPOS          0.0       0.0     -310.       0.0       0.0
-!point          -30.       0.0     -325.                              marker7
-!point          -30.       0.0      325.                              marker8
-!point          -30.      -75.     -325.                              marker9
+BEAMPOS          0.0       0.0    -310.0       0.0       0.0
 GEOBEGIN                                                              COMBNAME
     0    0          0_TB_0067_210_00_A
 XYP Plate1     215.2
@@ -33,117 +30,262 @@ XYP Plate16    300.88
 XYP Plate17    311.68
 XYP Plate18    312.94
 XYP Plate19    323.74
-XYP Plate20    325.
-XZP zPlate1    63.
-XZP zPlate2    58.
-XZP zPlate3    39.
-XZP zPlate4    34.
-XZP zPlate5    15.
-XZP zPlate6    10.
-XZP zPlate7    -9.
-XZP zPlate8    -14.
-XZP zPlate9    -33.
-XZP zPlate10   -38.
-XZP zPlate11   -57.
-XZP zPlate12   -62.
+XYP Plate20    325.0
+XZP zPlate1    63.0
+XZP zPlate2    58.0
+XZP zPlate3    39.0
+XZP zPlate4    34.0
+XZP zPlate5    15.0
+XZP zPlate6    10.0
+XZP zPlate7    -9.0
+XZP zPlate8    -14.0
+XZP zPlate9    -33.0
+XZP zPlate10   -38.0
+XZP zPlate11   -57.0
+XZP zPlate12   -62.0
+#if 0
 YZP yPlate1    -92.5
+#endif
+#if 0
 YZP yPlate2    -87.5
+#endif
+#if 0
 YZP yPlate3    -68.5
+#endif
+#if 0
 YZP yPlate4    -63.5
+#endif
+#if 0
 YZP yPlate5    -44.5
+#endif
+#if 0
 YZP yPlate6    -39.5
+#endif
+#if 0
 YZP yPlate7    -20.5
+#endif
+#if 0
 YZP yPlate8    -15.5
+#endif
+#if 0
 YZP yPlate9    3.5
+#endif
+#if 0
 YZP yPlate10   8.5
+#endif
+#if 0
 YZP yPlate11   27.5
+#endif
+#if 0
 YZP yPlate12   32.5
+#endif
 XYP TaEnPla1   -333.5
 XYP TaEnPla2   355.0
-ZCC Waterbox   -30. 0.0 73.
+ZCC Waterbox   -30.0 0.0 73.0
 RPP Blackbox   -115.0 55.0 -210.0 210.0 -340.0 360.0
 END
+#if 0
 CuPlate1     5 +Waterbox +Plate2 -Plate1 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(+zPlate7
                -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 +yPlate4) -(
                -yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlate2     5 +Waterbox +Plate4 -Plate3 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(+zPlate7
                -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 +yPlate4) -(
                -yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlate3     5 +Waterbox +Plate6 -Plate5 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(+zPlate7
                -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 +yPlate4) -(
                -yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlate4     5 +Waterbox +Plate8 -Plate7 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(+zPlate7
                -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 +yPlate4) -(
                -yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlate5     5 +Waterbox +Plate10 -Plate9 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(+zPlate7
                -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 +yPlate4) -(
                -yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlate6     5 +Waterbox +Plate12 -Plate11 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
                +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3
                +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlate7     5 +Waterbox +Plate14 -Plate13 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
                +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3
                +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlate8     5 +Waterbox +Plate16 -Plate15 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
                +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3
                +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlate9     5 +Waterbox +Plate18 -Plate17 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
                +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3
                +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+#if 0
 CuPlat10     5 +Waterbox +Plate20 -Plate19 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
                +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3
                +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+#endif
+CuPlate1     5 +Plate2 +zPlate12 +Waterbox -Plate1
+               | +Plate2 +zPlate10 +Waterbox -Plate1 -zPlate11
+               | +Plate2 +zPlate8 +Waterbox -Plate1 -zPlate9
+               | +Plate2 +zPlate6 +Waterbox -Plate1 -zPlate7
+               | +Plate2 +zPlate4 +Waterbox -Plate1 -zPlate5
+               | +Plate2 +zPlate2 +Waterbox -Plate1 -zPlate3
+               | +Plate2 +Waterbox -Plate1 -zPlate1
+CuPlate2     5 +Plate4 +zPlate12 +Waterbox -Plate3
+               | +Plate4 +zPlate10 +Waterbox -Plate3 -zPlate11
+               | +Plate4 +zPlate8 +Waterbox -Plate3 -zPlate9
+               | +Plate4 +zPlate6 +Waterbox -Plate3 -zPlate7
+               | +Plate4 +zPlate4 +Waterbox -Plate3 -zPlate5
+               | +Plate4 +zPlate2 +Waterbox -Plate3 -zPlate3
+               | +Plate4 +Waterbox -Plate3 -zPlate1
+CuPlate3     5 +Plate6 +zPlate12 +Waterbox -Plate5
+               | +Plate6 +zPlate10 +Waterbox -Plate5 -zPlate11
+               | +Plate6 +zPlate8 +Waterbox -Plate5 -zPlate9
+               | +Plate6 +zPlate6 +Waterbox -Plate5 -zPlate7
+               | +Plate6 +zPlate4 +Waterbox -Plate5 -zPlate5
+               | +Plate6 +zPlate2 +Waterbox -Plate5 -zPlate3
+               | +Plate6 +Waterbox -Plate5 -zPlate1
+CuPlate4     5 +Plate8 +zPlate12 +Waterbox -Plate7
+               | +Plate8 +zPlate10 +Waterbox -Plate7 -zPlate11
+               | +Plate8 +zPlate8 +Waterbox -Plate7 -zPlate9
+               | +Plate8 +zPlate6 +Waterbox -Plate7 -zPlate7
+               | +Plate8 +zPlate4 +Waterbox -Plate7 -zPlate5
+               | +Plate8 +zPlate2 +Waterbox -Plate7 -zPlate3
+               | +Plate8 +Waterbox -Plate7 -zPlate1
+CuPlate5     5 +Plate10 +zPlate12 +Waterbox -Plate9
+               | +Plate10 +zPlate10 +Waterbox -Plate9 -zPlate11
+               | +Plate10 +zPlate8 +Waterbox -Plate9 -zPlate9
+               | +Plate10 +zPlate6 +Waterbox -Plate9 -zPlate7
+               | +Plate10 +zPlate4 +Waterbox -Plate9 -zPlate5
+               | +Plate10 +zPlate2 +Waterbox -Plate9 -zPlate3
+               | +Plate10 +Waterbox -Plate9 -zPlate1
+CuPlate6     5 +Plate12 +zPlate12 +Waterbox -Plate11
+               | +Plate12 +zPlate10 +Waterbox -Plate11 -zPlate11
+               | +Plate12 +zPlate8 +Waterbox -Plate11 -zPlate9
+               | +Plate12 +zPlate6 +Waterbox -Plate11 -zPlate7
+               | +Plate12 +zPlate4 +Waterbox -Plate11 -zPlate5
+               | +Plate12 +zPlate2 +Waterbox -Plate11 -zPlate3
+               | +Plate12 +Waterbox -Plate11 -zPlate1
+CuPlate7     5 +Plate14 +zPlate12 +Waterbox -Plate13
+               | +Plate14 +zPlate10 +Waterbox -Plate13 -zPlate11
+               | +Plate14 +zPlate8 +Waterbox -Plate13 -zPlate9
+               | +Plate14 +zPlate6 +Waterbox -Plate13 -zPlate7
+               | +Plate14 +zPlate4 +Waterbox -Plate13 -zPlate5
+               | +Plate14 +zPlate2 +Waterbox -Plate13 -zPlate3
+               | +Plate14 +Waterbox -Plate13 -zPlate1
+CuPlate8     5 +Plate16 +zPlate12 +Waterbox -Plate15
+               | +Plate16 +zPlate10 +Waterbox -Plate15 -zPlate11
+               | +Plate16 +zPlate8 +Waterbox -Plate15 -zPlate9
+               | +Plate16 +zPlate6 +Waterbox -Plate15 -zPlate7
+               | +Plate16 +zPlate4 +Waterbox -Plate15 -zPlate5
+               | +Plate16 +zPlate2 +Waterbox -Plate15 -zPlate3
+               | +Plate16 +Waterbox -Plate15 -zPlate1
+CuPlate9     5 +Plate18 +zPlate12 +Waterbox -Plate17
+               | +Plate18 +zPlate10 +Waterbox -Plate17 -zPlate11
+               | +Plate18 +zPlate8 +Waterbox -Plate17 -zPlate9
+               | +Plate18 +zPlate6 +Waterbox -Plate17 -zPlate7
+               | +Plate18 +zPlate4 +Waterbox -Plate17 -zPlate5
+               | +Plate18 +zPlate2 +Waterbox -Plate17 -zPlate3
+               | +Plate18 +Waterbox -Plate17 -zPlate1
+CuPlat10     5 +Plate20 +zPlate12 +Waterbox -Plate19
+               | +Plate20 +zPlate10 +Waterbox -Plate19 -zPlate11
+               | +Plate20 +zPlate8 +Waterbox -Plate19 -zPlate9
+               | +Plate20 +zPlate6 +Waterbox -Plate19 -zPlate7
+               | +Plate20 +zPlate4 +Waterbox -Plate19 -zPlate5
+               | +Plate20 +zPlate2 +Waterbox -Plate19 -zPlate3
+               | +Plate20 +Waterbox -Plate19 -zPlate1
 TankWa       5 +Plate1 +Waterbox -TaEnPla1
+#if 0
 TankWa2      5 +Waterbox +Plate3 -Plate1 -(+Waterbox +Plate2 -Plate1 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
                +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1
                +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
                -yPlate11 +yPlate12))
-TankWa3      5 +Waterbox +Plate5 -Plate3 -(+Waterbox +Plate4 -Plate3 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
-               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1
-               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
-               -yPlate11 +yPlate12))
-TankWa4      5 +Waterbox +Plate7 -Plate5 -(+Waterbox +Plate6 -Plate5 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
-               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1
-               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
-               -yPlate11 +yPlate12))
-TankWa5      5 +Waterbox +Plate9 -Plate7 -(+Waterbox +Plate8 -Plate7 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
-               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1
-               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
-               -yPlate11 +yPlate12))
-TankWa6      5 +Waterbox +Plate11 -Plate9 -(+Waterbox +Plate10 -Plate9 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
-               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1
-               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
-               -yPlate11 +yPlate12))
-TankWa7      5 +Waterbox +Plate13 -Plate11 -(+Waterbox +Plate12 -Plate11 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4
-               ) -(
-               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1
-               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
-               -yPlate11 +yPlate12))
-TankWa8      5 +Waterbox +Plate15 -Plate13 -(+Waterbox +Plate14 -Plate13 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4
-               ) -(
-               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1
-               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
-               -yPlate11 +yPlate12))
-TankWa9      5 +Waterbox +Plate17 -Plate15 -(+Waterbox +Plate16 -Plate15 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4
-               ) -(
-               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1
-               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
-               -yPlate11 +yPlate12))
-TankWa10     5 +Waterbox +Plate19 -Plate17 -(+Waterbox +Plate18 -Plate17 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4
-               ) -(
-               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1
-               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
-               -yPlate11 +yPlate12))
-TankWa11     5 +Waterbox +TaEnPla2 -Plate19 -(+Waterbox+Plate20 -Plate19 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4
-               ) -(
-               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1
-               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
-               -yPlate11 +yPlate12))
+#endif
+TankWa2      5 +Plate3 +Waterbox -Plate2
+               | +Plate2 +zPlate1 +Waterbox -Plate1 -zPlate2
+               | +Plate2 +zPlate3 +Waterbox -Plate1 -zPlate4
+               | +Plate2 +zPlate5 +Waterbox -Plate1 -zPlate6
+               | +Plate2 +zPlate7 +Waterbox -Plate1 -zPlate8
+               | +Plate2 +zPlate9 +Waterbox -Plate1 -zPlate10
+               | +Plate2 +zPlate11 +Waterbox -Plate1 -zPlate12
+TankWa3      5 +Plate5 +Waterbox -Plate4
+               | +Plate4 +zPlate1 +Waterbox -Plate3 -zPlate2
+               | +Plate4 +zPlate3 +Waterbox -Plate3 -zPlate4
+               | +Plate4 +zPlate5 +Waterbox -Plate3 -zPlate6
+               | +Plate4 +zPlate7 +Waterbox -Plate3 -zPlate8
+               | +Plate4 +zPlate9 +Waterbox -Plate3 -zPlate10
+               | +Plate4 +zPlate11 +Waterbox -Plate3 -zPlate12
+TankWa4      5 +Plate7 +Waterbox -Plate6
+               | +Plate6 +zPlate1 +Waterbox -Plate5 -zPlate2
+               | +Plate6 +zPlate3 +Waterbox -Plate5 -zPlate4
+               | +Plate6 +zPlate5 +Waterbox -Plate5 -zPlate6
+               | +Plate6 +zPlate7 +Waterbox -Plate5 -zPlate8
+               | +Plate6 +zPlate9 +Waterbox -Plate5 -zPlate10
+               | +Plate6 +zPlate11 +Waterbox -Plate5 -zPlate12
+TankWa5      5 +Plate9 +Waterbox -Plate8
+               | +Plate8 +zPlate1 +Waterbox -Plate7 -zPlate2
+               | +Plate8 +zPlate3 +Waterbox -Plate7 -zPlate4
+               | +Plate8 +zPlate5 +Waterbox -Plate7 -zPlate6
+               | +Plate8 +zPlate7 +Waterbox -Plate7 -zPlate8
+               | +Plate8 +zPlate9 +Waterbox -Plate7 -zPlate10
+               | +Plate8 +zPlate11 +Waterbox -Plate7 -zPlate12
+TankWa6      5 +Plate11 +Waterbox -Plate10
+               | +Plate10 +zPlate1 +Waterbox -Plate9 -zPlate2
+               | +Plate10 +zPlate3 +Waterbox -Plate9 -zPlate4
+               | +Plate10 +zPlate5 +Waterbox -Plate9 -zPlate6
+               | +Plate10 +zPlate7 +Waterbox -Plate9 -zPlate8
+               | +Plate10 +zPlate9 +Waterbox -Plate9 -zPlate10
+               | +Plate10 +zPlate11 +Waterbox -Plate9 -zPlate12
+TankWa7      5 +Plate13 +Waterbox -Plate12
+               | +Plate12 +zPlate1 +Waterbox -Plate11 -zPlate2
+               | +Plate12 +zPlate3 +Waterbox -Plate11 -zPlate4
+               | +Plate12 +zPlate5 +Waterbox -Plate11 -zPlate6
+               | +Plate12 +zPlate7 +Waterbox -Plate11 -zPlate8
+               | +Plate12 +zPlate9 +Waterbox -Plate11 -zPlate10
+               | +Plate12 +zPlate11 +Waterbox -Plate11 -zPlate12
+TankWa8      5 +Plate15 +Waterbox -Plate14
+               | +Plate14 +zPlate1 +Waterbox -Plate13 -zPlate2
+               | +Plate14 +zPlate3 +Waterbox -Plate13 -zPlate4
+               | +Plate14 +zPlate5 +Waterbox -Plate13 -zPlate6
+               | +Plate14 +zPlate7 +Waterbox -Plate13 -zPlate8
+               | +Plate14 +zPlate9 +Waterbox -Plate13 -zPlate10
+               | +Plate14 +zPlate11 +Waterbox -Plate13 -zPlate12
+TankWa9      5 +Plate17 +Waterbox -Plate16
+               | +Plate16 +zPlate1 +Waterbox -Plate15 -zPlate2
+               | +Plate16 +zPlate3 +Waterbox -Plate15 -zPlate4
+               | +Plate16 +zPlate5 +Waterbox -Plate15 -zPlate6
+               | +Plate16 +zPlate7 +Waterbox -Plate15 -zPlate8
+               | +Plate16 +zPlate9 +Waterbox -Plate15 -zPlate10
+               | +Plate16 +zPlate11 +Waterbox -Plate15 -zPlate12
+TankWa10     5 +Plate19 +Waterbox -Plate18
+               | +Plate18 +zPlate1 +Waterbox -Plate17 -zPlate2
+               | +Plate18 +zPlate3 +Waterbox -Plate17 -zPlate4
+               | +Plate18 +zPlate5 +Waterbox -Plate17 -zPlate6
+               | +Plate18 +zPlate7 +Waterbox -Plate17 -zPlate8
+               | +Plate18 +zPlate9 +Waterbox -Plate17 -zPlate10
+               | +Plate18 +zPlate11 +Waterbox -Plate17 -zPlate12
+TankWa11     5 +TaEnPla2 +Waterbox -Plate20
+               | +Plate20 +zPlate1 +Waterbox -Plate19 -zPlate2
+               | +Plate20 +zPlate3 +Waterbox -Plate19 -zPlate4
+               | +Plate20 +zPlate5 +Waterbox -Plate19 -zPlate6
+               | +Plate20 +zPlate7 +Waterbox -Plate19 -zPlate8
+               | +Plate20 +zPlate9 +Waterbox -Plate19 -zPlate10
+               | +Plate20 +zPlate11 +Waterbox -Plate19 -zPlate12
 Blackbod     5 +TaEnPla2 +Blackbox -TaEnPla1 -Waterbox
                | +TaEnPla1 +Blackbox
                | +Blackbox -TaEnPla2
 END
-GEOEND          115.      200.      425.     -425.     -200.     -775.DEBUG
+GEOEND          55.0     210.0     360.0    -115.0    -210.0    -340.0DEBUG
 GEOEND          500.      400.      500.                               &
 ASSIGNMA      COPPER  CuPlate1
 ASSIGNMA      COPPER  CuPlate2
@@ -169,22 +311,10 @@ ASSIGNMA       WATER  TankWa10
 ASSIGNMA       WATER  TankWa11
 PHOTONUC          1.                        VACUUM     WATER        1.
 LAM-BIAS         0.0      0.02     WATER   NEUTRON                    INEPRI
-!@what.4=1100.0*mm
-!@what.5=2000.0*mm
-!@what.6=4200.0*mm
-!@what.7=-3000.0*mm
-!@what.8=-2000.0*mm
-!@what.9=-7000.0*mm
-USRBIN           10.    ENERGY      -21.      110.      200.      420.Energy
-USRBIN         -300.     -200.     -700.      100.      100.      150. &
-!@what.4=1100.0*mm
-!@what.5=2000.0*mm
-!@what.6=4200.0*mm
-!@what.7=-3000.0*mm
-!@what.8=-2000.0*mm
-!@what.9=-7000.0*mm
-USRBIN           10.   NEUTRON      -22.      110.      200.      420.Neutrons
-USRBIN         -300.     -200.     -700.      100.      100.      150. &
+USRBIN           10.    ENERGY      -21.      43.0      73.0     355.0Energy
+USRBIN        -113.0     -73.0    -333.5      100.      100.      600. &
+USRBIN           10.   NEUTRON      -22.      43.0      73.0     355.0Neutrons
+USRBIN        -113.0     -73.0    -333.5      100.      100.      600. &
 *RESNUCLE          3.      -52.                         Water        1.BeamDump
 DISCARD        MUONS
 * Set the random number seed

@@ -5,7 +5,7 @@ Title: Copper plates
 Input: only_CopperPlates.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Flair
+Page: Input
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -15,9 +15,9 @@ F77dline: False
 Run: <default>
 	Prev:     0
 	Last:     5
-	Status:   5
-	Pid:      21364
-	StartRun: 1496758365
+	Status:   3
+	Pid:      0
+	StartRun: 1496778520
 End
 
 # Geometry Information
@@ -35,10 +35,10 @@ Plot: Red
 	basisv: 0 1 0
 	boundaries: 1
 	coord: X-Y
-	extends: 144 88.1706
+	extends: 144 75.8769
 	labels: 1
 	layer: Media
-	origin: -30.5 0 216
+	origin: -20.6148 2.86523 264
 	subtype: Material
 	title: GeoViewer Red plot
 End
@@ -51,10 +51,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 358.318 219.672
+	extends: 0.727958 0.384317
 	labels: 1
 	layer: Media
-	origin: -44.1315 0 96.9926
+	origin: 54.9553 0 -339.424
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -67,10 +67,10 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 358.318 219.397
+	extends: 207.36 108.864
 	labels: 1
 	layer: Media
-	origin: -30 37.6409 86.2977
+	origin: -24.1858 31.7163 330.13
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -83,10 +83,10 @@ Plot: Magenta
 	basisv: 0 1 0
 	boundaries: 1
 	coord: X-Y
-	extends: 172.8 105.938
+	extends: 298.598 157.066
 	labels: 1
 	layer: Media
-	origin: -10.2284 16.9102 0
+	origin: -50.1591 19.8037 0
 	subtype: Material
 	title: GeoViewer Magenta plot
 End
