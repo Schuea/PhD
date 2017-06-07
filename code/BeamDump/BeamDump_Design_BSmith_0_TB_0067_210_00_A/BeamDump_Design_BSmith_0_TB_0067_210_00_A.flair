@@ -254,13 +254,29 @@ Plot: Magenta
 	basisu: 0 0 1
 	basisv: 0 1 0
 	boundaries: 1
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
 	coord: Z-Y
+	cpd: 0
 	extends: 506.99 380.243
+	grid: 0
+	index: 0
 	labels: 1
 	layer: Image
 	origin: -23.0496 -4.71528 351.204
 	subtype: Material
 	title: GeoViewer Magenta plot
+	x2log: False
+	x2tics: 0
+	xlog: False
+	y2log: False
+	y2tics: 0
+	ylog: False
+	zlog: False
+	ztics: 0
 End
 
 # USRBIN plot "Energy deposition density in the ILC main beam dump"
