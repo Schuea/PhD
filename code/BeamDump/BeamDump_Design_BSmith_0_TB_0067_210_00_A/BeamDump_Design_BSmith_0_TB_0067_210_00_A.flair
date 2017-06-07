@@ -5,7 +5,7 @@ Title: BeamDump_Design_BSmith_0_TB_0067_210_00_A
 Input: BeamDump_Design_BSmith_0_TB_0067_210_00_A.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Input
+Page: Plot
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -15,9 +15,9 @@ F77dline: False
 Run: <default>
 	Prev:     0
 	Last:     5
-	Status:   5
-	Pid:      15750
-	StartRun: 1496752514
+	Status:   3
+	Pid:      0
+	StartRun: 1496823094
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_21.bnn
 	Data: \I_\U.\e
@@ -34,6 +34,116 @@ Run: <default>
 		Rule: +,\I\d\d\d_fort\.\U
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
+End
+
+# Material
+Material: 
+	alpha: 0
+	color: #101010
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Mangan
+	alpha: 0
+	color: #D0D0B0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Molybden
+	alpha: 0
+	color: #109090
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Ti-6Al-4V
+	alpha: 0
+	color: #8030B0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Molybdenum
+	alpha: 0
+	color: #D03050
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Vanadium
+	alpha: 0
+	color: #807070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Ti-6Al4V
+	alpha: 0
+	color: #407030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Sulfur
+	alpha: 0
+	color: #209010
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Chromium
+	alpha: 0
+	color: #B09010
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: 316L-SS
+	alpha: 0
+	color: #109070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Phosphor
+	alpha: 0
+	color: #E05010
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
 End
 
 # Geometry Information
@@ -81,13 +191,13 @@ Plot: Red
 	basisv: -5.2643e-05 0.999999 0.00104299
 	boundaries: 1
 	cbcolors: 0
-	cblog: 0
+	cblog: False
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 0
 	coord: U-V
 	cpd: 0
-	extends: 339.708 179
+	extends: 339.708 254.781
 	grid: 0
 	index: 0
 	labels: 1
@@ -95,13 +205,13 @@ Plot: Red
 	origin: -56.0255 -66.2928 216.01
 	subtype: Material
 	title: GeoViewer Red plot
-	x2log: 0
+	x2log: False
 	x2tics: 0
-	xlog: 0
-	y2log: 0
+	xlog: False
+	y2log: False
 	y2tics: 0
-	ylog: 0
-	zlog: 0
+	ylog: False
+	zlog: False
 	ztics: 0
 End
 
@@ -113,7 +223,7 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 166.09 87.6852
+	extends: 166.09 124.567
 	labels: 1
 	layer: Media
 	origin: -45.4558 0 271.025
@@ -129,7 +239,7 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 282.676 148.405
+	extends: 282.676 212.007
 	labels: 1
 	layer: Media
 	origin: -21.2851 -60.0117 244.75
@@ -145,7 +255,7 @@ Plot: Magenta
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 506.99 266.682
+	extends: 506.99 380.243
 	labels: 1
 	layer: Image
 	origin: -23.0496 -4.71528 351.204
@@ -160,7 +270,7 @@ Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_21_plot
 	axes: Auto
 	cbcolors: 30
 	cblabel: GeV/cm3 per electron
-	cblog: 1
+	cblog: True
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 1
@@ -173,27 +283,28 @@ Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_21_plot
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 246.68697052109465
+	int: 247.66426535257420
 	lw.0: 0
-	max: 3.27738497E-04
-	min: 5.70620474E-16
+	max: 3.36299912E-04
+	min: 1.05056895E-14
+	norm: 2e10
 	proj: Y
 	ps.0: 0
 	pt.0: 0
 	swap: 0
 	title: Energy deposition density in the ILC main beam dump
 	with.0: errorbars
-	x2log: 0
+	x2log: False
 	x2tics: 0
 	xlabel: z [cm]
-	xlog: 0
+	xlog: False
 	xrebin: 1
-	y2log: 0
+	y2log: False
 	y2tics: 0
 	ylabel: x [cm]
-	ylog: 0
+	ylog: False
 	yrebin: 1
-	zlog: 0
+	zlog: False
 	zrebin: 1
 	ztics: 0
 End
@@ -205,10 +316,12 @@ Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_22_plot
 	axes: Auto
 	cbcolors: 30
 	cblabel: #/cm2 per electron
-	cblog: 1
+	cblog: True
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 1
+	commands:
+set rmargin 50
 	cpd: 0
 	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_22.bnn
 	det: 1
@@ -218,27 +331,28 @@ Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_22_plot
 	grid: 0
 	hist: 2D Projection
 	index: 1
-	int: 1914.4559619706456
+	int: 1815.2693799927433
 	lw.0: 0
-	max: 6.66228938E-04
-	min: 6.10469120E-10
+	max: 5.36611478E-04
+	min: 1.76154846E-09
+	norm: 2e10
 	proj: Y
 	ps.0: 0
 	pt.0: 0
 	swap: 0
 	title: Neutron flux in the ILC main beam dump
 	with.0: errorbars
-	x2log: 0
+	x2log: False
 	x2tics: 0
 	xlabel: z [cm]
-	xlog: 0
+	xlog: False
 	xrebin: 1
-	y2log: 0
+	y2log: False
 	y2tics: 0
 	ylabel: x [cm]
-	ylog: 0
+	ylog: False
 	yrebin: 1
-	zlog: 0
+	zlog: False
 	zrebin: 1
 	ztics: 0
 End

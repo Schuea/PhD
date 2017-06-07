@@ -829,44 +829,63 @@ BeaPiVac     5 +InBeaPi +WindoPl2
 END
 GEOEND          115.      200.      425.     -425.     -200.     -775.DEBUG
 GEOEND          500.      400.      500.                               &
-ASSIGNMA    TITANIUM     BeaPi
+MATERIAL         15.                1.82                              Phosphor
+LOW-MAT     Phosphor       15.       31.      296.                    PHOSPHO
+MATERIAL         16.               2.067                           0.0Sulfur
+LOW-MAT       Sulfur       16.       -2.      296.                    SULFUR
+MATERIAL         23.                                                  Vanadium
+LOW-MAT     Vanadium       23.       -2.      296.                    VANADIUM
+MATERIAL         24.                7.18                              Chromium
+LOW-MAT     Chromium       24.       -2.      296.                    CHROMIUM
+MATERIAL         25.                7.44                              Mangan
+LOW-MAT       Mangan       25.       55.      296.                    MANGANES
+MATERIAL         42.               10.28                              Molybden
+LOW-MAT     Molybden       42.       -2.      296.                    MOLYBDEN
+MATERIAL                            4.43                              Ti-6Al4V
+COMPOUND      -5.985  ALUMINUM     -0.25      IRON      -0.2    OXYGENTi-6Al4V
+COMPOUND       -89.8  TITANIUM     -0.39  Vanadium                    Ti-6Al4V
+MATERIAL                            7.99                              316L-SS
+COMPOUND       0.035    CARBON       2.0    Mangan     14.89    NICKEL316L-SS
+COMPOUND        18.0  Chromium       3.0  Molybden      0.03    Sulfur316L-SS
+COMPOUND         1.0   SILICON     0.045  Phosphor      61.0      IRON316L-SS
+ASSIGNMA     316L-SS     BeaPi
 ASSIGNMA       WATER  BeaPiWat
-ASSIGNMA    TITANIUM    Inlet1
-ASSIGNMA    TITANIUM    Inlet2
-ASSIGNMA    TITANIUM    Inlet3
+ASSIGNMA     316L-SS    Inlet1
+ASSIGNMA     316L-SS    Inlet2
+ASSIGNMA     316L-SS    Inlet3
 ASSIGNMA       WATER  Inlet1Wa
 ASSIGNMA       WATER  Inlet2Wa
 ASSIGNMA       WATER  Inlet3Wa
-ASSIGNMA    TITANIUM    Inlet4
-ASSIGNMA    TITANIUM    Inlet5
-ASSIGNMA    TITANIUM    Inlet6
+ASSIGNMA     316L-SS    Inlet4
+ASSIGNMA     316L-SS    Inlet5
+ASSIGNMA     316L-SS    Inlet6
 ASSIGNMA       WATER  Inlet4Wa
 ASSIGNMA       WATER  Inlet5Wa
 ASSIGNMA       WATER  Inlet6Wa
-ASSIGNMA    TITANIUM   Outlet1
+ASSIGNMA     316L-SS   Outlet1
 ASSIGNMA       WATER   Outl1Wa
-ASSIGNMA    TITANIUM   Outlet2
+ASSIGNMA     316L-SS   Outlet2
 ASSIGNMA       WATER   Outl2Wa
-ASSIGNMA    TITANIUM      Tank
-ASSIGNMA    TITANIUM  TankEnd2
-ASSIGNMA    TITANIUM  TankEnd1
-ASSIGNMA    TITANIUM   VoPipe1
-ASSIGNMA    TITANIUM   VoPipe2
-ASSIGNMA    TITANIUM   VoPipe3
-ASSIGNMA    TITANIUM   VoPipe4
-ASSIGNMA    TITANIUM   VoPipe5
-ASSIGNMA    TITANIUM   VoPipe6
-ASSIGNMA    TITANIUM   VoPipe7
-ASSIGNMA    TITANIUM   VoPipe8
-ASSIGNMA    TITANIUM   VoPipe9
-ASSIGNMA    TITANIUM  VoPipe10
-ASSIGNMA    TITANIUM  VoPipe11
-ASSIGNMA    TITANIUM  VoPipe12
-ASSIGNMA    TITANIUM  VoPipe13
-ASSIGNMA    TITANIUM  VoPipe14
-ASSIGNMA    TITANIUM  VoPipe15
-ASSIGNMA    TITANIUM  VoPipe16
-ASSIGNMA    TITANIUM  VoPipe17
+ASSIGNMA     316L-SS      Tank
+ASSIGNMA     316L-SS  TankEnd2
+ASSIGNMA     316L-SS  TankEnd1
+ASSIGNMA     316L-SS   VoPipe1
+ASSIGNMA     316L-SS   VoPipe2
+ASSIGNMA     316L-SS   VoPipe3
+ASSIGNMA     316L-SS   VoPipe4
+ASSIGNMA     316L-SS   VoPipe5
+ASSIGNMA     316L-SS   VoPipe6
+ASSIGNMA     316L-SS   VoPipe7
+ASSIGNMA     316L-SS   VoPipe8
+ASSIGNMA     316L-SS   VoPipe9
+ASSIGNMA     316L-SS  VoPipe10
+ASSIGNMA     316L-SS  VoPipe11
+ASSIGNMA     316L-SS  VoPipe12
+ASSIGNMA     316L-SS  VoPipe13
+ASSIGNMA     316L-SS  VoPipe14
+ASSIGNMA     316L-SS  VoPipe15
+ASSIGNMA     316L-SS  VoPipe16
+ASSIGNMA     316L-SS  VoPipe17
 ASSIGNMA       WATER   VoPiWa1
 ASSIGNMA       WATER   VoPiWa2
 ASSIGNMA       WATER   VoPiWa3
@@ -884,31 +903,31 @@ ASSIGNMA       WATER  VoPiWa14
 ASSIGNMA       WATER  VoPiWa15
 ASSIGNMA       WATER  VoPiWa16
 ASSIGNMA       WATER  VoPiWa17
-ASSIGNMA    TITANIUM  VoPipe22
-ASSIGNMA    TITANIUM  VoPipe23
-ASSIGNMA    TITANIUM  VoPipe24
-ASSIGNMA    TITANIUM  VoPipe25
-ASSIGNMA    TITANIUM  VoPipe26
-ASSIGNMA    TITANIUM  VoPipe18
-ASSIGNMA    TITANIUM  VoPipe19
-ASSIGNMA    TITANIUM  VoPipe20
-ASSIGNMA    TITANIUM  VoPipe21
-ASSIGNMA    TITANIUM  VoPipe27
-ASSIGNMA    TITANIUM  VoPipe28
-ASSIGNMA    TITANIUM  VoPipe29
-ASSIGNMA    TITANIUM  VoPipe30
-ASSIGNMA    TITANIUM  VoPipe31
-ASSIGNMA    TITANIUM  VoPipe32
-ASSIGNMA    TITANIUM  VoPipe33
-ASSIGNMA    TITANIUM  VoPipe34
-ASSIGNMA    TITANIUM  VoPipe35
-ASSIGNMA    TITANIUM  VoPipe36
-ASSIGNMA    TITANIUM  VoPipe37
-ASSIGNMA    TITANIUM  VoPipe38
-ASSIGNMA    TITANIUM  VoPipe39
-ASSIGNMA    TITANIUM  VoPipe40
-ASSIGNMA    TITANIUM  VoPipe41
-ASSIGNMA    TITANIUM  VoPipe42
+ASSIGNMA     316L-SS  VoPipe22
+ASSIGNMA     316L-SS  VoPipe23
+ASSIGNMA     316L-SS  VoPipe24
+ASSIGNMA     316L-SS  VoPipe25
+ASSIGNMA     316L-SS  VoPipe26
+ASSIGNMA     316L-SS  VoPipe18
+ASSIGNMA     316L-SS  VoPipe19
+ASSIGNMA     316L-SS  VoPipe20
+ASSIGNMA     316L-SS  VoPipe21
+ASSIGNMA     316L-SS  VoPipe27
+ASSIGNMA     316L-SS  VoPipe28
+ASSIGNMA     316L-SS  VoPipe29
+ASSIGNMA     316L-SS  VoPipe30
+ASSIGNMA     316L-SS  VoPipe31
+ASSIGNMA     316L-SS  VoPipe32
+ASSIGNMA     316L-SS  VoPipe33
+ASSIGNMA     316L-SS  VoPipe34
+ASSIGNMA     316L-SS  VoPipe35
+ASSIGNMA     316L-SS  VoPipe36
+ASSIGNMA     316L-SS  VoPipe37
+ASSIGNMA     316L-SS  VoPipe38
+ASSIGNMA     316L-SS  VoPipe39
+ASSIGNMA     316L-SS  VoPipe40
+ASSIGNMA     316L-SS  VoPipe41
+ASSIGNMA     316L-SS  VoPipe42
 ASSIGNMA       WATER  VoPiWa18
 ASSIGNMA       WATER  VoPiWa19
 ASSIGNMA       WATER  VoPiWa20
@@ -934,12 +953,12 @@ ASSIGNMA       WATER  VoPiWa39
 ASSIGNMA       WATER  VoPiWa40
 ASSIGNMA       WATER  VoPiWa41
 ASSIGNMA       WATER  VoPiWa42
-ASSIGNMA    TITANIUM    Vortex
+ASSIGNMA     316L-SS    Vortex
 ASSIGNMA       WATER  VortexWa
-ASSIGNMA    TITANIUM  WaterJe2
-ASSIGNMA    TITANIUM  WaterJet
+ASSIGNMA     316L-SS  WaterJe2
+ASSIGNMA     316L-SS  WaterJet
 ASSIGNMA       WATER  WatJetWa
-ASSIGNMA    TITANIUM  WaterJe2
+ASSIGNMA     316L-SS  WaterJe2
 ASSIGNMA       WATER  WatJe2Wa
 ASSIGNMA       WATER   TankWa1
 ASSIGNMA       WATER   TankWa2
@@ -964,7 +983,7 @@ ASSIGNMA      COPPER  CuPlate9
 ASSIGNMA      COPPER  CuPlat10
 ASSIGNMA    BLCKHOLE  Blackbod
 ASSIGNMA         AIR       Air
-ASSIGNMA    TITANIUM    Window
+ASSIGNMA    Ti-6Al4V    Window
 ASSIGNMA      VACUUM  BeaPiVac
 PHOTONUC          1.                        VACUUM     WATER        1.
 LAM-BIAS         0.0      0.02     WATER   NEUTRON                    INEPRI
