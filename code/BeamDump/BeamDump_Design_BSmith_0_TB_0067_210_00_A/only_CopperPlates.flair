@@ -17,7 +17,7 @@ Run: <default>
 	Last:     5
 	Status:   3
 	Pid:      0
-	StartRun: 1496778520
+	StartRun: 1496818111
 End
 
 # Geometry Information
@@ -35,10 +35,10 @@ Plot: Red
 	basisv: 0 1 0
 	boundaries: 1
 	coord: X-Y
-	extends: 144 75.8769
+	extends: 207.36 109.263
 	labels: 1
 	layer: Media
-	origin: -20.6148 2.86523 264
+	origin: -36.8712 -10.9308 264
 	subtype: Material
 	title: GeoViewer Red plot
 End
@@ -51,10 +51,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 0.727958 0.384317
+	extends: 298.598 157.642
 	labels: 1
 	layer: Media
-	origin: 54.9553 0 -339.424
+	origin: -16.5038 0 -68.2941
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -67,10 +67,10 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 207.36 108.864
+	extends: 891.61 468.095
 	labels: 1
 	layer: Media
-	origin: -24.1858 31.7163 330.13
+	origin: -24.1858 -154.371 118.93
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -83,10 +83,10 @@ Plot: Magenta
 	basisv: 0 1 0
 	boundaries: 1
 	coord: X-Y
-	extends: 298.598 157.066
+	extends: 429.981 226.175
 	labels: 1
 	layer: Media
-	origin: -50.1591 19.8037 0
+	origin: -38.8038 -25.4729 0
 	subtype: Material
 	title: GeoViewer Magenta plot
 End

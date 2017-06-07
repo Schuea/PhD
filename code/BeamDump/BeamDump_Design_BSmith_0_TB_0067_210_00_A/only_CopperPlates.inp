@@ -82,7 +82,7 @@ YZP yPlate12   32.5
 XYP TaEnPla1   -333.5
 XYP TaEnPla2   355.0
 ZCC Waterbox   -30.0 0.0 73.0
-RPP Blackbox   -115.0 55.0 -210.0 210.0 -340.0 360.0
+SPH Blackbox   -30.0 0.0 0.0 400.0
 END
 #if 0
 CuPlate1     5 +Waterbox +Plate2 -Plate1 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(+zPlate7
@@ -285,8 +285,8 @@ Blackbod     5 +TaEnPla2 +Blackbox -TaEnPla1 -Waterbox
                | +TaEnPla1 +Blackbox
                | +Blackbox -TaEnPla2
 END
-GEOEND          55.0     210.0     360.0    -115.0    -210.0    -340.0DEBUG
-GEOEND          500.      400.      500.                               &
+GEOEND          43.0      73.0     355.0    -103.0     -73.0    -333.0DEBUG
+GEOEND          100.      100.      500.                               &
 ASSIGNMA      COPPER  CuPlate1
 ASSIGNMA      COPPER  CuPlate2
 ASSIGNMA      COPPER  CuPlate3
@@ -311,10 +311,10 @@ ASSIGNMA       WATER  TankWa10
 ASSIGNMA       WATER  TankWa11
 PHOTONUC          1.                        VACUUM     WATER        1.
 LAM-BIAS         0.0      0.02     WATER   NEUTRON                    INEPRI
-USRBIN           10.    ENERGY      -21.      43.0      73.0     355.0Energy
-USRBIN        -113.0     -73.0    -333.5      100.      100.      600. &
-USRBIN           10.   NEUTRON      -22.      43.0      73.0     355.0Neutrons
-USRBIN        -113.0     -73.0    -333.5      100.      100.      600. &
+USRBIN           10.    ENERGY      -21.       43.       73.      355.Energy
+USRBIN         -113.      -73.    -333.5      100.      100.      600. &
+USRBIN           10.   NEUTRON      -22.       43.       73.      355.Neutrons
+USRBIN         -113.      -73.    -333.5      100.      100.      600. &
 *RESNUCLE          3.      -52.                         Water        1.BeamDump
 DISCARD        MUONS
 * Set the random number seed
