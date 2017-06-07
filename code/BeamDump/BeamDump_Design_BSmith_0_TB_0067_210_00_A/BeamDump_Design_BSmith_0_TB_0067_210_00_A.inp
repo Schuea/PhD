@@ -121,14 +121,14 @@ RCC InVoP37    -25.5 -36. -201.5 12.5 17.5 0.0 3.
 RCC OutVoP37   -25.5 -36. -201.5 12.5 17.5 0.0 4.
 RCC OutVoP38   -25.5 -36. -221.5 12.5 17.5 0.0 4.
 RCC InVoP38    -25.5 -36. -221.5 12.5 17.5 0.0 3.
-RCC OutVoP39   -25.5 -36.0 -241.5 12.5 17.5 0.0 4.0
-RCC InVoP39    -25.5 -36.0 -241.5 12.5 17.5 0.0 3.0
-RCC OutVoP40   -25.5 -36.0 -261.5 12.5 17.5 0.0 4.0
-RCC InVoP40    -25.5 -36.0 -261.5 12.5 17.5 0.0 3.0
-RCC OutVoP41   -25.5 -36.0 -281.5 12.5 17.5 0.0 4.0
-RCC InVoP41    -25.5 -36.0 -281.5 12.5 17.5 0.0 3.0
-RCC OutVoP42   -25.5 -36.0 -301.5 12.5 17.5 0.0 4.0
-RCC InVoP42    -25.5 -36.0 -301.5 12.5 17.5 0.0 3.0
+RCC OutVoP39   -25.5 -36. -241.5 12.5 17.5 0.0 4.
+RCC InVoP39    -25.5 -36. -241.5 12.5 17.5 0.0 3.
+RCC OutVoP40   -25.5 -36. -261.5 12.5 17.5 0.0 4.
+RCC InVoP40    -25.5 -36. -261.5 12.5 17.5 0.0 3.
+RCC OutVoP41   -25.5 -36. -281.5 12.5 17.5 0.0 4.
+RCC InVoP41    -25.5 -36. -281.5 12.5 17.5 0.0 3.
+RCC OutVoP42   -25.5 -36. -301.5 12.5 17.5 0.0 4.
+RCC InVoP42    -25.5 -36. -301.5 12.5 17.5 0.0 3.
 XYP Plate1     215.2
 XYP Plate2     216.46
 XYP Plate3     227.26
@@ -148,7 +148,7 @@ XYP Plate16    300.88
 XYP Plate17    311.68
 XYP Plate18    312.94
 XYP Plate19    323.74
-XYP Plate20    325.0
+XYP Plate20    325.
 XZP zPlate1    63.
 XZP zPlate2    58.
 XZP zPlate3    39.
@@ -160,7 +160,7 @@ XZP zPlate8    -14.
 XZP zPlate9    -33.
 XZP zPlate10   -38.
 XZP zPlate11   -57.
-XZP zPlate12   -62.
+XZP zPlate12   -62.05
 YZP yPlate1    -92.5
 YZP yPlate2    -87.5
 YZP yPlate3    -68.5
@@ -170,7 +170,7 @@ YZP yPlate6    -39.5
 YZP yPlate7    -20.5
 YZP yPlate8    -15.5
 YZP yPlate9    3.5
-YZP yPlate10   8.5
+YZP yPlate10   8.5000257161496
 YZP yPlate11   27.5
 YZP yPlate12   32.5
 XYP TaEnPla2   332.50
@@ -302,36 +302,376 @@ VoPiWa40     5 +InVoP40 -InWatJe2 -InVorte
 VoPiWa41     5 +InVoP41 -InWatJe2 -InVorte
 VoPiWa42     5 +InVoP42 -InWatJe2 -InVorte
 VortexWa     5 +InVorte
-CuPlate1     5 +InTank +Plate2 -Plate1 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(+zPlate7
-               -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 +yPlate4) -(
-               -yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
-CuPlate2     5 +InTank +Plate4 -Plate3 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(+zPlate7
-               -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 +yPlate4) -(
-               -yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
-CuPlate3     5 +InTank +Plate6 -Plate5 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(+zPlate7
-               -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 +yPlate4) -(
-               -yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
-CuPlate4     5 +InTank +Plate8 -Plate7 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(+zPlate7
-               -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 +yPlate4) -(
-               -yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
-CuPlate5     5 +InTank +Plate10 -Plate9 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(+zPlate7
-               -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3 +yPlate4) -(
-               -yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
-CuPlate6     5 +InTank +Plate12 -Plate11 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
-               +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3
-               +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
-CuPlate7     5 +InTank +Plate14 -Plate13 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
-               +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3
-               +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
-CuPlate8     5 +InTank +Plate16 -Plate15 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
-               +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3
-               +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
-CuPlate9     5 +InTank +Plate18 -Plate17 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
-               +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3
-               +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
-CuPlat10     5 +InTank +Plate20 -Plate19 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(+zPlate5 -zPlate6) -(
-               +zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1 +yPlate2) -(-yPlate3
-               +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(-yPlate11 +yPlate12)
+CuPlate1     5 +InTank +Plate2 +yPlate9 -Plate1 -zPlate1 -yPlate8
+               | +InTank +Plate2 +yPlate7 -Plate1 -zPlate1 -yPlate6
+               | +InTank +Plate2 +yPlate5 -Plate1 -zPlate1 -yPlate4
+               | +InTank +Plate2 +zPlate2 +yPlate11 -Plate1 -zPlate3 -yPlate10
+               | +InTank +Plate2 +zPlate2 +yPlate9 -Plate1 -zPlate3 -yPlate8
+               | +InTank +Plate2 +zPlate2 +yPlate7 -Plate1 -zPlate3 -yPlate6
+               | +InTank +Plate2 +zPlate2 +yPlate5 -Plate1 -zPlate3 -yPlate4
+               | +InTank +Plate2 +zPlate2 +yPlate3 -Plate1 -zPlate3 -yPlate2
+               | +InTank +Plate2 +zPlate4 -Plate1 -zPlate5 -yPlate12
+               | +InTank +Plate2 +zPlate4 +yPlate11 -Plate1 -zPlate5 -yPlate10
+               | +InTank +Plate2 +zPlate4 +yPlate9 -Plate1 -zPlate5 -yPlate8
+               | +InTank +Plate2 +zPlate4 +yPlate7 -Plate1 -zPlate5 -yPlate6
+               | +InTank +Plate2 +zPlate4 +yPlate5 -Plate1 -zPlate5 -yPlate4
+               | +InTank +Plate2 +zPlate4 +yPlate3 -Plate1 -zPlate5 -yPlate2
+               | +InTank +Plate2 +zPlate4 +yPlate1 -Plate1 -zPlate5
+               | +InTank +Plate2 +zPlate6 -Plate1 -zPlate7 -yPlate12
+               | +InTank +Plate2 +zPlate6 +yPlate11 -Plate1 -zPlate7 -yPlate10
+               | +InTank +Plate2 +zPlate6 +yPlate9 -Plate1 -zPlate7 -yPlate8
+               | +InTank +Plate2 +zPlate6 +yPlate7 -Plate1 -zPlate7 -yPlate6
+               | +InTank +Plate2 +zPlate6 +yPlate5 -Plate1 -zPlate7 -yPlate4
+               | +InTank +Plate2 +zPlate6 +yPlate3 -Plate1 -zPlate7 -yPlate2
+               | +InTank +Plate2 +zPlate6 +yPlate1 -Plate1 -zPlate7
+               | +InTank +Plate2 +zPlate8 -Plate1 -zPlate9 -yPlate12
+               | +InTank +Plate2 +zPlate8 +yPlate11 -Plate1 -zPlate9 -yPlate10
+               | +InTank +Plate2 +zPlate8 +yPlate9 -Plate1 -zPlate9 -yPlate8
+               | +InTank +Plate2 +zPlate8 +yPlate7 -Plate1 -zPlate9 -yPlate6
+               | +InTank +Plate2 +zPlate8 +yPlate5 -Plate1 -zPlate9 -yPlate4
+               | +InTank +Plate2 +zPlate8 +yPlate3 -Plate1 -zPlate9 -yPlate2
+               | +InTank +Plate2 +zPlate8 +yPlate1 -Plate1 -zPlate9
+               | +InTank +Plate2 +zPlate10 +yPlate11 -Plate1 -zPlate11 -yPlate10
+               | +InTank +Plate2 +zPlate10 +yPlate9 -Plate1 -zPlate11 -yPlate8
+               | +InTank +Plate2 +zPlate10 +yPlate7 -Plate1 -zPlate11 -yPlate6
+               | +InTank +Plate2 +zPlate10 +yPlate5 -Plate1 -zPlate11 -yPlate4
+               | +InTank +Plate2 +zPlate10 +yPlate3 -Plate1 -zPlate11 -yPlate2
+               | +InTank +Plate2 +zPlate12 +yPlate9 -Plate1 -yPlate8
+               | +InTank +Plate2 +zPlate12 +yPlate7 -Plate1 -yPlate6
+               | +InTank +Plate2 +zPlate12 +yPlate5 -Plate1 -yPlate4
+CuPlate2     5 +InTank +Plate4 +yPlate9 -Plate3 -zPlate1 -yPlate8
+               | +InTank +Plate4 +yPlate7 -Plate3 -zPlate1 -yPlate6
+               | +InTank +Plate4 +yPlate5 -Plate3 -zPlate1 -yPlate4
+               | +InTank +Plate4 +zPlate2 +yPlate11 -Plate3 -zPlate3 -yPlate10
+               | +InTank +Plate4 +zPlate2 +yPlate9 -Plate3 -zPlate3 -yPlate8
+               | +InTank +Plate4 +zPlate2 +yPlate7 -Plate3 -zPlate3 -yPlate6
+               | +InTank +Plate4 +zPlate2 +yPlate5 -Plate3 -zPlate3 -yPlate4
+               | +InTank +Plate4 +zPlate2 +yPlate3 -Plate3 -zPlate3 -yPlate2
+               | +InTank +Plate4 +zPlate4 -Plate3 -zPlate5 -yPlate12
+               | +InTank +Plate4 +zPlate4 +yPlate11 -Plate3 -zPlate5 -yPlate10
+               | +InTank +Plate4 +zPlate4 +yPlate9 -Plate3 -zPlate5 -yPlate8
+               | +InTank +Plate4 +zPlate4 +yPlate7 -Plate3 -zPlate5 -yPlate6
+               | +InTank +Plate4 +zPlate4 +yPlate5 -Plate3 -zPlate5 -yPlate4
+               | +InTank +Plate4 +zPlate4 +yPlate3 -Plate3 -zPlate5 -yPlate2
+               | +InTank +Plate4 +zPlate4 +yPlate1 -Plate3 -zPlate5
+               | +InTank +Plate4 +zPlate6 -Plate3 -zPlate7 -yPlate12
+               | +InTank +Plate4 +zPlate6 +yPlate11 -Plate3 -zPlate7 -yPlate10
+               | +InTank +Plate4 +zPlate6 +yPlate9 -Plate3 -zPlate7 -yPlate8
+               | +InTank +Plate4 +zPlate6 +yPlate7 -Plate3 -zPlate7 -yPlate6
+               | +InTank +Plate4 +zPlate6 +yPlate5 -Plate3 -zPlate7 -yPlate4
+               | +InTank +Plate4 +zPlate6 +yPlate3 -Plate3 -zPlate7 -yPlate2
+               | +InTank +Plate4 +zPlate6 +yPlate1 -Plate3 -zPlate7
+               | +InTank +Plate4 +zPlate8 -Plate3 -zPlate9 -yPlate12
+               | +InTank +Plate4 +zPlate8 +yPlate11 -Plate3 -zPlate9 -yPlate10
+               | +InTank +Plate4 +zPlate8 +yPlate9 -Plate3 -zPlate9 -yPlate8
+               | +InTank +Plate4 +zPlate8 +yPlate7 -Plate3 -zPlate9 -yPlate6
+               | +InTank +Plate4 +zPlate8 +yPlate5 -Plate3 -zPlate9 -yPlate4
+               | +InTank +Plate4 +zPlate8 +yPlate3 -Plate3 -zPlate9 -yPlate2
+               | +InTank +Plate4 +zPlate8 +yPlate1 -Plate3 -zPlate9
+               | +InTank +Plate4 +zPlate10 +yPlate11 -Plate3 -zPlate11 -yPlate10
+               | +InTank +Plate4 +zPlate10 +yPlate9 -Plate3 -zPlate11 -yPlate8
+               | +InTank +Plate4 +zPlate10 +yPlate7 -Plate3 -zPlate11 -yPlate6
+               | +InTank +Plate4 +zPlate10 +yPlate5 -Plate3 -zPlate11 -yPlate4
+               | +InTank +Plate4 +zPlate10 +yPlate3 -Plate3 -zPlate11 -yPlate2
+               | +InTank +Plate4 +zPlate12 +yPlate9 -Plate3 -yPlate8
+               | +InTank +Plate4 +zPlate12 +yPlate7 -Plate3 -yPlate6
+               | +InTank +Plate4 +zPlate12 +yPlate5 -Plate3 -yPlate4
+CuPlate3     5 +InTank +Plate6 +yPlate9 -Plate5 -zPlate1 -yPlate8
+               | +InTank +Plate6 +yPlate7 -Plate5 -zPlate1 -yPlate6
+               | +InTank +Plate6 +yPlate5 -Plate5 -zPlate1 -yPlate4
+               | +InTank +Plate6 +zPlate2 +yPlate11 -Plate5 -zPlate3 -yPlate10
+               | +InTank +Plate6 +zPlate2 +yPlate9 -Plate5 -zPlate3 -yPlate8
+               | +InTank +Plate6 +zPlate2 +yPlate7 -Plate5 -zPlate3 -yPlate6
+               | +InTank +Plate6 +zPlate2 +yPlate5 -Plate5 -zPlate3 -yPlate4
+               | +InTank +Plate6 +zPlate2 +yPlate3 -Plate5 -zPlate3 -yPlate2
+               | +InTank +Plate6 +zPlate4 -Plate5 -zPlate5 -yPlate12
+               | +InTank +Plate6 +zPlate4 +yPlate11 -Plate5 -zPlate5 -yPlate10
+               | +InTank +Plate6 +zPlate4 +yPlate9 -Plate5 -zPlate5 -yPlate8
+               | +InTank +Plate6 +zPlate4 +yPlate7 -Plate5 -zPlate5 -yPlate6
+               | +InTank +Plate6 +zPlate4 +yPlate5 -Plate5 -zPlate5 -yPlate4
+               | +InTank +Plate6 +zPlate4 +yPlate3 -Plate5 -zPlate5 -yPlate2
+               | +InTank +Plate6 +zPlate4 +yPlate1 -Plate5 -zPlate5
+               | +InTank +Plate6 +zPlate6 -Plate5 -zPlate7 -yPlate12
+               | +InTank +Plate6 +zPlate6 +yPlate11 -Plate5 -zPlate7 -yPlate10
+               | +InTank +Plate6 +zPlate6 +yPlate9 -Plate5 -zPlate7 -yPlate8
+               | +InTank +Plate6 +zPlate6 +yPlate7 -Plate5 -zPlate7 -yPlate6
+               | +InTank +Plate6 +zPlate6 +yPlate5 -Plate5 -zPlate7 -yPlate4
+               | +InTank +Plate6 +zPlate6 +yPlate3 -Plate5 -zPlate7 -yPlate2
+               | +InTank +Plate6 +zPlate6 +yPlate1 -Plate5 -zPlate7
+               | +InTank +Plate6 +zPlate8 -Plate5 -zPlate9 -yPlate12
+               | +InTank +Plate6 +zPlate8 +yPlate11 -Plate5 -zPlate9 -yPlate10
+               | +InTank +Plate6 +zPlate8 +yPlate9 -Plate5 -zPlate9 -yPlate8
+               | +InTank +Plate6 +zPlate8 +yPlate7 -Plate5 -zPlate9 -yPlate6
+               | +InTank +Plate6 +zPlate8 +yPlate5 -Plate5 -zPlate9 -yPlate4
+               | +InTank +Plate6 +zPlate8 +yPlate3 -Plate5 -zPlate9 -yPlate2
+               | +InTank +Plate6 +zPlate8 +yPlate1 -Plate5 -zPlate9
+               | +InTank +Plate6 +zPlate10 +yPlate11 -Plate5 -zPlate11 -yPlate10
+               | +InTank +Plate6 +zPlate10 +yPlate9 -Plate5 -zPlate11 -yPlate8
+               | +InTank +Plate6 +zPlate10 +yPlate7 -Plate5 -zPlate11 -yPlate6
+               | +InTank +Plate6 +zPlate10 +yPlate5 -Plate5 -zPlate11 -yPlate4
+               | +InTank +Plate6 +zPlate10 +yPlate3 -Plate5 -zPlate11 -yPlate2
+               | +InTank +Plate6 +zPlate12 +yPlate9 -Plate5 -yPlate8
+               | +InTank +Plate6 +zPlate12 +yPlate7 -Plate5 -yPlate6
+               | +InTank +Plate6 +zPlate12 +yPlate5 -Plate5 -yPlate4
+CuPlate4     5 +InTank +Plate8 +yPlate9 -Plate7 -zPlate1 -yPlate8
+               | +InTank +Plate8 +yPlate7 -Plate7 -zPlate1 -yPlate6
+               | +InTank +Plate8 +yPlate5 -Plate7 -zPlate1 -yPlate4
+               | +InTank +Plate8 +zPlate2 +yPlate11 -Plate7 -zPlate3 -yPlate10
+               | +InTank +Plate8 +zPlate2 +yPlate9 -Plate7 -zPlate3 -yPlate8
+               | +InTank +Plate8 +zPlate2 +yPlate7 -Plate7 -zPlate3 -yPlate6
+               | +InTank +Plate8 +zPlate2 +yPlate5 -Plate7 -zPlate3 -yPlate4
+               | +InTank +Plate8 +zPlate2 +yPlate3 -Plate7 -zPlate3 -yPlate2
+               | +InTank +Plate8 +zPlate4 -Plate7 -zPlate5 -yPlate12
+               | +InTank +Plate8 +zPlate4 +yPlate11 -Plate7 -zPlate5 -yPlate10
+               | +InTank +Plate8 +zPlate4 +yPlate9 -Plate7 -zPlate5 -yPlate8
+               | +InTank +Plate8 +zPlate4 +yPlate7 -Plate7 -zPlate5 -yPlate6
+               | +InTank +Plate8 +zPlate4 +yPlate5 -Plate7 -zPlate5 -yPlate4
+               | +InTank +Plate8 +zPlate4 +yPlate3 -Plate7 -zPlate5 -yPlate2
+               | +InTank +Plate8 +zPlate4 +yPlate1 -Plate7 -zPlate5
+               | +InTank +Plate8 +zPlate6 -Plate7 -zPlate7 -yPlate12
+               | +InTank +Plate8 +zPlate6 +yPlate11 -Plate7 -zPlate7 -yPlate10
+               | +InTank +Plate8 +zPlate6 +yPlate9 -Plate7 -zPlate7 -yPlate8
+               | +InTank +Plate8 +zPlate6 +yPlate7 -Plate7 -zPlate7 -yPlate6
+               | +InTank +Plate8 +zPlate6 +yPlate5 -Plate7 -zPlate7 -yPlate4
+               | +InTank +Plate8 +zPlate6 +yPlate3 -Plate7 -zPlate7 -yPlate2
+               | +InTank +Plate8 +zPlate6 +yPlate1 -Plate7 -zPlate7
+               | +InTank +Plate8 +zPlate8 -Plate7 -zPlate9 -yPlate12
+               | +InTank +Plate8 +zPlate8 +yPlate11 -Plate7 -zPlate9 -yPlate10
+               | +InTank +Plate8 +zPlate8 +yPlate9 -Plate7 -zPlate9 -yPlate8
+               | +InTank +Plate8 +zPlate8 +yPlate7 -Plate7 -zPlate9 -yPlate6
+               | +InTank +Plate8 +zPlate8 +yPlate5 -Plate7 -zPlate9 -yPlate4
+               | +InTank +Plate8 +zPlate8 +yPlate3 -Plate7 -zPlate9 -yPlate2
+               | +InTank +Plate8 +zPlate8 +yPlate1 -Plate7 -zPlate9
+               | +InTank +Plate8 +zPlate10 +yPlate11 -Plate7 -zPlate11 -yPlate10
+               | +InTank +Plate8 +zPlate10 +yPlate9 -Plate7 -zPlate11 -yPlate8
+               | +InTank +Plate8 +zPlate10 +yPlate7 -Plate7 -zPlate11 -yPlate6
+               | +InTank +Plate8 +zPlate10 +yPlate5 -Plate7 -zPlate11 -yPlate4
+               | +InTank +Plate8 +zPlate10 +yPlate3 -Plate7 -zPlate11 -yPlate2
+               | +InTank +Plate8 +zPlate12 +yPlate9 -Plate7 -yPlate8
+               | +InTank +Plate8 +zPlate12 +yPlate7 -Plate7 -yPlate6
+               | +InTank +Plate8 +zPlate12 +yPlate5 -Plate7 -yPlate4
+CuPlate5     5 +InTank +Plate10 +yPlate9 -Plate9 -zPlate1 -yPlate8
+               | +InTank +Plate10 +yPlate7 -Plate9 -zPlate1 -yPlate6
+               | +InTank +Plate10 +yPlate5 -Plate9 -zPlate1 -yPlate4
+               | +InTank +Plate10 +zPlate2 +yPlate11 -Plate9 -zPlate3 -yPlate10
+               | +InTank +Plate10 +zPlate2 +yPlate9 -Plate9 -zPlate3 -yPlate8
+               | +InTank +Plate10 +zPlate2 +yPlate7 -Plate9 -zPlate3 -yPlate6
+               | +InTank +Plate10 +zPlate2 +yPlate5 -Plate9 -zPlate3 -yPlate4
+               | +InTank +Plate10 +zPlate2 +yPlate3 -Plate9 -zPlate3 -yPlate2
+               | +InTank +Plate10 +zPlate4 -Plate9 -zPlate5 -yPlate12
+               | +InTank +Plate10 +zPlate4 +yPlate11 -Plate9 -zPlate5 -yPlate10
+               | +InTank +Plate10 +zPlate4 +yPlate9 -Plate9 -zPlate5 -yPlate8
+               | +InTank +Plate10 +zPlate4 +yPlate7 -Plate9 -zPlate5 -yPlate6
+               | +InTank +Plate10 +zPlate4 +yPlate5 -Plate9 -zPlate5 -yPlate4
+               | +InTank +Plate10 +zPlate4 +yPlate3 -Plate9 -zPlate5 -yPlate2
+               | +InTank +Plate10 +zPlate4 +yPlate1 -Plate9 -zPlate5
+               | +InTank +Plate10 +zPlate6 -Plate9 -zPlate7 -yPlate12
+               | +InTank +Plate10 +zPlate6 +yPlate11 -Plate9 -zPlate7 -yPlate10
+               | +InTank +Plate10 +zPlate6 +yPlate9 -Plate9 -zPlate7 -yPlate8
+               | +InTank +Plate10 +zPlate6 +yPlate7 -Plate9 -zPlate7 -yPlate6
+               | +InTank +Plate10 +zPlate6 +yPlate5 -Plate9 -zPlate7 -yPlate4
+               | +InTank +Plate10 +zPlate6 +yPlate3 -Plate9 -zPlate7 -yPlate2
+               | +InTank +Plate10 +zPlate6 +yPlate1 -Plate9 -zPlate7
+               | +InTank +Plate10 +zPlate8 -Plate9 -zPlate9 -yPlate12
+               | +InTank +Plate10 +zPlate8 +yPlate11 -Plate9 -zPlate9 -yPlate10
+               | +InTank +Plate10 +zPlate8 +yPlate9 -Plate9 -zPlate9 -yPlate8
+               | +InTank +Plate10 +zPlate8 +yPlate7 -Plate9 -zPlate9 -yPlate6
+               | +InTank +Plate10 +zPlate8 +yPlate5 -Plate9 -zPlate9 -yPlate4
+               | +InTank +Plate10 +zPlate8 +yPlate3 -Plate9 -zPlate9 -yPlate2
+               | +InTank +Plate10 +zPlate8 +yPlate1 -Plate9 -zPlate9
+               | +InTank +Plate10 +zPlate10 +yPlate11 -Plate9 -zPlate11 -yPlate10
+               | +InTank +Plate10 +zPlate10 +yPlate9 -Plate9 -zPlate11 -yPlate8
+               | +InTank +Plate10 +zPlate10 +yPlate7 -Plate9 -zPlate11 -yPlate6
+               | +InTank +Plate10 +zPlate10 +yPlate5 -Plate9 -zPlate11 -yPlate4
+               | +InTank +Plate10 +zPlate10 +yPlate3 -Plate9 -zPlate11 -yPlate2
+               | +InTank +Plate10 +zPlate12 +yPlate9 -Plate9 -yPlate8
+               | +InTank +Plate10 +zPlate12 +yPlate7 -Plate9 -yPlate6
+               | +InTank +Plate10 +zPlate12 +yPlate5 -Plate9 -yPlate4
+CuPlate6     5 +InTank +Plate12 +yPlate9 -Plate11 -zPlate1 -yPlate8
+               | +InTank +Plate12 +yPlate7 -Plate11 -zPlate1 -yPlate6
+               | +InTank +Plate12 +yPlate5 -Plate11 -zPlate1 -yPlate4
+               | +InTank +Plate12 +zPlate2 +yPlate11 -Plate11 -zPlate3 -yPlate10
+               | +InTank +Plate12 +zPlate2 +yPlate9 -Plate11 -zPlate3 -yPlate8
+               | +InTank +Plate12 +zPlate2 +yPlate7 -Plate11 -zPlate3 -yPlate6
+               | +InTank +Plate12 +zPlate2 +yPlate5 -Plate11 -zPlate3 -yPlate4
+               | +InTank +Plate12 +zPlate2 +yPlate3 -Plate11 -zPlate3 -yPlate2
+               | +InTank +Plate12 +zPlate4 -Plate11 -zPlate5 -yPlate12
+               | +InTank +Plate12 +zPlate4 +yPlate11 -Plate11 -zPlate5 -yPlate10
+               | +InTank +Plate12 +zPlate4 +yPlate9 -Plate11 -zPlate5 -yPlate8
+               | +InTank +Plate12 +zPlate4 +yPlate7 -Plate11 -zPlate5 -yPlate6
+               | +InTank +Plate12 +zPlate4 +yPlate5 -Plate11 -zPlate5 -yPlate4
+               | +InTank +Plate12 +zPlate4 +yPlate3 -Plate11 -zPlate5 -yPlate2
+               | +InTank +Plate12 +zPlate4 +yPlate1 -Plate11 -zPlate5
+               | +InTank +Plate12 +zPlate6 -Plate11 -zPlate7 -yPlate12
+               | +InTank +Plate12 +zPlate6 +yPlate11 -Plate11 -zPlate7 -yPlate10
+               | +InTank +Plate12 +zPlate6 +yPlate9 -Plate11 -zPlate7 -yPlate8
+               | +InTank +Plate12 +zPlate6 +yPlate7 -Plate11 -zPlate7 -yPlate6
+               | +InTank +Plate12 +zPlate6 +yPlate5 -Plate11 -zPlate7 -yPlate4
+               | +InTank +Plate12 +zPlate6 +yPlate3 -Plate11 -zPlate7 -yPlate2
+               | +InTank +Plate12 +zPlate6 +yPlate1 -Plate11 -zPlate7
+               | +InTank +Plate12 +zPlate8 -Plate11 -zPlate9 -yPlate12
+               | +InTank +Plate12 +zPlate8 +yPlate11 -Plate11 -zPlate9 -yPlate10
+               | +InTank +Plate12 +zPlate8 +yPlate9 -Plate11 -zPlate9 -yPlate8
+               | +InTank +Plate12 +zPlate8 +yPlate7 -Plate11 -zPlate9 -yPlate6
+               | +InTank +Plate12 +zPlate8 +yPlate5 -Plate11 -zPlate9 -yPlate4
+               | +InTank +Plate12 +zPlate8 +yPlate3 -Plate11 -zPlate9 -yPlate2
+               | +InTank +Plate12 +zPlate8 +yPlate1 -Plate11 -zPlate9
+               | +InTank +Plate12 +zPlate10 +yPlate11 -Plate11 -zPlate11 -yPlate10
+               | +InTank +Plate12 +zPlate10 +yPlate9 -Plate11 -zPlate11 -yPlate8
+               | +InTank +Plate12 +zPlate10 +yPlate7 -Plate11 -zPlate11 -yPlate6
+               | +InTank +Plate12 +zPlate10 +yPlate5 -Plate11 -zPlate11 -yPlate4
+               | +InTank +Plate12 +zPlate10 +yPlate3 -Plate11 -zPlate11 -yPlate2
+               | +InTank +Plate12 +zPlate12 +yPlate9 -Plate11 -yPlate8
+               | +InTank +Plate12 +zPlate12 +yPlate7 -Plate11 -yPlate6
+               | +InTank +Plate12 +zPlate12 +yPlate5 -Plate11 -yPlate4
+CuPlate7     5 +InTank +Plate14 +yPlate9 -Plate13 -zPlate1 -yPlate8
+               | +InTank +Plate14 +yPlate7 -Plate13 -zPlate1 -yPlate6
+               | +InTank +Plate14 +yPlate5 -Plate13 -zPlate1 -yPlate4
+               | +InTank +Plate14 +zPlate2 +yPlate11 -Plate13 -zPlate3 -yPlate10
+               | +InTank +Plate14 +zPlate2 +yPlate9 -Plate13 -zPlate3 -yPlate8
+               | +InTank +Plate14 +zPlate2 +yPlate7 -Plate13 -zPlate3 -yPlate6
+               | +InTank +Plate14 +zPlate2 +yPlate5 -Plate13 -zPlate3 -yPlate4
+               | +InTank +Plate14 +zPlate2 +yPlate3 -Plate13 -zPlate3 -yPlate2
+               | +InTank +Plate14 +zPlate4 -Plate13 -zPlate5 -yPlate12
+               | +InTank +Plate14 +zPlate4 +yPlate11 -Plate13 -zPlate5 -yPlate10
+               | +InTank +Plate14 +zPlate4 +yPlate9 -Plate13 -zPlate5 -yPlate8
+               | +InTank +Plate14 +zPlate4 +yPlate7 -Plate13 -zPlate5 -yPlate6
+               | +InTank +Plate14 +zPlate4 +yPlate5 -Plate13 -zPlate5 -yPlate4
+               | +InTank +Plate14 +zPlate4 +yPlate3 -Plate13 -zPlate5 -yPlate2
+               | +InTank +Plate14 +zPlate4 +yPlate1 -Plate13 -zPlate5
+               | +InTank +Plate14 +zPlate6 -Plate13 -zPlate7 -yPlate12
+               | +InTank +Plate14 +zPlate6 +yPlate11 -Plate13 -zPlate7 -yPlate10
+               | +InTank +Plate14 +zPlate6 +yPlate9 -Plate13 -zPlate7 -yPlate8
+               | +InTank +Plate14 +zPlate6 +yPlate7 -Plate13 -zPlate7 -yPlate6
+               | +InTank +Plate14 +zPlate6 +yPlate5 -Plate13 -zPlate7 -yPlate4
+               | +InTank +Plate14 +zPlate6 +yPlate3 -Plate13 -zPlate7 -yPlate2
+               | +InTank +Plate14 +zPlate6 +yPlate1 -Plate13 -zPlate7
+               | +InTank +Plate14 +zPlate8 -Plate13 -zPlate9 -yPlate12
+               | +InTank +Plate14 +zPlate8 +yPlate11 -Plate13 -zPlate9 -yPlate10
+               | +InTank +Plate14 +zPlate8 +yPlate9 -Plate13 -zPlate9 -yPlate8
+               | +InTank +Plate14 +zPlate8 +yPlate7 -Plate13 -zPlate9 -yPlate6
+               | +InTank +Plate14 +zPlate8 +yPlate5 -Plate13 -zPlate9 -yPlate4
+               | +InTank +Plate14 +zPlate8 +yPlate3 -Plate13 -zPlate9 -yPlate2
+               | +InTank +Plate14 +zPlate8 +yPlate1 -Plate13 -zPlate9
+               | +InTank +Plate14 +zPlate10 +yPlate11 -Plate13 -zPlate11 -yPlate10
+               | +InTank +Plate14 +zPlate10 +yPlate9 -Plate13 -zPlate11 -yPlate8
+               | +InTank +Plate14 +zPlate10 +yPlate7 -Plate13 -zPlate11 -yPlate6
+               | +InTank +Plate14 +zPlate10 +yPlate5 -Plate13 -zPlate11 -yPlate4
+               | +InTank +Plate14 +zPlate10 +yPlate3 -Plate13 -zPlate11 -yPlate2
+               | +InTank +Plate14 +zPlate12 +yPlate9 -Plate13 -yPlate8
+               | +InTank +Plate14 +zPlate12 +yPlate7 -Plate13 -yPlate6
+               | +InTank +Plate14 +zPlate12 +yPlate5 -Plate13 -yPlate4
+CuPlate8     5 +InTank +Plate16 +yPlate9 -Plate15 -zPlate1 -yPlate8
+               | +InTank +Plate16 +yPlate7 -Plate15 -zPlate1 -yPlate6
+               | +InTank +Plate16 +yPlate5 -Plate15 -zPlate1 -yPlate4
+               | +InTank +Plate16 +zPlate2 +yPlate11 -Plate15 -zPlate3 -yPlate10
+               | +InTank +Plate16 +zPlate2 +yPlate9 -Plate15 -zPlate3 -yPlate8
+               | +InTank +Plate16 +zPlate2 +yPlate7 -Plate15 -zPlate3 -yPlate6
+               | +InTank +Plate16 +zPlate2 +yPlate5 -Plate15 -zPlate3 -yPlate4
+               | +InTank +Plate16 +zPlate2 +yPlate3 -Plate15 -zPlate3 -yPlate2
+               | +InTank +Plate16 +zPlate4 -Plate15 -zPlate5 -yPlate12
+               | +InTank +Plate16 +zPlate4 +yPlate11 -Plate15 -zPlate5 -yPlate10
+               | +InTank +Plate16 +zPlate4 +yPlate9 -Plate15 -zPlate5 -yPlate8
+               | +InTank +Plate16 +zPlate4 +yPlate7 -Plate15 -zPlate5 -yPlate6
+               | +InTank +Plate16 +zPlate4 +yPlate5 -Plate15 -zPlate5 -yPlate4
+               | +InTank +Plate16 +zPlate4 +yPlate3 -Plate15 -zPlate5 -yPlate2
+               | +InTank +Plate16 +zPlate4 +yPlate1 -Plate15 -zPlate5
+               | +InTank +Plate16 +zPlate6 -Plate15 -zPlate7 -yPlate12
+               | +InTank +Plate16 +zPlate6 +yPlate11 -Plate15 -zPlate7 -yPlate10
+               | +InTank +Plate16 +zPlate6 +yPlate9 -Plate15 -zPlate7 -yPlate8
+               | +InTank +Plate16 +zPlate6 +yPlate7 -Plate15 -zPlate7 -yPlate6
+               | +InTank +Plate16 +zPlate6 +yPlate5 -Plate15 -zPlate7 -yPlate4
+               | +InTank +Plate16 +zPlate6 +yPlate3 -Plate15 -zPlate7 -yPlate2
+               | +InTank +Plate16 +zPlate6 +yPlate1 -Plate15 -zPlate7
+               | +InTank +Plate16 +zPlate8 -Plate15 -zPlate9 -yPlate12
+               | +InTank +Plate16 +zPlate8 +yPlate11 -Plate15 -zPlate9 -yPlate10
+               | +InTank +Plate16 +zPlate8 +yPlate9 -Plate15 -zPlate9 -yPlate8
+               | +InTank +Plate16 +zPlate8 +yPlate7 -Plate15 -zPlate9 -yPlate6
+               | +InTank +Plate16 +zPlate8 +yPlate5 -Plate15 -zPlate9 -yPlate4
+               | +InTank +Plate16 +zPlate8 +yPlate3 -Plate15 -zPlate9 -yPlate2
+               | +InTank +Plate16 +zPlate8 +yPlate1 -Plate15 -zPlate9
+               | +InTank +Plate16 +zPlate10 +yPlate11 -Plate15 -zPlate11 -yPlate10
+               | +InTank +Plate16 +zPlate10 +yPlate9 -Plate15 -zPlate11 -yPlate8
+               | +InTank +Plate16 +zPlate10 +yPlate7 -Plate15 -zPlate11 -yPlate6
+               | +InTank +Plate16 +zPlate10 +yPlate5 -Plate15 -zPlate11 -yPlate4
+               | +InTank +Plate16 +zPlate10 +yPlate3 -Plate15 -zPlate11 -yPlate2
+               | +InTank +Plate16 +zPlate12 +yPlate9 -Plate15 -yPlate8
+               | +InTank +Plate16 +zPlate12 +yPlate7 -Plate15 -yPlate6
+               | +InTank +Plate16 +zPlate12 +yPlate5 -Plate15 -yPlate4
+CuPlate9     5 +InTank +Plate18 +yPlate9 -Plate17 -zPlate1 -yPlate8
+               | +InTank +Plate18 +yPlate7 -Plate17 -zPlate1 -yPlate6
+               | +InTank +Plate18 +yPlate5 -Plate17 -zPlate1 -yPlate4
+               | +InTank +Plate18 +zPlate2 +yPlate11 -Plate17 -zPlate3 -yPlate10
+               | +InTank +Plate18 +zPlate2 +yPlate9 -Plate17 -zPlate3 -yPlate8
+               | +InTank +Plate18 +zPlate2 +yPlate7 -Plate17 -zPlate3 -yPlate6
+               | +InTank +Plate18 +zPlate2 +yPlate5 -Plate17 -zPlate3 -yPlate4
+               | +InTank +Plate18 +zPlate2 +yPlate3 -Plate17 -zPlate3 -yPlate2
+               | +InTank +Plate18 +zPlate4 -Plate17 -zPlate5 -yPlate12
+               | +InTank +Plate18 +zPlate4 +yPlate11 -Plate17 -zPlate5 -yPlate10
+               | +InTank +Plate18 +zPlate4 +yPlate9 -Plate17 -zPlate5 -yPlate8
+               | +InTank +Plate18 +zPlate4 +yPlate7 -Plate17 -zPlate5 -yPlate6
+               | +InTank +Plate18 +zPlate4 +yPlate5 -Plate17 -zPlate5 -yPlate4
+               | +InTank +Plate18 +zPlate4 +yPlate3 -Plate17 -zPlate5 -yPlate2
+               | +InTank +Plate18 +zPlate4 +yPlate1 -Plate17 -zPlate5
+               | +InTank +Plate18 +zPlate6 -Plate17 -zPlate7 -yPlate12
+               | +InTank +Plate18 +zPlate6 +yPlate11 -Plate17 -zPlate7 -yPlate10
+               | +InTank +Plate18 +zPlate6 +yPlate9 -Plate17 -zPlate7 -yPlate8
+               | +InTank +Plate18 +zPlate6 +yPlate7 -Plate17 -zPlate7 -yPlate6
+               | +InTank +Plate18 +zPlate6 +yPlate5 -Plate17 -zPlate7 -yPlate4
+               | +InTank +Plate18 +zPlate6 +yPlate3 -Plate17 -zPlate7 -yPlate2
+               | +InTank +Plate18 +zPlate6 +yPlate1 -Plate17 -zPlate7
+               | +InTank +Plate18 +zPlate8 -Plate17 -zPlate9 -yPlate12
+               | +InTank +Plate18 +zPlate8 +yPlate11 -Plate17 -zPlate9 -yPlate10
+               | +InTank +Plate18 +zPlate8 +yPlate9 -Plate17 -zPlate9 -yPlate8
+               | +InTank +Plate18 +zPlate8 +yPlate7 -Plate17 -zPlate9 -yPlate6
+               | +InTank +Plate18 +zPlate8 +yPlate5 -Plate17 -zPlate9 -yPlate4
+               | +InTank +Plate18 +zPlate8 +yPlate3 -Plate17 -zPlate9 -yPlate2
+               | +InTank +Plate18 +zPlate8 +yPlate1 -Plate17 -zPlate9
+               | +InTank +Plate18 +zPlate10 +yPlate11 -Plate17 -zPlate11 -yPlate10
+               | +InTank +Plate18 +zPlate10 +yPlate9 -Plate17 -zPlate11 -yPlate8
+               | +InTank +Plate18 +zPlate10 +yPlate7 -Plate17 -zPlate11 -yPlate6
+               | +InTank +Plate18 +zPlate10 +yPlate5 -Plate17 -zPlate11 -yPlate4
+               | +InTank +Plate18 +zPlate10 +yPlate3 -Plate17 -zPlate11 -yPlate2
+               | +InTank +Plate18 +zPlate12 +yPlate9 -Plate17 -yPlate8
+               | +InTank +Plate18 +zPlate12 +yPlate7 -Plate17 -yPlate6
+               | +InTank +Plate18 +zPlate12 +yPlate5 -Plate17 -yPlate4
+CuPlat10     5 +InTank +Plate20 +yPlate9 -Plate19 -zPlate1 -yPlate8
+               | +InTank +Plate20 +yPlate7 -Plate19 -zPlate1 -yPlate6
+               | +InTank +Plate20 +yPlate5 -Plate19 -zPlate1 -yPlate4
+               | +InTank +Plate20 +zPlate2 +yPlate11 -Plate19 -zPlate3 -yPlate10
+               | +InTank +Plate20 +zPlate2 +yPlate9 -Plate19 -zPlate3 -yPlate8
+               | +InTank +Plate20 +zPlate2 +yPlate7 -Plate19 -zPlate3 -yPlate6
+               | +InTank +Plate20 +zPlate2 +yPlate5 -Plate19 -zPlate3 -yPlate4
+               | +InTank +Plate20 +zPlate2 +yPlate3 -Plate19 -zPlate3 -yPlate2
+               | +InTank +Plate20 +zPlate4 -Plate19 -zPlate5 -yPlate12
+               | +InTank +Plate20 +zPlate4 +yPlate11 -Plate19 -zPlate5 -yPlate10
+               | +InTank +Plate20 +zPlate4 +yPlate9 -Plate19 -zPlate5 -yPlate8
+               | +InTank +Plate20 +zPlate4 +yPlate7 -Plate19 -zPlate5 -yPlate6
+               | +InTank +Plate20 +zPlate4 +yPlate5 -Plate19 -zPlate5 -yPlate4
+               | +InTank +Plate20 +zPlate4 +yPlate3 -Plate19 -zPlate5 -yPlate2
+               | +InTank +Plate20 +zPlate4 +yPlate1 -Plate19 -zPlate5
+               | +InTank +Plate20 +zPlate6 -Plate19 -zPlate7 -yPlate12
+               | +InTank +Plate20 +zPlate6 +yPlate11 -Plate19 -zPlate7 -yPlate10
+               | +InTank +Plate20 +zPlate6 +yPlate9 -Plate19 -zPlate7 -yPlate8
+               | +InTank +Plate20 +zPlate6 +yPlate7 -Plate19 -zPlate7 -yPlate6
+               | +InTank +Plate20 +zPlate6 +yPlate5 -Plate19 -zPlate7 -yPlate4
+               | +InTank +Plate20 +zPlate6 +yPlate3 -Plate19 -zPlate7 -yPlate2
+               | +InTank +Plate20 +zPlate6 +yPlate1 -Plate19 -zPlate7
+               | +InTank +Plate20 +zPlate8 -Plate19 -zPlate9 -yPlate12
+               | +InTank +Plate20 +zPlate8 +yPlate11 -Plate19 -zPlate9 -yPlate10
+               | +InTank +Plate20 +zPlate8 +yPlate9 -Plate19 -zPlate9 -yPlate8
+               | +InTank +Plate20 +zPlate8 +yPlate7 -Plate19 -zPlate9 -yPlate6
+               | +InTank +Plate20 +zPlate8 +yPlate5 -Plate19 -zPlate9 -yPlate4
+               | +InTank +Plate20 +zPlate8 +yPlate3 -Plate19 -zPlate9 -yPlate2
+               | +InTank +Plate20 +zPlate8 +yPlate1 -Plate19 -zPlate9
+               | +InTank +Plate20 +zPlate10 +yPlate11 -Plate19 -zPlate11 -yPlate10
+               | +InTank +Plate20 +zPlate10 +yPlate9 -Plate19 -zPlate11 -yPlate8
+               | +InTank +Plate20 +zPlate10 +yPlate7 -Plate19 -zPlate11 -yPlate6
+               | +InTank +Plate20 +zPlate10 +yPlate5 -Plate19 -zPlate11 -yPlate4
+               | +InTank +Plate20 +zPlate10 +yPlate3 -Plate19 -zPlate11 -yPlate2
+               | +InTank +Plate20 +zPlate12 +yPlate9 -Plate19 -yPlate8
+               | +InTank +Plate20 +zPlate12 +yPlate7 -Plate19 -yPlate6
+               | +InTank +Plate20 +zPlate12 +yPlate5 -Plate19 -yPlate4
 #if 0
 TankWa1      5 +TaEnPla1 +InTaEn1
                | -TaEnPla2 +InTaEn2
@@ -345,46 +685,136 @@ TankWa1      5 +TaEnPla1 +InTaEn1
                -OutVoP19 -OutVoP20 -OutVoP21 -OutVoP22 -OutVoP23 -OutVoP24 -OutVoP25 -OutVoP26 -OutVoP27
                -OutVoP28 -OutVoP29 -OutVoP30 -OutVoP31 -OutVoP32 -OutVoP33 -OutVoP34 -OutVoP35 -OutVoP36
                -OutVoP37 -OutVoP38 -OutVoP39 -OutVoP40 -OutVoP41 -OutVoP42
-TankWa2      5 +InTank +Plate3 -Plate1 -(+InTank +Plate2 -Plate1 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
-               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1
-               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
-               -yPlate11 +yPlate12))
-TankWa3      5 +InTank +Plate5 -Plate3 -(+InTank +Plate4 -Plate3 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
-               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1
-               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
-               -yPlate11 +yPlate12))
-TankWa4      5 +InTank +Plate7 -Plate5 -(+InTank +Plate6 -Plate5 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
-               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1
-               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
-               -yPlate11 +yPlate12))
-TankWa5      5 +InTank +Plate9 -Plate7 -(+InTank +Plate8 -Plate7 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
-               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1
-               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
-               -yPlate11 +yPlate12))
-TankWa6      5 +InTank +Plate11 -Plate9 -(+InTank +Plate10 -Plate9 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
-               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1
-               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
-               -yPlate11 +yPlate12))
-TankWa7      5 +InTank +Plate13 -Plate11 -(+InTank +Plate12 -Plate11 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
-               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1
-               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
-               -yPlate11 +yPlate12))
-TankWa8      5 +InTank +Plate15 -Plate13 -(+InTank +Plate14 -Plate13 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
-               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1
-               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
-               -yPlate11 +yPlate12))
-TankWa9      5 +InTank +Plate17 -Plate15 -(+InTank +Plate16 -Plate15 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
-               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1
-               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
-               -yPlate11 +yPlate12))
-TankWa10     5 +InTank +Plate19 -Plate17 -(+InTank +Plate18 -Plate17 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
-               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1
-               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
-               -yPlate11 +yPlate12))
-TankWa11     5 +InTank +TaEnPla2 -Plate19 -(+InTank +Plate20 -Plate19 -(+zPlate1 -zPlate2) -(+zPlate3 -zPlate4) -(
-               +zPlate5 -zPlate6) -(+zPlate7 -zPlate8) -(+zPlate9 -zPlate10) -(+zPlate11 -zPlate12) -(-yPlate1
-               +yPlate2) -(-yPlate3 +yPlate4) -(-yPlate5 +yPlate6) -(-yPlate7 +yPlate8) -(-yPlate9 +yPlate10) -(
-               -yPlate11 +yPlate12))
+TankWa2      5 +InTank +Plate3 -Plate2
+               | +InTank +Plate2 +yPlate12 -Plate1 -yPlate11
+               | +InTank +Plate2 +yPlate10 -Plate1 -yPlate9
+               | +InTank +Plate2 +yPlate8 -Plate1 -yPlate7
+               | +InTank +Plate2 +yPlate6 -Plate1 -yPlate5
+               | +InTank +Plate2 +yPlate4 -Plate1 -yPlate3
+               | +InTank +Plate2 +yPlate2 -Plate1 -yPlate1
+               | +InTank +Plate2 +zPlate1 -Plate1 -zPlate2
+               | +InTank +Plate2 +zPlate3 -Plate1 -zPlate4
+               | +InTank +Plate2 +zPlate5 -Plate1 -zPlate6
+               | +InTank +Plate2 +zPlate7 -Plate1 -zPlate8
+               | +InTank +Plate2 +zPlate9 -Plate1 -zPlate10
+               | +InTank +Plate2 +zPlate11 -Plate1 -zPlate12
+TankWa3      5 +InTank +Plate5 -Plate4
+               | +InTank +Plate4 +yPlate12 -Plate3 -yPlate11
+               | +InTank +Plate4 +yPlate10 -Plate3 -yPlate9
+               | +InTank +Plate4 +yPlate8 -Plate3 -yPlate7
+               | +InTank +Plate4 +yPlate6 -Plate3 -yPlate5
+               | +InTank +Plate4 +yPlate4 -Plate3 -yPlate3
+               | +InTank +Plate4 +yPlate2 -Plate3 -yPlate1
+               | +InTank +Plate4 +zPlate1 -Plate3 -zPlate2
+               | +InTank +Plate4 +zPlate3 -Plate3 -zPlate4
+               | +InTank +Plate4 +zPlate5 -Plate3 -zPlate6
+               | +InTank +Plate4 +zPlate7 -Plate3 -zPlate8
+               | +InTank +Plate4 +zPlate9 -Plate3 -zPlate10
+               | +InTank +Plate4 +zPlate11 -Plate3 -zPlate12
+TankWa4      5 +InTank +Plate7 -Plate6
+               | +InTank +Plate6 +yPlate12 -Plate5 -yPlate11
+               | +InTank +Plate6 +yPlate10 -Plate5 -yPlate9
+               | +InTank +Plate6 +yPlate8 -Plate5 -yPlate7
+               | +InTank +Plate6 +yPlate6 -Plate5 -yPlate5
+               | +InTank +Plate6 +yPlate4 -Plate5 -yPlate3
+               | +InTank +Plate6 +yPlate2 -Plate5 -yPlate1
+               | +InTank +Plate6 +zPlate1 -Plate5 -zPlate2
+               | +InTank +Plate6 +zPlate3 -Plate5 -zPlate4
+               | +InTank +Plate6 +zPlate5 -Plate5 -zPlate6
+               | +InTank +Plate6 +zPlate7 -Plate5 -zPlate8
+               | +InTank +Plate6 +zPlate9 -Plate5 -zPlate10
+               | +InTank +Plate6 +zPlate11 -Plate5 -zPlate12
+TankWa5      5 +InTank +Plate9 -Plate8
+               | +InTank +Plate8 +yPlate12 -Plate7 -yPlate11
+               | +InTank +Plate8 +yPlate10 -Plate7 -yPlate9
+               | +InTank +Plate8 +yPlate8 -Plate7 -yPlate7
+               | +InTank +Plate8 +yPlate6 -Plate7 -yPlate5
+               | +InTank +Plate8 +yPlate4 -Plate7 -yPlate3
+               | +InTank +Plate8 +yPlate2 -Plate7 -yPlate1
+               | +InTank +Plate8 +zPlate1 -Plate7 -zPlate2
+               | +InTank +Plate8 +zPlate3 -Plate7 -zPlate4
+               | +InTank +Plate8 +zPlate5 -Plate7 -zPlate6
+               | +InTank +Plate8 +zPlate7 -Plate7 -zPlate8
+               | +InTank +Plate8 +zPlate9 -Plate7 -zPlate10
+               | +InTank +Plate8 +zPlate11 -Plate7 -zPlate12
+TankWa6      5 +InTank +Plate11 -Plate10
+               | +InTank +Plate10 +yPlate12 -Plate9 -yPlate11
+               | +InTank +Plate10 +yPlate10 -Plate9 -yPlate9
+               | +InTank +Plate10 +yPlate8 -Plate9 -yPlate7
+               | +InTank +Plate10 +yPlate6 -Plate9 -yPlate5
+               | +InTank +Plate10 +yPlate4 -Plate9 -yPlate3
+               | +InTank +Plate10 +yPlate2 -Plate9 -yPlate1
+               | +InTank +Plate10 +zPlate1 -Plate9 -zPlate2
+               | +InTank +Plate10 +zPlate3 -Plate9 -zPlate4
+               | +InTank +Plate10 +zPlate5 -Plate9 -zPlate6
+               | +InTank +Plate10 +zPlate7 -Plate9 -zPlate8
+               | +InTank +Plate10 +zPlate9 -Plate9 -zPlate10
+               | +InTank +Plate10 +zPlate11 -Plate9 -zPlate12
+TankWa7      5 +InTank +Plate13 -Plate12
+               | +InTank +Plate12 +yPlate12 -Plate11 -yPlate11
+               | +InTank +Plate12 +yPlate10 -Plate11 -yPlate9
+               | +InTank +Plate12 +yPlate8 -Plate11 -yPlate7
+               | +InTank +Plate12 +yPlate6 -Plate11 -yPlate5
+               | +InTank +Plate12 +yPlate4 -Plate11 -yPlate3
+               | +InTank +Plate12 +yPlate2 -Plate11 -yPlate1
+               | +InTank +Plate12 +zPlate1 -Plate11 -zPlate2
+               | +InTank +Plate12 +zPlate3 -Plate11 -zPlate4
+               | +InTank +Plate12 +zPlate5 -Plate11 -zPlate6
+               | +InTank +Plate12 +zPlate7 -Plate11 -zPlate8
+               | +InTank +Plate12 +zPlate9 -Plate11 -zPlate10
+               | +InTank +Plate12 +zPlate11 -Plate11 -zPlate12
+TankWa8      5 +InTank +Plate15 -Plate14
+               | +InTank +Plate14 +yPlate12 -Plate13 -yPlate11
+               | +InTank +Plate14 +yPlate10 -Plate13 -yPlate9
+               | +InTank +Plate14 +yPlate8 -Plate13 -yPlate7
+               | +InTank +Plate14 +yPlate6 -Plate13 -yPlate5
+               | +InTank +Plate14 +yPlate4 -Plate13 -yPlate3
+               | +InTank +Plate14 +yPlate2 -Plate13 -yPlate1
+               | +InTank +Plate14 +zPlate1 -Plate13 -zPlate2
+               | +InTank +Plate14 +zPlate3 -Plate13 -zPlate4
+               | +InTank +Plate14 +zPlate5 -Plate13 -zPlate6
+               | +InTank +Plate14 +zPlate7 -Plate13 -zPlate8
+               | +InTank +Plate14 +zPlate9 -Plate13 -zPlate10
+               | +InTank +Plate14 +zPlate11 -Plate13 -zPlate12
+TankWa9      5 +InTank +Plate17 -Plate16
+               | +InTank +Plate16 +yPlate12 -Plate15 -yPlate11
+               | +InTank +Plate16 +yPlate10 -Plate15 -yPlate9
+               | +InTank +Plate16 +yPlate8 -Plate15 -yPlate7
+               | +InTank +Plate16 +yPlate6 -Plate15 -yPlate5
+               | +InTank +Plate16 +yPlate4 -Plate15 -yPlate3
+               | +InTank +Plate16 +yPlate2 -Plate15 -yPlate1
+               | +InTank +Plate16 +zPlate1 -Plate15 -zPlate2
+               | +InTank +Plate16 +zPlate3 -Plate15 -zPlate4
+               | +InTank +Plate16 +zPlate5 -Plate15 -zPlate6
+               | +InTank +Plate16 +zPlate7 -Plate15 -zPlate8
+               | +InTank +Plate16 +zPlate9 -Plate15 -zPlate10
+               | +InTank +Plate16 +zPlate11 -Plate15 -zPlate12
+TankWa10     5 +InTank +Plate19 -Plate18
+               | +InTank +Plate18 +yPlate12 -Plate17 -yPlate11
+               | +InTank +Plate18 +yPlate10 -Plate17 -yPlate9
+               | +InTank +Plate18 +yPlate8 -Plate17 -yPlate7
+               | +InTank +Plate18 +yPlate6 -Plate17 -yPlate5
+               | +InTank +Plate18 +yPlate4 -Plate17 -yPlate3
+               | +InTank +Plate18 +yPlate2 -Plate17 -yPlate1
+               | +InTank +Plate18 +zPlate1 -Plate17 -zPlate2
+               | +InTank +Plate18 +zPlate3 -Plate17 -zPlate4
+               | +InTank +Plate18 +zPlate5 -Plate17 -zPlate6
+               | +InTank +Plate18 +zPlate7 -Plate17 -zPlate8
+               | +InTank +Plate18 +zPlate9 -Plate17 -zPlate10
+               | +InTank +Plate18 +zPlate11 -Plate17 -zPlate12
+TankWa11     5 +InTank +TaEnPla2 -Plate20
+               | +InTank +Plate20 +yPlate12 -Plate19 -yPlate11
+               | +InTank +Plate20 +yPlate10 -Plate19 -yPlate9
+               | +InTank +Plate20 +yPlate8 -Plate19 -yPlate7
+               | +InTank +Plate20 +yPlate6 -Plate19 -yPlate5
+               | +InTank +Plate20 +yPlate4 -Plate19 -yPlate3
+               | +InTank +Plate20 +yPlate2 -Plate19 -yPlate1
+               | +InTank +Plate20 +zPlate1 -Plate19 -zPlate2
+               | +InTank +Plate20 +zPlate3 -Plate19 -zPlate4
+               | +InTank +Plate20 +zPlate5 -Plate19 -zPlate6
+               | +InTank +Plate20 +zPlate7 -Plate19 -zPlate8
+               | +InTank +Plate20 +zPlate9 -Plate19 -zPlate10
+               | +InTank +Plate20 +zPlate11 -Plate19 -zPlate12
 Blackbod     5 +Blackbox -Airbox
 #if 0
 Air1         5 +Airbox -OutTank -OutOutl1 -OutOutl2
@@ -522,17 +952,6 @@ ASSIGNMA       WATER   TankWa8
 ASSIGNMA       WATER   TankWa9
 ASSIGNMA       WATER  TankWa10
 ASSIGNMA       WATER  TankWa11
-ASSIGNMA       WATER  TankWa12
-ASSIGNMA       WATER  TankWa13
-ASSIGNMA       WATER  TankWa14
-ASSIGNMA       WATER  TankWa15
-ASSIGNMA       WATER  TankWa16
-ASSIGNMA       WATER  TankWa17
-ASSIGNMA       WATER  TankWa18
-ASSIGNMA       WATER  TankWa19
-ASSIGNMA       WATER  TankWa20
-ASSIGNMA       WATER  TankWa21
-ASSIGNMA       WATER  TankWa22
 ASSIGNMA      COPPER  CuPlate1
 ASSIGNMA      COPPER  CuPlate2
 ASSIGNMA      COPPER  CuPlate3
@@ -543,17 +962,6 @@ ASSIGNMA      COPPER  CuPlate7
 ASSIGNMA      COPPER  CuPlate8
 ASSIGNMA      COPPER  CuPlate9
 ASSIGNMA      COPPER  CuPlat10
-ASSIGNMA      COPPER  CuPlat11
-ASSIGNMA      COPPER  CuPlat12
-ASSIGNMA      COPPER  CuPlat13
-ASSIGNMA      COPPER  CuPlat14
-ASSIGNMA      COPPER  CuPlat15
-ASSIGNMA      COPPER  CuPlat16
-ASSIGNMA      COPPER  CuPlat17
-ASSIGNMA      COPPER  CuPlat18
-ASSIGNMA      COPPER  CuPlat19
-ASSIGNMA      COPPER  CuPlat20
-ASSIGNMA      COPPER  CuPlat21
 ASSIGNMA    BLCKHOLE  Blackbod
 ASSIGNMA         AIR       Air
 ASSIGNMA    TITANIUM    Window
