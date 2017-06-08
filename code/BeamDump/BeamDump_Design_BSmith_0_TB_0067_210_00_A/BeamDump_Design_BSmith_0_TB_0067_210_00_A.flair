@@ -5,7 +5,7 @@ Title: BeamDump_Design_BSmith_0_TB_0067_210_00_A
 Input: BeamDump_Design_BSmith_0_TB_0067_210_00_A.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Plot
+Page: Run
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -15,9 +15,9 @@ F77dline: False
 Run: <default>
 	Prev:     0
 	Last:     5
-	Status:   3
-	Pid:      0
-	StartRun: 1496823094
+	Status:   2
+	Pid:      24770
+	StartRun: 1496916419
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_21.bnn
 	Data: \I_\U.\e
@@ -191,13 +191,13 @@ Plot: Red
 	basisv: -5.2643e-05 0.999999 0.00104299
 	boundaries: 1
 	cbcolors: 0
-	cblog: False
+	cblog: 0
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 0
 	coord: U-V
 	cpd: 0
-	extends: 339.708 254.781
+	extends: 339.708 208.002
 	grid: 0
 	index: 0
 	labels: 1
@@ -205,13 +205,13 @@ Plot: Red
 	origin: -56.0255 -66.2928 216.01
 	subtype: Material
 	title: GeoViewer Red plot
-	x2log: False
+	x2log: 0
 	x2tics: 0
-	xlog: False
-	y2log: False
+	xlog: 0
+	y2log: 0
 	y2tics: 0
-	ylog: False
-	zlog: False
+	ylog: 0
+	zlog: 0
 	ztics: 0
 End
 
@@ -223,7 +223,7 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 166.09 124.567
+	extends: 166.09 101.824
 	labels: 1
 	layer: Media
 	origin: -45.4558 0 271.025
@@ -239,10 +239,10 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 282.676 212.007
+	extends: 94.6676 57.9646
 	labels: 1
 	layer: Media
-	origin: -21.2851 -60.0117 244.75
+	origin: -21.2851 47.6638 -298.478
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -261,12 +261,12 @@ Plot: Magenta
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 506.99 380.243
+	extends: 47.3853 29.0503
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Image
-	origin: -23.0496 -4.71528 351.204
+	origin: -23.0496 -3.48318 -336.875
 	subtype: Material
 	title: GeoViewer Magenta plot
 	x2log: False
@@ -286,7 +286,7 @@ Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_21_plot
 	axes: Auto
 	cbcolors: 30
 	cblabel: GeV/cm3 per electron
-	cblog: True
+	cblog: 1
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 1
@@ -310,17 +310,17 @@ Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_21_plot
 	swap: 0
 	title: Energy deposition density in the ILC main beam dump
 	with.0: errorbars
-	x2log: False
+	x2log: 0
 	x2tics: 0
 	xlabel: z [cm]
-	xlog: False
+	xlog: 0
 	xrebin: 1
-	y2log: False
+	y2log: 0
 	y2tics: 0
 	ylabel: x [cm]
-	ylog: False
+	ylog: 0
 	yrebin: 1
-	zlog: False
+	zlog: 0
 	zrebin: 1
 	ztics: 0
 End

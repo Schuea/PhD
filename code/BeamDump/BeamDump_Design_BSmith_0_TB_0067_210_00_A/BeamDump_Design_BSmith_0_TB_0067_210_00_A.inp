@@ -7,6 +7,8 @@ DEFAULTS                                                              PRECISIO
 !@what.4=246.97*nm
 !@what.5=30.522*nm
 BEAM            250.   0.00282           2.4697E-5 3.0522E-6          ELECTRON
+*IRRPROFI
+*DCYTIMES
 * Define the beam position
 BEAMPOS          0.0       0.0     -750.       0.0       0.0
 !point          -30.       0.0     -325.                              marker7
@@ -205,9 +207,6 @@ WaterJe2     5 +OutWatJ2 -InWatJe2 -OutInl4 -OutInl5 -OutInl6 -OutVoP22 -OutVoP2
 WatJe2Wa     5 +InWatJe2
 BeaPi        5 +OutBeaPi -InBeaPi -OutTaEn1
 BeaPiWat     5 +InBeaPi -InTaEn1 -WindoPl1
-#if 0
-Tank         5 +OutTank -TaEnPla1 +TaEnPla2 -InTank -OutOutl1 -OutOutl2
-#endif
 Tank         5 +OutTank -TaEnPla1 +TaEnPla2 -InTank -OutInl1 -OutInl2 -OutInl3 -OutInl4 -OutInl5 -OutInl6
                -OutOutl1 -OutOutl2
 TankEnd2     5 +OutTaEn2 -InTaEn2 -TaEnPla2
@@ -672,11 +671,6 @@ CuPlat10     5 +InTank +Plate20 +yPlate9 -Plate19 -zPlate1 -yPlate8
                | +InTank +Plate20 +zPlate12 +yPlate9 -Plate19 -yPlate8
                | +InTank +Plate20 +zPlate12 +yPlate7 -Plate19 -yPlate6
                | +InTank +Plate20 +zPlate12 +yPlate5 -Plate19 -yPlate4
-#if 0
-TankWa1      5 +TaEnPla1 +InTaEn1
-               | -TaEnPla2 +InTaEn2
-               | +InTank -TaEnPla1 +TaEnPla2
-#endif
 TankWa1      5 +TaEnPla1 +InTaEn1
                | -TaEnPla2 +InTaEn2
                | +InTank -TaEnPla1 +Plate1 -OutWatJe -OutWatJ2 -OutVorte -OutInl1 -OutInl2 -OutInl3 -OutInl4
@@ -816,11 +810,6 @@ TankWa11     5 +InTank +TaEnPla2 -Plate20
                | +InTank +Plate20 +zPlate9 -Plate19 -zPlate10
                | +InTank +Plate20 +zPlate11 -Plate19 -zPlate12
 Blackbod     5 +Blackbox -Airbox
-#if 0
-Air1         5 +Airbox -OutTank -OutOutl1 -OutOutl2
-               | +OutTank +Airbox -OutTaEn2 -TaEnPla2
-               | +OutTank +TaEnPla1 +Airbox -OutTaEn1  -OutBeaPi
-#endif
 Air          5 +Airbox -OutTank -OutInl1 -OutInl2 -OutInl3 -OutInl4 -OutInl5 -OutInl6 -OutOutl1 -OutOutl2
                | +OutTank +Airbox -OutTaEn2 -TaEnPla2
                | +OutTank +TaEnPla1 +Airbox -OutTaEn1  -OutBeaPi
@@ -845,9 +834,9 @@ MATERIAL                            4.43                              Ti-6Al4V
 COMPOUND      -5.985  ALUMINUM     -0.25      IRON      -0.2    OXYGENTi-6Al4V
 COMPOUND       -89.8  TITANIUM     -0.39  Vanadium                    Ti-6Al4V
 MATERIAL                            7.99                              316L-SS
-COMPOUND       0.035    CARBON       2.0    Mangan     14.89    NICKEL316L-SS
-COMPOUND        18.0  Chromium       3.0  Molybden      0.03    Sulfur316L-SS
-COMPOUND         1.0   SILICON     0.045  Phosphor      61.0      IRON316L-SS
+COMPOUND       0.035    CARBON        2.    Mangan     14.89    NICKEL316L-SS
+COMPOUND         18.  Chromium        3.  Molybden      0.03    Sulfur316L-SS
+COMPOUND          1.   SILICON     0.045  Phosphor       61.      IRON316L-SS
 ASSIGNMA     316L-SS     BeaPi
 ASSIGNMA       WATER  BeaPiWat
 ASSIGNMA     316L-SS    Inlet1
@@ -1003,7 +992,59 @@ USRBIN         -300.     -200.     -700.      100.      100.      150. &
 !@what.9=-7000.0*mm
 USRBIN           10.   NEUTRON      -22.      110.      200.      420.Neutrons
 USRBIN         -300.     -200.     -700.      100.      100.      150. &
-*RESNUCLE          3.      -52.                         Water        1.BeamDump
+!@what.4=1100.0*mm
+!@what.5=2000.0*mm
+!@what.6=4200.0*mm
+!@what.7=-3000.0*mm
+!@what.8=-2000.0*mm
+!@what.9=-7000.0*mm
+USRBIN           10.   DOSE-EQ      -23.      110.      200.      420.DoseEq
+USRBIN         -300.     -200.     -700.      100.      100.      150. &
+!@what.4=1100.0*mm
+!@what.5=2000.0*mm
+!@what.6=4200.0*mm
+!@what.7=-3000.0*mm
+!@what.8=-2000.0*mm
+!@what.9=-7000.0*mm
+USRBIN           10.   DOSE-EM      -24.      110.      200.      420.DoseEM
+USRBIN         -300.     -200.     -700.      100.      100.      150. &
+!@what.4=1100.0*mm
+!@what.5=2000.0*mm
+!@what.6=4200.0*mm
+!@what.7=-3000.0*mm
+!@what.8=-2000.0*mm
+!@what.9=-7000.0*mm
+USRBIN           10.      DOSE      -25.      110.      200.      420.Dose
+USRBIN         -300.     -200.     -700.      100.      100.      150. &
+!@what.4=1100.0*mm
+!@what.5=2000.0*mm
+!@what.6=4200.0*mm
+!@what.7=-3000.0*mm
+!@what.8=-2000.0*mm
+!@what.9=-7000.0*mm
+USRBIN           10.    PROTON      -26.      110.      200.      420.Protons
+USRBIN         -300.     -200.     -700.      100.      100.      150. &
+!@what.4=1100.0*mm
+!@what.5=2000.0*mm
+!@what.6=4200.0*mm
+!@what.7=-3000.0*mm
+!@what.8=-2000.0*mm
+!@what.9=-7000.0*mm
+USRBIN           10.  ELECTRON      -27.      110.      200.      420.Electrons
+USRBIN         -300.     -200.     -700.      100.      100.      150. &
+!@what.4=1100.0*mm
+!@what.5=2000.0*mm
+!@what.6=4200.0*mm
+!@what.7=-3000.0*mm
+!@what.8=-2000.0*mm
+!@what.9=-7000.0*mm
+USRBIN           10.    PHOTON      -28.      110.      200.      420.Photons
+USRBIN         -300.     -200.     -700.      100.      100.      150. &
+USRBDX           99.   NEUTRON      -29.   TankWa1       Air20781.6354NeutronDis
+USRBDX                               50.                            1. &
+USRBDX           99.   NEUTRON      -30.   TankWa1       Air20781.6354NeutronDi2
+USRBDX                               50.                           50. &
+*RESNUCLE          3.      -62.                       TankWa1        1.BeamDump
 DISCARD        MUONS
 * Set the random number seed
 RANDOMIZ          1.        1.
