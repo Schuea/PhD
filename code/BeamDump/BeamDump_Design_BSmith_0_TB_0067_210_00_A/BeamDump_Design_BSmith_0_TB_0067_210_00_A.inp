@@ -822,7 +822,7 @@ MATERIAL         15.                1.82                              Phosphor
 LOW-MAT     Phosphor       15.       31.      296.                    PHOSPHO
 MATERIAL         16.               2.067                           0.0Sulfur
 LOW-MAT       Sulfur       16.       -2.      296.                    SULFUR
-MATERIAL         23.                                                  Vanadium
+MATERIAL         23.                6.11                              Vanadium
 LOW-MAT     Vanadium       23.       -2.      296.                    VANADIUM
 MATERIAL         24.                7.18                              Chromium
 LOW-MAT     Chromium       24.       -2.      296.                    CHROMIUM
