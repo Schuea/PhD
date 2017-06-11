@@ -5,7 +5,7 @@ Title: BeamDump_Design_BSmith_0_TB_0067_210_00_A
 Input: BeamDump_Design_BSmith_0_TB_0067_210_00_A.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Input
+Page: Run
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -15,9 +15,9 @@ F77dline: False
 Run: <default>
 	Prev:     0
 	Last:     5
-	Status:   3
-	Pid:      0
-	StartRun: 1496931616
+	Status:   2
+	Pid:      23671
+	StartRun: 1497203871
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_21.bnn
 	Data: \I_\U.\e
@@ -261,12 +261,12 @@ Plot: Red
 	cbtics: 0
 	coord: U-V
 	cpd: 0
-	extends: 339.708 254.781
+	extends: 1217.24 641.389
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Media
-	origin: -56.0255 -66.2928 216.01
+	origin: 217.72 -19.3482 215.655
 	subtype: Material
 	title: GeoViewer Red plot
 	x2log: 0
@@ -287,10 +287,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 166.09 124.567
+	extends: 1028.39 542.924
 	labels: 1
 	layer: Media
-	origin: -45.4558 0 271.025
+	origin: 70.8461 0 699.681
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -303,10 +303,10 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 94.6676 71.0007
+	extends: 1458.55 765.737
 	labels: 1
 	layer: Media
-	origin: -21.2851 47.6638 -298.478
+	origin: -21.2851 48.4954 -706.513
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -325,7 +325,7 @@ Plot: Magenta
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 47.3853 35.539
+	extends: 47.3853 24.9252
 	grid: 0
 	index: 0
 	labels: 1

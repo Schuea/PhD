@@ -183,7 +183,7 @@ YZP yPlate11   27.5
 YZP yPlate12   32.5
 XYP TaEnPla2   332.50
 RPP Airbox     -425. 115. -200. 200. -775. 425.
-RPP Blackbox   -430. 120. -210. 210. -780. 430.
+RPP Blackbox   -426. 116. -202. 201. -776. 426.
 XYP WindoPl1   -399.
 XYP WindoPl2   -399.1
 END
@@ -953,7 +953,6 @@ ASSIGNMA       WATER  VortexWa
 ASSIGNMA     316L-SS  WaterJe2
 ASSIGNMA     316L-SS  WaterJet
 ASSIGNMA       WATER  WatJetWa
-ASSIGNMA     316L-SS  WaterJe2
 ASSIGNMA       WATER  WatJe2Wa
 ASSIGNMA       WATER   TankWa1
 ASSIGNMA       WATER   TankWa2
@@ -1054,14 +1053,18 @@ USRBIN         -300.     -200.     -700.      100.      100.      150. &
 !@what.9=-7000.0*mm
 USRBIN           10.    TRITON      -29.      110.      200.      420.Photons1
 USRBIN         -300.     -200.     -700.      100.      100.      150. &
-USRBDX           99.   NEUTRON      -30.   TankWa1       Air20781.6354NeutronDi2
+USRBDX           99.  ELECTRON      -30.   TankWa1       Air20781.6354NeutrFlu2
 USRBDX                               50.                           50. &
-USRBDX           99.   NEUTRON      -31.   TankWa1       Air20781.6354NeutronDis
+USRBDX           99.  ELECTRON      -31.   TankWa1       Air20781.6354NeutrFlu
 USRBDX                               50.                            1. &
-*RESNUCLE          3.      -62.                      @ALLREGS        1.BeamDump
+USRBDX           -1.  ELECTRON      -30.   TankWa1       Air20781.6354NeutrCur2
+USRBDX                               50.                           50. &
+USRBDX           -1.  ELECTRON      -31.   TankWa1       Air20781.6354NeutrCur2
+USRBDX                               50.                            1. &
+RESNUCLE          3.      -62.                      @ALLREGS   2.592E8Resnuclei
 DISCARD        MUONS
 * Set the random number seed
 RANDOMIZ          1.        1.
 * Set the number of primary histories to be simulated in the run
-START            50.                                     0.0  9999999.
+START           500.                                     0.0  9999999.
 STOP
