@@ -1,0 +1,25 @@
+TITLE
+BeamDump_Design_BSmith_0_TB_0067_300_00_A
+GLOBAL                                          1.
+* Set the defaults for precision simulations
+DEFAULTS                                                              PRECISIO
+* Define the beam characteristics
+!@what.4=246.97*nm
+!@what.5=30.522*nm
+BEAM            250.   0.00282           2.4697E-5 3.0522E-6          ELECTRON
+* Define the beam position
+BEAMPOS          0.0       0.0     -750.       0.0       0.0
+GEOBEGIN                                                              COMBNAME
+    0    0          0_TB_0067_300_00_A
+END
+END
+GEOEND          115.      200.      425.     -425.     -200.     -775.DEBUG
+GEOEND          500.      400.      500.                               &
+PHOTONUC          1.                        VACUUM     WATER        1.
+LAM-BIAS         0.0      0.02     WATER   NEUTRON                    INEPRI
+DISCARD        MUONS
+* Set the random number seed
+RANDOMIZ          1.        1.
+* Set the number of primary histories to be simulated in the run
+START            50.                                     0.0  9999999.
+STOP
