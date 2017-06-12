@@ -5,7 +5,7 @@ Title: BeamDump_Design_BSmith_0_TB_0067_300_00_A
 Input: BeamDump_Design_BSmith_0_TB_0067_300_00_A.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Input
+Page: Geometry
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -22,16 +22,20 @@ End
 
 # Geometry Information
 Geometry:
-	Frame.bsplit: 0.5
+	Frame.bsplit: 0.99
 	Frame.tsplit: 0.5
-	Frame.vsplit: 0.5
+	Frame.vsplit: 0.01
 
 	# Layer
 	Layer: Media
 		Image: True
 		Image._visible: True
 		Image.file: TB-0067-300-00-A_xz_view.png
-		Image.prompt: True
+		Image.marker: 3
+		Image.marker.0: 306.5 282.547619048 0.0 0.0 -325.0
+		Image.marker.1: 1534.42857143 338.476190476 -30.0 0.0 325.0
+		Image.marker.2: 1534.47619048 480.571428571 -105.0 0.0 325.0
+		Image.prompt: 1
 		Options.shortcut: F3
 		Show._visible: True
 		layer: Media
@@ -41,12 +45,12 @@ Geometry:
 	Layer: 3D
 		3D: True
 		3D._visible: True
-		3D.edgedetect: True
+		3D.edgedetect: 1
 		Options.shortcut: F4
-		Options.viewport: False
+		Options.viewport: 0
 		Show: 0
-		Show.lattice: True
-		Show.voxel: True
+		Show.lattice: 1
+		Show.voxel: 1
 		deflights: 1
 		layer: 3D
 	End
@@ -57,10 +61,10 @@ Plot: Red
 	Format: .eps
 	Type:   Geometry
 	basisu: 1 0 0
-	basisv: 0 1 0
+	basisv: 0 0 -1
 	boundaries: 1
-	coord: X-Y
-	extends: 100 75
+	coord: X-Z
+	extends: 100 0.125471
 	labels: 1
 	layer: Media
 	origin: 0 0 0
@@ -72,11 +76,11 @@ End
 Plot: Green
 	Format: .eps
 	Type:   Geometry
-	basisu: 0 0 1
-	basisv: 1 0 0
+	basisu: 1 0 0
+	basisv: 0 0 -1
 	boundaries: 1
-	coord: Z-X
-	extends: 100 75
+	coord: X-Z
+	extends: 100 0.125628
 	labels: 1
 	layer: Media
 	origin: 0 0 0
@@ -89,13 +93,13 @@ Plot: Blue
 	Format: .eps
 	Type:   Geometry
 	basisu: 0 0 1
-	basisv: 0 1 0
+	basisv: 1 0 0
 	boundaries: 1
-	coord: Z-Y
-	extends: 100 75
+	coord: Z-X
+	extends: 144 88.6434
 	labels: 1
 	layer: Media
-	origin: 0 0 0
+	origin: -36.2963 0 -274.344
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -104,11 +108,11 @@ End
 Plot: Magenta
 	Format: .eps
 	Type:   Geometry
-	basisu: -1 0 0
-	basisv: 0 1 0
+	basisu: 1 0 0
+	basisv: 0 0 -1
 	boundaries: 1
-	coord: X-Y
-	extends: 100 75
+	coord: X-Z
+	extends: 100 6942.86
 	labels: 1
 	layer: Media
 	origin: 0 0 0
