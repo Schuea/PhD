@@ -5,7 +5,7 @@ Title: BeamDump_Design_BSmith_0_TB_0067_210_00_A
 Input: BeamDump_Design_BSmith_0_TB_0067_210_00_A.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Run
+Page: Plot
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -15,8 +15,8 @@ F77dline: False
 Run: <default>
 	Prev:     0
 	Last:     5
-	Status:   2
-	Pid:      23671
+	Status:   3
+	Pid:      0
 	StartRun: 1497203871
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_21.bnn
@@ -83,10 +83,10 @@ Run: <default>
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
 
-	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_29.bnx
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_29.bnn
 	Data: \I_\U.\e
 		Unit: 29
-		Type: x
+		Type: b
 		Rule: +,\I\d\d\d_fort\.\U
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
@@ -95,6 +95,22 @@ Run: <default>
 	Data: \I_\U.\e
 		Unit: 30
 		Type: x
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_31.bnx
+	Data: \I_\U.\e
+		Unit: 31
+		Type: x
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_62.rnc
+	Data: \I_\U.\e
+		Unit: 62
+		Type: r
 		Rule: +,\I\d\d\d_fort\.\U
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
@@ -255,7 +271,7 @@ Plot: Red
 	basisv: -5.2643e-05 0.999999 0.00104299
 	boundaries: 1
 	cbcolors: 0
-	cblog: 0
+	cblog: False
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 0
@@ -269,13 +285,13 @@ Plot: Red
 	origin: 217.72 -19.3482 215.655
 	subtype: Material
 	title: GeoViewer Red plot
-	x2log: 0
+	x2log: False
 	x2tics: 0
-	xlog: 0
-	y2log: 0
+	xlog: False
+	y2log: False
 	y2tics: 0
-	ylog: 0
-	zlog: 0
+	ylog: False
+	zlog: False
 	ztics: 0
 End
 
@@ -690,7 +706,7 @@ Plot: Photon_flux
 	bymin: -4.
 	cbcolors: 30
 	cblabel: #/cm2
-	cblog: 1
+	cblog: True
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 1
@@ -703,10 +719,10 @@ Plot: Photon_flux
 	grid: 0
 	hist: 2D Projection
 	index: 7
-	int: 829616.14252755523
+	int: 829538.19963443081
 	lw.0: 0
-	max: 50.5558891
-	min: 2.73563110E-08
+	max: 50.3908424
+	min: 5.70980641E-09
 	norm: 2e10
 	proj: Y
 	ps.0: 0
@@ -714,17 +730,17 @@ Plot: Photon_flux
 	swap: 0
 	title: Photon flux in the ILC main beam dump
 	with.0: errorbars
-	x2log: 0
+	x2log: False
 	x2tics: 0
 	xlabel: z [cm]
-	xlog: 0
+	xlog: False
 	xrebin: 1
-	y2log: 0
+	y2log: False
 	y2tics: 0
 	ylabel: x [cm]
-	ylog: 0
+	ylog: False
 	yrebin: 1
-	zlog: 0
+	zlog: False
 	zrebin: 1
 	ztics: 0
 End
@@ -805,5 +821,274 @@ Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_30_plot
 	y2tics: 0
 	ylog: 0
 	zlog: 0
+	ztics: 0
+End
+
+# USRBIN plot "USRBIN BeamDump Design BSmith 0 TB 0067 210 00 A 21"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_21_plot
+	Format: .eps
+	Type:   USRBIN
+	cbcolors: 30
+	cblog: 1
+	cbtics: 1
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_21.bnn
+	geo: -Auto-
+	title: USRBIN BeamDump Design BSmith 0 TB 0067 210 00 A 21
+End
+
+# USRBIN plot "USRBIN BeamDump Design BSmith 0 TB 0067 210 00 A 22"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_22_plot
+	Format: .eps
+	Type:   USRBIN
+	cbcolors: 30
+	cblog: 1
+	cbtics: 1
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_22.bnn
+	geo: -Auto-
+	title: USRBIN BeamDump Design BSmith 0 TB 0067 210 00 A 22
+End
+
+# USRBIN plot "USRBIN BeamDump Design BSmith 0 TB 0067 210 00 A 23"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_23_plot
+	Format: .eps
+	Type:   USRBIN
+	cbcolors: 30
+	cblog: 1
+	cbtics: 1
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_23.bnn
+	geo: -Auto-
+	title: USRBIN BeamDump Design BSmith 0 TB 0067 210 00 A 23
+End
+
+# USRBIN plot "USRBIN BeamDump Design BSmith 0 TB 0067 210 00 A 24"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_24_plot
+	Format: .eps
+	Type:   USRBIN
+	cbcolors: 30
+	cblog: 1
+	cbtics: 1
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_24.bnn
+	geo: -Auto-
+	title: USRBIN BeamDump Design BSmith 0 TB 0067 210 00 A 24
+End
+
+# USRBIN plot "USRBIN BeamDump Design BSmith 0 TB 0067 210 00 A 25"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_25_plot
+	Format: .eps
+	Type:   USRBIN
+	cbcolors: 30
+	cblog: 1
+	cbtics: 1
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_25.bnn
+	geo: -Auto-
+	title: USRBIN BeamDump Design BSmith 0 TB 0067 210 00 A 25
+End
+
+# USRBIN plot "USRBIN BeamDump Design BSmith 0 TB 0067 210 00 A 26"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_26_plot
+	Format: .eps
+	Type:   USRBIN
+	cbcolors: 30
+	cblog: 1
+	cbtics: 1
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_26.bnn
+	geo: -Auto-
+	title: USRBIN BeamDump Design BSmith 0 TB 0067 210 00 A 26
+End
+
+# USRBIN plot "USRBIN BeamDump Design BSmith 0 TB 0067 210 00 A 27"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_27_plot
+	Format: .eps
+	Type:   USRBIN
+	cbcolors: 30
+	cblog: 1
+	cbtics: 1
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_27.bnn
+	geo: -Auto-
+	title: USRBIN BeamDump Design BSmith 0 TB 0067 210 00 A 27
+End
+
+# USRBIN plot "USRBIN BeamDump Design BSmith 0 TB 0067 210 00 A 28"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_28_plot
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	cbcolors: 30
+	cblog: True
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_28.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	grid: 0
+	hist: 2D Projection
+	index: 0
+	lw.0: 0
+	proj: Z
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: USRBIN BeamDump Design BSmith 0 TB 0067 210 00 A 28
+	with.0: errorbars
+	x2log: False
+	x2tics: 0
+	xlog: False
+	xrebin: 1
+	y2log: False
+	y2tics: 0
+	ylog: False
+	yrebin: 1
+	zlog: False
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "USRBIN BeamDump Design BSmith 0 TB 0067 210 00 A 29"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_29_plot
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	bymax: 4.
+	bymin: -4.
+	cbcolors: 30
+	cblog: True
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_29.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	grid: 0
+	hist: 2D Projection
+	index: 0
+	int: 4.1391783609590470E-002
+	lw.0: 0
+	max: 8.38275901E-06
+	min: 8.38593917E-10
+	norm: 2e10
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: USRBIN BeamDump Design BSmith 0 TB 0067 210 00 A 29
+	with.0: errorbars
+	x2log: False
+	x2tics: 0
+	xlog: False
+	xrebin: 1
+	y2log: False
+	y2tics: 0
+	ylog: False
+	yrebin: 1
+	zlog: False
+	zrebin: 1
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 30"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_30_plot
+	Format: .eps
+	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_30_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 1
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 30
+	with.0: histerror
+	x.0: 2
+	x2log: False
+	x2tics: 0
+	xlog: True
+	y.0: 1
+	y2log: False
+	y2tics: 0
+	ylog: False
+	zlog: False
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 31"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_31_plot
+	Format: .eps
+	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_31_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 1
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 31
+	with.0: histerror
+	x.0: 2
+	x2log: False
+	x2tics: 0
+	xlog: True
+	y.0: 0
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
+End
+
+# RESNUCLE plot "RESNUCLE BeamDump Design BSmith 0 TB 0067 210 00 A 62"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_62_plot
+	Format: .eps
+	Type:   RESNUCLE
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_62.rnc
+	det: 1
+	grid: 0
+	index: 0
+	lw.0: 0
+	plot: Z
+	ps.0: 0
+	title: RESNUCLE BeamDump Design BSmith 0 TB 0067 210 00 A 62
+	with.0: errorbars
+	x2log: False
+	x2tics: 0
+	xlog: False
+	y2log: False
+	y2tics: 0
+	ylog: False
+	zlog: False
 	ztics: 0
 End
