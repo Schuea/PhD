@@ -11,261 +11,347 @@ BEAM            250.   0.00282           2.4697E-5 3.0522E-6          ELECTRON
 BEAMPOS          0.0       0.0     -750.       0.0       0.0
 GEOBEGIN                                                              COMBNAME
     0    0          0_TB_0067_300_00_A
-ZCC OutTank    -30.0 0.0 75.0
-XYP InTaEn2    325.0
-XYP OutTaEn2   329.0
-XYP InTaEn1    -325.0
-XYP OutTaEn1   -329.0
-ZCC InTank     -30.0 0.0 73.0
-ZCC OutBeaPi   0.0 0.0 20.0
-ZCC InBeaPi    0.0 0.0 19.0
-XYP WinPla2    -375.0
+ZCC OutTank    -30. 0.0 75.
+XYP InTaEn2    325.
+XYP OutTaEn2   329.
+XYP InTaEn1    -325.
+XYP OutTaEn1   -329.
+ZCC InTank     -30. 0.0 73.
+ZCC OutBeaPi   0.0 0.0 20.
+ZCC InBeaPi    0.0 0.0 19.
+XYP WinPla2    -375.
 XYP WinPla1    -375.1
-YCC OutWinIn   -352.0 0.5 10.0
-YCC InWinIn    -352.0 0.5 9.0
-YCC OutTub1    -68.0 0.0 29.0
-YCC InTub1     -68.0 0.0 28.0
-YCC TubOut1    -92.0 3.0 2.0
-YCC TubIn1     -92.0 3.0 1.9
-YCC TubOut2    -92.0 -3.0 2.0
-YCC TubIn2     -92.0 -3.0 1.9
-YCC TubOut3    -86.0 12.0 2.0
-YCC TubIn3     -86.0 12.0 1.9
-YCC TubOut4    -86.0 6.0 2.0
-YCC TubIn4     -86.0 6.0 1.9
-YCC TubOut5    -86.0 0.0 2.0
-YCC TubIn5     -86.0 0.0 1.9
-YCC TubOut6    -86.0 -6.0 2.0
-YCC TubIn6     -86.0 -6.0 1.9
-YCC TubOut7    -86.0 -12.0 2.0
-YCC TubIn7     -86.0 -12.0 1.9
-YCC TubOut8    -80.0 3.0 2.0
-YCC TubIn8     -80.0 3.0 1.9
-YCC TubOut9    -80.0 -3.0 2.0
-YCC TubIn9     -80.0 -3.0 1.9
-YCC TubOut10   -80.0 -9.0 2.0
-YCC TubIn10    -80.0 -9.0 1.9
-YCC TubOut11   -80.0 -15.0 2.0
-YCC TubIn11    -80.0 -15.0 1.9
-YCC TubOut12   -80.0 -21. 2.0
-YCC TubIn12    -80.0 -21. 1.9
-YCC TubOut13   -80.0 21.0 2.0
-YCC TubIn13    -80.0 21.0 1.9
-YCC TubOut14   -80.0 15.0 2.0
-YCC TubIn14    -80.0 15.0 1.9
-YCC TubOut15   -80.0 9.0 2.0
-YCC TubIn15    -80.0 9.0 1.9
-YCC TubOut16   -74.0 12.0 2.0
-YCC TubIn16    -74.0 12.0 1.9
-YCC TubOut17   -74.0 6.0 2.0
-YCC TubIn17    -74.0 6.0 1.9
-YCC TubOut18   -74.0 0.0 2.0
-YCC TubIn18    -74.0 0.0 1.9
-YCC TubOut19   -74.0 -6.0 2.0
-YCC TubIn19    -74.0 -6.0 1.9
-YCC TubOut20   -74.0 -12.0 2.0
-YCC TubIn20    -74.0 -12.0 1.9
-YCC TubOut21   -74.0 -18.0 2.0
-YCC TubIn21    -74.0 -18.0 1.9
-YCC TubOut22   -74.0 -24.0 2.0
-YCC TubIn22    -74.0 -24.0 1.9
-YCC TubOut23   -74.0 24.0 2.0
-YCC TubIn23    -74.0 24.0 1.9
-YCC TubOut24   -74.0 18.0 2.0
-YCC TubIn24    -74.0 18.0 1.9
-YCC TubOut25   -68.0 3.0 2.0
-YCC TubIn25    -68.0 3.0 1.9
-YCC TubOut26   -68.0 -3.0 2.0
-YCC TubIn26    -68.0 -3.0 1.9
-YCC TubOut27   -68.0 -9.0 2.0
-YCC TubIn27    -68.0 -9.0 1.9
-YCC TubOut28   -68.0 -15.0 2.0
-YCC TubIn28    -68.0 -15.0 1.9
-YCC TubOut29   -68.0 -21.0 2.0
-YCC TubIn29    -68.0 -21.0 1.9
-YCC TubOut30   -68.0 21.0 2.0
-YCC TubIn30    -68.0 21.0 1.9
-YCC TubOut31   -68.0 15.0 2.0
-YCC TubIn31    -68.0 15.0 1.9
-YCC TubOut32   -68.0 9.0 2.0
-YCC TubIn32    -68.0 9.0 1.9
-YCC TubOut33   -62.0 12.0 2.0
-YCC TubIn33    -62.0 12.0 1.9
-YCC TubOut34   -62.0 6.0 2.0
-YCC TubIn34    -62.0 6.0 1.9
-YCC TubOut35   -62.0 0.0 2.0
-YCC TubIn35    -62.0 0.0 1.9
-YCC TubOut36   -62.0 -6.0 2.0
-YCC TubIn36    -62.0 -6.0 1.9
-YCC TubOut37   -62.0 -12.0 2.0
-YCC TubIn37    -62.0 -12.0 1.9
-YCC TubOut38   -62.0 -18.0 2.0
-YCC TubIn38    -62.0 -18.0 1.9
-YCC TubOut39   -62.0 -24.0 2.0
-YCC TubIn39    -62.0 -24.0 1.9
-YCC TubOut40   -62.0 24.0 2.0
-YCC TubIn40    -62.0 24.0 1.9
-YCC TubOut41   -62.0 18.0 2.0
-YCC TubIn41    -62.0 18.0 1.9
-YCC TubOut42   -56.0 3.0 2.0
-YCC TubIn42    -56.0 3.0 1.9
-YCC TubOut43   -56.0 -3.0 2.0
-YCC TubIn43    -56.0 -3.0 1.9
-YCC TubOut44   -56.0 -9.0 2.0
-YCC TubIn44    -56.0 -9.0 1.9
-YCC TubOut45   -56.0 -15.0 2.0
-YCC TubIn45    -56.0 -15.0 1.9
-YCC TubOut46   -56.0 -21.0 2.0
-YCC TubIn46    -56.0 -21.0 1.9
-YCC TubOut47   -56.0 21.0 2.0
-YCC TubIn47    -56.0 21.0 1.9
-YCC TubOut48   -56.0 15.0 2.0
-YCC TubIn48    -56.0 15.0 1.9
-YCC TubOut49   -56.0 9.0 2.0
-YCC TubIn49    -56.0 9.0 1.9
-YCC TubOut50   -50.0 12.0 2.0
-YCC TubIn50    -50.0 12.0 1.9
-YCC TubOut51   -50.0 6.0 2.0
-YCC TubIn51    -50.0 6.0 1.9
-YCC TubOut52   -50.0 0.0 2.0
-YCC TubIn52    -50.0 0.0 1.9
-YCC TubOut53   -50.0 -6.0 2.0
-YCC TubIn53    -50.0 -6.0 1.9
-YCC TubOut54   -50.0 -12.0 2.0
-YCC TubIn54    -50.0 -12.0 1.9
-YCC TubOut55   -44.0 3.0 2.0
-YCC TubIn55    -44.0 3.0 1.9
-YCC TubOut56   -44.0 -3.0 2.0
-YCC TubIn56    -44.0 -3.0 1.9
-YCC OutTub2    36.0 0.0 29.0
-YCC InTub2     36.0 0.0 28.0
-YCC TubOut57   12.0 3.0 2.0
-YCC TubIn57    12.0 3.0 1.9
-YCC TubOut58   12.0 -3.0 2.0
-YCC TubIn58    12.0 -3.0 1.9
-YCC TubOut59   18.0 12.0 2.0
-YCC TubIn59    18.0 12.0 1.9
-YCC TubOut60   18.0 6.0 2.0
-YCC TubIn60    18.0 6.0 1.9
-YCC TubOut61   18.0 0.0 2.0
-YCC TubIn61    18.0 0.0 1.9
-YCC TubOut62   18.0 -6.0 2.0
-YCC TubIn62    18.0 -6.0 1.9
-YCC TubOut63   18.0 -12.0 2.0
-YCC TubIn63    18.0 -12.0 1.9
-YCC TubOut64   24.0 3.0 2.0
-YCC TubIn64    24.0 3.0 1.9
-YCC TubOut65   24.0 -3.0 2.0
-YCC TubIn65    24.0 -3.0 1.9
-YCC TubOut66   24.0 -9.0 2.0
-YCC TubIn66    24.0 -9.0 1.9
-YCC TubOut67   24.0 -15.0 2.0
-YCC TubIn67    24.0 -15.0 1.9
-YCC TubOut68   24.0 -21.0 2.0
-YCC TubIn68    24.0 -21.0 1.9
-YCC TubOut69   24.0 21.0 2.0
-YCC TubIn69    24.0 21.0 1.9
-YCC TubOut70   24.0 15.0 2.0
-YCC TubIn70    24.0 15.0 1.9
-YCC TubOut71   24.0 9.0 2.0
-YCC TubIn71    24.0 9.0 1.9
-YCC TubOut72   30.0 12.0 2.0
-YCC TubIn72    30.0 12.0 1.9
-YCC TubOut73   30.0 6.0 2.0
-YCC TubIn73    30.0 6.0 1.9
-YCC TubOut74   30.0 0.0 2.0
-YCC TubIn74    30.0 0.0 1.9
-YCC TubOut75   30.0 -6.0 2.0
-YCC TubIn75    30.0 -6.0 1.9
-YCC TubOut76   30.0 -12.0 2.0
-YCC TubIn76    30.0 -12.0 1.9
-YCC TubOut77   30.0 -18.0 2.0
-YCC TubIn77    30.0 -18.0 1.9
-YCC TubOut78   30.0 -24.0 2.0
-YCC TubIn78    30.0 -24.0 1.9
-YCC TubOut79   30.0 24.0 2.0
-YCC TubIn79    30.0 24.0 1.9
-YCC TubOut80   30.0 18.0 2.0
-YCC TubIn80    30.0 18.0 1.9
-YCC TubOut81   36.0 3.0 2.0
-YCC TubIn81    36.0 3.0 1.9
-YCC TubOut82   36.0 -3.0 2.0
-YCC TubIn82    36.0 -3.0 1.9
-YCC TubOut83   36.0 -9.0 2.0
-YCC TubIn83    36.0 -9.0 1.9
-YCC TubOut84   36.0 -15.0 2.0
-YCC TubIn84    36.0 -15.0 1.9
-YCC TubOut85   36.0 -21.0 2.0
-YCC TubIn85    36.0 -21.0 1.9
-YCC TubOut86   36.0 21.0 2.0
-YCC TubIn86    36.0 21.0 1.9
-YCC TubOut87   36.0 15.0 2.0
-YCC TubIn87    36.0 15.0 1.9
-YCC TubOut88   36.0 9.0 2.0
-YCC TubIn88    36.0 9.0 1.9
-YCC TubOut89   42.0 12.0 2.0
-YCC TubIn89    42.0 12.0 1.9
-YCC TubOut90   42.0 6.0 2.0
-YCC TubIn90    42.0 6.0 1.9
-YCC TubOut91   42.0 0.0 2.0
-YCC TubIn91    42.0 0.0 1.9
-YCC TubOut92   42.0 -6.0 2.0
-YCC TubIn92    42.0 -6.0 1.9
-YCC TubOut93   42.0 -12.0 2.0
-YCC TubIn93    42.0 -12.0 1.9
-YCC TubOut94   42.0 -18.0 2.0
-YCC TubIn94    42.0 -18.0 1.9
-YCC TubOut95   42.0 -24.0 2.0
-YCC TubIn95    42.0 -24.0 1.9
-YCC TubOut96   42.0 24.0 2.0
-YCC TubIn96    42.0 24.0 1.9
-YCC TubOut97   42.0 18.0 2.0
-YCC TubIn97    42.0 18.0 1.9
-YCC TubOut98   48.0 3.0 2.0
-YCC TubIn98    48.0 3.0 1.9
-YCC TubOut99   48.0 -3.0 2.0
-YCC TubIn99    48.0 -3.0 1.9
-YCC TubOu100   48.0 -9.0 2.0
-YCC TubIn100   48.0 -9.0 1.9
-YCC TubOu101   48.0 -15.0 2.0
-YCC TubIn101   48.0 -15.0 1.9
-YCC TubOu102   48.0 -21.0 2.0
-YCC TubIn102   48.0 -21.0 1.9
-YCC TubOu103   48.0 21.0 2.0
-YCC TubIn103   48.0 21.0 1.9
-YCC TubOu104   48.0 15.0 2.0
-YCC TubIn104   48.0 15.0 1.9
-YCC TubOu105   48.0 9.0 2.0
-YCC TubIn105   48.0 9.0 1.9
-YCC TubOu106   54.0 12.0 2.0
-YCC TubIn106   54.0 12.0 1.9
-YCC TubOu107   54.0 6.0 2.0
-YCC TubIn107   54.0 6.0 1.9
-YCC TubOu108   54.0 0.0 2.0
-YCC TubIn108   54.0 0.0 1.9
-YCC TubOu109   54.0 -6.0 2.0
-YCC TubIn109   54.0 -6.0 1.9
-YCC TubOu110   54.0 -12.0 2.0
-YCC TubIn110   54.0 -12.0 1.9
-YCC TubOu111   60.0 3.0 2.0
-YCC TubIn111   60.0 3.0 1.9
-YCC TubOu112   60.0 -3.0 2.0
-YCC TubIn112   60.0 -3.0 1.9
-ZCC OutWaJeX   -52.3 0.0 10.0
-ZCC InWaJeX    -52.3 0.0 9.0
-ZCC OutVort    0.0 0.0 25.0
-ZCC InVort     0.0 0.0 24.0
-XYP VortEnd1   -317.0
-XYP VortEnd2   -316.0
+YCC OutWinIn   -352. 0.5 10.
+YCC InWinIn    -352. 0.5 9.
+YCC OutTub1    -68. 0.0 29.
+YCC InTub1     -68. 0.0 28.
+YCC TubOut1    -92. 3. 2.
+YCC TubIn1     -92. 3. 1.9
+YCC TubOut2    -92. -3. 2.
+YCC TubIn2     -92. -3. 1.9
+YCC TubOut3    -86. 12. 2.
+YCC TubIn3     -86. 12. 1.9
+YCC TubOut4    -86. 6. 2.
+YCC TubIn4     -86. 6. 1.9
+YCC TubOut5    -86. 0.0 2.
+YCC TubIn5     -86. 0.0 1.9
+YCC TubOut6    -86. -6. 2.
+YCC TubIn6     -86. -6. 1.9
+YCC TubOut7    -86. -12. 2.
+YCC TubIn7     -86. -12. 1.9
+YCC TubOut8    -80. 3. 2.
+YCC TubIn8     -80. 3. 1.9
+YCC TubOut9    -80. -3. 2.
+YCC TubIn9     -80. -3. 1.9
+YCC TubOut10   -80. -9. 2.
+YCC TubIn10    -80. -9. 1.9
+YCC TubOut11   -80. -15. 2.
+YCC TubIn11    -80. -15. 1.9
+YCC TubOut12   -80. -21. 2.
+YCC TubIn12    -80. -21. 1.9
+YCC TubOut13   -80. 21. 2.
+YCC TubIn13    -80. 21. 1.9
+YCC TubOut14   -80. 15. 2.
+YCC TubIn14    -80. 15. 1.9
+YCC TubOut15   -80. 9. 2.
+YCC TubIn15    -80. 9. 1.9
+YCC TubOut16   -74. 12. 2.
+YCC TubIn16    -74. 12. 1.9
+YCC TubOut17   -74. 6. 2.
+YCC TubIn17    -74. 6. 1.9
+YCC TubOut18   -74. 0.0 2.
+YCC TubIn18    -74. 0.0 1.9
+YCC TubOut19   -74. -6. 2.
+YCC TubIn19    -74. -6. 1.9
+YCC TubOut20   -74. -12. 2.
+YCC TubIn20    -74. -12. 1.9
+YCC TubOut21   -74. -18. 2.
+YCC TubIn21    -74. -18. 1.9
+YCC TubOut22   -74. -24. 2.
+YCC TubIn22    -74. -24. 1.9
+YCC TubOut23   -74. 24. 2.
+YCC TubIn23    -74. 24. 1.9
+YCC TubOut24   -74. 18. 2.
+YCC TubIn24    -74. 18. 1.9
+YCC TubOut25   -68. 3. 2.
+YCC TubIn25    -68. 3. 1.9
+YCC TubOut26   -68. -3. 2.
+YCC TubIn26    -68. -3. 1.9
+YCC TubOut27   -68. -9. 2.
+YCC TubIn27    -68. -9. 1.9
+YCC TubOut28   -68. -15. 2.
+YCC TubIn28    -68. -15. 1.9
+YCC TubOut29   -68. -21. 2.
+YCC TubIn29    -68. -21. 1.9
+YCC TubOut30   -68. 21. 2.
+YCC TubIn30    -68. 21. 1.9
+YCC TubOut31   -68. 15. 2.
+YCC TubIn31    -68. 15. 1.9
+YCC TubOut32   -68. 9. 2.
+YCC TubIn32    -68. 9. 1.9
+YCC TubOut33   -62. 12. 2.
+YCC TubIn33    -62. 12. 1.9
+YCC TubOut34   -62. 6. 2.
+YCC TubIn34    -62. 6. 1.9
+YCC TubOut35   -62. 0.0 2.
+YCC TubIn35    -62. 0.0 1.9
+YCC TubOut36   -62. -6. 2.
+YCC TubIn36    -62. -6. 1.9
+YCC TubOut37   -62. -12. 2.
+YCC TubIn37    -62. -12. 1.9
+YCC TubOut38   -62. -18. 2.
+YCC TubIn38    -62. -18. 1.9
+YCC TubOut39   -62. -24. 2.
+YCC TubIn39    -62. -24. 1.9
+YCC TubOut40   -62. 24. 2.
+YCC TubIn40    -62. 24. 1.9
+YCC TubOut41   -62. 18. 2.
+YCC TubIn41    -62. 18. 1.9
+YCC TubOut42   -56. 3. 2.
+YCC TubIn42    -56. 3. 1.9
+YCC TubOut43   -56. -3. 2.
+YCC TubIn43    -56. -3. 1.9
+YCC TubOut44   -56. -9. 2.
+YCC TubIn44    -56. -9. 1.9
+YCC TubOut45   -56. -15. 2.
+YCC TubIn45    -56. -15. 1.9
+YCC TubOut46   -56. -21. 2.
+YCC TubIn46    -56. -21. 1.9
+YCC TubOut47   -56. 21. 2.
+YCC TubIn47    -56. 21. 1.9
+YCC TubOut48   -56. 15. 2.
+YCC TubIn48    -56. 15. 1.9
+YCC TubOut49   -56. 9. 2.
+YCC TubIn49    -56. 9. 1.9
+YCC TubOut50   -50. 12. 2.
+YCC TubIn50    -50. 12. 1.9
+YCC TubOut51   -50. 6. 2.
+YCC TubIn51    -50. 6. 1.9
+YCC TubOut52   -50. 0.0 2.
+YCC TubIn52    -50. 0.0 1.9
+YCC TubOut53   -50. -6. 2.
+YCC TubIn53    -50. -6. 1.9
+YCC TubOut54   -50. -12. 2.
+YCC TubIn54    -50. -12. 1.9
+YCC TubOut55   -44. 3. 2.
+YCC TubIn55    -44. 3. 1.9
+YCC TubOut56   -44. -3. 2.
+YCC TubIn56    -44. -3. 1.9
+YCC OutTub2    36. 0.0 29.
+YCC InTub2     36. 0.0 28.
+YCC TubOut57   12. 3. 2.
+YCC TubIn57    12. 3. 1.9
+YCC TubOut58   12. -3. 2.
+YCC TubIn58    12. -3. 1.9
+YCC TubOut59   18. 12. 2.
+YCC TubIn59    18. 12. 1.9
+YCC TubOut60   18. 6. 2.
+YCC TubIn60    18. 6. 1.9
+YCC TubOut61   18. 0.0 2.
+YCC TubIn61    18. 0.0 1.9
+YCC TubOut62   18. -6. 2.
+YCC TubIn62    18. -6. 1.9
+YCC TubOut63   18. -12. 2.
+YCC TubIn63    18. -12. 1.9
+YCC TubOut64   24. 3. 2.
+YCC TubIn64    24. 3. 1.9
+YCC TubOut65   24. -3. 2.
+YCC TubIn65    24. -3. 1.9
+YCC TubOut66   24. -9. 2.
+YCC TubIn66    24. -9. 1.9
+YCC TubOut67   24. -15. 2.
+YCC TubIn67    24. -15. 1.9
+YCC TubOut68   24. -21. 2.
+YCC TubIn68    24. -21. 1.9
+YCC TubOut69   24. 21. 2.
+YCC TubIn69    24. 21. 1.9
+YCC TubOut70   24. 15. 2.
+YCC TubIn70    24. 15. 1.9
+YCC TubOut71   24. 9. 2.
+YCC TubIn71    24. 9. 1.9
+YCC TubOut72   30. 12. 2.
+YCC TubIn72    30. 12. 1.9
+YCC TubOut73   30. 6. 2.
+YCC TubIn73    30. 6. 1.9
+YCC TubOut74   30. 0.0 2.
+YCC TubIn74    30. 0.0 1.9
+YCC TubOut75   30. -6. 2.
+YCC TubIn75    30. -6. 1.9
+YCC TubOut76   30. -12. 2.
+YCC TubIn76    30. -12. 1.9
+YCC TubOut77   30. -18. 2.
+YCC TubIn77    30. -18. 1.9
+YCC TubOut78   30. -24. 2.
+YCC TubIn78    30. -24. 1.9
+YCC TubOut79   30. 24. 2.
+YCC TubIn79    30. 24. 1.9
+YCC TubOut80   30. 18. 2.
+YCC TubIn80    30. 18. 1.9
+YCC TubOut81   36. 3. 2.
+YCC TubIn81    36. 3. 1.9
+YCC TubOut82   36. -3. 2.
+YCC TubIn82    36. -3. 1.9
+YCC TubOut83   36. -9. 2.
+YCC TubIn83    36. -9. 1.9
+YCC TubOut84   36. -15. 2.
+YCC TubIn84    36. -15. 1.9
+YCC TubOut85   36. -21. 2.
+YCC TubIn85    36. -21. 1.9
+YCC TubOut86   36. 21. 2.
+YCC TubIn86    36. 21. 1.9
+YCC TubOut87   36. 15. 2.
+YCC TubIn87    36. 15. 1.9
+YCC TubOut88   36. 9. 2.
+YCC TubIn88    36. 9. 1.9
+YCC TubOut89   42. 12. 2.
+YCC TubIn89    42. 12. 1.9
+YCC TubOut90   42. 6. 2.
+YCC TubIn90    42. 6. 1.9
+YCC TubOut91   42. 0.0 2.
+YCC TubIn91    42. 0.0 1.9
+YCC TubOut92   42. -6. 2.
+YCC TubIn92    42. -6. 1.9
+YCC TubOut93   42. -12. 2.
+YCC TubIn93    42. -12. 1.9
+YCC TubOut94   42. -18. 2.
+YCC TubIn94    42. -18. 1.9
+YCC TubOut95   42. -24. 2.
+YCC TubIn95    42. -24. 1.9
+YCC TubOut96   42. 24. 2.
+YCC TubIn96    42. 24. 1.9
+YCC TubOut97   42. 18. 2.
+YCC TubIn97    42. 18. 1.9
+YCC TubOut98   48. 3. 2.
+YCC TubIn98    48. 3. 1.9
+YCC TubOut99   48. -3. 2.
+YCC TubIn99    48. -3. 1.9
+YCC TubOu100   48. -9. 2.
+YCC TubIn100   48. -9. 1.9
+YCC TubOu101   48. -15. 2.
+YCC TubIn101   48. -15. 1.9
+YCC TubOu102   48. -21. 2.
+YCC TubIn102   48. -21. 1.9
+YCC TubOu103   48. 21. 2.
+YCC TubIn103   48. 21. 1.9
+YCC TubOu104   48. 15. 2.
+YCC TubIn104   48. 15. 1.9
+YCC TubOu105   48. 9. 2.
+YCC TubIn105   48. 9. 1.9
+YCC TubOu106   54. 12. 2.
+YCC TubIn106   54. 12. 1.9
+YCC TubOu107   54. 6. 2.
+YCC TubIn107   54. 6. 1.9
+YCC TubOu108   54. 0.0 2.
+YCC TubIn108   54. 0.0 1.9
+YCC TubOu109   54. -6. 2.
+YCC TubIn109   54. -6. 1.9
+YCC TubOu110   54. -12. 2.
+YCC TubIn110   54. -12. 1.9
+YCC TubOu111   60. 3. 2.
+YCC TubIn111   60. 3. 1.9
+YCC TubOu112   60. -3. 2.
+YCC TubIn112   60. -3. 1.9
+ZCC OutWaJeX   -52.3 0.0 10.
+ZCC InWaJeX    -52.3 0.0 9.
+ZCC OutVort    0.0 0.0 25.
+ZCC InVort     0.0 0.0 24.
+XYP VortEnd1   -317.
+XYP VortEnd2   -316.
+XYP VortEnd3   -117.0
+XYP VortEnd4   -116.0
+XYP VortEnd5   -109.0
+XYP VortEnd6   -108.0
+XYP VortEnd7   129.0
+XYP VortEnd8   130.0
+XYP CuPlaPl1   143.95
+XYP CuPlaPl2   144.95
+XYP CuPlaPl3   159.5
+XYP CuPlaPl4   160.5
+XYP CuPlaPl5   175.05
+XYP CuPlaPl6   176.05
+XYP CuPlaPl7   190.6
+XYP CuPlaPl8   191.6
+XYP CuPlaPl9   206.15
+XYP CuPlaP10   207.15
+XYP CuPlaP11   221.7
+XYP CuPlaP12   222.7
+XYP CuPlaP13   237.25
+XYP CuPlaP14   238.25
+XYP CuPlaP15   252.8
+XYP CuPlaP16   253.8
+XYP CuPlaP17   268.35
+XYP CuPlaP18   269.35
+XYP CuPlaP19   283.9
+XYP CuPlaP20   284.9
+XYP CuPlaP21   299.45
+XYP CuPlaP22   300.45
+XYP CuPlaP23   315.0
+XYP CuPlaP24   316.0
+YZP yPlane1    -42.0
+YZP yPlane2    -26.0
+YZP yPlane3    -20.5
+YZP yPlane4    -2.5
+YZP yPlane5    3.0
+YZP yPlane6    21.0
+YZP yPlane7    26.5
+XCC OuInlPi1   0.0 -291.0 10.0
+XCC InInlPi1   0.0 -291.0 9.0
+XCC OuInlPi2   0.0 -221.0 10.0
+XCC InInlPi2   0.0 -221.0 9.0
+XCC OuInlPi3   0.0 -141.0 10.0
+XCC InInlPi3   0.0 -141.0 9.0
+XCC OuInlPi4   0.0 -68.0 10.0
+XCC InInlPi4   0.0 -68.0 9.0
+XCC OuInlPi5   0.0 32.0 10.0
+XCC InInlPi5   0.0 32.0 9.0
+XCC OuInlPi6   0.0 169.0 10.0
+XCC InInlPi6   0.0 169.0 9.0
+XCC OuInlPi7   0.0 289.0 10.0
+XCC InInlPi7   0.0 289.0 9.0
+YZP InlPiEnd   -133.0
+XYP MidVoPl1   -33.5
+XYP MidVoPl2   -32.5
+XYP MidVoPl3   -3.5
+XYP MidVoPl4   -2.5
+XYP MidVoPl5   69.5
+XYP MidVoPl6   70.5
+RCC OuVoInl1   -44.5 0.0 -311.0 22.0 0.0 0.0 3.0
+RCC InVoInl1   -44.5 0.0 -311.0 22.0 0.0 0.0 2.5
+RCC OuVoInl2   -44.5 0.0 -291.0 22.0 0.0 0.0 3.0
+RCC InVoInl2   -44.5 0.0 -291.0 22.0 0.0 0.0 2.5
+RCC OuVoInl3   -44.5 0.0 -271.0 22.0 0.0 0.0 3.0
+RCC InVoInl3   -44.5 0.0 -271.0 22.0 0.0 0.0 2.5
+RCC OuVoInl4   -44.5 0.0 -251.0 22.0 0.0 0.0 3.0
+RCC InVoInl4   -44.5 0.0 -251.0 22.0 0.0 0.0 2.5
+RCC OuVoInl5   -44.5 0.0 -231.0 22.0 0.0 0.0 3.0
+RCC InVoInl5   -44.5 0.0 -231.0 22.0 0.0 0.0 2.5
+RCC OuVoInl6   -44.5 0.0 -211.0 22.0 0.0 0.0 3.0
+RCC InVoInl6   -44.5 0.0 -211.0 22.0 0.0 0.0 2.5
+RCC OuVoInl7   -44.5 0.0 -191.0 22.0 0.0 0.0 3.0
+RCC InVoInl7   -44.5 0.0 -191.0 22.0 0.0 0.0 2.5
+RCC OuVoInl8   -44.5 0.0 -171.0 22.0 0.0 0.0 3.0
+RCC InVoInl8   -44.5 0.0 -171.0 22.0 0.0 0.0 2.5
+RCC OuVoInl9   -44.5 0.0 -151.0 22.0 0.0 0.0 3.0
+RCC InVoInl9   -44.5 0.0 -151.0 22.0 0.0 0.0 2.5
+RCC OuVoIn10   -44.5 0.0 -131.0 22.0 0.0 0.0 3.0
+RCC InVoIn10   -44.5 0.0 -131.0 22.0 0.0 0.0 2.5
+RCC OuVoIn11   -44.5 0.0 -28.0 22.0 0.0 0.0 3.0
+RCC InVoIn11   -44.5 0.0 -28.0 22.0 0.0 0.0 2.5
+RCC OuVoIn12   -44.5 0.0 -8.0 22.0 0.0 0.0 3.0
+RCC InVoIn12   -44.5 0.0 -8.0 22.0 0.0 0.0 2.5
+RCC OuVoIn13   -44.5 0.0 92.0 22.0 0.0 0.0 3.0
+RCC InVoIn13   -44.5 0.0 92.0 22.0 0.0 0.0 2.5
+RCC OuVoIn14   -44.5 0.0 112.0 22.0 0.0 0.0 3.0
+RCC InVoIn14   -44.5 0.0 112.0 22.0 0.0 0.0 2.5
 END
 END
 GEOEND          115.      200.      425.     -425.     -200.     -775.DEBUG
 GEOEND          500.      400.      500.                               &
 PHOTONUC          1.                        VACUUM     WATER        1.
-!point           0.0       0.0    -325.0                              marker1
-!point         -30.0       0.0     325.0                              marker2
-!point        -180.0       0.0     325.0                              marker3
-!point        -105.0       0.0     325.0                              marker4
+!point           0.0       0.0     -325.                              marker1
+!point          -30.       0.0      325.                              marker2
+!point         -180.       0.0      325.                              marker3
+!point         -105.       0.0      325.                              marker4
 LAM-BIAS         0.0      0.02     WATER   NEUTRON                    INEPRI
 DISCARD        MUONS
 * Set the random number seed
