@@ -294,20 +294,20 @@ YZP yPlane4    -2.5
 YZP yPlane5    3.0
 YZP yPlane6    21.0
 YZP yPlane7    26.5
-XCC OuInlPi1   0.0 -291.0 10.0
-XCC InInlPi1   0.0 -291.0 9.0
-XCC OuInlPi2   0.0 -221.0 10.0
-XCC InInlPi2   0.0 -221.0 9.0
-XCC OuInlPi3   0.0 -141.0 10.0
-XCC InInlPi3   0.0 -141.0 9.0
-XCC OuInlPi4   0.0 -68.0 10.0
-XCC InInlPi4   0.0 -68.0 9.0
-XCC OuInlPi5   0.0 32.0 10.0
-XCC InInlPi5   0.0 32.0 9.0
-XCC OuInlPi6   0.0 169.0 10.0
-XCC InInlPi6   0.0 169.0 9.0
-XCC OuInlPi7   0.0 289.0 10.0
-XCC InInlPi7   0.0 289.0 9.0
+RCC OuInlPi1   -133.0 0.0 -291.0 75.0 0.0 0.0 10.0
+RCC InInlPi1   -133.0 0.0 -291.0 75.0 0.0 0.0 9.0
+RCC OuInlPi2   -133.0 0.0 -221.0 75.0 0.0 0.0 10.0
+RCC InInlPi2   -133.0 0.0 -221.0 75.0 0.0 0.0 9.0
+RCC OuInlPi3   -133.0 0.0 -141.0 75.0 0.0 0.0 10.0
+RCC InInlPi3   -133.0 0.0 -141.0 75.0 0.0 0.0 9.0
+RCC OuInlPi4   -133.0 0.0 -68.0 75.0 0.0 0.0 10.0
+RCC InInlPi4   -133.0 0.0 -68.0 75.0 0.0 0.0 9.0
+RCC OuInlPi5   -133.0 0.0 32.0 75.0 0.0 0.0 10.0
+RCC InInlPi5   -133.0 0.0 32.0 75.0 0.0 0.0 9.0
+RCC OuInlPi6   -133.0 0.0 169.0 75.0 0.0 0.0 10.0
+RCC InInlPi6   -133.0 0.0 169.0 75.0 0.0 0.0 9.0
+RCC OuInlPi7   -133.0 0.0 289.0 75.0 0.0 0.0 10.0
+RCC InInlPi7   -133.0 0.0 289.0 75.0 0.0 0.0 9.0
 YZP InlPiEnd   -133.0
 XYP MidVoPl1   -33.5
 XYP MidVoPl2   -32.5
@@ -343,15 +343,343 @@ RCC OuVoIn13   -44.5 0.0 92.0 22.0 0.0 0.0 3.0
 RCC InVoIn13   -44.5 0.0 92.0 22.0 0.0 0.0 2.5
 RCC OuVoIn14   -44.5 0.0 112.0 22.0 0.0 0.0 3.0
 RCC InVoIn14   -44.5 0.0 112.0 22.0 0.0 0.0 2.5
+XZP yPiEnPl1   -100.0
+XZP yPiEnPl2   100.0
+ZCC OuVoJeY1   0.0 -43.0 10.0
+ZCC InVoJeY1   0.0 -43.0 9.0
+ZCC OuVoJeY2   -30.0 -53.0 10.0
+ZCC InVoJeY2   -30.0 -53.0 9.0
+RCC OuVoIn15   0.0 -35.5 -301.0 0.0 13.0 0.0 3.0
+RCC InVoIn15   0.0 -35.5 -301.0 0.0 13.0 0.0 2.5
+RCC OuVoIn16   0.0 -35.5 -281.0 0.0 13.0 0.0 3.0
+RCC InVoIn16   0.0 -35.5 -281.0 0.0 13.0 0.0 2.5
+RCC OuVoIn17   0.0 -35.5 -261.0 0.0 13.0 0.0 3.0
+RCC InVoIn17   0.0 -35.5 -261.0 0.0 13.0 0.0 2.5
+RCC OuVoIn18   0.0 -35.5 -241.0 0.0 13.0 0.0 3.0
+RCC InVoIn18   0.0 -35.5 -241.0 0.0 13.0 0.0 2.5
+RCC OuVoIn19   0.0 -35.5 -221.0 0.0 13.0 0.0 3.0
+RCC InVoIn19   0.0 -35.5 -221.0 0.0 13.0 0.0 2.5
+RCC OuVoIn20   0.0 -35.5 -201.0 0.0 13.0 0.0 3.0
+RCC InVoIn20   0.0 -35.5 -201.0 0.0 13.0 0.0 2.5
+RCC OuVoIn21   0.0 -35.5 -181.0 0.0 13.0 0.0 3.0
+RCC InVoIn21   0.0 -35.5 -181.0 0.0 13.0 0.0 2.5
+RCC OuVoIn22   0.0 -35.5 -161.0 0.0 13.0 0.0 3.0
+RCC InVoIn22   0.0 -35.5 -161.0 0.0 13.0 0.0 2.5
+RCC OuVoIn23   0.0 -35.5 -141.0 0.0 13.0 0.0 3.0
+RCC InVoIn23   0.0 -35.5 -141.0 0.0 13.0 0.0 2.5
+RCC OuVoIn24   0.0 -35.5 -121.0 0.0 13.0 0.0 3.0
+RCC InVoIn24   0.0 -35.5 -121.0 0.0 13.0 0.0 2.5
+RCC OuInlPi8   0.0 15.0 -291.0 0.0 85.0 0.0 10.0
+RCC InInlPi8   0.0 15.0 -291.0 0.0 85.0 0.0 9.0
+RCC OuInlPi9   0.0 15.0 -221.0 0.0 85.0 0.0 10.0
+RCC InInlPi9   0.0 15.0 -221.0 0.0 85.0 0.0 9.0
+RCC OuInlP10   0.0 15.0 -141.0 0.0 85.0 0.0 10.0
+RCC InInlP10   0.0 15.0 -141.0 0.0 85.0 0.0 9.0
+RCC OuInlP11   -30.0 -100.0 169.5 0.0 40.0 0.0 10.0
+RCC InInlP11   -30.0 -100.0 169.5 0.0 40.0 0.0 9.0
+RCC OuInlP12   -30.0 -100.0 289.0 0.0 40.0 0.0 10.0
+RCC InInlP12   -30.0 -100.0 289.0 0.0 40.0 0.0 9.0
+RCC OuDrain1   -30.0 70.0 -261.0 0.0 30.0 0.0 15.0
+RCC InDrain1   -30.0 70.0 -261.0 0.0 30.0 0.0 14.0
+RCC OuDrain2   -30.0 70.0 273.0 0.0 30.0 0.0 15.0
+RCC InDrain2   -30.0 70.0 273.0 0.0 30.0 0.0 14.0
+RCC OuDrain3   -30.0 -100.0 114.0 0.0 30.0 0.0 10.0
+RCC InDrain3   -30.0 -100.0 114.0 0.0 30.0 0.0 9.0
+RCC OuDrain4   -30.0 -100.0 -181.5 0.0 30.0 0.0 10.0
+RCC InDrain4   -30.0 -100.0 -181.5 0.0 30.0 0.0 9.0
+RCC OuDrain5   -30.0 -100.0 -280.5 0.0 30.0 0.0 10.0
+RCC InDrain5   -30.0 -100.0 -280.5 0.0 30.0 0.0 9.0
+XZP xPlane1    -42.5
+XZP xPlane2    -26.5
+XZP xPlane3    -20.5
+XZP xPlane4    -2.5
+XZP xPlane5    3.5
+XZP xPlane6    21.5
+XZP xPlane7    27.5
+XZP xPlane8    44.0
+RPP Airbox     -425.0 75.0 -200.0 200.0 -775.0 425.0
+RPP Blackbox   -426.0 76.0 -201.0 201.0 -776.0 426.0
+RCC OuInlP13   -133.0 0.0 -221.0 75.0 0.0 0.0 10.0
+ZCC InWaJeX1   -52.3 0.0 9.
+RCC InInlP13   -133.0 0.0 -221.0 75.0 0.0 0.0 9.0
+RCC OuInlP14   -133.0 0.0 -141.0 75.0 0.0 0.0 10.0
+RCC InInlP14   -133.0 0.0 -141.0 75.0 0.0 0.0 9.0
 END
+BeaPipe2     5 +InTaEn1 +OutBeaPi -InBeaPi -WinPla2 -OutWinIn
+BeaPipe1     5 +OutBeaPi +WinPla1 +Airbox -InBeaPi
+Blackbod     5 +Blackbox -Airbox
+BeaPiVa      5 +InBeaPi +WinPla1 +Airbox
+Window       5 +OutBeaPi +WinPla2 -WinPla1
+BeaPiWa      5 +InTaEn1 +InBeaPi -WinPla2
+WaJeXWa1     5 +InWaJeX +VortEnd3 -VortEnd2
+WaJeXWa2     5 +InWaJeX +VortEnd7 -VortEnd6
+WaJeXWa3     5 +InWaJeX +CuPlaP23 -CuPlaPl2
+WaJeX1       5 +OutWaJeX +VortEnd3 -InWaJeX -VortEnd2 -OuInlPi1 -OuInlPi2 -OuInlPi3 -OuVoInl1 -OuVoInl2 -OuVoInl3
+               -OuVoInl4 -OuVoInl5 -OuVoInl6 -OuVoInl7 -OuVoInl8 -OuVoInl9 -OuVoIn10
+               | +OutWaJeX +VortEnd4 -VortEnd3
+               | +OutWaJeX +VortEnd2 -VortEnd1
+WaJeX2       5 +OutWaJeX +VortEnd7 -InWaJeX -VortEnd6 -OuInlPi4 -OuInlPi5 -OuVoIn11 -OuVoIn12 -OuVoIn13 -OuVoIn14
+               | +OutWaJeX +VortEnd6 -VortEnd5
+               | +OutWaJeX +VortEnd8 -VortEnd7
+WaJeX3       5 +OutWaJeX -InWaJeX -CuPlaPl2 +CuPlaP23 -OuInlPi6 -OuInlPi7
+               | +OutWaJeX +CuPlaPl2 -CuPlaPl1
+               | +OutWaJeX +CuPlaP24 -CuPlaP23
+VorteWa1     5 +InVort +VortEnd3 -VortEnd2
+Vortex1      5 +OutVort -InVort -VortEnd2 +VortEnd3 -OuVoInl1 -OuVoInl2 -OuVoInl3 -OuVoInl4 -OuVoInl5 -OuVoInl6
+               -OuVoInl7 -OuVoInl8 -OuVoInl9 -OuVoIn10 -OuVoIn15 -OuVoIn16 -OuVoIn17 -OuVoIn18 -OuVoIn19 
+               -OuVoIn20 -OuVoIn21 -OuVoIn22 -OuVoIn23 -OuVoIn24 -OuInlPi8 -OuInlPi9 -OuInlP10
+               | +OutVort +VortEnd2 -VortEnd1
+               | +OutVort +VortEnd4 -VortEnd3
+Vortex2      5 +OutVort -InVort -MidVoPl2 +MidVoPl3 -OuVoIn11 -OuVoIn12
+               | +OutVort +MidVoPl2 -MidVoPl1
+               | +OutVort +MidVoPl4 -MidVoPl3
+VorteWa2     5 +InVort +MidVoPl3 -MidVoPl2
+VorteWa3     5 +InVort +VortEnd7 -MidVoPl6
+Vortex3      5 +OutVort +VortEnd7 -InVort -MidVoPl6 -OuVoIn13 -OuVoIn14
+               | +OutVort +MidVoPl6 -MidVoPl5
+               | +OutVort +VortEnd8 -VortEnd7
+WaJeY1       5 +VortEnd3 +OuVoJeY1 -VortEnd2 -InVoJeY1 -OuVoIn15 -OuVoIn16 -OuVoIn17 -OuVoIn18 -OuVoIn19
+               -OuVoIn20 -OuVoIn21 -OuVoIn22 -OuVoIn23 -OuVoIn24
+               | +VortEnd2 +OuVoJeY1 -VortEnd1
+               | +VortEnd4 +OuVoJeY1 -VortEnd3
+WaJeYWa1     5 +VortEnd3 +InVoJeY1 -VortEnd2
+WaJeYWa2     5 +CuPlaP23 +InVoJeY2 -CuPlaPl2
+WaJeY2       5 +CuPlaP23 +OuVoJeY2 -CuPlaPl2 -InVoJeY2 -OuInlP11 -OuInlP12
+               | +CuPlaPl2 +OuVoJeY2 -CuPlaPl1
+               | +CuPlaP24 +OuVoJeY2 -CuPlaP23
+Inlet1       5 +OuInlPi1 -InWaJeX -InInlPi1
+Inlet2       5 +OuInlPi2 -InWaJeX -InInlPi2
+Inlet3       5 +OuInlPi4 -InWaJeX -InInlPi4
+Inlet4       5 +OuInlPi5 -InWaJeX -InInlPi5
+Inlet5       5 +OuInlPi6 -InWaJeX -InInlPi6
+Inlet6       5 +OuInlPi7 -InWaJeX -InInlPi7
+Inlet7       5 +OuInlPi8 -InVort -InInlPi8
+Inlet8       5 +OuInlPi9 -InVort -InInlPi9
+Inlet9       5 +OuInlP10 -InVort -InInlP10
+Inlet10      5 +OuInlP11 -InVoJeY2 -InInlP11
+Inlet11      5 +OuInlP12 -InVoJeY2 -InInlP12
+Inlet12      5 +OuInlPi3 -InWaJeX -InInlPi3
+Outlet1      5 +yPiEnPl2 +OuDrain1 -InTank -InDrain1
+Outlet2      5 +OuDrain2 -InTank -InDrain2
+Outlet3      5 +OuDrain5 -InTank -InDrain5
+Outlet4      5 +OuDrain4 -InTank -InDrain4
+Outlet5      5 +OuDrain3 -InTank -InDrain3
+InletWa1     5 +InInlPi1 -InWaJeX
+InletWa2     5 +InInlPi2 -InWaJeX
+InletWa3     5 +InInlPi3 -InWaJeX
+InletWa4     5 +InInlPi4 -InWaJeX
+InletWa5     5 +InInlPi5 -InWaJeX
+InletWa6     5 +InInlPi6 -InWaJeX
+InletWa7     5 +InInlPi7 -InWaJeX
+InletWa8     5 +InInlPi8 -InVort
+InletWa9     5 +InInlPi9 -InVort
+InletW10     5 +InInlP10 -InVort
+InletW11     5 +InInlP11 -InVoJeY2
+InletW12     5 +InInlP12 -InVoJeY2
+OutletW1     5 +InDrain1 -InTank
+OutletW2     5 +InDrain2 -InTank
+OutletW3     5 +InDrain5 -InTank
+OutletW4     5 +InDrain4 -InTank
+OutletW5     5 +InDrain3 -InTank
+BeaPiInl     5 +OutWinIn +yPiEnPl2 -InBeaPi -InWinIn -yPiEnPl1
+BeaPiInW     5 +InWinIn -InBeaPi -yPiEnPl1 +yPiEnPl2
+VoInl1       5 +OuVoInl1 -InVort -InVoInl1 -InWaJeX
+VoInl2       5 +OuVoInl2 -InVort -InVoInl2 -InWaJeX
+VoInl3       5 +OuVoInl3 -InVort -InVoInl3 -InWaJeX
+VoInl4       5 +OuVoInl4 -InVort -InVoInl4 -InWaJeX
+VoInl5       5 +OuVoInl5 -InVort -InVoInl5 -InWaJeX
+VoInl6       5 +OuVoInl6 -InVort -InVoInl6 -InWaJeX
+VoInl7       5 +OuVoInl7 -InVort -InVoInl7 -InWaJeX
+VoInl8       5 +OuVoInl8 -InVort -InVoInl8 -InWaJeX
+VoInl9       5 +OuVoInl9 -InVort -InVoInl9 -InWaJeX
+VoInl10      5 +OuVoIn10 -InVort -InVoIn10 -InWaJeX
+VoInl11      5 +OuVoIn11 -InWaJeX -InVort -InVoIn11
+VoInl12      5 +OuVoIn12 -InWaJeX -InVort -InVoIn12
+VoInl13      5 +OuVoIn13 -InWaJeX -InVort -InVoIn13
+VoInl14      5 +OuVoIn14 -InWaJeX -InVort -InVoIn14
+VoInl15      5 +OuVoIn15 -InVort -InVoJeY1 -InVoIn15
+VoInl16      5 +OuVoIn16 -InVort -InVoJeY1 -InVoIn16
+VoInl17      5 +OuVoIn17 -InVort -InVoJeY1 -InVoIn17
+VoInl18      5 +OuVoIn18 -InVort -InVoJeY1 -InVoIn18
+VoInl19      5 +OuVoIn19 -InVort -InVoJeY1 -InVoIn19
+VoInl20      5 +OuVoIn20 -InVort -InVoJeY1 -InVoIn20
+VoInl21      5 +OuVoIn21 -InVort -InVoJeY1 -InVoIn21
+VoInl22      5 +OuVoIn22 -InVort -InVoJeY1 -InVoIn22
+VoInl23      5 +OuVoIn23 -InVort -InVoJeY1 -InVoIn23
+VoInl24      5 +OuVoIn24 -InVort -InVoJeY1 -InVoIn24
+VoInlW1      5 +InVoInl1 -InVort -InWaJeX
+VoInlW2      5 +InVoInl2 -InVort -InWaJeX
+VoInlW3      5 +InVoInl3 -InVort -InWaJeX
+VoInlW4      5 +InVoInl4 -InVort -InWaJeX
+VoInlW5      5 +InVoInl5 -InVort -InWaJeX
+VoInlW6      5 +InVoInl6 -InVort -InWaJeX
+VoInlW7      5 +InVoInl7 -InVort -InWaJeX
+VoInlW8      5 +InVoInl8 -InVort -InWaJeX
+VoInlW9      5 +InVoInl9 -InVort -InWaJeX
+VoInlW10     5 +InVoIn10 -InVort -InWaJeX
+VoInlW11     5 +InVoIn11 -InVort -InWaJeX
+VoInlW12     5 +InVoIn12 -InVort -InWaJeX
+VoInlW13     5 +InVoIn13 -InVort -InWaJeX
+VoInlW14     5 +InVoIn14 -InVort -InWaJeX
+VoInlW15     5 +InVoIn15 -InVort -InVoJeY1
+VoInlW16     5 +InVoIn16 -InVort -InVoJeY1
+VoInlW17     5 +InVoIn17 -InVort -InVoJeY1
+VoInlW18     5 +InVoIn18 -InVort -InVoJeY1
+VoInlW19     5 +InVoIn19 -InVort -InVoJeY1
+VoInlW20     5 +InVoIn20 -InVort -InVoJeY1
+VoInlW21     5 +InVoIn21 -InVort -InVoJeY1
+VoInlW22     5 +InVoIn22 -InVort -InVoJeY1
+VoInlW23     5 +InVoIn23 -InVort -InVoJeY1
+VoInlW24     5 +InVoIn24 -InVort -InVoJeY1
+TiTubHo1     5 +OutTub1 +yPiEnPl2 -InTub1 -xPlane8
+               | +OutTub1 +xPlane1 -InTub1 -yPiEnPl1
+Tub5         5 -TubIn5 +yPiEnPl2 -yPiEnPl1 +TubOut5
+Tub1         5 -TubIn1 +yPiEnPl2 -yPiEnPl1 +TubOut1
+Tub2         5 -TubIn2 +yPiEnPl2 -yPiEnPl1 +TubOut2
+Tub3         5 -TubIn3 +yPiEnPl2 -yPiEnPl1 +TubOut3
+Tub4         5 -TubIn4 +yPiEnPl2 -yPiEnPl1 +TubOut4
+Tub6         5 -TubIn6 +yPiEnPl2 -yPiEnPl1 +TubOut6
+Tub7         5 -TubIn7 +yPiEnPl2 -yPiEnPl1 +TubOut7
+Tub8         5 -TubIn8 +yPiEnPl2 -yPiEnPl1 +TubOut8
+Tub9         5 -TubIn9 +yPiEnPl2 -yPiEnPl1 +TubOut9
+Tub10        5 -TubIn10 +yPiEnPl2 -yPiEnPl1 +TubOut10
+Tub11        5 -TubIn11 +yPiEnPl2 -yPiEnPl1 +TubOut11
+Tub12        5 -TubIn12 +yPiEnPl2 -yPiEnPl1 +TubOut12
+Tub13        5 -TubIn13 +yPiEnPl2 -yPiEnPl1 +TubOut13
+Tub14        5 -TubIn14 +yPiEnPl2 -yPiEnPl1 +TubOut14
 END
 GEOEND          115.      200.      425.     -425.     -200.     -775.DEBUG
 GEOEND          500.      400.      500.                               &
+ASSIGNMA        LEAD  BeaPipe2
+ASSIGNMA        LEAD  BeaPipe1
+ASSIGNMA    BLCKHOLE  Blackbod
+ASSIGNMA      VACUUM   BeaPiVa
+ASSIGNMA    TITANIUM    Window
+ASSIGNMA       WATER   BeaPiWa
+ASSIGNMA       WATER  WaJeXWa1
+ASSIGNMA       WATER  WaJeXWa2
+ASSIGNMA       WATER  WaJeXWa3
+ASSIGNMA        LEAD    WaJeX1
+ASSIGNMA        LEAD    WaJeX2
+ASSIGNMA        LEAD    WaJeX3
+ASSIGNMA       WATER  VorteWa1
+ASSIGNMA        LEAD   Vortex1
+ASSIGNMA        LEAD   Vortex2
+ASSIGNMA       WATER  VorteWa2
+ASSIGNMA       WATER  VorteWa3
+ASSIGNMA        LEAD   Vortex3
+ASSIGNMA        LEAD    WaJeY1
+ASSIGNMA       WATER  WaJeYWa1
+ASSIGNMA       WATER  WaJeYWa2
+ASSIGNMA        LEAD    WaJeY2
+ASSIGNMA        LEAD    Inlet1
+ASSIGNMA        LEAD    Inlet2
+ASSIGNMA        LEAD    Inlet3
+ASSIGNMA        LEAD    Inlet4
+ASSIGNMA        LEAD    Inlet5
+ASSIGNMA        LEAD    Inlet6
+ASSIGNMA        LEAD   Inlet12
+ASSIGNMA        LEAD    Inlet7
+ASSIGNMA        LEAD    Inlet8
+ASSIGNMA        LEAD    Inlet9
+ASSIGNMA        LEAD   Inlet10
+ASSIGNMA        LEAD   Inlet11
+ASSIGNMA        LEAD   Outlet1
+ASSIGNMA        LEAD   Outlet2
+ASSIGNMA        LEAD   Outlet3
+ASSIGNMA        LEAD   Outlet4
+ASSIGNMA        LEAD   Outlet5
+ASSIGNMA       WATER  InletWa1
+ASSIGNMA       WATER  InletWa2
+ASSIGNMA       WATER  InletWa3
+ASSIGNMA       WATER  InletWa4
+ASSIGNMA       WATER  InletWa5
+ASSIGNMA       WATER  InletWa6
+ASSIGNMA       WATER  InletWa7
+ASSIGNMA       WATER  InletWa8
+ASSIGNMA       WATER  InletWa9
+ASSIGNMA       WATER  InletW10
+ASSIGNMA       WATER  InletW11
+ASSIGNMA       WATER  InletW12
+ASSIGNMA       WATER  OutletW1
+ASSIGNMA       WATER  OutletW2
+ASSIGNMA       WATER  OutletW3
+ASSIGNMA       WATER  OutletW4
+ASSIGNMA       WATER  OutletW5
+ASSIGNMA        LEAD  BeaPiInl
+ASSIGNMA       WATER  BeaPiInW
+ASSIGNMA        LEAD    VoInl1
+ASSIGNMA        LEAD    VoInl2
+ASSIGNMA        LEAD    VoInl3
+ASSIGNMA        LEAD    VoInl4
+ASSIGNMA        LEAD    VoInl5
+ASSIGNMA        LEAD    VoInl6
+ASSIGNMA        LEAD    VoInl7
+ASSIGNMA        LEAD    VoInl8
+ASSIGNMA        LEAD    VoInl9
+ASSIGNMA        LEAD   VoInl10
+ASSIGNMA        LEAD   VoInl11
+ASSIGNMA        LEAD   VoInl12
+ASSIGNMA        LEAD   VoInl13
+ASSIGNMA        LEAD   VoInl14
+ASSIGNMA        LEAD   VoInl15
+ASSIGNMA        LEAD   VoInl16
+ASSIGNMA        LEAD   VoInl17
+ASSIGNMA        LEAD   VoInl18
+ASSIGNMA        LEAD   VoInl19
+ASSIGNMA        LEAD   VoInl20
+ASSIGNMA        LEAD   VoInl21
+ASSIGNMA        LEAD   VoInl22
+ASSIGNMA        LEAD   VoInl23
+ASSIGNMA        LEAD   VoInl24
+ASSIGNMA       WATER   VoInlW1
+ASSIGNMA       WATER   VoInlW2
+ASSIGNMA       WATER   VoInlW3
+ASSIGNMA       WATER   VoInlW4
+ASSIGNMA       WATER   VoInlW5
+ASSIGNMA       WATER   VoInlW6
+ASSIGNMA       WATER   VoInlW7
+ASSIGNMA       WATER   VoInlW8
+ASSIGNMA       WATER   VoInlW9
+ASSIGNMA       WATER  VoInlW10
+ASSIGNMA       WATER  VoInlW11
+ASSIGNMA       WATER  VoInlW12
+ASSIGNMA       WATER  VoInlW13
+ASSIGNMA       WATER  VoInlW14
+ASSIGNMA       WATER  VoInlW15
+ASSIGNMA       WATER  VoInlW16
+ASSIGNMA       WATER  VoInlW17
+ASSIGNMA       WATER  VoInlW18
+ASSIGNMA       WATER  VoInlW19
+ASSIGNMA       WATER  VoInlW20
+ASSIGNMA       WATER  VoInlW21
+ASSIGNMA       WATER  VoInlW22
+ASSIGNMA       WATER  VoInlW23
+ASSIGNMA       WATER  VoInlW24
+ASSIGNMA        LEAD  TiTubHo1
+ASSIGNMA    TITANIUM      Tub5
+ASSIGNMA    TITANIUM      Tub1
+ASSIGNMA    TITANIUM      Tub2
+ASSIGNMA    TITANIUM      Tub3
+ASSIGNMA    TITANIUM      Tub4
+ASSIGNMA    TITANIUM      Tub6
+ASSIGNMA    TITANIUM      Tub7
+ASSIGNMA    TITANIUM      Tub8
+ASSIGNMA    TITANIUM      Tub9
+ASSIGNMA    TITANIUM     Tub10
+ASSIGNMA    TITANIUM     Tub11
+ASSIGNMA    TITANIUM     Tub12
+ASSIGNMA    TITANIUM     Tub13
+ASSIGNMA    TITANIUM     Tub14
 PHOTONUC          1.                        VACUUM     WATER        1.
 !point           0.0       0.0     -325.                              marker1
 !point          -30.       0.0      325.                              marker2
 !point         -180.       0.0      325.                              marker3
 !point         -105.       0.0      325.                              marker4
+!point           0.0       0.0     325.0                              marker5
+!point           0.0     -75.0    -325.0                              marker6
+!point         -30.0       0.0    -325.0                              marker7
+!point         -30.0     -75.0    -325.0                              marker8
 LAM-BIAS         0.0      0.02     WATER   NEUTRON                    INEPRI
 DISCARD        MUONS
 * Set the random number seed

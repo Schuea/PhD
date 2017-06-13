@@ -22,12 +22,14 @@ End
 
 # Geometry Information
 Geometry:
-	Frame.bsplit: 0.99
+	Frame.bsplit: 0.5
 	Frame.tsplit: 0.5
-	Frame.vsplit: 0.01
+	Frame.vsplit: 0.5
 
 	# Layer
-	Layer: Media
+	Layer: Drawing_xz
+		: True
+		._visible: True
 		Image: True
 		Image._visible: True
 		Image.file: TB-0067-300-00-A_xz_view.png
@@ -39,6 +41,37 @@ Geometry:
 		Options.shortcut: F3
 		Show._visible: True
 		layer: Media
+	End
+
+	# Layer
+	Layer: Media
+		: True
+		._visible: True
+		Image._visible: False
+		Image.file: TB-0067-300-00-A_xz_view.png
+		Image.marker: 3
+		Image.marker.0: 306.5 282.547619048 0.0 0.0 -325.0
+		Image.marker.1: 1534.42857143 338.476190476 -30.0 0.0 325.0
+		Image.marker.2: 1534.47619048 480.571428571 -105.0 0.0 325.0
+		Image.prompt: 1
+		Options.shortcut: F3
+		Show._visible: True
+		layer: Media
+	End
+
+	# Layer
+	Layer: Drawing_yz
+		: True
+		._visible: True
+		Image: True
+		Image._visible: True
+		Image.file: TB-0067-300-00-A_yz_view.png
+		Image.marker: 3
+		Image.marker.0: 212.523809524 251.523809524 0.0 0.0 -325.0
+		Image.marker.1: 1440.48179272 251.529411765 0.0 0.0 325.0
+		Image.marker.2: 212.542857143 393.466666667 0.0 -75.0 -325.0
+		Image.prompt: 1
+		Show._visible: True
 	End
 
 	# Layer
@@ -60,32 +93,16 @@ End
 Plot: Red
 	Format: .eps
 	Type:   Geometry
-	basisu: 1 0 0
-	basisv: 0 0 -1
+	basisu: -1 0 0
+	basisv: 0 1 0
 	boundaries: 1
-	coord: X-Z
-	extends: 100 0.125471
+	coord: X-Y
+	extends: 100 61.2296
 	labels: 1
 	layer: Media
-	origin: 0 0 0
+	origin: -0.949605 -12.6172 -8.42694
 	subtype: Material
 	title: GeoViewer Red plot
-End
-
-# Geometry plot "GeoViewer Green plot"
-Plot: Green
-	Format: .eps
-	Type:   Geometry
-	basisu: 1 0 0
-	basisv: 0 0 -1
-	boundaries: 1
-	coord: X-Z
-	extends: 100 0.125628
-	labels: 1
-	layer: Media
-	origin: 0 0 0
-	subtype: Material
-	title: GeoViewer Green plot
 End
 
 # Geometry plot "GeoViewer Blue plot"
@@ -96,10 +113,10 @@ Plot: Blue
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 515.978 325.468
+	extends: 11.2157 6.86731
 	labels: 1
-	layer: Media
-	origin: -30.2785 0 -69.9111
+	layer: Drawing_xz
+	origin: -9.10806 0 -81.9696
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -108,14 +125,30 @@ End
 Plot: Magenta
 	Format: .eps
 	Type:   Geometry
-	basisu: 1 0 0
-	basisv: 0 0 -1
+	basisu: 0 0 1
+	basisv: 0 1 0
 	boundaries: 1
-	coord: X-Z
-	extends: 100 7114.29
+	coord: Z-Y
+	extends: 100 61.3065
 	labels: 1
-	layer: Media
-	origin: 0 0 0
+	layer: Drawing_yz
+	origin: 0 -3.82554 -63.8422
 	subtype: Material
 	title: GeoViewer Magenta plot
+End
+
+# Geometry plot "GeoViewer Green plot"
+Plot: Green
+	Format: .eps
+	Type:   Geometry
+	basisu: 0 0 1
+	basisv: 0 1 0
+	boundaries: 1
+	coord: Z-Y
+	extends: 429.982 263.607
+	labels: 1
+	layer: Drawing_yz
+	origin: -30 -62.7598 24.2347
+	subtype: Material
+	title: GeoViewer Green plot
 End
