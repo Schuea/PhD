@@ -24,7 +24,9 @@ XYP WinPla1    -375.1
 YCC OutWinIn   -352. 0.5 10.
 YCC InWinIn    -352. 0.5 9.
 YCC OutTub1    -68. 0.0 29.
+YCC OutTub2    36. 0.0 29.
 YCC InTub1     -68. 0.0 28.
+YCC InTub2     36. 0.0 28.
 YCC TubOut1    -92. 3. 2.
 YCC TubIn1     -92. 3. 1.9
 YCC TubOut2    -92. -3. 2.
@@ -137,8 +139,6 @@ YCC TubOut55   -44. 3. 2.
 YCC TubIn55    -44. 3. 1.9
 YCC TubOut56   -44. -3. 2.
 YCC TubIn56    -44. -3. 1.9
-YCC OutTub2    36. 0.0 29.
-YCC InTub2     36. 0.0 28.
 YCC TubOut57   12. 3. 2.
 YCC TubIn57    12. 3. 1.9
 YCC TubOut58   12. -3. 2.
@@ -257,12 +257,12 @@ ZCC OutVort    0.0 0.0 25.
 ZCC InVort     0.0 0.0 24.
 XYP VortEnd1   -317.
 XYP VortEnd2   -316.
-XYP VortEnd3   -117.0
-XYP VortEnd4   -116.0
-XYP VortEnd5   -109.0
-XYP VortEnd6   -108.0
-XYP VortEnd7   129.0
-XYP VortEnd8   130.0
+XYP VortEnd3   -117.
+XYP VortEnd4   -116.
+XYP VortEnd5   -109.
+XYP VortEnd6   -108.
+XYP VortEnd7   129.
+XYP VortEnd8   130.
 XYP CuPlaPl1   143.95
 XYP CuPlaPl2   144.95
 XYP CuPlaPl3   159.5
@@ -285,110 +285,110 @@ XYP CuPlaP19   283.9
 XYP CuPlaP20   284.9
 XYP CuPlaP21   299.45
 XYP CuPlaP22   300.45
-XYP CuPlaP23   315.0
-XYP CuPlaP24   316.0
-YZP yPlane1    -42.0
-YZP yPlane2    -26.0
+XYP CuPlaP23   315.
+XYP CuPlaP24   316.
+YZP yPlane1    -42.
+YZP yPlane2    -26.
 YZP yPlane3    -20.5
 YZP yPlane4    -2.5
-YZP yPlane5    3.0
-YZP yPlane6    21.0
+YZP yPlane5    3.
+YZP yPlane6    21.
 YZP yPlane7    26.5
-RCC OuInlPi1   -133.0 0.0 -291.0 75.0 0.0 0.0 10.0
-RCC InInlPi1   -133.0 0.0 -291.0 75.0 0.0 0.0 9.0
-RCC OuInlPi2   -133.0 0.0 -221.0 75.0 0.0 0.0 10.0
-RCC InInlPi2   -133.0 0.0 -221.0 75.0 0.0 0.0 9.0
-RCC OuInlPi3   -133.0 0.0 -141.0 75.0 0.0 0.0 10.0
-RCC InInlPi3   -133.0 0.0 -141.0 75.0 0.0 0.0 9.0
-RCC OuInlPi4   -133.0 0.0 -68.0 75.0 0.0 0.0 10.0
-RCC InInlPi4   -133.0 0.0 -68.0 75.0 0.0 0.0 9.0
-RCC OuInlPi5   -133.0 0.0 32.0 75.0 0.0 0.0 10.0
-RCC InInlPi5   -133.0 0.0 32.0 75.0 0.0 0.0 9.0
-RCC OuInlPi6   -133.0 0.0 169.0 75.0 0.0 0.0 10.0
-RCC InInlPi6   -133.0 0.0 169.0 75.0 0.0 0.0 9.0
-RCC OuInlPi7   -133.0 0.0 289.0 75.0 0.0 0.0 10.0
-RCC InInlPi7   -133.0 0.0 289.0 75.0 0.0 0.0 9.0
-YZP InlPiEnd   -133.0
+RCC OuInlPi1   -133. 0.0 -291. 75. 0.0 0.0 10.
+RCC InInlPi1   -133. 0.0 -291. 75. 0.0 0.0 9.
+RCC OuInlPi2   -133. 0.0 -221. 75. 0.0 0.0 10.
+RCC InInlPi2   -133. 0.0 -221. 75. 0.0 0.0 9.
+RCC OuInlPi3   -133. 0.0 -141. 75. 0.0 0.0 10.
+RCC InInlPi3   -133. 0.0 -141. 75. 0.0 0.0 9.
+RCC OuInlPi4   -133. 0.0 -68. 75. 0.0 0.0 10.
+RCC InInlPi4   -133. 0.0 -68. 75. 0.0 0.0 9.
+RCC OuInlPi5   -133. 0.0 32. 75. 0.0 0.0 10.
+RCC InInlPi5   -133. 0.0 32. 75. 0.0 0.0 9.
+RCC OuInlPi6   -133. 0.0 169. 75. 0.0 0.0 10.
+RCC InInlPi6   -133. 0.0 169. 75. 0.0 0.0 9.
+RCC OuInlPi7   -133. 0.0 289. 75. 0.0 0.0 10.
+RCC InInlPi7   -133. 0.0 289. 75. 0.0 0.0 9.
+YZP InlPiEnd   -133.
 XYP MidVoPl1   -33.5
 XYP MidVoPl2   -32.5
 XYP MidVoPl3   -3.5
 XYP MidVoPl4   -2.5
 XYP MidVoPl5   69.5
 XYP MidVoPl6   70.5
-RCC OuVoInl1   -44.5 0.0 -311.0 22.0 0.0 0.0 3.0
-RCC InVoInl1   -44.5 0.0 -311.0 22.0 0.0 0.0 2.5
-RCC OuVoInl2   -44.5 0.0 -291.0 22.0 0.0 0.0 3.0
-RCC InVoInl2   -44.5 0.0 -291.0 22.0 0.0 0.0 2.5
-RCC OuVoInl3   -44.5 0.0 -271.0 22.0 0.0 0.0 3.0
-RCC InVoInl3   -44.5 0.0 -271.0 22.0 0.0 0.0 2.5
-RCC OuVoInl4   -44.5 0.0 -251.0 22.0 0.0 0.0 3.0
-RCC InVoInl4   -44.5 0.0 -251.0 22.0 0.0 0.0 2.5
-RCC OuVoInl5   -44.5 0.0 -231.0 22.0 0.0 0.0 3.0
-RCC InVoInl5   -44.5 0.0 -231.0 22.0 0.0 0.0 2.5
-RCC OuVoInl6   -44.5 0.0 -211.0 22.0 0.0 0.0 3.0
-RCC InVoInl6   -44.5 0.0 -211.0 22.0 0.0 0.0 2.5
-RCC OuVoInl7   -44.5 0.0 -191.0 22.0 0.0 0.0 3.0
-RCC InVoInl7   -44.5 0.0 -191.0 22.0 0.0 0.0 2.5
-RCC OuVoInl8   -44.5 0.0 -171.0 22.0 0.0 0.0 3.0
-RCC InVoInl8   -44.5 0.0 -171.0 22.0 0.0 0.0 2.5
-RCC OuVoInl9   -44.5 0.0 -151.0 22.0 0.0 0.0 3.0
-RCC InVoInl9   -44.5 0.0 -151.0 22.0 0.0 0.0 2.5
-RCC OuVoIn10   -44.5 0.0 -131.0 22.0 0.0 0.0 3.0
-RCC InVoIn10   -44.5 0.0 -131.0 22.0 0.0 0.0 2.5
-RCC OuVoIn11   -44.5 0.0 -28.0 22.0 0.0 0.0 3.0
-RCC InVoIn11   -44.5 0.0 -28.0 22.0 0.0 0.0 2.5
-RCC OuVoIn12   -44.5 0.0 -8.0 22.0 0.0 0.0 3.0
-RCC InVoIn12   -44.5 0.0 -8.0 22.0 0.0 0.0 2.5
-RCC OuVoIn13   -44.5 0.0 92.0 22.0 0.0 0.0 3.0
-RCC InVoIn13   -44.5 0.0 92.0 22.0 0.0 0.0 2.5
-RCC OuVoIn14   -44.5 0.0 112.0 22.0 0.0 0.0 3.0
-RCC InVoIn14   -44.5 0.0 112.0 22.0 0.0 0.0 2.5
-XZP yPiEnPl1   -100.0
-XZP yPiEnPl2   100.0
-ZCC OuVoJeY1   0.0 -43.0 10.0
-ZCC InVoJeY1   0.0 -43.0 9.0
-ZCC OuVoJeY2   -30.0 -53.0 10.0
-ZCC InVoJeY2   -30.0 -53.0 9.0
-RCC OuVoIn15   0.0 -35.5 -301.0 0.0 13.0 0.0 3.0
-RCC InVoIn15   0.0 -35.5 -301.0 0.0 13.0 0.0 2.5
-RCC OuVoIn16   0.0 -35.5 -281.0 0.0 13.0 0.0 3.0
-RCC InVoIn16   0.0 -35.5 -281.0 0.0 13.0 0.0 2.5
-RCC OuVoIn17   0.0 -35.5 -261.0 0.0 13.0 0.0 3.0
-RCC InVoIn17   0.0 -35.5 -261.0 0.0 13.0 0.0 2.5
-RCC OuVoIn18   0.0 -35.5 -241.0 0.0 13.0 0.0 3.0
-RCC InVoIn18   0.0 -35.5 -241.0 0.0 13.0 0.0 2.5
-RCC OuVoIn19   0.0 -35.5 -221.0 0.0 13.0 0.0 3.0
-RCC InVoIn19   0.0 -35.5 -221.0 0.0 13.0 0.0 2.5
-RCC OuVoIn20   0.0 -35.5 -201.0 0.0 13.0 0.0 3.0
-RCC InVoIn20   0.0 -35.5 -201.0 0.0 13.0 0.0 2.5
-RCC OuVoIn21   0.0 -35.5 -181.0 0.0 13.0 0.0 3.0
-RCC InVoIn21   0.0 -35.5 -181.0 0.0 13.0 0.0 2.5
-RCC OuVoIn22   0.0 -35.5 -161.0 0.0 13.0 0.0 3.0
-RCC InVoIn22   0.0 -35.5 -161.0 0.0 13.0 0.0 2.5
-RCC OuVoIn23   0.0 -35.5 -141.0 0.0 13.0 0.0 3.0
-RCC InVoIn23   0.0 -35.5 -141.0 0.0 13.0 0.0 2.5
-RCC OuVoIn24   0.0 -35.5 -121.0 0.0 13.0 0.0 3.0
-RCC InVoIn24   0.0 -35.5 -121.0 0.0 13.0 0.0 2.5
-RCC OuInlPi8   0.0 15.0 -291.0 0.0 85.0 0.0 10.0
-RCC InInlPi8   0.0 15.0 -291.0 0.0 85.0 0.0 9.0
-RCC OuInlPi9   0.0 15.0 -221.0 0.0 85.0 0.0 10.0
-RCC InInlPi9   0.0 15.0 -221.0 0.0 85.0 0.0 9.0
-RCC OuInlP10   0.0 15.0 -141.0 0.0 85.0 0.0 10.0
-RCC InInlP10   0.0 15.0 -141.0 0.0 85.0 0.0 9.0
-RCC OuInlP11   -30.0 -100.0 169.5 0.0 40.0 0.0 10.0
-RCC InInlP11   -30.0 -100.0 169.5 0.0 40.0 0.0 9.0
-RCC OuInlP12   -30.0 -100.0 289.0 0.0 40.0 0.0 10.0
-RCC InInlP12   -30.0 -100.0 289.0 0.0 40.0 0.0 9.0
-RCC OuDrain1   -30.0 70.0 -261.0 0.0 30.0 0.0 15.0
-RCC InDrain1   -30.0 70.0 -261.0 0.0 30.0 0.0 14.0
-RCC OuDrain2   -30.0 70.0 273.0 0.0 30.0 0.0 15.0
-RCC InDrain2   -30.0 70.0 273.0 0.0 30.0 0.0 14.0
-RCC OuDrain3   -30.0 -100.0 114.0 0.0 30.0 0.0 10.0
-RCC InDrain3   -30.0 -100.0 114.0 0.0 30.0 0.0 9.0
-RCC OuDrain4   -30.0 -100.0 -181.5 0.0 30.0 0.0 10.0
-RCC InDrain4   -30.0 -100.0 -181.5 0.0 30.0 0.0 9.0
-RCC OuDrain5   -30.0 -100.0 -280.5 0.0 30.0 0.0 10.0
-RCC InDrain5   -30.0 -100.0 -280.5 0.0 30.0 0.0 9.0
+RCC OuVoInl1   -44.5 0.0 -311. 22. 0.0 0.0 3.
+RCC InVoInl1   -44.5 0.0 -311. 22. 0.0 0.0 2.5
+RCC OuVoInl2   -44.5 0.0 -291. 22. 0.0 0.0 3.
+RCC InVoInl2   -44.5 0.0 -291. 22. 0.0 0.0 2.5
+RCC OuVoInl3   -44.5 0.0 -271. 22. 0.0 0.0 3.
+RCC InVoInl3   -44.5 0.0 -271. 22. 0.0 0.0 2.5
+RCC OuVoInl4   -44.5 0.0 -251. 22. 0.0 0.0 3.
+RCC InVoInl4   -44.5 0.0 -251. 22. 0.0 0.0 2.5
+RCC OuVoInl5   -44.5 0.0 -231. 22. 0.0 0.0 3.
+RCC InVoInl5   -44.5 0.0 -231. 22. 0.0 0.0 2.5
+RCC OuVoInl6   -44.5 0.0 -211. 22. 0.0 0.0 3.
+RCC InVoInl6   -44.5 0.0 -211. 22. 0.0 0.0 2.5
+RCC OuVoInl7   -44.5 0.0 -191. 22. 0.0 0.0 3.
+RCC InVoInl7   -44.5 0.0 -191. 22. 0.0 0.0 2.5
+RCC OuVoInl8   -44.5 0.0 -171. 22. 0.0 0.0 3.
+RCC InVoInl8   -44.5 0.0 -171. 22. 0.0 0.0 2.5
+RCC OuVoInl9   -44.5 0.0 -151. 22. 0.0 0.0 3.
+RCC InVoInl9   -44.5 0.0 -151. 22. 0.0 0.0 2.5
+RCC OuVoIn10   -44.5 0.0 -131. 22. 0.0 0.0 3.
+RCC InVoIn10   -44.5 0.0 -131. 22. 0.0 0.0 2.5
+RCC OuVoIn11   -44.5 0.0 -28. 22. 0.0 0.0 3.
+RCC InVoIn11   -44.5 0.0 -28. 22. 0.0 0.0 2.5
+RCC OuVoIn12   -44.5 0.0 -8. 22. 0.0 0.0 3.
+RCC InVoIn12   -44.5 0.0 -8. 22. 0.0 0.0 2.5
+RCC OuVoIn13   -44.5 0.0 92. 22. 0.0 0.0 3.
+RCC InVoIn13   -44.5 0.0 92. 22. 0.0 0.0 2.5
+RCC OuVoIn14   -44.5 0.0 112. 22. 0.0 0.0 3.
+RCC InVoIn14   -44.5 0.0 112. 22. 0.0 0.0 2.5
+XZP yPiEnPl1   -100.
+XZP yPiEnPl2   100.
+ZCC OuVoJeY1   0.0 -43. 10.
+ZCC InVoJeY1   0.0 -43. 9.
+ZCC OuVoJeY2   -30. -53. 10.
+ZCC InVoJeY2   -30. -53. 9.
+RCC OuVoIn15   0.0 -35.5 -301. 0.0 13. 0.0 3.
+RCC InVoIn15   0.0 -35.5 -301. 0.0 13. 0.0 2.5
+RCC OuVoIn16   0.0 -35.5 -281. 0.0 13. 0.0 3.
+RCC InVoIn16   0.0 -35.5 -281. 0.0 13. 0.0 2.5
+RCC OuVoIn17   0.0 -35.5 -261. 0.0 13. 0.0 3.
+RCC InVoIn17   0.0 -35.5 -261. 0.0 13. 0.0 2.5
+RCC OuVoIn18   0.0 -35.5 -241. 0.0 13. 0.0 3.
+RCC InVoIn18   0.0 -35.5 -241. 0.0 13. 0.0 2.5
+RCC OuVoIn19   0.0 -35.5 -221. 0.0 13. 0.0 3.
+RCC InVoIn19   0.0 -35.5 -221. 0.0 13. 0.0 2.5
+RCC OuVoIn20   0.0 -35.5 -201. 0.0 13. 0.0 3.
+RCC InVoIn20   0.0 -35.5 -201. 0.0 13. 0.0 2.5
+RCC OuVoIn21   0.0 -35.5 -181. 0.0 13. 0.0 3.
+RCC InVoIn21   0.0 -35.5 -181. 0.0 13. 0.0 2.5
+RCC OuVoIn22   0.0 -35.5 -161. 0.0 13. 0.0 3.
+RCC InVoIn22   0.0 -35.5 -161. 0.0 13. 0.0 2.5
+RCC OuVoIn23   0.0 -35.5 -141. 0.0 13. 0.0 3.
+RCC InVoIn23   0.0 -35.5 -141. 0.0 13. 0.0 2.5
+RCC OuVoIn24   0.0 -35.5 -121. 0.0 13. 0.0 3.
+RCC InVoIn24   0.0 -35.5 -121. 0.0 13. 0.0 2.5
+RCC OuInlPi8   0.0 15. -291. 0.0 85. 0.0 10.
+RCC InInlPi8   0.0 15. -291. 0.0 85. 0.0 9.
+RCC OuInlPi9   0.0 15. -221. 0.0 85. 0.0 10.
+RCC InInlPi9   0.0 15. -221. 0.0 85. 0.0 9.
+RCC OuInlP10   0.0 15. -141. 0.0 85. 0.0 10.
+RCC InInlP10   0.0 15. -141. 0.0 85. 0.0 9.
+RCC OuInlP11   -30. -100. 169.5 0.0 40. 0.0 10.
+RCC InInlP11   -30. -100. 169.5 0.0 40. 0.0 9.
+RCC OuInlP12   -30. -100. 289. 0.0 40. 0.0 10.
+RCC InInlP12   -30. -100. 289. 0.0 40. 0.0 9.
+RCC OuDrain1   -30. 70. -261. 0.0 30. 0.0 15.
+RCC InDrain1   -30. 70. -261. 0.0 30. 0.0 14.
+RCC OuDrain2   -30. 70. 273. 0.0 30. 0.0 15.
+RCC InDrain2   -30. 70. 273. 0.0 30. 0.0 14.
+RCC OuDrain3   -30. -100. 114. 0.0 30. 0.0 10.
+RCC InDrain3   -30. -100. 114. 0.0 30. 0.0 9.
+RCC OuDrain4   -30. -100. -181.5 0.0 30. 0.0 10.
+RCC InDrain4   -30. -100. -181.5 0.0 30. 0.0 9.
+RCC OuDrain5   -30. -100. -280.5 0.0 30. 0.0 10.
+RCC InDrain5   -30. -100. -280.5 0.0 30. 0.0 9.
 XZP xPlane1    -42.5
 XZP xPlane2    -26.5
 XZP xPlane3    -20.5
@@ -396,17 +396,12 @@ XZP xPlane4    -2.5
 XZP xPlane5    3.5
 XZP xPlane6    21.5
 XZP xPlane7    27.5
-XZP xPlane8    44.0
-RPP Airbox     -425.0 75.0 -200.0 200.0 -775.0 425.0
-RPP Blackbox   -426.0 76.0 -201.0 201.0 -776.0 426.0
-RCC OuInlP13   -133.0 0.0 -221.0 75.0 0.0 0.0 10.0
-ZCC InWaJeX1   -52.3 0.0 9.
-RCC InInlP13   -133.0 0.0 -221.0 75.0 0.0 0.0 9.0
-RCC OuInlP14   -133.0 0.0 -141.0 75.0 0.0 0.0 10.0
-RCC InInlP14   -133.0 0.0 -141.0 75.0 0.0 0.0 9.0
+XZP xPlane8    44.
+RPP Airbox     -425. 75. -200. 200. -775. 425.
+RPP Blackbox   -426. 76. -201. 201. -776. 426.
 END
-BeaPipe2     5 +InTaEn1 +OutBeaPi -InBeaPi -WinPla2 -OutWinIn
 BeaPipe1     5 +OutBeaPi +WinPla1 +Airbox -InBeaPi
+BeaPipe2     5 +InTaEn1 +OutBeaPi -InBeaPi -WinPla2 -OutWinIn
 Blackbod     5 +Blackbox -Airbox
 BeaPiVa      5 +InBeaPi +WinPla1 +Airbox
 Window       5 +OutBeaPi +WinPla2 -WinPla1
@@ -426,7 +421,7 @@ WaJeX3       5 +OutWaJeX -InWaJeX -CuPlaPl2 +CuPlaP23 -OuInlPi6 -OuInlPi7
                | +OutWaJeX +CuPlaP24 -CuPlaP23
 VorteWa1     5 +InVort +VortEnd3 -VortEnd2
 Vortex1      5 +OutVort -InVort -VortEnd2 +VortEnd3 -OuVoInl1 -OuVoInl2 -OuVoInl3 -OuVoInl4 -OuVoInl5 -OuVoInl6
-               -OuVoInl7 -OuVoInl8 -OuVoInl9 -OuVoIn10 -OuVoIn15 -OuVoIn16 -OuVoIn17 -OuVoIn18 -OuVoIn19 
+               -OuVoInl7 -OuVoInl8 -OuVoInl9 -OuVoIn10 -OuVoIn15 -OuVoIn16 -OuVoIn17 -OuVoIn18 -OuVoIn19
                -OuVoIn20 -OuVoIn21 -OuVoIn22 -OuVoIn23 -OuVoIn24 -OuInlPi8 -OuInlPi9 -OuInlP10
                | +OutVort +VortEnd2 -VortEnd1
                | +OutVort +VortEnd4 -VortEnd3
@@ -531,13 +526,11 @@ VoInlW21     5 +InVoIn21 -InVort -InVoJeY1
 VoInlW22     5 +InVoIn22 -InVort -InVoJeY1
 VoInlW23     5 +InVoIn23 -InVort -InVoJeY1
 VoInlW24     5 +InVoIn24 -InVort -InVoJeY1
-TiTubHo1     5 +OutTub1 +yPiEnPl2 -InTub1 -xPlane8
-               | +OutTub1 +xPlane1 -InTub1 -yPiEnPl1
-Tub5         5 -TubIn5 +yPiEnPl2 -yPiEnPl1 +TubOut5
 Tub1         5 -TubIn1 +yPiEnPl2 -yPiEnPl1 +TubOut1
 Tub2         5 -TubIn2 +yPiEnPl2 -yPiEnPl1 +TubOut2
 Tub3         5 -TubIn3 +yPiEnPl2 -yPiEnPl1 +TubOut3
 Tub4         5 -TubIn4 +yPiEnPl2 -yPiEnPl1 +TubOut4
+Tub5         5 -TubIn5 +yPiEnPl2 -yPiEnPl1 +TubOut5
 Tub6         5 -TubIn6 +yPiEnPl2 -yPiEnPl1 +TubOut6
 Tub7         5 -TubIn7 +yPiEnPl2 -yPiEnPl1 +TubOut7
 Tub8         5 -TubIn8 +yPiEnPl2 -yPiEnPl1 +TubOut8
@@ -547,6 +540,452 @@ Tub11        5 -TubIn11 +yPiEnPl2 -yPiEnPl1 +TubOut11
 Tub12        5 -TubIn12 +yPiEnPl2 -yPiEnPl1 +TubOut12
 Tub13        5 -TubIn13 +yPiEnPl2 -yPiEnPl1 +TubOut13
 Tub14        5 -TubIn14 +yPiEnPl2 -yPiEnPl1 +TubOut14
+Tub15        5 -TubIn15 +yPiEnPl2 -yPiEnPl1 +TubOut15
+Tub16        5 -TubIn16 +yPiEnPl2 -yPiEnPl1 +TubOut16
+Tub17        5 -TubIn17 +yPiEnPl2 -yPiEnPl1 +TubOut17
+Tub18        5 -TubIn18 +yPiEnPl2 -yPiEnPl1 +TubOut18
+Tub19        5 -TubIn19 +yPiEnPl2 -yPiEnPl1 +TubOut19
+Tub20        5 -TubIn20 +yPiEnPl2 -yPiEnPl1 +TubOut20
+Tub21        5 -TubIn21 +yPiEnPl2 -yPiEnPl1 +TubOut21
+Tub22        5 -TubIn22 +yPiEnPl2 -yPiEnPl1 +TubOut22
+Tub23        5 -TubIn23 +yPiEnPl2 -yPiEnPl1 +TubOut23
+Tub24        5 -TubIn24 +yPiEnPl2 -yPiEnPl1 +TubOut24
+Tub25        5 -TubIn25 +yPiEnPl2 -yPiEnPl1 +TubOut25
+Tub26        5 -TubIn26 +yPiEnPl2 -yPiEnPl1 +TubOut26
+Tub27        5 -TubIn27 +yPiEnPl2 -yPiEnPl1 +TubOut27
+Tub28        5 -TubIn28 +yPiEnPl2 -yPiEnPl1 +TubOut28
+Tub29        5 -TubIn29 +yPiEnPl2 -yPiEnPl1 +TubOut29
+Tub30        5 -TubIn30 +yPiEnPl2 -yPiEnPl1 +TubOut30
+Tub31        5 -TubIn31 +yPiEnPl2 -yPiEnPl1 +TubOut31
+Tub32        5 -TubIn32 +yPiEnPl2 -yPiEnPl1 +TubOut32
+Tub33        5 -TubIn33 +yPiEnPl2 -yPiEnPl1 +TubOut33
+Tub34        5 -TubIn34 +yPiEnPl2 -yPiEnPl1 +TubOut34
+Tub35        5 -TubIn35 +yPiEnPl2 -yPiEnPl1 +TubOut35
+Tub36        5 -TubIn36 +yPiEnPl2 -yPiEnPl1 +TubOut36
+Tub37        5 -TubIn37 +yPiEnPl2 -yPiEnPl1 +TubOut37
+Tub38        5 -TubIn38 +yPiEnPl2 -yPiEnPl1 +TubOut38
+Tub39        5 -TubIn39 +yPiEnPl2 -yPiEnPl1 +TubOut39
+Tub40        5 -TubIn40 +yPiEnPl2 -yPiEnPl1 +TubOut40
+Tub41        5 -TubIn41 +yPiEnPl2 -yPiEnPl1 +TubOut41
+Tub42        5 -TubIn42 +yPiEnPl2 -yPiEnPl1 +TubOut42
+Tub43        5 -TubIn43 +yPiEnPl2 -yPiEnPl1 +TubOut43
+Tub44        5 -TubIn44 +yPiEnPl2 -yPiEnPl1 +TubOut44
+Tub45        5 -TubIn45 +yPiEnPl2 -yPiEnPl1 +TubOut45
+Tub46        5 -TubIn46 +yPiEnPl2 -yPiEnPl1 +TubOut46
+Tub47        5 -TubIn47 +yPiEnPl2 -yPiEnPl1 +TubOut47
+Tub48        5 -TubIn48 +yPiEnPl2 -yPiEnPl1 +TubOut48
+Tub49        5 -TubIn49 +yPiEnPl2 -yPiEnPl1 +TubOut49
+Tub50        5 -TubIn50 +yPiEnPl2 -yPiEnPl1 +TubOut50
+Tub51        5 -TubIn51 +yPiEnPl2 -yPiEnPl1 +TubOut51
+Tub52        5 -TubIn52 +yPiEnPl2 -yPiEnPl1 +TubOut52
+Tub53        5 -TubIn53 +yPiEnPl2 -yPiEnPl1 +TubOut53
+Tub54        5 -TubIn54 +yPiEnPl2 -yPiEnPl1 +TubOut54
+Tub55        5 -TubIn55 +yPiEnPl2 -yPiEnPl1 +TubOut55
+Tub56        5 -TubIn56 +yPiEnPl2 -yPiEnPl1 +TubOut56
+Tub57        5 -TubIn57 +yPiEnPl2 -yPiEnPl1 +TubOut57
+Tub58        5 -TubIn58 +yPiEnPl2 -yPiEnPl1 +TubOut58
+Tub59        5 -TubIn59 +yPiEnPl2 -yPiEnPl1 +TubOut59
+Tub60        5 -TubIn60 +yPiEnPl2 -yPiEnPl1 +TubOut60
+Tub61        5 -TubIn61 +yPiEnPl2 -yPiEnPl1 +TubOut61
+Tub62        5 -TubIn62 +yPiEnPl2 -yPiEnPl1 +TubOut62
+Tub63        5 -TubIn63 +yPiEnPl2 -yPiEnPl1 +TubOut63
+Tub64        5 -TubIn64 +yPiEnPl2 -yPiEnPl1 +TubOut64
+Tub65        5 -TubIn65 +yPiEnPl2 -yPiEnPl1 +TubOut65
+Tub66        5 -TubIn66 +yPiEnPl2 -yPiEnPl1 +TubOut66
+Tub67        5 -TubIn67 +yPiEnPl2 -yPiEnPl1 +TubOut67
+Tub68        5 -TubIn68 +yPiEnPl2 -yPiEnPl1 +TubOut68
+Tub69        5 -TubIn69 +yPiEnPl2 -yPiEnPl1 +TubOut69
+Tub70        5 -TubIn70 +yPiEnPl2 -yPiEnPl1 +TubOut70
+Tub71        5 -TubIn71 +yPiEnPl2 -yPiEnPl1 +TubOut71
+Tub72        5 -TubIn72 +yPiEnPl2 -yPiEnPl1 +TubOut72
+Tub73        5 -TubIn73 +yPiEnPl2 -yPiEnPl1 +TubOut73
+Tub74        5 -TubIn74 +yPiEnPl2 -yPiEnPl1 +TubOut74
+Tub75        5 -TubIn75 +yPiEnPl2 -yPiEnPl1 +TubOut75
+Tub76        5 -TubIn76 +yPiEnPl2 -yPiEnPl1 +TubOut76
+Tub77        5 -TubIn77 +yPiEnPl2 -yPiEnPl1 +TubOut77
+Tub78        5 -TubIn78 +yPiEnPl2 -yPiEnPl1 +TubOut78
+Tub79        5 -TubIn79 +yPiEnPl2 -yPiEnPl1 +TubOut79
+Tub80        5 -TubIn80 +yPiEnPl2 -yPiEnPl1 +TubOut80
+Tub81        5 -TubIn81 +yPiEnPl2 -yPiEnPl1 +TubOut81
+Tub82        5 -TubIn82 +yPiEnPl2 -yPiEnPl1 +TubOut82
+Tub83        5 -TubIn83 +yPiEnPl2 -yPiEnPl1 +TubOut83
+Tub84        5 -TubIn84 +yPiEnPl2 -yPiEnPl1 +TubOut84
+Tub85        5 -TubIn85 +yPiEnPl2 -yPiEnPl1 +TubOut85
+Tub86        5 -TubIn86 +yPiEnPl2 -yPiEnPl1 +TubOut86
+Tub87        5 -TubIn87 +yPiEnPl2 -yPiEnPl1 +TubOut87
+Tub88        5 -TubIn88 +yPiEnPl2 -yPiEnPl1 +TubOut88
+Tub89        5 -TubIn89 +yPiEnPl2 -yPiEnPl1 +TubOut89
+Tub90        5 -TubIn90 +yPiEnPl2 -yPiEnPl1 +TubOut90
+Tub91        5 -TubIn91 +yPiEnPl2 -yPiEnPl1 +TubOut91
+Tub92        5 -TubIn92 +yPiEnPl2 -yPiEnPl1 +TubOut92
+Tub93        5 -TubIn93 +yPiEnPl2 -yPiEnPl1 +TubOut93
+Tub94        5 -TubIn94 +yPiEnPl2 -yPiEnPl1 +TubOut94
+Tub95        5 -TubIn95 +yPiEnPl2 -yPiEnPl1 +TubOut95
+Tub96        5 -TubIn96 +yPiEnPl2 -yPiEnPl1 +TubOut96
+Tub97        5 -TubIn97 +yPiEnPl2 -yPiEnPl1 +TubOut97
+Tub98        5 -TubIn98 +yPiEnPl2 -yPiEnPl1 +TubOut98
+Tub99        5 -TubIn99 +yPiEnPl2 -yPiEnPl1 +TubOut99
+Tub100       5 +TubOu100 +yPiEnPl2 -TubIn100 -yPiEnPl1
+Tub101       5 +TubOu101 +yPiEnPl2 -TubIn101 -yPiEnPl1
+Tub102       5 +TubOu102 +yPiEnPl2 -TubIn102 -yPiEnPl1
+Tub103       5 +TubOu103 +yPiEnPl2 -TubIn103 -yPiEnPl1
+Tub104       5 +TubOu104 +yPiEnPl2 -TubIn104 -yPiEnPl1
+Tub105       5 +TubOu105 +yPiEnPl2 -TubIn105 -yPiEnPl1
+Tub106       5 +TubOu106 +yPiEnPl2 -TubIn106 -yPiEnPl1
+Tub107       5 +TubOu107 +yPiEnPl2 -TubIn107 -yPiEnPl1
+Tub108       5 +TubOu108 +yPiEnPl2 -TubIn108 -yPiEnPl1
+Tub109       5 +TubOu109 +yPiEnPl2 -TubIn109 -yPiEnPl1
+Tub110       5 +TubOu110 +yPiEnPl2 -TubIn110 -yPiEnPl1
+Tub111       5 +TubOu111 +yPiEnPl2 -TubIn111 -yPiEnPl1
+Tub112       5 +TubOu112 +yPiEnPl2 -TubIn112 -yPiEnPl1
+TubWa1       5 +TubIn1 +yPiEnPl2 -yPiEnPl1
+TubWa2       5 +TubIn2 +yPiEnPl2 -yPiEnPl1
+TubWa3       5 +TubIn3 +yPiEnPl2 -yPiEnPl1
+TubWa4       5 +TubIn4 +yPiEnPl2 -yPiEnPl1
+TubWa5       5 +TubIn5 +yPiEnPl2 -yPiEnPl1
+TubWa6       5 +TubIn6 +yPiEnPl2 -yPiEnPl1
+TubWa7       5 +TubIn7 +yPiEnPl2 -yPiEnPl1
+TubWa8       5 +TubIn8 +yPiEnPl2 -yPiEnPl1
+TubWa9       5 +TubIn9 +yPiEnPl2 -yPiEnPl1
+TubWa10      5 +TubIn10 +yPiEnPl2 -yPiEnPl1
+TubWa11      5 +TubIn11 +yPiEnPl2 -yPiEnPl1
+TubWa12      5 +TubIn12 +yPiEnPl2 -yPiEnPl1
+TubWa13      5 +TubIn13 +yPiEnPl2 -yPiEnPl1
+TubWa14      5 +TubIn14 +yPiEnPl2 -yPiEnPl1
+TubWa15      5 +TubIn15 +yPiEnPl2 -yPiEnPl1
+TubWa16      5 +TubIn16 +yPiEnPl2 -yPiEnPl1
+TubWa17      5 +TubIn17 +yPiEnPl2 -yPiEnPl1
+TubWa18      5 +TubIn18 +yPiEnPl2 -yPiEnPl1
+TubWa19      5 +TubIn19 +yPiEnPl2 -yPiEnPl1
+TubWa20      5 +TubIn20 +yPiEnPl2 -yPiEnPl1
+TubWa21      5 +TubIn21 +yPiEnPl2 -yPiEnPl1
+TubWa22      5 +TubIn22 +yPiEnPl2 -yPiEnPl1
+TubWa23      5 +TubIn23 +yPiEnPl2 -yPiEnPl1
+TubWa24      5 +TubIn24 +yPiEnPl2 -yPiEnPl1
+TubWa25      5 +TubIn25 +yPiEnPl2 -yPiEnPl1
+TubWa26      5 +TubIn26 +yPiEnPl2 -yPiEnPl1
+TubWa27      5 +TubIn27 +yPiEnPl2 -yPiEnPl1
+TubWa28      5 +TubIn28 +yPiEnPl2 -yPiEnPl1
+TubWa29      5 +TubIn29 +yPiEnPl2 -yPiEnPl1
+TubWa30      5 +TubIn30 +yPiEnPl2 -yPiEnPl1
+TubWa31      5 +TubIn31 +yPiEnPl2 -yPiEnPl1
+TubWa32      5 +TubIn32 +yPiEnPl2 -yPiEnPl1
+TubWa33      5 +TubIn33 +yPiEnPl2 -yPiEnPl1
+TubWa34      5 +TubIn34 +yPiEnPl2 -yPiEnPl1
+TubWa35      5 +TubIn35 +yPiEnPl2 -yPiEnPl1
+TubWa36      5 +TubIn36 +yPiEnPl2 -yPiEnPl1
+TubWa37      5 +TubIn37 +yPiEnPl2 -yPiEnPl1
+TubWa38      5 +TubIn38 +yPiEnPl2 -yPiEnPl1
+TubWa39      5 +TubIn39 +yPiEnPl2 -yPiEnPl1
+TubWa40      5 +TubIn40 +yPiEnPl2 -yPiEnPl1
+TubWa41      5 +TubIn41 +yPiEnPl2 -yPiEnPl1
+TubWa42      5 +TubIn42 +yPiEnPl2 -yPiEnPl1
+TubWa43      5 +TubIn43 +yPiEnPl2 -yPiEnPl1
+TubWa44      5 +TubIn44 +yPiEnPl2 -yPiEnPl1
+TubWa45      5 +TubIn45 +yPiEnPl2 -yPiEnPl1
+TubWa46      5 +TubIn46 +yPiEnPl2 -yPiEnPl1
+TubWa47      5 +TubIn47 +yPiEnPl2 -yPiEnPl1
+TubWa48      5 +TubIn48 +yPiEnPl2 -yPiEnPl1
+TubWa49      5 +TubIn49 +yPiEnPl2 -yPiEnPl1
+TubWa50      5 +TubIn50 +yPiEnPl2 -yPiEnPl1
+TubWa51      5 +TubIn51 +yPiEnPl2 -yPiEnPl1
+TubWa52      5 +TubIn52 +yPiEnPl2 -yPiEnPl1
+TubWa53      5 +TubIn53 +yPiEnPl2 -yPiEnPl1
+TubWa54      5 +TubIn54 +yPiEnPl2 -yPiEnPl1
+TubWa55      5 +TubIn55 +yPiEnPl2 -yPiEnPl1
+TubWa56      5 +TubIn56 +yPiEnPl2 -yPiEnPl1
+TubWa57      5 +TubIn57 +yPiEnPl2 -yPiEnPl1
+TubWa58      5 +TubIn58 +yPiEnPl2 -yPiEnPl1
+TubWa59      5 +TubIn59 +yPiEnPl2 -yPiEnPl1
+TubWa60      5 +TubIn60 +yPiEnPl2 -yPiEnPl1
+TubWa61      5 +TubIn61 +yPiEnPl2 -yPiEnPl1
+TubWa62      5 +TubIn62 +yPiEnPl2 -yPiEnPl1
+TubWa63      5 +TubIn63 +yPiEnPl2 -yPiEnPl1
+TubWa64      5 +TubIn64 +yPiEnPl2 -yPiEnPl1
+TubWa65      5 +TubIn65 +yPiEnPl2 -yPiEnPl1
+TubWa66      5 +TubIn66 +yPiEnPl2 -yPiEnPl1
+TubWa67      5 +TubIn67 +yPiEnPl2 -yPiEnPl1
+TubWa68      5 +TubIn68 +yPiEnPl2 -yPiEnPl1
+TubWa69      5 +TubIn69 +yPiEnPl2 -yPiEnPl1
+TubWa70      5 +TubIn70 +yPiEnPl2 -yPiEnPl1
+TubWa71      5 +TubIn71 +yPiEnPl2 -yPiEnPl1
+TubWa72      5 +TubIn72 +yPiEnPl2 -yPiEnPl1
+TubWa73      5 +TubIn73 +yPiEnPl2 -yPiEnPl1
+TubWa74      5 +TubIn74 +yPiEnPl2 -yPiEnPl1
+TubWa75      5 +TubIn75 +yPiEnPl2 -yPiEnPl1
+TubWa76      5 +TubIn76 +yPiEnPl2 -yPiEnPl1
+TubWa77      5 +TubIn77 +yPiEnPl2 -yPiEnPl1
+TubWa78      5 +TubIn78 +yPiEnPl2 -yPiEnPl1
+TubWa79      5 +TubIn79 +yPiEnPl2 -yPiEnPl1
+TubWa80      5 +TubIn80 +yPiEnPl2 -yPiEnPl1
+TubWa81      5 +TubIn81 +yPiEnPl2 -yPiEnPl1
+TubWa82      5 +TubIn82 +yPiEnPl2 -yPiEnPl1
+TubWa83      5 +TubIn83 +yPiEnPl2 -yPiEnPl1
+TubWa84      5 +TubIn84 +yPiEnPl2 -yPiEnPl1
+TubWa85      5 +TubIn85 +yPiEnPl2 -yPiEnPl1
+TubWa86      5 +TubIn86 +yPiEnPl2 -yPiEnPl1
+TubWa87      5 +TubIn87 +yPiEnPl2 -yPiEnPl1
+TubWa88      5 +TubIn88 +yPiEnPl2 -yPiEnPl1
+TubWa89      5 +TubIn89 +yPiEnPl2 -yPiEnPl1
+TubWa90      5 +TubIn90 +yPiEnPl2 -yPiEnPl1
+TubWa91      5 +TubIn91 +yPiEnPl2 -yPiEnPl1
+TubWa92      5 +TubIn92 +yPiEnPl2 -yPiEnPl1
+TubWa93      5 +TubIn93 +yPiEnPl2 -yPiEnPl1
+TubWa94      5 +TubIn94 +yPiEnPl2 -yPiEnPl1
+TubWa95      5 +TubIn95 +yPiEnPl2 -yPiEnPl1
+TubWa96      5 +TubIn96 +yPiEnPl2 -yPiEnPl1
+TubWa97      5 +TubIn97 +yPiEnPl2 -yPiEnPl1
+TubWa98      5 +TubIn98 +yPiEnPl2 -yPiEnPl1
+TubWa99      5 +TubIn99 +yPiEnPl2 -yPiEnPl1
+TubWa100     5 +TubIn100 +yPiEnPl2 -yPiEnPl1
+TubWa101     5 +TubIn101 +yPiEnPl2 -yPiEnPl1
+TubWa102     5 +TubIn102 +yPiEnPl2 -yPiEnPl1
+TubWa103     5 +TubIn103 +yPiEnPl2 -yPiEnPl1
+TubWa104     5 +TubIn104 +yPiEnPl2 -yPiEnPl1
+TubWa105     5 +TubIn105 +yPiEnPl2 -yPiEnPl1
+TubWa106     5 +TubIn106 +yPiEnPl2 -yPiEnPl1
+TubWa107     5 +TubIn107 +yPiEnPl2 -yPiEnPl1
+TubWa108     5 +TubIn108 +yPiEnPl2 -yPiEnPl1
+TubWa109     5 +TubIn109 +yPiEnPl2 -yPiEnPl1
+TubWa110     5 +TubIn110 +yPiEnPl2 -yPiEnPl1
+TubWa111     5 +TubIn111 +yPiEnPl2 -yPiEnPl1
+TubWa112     5 +TubIn112 +yPiEnPl2 -yPiEnPl1
+TiTubHo1     5 +OutTub1 +yPiEnPl2 -InTub1 -xPlane8
+               | +OutTub1 +xPlane1 -InTub1 -yPiEnPl1
+TiTubHo2     5 +OutTub2 +yPiEnPl2 -InTub2 -xPlane8
+               | +OutTub2 +xPlane1 -InTub2 -yPiEnPl1
+TiTuHoW1     5 +InTub1 +yPiEnPl2 -yPiEnPl1 -TubOut1 -TubOut2 -TubOut3 -TubOut4 -TubOut5 -TubOut6 -TubOut7
+               -TubOut8 -TubOut9 -TubOut10 -TubOut11 -TubOut12 -TubOut13 -TubOut14 -TubOut15 -TubOut16 -TubOut17
+               -TubOut18 -TubOut19 -TubOut20 -TubOut21 -TubOut22 -TubOut23 -TubOut24 -TubOut25 -TubOut26
+               -TubOut27 -TubOut28 -TubOut29 -TubOut30 -TubOut31 -TubOut32 -TubOut33 -TubOut34 -TubOut35 -TubOut36
+               -TubOut37 -TubOut38 -TubOut39 -TubOut40 -TubOut41 -TubOut42 -TubOut43 -TubOut44 -TubOut45
+               -TubOut46 -TubOut47 -TubOut48 -TubOut49 -TubOut50 -TubOut51 -TubOut52 -TubOut53 -TubOut54
+               -TubOut55 -TubOut56
+TiTuHoW2     5 +InTub2 +yPiEnPl2 -yPiEnPl1 -TubOut57 -TubOut58 -TubOut59 -TubOut60 -TubOut61 -TubOut62
+               -TubOut63 -TubOut64 -TubOut65 -TubOut66 -TubOut67 -TubOut68 -TubOut69 -TubOut70 -TubOut71
+               -TubOut72 -TubOut73 -TubOut74 -TubOut75 -TubOut76 -TubOut77 -TubOut78 -TubOut79 -TubOut80
+               -TubOut81 -TubOut82 -TubOut83 -TubOut84 -TubOut85 -TubOut86 -TubOut87 -TubOut88 -TubOut89
+               -TubOut90 -TubOut91 -TubOut92 -TubOut93 -TubOut94 -TubOut95 -TubOut96 -TubOut97 -TubOut98
+               -TubOut99 -TubOu100 -TubOu101 -TubOu102 -TubOu103 -TubOu104 -TubOu105 -TubOu106
+               -TubOu107 -TubOu108 -TubOu109 -TubOu110 -TubOu111 -TubOu112
+Tank         5 +OutTank +InTaEn1 -OutTaEn1 -OutBeaPi
+               | +OutTank +OutTaEn2 -InTaEn2
+               | +OutTank +InTaEn2 -InTaEn1 -InTank -OuInlPi1 -OuInlPi2 -OuInlPi3 -OuInlPi4 -OuInlPi5 -OuInlPi6
+               -OuInlPi7 -OuInlPi8 -OuInlPi9 -OuInlP10 -OuInlP11 -OuInlP12 -OuDrain1 -OuDrain2 -OuDrain3
+               -OuDrain4 -OuDrain5 -OutTub1  -OutTub2
+CuPlate1     5 +InTank +CuPlaPl2 +xPlane8 -CuPlaPl1 -yPlane7 -xPlane7
+               | +InTank +CuPlaPl2 +xPlane6 -CuPlaPl1 -yPlane7 -xPlane5
+               | +InTank +CuPlaPl2 +xPlane4 -CuPlaPl1 -yPlane7 -xPlane3
+               | +InTank +CuPlaPl2 +xPlane2 -CuPlaPl1 -yPlane7 -xPlane1
+               | +CuPlaPl2 +yPlane6 +xPlane8 -CuPlaPl1 -yPlane5 -xPlane7
+               | +CuPlaPl2 +yPlane6 +xPlane6 -CuPlaPl1 -yPlane5 -xPlane5
+               | +CuPlaPl2 +yPlane6 +xPlane4 -CuPlaPl1 -yPlane5 -xPlane3
+               | +CuPlaPl2 +yPlane6 +xPlane2 -CuPlaPl1 -yPlane5 -xPlane1
+               | +CuPlaPl2 +yPlane4 +xPlane8 -CuPlaPl1 -yPlane3 -xPlane7
+               | +CuPlaPl2 +yPlane4 +xPlane6 -CuPlaPl1 -yPlane3 -xPlane5
+               | +CuPlaPl2 +yPlane4 +xPlane4 -CuPlaPl1 -yPlane3 -xPlane3
+               | +CuPlaPl2 +yPlane4 +xPlane2 -CuPlaPl1 -yPlane3 -xPlane1
+               | +CuPlaPl2 +yPlane2 +xPlane8 -CuPlaPl1 -yPlane1 -xPlane7
+               | +CuPlaPl2 +yPlane2 +xPlane6 -CuPlaPl1 -yPlane1 -xPlane5
+               | +CuPlaPl2 +yPlane2 +xPlane4 -CuPlaPl1 -yPlane1 -xPlane3
+               | +CuPlaPl2 +yPlane2 +xPlane2 -CuPlaPl1 -yPlane1 -xPlane1
+CuPlate2     5 +InTank +CuPlaPl4 +xPlane8 -CuPlaPl3 -yPlane7 -xPlane7
+               | +InTank +CuPlaPl4 +xPlane6 -CuPlaPl3 -yPlane7 -xPlane5
+               | +InTank +CuPlaPl4 +xPlane4 -CuPlaPl3 -yPlane7 -xPlane3
+               | +InTank +CuPlaPl4 +xPlane2 -CuPlaPl3 -yPlane7 -xPlane1
+               | +CuPlaPl4 +yPlane6 +xPlane8 -CuPlaPl3 -yPlane5 -xPlane7
+               | +CuPlaPl4 +yPlane6 +xPlane6 -CuPlaPl3 -yPlane5 -xPlane5
+               | +CuPlaPl4 +yPlane6 +xPlane4 -CuPlaPl3 -yPlane5 -xPlane3
+               | +CuPlaPl4 +yPlane6 +xPlane2 -CuPlaPl3 -yPlane5 -xPlane1
+               | +CuPlaPl4 +yPlane4 +xPlane8 -CuPlaPl3 -yPlane3 -xPlane7
+               | +CuPlaPl4 +yPlane4 +xPlane6 -CuPlaPl3 -yPlane3 -xPlane5
+               | +CuPlaPl4 +yPlane4 +xPlane4 -CuPlaPl3 -yPlane3 -xPlane3
+               | +CuPlaPl4 +yPlane4 +xPlane2 -CuPlaPl3 -yPlane3 -xPlane1
+               | +CuPlaPl4 +yPlane2 +xPlane8 -CuPlaPl3 -yPlane1 -xPlane7
+               | +CuPlaPl4 +yPlane2 +xPlane6 -CuPlaPl3 -yPlane1 -xPlane5
+               | +CuPlaPl4 +yPlane2 +xPlane4 -CuPlaPl3 -yPlane1 -xPlane3
+               | +CuPlaPl4 +yPlane2 +xPlane2 -CuPlaPl3 -yPlane1 -xPlane1
+CuPlate3     5 +InTank +CuPlaPl6 +xPlane8 -CuPlaPl5 -yPlane7 -xPlane7
+               | +InTank +CuPlaPl6 +xPlane6 -CuPlaPl5 -yPlane7 -xPlane5
+               | +InTank +CuPlaPl6 +xPlane4 -CuPlaPl5 -yPlane7 -xPlane3
+               | +InTank +CuPlaPl6 +xPlane2 -CuPlaPl5 -yPlane7 -xPlane1
+               | +CuPlaPl6 +yPlane6 +xPlane8 -CuPlaPl5 -yPlane5 -xPlane7
+               | +CuPlaPl6 +yPlane6 +xPlane6 -CuPlaPl5 -yPlane5 -xPlane5
+               | +CuPlaPl6 +yPlane6 +xPlane4 -CuPlaPl5 -yPlane5 -xPlane3
+               | +CuPlaPl6 +yPlane6 +xPlane2 -CuPlaPl5 -yPlane5 -xPlane1
+               | +CuPlaPl6 +yPlane4 +xPlane8 -CuPlaPl5 -yPlane3 -xPlane7
+               | +CuPlaPl6 +yPlane4 +xPlane6 -CuPlaPl5 -yPlane3 -xPlane5
+               | +CuPlaPl6 +yPlane4 +xPlane4 -CuPlaPl5 -yPlane3 -xPlane3
+               | +CuPlaPl6 +yPlane4 +xPlane2 -CuPlaPl5 -yPlane3 -xPlane1
+               | +CuPlaPl6 +yPlane2 +xPlane8 -CuPlaPl5 -yPlane1 -xPlane7
+               | +CuPlaPl6 +yPlane2 +xPlane6 -CuPlaPl5 -yPlane1 -xPlane5
+               | +CuPlaPl6 +yPlane2 +xPlane4 -CuPlaPl5 -yPlane1 -xPlane3
+               | +CuPlaPl6 +yPlane2 +xPlane2 -CuPlaPl5 -yPlane1 -xPlane1
+CuPlate4     5 +InTank +CuPlaPl8 +xPlane8 -CuPlaPl7 -yPlane7 -xPlane7
+               | +InTank +CuPlaPl8 +xPlane6 -CuPlaPl7 -yPlane7 -xPlane5
+               | +InTank +CuPlaPl8 +xPlane4 -CuPlaPl7 -yPlane7 -xPlane3
+               | +InTank +CuPlaPl8 +xPlane2 -CuPlaPl7 -yPlane7 -xPlane1
+               | +CuPlaPl8 +yPlane6 +xPlane8 -CuPlaPl7 -yPlane5 -xPlane7
+               | +CuPlaPl8 +yPlane6 +xPlane6 -CuPlaPl7 -yPlane5 -xPlane5
+               | +CuPlaPl8 +yPlane6 +xPlane4 -CuPlaPl7 -yPlane5 -xPlane3
+               | +CuPlaPl8 +yPlane6 +xPlane2 -CuPlaPl7 -yPlane5 -xPlane1
+               | +CuPlaPl8 +yPlane4 +xPlane8 -CuPlaPl7 -yPlane3 -xPlane7
+               | +CuPlaPl8 +yPlane4 +xPlane6 -CuPlaPl7 -yPlane3 -xPlane5
+               | +CuPlaPl8 +yPlane4 +xPlane4 -CuPlaPl7 -yPlane3 -xPlane3
+               | +CuPlaPl8 +yPlane4 +xPlane2 -CuPlaPl7 -yPlane3 -xPlane1
+               | +CuPlaPl8 +yPlane2 +xPlane8 -CuPlaPl7 -yPlane1 -xPlane7
+               | +CuPlaPl8 +yPlane2 +xPlane6 -CuPlaPl7 -yPlane1 -xPlane5
+               | +CuPlaPl8 +yPlane2 +xPlane4 -CuPlaPl7 -yPlane1 -xPlane3
+               | +CuPlaPl8 +yPlane2 +xPlane2 -CuPlaPl7 -yPlane1 -xPlane1
+CuPlate5     5 +InTank +CuPlaP10 +xPlane8 -CuPlaPl9 -yPlane7 -xPlane7
+               | +InTank +CuPlaP10 +xPlane6 -CuPlaPl9 -yPlane7 -xPlane5
+               | +InTank +CuPlaP10 +xPlane4 -CuPlaPl9 -yPlane7 -xPlane3
+               | +InTank +CuPlaP10 +xPlane2 -CuPlaPl9 -yPlane7 -xPlane1
+               | +CuPlaP10 +yPlane6 +xPlane8 -CuPlaPl9 -yPlane5 -xPlane7
+               | +CuPlaP10 +yPlane6 +xPlane6 -CuPlaPl9 -yPlane5 -xPlane5
+               | +CuPlaP10 +yPlane6 +xPlane4 -CuPlaPl9 -yPlane5 -xPlane3
+               | +CuPlaP10 +yPlane6 +xPlane2 -CuPlaPl9 -yPlane5 -xPlane1
+               | +CuPlaP10 +yPlane4 +xPlane8 -CuPlaPl9 -yPlane3 -xPlane7
+               | +CuPlaP10 +yPlane4 +xPlane6 -CuPlaPl9 -yPlane3 -xPlane5
+               | +CuPlaP10 +yPlane4 +xPlane4 -CuPlaPl9 -yPlane3 -xPlane3
+               | +CuPlaP10 +yPlane4 +xPlane2 -CuPlaPl9 -yPlane3 -xPlane1
+               | +CuPlaP10 +yPlane2 +xPlane8 -CuPlaPl9 -yPlane1 -xPlane7
+               | +CuPlaP10 +yPlane2 +xPlane6 -CuPlaPl9 -yPlane1 -xPlane5
+               | +CuPlaP10 +yPlane2 +xPlane4 -CuPlaPl9 -yPlane1 -xPlane3
+               | +CuPlaP10 +yPlane2 +xPlane2 -CuPlaPl9 -yPlane1 -xPlane1
+CuPlate6     5 +InTank +CuPlaP12 +xPlane8 -CuPlaP11 -yPlane7 -xPlane7
+               | +InTank +CuPlaP12 +xPlane6 -CuPlaP11 -yPlane7 -xPlane5
+               | +InTank +CuPlaP12 +xPlane4 -CuPlaP11 -yPlane7 -xPlane3
+               | +InTank +CuPlaP12 +xPlane2 -CuPlaP11 -yPlane7 -xPlane1
+               | +CuPlaP12 +yPlane6 +xPlane8 -CuPlaP11 -yPlane5 -xPlane7
+               | +CuPlaP12 +yPlane6 +xPlane6 -CuPlaP11 -yPlane5 -xPlane5
+               | +CuPlaP12 +yPlane6 +xPlane4 -CuPlaP11 -yPlane5 -xPlane3
+               | +CuPlaP12 +yPlane6 +xPlane2 -CuPlaP11 -yPlane5 -xPlane1
+               | +CuPlaP12 +yPlane4 +xPlane8 -CuPlaP11 -yPlane3 -xPlane7
+               | +CuPlaP12 +yPlane4 +xPlane6 -CuPlaP11 -yPlane3 -xPlane5
+               | +CuPlaP12 +yPlane4 +xPlane4 -CuPlaP11 -yPlane3 -xPlane3
+               | +CuPlaP12 +yPlane4 +xPlane2 -CuPlaP11 -yPlane3 -xPlane1
+               | +CuPlaP12 +yPlane2 +xPlane8 -CuPlaP11 -yPlane1 -xPlane7
+               | +CuPlaP12 +yPlane2 +xPlane6 -CuPlaP11 -yPlane1 -xPlane5
+               | +CuPlaP12 +yPlane2 +xPlane4 -CuPlaP11 -yPlane1 -xPlane3
+               | +CuPlaP12 +yPlane2 +xPlane2 -CuPlaP11 -yPlane1 -xPlane1
+CuPlate7     5 +InTank +CuPlaP14 +xPlane8 -CuPlaP13 -yPlane7 -xPlane7
+               | +InTank +CuPlaP14 +xPlane6 -CuPlaP13 -yPlane7 -xPlane5
+               | +InTank +CuPlaP14 +xPlane4 -CuPlaP13 -yPlane7 -xPlane3
+               | +InTank +CuPlaP14 +xPlane2 -CuPlaP13 -yPlane7 -xPlane1
+               | +CuPlaP14 +yPlane6 +xPlane8 -CuPlaP13 -yPlane5 -xPlane7
+               | +CuPlaP14 +yPlane6 +xPlane6 -CuPlaP13 -yPlane5 -xPlane5
+               | +CuPlaP14 +yPlane6 +xPlane4 -CuPlaP13 -yPlane5 -xPlane3
+               | +CuPlaP14 +yPlane6 +xPlane2 -CuPlaP13 -yPlane5 -xPlane1
+               | +CuPlaP14 +yPlane4 +xPlane8 -CuPlaP13 -yPlane3 -xPlane7
+               | +CuPlaP14 +yPlane4 +xPlane6 -CuPlaP13 -yPlane3 -xPlane5
+               | +CuPlaP14 +yPlane4 +xPlane4 -CuPlaP13 -yPlane3 -xPlane3
+               | +CuPlaP14 +yPlane4 +xPlane2 -CuPlaP13 -yPlane3 -xPlane1
+               | +CuPlaP14 +yPlane2 +xPlane8 -CuPlaP13 -yPlane1 -xPlane7
+               | +CuPlaP14 +yPlane2 +xPlane6 -CuPlaP13 -yPlane1 -xPlane5
+               | +CuPlaP14 +yPlane2 +xPlane4 -CuPlaP13 -yPlane1 -xPlane3
+               | +CuPlaP14 +yPlane2 +xPlane2 -CuPlaP13 -yPlane1 -xPlane1
+CuPlate8     5 +InTank +CuPlaP16 +xPlane8 -CuPlaP15 -yPlane7 -xPlane7
+               | +InTank +CuPlaP16 +xPlane6 -CuPlaP15 -yPlane7 -xPlane5
+               | +InTank +CuPlaP16 +xPlane4 -CuPlaP15 -yPlane7 -xPlane3
+               | +InTank +CuPlaP16 +xPlane2 -CuPlaP15 -yPlane7 -xPlane1
+               | +CuPlaP16 +yPlane6 +xPlane8 -CuPlaP15 -yPlane5 -xPlane7
+               | +CuPlaP16 +yPlane6 +xPlane6 -CuPlaP15 -yPlane5 -xPlane5
+               | +CuPlaP16 +yPlane6 +xPlane4 -CuPlaP15 -yPlane5 -xPlane3
+               | +CuPlaP16 +yPlane6 +xPlane2 -CuPlaP15 -yPlane5 -xPlane1
+               | +CuPlaP16 +yPlane4 +xPlane8 -CuPlaP15 -yPlane3 -xPlane7
+               | +CuPlaP16 +yPlane4 +xPlane6 -CuPlaP15 -yPlane3 -xPlane5
+               | +CuPlaP16 +yPlane4 +xPlane4 -CuPlaP15 -yPlane3 -xPlane3
+               | +CuPlaP16 +yPlane4 +xPlane2 -CuPlaP15 -yPlane3 -xPlane1
+               | +CuPlaP16 +yPlane2 +xPlane8 -CuPlaP15 -yPlane1 -xPlane7
+               | +CuPlaP16 +yPlane2 +xPlane6 -CuPlaP15 -yPlane1 -xPlane5
+               | +CuPlaP16 +yPlane2 +xPlane4 -CuPlaP15 -yPlane1 -xPlane3
+               | +CuPlaP16 +yPlane2 +xPlane2 -CuPlaP15 -yPlane1 -xPlane1
+CuPlate9     5 +InTank +CuPlaP18 +xPlane8 -CuPlaP17 -yPlane7 -xPlane7
+               | +InTank +CuPlaP18 +xPlane6 -CuPlaP17 -yPlane7 -xPlane5
+               | +InTank +CuPlaP18 +xPlane4 -CuPlaP17 -yPlane7 -xPlane3
+               | +InTank +CuPlaP18 +xPlane2 -CuPlaP17 -yPlane7 -xPlane1
+               | +CuPlaP18 +yPlane6 +xPlane8 -CuPlaP17 -yPlane5 -xPlane7
+               | +CuPlaP18 +yPlane6 +xPlane6 -CuPlaP17 -yPlane5 -xPlane5
+               | +CuPlaP18 +yPlane6 +xPlane4 -CuPlaP17 -yPlane5 -xPlane3
+               | +CuPlaP18 +yPlane6 +xPlane2 -CuPlaP17 -yPlane5 -xPlane1
+               | +CuPlaP18 +yPlane4 +xPlane8 -CuPlaP17 -yPlane3 -xPlane7
+               | +CuPlaP18 +yPlane4 +xPlane6 -CuPlaP17 -yPlane3 -xPlane5
+               | +CuPlaP18 +yPlane4 +xPlane4 -CuPlaP17 -yPlane3 -xPlane3
+               | +CuPlaP18 +yPlane4 +xPlane2 -CuPlaP17 -yPlane3 -xPlane1
+               | +CuPlaP18 +yPlane2 +xPlane8 -CuPlaP17 -yPlane1 -xPlane7
+               | +CuPlaP18 +yPlane2 +xPlane6 -CuPlaP17 -yPlane1 -xPlane5
+               | +CuPlaP18 +yPlane2 +xPlane4 -CuPlaP17 -yPlane1 -xPlane3
+               | +CuPlaP18 +yPlane2 +xPlane2 -CuPlaP17 -yPlane1 -xPlane1
+CuPlat10     5 +InTank +CuPlaP20 +xPlane8 -CuPlaP19 -yPlane7 -xPlane7
+               | +InTank +CuPlaP20 +xPlane6 -CuPlaP19 -yPlane7 -xPlane5
+               | +InTank +CuPlaP20 +xPlane4 -CuPlaP19 -yPlane7 -xPlane3
+               | +InTank +CuPlaP20 +xPlane2 -CuPlaP19 -yPlane7 -xPlane1
+               | +CuPlaP20 +yPlane6 +xPlane8 -CuPlaP19 -yPlane5 -xPlane7
+               | +CuPlaP20 +yPlane6 +xPlane6 -CuPlaP19 -yPlane5 -xPlane5
+               | +CuPlaP20 +yPlane6 +xPlane4 -CuPlaP19 -yPlane5 -xPlane3
+               | +CuPlaP20 +yPlane6 +xPlane2 -CuPlaP19 -yPlane5 -xPlane1
+               | +CuPlaP20 +yPlane4 +xPlane8 -CuPlaP19 -yPlane3 -xPlane7
+               | +CuPlaP20 +yPlane4 +xPlane6 -CuPlaP19 -yPlane3 -xPlane5
+               | +CuPlaP20 +yPlane4 +xPlane4 -CuPlaP19 -yPlane3 -xPlane3
+               | +CuPlaP20 +yPlane4 +xPlane2 -CuPlaP19 -yPlane3 -xPlane1
+               | +CuPlaP20 +yPlane2 +xPlane8 -CuPlaP19 -yPlane1 -xPlane7
+               | +CuPlaP20 +yPlane2 +xPlane6 -CuPlaP19 -yPlane1 -xPlane5
+               | +CuPlaP20 +yPlane2 +xPlane4 -CuPlaP19 -yPlane1 -xPlane3
+               | +CuPlaP20 +yPlane2 +xPlane2 -CuPlaP19 -yPlane1 -xPlane1
+CuPlat11     5 +InTank +CuPlaP22 +xPlane8 -CuPlaP21 -yPlane7 -xPlane7
+               | +InTank +CuPlaP22 +xPlane6 -CuPlaP21 -yPlane7 -xPlane5
+               | +InTank +CuPlaP22 +xPlane4 -CuPlaP21 -yPlane7 -xPlane3
+               | +InTank +CuPlaP22 +xPlane2 -CuPlaP21 -yPlane7 -xPlane1
+               | +CuPlaP22 +yPlane6 +xPlane8 -CuPlaP21 -yPlane5 -xPlane7
+               | +CuPlaP22 +yPlane6 +xPlane6 -CuPlaP21 -yPlane5 -xPlane5
+               | +CuPlaP22 +yPlane6 +xPlane4 -CuPlaP21 -yPlane5 -xPlane3
+               | +CuPlaP22 +yPlane6 +xPlane2 -CuPlaP21 -yPlane5 -xPlane1
+               | +CuPlaP22 +yPlane4 +xPlane8 -CuPlaP21 -yPlane3 -xPlane7
+               | +CuPlaP22 +yPlane4 +xPlane6 -CuPlaP21 -yPlane3 -xPlane5
+               | +CuPlaP22 +yPlane4 +xPlane4 -CuPlaP21 -yPlane3 -xPlane3
+               | +CuPlaP22 +yPlane4 +xPlane2 -CuPlaP21 -yPlane3 -xPlane1
+               | +CuPlaP22 +yPlane2 +xPlane8 -CuPlaP21 -yPlane1 -xPlane7
+               | +CuPlaP22 +yPlane2 +xPlane6 -CuPlaP21 -yPlane1 -xPlane5
+               | +CuPlaP22 +yPlane2 +xPlane4 -CuPlaP21 -yPlane1 -xPlane3
+               | +CuPlaP22 +yPlane2 +xPlane2 -CuPlaP21 -yPlane1 -xPlane1
+CuPlat12     5 +InTank +CuPlaP24 +xPlane8 -CuPlaP23 -yPlane7 -xPlane7
+               | +InTank +CuPlaP24 +xPlane6 -CuPlaP23 -yPlane7 -xPlane5
+               | +InTank +CuPlaP24 +xPlane4 -CuPlaP23 -yPlane7 -xPlane3
+               | +InTank +CuPlaP24 +xPlane2 -CuPlaP23 -yPlane7 -xPlane1
+               | +CuPlaP24 +yPlane6 +xPlane8 -CuPlaP23 -yPlane5 -xPlane7
+               | +CuPlaP24 +yPlane6 +xPlane6 -CuPlaP23 -yPlane5 -xPlane5
+               | +CuPlaP24 +yPlane6 +xPlane4 -CuPlaP23 -yPlane5 -xPlane3
+               | +CuPlaP24 +yPlane6 +xPlane2 -CuPlaP23 -yPlane5 -xPlane1
+               | +CuPlaP24 +yPlane4 +xPlane8 -CuPlaP23 -yPlane3 -xPlane7
+               | +CuPlaP24 +yPlane4 +xPlane6 -CuPlaP23 -yPlane3 -xPlane5
+               | +CuPlaP24 +yPlane4 +xPlane4 -CuPlaP23 -yPlane3 -xPlane3
+               | +CuPlaP24 +yPlane4 +xPlane2 -CuPlaP23 -yPlane3 -xPlane1
+               | +CuPlaP24 +yPlane2 +xPlane8 -CuPlaP23 -yPlane1 -xPlane7
+               | +CuPlaP24 +yPlane2 +xPlane6 -CuPlaP23 -yPlane1 -xPlane5
+               | +CuPlaP24 +yPlane2 +xPlane4 -CuPlaP23 -yPlane1 -xPlane3
+               | +CuPlaP24 +yPlane2 +xPlane2 -CuPlaP23 -yPlane1 -xPlane1
+TankWa       5 +InTank +VortEnd1 -InTaEn1
+               | +InTank +VortEnd4 -OutVort -VortEnd1 -OutWaJeX -OuInlPi1 -OuInlPi2 -OuInlPi3
+               | +InTank +VortEnd5 -VortEnd4
+               | +InTank +MidVoPl1 -VortEnd5 -OutWaJeX -OuInlPi4 -OutTub1
+               | +InTank +MidVoPl4 -MidVoPl1 -OutVort -OutWaJeX
+               | +InTank +MidVoPl5 -MidVoPl4 -OutTub2 -OuInlPi5 -OutWaJeX
+               | +InTank +VortEnd8 -MidVoPl5 -OutWaJeX -OutVort
+               | +InTank +CuPlaPl1 -VortEnd8
+               | +InTank +CuPlaP24 +yPlane1 -CuPlaPl1 -OutWaJeX -OuInlPi6 -OuInlPi7
+               | +InTank +CuPlaPl3 -CuPlaPl2 -yPlane1
+               | +InTank +CuPlaPl5 -CuPlaPl4 -yPlane1
+               | +InTank +CuPlaPl7 -CuPlaPl6 -yPlane1
+               | +InTank +CuPlaPl9 -CuPlaPl8 -yPlane1
+               | +InTank +CuPlaP11 -CuPlaP10 -yPlane1
+               | +InTank +CuPlaP13 -CuPlaP12 -yPlane1
+               | +InTank +CuPlaP15 -CuPlaP14 -yPlane1
+               | +InTank +CuPlaP17 -CuPlaP16 -yPlane1
+               | +InTank +CuPlaP19 -CuPlaP18 -yPlane1
+               | +InTank +CuPlaP21 -CuPlaP20 -yPlane1
+               | +InTank +CuPlaP23 -CuPlaP22 -yPlane1
+               | +InTaEn2 +InTank -CuPlaP24
 END
 GEOEND          115.      200.      425.     -425.     -200.     -775.DEBUG
 GEOEND          500.      400.      500.                               &
@@ -556,34 +995,34 @@ ASSIGNMA    BLCKHOLE  Blackbod
 ASSIGNMA      VACUUM   BeaPiVa
 ASSIGNMA    TITANIUM    Window
 ASSIGNMA       WATER   BeaPiWa
-ASSIGNMA       WATER  WaJeXWa1
-ASSIGNMA       WATER  WaJeXWa2
-ASSIGNMA       WATER  WaJeXWa3
 ASSIGNMA        LEAD    WaJeX1
 ASSIGNMA        LEAD    WaJeX2
 ASSIGNMA        LEAD    WaJeX3
-ASSIGNMA       WATER  VorteWa1
+ASSIGNMA       WATER  WaJeXWa1
+ASSIGNMA       WATER  WaJeXWa2
+ASSIGNMA       WATER  WaJeXWa3
 ASSIGNMA        LEAD   Vortex1
 ASSIGNMA        LEAD   Vortex2
+ASSIGNMA        LEAD   Vortex3
+ASSIGNMA       WATER  VorteWa1
 ASSIGNMA       WATER  VorteWa2
 ASSIGNMA       WATER  VorteWa3
-ASSIGNMA        LEAD   Vortex3
 ASSIGNMA        LEAD    WaJeY1
+ASSIGNMA        LEAD    WaJeY2
 ASSIGNMA       WATER  WaJeYWa1
 ASSIGNMA       WATER  WaJeYWa2
-ASSIGNMA        LEAD    WaJeY2
 ASSIGNMA        LEAD    Inlet1
 ASSIGNMA        LEAD    Inlet2
 ASSIGNMA        LEAD    Inlet3
 ASSIGNMA        LEAD    Inlet4
 ASSIGNMA        LEAD    Inlet5
 ASSIGNMA        LEAD    Inlet6
-ASSIGNMA        LEAD   Inlet12
 ASSIGNMA        LEAD    Inlet7
 ASSIGNMA        LEAD    Inlet8
 ASSIGNMA        LEAD    Inlet9
 ASSIGNMA        LEAD   Inlet10
 ASSIGNMA        LEAD   Inlet11
+ASSIGNMA        LEAD   Inlet12
 ASSIGNMA        LEAD   Outlet1
 ASSIGNMA        LEAD   Outlet2
 ASSIGNMA        LEAD   Outlet3
@@ -656,7 +1095,6 @@ ASSIGNMA       WATER  VoInlW21
 ASSIGNMA       WATER  VoInlW22
 ASSIGNMA       WATER  VoInlW23
 ASSIGNMA       WATER  VoInlW24
-ASSIGNMA        LEAD  TiTubHo1
 ASSIGNMA    TITANIUM      Tub5
 ASSIGNMA    TITANIUM      Tub1
 ASSIGNMA    TITANIUM      Tub2
@@ -671,15 +1109,243 @@ ASSIGNMA    TITANIUM     Tub11
 ASSIGNMA    TITANIUM     Tub12
 ASSIGNMA    TITANIUM     Tub13
 ASSIGNMA    TITANIUM     Tub14
+ASSIGNMA    TITANIUM     Tub15
+ASSIGNMA    TITANIUM     Tub16
+ASSIGNMA    TITANIUM     Tub17
+ASSIGNMA    TITANIUM     Tub18
+ASSIGNMA    TITANIUM     Tub19
+ASSIGNMA    TITANIUM     Tub20
+ASSIGNMA    TITANIUM     Tub21
+ASSIGNMA    TITANIUM     Tub22
+ASSIGNMA    TITANIUM     Tub23
+ASSIGNMA    TITANIUM     Tub24
+ASSIGNMA    TITANIUM     Tub25
+ASSIGNMA    TITANIUM     Tub26
+ASSIGNMA    TITANIUM     Tub27
+ASSIGNMA    TITANIUM     Tub28
+ASSIGNMA    TITANIUM     Tub29
+ASSIGNMA    TITANIUM     Tub30
+ASSIGNMA    TITANIUM     Tub31
+ASSIGNMA    TITANIUM     Tub32
+ASSIGNMA    TITANIUM     Tub33
+ASSIGNMA    TITANIUM     Tub34
+ASSIGNMA    TITANIUM     Tub35
+ASSIGNMA    TITANIUM     Tub36
+ASSIGNMA    TITANIUM     Tub37
+ASSIGNMA    TITANIUM     Tub38
+ASSIGNMA    TITANIUM     Tub39
+ASSIGNMA    TITANIUM     Tub40
+ASSIGNMA    TITANIUM     Tub41
+ASSIGNMA    TITANIUM     Tub42
+ASSIGNMA    TITANIUM     Tub43
+ASSIGNMA    TITANIUM     Tub44
+ASSIGNMA    TITANIUM     Tub45
+ASSIGNMA    TITANIUM     Tub46
+ASSIGNMA    TITANIUM     Tub47
+ASSIGNMA    TITANIUM     Tub48
+ASSIGNMA    TITANIUM     Tub49
+ASSIGNMA    TITANIUM     Tub50
+ASSIGNMA    TITANIUM     Tub51
+ASSIGNMA    TITANIUM     Tub52
+ASSIGNMA    TITANIUM     Tub53
+ASSIGNMA    TITANIUM     Tub54
+ASSIGNMA    TITANIUM     Tub55
+ASSIGNMA    TITANIUM     Tub56
+ASSIGNMA    TITANIUM     Tub57
+ASSIGNMA    TITANIUM     Tub58
+ASSIGNMA    TITANIUM     Tub59
+ASSIGNMA    TITANIUM     Tub60
+ASSIGNMA    TITANIUM     Tub61
+ASSIGNMA    TITANIUM     Tub62
+ASSIGNMA    TITANIUM     Tub63
+ASSIGNMA    TITANIUM     Tub64
+ASSIGNMA    TITANIUM     Tub65
+ASSIGNMA    TITANIUM     Tub66
+ASSIGNMA    TITANIUM     Tub67
+ASSIGNMA    TITANIUM     Tub68
+ASSIGNMA    TITANIUM     Tub69
+ASSIGNMA    TITANIUM     Tub70
+ASSIGNMA    TITANIUM     Tub71
+ASSIGNMA    TITANIUM     Tub72
+ASSIGNMA    TITANIUM     Tub73
+ASSIGNMA    TITANIUM     Tub74
+ASSIGNMA    TITANIUM     Tub75
+ASSIGNMA    TITANIUM     Tub76
+ASSIGNMA    TITANIUM     Tub77
+ASSIGNMA    TITANIUM     Tub78
+ASSIGNMA    TITANIUM     Tub79
+ASSIGNMA    TITANIUM     Tub80
+ASSIGNMA    TITANIUM     Tub81
+ASSIGNMA    TITANIUM     Tub82
+ASSIGNMA    TITANIUM     Tub83
+ASSIGNMA    TITANIUM     Tub84
+ASSIGNMA    TITANIUM     Tub85
+ASSIGNMA    TITANIUM     Tub86
+ASSIGNMA    TITANIUM     Tub87
+ASSIGNMA    TITANIUM     Tub88
+ASSIGNMA    TITANIUM     Tub89
+ASSIGNMA    TITANIUM     Tub90
+ASSIGNMA    TITANIUM     Tub91
+ASSIGNMA    TITANIUM     Tub92
+ASSIGNMA    TITANIUM     Tub93
+ASSIGNMA    TITANIUM     Tub94
+ASSIGNMA    TITANIUM     Tub95
+ASSIGNMA    TITANIUM     Tub96
+ASSIGNMA    TITANIUM     Tub97
+ASSIGNMA    TITANIUM     Tub98
+ASSIGNMA    TITANIUM     Tub99
+ASSIGNMA    TITANIUM    Tub100
+ASSIGNMA    TITANIUM    Tub101
+ASSIGNMA    TITANIUM    Tub102
+ASSIGNMA    TITANIUM    Tub103
+ASSIGNMA    TITANIUM    Tub104
+ASSIGNMA    TITANIUM    Tub105
+ASSIGNMA    TITANIUM    Tub106
+ASSIGNMA    TITANIUM    Tub107
+ASSIGNMA    TITANIUM    Tub108
+ASSIGNMA    TITANIUM    Tub109
+ASSIGNMA    TITANIUM    Tub110
+ASSIGNMA    TITANIUM    Tub111
+ASSIGNMA    TITANIUM    Tub112
+ASSIGNMA       WATER    TubWa1
+ASSIGNMA       WATER    TubWa2
+ASSIGNMA       WATER    TubWa3
+ASSIGNMA       WATER    TubWa4
+ASSIGNMA       WATER    TubWa5
+ASSIGNMA       WATER    TubWa6
+ASSIGNMA       WATER    TubWa7
+ASSIGNMA       WATER    TubWa8
+ASSIGNMA       WATER    TubWa9
+ASSIGNMA       WATER   TubWa10
+ASSIGNMA       WATER   TubWa11
+ASSIGNMA       WATER   TubWa12
+ASSIGNMA       WATER   TubWa13
+ASSIGNMA       WATER   TubWa14
+ASSIGNMA       WATER   TubWa15
+ASSIGNMA       WATER   TubWa16
+ASSIGNMA       WATER   TubWa17
+ASSIGNMA       WATER   TubWa18
+ASSIGNMA       WATER   TubWa19
+ASSIGNMA       WATER   TubWa20
+ASSIGNMA       WATER   TubWa21
+ASSIGNMA       WATER   TubWa22
+ASSIGNMA       WATER   TubWa23
+ASSIGNMA       WATER   TubWa24
+ASSIGNMA       WATER   TubWa25
+ASSIGNMA       WATER   TubWa26
+ASSIGNMA       WATER   TubWa27
+ASSIGNMA       WATER   TubWa28
+ASSIGNMA       WATER   TubWa29
+ASSIGNMA       WATER   TubWa30
+ASSIGNMA       WATER   TubWa31
+ASSIGNMA       WATER   TubWa32
+ASSIGNMA       WATER   TubWa33
+ASSIGNMA       WATER   TubWa34
+ASSIGNMA       WATER   TubWa35
+ASSIGNMA       WATER   TubWa36
+ASSIGNMA       WATER   TubWa37
+ASSIGNMA       WATER   TubWa38
+ASSIGNMA       WATER   TubWa39
+ASSIGNMA       WATER   TubWa40
+ASSIGNMA       WATER   TubWa41
+ASSIGNMA       WATER   TubWa42
+ASSIGNMA       WATER   TubWa43
+ASSIGNMA       WATER   TubWa44
+ASSIGNMA       WATER   TubWa45
+ASSIGNMA       WATER   TubWa46
+ASSIGNMA       WATER   TubWa47
+ASSIGNMA       WATER   TubWa48
+ASSIGNMA       WATER   TubWa49
+ASSIGNMA       WATER   TubWa50
+ASSIGNMA       WATER   TubWa51
+ASSIGNMA       WATER   TubWa52
+ASSIGNMA       WATER   TubWa53
+ASSIGNMA       WATER   TubWa54
+ASSIGNMA       WATER   TubWa55
+ASSIGNMA       WATER   TubWa56
+ASSIGNMA       WATER   TubWa57
+ASSIGNMA       WATER   TubWa58
+ASSIGNMA       WATER   TubWa59
+ASSIGNMA       WATER   TubWa60
+ASSIGNMA       WATER   TubWa61
+ASSIGNMA       WATER   TubWa62
+ASSIGNMA       WATER   TubWa63
+ASSIGNMA       WATER   TubWa64
+ASSIGNMA       WATER   TubWa65
+ASSIGNMA       WATER   TubWa66
+ASSIGNMA       WATER   TubWa67
+ASSIGNMA       WATER   TubWa68
+ASSIGNMA       WATER   TubWa69
+ASSIGNMA       WATER   TubWa70
+ASSIGNMA       WATER   TubWa71
+ASSIGNMA       WATER   TubWa72
+ASSIGNMA       WATER   TubWa73
+ASSIGNMA       WATER   TubWa74
+ASSIGNMA       WATER   TubWa75
+ASSIGNMA       WATER   TubWa76
+ASSIGNMA       WATER   TubWa77
+ASSIGNMA       WATER   TubWa78
+ASSIGNMA       WATER   TubWa79
+ASSIGNMA       WATER   TubWa80
+ASSIGNMA       WATER   TubWa81
+ASSIGNMA       WATER   TubWa82
+ASSIGNMA       WATER   TubWa83
+ASSIGNMA       WATER   TubWa84
+ASSIGNMA       WATER   TubWa85
+ASSIGNMA       WATER   TubWa86
+ASSIGNMA       WATER   TubWa87
+ASSIGNMA       WATER   TubWa88
+ASSIGNMA       WATER   TubWa89
+ASSIGNMA       WATER   TubWa90
+ASSIGNMA       WATER   TubWa91
+ASSIGNMA       WATER   TubWa92
+ASSIGNMA       WATER   TubWa93
+ASSIGNMA       WATER   TubWa94
+ASSIGNMA       WATER   TubWa95
+ASSIGNMA       WATER   TubWa96
+ASSIGNMA       WATER   TubWa97
+ASSIGNMA       WATER   TubWa98
+ASSIGNMA       WATER   TubWa99
+ASSIGNMA       WATER  TubWa100
+ASSIGNMA       WATER  TubWa101
+ASSIGNMA       WATER  TubWa102
+ASSIGNMA       WATER  TubWa103
+ASSIGNMA       WATER  TubWa104
+ASSIGNMA       WATER  TubWa105
+ASSIGNMA       WATER  TubWa106
+ASSIGNMA       WATER  TubWa107
+ASSIGNMA       WATER  TubWa108
+ASSIGNMA       WATER  TubWa109
+ASSIGNMA       WATER  TubWa110
+ASSIGNMA       WATER  TubWa111
+ASSIGNMA       WATER  TubWa112
+ASSIGNMA        LEAD  TiTubHo1
+ASSIGNMA        LEAD  TiTubHo2
+ASSIGNMA       WATER  TiTuHoW1
+ASSIGNMA       WATER  TiTuHoW2
+ASSIGNMA        LEAD      Tank
+ASSIGNMA      COPPER  CuPlate1
+ASSIGNMA      COPPER  CuPlate2
+ASSIGNMA      COPPER  CuPlate3
+ASSIGNMA      COPPER  CuPlate4
+ASSIGNMA      COPPER  CuPlate5
+ASSIGNMA      COPPER  CuPlate6
+ASSIGNMA      COPPER  CuPlate7
+ASSIGNMA      COPPER  CuPlate8
+ASSIGNMA      COPPER  CuPlate9
+ASSIGNMA      COPPER  CuPlat10
+ASSIGNMA      COPPER  CuPlat11
+ASSIGNMA      COPPER  CuPlat12
+ASSIGNMA       WATER    TankWa
 PHOTONUC          1.                        VACUUM     WATER        1.
 !point           0.0       0.0     -325.                              marker1
 !point          -30.       0.0      325.                              marker2
 !point         -180.       0.0      325.                              marker3
 !point         -105.       0.0      325.                              marker4
-!point           0.0       0.0     325.0                              marker5
-!point           0.0     -75.0    -325.0                              marker6
-!point         -30.0       0.0    -325.0                              marker7
-!point         -30.0     -75.0    -325.0                              marker8
+!point           0.0       0.0      325.                              marker5
+!point           0.0      -75.     -325.                              marker6
+!point          -30.       0.0     -325.                              marker7
+!point          -30.      -75.     -325.                              marker8
 LAM-BIAS         0.0      0.02     WATER   NEUTRON                    INEPRI
 DISCARD        MUONS
 * Set the random number seed
