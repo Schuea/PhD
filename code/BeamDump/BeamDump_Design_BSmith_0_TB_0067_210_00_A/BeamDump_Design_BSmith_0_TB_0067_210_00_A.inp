@@ -26,117 +26,117 @@ ZCC OutTank    -30. 0.0 75.
 XYP TaEnPla1   -333.5
 ZCC InTank     -30. 0.0 73.
 RCC OutWatJe   -55. 0.0 -312. 0.0 0.0 446. 10.
-RCC InWatJe    -55. 0.0 -311. 0.0 0.0 444. 9.
+RCC InWatJe    -55. 0.0 -311. 0.0 0.0 444. 9.5
 RCC OutWatJ2   -30. -42. -311.5 0.0 0.0 446. 10.
-RCC InWatJe2   -30. -42. -310.5 0.0 0.0 444. 9.
+RCC InWatJe2   -30. -42. -310.5 0.0 0.0 444. 9.5
 RCC OutInl1    -185. 0.0 -281.50 130. 0.0 0.0 10.
-RCC InInl1     -185. 0.0 -281.50 130. 0.0 0.0 9.
+RCC InInl1     -185. 0.0 -281.50 130. 0.0 0.0 9.5
 RCC OutInl2    -184. 0.0 -181.50 130. 0.0 0.0 10.
-RCC InInl2     -184. 0.0 -181.50 130. 0.0 0.0 9.
+RCC InInl2     -184. 0.0 -181.50 130. 0.0 0.0 9.5
 RCC OutInl3    -185. 0.0 74.50 130. 0.0 0.0 10.
-RCC InInl3     -185. 0.0 74.50 130. 0.0 0.0 9.
+RCC InInl3     -185. 0.0 74.50 130. 0.0 0.0 9.5
 RCC OutBeaPi   0.0 0.0 -775. 0.0 0.0 423.50 20.
-RCC InBeaPi    0.0 0.0 -775. 0.0 0.0 423.50 18.
+RCC InBeaPi    0.0 0.0 -775. 0.0 0.0 423.50 19.
 SPH OutTaEn1   -30. 0.0 -260. 105.
 SPH InTaEn1    -30. 0.0 -260. 103.59
 SPH OutTaEn2   -30. 0.0 259. 105.
 SPH InTaEn2    -30. 0.0 259. 103.59
 RCC OutVorte   0.0 0.0 -231.50 0.0 0.0 355.50 25.
-RCC InVorte    0.0 0.0 -230.50 0.0 0.0 353.50 24.
+RCC InVorte    0.0 0.0 -230.50 0.0 0.0 353.50 24.5
 RCC OutVoP1    -47.50 0.0 -302. 25. 0.0 0.0 4.
-RCC InVoP1     -47.50 0.0 -302. 25. 0.0 0.0 3.
-RCC InVoP2     -47.50 0.0 -282. 25. 0.0 0.0 3.
+RCC InVoP1     -47.50 0.0 -302. 25. 0.0 0.0 3.5
+RCC InVoP2     -47.50 0.0 -282. 25. 0.0 0.0 3.5
 RCC OutVoP2    -47.50 0.0 -282. 25. 0.0 0.0 4.
 RCC OutVoP3    -47.50 0.0 -262. 25. 0.0 0.0 4.
-RCC InVoP3     -47.50 0.0 -262. 25. 0.0 0.0 3.
+RCC InVoP3     -47.50 0.0 -262. 25. 0.0 0.0 3.5
 RCC OutVoP4    -47.50 0.0 -242. 25. 0.0 0.0 4.
-RCC InVoP4     -47.50 0.0 -242. 25. 0.0 0.0 3.
-RCC InVoP5     -47.50 0.0 -221.5 25. 0.0 0.0 3.
+RCC InVoP4     -47.50 0.0 -242. 25. 0.0 0.0 3.5
+RCC InVoP5     -47.50 0.0 -221.5 25. 0.0 0.0 3.5
 RCC OutVoP5    -47.50 0.0 -221.5 25. 0.0 0.0 4.
-RCC InVoP6     -47.50 0.0 -201.5 25. 0.0 0.0 3.
+RCC InVoP6     -47.50 0.0 -201.5 25. 0.0 0.0 3.5
 RCC OutVoP6    -47.50 0.0 -201.5 25. 0.0 0.0 4.
-RCC InVoP7     -47.50 0.0 -181.5 25. 0.0 0.0 3.
+RCC InVoP7     -47.50 0.0 -181.5 25. 0.0 0.0 3.5
 RCC OutVoP7    -47.50 0.0 -181.5 25. 0.0 0.0 4.
-RCC InVoP8     -47.50 0.0 -161.5 25. 0.0 0.0 3.
+RCC InVoP8     -47.50 0.0 -161.5 25. 0.0 0.0 3.5
 RCC OutVoP8    -47.50 0.0 -161.5 25. 0.0 0.0 4.
 RCC OutVoP9    -47.50 0.0 -141.48 25. 0.0 0.0 4.
-RCC InVoP9     -47.50 0.0 -141.48 25. 0.0 0.0 3.
+RCC InVoP9     -47.50 0.0 -141.48 25. 0.0 0.0 3.5
 RCC OutVoP10   -47.50 0.0 -121.48 25. 0.0 0.0 4.
-RCC InVoP10    -47.50 0.0 -121.48 25. 0.0 0.0 3.
-RCC InVoP11    -47.50 0.0 -101.48 25. 0.0 0.0 3.
+RCC InVoP10    -47.50 0.0 -121.48 25. 0.0 0.0 3.5
+RCC InVoP11    -47.50 0.0 -101.48 25. 0.0 0.0 3.5
 RCC OutVoP11   -47.50 0.0 -101.48 25. 0.0 0.0 4.
 RCC OutVoP12   -47.50 0.0 -81.48 25. 0.0 0.0 4.
-RCC InVoP12    -47.50 0.0 -81.48 25. 0.0 0.0 3.
+RCC InVoP12    -47.50 0.0 -81.48 25. 0.0 0.0 3.5
 RCC OutVoP13   -47.50 0.0 -61.5 25. 0.0 0.0 4.
-RCC InVoP13    -47.50 0.0 -61.5 25. 0.0 0.0 3.
+RCC InVoP13    -47.50 0.0 -61.5 25. 0.0 0.0 3.5
 RCC OutVoP14   -47.50 0.0 -41.5 25. 0.0 0.0 4.
-RCC InVoP14    -47.50 0.0 -41.5 25. 0.0 0.0 3.
+RCC InVoP14    -47.50 0.0 -41.5 25. 0.0 0.0 3.5
 RCC OutVoP15   -47.50 0.0 -21. 25. 0.0 0.0 4.
-RCC InVoP15    -47.50 0.0 -21. 25. 0.0 0.0 3.
+RCC InVoP15    -47.50 0.0 -21. 25. 0.0 0.0 3.5
 RCC OutVoP16   -47.50 0.0 -1.5 25. 0.0 0.0 4.
-RCC InVoP16    -47.50 0.0 -1.5 25. 0.0 0.0 3.
+RCC InVoP16    -47.50 0.0 -1.5 25. 0.0 0.0 3.5
 RCC OutVoP17   -47.50 0.0 19. 25. 0.0 0.0 4.
-RCC InVoP17    -47.50 0.0 19. 25. 0.0 0.0 3.
-RCC InVoP18    -47.50 0.0 38.5 25. 0.0 0.0 3.
+RCC InVoP17    -47.50 0.0 19. 25. 0.0 0.0 3.5
+RCC InVoP18    -47.50 0.0 38.5 25. 0.0 0.0 3.5
 RCC OutVoP18   -47.5 0.0 38.5 25. 0.0 0.0 4.
 RCC OutVoP19   -47.5 0.0 59. 25. 0.0 0.0 4.
-RCC InVoP19    -47.5 0.0 59. 25. 0.0 0.0 3.
+RCC InVoP19    -47.5 0.0 59. 25. 0.0 0.0 3.5
 RCC OutVoP20   -47.5 0.0 78.5 25. 0.0 0.0 4.
-RCC InVoP20    -47.5 0.0 78.5 25. 0.0 0.0 3.
+RCC InVoP20    -47.5 0.0 78.5 25. 0.0 0.0 3.5
 RCC OutVoP21   -47.5 0.0 99. 25. 0.0 0.0 4.
-RCC InVoP21    -47.5 0.0 99. 25. 0.0 0.0 3.
+RCC InVoP21    -47.5 0.0 99. 25. 0.0 0.0 3.5
 RCC OutInl4    -30. -106. -282. 0.0 63. 0.0 10.
-RCC InInl4     -30. -106. -282. 0.0 63. 0.0 9.
+RCC InInl4     -30. -106. -282. 0.0 63. 0.0 9.5
 RCC OutInl5    -30. -106. -181.5 0.0 63. 0.0 10.
-RCC InInl5     -30. -106. -181.5 0.0 63. 0.0 9.
+RCC InInl5     -30. -106. -181.5 0.0 63. 0.0 9.5
 RCC OutInl6    -30. -106. 74. 0.0 63. 0.0 10.
-RCC InInl6     -30. -106. 74. 0.0 63. 0.0 9.
+RCC InInl6     -30. -106. 74. 0.0 63. 0.0 9.5
 RCC OutOutl1   -30. -97. 293.5 0.0 25.556 0.0 15.
-RCC InOutl1    -30. -97. 293.5 0.0 25.556 0.0 14.
+RCC InOutl1    -30. -97. 293.5 0.0 25.556 0.0 14.5
 RCC OutOutl2   -30. 71.45 273. 0.0 37.55 0.0 15.
-RCC InOutl2    -30. 71.45 273. 0.0 37.55 0.0 14.
+RCC InOutl2    -30. 71.45 273. 0.0 37.55 0.0 14.5
 RCC OutVoP22   -25.5 -36. 98.5 12.5 17.5 0.0 4.
-RCC InVoP22    -25.5 -36. 98.5 12.5 17.5 0.0 3.
+RCC InVoP22    -25.5 -36. 98.5 12.5 17.5 0.0 3.5
 RCC OutVoP23   -25.5 -36. 78.226 12.5 17.5 0.0 4.
-RCC InVoP23    -25.5 -36. 78.226 12.5 17.5 0.0 3.
+RCC InVoP23    -25.5 -36. 78.226 12.5 17.5 0.0 3.5
 RCC OutVoP24   -25.5 -36. 58.5 12.5 17.5 0.0 4.
-RCC InVoP24    -25.5 -36. 58.5 12.5 17.5 0.0 3.
+RCC InVoP24    -25.5 -36. 58.5 12.5 17.5 0.0 3.5
 RCC OutVoP25   -25.5 -36. 38.5 12.5 17.5 0.0 4.
-RCC InVoP25    -25.5 -36. 38.5 12.5 17.5 0.0 3.
+RCC InVoP25    -25.5 -36. 38.5 12.5 17.5 0.0 3.5
 RCC OutVoP26   -25.5 -36. 18.5 12.5 17.5 0.0 4.
-RCC InVoP26    -25.5 -36. 18.5 12.5 17.5 0.0 3.
+RCC InVoP26    -25.5 -36. 18.5 12.5 17.5 0.0 3.5
 RCC OutVoP27   -25.5 -36. -1.5 12.5 17.5 0.0 4.
-RCC InVoP27    -25.5 -36. -1.5 12.5 17.5 0.0 3.
+RCC InVoP27    -25.5 -36. -1.5 12.5 17.5 0.0 3.5
 RCC OutVoP28   -25.5 -36. -21.5 12.5 17.5 0.0 4.
-RCC InVoP28    -25.5 -36. -21.5 12.5 17.5 0.0 3.
+RCC InVoP28    -25.5 -36. -21.5 12.5 17.5 0.0 3.5
 RCC OutVoP29   -25.5 -36. -41.5 12.5 17.5 0.0 4.
-RCC InVoP29    -25.5 -36. -41.5 12.5 17.5 0.0 3.
+RCC InVoP29    -25.5 -36. -41.5 12.5 17.5 0.0 3.5
 RCC OutVoP30   -25.5 -36. -61.5 12.5 17.5 0.0 4.
-RCC InVoP30    -25.5 -36. -61.5 12.5 17.5 0.0 3.
+RCC InVoP30    -25.5 -36. -61.5 12.5 17.5 0.0 3.5
 RCC OutVoP31   -25.5 -36. -81.5 12.5 17.5 0.0 4.
-RCC InVoP31    -25.5 -36. -81.5 12.5 17.5 0.0 3.
+RCC InVoP31    -25.5 -36. -81.5 12.5 17.5 0.0 3.5
 RCC OutVoP32   -25.5 -36. -101.5 12.5 17.5 0.0 4.
-RCC InVoP32    -25.5 -36. -101.5 12.5 17.5 0.0 3.
+RCC InVoP32    -25.5 -36. -101.5 12.5 17.5 0.0 3.5
 RCC OutVoP33   -25.5 -36. -121.5 12.5 17.5 0.0 4.
-RCC InVoP33    -25.5 -36. -121.5 12.5 17.5 0.0 3.
+RCC InVoP33    -25.5 -36. -121.5 12.5 17.5 0.0 3.5
 RCC OutVoP34   -25.5 -36. -141.5 12.5 17.5 0.0 4.
-RCC InVoP34    -25.5 -36. -141.5 12.5 17.5 0.0 3.
+RCC InVoP34    -25.5 -36. -141.5 12.5 17.5 0.0 3.5
 RCC OutVoP35   -25.5 -36. -162. 12.5 17.5 0.0 4.
-RCC InVoP35    -25.5 -36. -162. 12.5 17.5 0.0 3.
+RCC InVoP35    -25.5 -36. -162. 12.5 17.5 0.0 3.5
 RCC OutVoP36   -25.5 -36. -181.5 12.5 17.5 0.0 4.
-RCC InVoP36    -25.5 -36. -181.5 12.5 17.5 0.0 3.
-RCC InVoP37    -25.5 -36. -201.5 12.5 17.5 0.0 3.
+RCC InVoP36    -25.5 -36. -181.5 12.5 17.5 0.0 3.5
+RCC InVoP37    -25.5 -36. -201.5 12.5 17.5 0.0 3.5
 RCC OutVoP37   -25.5 -36. -201.5 12.5 17.5 0.0 4.
 RCC OutVoP38   -25.5 -36. -221.5 12.5 17.5 0.0 4.
-RCC InVoP38    -25.5 -36. -221.5 12.5 17.5 0.0 3.
+RCC InVoP38    -25.5 -36. -221.5 12.5 17.5 0.0 3.5
 RCC OutVoP39   -25.5 -36. -241.5 12.5 17.5 0.0 4.
-RCC InVoP39    -25.5 -36. -241.5 12.5 17.5 0.0 3.
+RCC InVoP39    -25.5 -36. -241.5 12.5 17.5 0.0 3.5
 RCC OutVoP40   -25.5 -36. -261.5 12.5 17.5 0.0 4.
-RCC InVoP40    -25.5 -36. -261.5 12.5 17.5 0.0 3.
+RCC InVoP40    -25.5 -36. -261.5 12.5 17.5 0.0 3.5
 RCC OutVoP41   -25.5 -36. -281.5 12.5 17.5 0.0 4.
-RCC InVoP41    -25.5 -36. -281.5 12.5 17.5 0.0 3.
+RCC InVoP41    -25.5 -36. -281.5 12.5 17.5 0.0 3.5
 RCC OutVoP42   -25.5 -36. -301.5 12.5 17.5 0.0 4.
-RCC InVoP42    -25.5 -36. -301.5 12.5 17.5 0.0 3.
+RCC InVoP42    -25.5 -36. -301.5 12.5 17.5 0.0 3.5
 XYP Plate1     215.2
 XYP Plate2     216.46
 XYP Plate3     227.26
@@ -187,6 +187,8 @@ RPP Blackbox   -426. 116. -202. 201. -776. 426.
 XYP WindoPl1   -399.
 XYP WindoPl2   -399.11
 XYP WindoPl3   -399.1
+RCC OuWinInl   0.0 -90.0 -380.0 0.0 185.0 0.0 10.0
+RCC InWinInl   0.0 -90.0 -380.0 0.0 185.0 0.0 9.0
 END
 Inlet1       5 +OutInl1 -InInl1 -InWatJe
 Inlet2       5 +OutInl2 -InInl2 -InWatJe
@@ -213,7 +215,7 @@ WaterJe2     5 +OutWatJ2 -InWatJe2 -OutInl4 -OutInl5 -OutInl6 -OutVoP22 -OutVoP2
                -OutVoP36 -OutVoP37 -OutVoP38 -OutVoP39 -OutVoP40 -OutVoP41 -OutVoP42
 WatJe2Wa     5 +InWatJe2
 BeaPi        5 +OutBeaPi +Airbox +WindoPl2 -InBeaPi
-               | +OutBeaPi -InBeaPi -OutTaEn1 -WindoPl3
+               | +OutBeaPi -InBeaPi -OutTaEn1 -WindoPl3 -OuWinInl
 BeaPiWat     5 +InBeaPi -InTaEn1 -WindoPl1
 Tank         5 +OutTank -TaEnPla1 +TaEnPla2 -InTank -OutInl1 -OutInl2 -OutInl3 -OutInl4 -OutInl5 -OutInl6
                -OutOutl1 -OutOutl2
@@ -818,13 +820,15 @@ TankWa11     5 +InTank +TaEnPla2 -Plate20
                | +InTank +Plate20 +zPlate9 -Plate19 -zPlate10
                | +InTank +Plate20 +zPlate11 -Plate19 -zPlate12
 Blackbod     5 +Blackbox -Airbox
-Air          5 +Airbox -OutTank -OutInl1 -OutInl2 -OutInl3 -OutInl4 -OutInl5 -OutInl6 -OutOutl1 -OutOutl2
+Air          5 +Airbox -OutTank -OutInl1 -OutInl2 -OutInl3 -OutInl4 -OutInl5 -OutInl6 -OutOutl1 -OutOutl2 -OuWinInl
                | +OutTank +Airbox -OutTaEn2 -TaEnPla2
-               | +OutTank +TaEnPla1 -WindoPl3 -OutTaEn1 -OutBeaPi
+               | +OutTank +TaEnPla1 -WindoPl3 -OutTaEn1 -OutBeaPi -OuWinInl
                | +OutTank +Airbox +WindoPl2 -OutBeaPi
 Window       5 +InBeaPi +WindoPl1 -WindoPl3
 BeaPiVac     5 +InBeaPi +WindoPl2
 ScorePla     5 +OutTank +WindoPl3 -WindoPl2
+WinInl       5 +OuWinInl -InBeaPi -InWinInl
+WinInlWa     5 +InWinInl -InBeaPi
 END
 GEOEND          115.      200.      425.     -425.     -200.     -775.DEBUG
 GEOEND          500.      400.      500.                               &
@@ -984,6 +988,8 @@ ASSIGNMA         AIR       Air
 ASSIGNMA    Ti-6Al4V    Window
 ASSIGNMA      VACUUM  BeaPiVac
 ASSIGNMA      VACUUM  ScorePla
+ASSIGNMA     316L-SS    WinInl
+ASSIGNMA       WATER  WinInlWa
 PHOTONUC          1.                        VACUUM     WATER        1.
 LAM-BIAS         0.0      0.02     WATER   NEUTRON                    INEPRI
 !@what.4=1100.0*mm
