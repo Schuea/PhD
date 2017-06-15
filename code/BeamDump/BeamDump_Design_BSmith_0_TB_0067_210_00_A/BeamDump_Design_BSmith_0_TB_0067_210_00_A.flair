@@ -5,7 +5,7 @@ Title: BeamDump_Design_BSmith_0_TB_0067_210_00_A
 Input: BeamDump_Design_BSmith_0_TB_0067_210_00_A.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Plot
+Page: Input
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -229,8 +229,8 @@ End
 # Geometry Information
 Geometry:
 	Frame.bsplit: 0.5
-	Frame.tsplit: 0.5
-	Frame.vsplit: 0.5
+	Frame.tsplit: 0.01
+	Frame.vsplit: 0.99
 
 	# Layer
 	Layer: Image
@@ -271,13 +271,13 @@ Plot: Red
 	basisv: -5.2643e-05 0.999999 0.00104299
 	boundaries: 1
 	cbcolors: 0
-	cblog: False
+	cblog: 0
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 0
 	coord: U-V
 	cpd: 0
-	extends: 1217.24 641.389
+	extends: 1217.24 86597.9
 	grid: 0
 	index: 0
 	labels: 1
@@ -285,13 +285,13 @@ Plot: Red
 	origin: 217.72 -19.3482 215.655
 	subtype: Material
 	title: GeoViewer Red plot
-	x2log: False
+	x2log: 0
 	x2tics: 0
-	xlog: False
-	y2log: False
+	xlog: 0
+	y2log: 0
 	y2tics: 0
-	ylog: False
-	zlog: False
+	ylog: 0
+	zlog: 0
 	ztics: 0
 End
 
@@ -303,10 +303,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 1028.39 542.924
+	extends: 239.171 150.864
 	labels: 1
 	layer: Media
-	origin: 70.8461 0 699.681
+	origin: -24.6298 0 -402.42
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -319,7 +319,7 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 1458.55 765.737
+	extends: 1458.55 1.83005
 	labels: 1
 	layer: Media
 	origin: -21.2851 48.4954 -706.513
@@ -341,7 +341,7 @@ Plot: Magenta
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 47.3853 24.9252
+	extends: 47.3853 0.0595293
 	grid: 0
 	index: 0
 	labels: 1

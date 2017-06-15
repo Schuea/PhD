@@ -185,7 +185,8 @@ XYP TaEnPla2   332.50
 RPP Airbox     -425. 115. -200. 200. -775. 425.
 RPP Blackbox   -426. 116. -202. 201. -776. 426.
 XYP WindoPl1   -399.
-XYP WindoPl2   -399.1
+XYP WindoPl2   -399.11
+XYP WindoPl3   -399.1
 END
 Inlet1       5 +OutInl1 -InInl1 -InWatJe
 Inlet2       5 +OutInl2 -InInl2 -InWatJe
@@ -211,7 +212,8 @@ WaterJe2     5 +OutWatJ2 -InWatJe2 -OutInl4 -OutInl5 -OutInl6 -OutVoP22 -OutVoP2
                -OutVoP27 -OutVoP28 -OutVoP29 -OutVoP30 -OutVoP31 -OutVoP32 -OutVoP33 -OutVoP34 -OutVoP35
                -OutVoP36 -OutVoP37 -OutVoP38 -OutVoP39 -OutVoP40 -OutVoP41 -OutVoP42
 WatJe2Wa     5 +InWatJe2
-BeaPi        5 +OutBeaPi -InBeaPi -OutTaEn1
+BeaPi        5 +OutBeaPi +Airbox +WindoPl2 -InBeaPi
+               | +OutBeaPi -InBeaPi -OutTaEn1 -WindoPl3
 BeaPiWat     5 +InBeaPi -InTaEn1 -WindoPl1
 Tank         5 +OutTank -TaEnPla1 +TaEnPla2 -InTank -OutInl1 -OutInl2 -OutInl3 -OutInl4 -OutInl5 -OutInl6
                -OutOutl1 -OutOutl2
@@ -818,9 +820,11 @@ TankWa11     5 +InTank +TaEnPla2 -Plate20
 Blackbod     5 +Blackbox -Airbox
 Air          5 +Airbox -OutTank -OutInl1 -OutInl2 -OutInl3 -OutInl4 -OutInl5 -OutInl6 -OutOutl1 -OutOutl2
                | +OutTank +Airbox -OutTaEn2 -TaEnPla2
-               | +OutTank +TaEnPla1 +Airbox -OutTaEn1  -OutBeaPi
-Window       5 +InBeaPi +WindoPl1 -WindoPl2
+               | +OutTank +TaEnPla1 -WindoPl3 -OutTaEn1 -OutBeaPi
+               | +OutTank +Airbox +WindoPl2 -OutBeaPi
+Window       5 +InBeaPi +WindoPl1 -WindoPl3
 BeaPiVac     5 +InBeaPi +WindoPl2
+ScorePla     5 +OutTank +WindoPl3 -WindoPl2
 END
 GEOEND          115.      200.      425.     -425.     -200.     -775.DEBUG
 GEOEND          500.      400.      500.                               &
@@ -979,6 +983,7 @@ ASSIGNMA    BLCKHOLE  Blackbod
 ASSIGNMA         AIR       Air
 ASSIGNMA    Ti-6Al4V    Window
 ASSIGNMA      VACUUM  BeaPiVac
+ASSIGNMA      VACUUM  ScorePla
 PHOTONUC          1.                        VACUUM     WATER        1.
 LAM-BIAS         0.0      0.02     WATER   NEUTRON                    INEPRI
 !@what.4=1100.0*mm
@@ -1053,13 +1058,13 @@ USRBIN         -300.     -200.     -700.      100.      100.      150. &
 !@what.9=-7000.0*mm
 USRBIN           10.    TRITON      -29.      110.      200.      420.Triton
 USRBIN         -300.     -200.     -700.      100.      100.      150. &
-USRBDX           99.  ELECTRON      -30.   TankWa1       Air20781.6354NeutrFlu2
+USRBDX           99.  ELECTRON      -30.  ScorePla       Air17671.4587NeutrFlu2
 USRBDX                               50.                           50. &
-USRBDX           99.  ELECTRON      -31.   TankWa1       Air20781.6354NeutrFlu
+USRBDX           99.  ELECTRON      -31.  ScorePla       Air17671.4587NeutrFlu
 USRBDX                               50.                            1. &
-USRBDX           -1.  ELECTRON      -32.   TankWa1       Air20781.6354NeutrCur2
+USRBDX           -1.  ELECTRON      -32.  ScorePla       Air17671.4587NeutrCur2
 USRBDX                               50.                           50. &
-USRBDX           -1.  ELECTRON      -33.   TankWa1       Air20781.6354NeutrCur2
+USRBDX           -1.  ELECTRON      -33.  ScorePla       Air17671.4587NeutrCur2
 USRBDX                               50.                            1. &
 RESNUCLE          3.      -62.                      @ALLREGS   2.592E8Resnuclei
 DISCARD        MUONS
