@@ -4,9 +4,8 @@ GLOBAL                                          1.
 * Set the defaults for precision simulations
 DEFAULTS                                                              PRECISIO
 * Define the beam characteristics
-!@what.4=246.97*nm
-!@what.5=30.522*nm
-BEAM            250.   0.00282           2.4697E-5 3.0522E-6          ELECTRON
+!@scale=1.0
+BEAM          -500.0 -1.000875       0.0-.56940603-.05138681       1.0ELECTRON
 !@what.1=1*ms
 !@what.2=5*5640E+12
 *IRRPROFI       0.001   2.82E16
@@ -187,8 +186,8 @@ RPP Blackbox   -426. 116. -202. 201. -776. 426.
 XYP WindoPl1   -399.
 XYP WindoPl2   -399.11
 XYP WindoPl3   -399.1
-RCC OuWinInl   0.0 -90.0 -380.0 0.0 185.0 0.0 10.0
-RCC InWinInl   0.0 -90.0 -380.0 0.0 185.0 0.0 9.0
+RCC OuWinInl   0.0 -90. -380. 0.0 185. 0.0 10.
+RCC InWinInl   0.0 -90. -380. 0.0 185. 0.0 9.
 END
 Inlet1       5 +OutInl1 -InInl1 -InWatJe
 Inlet2       5 +OutInl2 -InInl2 -InWatJe

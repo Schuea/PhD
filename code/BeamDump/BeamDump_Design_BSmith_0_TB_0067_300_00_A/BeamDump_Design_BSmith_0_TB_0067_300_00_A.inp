@@ -4,9 +4,8 @@ GLOBAL                                          1.
 * Set the defaults for precision simulations
 DEFAULTS                                                              PRECISIO
 * Define the beam characteristics
-!@what.4=246.97*nm
-!@what.5=30.522*nm
-BEAM            250.   0.00282           2.4697E-5 3.0522E-6          ELECTRON
+!@scale=1.0
+BEAM          -500.0 -1.000875       0.0-.56940603-.05138681       1.0ELECTRON
 * Define the beam position
 BEAMPOS          0.0       0.0     -750.       0.0       0.0
 !point           0.0       0.0     -325.                              marker1
@@ -975,9 +974,9 @@ CuPlat12     5 +InTank +CuPlaP24 +xPlane8 -CuPlaP23 -yPlane7 -xPlane7
                | +CuPlaP24 +yPlane2 +xPlane4 -CuPlaP23 -yPlane1 -xPlane3
                | +CuPlaP24 +yPlane2 +xPlane2 -CuPlaP23 -yPlane1 -xPlane1
 TankWa       5 +InTank +VortEnd1 -InTaEn1
-               | +InTank +VortEnd4 -OutVort -VortEnd1 -OutWaJeX -OuInlPi1 -OuInlPi2 -OuInlPi3 -OuInlPi8 -OuInlPi9 
-               -OuInlP10 -OuVoInl1 -OuVoInl2 -OuVoInl3 -OuVoInl4 -OuVoInl5 -OuVoInl6 -OuVoInl7 -OuVoInl8 
-               -OuVoInl9 -OuVoIn10 -OuVoIn15 -OuVoIn16 -OuVoIn17 -OuVoIn18 -OuVoIn19 -OuVoIn20 -OuVoIn21 
+               | +InTank +VortEnd4 -OutVort -VortEnd1 -OutWaJeX -OuInlPi1 -OuInlPi2 -OuInlPi3 -OuInlPi8 -OuInlPi9
+               -OuInlP10 -OuVoInl1 -OuVoInl2 -OuVoInl3 -OuVoInl4 -OuVoInl5 -OuVoInl6 -OuVoInl7 -OuVoInl8
+               -OuVoInl9 -OuVoIn10 -OuVoIn15 -OuVoIn16 -OuVoIn17 -OuVoIn18 -OuVoIn19 -OuVoIn20 -OuVoIn21
                -OuVoIn22 -OuVoIn23 -OuVoIn24 -OuVoJeY1
                | +InTank +VortEnd5 -VortEnd4
                | +InTank +MidVoPl1 -VortEnd5 -OutWaJeX -OuInlPi4 -OutTub1
@@ -1012,8 +1011,8 @@ Air          5 +WinPla1 +Airbox -OutBeaPi
                | +OutTaEn1 +Airbox -OutBeaPi -WinPla2 -OutWinIn
                | +OutWinIn +Airbox -yPiEnPl2
                | +OutWinIn +yPiEnPl1 +Airbox
-               | +OutTaEn2 +Airbox -OutTank -OutTaEn1 -OuInlPi1 -OuInlPi2 -OuInlPi3 -OuInlPi4 -OuInlPi5 -OuInlPi6 
-               -OuInlPi7 -OuInlPi8 -OuInlPi9 -OuInlP10 -OuInlP11 -OuInlP12 -OuDrain1 -OuDrain2 -OuDrain3 
+               | +OutTaEn2 +Airbox -OutTank -OutTaEn1 -OuInlPi1 -OuInlPi2 -OuInlPi3 -OuInlPi4 -OuInlPi5 -OuInlPi6
+               -OuInlPi7 -OuInlPi8 -OuInlPi9 -OuInlP10 -OuInlP11 -OuInlP12 -OuDrain1 -OuDrain2 -OuDrain3
                -OuDrain4 -OuDrain5 -OutTub1 -OutTub2
                | +Airbox -OutTaEn2
                | +OutTub1 +Airbox -yPiEnPl2
