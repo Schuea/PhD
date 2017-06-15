@@ -9,6 +9,14 @@ DEFAULTS                                                              PRECISIO
 BEAM            250.   0.00282           2.4697E-5 3.0522E-6          ELECTRON
 * Define the beam position
 BEAMPOS          0.0       0.0     -750.       0.0       0.0
+!point           0.0       0.0     -325.                              marker1
+!point          -30.       0.0      325.                              marker2
+!point         -180.       0.0      325.                              marker3
+!point         -105.       0.0      325.                              marker4
+!point           0.0       0.0      325.                              marker5
+!point           0.0      -75.     -325.                              marker6
+!point          -30.       0.0     -325.                              marker7
+!point          -30.      -75.     -325.                              marker8
 GEOBEGIN                                                              COMBNAME
     0    0          0_TB_0067_300_00_A
 ZCC OutTank    -30. 0.0 75.
@@ -20,7 +28,7 @@ ZCC InTank     -30. 0.0 73.
 ZCC OutBeaPi   0.0 0.0 20.
 ZCC InBeaPi    0.0 0.0 19.
 XYP WinPla2    -375.
-XYP WinPla1    -375.1
+XYP WinPla1    -375.11
 YCC OutWinIn   -352. 0.5 10.
 YCC InWinIn    -352. 0.5 9.
 YCC OutTub1    -68. 0.0 29.
@@ -397,14 +405,15 @@ XZP xPlane5    3.5
 XZP xPlane6    21.5
 XZP xPlane7    27.5
 XZP xPlane8    44.
-RPP Airbox     -425. 75. -200. 200. -775. 425.
-RPP Blackbox   -426. 76. -201. 201. -776. 426.
+RPP Airbox     -425. 115. -200. 200. -775. 425.
+RPP Blackbox   -426. 116. -201. 201. -776. 426.
+XYP WinPla3    -375.1
 END
 BeaPipe1     5 +OutBeaPi +WinPla1 +Airbox -InBeaPi
 BeaPipe2     5 +InTaEn1 +OutBeaPi -InBeaPi -WinPla2 -OutWinIn
 Blackbod     5 +Blackbox -Airbox
 BeaPiVa      5 +InBeaPi +WinPla1 +Airbox
-Window       5 +OutBeaPi +WinPla2 -WinPla1
+Window       5 +OutBeaPi +WinPla2 -WinPla3
 BeaPiWa      5 +InTaEn1 +InBeaPi -WinPla2
 WaJeXWa1     5 +InWaJeX +VortEnd3 -VortEnd2
 WaJeXWa2     5 +InWaJeX +VortEnd7 -VortEnd6
@@ -966,28 +975,56 @@ CuPlat12     5 +InTank +CuPlaP24 +xPlane8 -CuPlaP23 -yPlane7 -xPlane7
                | +CuPlaP24 +yPlane2 +xPlane4 -CuPlaP23 -yPlane1 -xPlane3
                | +CuPlaP24 +yPlane2 +xPlane2 -CuPlaP23 -yPlane1 -xPlane1
 TankWa       5 +InTank +VortEnd1 -InTaEn1
-               | +InTank +VortEnd4 -OutVort -VortEnd1 -OutWaJeX -OuInlPi1 -OuInlPi2 -OuInlPi3
+               | +InTank +VortEnd4 -OutVort -VortEnd1 -OutWaJeX -OuInlPi1 -OuInlPi2 -OuInlPi3 -OuInlPi8 -OuInlPi9 
+               -OuInlP10 -OuVoInl1 -OuVoInl2 -OuVoInl3 -OuVoInl4 -OuVoInl5 -OuVoInl6 -OuVoInl7 -OuVoInl8 
+               -OuVoInl9 -OuVoIn10 -OuVoIn15 -OuVoIn16 -OuVoIn17 -OuVoIn18 -OuVoIn19 -OuVoIn20 -OuVoIn21 
+               -OuVoIn22 -OuVoIn23 -OuVoIn24 -OuVoJeY1
                | +InTank +VortEnd5 -VortEnd4
                | +InTank +MidVoPl1 -VortEnd5 -OutWaJeX -OuInlPi4 -OutTub1
-               | +InTank +MidVoPl4 -MidVoPl1 -OutVort -OutWaJeX
+               | +InTank +MidVoPl4 -MidVoPl1 -OutVort -OutWaJeX -OuVoIn11 -OuVoIn12
                | +InTank +MidVoPl5 -MidVoPl4 -OutTub2 -OuInlPi5 -OutWaJeX
-               | +InTank +VortEnd8 -MidVoPl5 -OutWaJeX -OutVort
+               | +InTank +VortEnd8 -MidVoPl5 -OutWaJeX -OutVort -OuVoIn13 -OuVoIn14
                | +InTank +CuPlaPl1 -VortEnd8
                | +InTank +CuPlaP24 +yPlane1 -CuPlaPl1 -OutWaJeX -OuInlPi6 -OuInlPi7
-               | +InTank +CuPlaPl3 -CuPlaPl2 -yPlane1
-               | +InTank +CuPlaPl5 -CuPlaPl4 -yPlane1
-               | +InTank +CuPlaPl7 -CuPlaPl6 -yPlane1
-               | +InTank +CuPlaPl9 -CuPlaPl8 -yPlane1
-               | +InTank +CuPlaP11 -CuPlaP10 -yPlane1
-               | +InTank +CuPlaP13 -CuPlaP12 -yPlane1
-               | +InTank +CuPlaP15 -CuPlaP14 -yPlane1
-               | +InTank +CuPlaP17 -CuPlaP16 -yPlane1
-               | +InTank +CuPlaP19 -CuPlaP18 -yPlane1
-               | +InTank +CuPlaP21 -CuPlaP20 -yPlane1
-               | +InTank +CuPlaP23 -CuPlaP22 -yPlane1
+               | +InTank +CuPlaPl3 -CuPlaPl2 -yPlane1 -xPlane1
+               | +InTank +CuPlaPl5 -CuPlaPl4 -yPlane1 -xPlane1
+               | +InTank +CuPlaPl7 -CuPlaPl6 -yPlane1 -xPlane1
+               | +InTank +CuPlaPl9 -CuPlaPl8 -yPlane1 -xPlane1
+               | +InTank +CuPlaP11 -CuPlaP10 -yPlane1 -xPlane1
+               | +InTank +CuPlaP13 -CuPlaP12 -yPlane1 -xPlane1
+               | +InTank +CuPlaP15 -CuPlaP14 -yPlane1 -xPlane1
+               | +InTank +CuPlaP17 -CuPlaP16 -yPlane1 -xPlane1
+               | +InTank +CuPlaP19 -CuPlaP18 -yPlane1 -xPlane1
+               | +InTank +CuPlaP21 -CuPlaP20 -yPlane1 -xPlane1
+               | +InTank +CuPlaP23 -CuPlaP22 -yPlane1 -xPlane1
                | +InTaEn2 +InTank -CuPlaP24
+               | +InTank +CuPlaP24 -CuPlaPl1 -yPlane1 -xPlane8
+               | +InTank +CuPlaP24 +xPlane1 -CuPlaPl1 -yPlane1 -OuVoJeY2 -OuInlP11 -OuInlP12
+               | +InTank +CuPlaP24 +xPlane7 -CuPlaPl1 -yPlane1 -xPlane6
+               | +InTank +CuPlaP24 +xPlane5 -CuPlaPl1 -yPlane1 -xPlane4
+               | +InTank +CuPlaP24 +xPlane3 -CuPlaPl1 -yPlane1 -xPlane2
+               | +InTank +CuPlaP24 +yPlane3 +xPlane8 -CuPlaPl1 -yPlane2 -xPlane1
+               | +InTank +CuPlaP24 +yPlane5 +xPlane8 -CuPlaPl1 -yPlane4 -xPlane1
+               | +CuPlaP24 +yPlane7 +xPlane8 -CuPlaPl1 -yPlane6 -xPlane1
+               | +OutTub1 +xPlane8 -InTub1 -xPlane1
+               | +OutTub2 +xPlane8 -InTub2 -xPlane1
+Air          5 +WinPla1 +Airbox -OutBeaPi
+               | +OutTaEn1 +Airbox -OutBeaPi -WinPla2 -OutWinIn
+               | +OutWinIn +Airbox -yPiEnPl2
+               | +OutWinIn +yPiEnPl1 +Airbox
+               | +OutTaEn2 +Airbox -OutTank -OutTaEn1 -OuInlPi1 -OuInlPi2 -OuInlPi3 -OuInlPi4 -OuInlPi5 -OuInlPi6 
+               -OuInlPi7 -OuInlPi8 -OuInlPi9 -OuInlP10 -OuInlP11 -OuInlP12 -OuDrain1 -OuDrain2 -OuDrain3 
+               -OuDrain4 -OuDrain5 -OutTub1 -OutTub2
+               | +Airbox -OutTaEn2
+               | +OutTub1 +Airbox -yPiEnPl2
+               | +OutTub2 +Airbox -yPiEnPl2
+               | +OutTub1 +yPiEnPl1 +Airbox
+               | +OutTub2 +yPiEnPl1 +Airbox
+               | +Airbox +WinPla2 -OutBeaPi -WinPla3
+               | +Airbox +WinPla3 -OutTank -WinPla1
+ScorePla     5 +OutTank +WinPla3 -WinPla1
 END
-GEOEND          115.      200.      425.     -425.     -200.     -775.DEBUG
+GEOEND          114.      199.      424.     -424.     -199.     -774.DEBUG
 GEOEND          500.      400.      500.                               &
 ASSIGNMA        LEAD  BeaPipe2
 ASSIGNMA        LEAD  BeaPipe1
@@ -1337,16 +1374,91 @@ ASSIGNMA      COPPER  CuPlat10
 ASSIGNMA      COPPER  CuPlat11
 ASSIGNMA      COPPER  CuPlat12
 ASSIGNMA       WATER    TankWa
+ASSIGNMA         AIR       Air
+ASSIGNMA      VACUUM  ScorePla
 PHOTONUC          1.                        VACUUM     WATER        1.
-!point           0.0       0.0     -325.                              marker1
-!point          -30.       0.0      325.                              marker2
-!point         -180.       0.0      325.                              marker3
-!point         -105.       0.0      325.                              marker4
-!point           0.0       0.0      325.                              marker5
-!point           0.0      -75.     -325.                              marker6
-!point          -30.       0.0     -325.                              marker7
-!point          -30.      -75.     -325.                              marker8
 LAM-BIAS         0.0      0.02     WATER   NEUTRON                    INEPRI
+!@what.4=1100.0*mm
+!@what.5=2000.0*mm
+!@what.6=4200.0*mm
+!@what.7=-3000.0*mm
+!@what.8=-2000.0*mm
+!@what.9=-7000.0*mm
+USRBIN           10.    ENERGY      -21.      110.      200.      420.Energy
+USRBIN         -300.     -200.     -700.      100.      100.      150. &
+!@what.4=1100.0*mm
+!@what.5=2000.0*mm
+!@what.6=4200.0*mm
+!@what.7=-3000.0*mm
+!@what.8=-2000.0*mm
+!@what.9=-7000.0*mm
+USRBIN           10.   NEUTRON      -22.      110.      200.      420.Neutrons
+USRBIN         -300.     -200.     -700.      100.      100.      150. &
+!@what.4=1100.0*mm
+!@what.5=2000.0*mm
+!@what.6=4200.0*mm
+!@what.7=-3000.0*mm
+!@what.8=-2000.0*mm
+!@what.9=-7000.0*mm
+USRBIN           10.   DOSE-EQ      -23.      110.      200.      420.DoseEq
+USRBIN         -300.     -200.     -700.      100.      100.      150. &
+!@what.4=1100.0*mm
+!@what.5=2000.0*mm
+!@what.6=4200.0*mm
+!@what.7=-3000.0*mm
+!@what.8=-2000.0*mm
+!@what.9=-7000.0*mm
+USRBIN           10.   DOSE-EM      -24.      110.      200.      420.DoseEM
+USRBIN         -300.     -200.     -700.      100.      100.      150. &
+!@what.4=1100.0*mm
+!@what.5=2000.0*mm
+!@what.6=4200.0*mm
+!@what.7=-3000.0*mm
+!@what.8=-2000.0*mm
+!@what.9=-7000.0*mm
+USRBIN           10.      DOSE      -25.      110.      200.      420.Dose
+USRBIN         -300.     -200.     -700.      100.      100.      150. &
+!@what.4=1100.0*mm
+!@what.5=2000.0*mm
+!@what.6=4200.0*mm
+!@what.7=-3000.0*mm
+!@what.8=-2000.0*mm
+!@what.9=-7000.0*mm
+USRBIN           10.    PROTON      -26.      110.      200.      420.Protons
+USRBIN         -300.     -200.     -700.      100.      100.      150. &
+!@what.4=1100.0*mm
+!@what.5=2000.0*mm
+!@what.6=4200.0*mm
+!@what.7=-3000.0*mm
+!@what.8=-2000.0*mm
+!@what.9=-7000.0*mm
+USRBIN           10.  ELECTRON      -27.      110.      200.      420.Electrons
+USRBIN         -300.     -200.     -700.      100.      100.      150. &
+!@what.4=1100.0*mm
+!@what.5=2000.0*mm
+!@what.6=4200.0*mm
+!@what.7=-3000.0*mm
+!@what.8=-2000.0*mm
+!@what.9=-7000.0*mm
+USRBIN           10.    PHOTON      -28.      110.      200.      420.Photons
+USRBIN         -300.     -200.     -700.      100.      100.      150. &
+!@what.4=1100.0*mm
+!@what.5=2000.0*mm
+!@what.6=4200.0*mm
+!@what.7=-3000.0*mm
+!@what.8=-2000.0*mm
+!@what.9=-7000.0*mm
+USRBIN           10.    TRITON      -29.      110.      200.      420.Triton
+USRBIN         -300.     -200.     -700.      100.      100.      150. &
+USRBDX           99.  ELECTRON      -30.  ScorePla       Air17671.4587NeutrFlu2
+USRBDX                               50.                           50. &
+USRBDX           99.  ELECTRON      -31.  ScorePla       Air17671.4587NeutrFlu
+USRBDX                               50.                            1. &
+USRBDX           -1.  ELECTRON      -32.  ScorePla       Air17671.4587NeutrCur2
+USRBDX                               50.                           50. &
+USRBDX           -1.  ELECTRON      -33.  ScorePla       Air17671.4587NeutrCur2
+USRBDX                               50.                            1. &
+RESNUCLE          3.      -62.                      @ALLREGS   2.592E8Resnuclei
 DISCARD        MUONS
 * Set the random number seed
 RANDOMIZ          1.        1.

@@ -5,7 +5,7 @@ Title: BeamDump_Design_BSmith_0_TB_0067_300_00_A
 Input: BeamDump_Design_BSmith_0_TB_0067_300_00_A.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Geometry
+Page: Run
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -15,9 +15,9 @@ F77dline: False
 Run: <default>
 	Prev:     0
 	Last:     5
-	Status:   0
+	Status:   4
 	Pid:      0
-	StartRun: 0
+	StartRun: 1497515221
 End
 
 # Geometry Information
@@ -97,10 +97,10 @@ Plot: Red
 	basisv: 0 1 0
 	boundaries: 1
 	coord: X-Y
-	extends: 100 61.2296
+	extends: 83.3333 51.0247
 	labels: 1
 	layer: Media
-	origin: -4.22647 1.25471 315.5
+	origin: 0 0 0
 	subtype: Material
 	title: GeoViewer Red plot
 End
@@ -113,10 +113,10 @@ Plot: Blue
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 207.361 130.799
+	extends: 16.1506 9.88897
 	labels: 1
 	layer: Drawing_xz
-	origin: -25.4347 -5 232.245
+	origin: -6.01664 0 -763.439
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -126,13 +126,13 @@ Plot: Magenta
 	Format: .eps
 	Type:   Geometry
 	basisu: 0 0 1
-	basisv: 0 1 0
+	basisv: 0 -1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 100 7114.28
+	extends: 429.982 263.607
 	labels: 1
 	layer: Drawing_yz
-	origin: 0 -23.0528 204.969
+	origin: 0 0.140799 -137.445
 	subtype: Material
 	title: GeoViewer Magenta plot
 End
@@ -145,10 +145,10 @@ Plot: Green
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 172.8 105.938
+	extends: 248.832 152.55
 	labels: 1
 	layer: Drawing_yz
-	origin: -30 7.75031 228.182
+	origin: 0 69.167 -390.959
 	subtype: Material
 	title: GeoViewer Green plot
 End
