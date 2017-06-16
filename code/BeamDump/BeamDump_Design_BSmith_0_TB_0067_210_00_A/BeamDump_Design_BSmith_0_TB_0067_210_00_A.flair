@@ -4,8 +4,10 @@ Version: 2
 Title: BeamDump_Design_BSmith_0_TB_0067_210_00_A
 Input: BeamDump_Design_BSmith_0_TB_0067_210_00_A.inp
 Submit: *Default
+Notes:
+Composition of normal and boronated concrete from Paper "Application of neutron shield concrete to neutron scattering instrument TAIKAN in J-PARC" by Koichi Okuno et al.
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Input
+Page: Geometry
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -127,6 +129,236 @@ Material:
 End
 
 # Material
+Material: Mangan1
+	alpha: 0
+	color: #303050
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: NormConc
+	alpha: 0
+	color: #A0B030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: MgO
+	alpha: 0
+	color: #305030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Chlorine
+	alpha: 0
+	color: #9050D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Sulfur
+	alpha: 0
+	color: #209010
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Al2O3
+	alpha: 0
+	color: #509070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: TiO2
+	alpha: 0
+	color: #B01070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Fe2O3
+	alpha: 0
+	color: #B0B050
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Sulfur1
+	alpha: 0
+	color: #C050D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: K2O
+	alpha: 0
+	color: #C09070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Phospho1
+	alpha: 0
+	color: #3090B0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Boron
+	alpha: 0
+	color: #201090
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Kalium
+	alpha: 0
+	color: #405030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: 316L-SS
+	alpha: 0
+	color: #109070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Phosphor
+	alpha: 0
+	color: #E05010
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Molybdenum
+	alpha: 0
+	color: #D03050
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Vanadium
+	alpha: 0
+	color: #807070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: BorConc
+	alpha: 0
+	color: #4050D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: SiO2
+	alpha: 0
+	color: #60D0B0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: B2O3
+	alpha: 0
+	color: #505030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Eu
+	alpha: 0
+	color: #703070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: SO3
+	alpha: 0
+	color: #9010D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: MnO
+	alpha: 0
+	color: #8030D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
 Material: Mangan
 	alpha: 0
 	color: #D0D0B0
@@ -157,9 +389,9 @@ Material: Ti-6Al-4V
 End
 
 # Material
-Material: Molybdenum
+Material: P2O5
 	alpha: 0
-	color: #D03050
+	color: #105010
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -167,9 +399,29 @@ Material: Molybdenum
 End
 
 # Material
-Material: Vanadium
+Material: Cobalt
 	alpha: 0
-	color: #807070
+	color: #E09090
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Na2O
+	alpha: 0
+	color: #301070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: CaO
+	alpha: 0
+	color: #105090
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -187,9 +439,19 @@ Material: Ti-6Al4V
 End
 
 # Material
-Material: Sulfur
+Material: Cs
 	alpha: 0
-	color: #209010
+	color: #901070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: NeutConc
+	alpha: 0
+	color: #20D070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -207,19 +469,9 @@ Material: Chromium
 End
 
 # Material
-Material: 316L-SS
+Material: CoO
 	alpha: 0
-	color: #109070
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: Phosphor
-	alpha: 0
-	color: #E05010
+	color: #9070D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -277,12 +529,12 @@ Plot: Red
 	cbtics: 0
 	coord: U-V
 	cpd: 0
-	extends: 407.651 249.603
+	extends: 1014.37 621.092
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Media
-	origin: -100.676 -2.0324 -184.94
+	origin: -483.88 197.941 -184.166
 	subtype: Material
 	title: GeoViewer Red plot
 	x2log: 0
@@ -303,10 +555,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 413.287 253.372
+	extends: 1480.88 907.877
 	labels: 1
 	layer: Media
-	origin: -17.2021 0 -61.09
+	origin: -15.5623 0 -199.011
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -319,10 +571,10 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 407.055 249.238
+	extends: 1458.55 893.066
 	labels: 1
 	layer: Media
-	origin: -21.2851 -61.8808 -49.5362
+	origin: 0.929042 -92.4834 -160.554
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -341,12 +593,12 @@ Plot: Magenta
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 352.077 215.846
+	extends: 1261.56 773.416
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Image
-	origin: 0 -1.92392 -114.212
+	origin: 0 -66.6236 -106.634
 	subtype: Material
 	title: GeoViewer Magenta plot
 	x2log: 0
