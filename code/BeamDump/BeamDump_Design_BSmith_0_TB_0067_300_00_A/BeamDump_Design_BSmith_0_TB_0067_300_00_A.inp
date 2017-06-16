@@ -1066,18 +1066,22 @@ MATERIAL                            3.94                              Al2O3
 COMPOUND         40.  ALUMINUM       60.    OXYGEN                    Al2O3
 MATERIAL                            3.37                              CaO
 COMPOUND         50.   CALCIUM       50.    OXYGEN                    CaO
-MATERIAL         55.    132.91     1.873                           0.0Cs
+MATERIAL         55.               1.873                           0.0Cs
+LOW-MAT           Cs       55.      133.      296.                    CESIUM
 MATERIAL                            2.27                              Na2O
 COMPOUND       66.66    SODIUM     33.33    OXYGEN                    Na2O
-MATERIAL         19.    39.098     0.862                           0.0Kalium
+MATERIAL         19.               0.862                           0.0Kalium
+LOW-MAT       Kalium       19.       -2.      296.                    POTASSIU
 MATERIAL                            2.32                              K2O
 COMPOUND       66.66    Kalium     33.33    OXYGEN                    K2O
 MATERIAL                            4.24                              TiO2
 COMPOUND       33.33  TITANIUM     66.66    OXYGEN                    TiO2
 MATERIAL                            5.24                              Fe2O3
 COMPOUND         40.      IRON       60.    OXYGEN                    Fe2O3
-MATERIAL         63.    151.96     5.243                           0.0Eu
-MATERIAL         27.    58.933      8.86                           0.0Cobalt
+MATERIAL         63.               5.243                              Eu
+LOW-MAT           Eu       63.       -2.      296.                    EUROPIUM
+MATERIAL         27.                8.86                           0.0Cobalt
+LOW-MAT       Cobalt       27.       59.      296.                    COBALT
 MATERIAL                             2.2                              NormConc
 COMPOUND       -57.7      SiO2     -6.04     WATER     -1.31       MgONormConc
 COMPOUND       -0.08       MnO     -10.5     Al2O3     -14.5       CaONormConc
@@ -1088,8 +1092,10 @@ MATERIAL                              6.                              CoO
 COMPOUND         50.    Cobalt       50.    OXYGEN                    CoO
 MATERIAL                              2.                              SO3
 COMPOUND         25.    Sulfur       75.    OXYGEN                    SO3
-MATERIAL         17.    35.453  0.003214                           0.0Chlorine
-MATERIAL          5.    10.811      2.34                           0.0Boron
+MATERIAL         17.            0.003214                           0.0Chlorine
+LOW-MAT     Chlorine       17.       -2.      296.                    CHLORINE
+MATERIAL          5.                2.34                           0.0Boron
+LOW-MAT        Boron        5.       11.      296.                    BORON-11
 MATERIAL                            1.83                              B2O3
 COMPOUND         40.     Boron       60.    OXYGEN                    B2O3
 MATERIAL                            2.39                              P2O5
