@@ -5,7 +5,7 @@ GLOBAL                                          1.
 DEFAULTS                                                              PRECISIO
 * Define the beam characteristics
 !@scale=1.0
-BEAM          -500.0 -1.000875       0.0-.56940603-.05138681       1.0ELECTRON
+BEAM           -500. -1.000875       0.0-.56940603-.05138681        1.ELECTRON
 * Define the beam position
 BEAMPOS          0.0       0.0     -750.       0.0       0.0
 !point           0.0       0.0     -325.                              marker1
@@ -24,9 +24,10 @@ XYP OutTaEn2   329.
 XYP InTaEn1    -325.
 XYP OutTaEn1   -329.
 ZCC InTank     -30. 0.0 73.
-ZCC OutBeaPi   0.0 0.0 20.
-ZCC InBeaPi    0.0 0.0 19.
+RCC OutBeaPi   0.0 0.0 -1201.5 0.0 0.0 877.5 20.0
+RCC InBeaPi    0.0 0.0 -1201.5 0.0 0.0 877.5 19.0
 XYP WinPla2    -375.
+XYP WinPla3    -375.1
 XYP WinPla1    -375.11
 YCC OutWinIn   -352. 0.5 10.
 YCC InWinIn    -352. 0.5 9.
@@ -301,20 +302,20 @@ YZP yPlane4    -2.5
 YZP yPlane5    3.
 YZP yPlane6    21.
 YZP yPlane7    26.5
-RCC OuInlPi1   -133. 0.0 -291. 75. 0.0 0.0 10.
-RCC InInlPi1   -133. 0.0 -291. 75. 0.0 0.0 9.
-RCC OuInlPi2   -133. 0.0 -221. 75. 0.0 0.0 10.
-RCC InInlPi2   -133. 0.0 -221. 75. 0.0 0.0 9.
-RCC OuInlPi3   -133. 0.0 -141. 75. 0.0 0.0 10.
-RCC InInlPi3   -133. 0.0 -141. 75. 0.0 0.0 9.
-RCC OuInlPi4   -133. 0.0 -68. 75. 0.0 0.0 10.
-RCC InInlPi4   -133. 0.0 -68. 75. 0.0 0.0 9.
-RCC OuInlPi5   -133. 0.0 32. 75. 0.0 0.0 10.
-RCC InInlPi5   -133. 0.0 32. 75. 0.0 0.0 9.
-RCC OuInlPi6   -133. 0.0 169. 75. 0.0 0.0 10.
-RCC InInlPi6   -133. 0.0 169. 75. 0.0 0.0 9.
-RCC OuInlPi7   -133. 0.0 289. 75. 0.0 0.0 10.
-RCC InInlPi7   -133. 0.0 289. 75. 0.0 0.0 9.
+RCC OuInlPi1   -210. 0.0 -291. 155. 0.0 0.0 10.
+RCC InInlPi1   -210. 0.0 -291. 155. 0.0 0.0 9.
+RCC OuInlPi2   -210. 0.0 -221. 155. 0.0 0.0 10.
+RCC InInlPi2   -210. 0.0 -221. 155. 0.0 0.0 9.
+RCC OuInlPi3   -210. 0.0 -141. 155. 0.0 0.0 10.
+RCC InInlPi3   -210. 0.0 -141. 155. 0.0 0.0 9.
+RCC OuInlPi4   -210. 0.0 -68. 155. 0.0 0.0 10.
+RCC InInlPi4   -210. 0.0 -68. 155. 0.0 0.0 9.
+RCC OuInlPi5   -210. 0.0 32. 155. 0.0 0.0 10.
+RCC InInlPi5   -210. 0.0 32. 155. 0.0 0.0 9.
+RCC OuInlPi6   -210. 0.0 169. 155. 0.0 0.0 10.
+RCC InInlPi6   -210. 0.0 169. 155. 0.0 0.0 9.
+RCC OuInlPi7   -210. 0.0 289. 155. 0.0 0.0 10.
+RCC InInlPi7   -210. 0.0 289. 155. 0.0 0.0 9.
 YZP InlPiEnd   -133.
 XYP MidVoPl1   -33.5
 XYP MidVoPl2   -32.5
@@ -350,8 +351,8 @@ RCC OuVoIn13   -44.5 0.0 92. 22. 0.0 0.0 3.
 RCC InVoIn13   -44.5 0.0 92. 22. 0.0 0.0 2.5
 RCC OuVoIn14   -44.5 0.0 112. 22. 0.0 0.0 3.
 RCC InVoIn14   -44.5 0.0 112. 22. 0.0 0.0 2.5
-XZP yPiEnPl1   -100.
-XZP yPiEnPl2   100.
+XZP yPiEnPl1   -110.0
+XZP yPiEnPl2   110.0
 ZCC OuVoJeY1   0.0 -43. 10.
 ZCC InVoJeY1   0.0 -43. 9.
 ZCC OuVoJeY2   -30. -53. 10.
@@ -376,26 +377,26 @@ RCC OuVoIn23   0.0 -35.5 -141. 0.0 13. 0.0 3.
 RCC InVoIn23   0.0 -35.5 -141. 0.0 13. 0.0 2.5
 RCC OuVoIn24   0.0 -35.5 -121. 0.0 13. 0.0 3.
 RCC InVoIn24   0.0 -35.5 -121. 0.0 13. 0.0 2.5
-RCC OuInlPi8   0.0 15. -291. 0.0 85. 0.0 10.
-RCC InInlPi8   0.0 15. -291. 0.0 85. 0.0 9.
-RCC OuInlPi9   0.0 15. -221. 0.0 85. 0.0 10.
-RCC InInlPi9   0.0 15. -221. 0.0 85. 0.0 9.
-RCC OuInlP10   0.0 15. -141. 0.0 85. 0.0 10.
-RCC InInlP10   0.0 15. -141. 0.0 85. 0.0 9.
-RCC OuInlP11   -30. -100. 169.5 0.0 40. 0.0 10.
-RCC InInlP11   -30. -100. 169.5 0.0 40. 0.0 9.
-RCC OuInlP12   -30. -100. 289. 0.0 40. 0.0 10.
-RCC InInlP12   -30. -100. 289. 0.0 40. 0.0 9.
-RCC OuDrain1   -30. 70. -261. 0.0 30. 0.0 15.
-RCC InDrain1   -30. 70. -261. 0.0 30. 0.0 14.
-RCC OuDrain2   -30. 70. 273. 0.0 30. 0.0 15.
-RCC InDrain2   -30. 70. 273. 0.0 30. 0.0 14.
-RCC OuDrain3   -30. -100. 114. 0.0 30. 0.0 10.
-RCC InDrain3   -30. -100. 114. 0.0 30. 0.0 9.
-RCC OuDrain4   -30. -100. -181.5 0.0 30. 0.0 10.
-RCC InDrain4   -30. -100. -181.5 0.0 30. 0.0 9.
-RCC OuDrain5   -30. -100. -280.5 0.0 30. 0.0 10.
-RCC InDrain5   -30. -100. -280.5 0.0 30. 0.0 9.
+RCC OuInlPi8   0.0 15.0 -291.0 0.0 95.0 0.0 10.0
+RCC InInlPi8   0.0 15.0 -291.0 0.0 95.0 0.0 9.0
+RCC OuInlPi9   0.0 15.0 -221.0 0.0 95.0 0.0 10.0
+RCC InInlPi9   0.0 15.0 -221.0 0.0 95.0 0.0 9.0
+RCC OuInlP10   0.0 15.0 -141.0 0.0 95.0 0.0 10.0
+RCC InInlP10   0.0 15.0 -141.0 0.0 95.0 0.0 9.0
+RCC OuInlP11   -30. -130. 169.5 0.0 70. 0.0 10.
+RCC InInlP11   -30. -130. 169.5 0.0 70. 0.0 9.
+RCC OuInlP12   -30. -130. 289. 0.0 70. 0.0 10.
+RCC InInlP12   -30. -130. 289. 0.0 70. 0.0 9.
+RCC OuDrain1   -30. 70. -261. 0.0 60. 0.0 15.
+RCC InDrain1   -30. 70. -261. 0.0 60. 0.0 14.
+RCC OuDrain2   -30. 70. 273. 0.0 60. 0.0 15.
+RCC InDrain2   -30. 70. 273. 0.0 60. 0.0 14.
+RCC OuDrain3   -30. -130. 114. 0.0 60. 0.0 10.
+RCC InDrain3   -30. -130. 114. 0.0 60. 0.0 9.
+RCC OuDrain4   -30. -130. -181.5 0.0 60. 0.0 10.
+RCC InDrain4   -30. -130. -181.5 0.0 60. 0.0 9.
+RCC OuDrain5   -30. -130. -280.5 0.0 60. 0.0 10.
+RCC InDrain5   -30. -130. -280.5 0.0 60. 0.0 9.
 XZP xPlane1    -42.5
 XZP xPlane2    -26.5
 XZP xPlane3    -20.5
@@ -405,13 +406,17 @@ XZP xPlane6    21.5
 XZP xPlane7    27.5
 XZP xPlane8    44.
 RPP Airbox     -425. 115. -200. 200. -775. 425.
-RPP Blackbox   -426. 116. -201. 201. -776. 426.
-XYP WinPla3    -375.1
+RPP IronShie   -475. 165. -200. 250. -825. 475.
+RPP BorConcr   -625. 315. -200. 400. -975. 525.
+RPP Concr      -825. 315. -200. 600. -1175. 725.
+RPP Airbox2    -900. 400. -200. 700. -1250. 800.
+RPP Blackbox   -901. 401. -201. 701. -1251. 801.
+XYP ScorPla1   -1201.4
+XYP ScorPla2   -1201.5
 END
-BeaPipe1     5 +OutBeaPi +WinPla1 +Airbox -InBeaPi
+BeaPipe1     5 +OutBeaPi +WinPla1 -InBeaPi -ScorPla1
 BeaPipe2     5 +InTaEn1 +OutBeaPi -InBeaPi -WinPla2 -OutWinIn
-Blackbod     5 +Blackbox -Airbox
-BeaPiVa      5 +InBeaPi +WinPla1 +Airbox
+BeaPiVa      5 +InBeaPi +WinPla1 -ScorPla1
 Window       5 +OutBeaPi +WinPla2 -WinPla3
 BeaPiWa      5 +InTaEn1 +InBeaPi -WinPla2
 WaJeXWa1     5 +InWaJeX +VortEnd3 -VortEnd2
@@ -462,7 +467,7 @@ Inlet9       5 +OuInlP10 -InVort -InInlP10
 Inlet10      5 +OuInlP11 -InVoJeY2 -InInlP11
 Inlet11      5 +OuInlP12 -InVoJeY2 -InInlP12
 Inlet12      5 +OuInlPi3 -InWaJeX -InInlPi3
-Outlet1      5 +yPiEnPl2 +OuDrain1 -InTank -InDrain1
+Outlet1      5 +OuDrain1 -InTank -InDrain1
 Outlet2      5 +OuDrain2 -InTank -InDrain2
 Outlet3      5 +OuDrain5 -InTank -InDrain5
 Outlet4      5 +OuDrain4 -InTank -InDrain4
@@ -1022,6 +1027,13 @@ Air          5 +WinPla1 +Airbox -OutBeaPi
                | +Airbox +WinPla2 -OutBeaPi -WinPla3
                | +Airbox +WinPla3 -OutTank -WinPla1
 ScorePla     5 +OutTank +WinPla3 -WinPla1
+Air2         5 +Airbox2 -Concr -OutBeaPi
+               | +OutBeaPi +Airbox2 +ScorPla2
+Blackbod     5 +Blackbox -Airbox2
+IronShie     5 +IronShie -Airbox -OutBeaPi
+BorConcr     5 +BorConcr -IronShie -OutBeaPi
+ConcrShi     5 +Concr -BorConcr -OutBeaPi
+ScorePl1     5 +OutBeaPi +ScorPla1 -ScorPla2
 END
 GEOEND          114.      199.      424.     -424.     -199.     -774.DEBUG
 GEOEND          500.      400.      500.                               &
@@ -1044,9 +1056,53 @@ MATERIAL                            7.99                              316L-SS
 COMPOUND       0.035    CARBON        2.    Mangan     14.89    NICKEL316L-SS
 COMPOUND         18.  Chromium        3.  Molybden      0.03    Sulfur316L-SS
 COMPOUND          1.   SILICON     0.045  Phosphor       61.      IRON316L-SS
+MATERIAL                             2.5                              SiO2
+COMPOUND       33.33   SILICON     66.66    OXYGEN                    SiO2
+MATERIAL                            3.58                              MgO
+COMPOUND         50.  MAGNESIU       50.    OXYGEN                    MgO
+MATERIAL                            5.45                              MnO
+COMPOUND         50.    Mangan       50.    OXYGEN                    MnO
+MATERIAL                            3.94                              Al2O3
+COMPOUND         40.  ALUMINUM       60.    OXYGEN                    Al2O3
+MATERIAL                            3.37                              CaO
+COMPOUND         50.   CALCIUM       50.    OXYGEN                    CaO
+MATERIAL         55.    132.91     1.873                           0.0Cs
+MATERIAL                            2.27                              Na2O
+COMPOUND       66.66    SODIUM     33.33    OXYGEN                    Na2O
+MATERIAL         19.    39.098     0.862                           0.0Kalium
+MATERIAL                            2.32                              K2O
+COMPOUND       66.66    Kalium     33.33    OXYGEN                    K2O
+MATERIAL                            4.24                              TiO2
+COMPOUND       33.33  TITANIUM     66.66    OXYGEN                    TiO2
+MATERIAL                            5.24                              Fe2O3
+COMPOUND         40.      IRON       60.    OXYGEN                    Fe2O3
+MATERIAL         63.    151.96     5.243                           0.0Eu
+MATERIAL         27.    58.933      8.86                           0.0Cobalt
+MATERIAL                             2.2                              NormConc
+COMPOUND       -57.7      SiO2     -6.04     WATER     -1.31       MgONormConc
+COMPOUND       -0.08       MnO     -10.5     Al2O3     -14.5       CaONormConc
+COMPOUND       -0.01        Cs     -2.29      Na2O     -0.86       K2ONormConc
+COMPOUND       -0.39      TiO2     -3.47     Fe2O3     -0.01        EuNormConc
+COMPOUND       -0.01    Cobalt                                        NormConc
+MATERIAL                              6.                              CoO
+COMPOUND         50.    Cobalt       50.    OXYGEN                    CoO
+MATERIAL                              2.                              SO3
+COMPOUND         25.    Sulfur       75.    OXYGEN                    SO3
+MATERIAL         17.    35.453  0.003214                           0.0Chlorine
+MATERIAL          5.    10.811      2.34                           0.0Boron
+MATERIAL                            1.83                              B2O3
+COMPOUND         40.     Boron       60.    OXYGEN                    B2O3
+MATERIAL                            2.39                              P2O5
+COMPOUND       28.57  Phosphor     71.42    OXYGEN                    P2O5
+MATERIAL                             2.2                              BorConc
+COMPOUND       -33.1      SiO2     -14.8     WATER     -29.1       MgOBorConc
+COMPOUND       -0.09       MnO     -1.54     Al2O3      -11.       CaOBorConc
+COMPOUND       -0.01        Cs     -0.05      Na2O     -0.06       K2OBorConc
+COMPOUND       -0.07      TiO2     -6.23     Fe2O3     -0.01        EuBorConc
+COMPOUND       -0.01       CoO    -0.016  Chlorine     -0.11      P2O5BorConc
+COMPOUND       -0.38       SO3     -2.61      B2O3                    BorConc
 ASSIGNMA     316L-SS  BeaPipe2
 ASSIGNMA     316L-SS  BeaPipe1
-ASSIGNMA    BLCKHOLE  Blackbod
 ASSIGNMA      VACUUM   BeaPiVa
 ASSIGNMA    Ti-6Al4V    Window
 ASSIGNMA       WATER   BeaPiWa
@@ -1394,6 +1450,12 @@ ASSIGNMA      COPPER  CuPlat12
 ASSIGNMA       WATER    TankWa
 ASSIGNMA         AIR       Air
 ASSIGNMA      VACUUM  ScorePla
+ASSIGNMA    BLCKHOLE  Blackbod
+ASSIGNMA         AIR      Air2
+ASSIGNMA        IRON  IronShie
+ASSIGNMA     BorConc  BorConcr
+ASSIGNMA    NormConc  ConcrShi
+ASSIGNMA      VACUUM  ScorePl1
 PHOTONUC          1.                        VACUUM     WATER        1.
 LAM-BIAS         0.0      0.02     WATER   NEUTRON                    INEPRI
 !@what.4=1100.0*mm

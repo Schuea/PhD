@@ -5,7 +5,7 @@ Title: BeamDump_Design_BSmith_0_TB_0067_300_00_A
 Input: BeamDump_Design_BSmith_0_TB_0067_300_00_A.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Input
+Page: Flair
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -18,6 +18,196 @@ Run: <default>
 	Status:   2
 	Pid:      12641
 	StartRun: 1497515802
+End
+
+# Material
+Material: NormConc
+	alpha: 0
+	color: #A0B030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: MgO
+	alpha: 0
+	color: #305030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: BorConc
+	alpha: 0
+	color: #4050D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Sulfur
+	alpha: 0
+	color: #209010
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Al2O3
+	alpha: 0
+	color: #509070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: TiO2
+	alpha: 0
+	color: #B01070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Fe2O3
+	alpha: 0
+	color: #B0B050
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Chlorine
+	alpha: 0
+	color: #9050D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: K2O
+	alpha: 0
+	color: #C09070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Boron
+	alpha: 0
+	color: #201090
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Kalium
+	alpha: 0
+	color: #405030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: 316L-SS
+	alpha: 0
+	color: #109070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Ti-6Al4V
+	alpha: 0
+	color: #407030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Vanadium
+	alpha: 0
+	color: #807070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: SiO2
+	alpha: 0
+	color: #60D0B0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: B2O3
+	alpha: 0
+	color: #505030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Cs
+	alpha: 0
+	color: #901070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: SO3
+	alpha: 0
+	color: #9010D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: MnO
+	alpha: 0
+	color: #8030D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
 End
 
 # Material
@@ -41,9 +231,39 @@ Material: Molybden
 End
 
 # Material
-Material: Vanadium
+Material: P2O5
 	alpha: 0
-	color: #807070
+	color: #105010
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Cobalt
+	alpha: 0
+	color: #E09090
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Na2O
+	alpha: 0
+	color: #301070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: CaO
+	alpha: 0
+	color: #105090
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -61,9 +281,9 @@ Material: Phosphor
 End
 
 # Material
-Material: Sulfur
+Material: Eu
 	alpha: 0
-	color: #209010
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -81,19 +301,9 @@ Material: Chromium
 End
 
 # Material
-Material: 316L-SS
+Material: CoO
 	alpha: 0
-	color: #109070
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: Ti-6Al4V
-	alpha: 0
-	color: #407030
+	color: #9070D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -177,10 +387,10 @@ Plot: Red
 	basisv: 0 1 0
 	boundaries: 1
 	coord: X-Y
-	extends: 172.8 105.805
+	extends: 515.978 734.455
 	labels: 1
 	layer: Media
-	origin: -5.79419 11.6156 -355
+	origin: -150.87 206.62 -220
 	subtype: Material
 	title: GeoViewer Red plot
 End
@@ -193,10 +403,10 @@ Plot: Blue
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 298.599 182.831
+	extends: 1283.92 248567
 	labels: 1
 	layer: Drawing_xz
-	origin: -26.043 0 -627.543
+	origin: -478.729 0 -240.541
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -206,13 +416,13 @@ Plot: Magenta
 	Format: .eps
 	Type:   Geometry
 	basisu: 0 0 1
-	basisv: 0 -1 0
+	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 207.36 127.125
+	extends: 429.982 1253.68
 	labels: 1
 	layer: Drawing_yz
-	origin: 0 15.307 -587.692
+	origin: -30 -105.983 -16.2818
 	subtype: Material
 	title: GeoViewer Magenta plot
 End
@@ -225,10 +435,10 @@ Plot: Green
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 69.4444 42.574
+	extends: 743.008 1060.8
 	labels: 1
 	layer: Drawing_yz
-	origin: 0 0.267862 -691.034
+	origin: 0 168.302 -123.909
 	subtype: Material
 	title: GeoViewer Green plot
 End
