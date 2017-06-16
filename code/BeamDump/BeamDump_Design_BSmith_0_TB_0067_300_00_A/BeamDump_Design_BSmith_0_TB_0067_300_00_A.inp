@@ -8,6 +8,14 @@ DEFAULTS                                                              PRECISIO
 BEAM           -500. -1.000875       0.0-.56940603-.05138681        1.ELECTRON
 * Define the beam position
 BEAMPOS          0.0       0.0     -750.       0.0       0.0
+!@what.1=0.8967*ms
+!@what.2=4*2450*1.74E10
+*IRRPROFI    8.967E-4 1.7052E14
+* 1min, 1h, 1d, 1month, 1y
+!@what.3=60*60*24
+!@what.4=60*60*24*30
+!@what.5=60*60*24*365
+*DCYTIMES         60.     3600.    86400.  2592000. 31536000.
 !point           0.0       0.0     -325.                              marker1
 !point          -30.       0.0      325.                              marker2
 !point         -180.       0.0      325.                              marker3
@@ -24,8 +32,8 @@ XYP OutTaEn2   329.
 XYP InTaEn1    -325.
 XYP OutTaEn1   -329.
 ZCC InTank     -30. 0.0 73.
-RCC OutBeaPi   0.0 0.0 -1201.5 0.0 0.0 877.5 20.0
-RCC InBeaPi    0.0 0.0 -1201.5 0.0 0.0 877.5 19.0
+RCC OutBeaPi   0.0 0.0 -1201.5 0.0 0.0 877.5 20.
+RCC InBeaPi    0.0 0.0 -1201.5 0.0 0.0 877.5 19.
 XYP WinPla2    -375.
 XYP WinPla3    -375.1
 XYP WinPla1    -375.11
@@ -351,8 +359,8 @@ RCC OuVoIn13   -44.5 0.0 92. 22. 0.0 0.0 3.
 RCC InVoIn13   -44.5 0.0 92. 22. 0.0 0.0 2.5
 RCC OuVoIn14   -44.5 0.0 112. 22. 0.0 0.0 3.
 RCC InVoIn14   -44.5 0.0 112. 22. 0.0 0.0 2.5
-XZP yPiEnPl1   -110.0
-XZP yPiEnPl2   110.0
+XZP yPiEnPl1   -110.
+XZP yPiEnPl2   110.
 ZCC OuVoJeY1   0.0 -43. 10.
 ZCC InVoJeY1   0.0 -43. 9.
 ZCC OuVoJeY2   -30. -53. 10.
@@ -377,12 +385,12 @@ RCC OuVoIn23   0.0 -35.5 -141. 0.0 13. 0.0 3.
 RCC InVoIn23   0.0 -35.5 -141. 0.0 13. 0.0 2.5
 RCC OuVoIn24   0.0 -35.5 -121. 0.0 13. 0.0 3.
 RCC InVoIn24   0.0 -35.5 -121. 0.0 13. 0.0 2.5
-RCC OuInlPi8   0.0 15.0 -291.0 0.0 95.0 0.0 10.0
-RCC InInlPi8   0.0 15.0 -291.0 0.0 95.0 0.0 9.0
-RCC OuInlPi9   0.0 15.0 -221.0 0.0 95.0 0.0 10.0
-RCC InInlPi9   0.0 15.0 -221.0 0.0 95.0 0.0 9.0
-RCC OuInlP10   0.0 15.0 -141.0 0.0 95.0 0.0 10.0
-RCC InInlP10   0.0 15.0 -141.0 0.0 95.0 0.0 9.0
+RCC OuInlPi8   0.0 15. -291. 0.0 95. 0.0 10.
+RCC InInlPi8   0.0 15. -291. 0.0 95. 0.0 9.
+RCC OuInlPi9   0.0 15. -221. 0.0 95. 0.0 10.
+RCC InInlPi9   0.0 15. -221. 0.0 95. 0.0 9.
+RCC OuInlP10   0.0 15. -141. 0.0 95. 0.0 10.
+RCC InInlP10   0.0 15. -141. 0.0 95. 0.0 9.
 RCC OuInlP11   -30. -130. 169.5 0.0 70. 0.0 10.
 RCC InInlP11   -30. -130. 169.5 0.0 70. 0.0 9.
 RCC OuInlP12   -30. -130. 289. 0.0 70. 0.0 10.
@@ -1549,5 +1557,5 @@ DISCARD        MUONS
 * Set the random number seed
 RANDOMIZ          1.        1.
 * Set the number of primary histories to be simulated in the run
-START            50.                                     0.0  9999999.
+START            10.                                     0.0  9999999.
 STOP
