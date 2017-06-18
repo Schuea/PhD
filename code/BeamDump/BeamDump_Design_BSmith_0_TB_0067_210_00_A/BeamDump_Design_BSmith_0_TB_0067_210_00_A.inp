@@ -1204,5 +1204,5 @@ DISCARD        MUONS
 * Set the random number seed
 RANDOMIZ          1.        1.
 * Set the number of primary histories to be simulated in the run
-START            50.                                     0.0  9999999.
+START            10.                                     0.0  9999999.
 STOP
