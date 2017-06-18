@@ -1095,7 +1095,7 @@ AUXSCORE      USRBIN  ALL-PART             DoseEq1                    AMB74
 !@what.7=-3000.0*mm
 !@what.8=-2000.0*mm
 !@what.9=-7000.0*mm
-USRBIN           10.   DOSE-EQ      -23.      110.      200.      420.DoseEq1
+USRBIN           10.   DOSE-EQ      -24.      110.      200.      420.DoseEq1
 USRBIN         -300.     -200.     -700.      100.      100.      150. &
 AUXSCORE      USRBIN  ALL-PART             DoseEq2                    AMB74
 !@what.4=1100.0*mm
@@ -1104,7 +1104,7 @@ AUXSCORE      USRBIN  ALL-PART             DoseEq2                    AMB74
 !@what.7=-3000.0*mm
 !@what.8=-2000.0*mm
 !@what.9=-7000.0*mm
-USRBIN           10.   DOSE-EQ      -23.      110.      200.      420.DoseEq2
+USRBIN           10.   DOSE-EQ      -25.      110.      200.      420.DoseEq2
 USRBIN         -300.     -200.     -700.      100.      100.      150. &
 AUXSCORE      USRBIN  ALL-PART             DoseEq3                    AMB74
 !@what.4=1100.0*mm
@@ -1113,7 +1113,7 @@ AUXSCORE      USRBIN  ALL-PART             DoseEq3                    AMB74
 !@what.7=-3000.0*mm
 !@what.8=-2000.0*mm
 !@what.9=-7000.0*mm
-USRBIN           10.   DOSE-EQ      -23.      110.      200.      420.DoseEq3
+USRBIN           10.   DOSE-EQ      -26.      110.      200.      420.DoseEq3
 USRBIN         -300.     -200.     -700.      100.      100.      150. &
 AUXSCORE      USRBIN  ALL-PART             DoseEq4                    AMB74
 !@what.4=1100.0*mm
@@ -1122,7 +1122,7 @@ AUXSCORE      USRBIN  ALL-PART             DoseEq4                    AMB74
 !@what.7=-3000.0*mm
 !@what.8=-2000.0*mm
 !@what.9=-7000.0*mm
-USRBIN           10.   DOSE-EQ      -23.      110.      200.      420.DoseEq4
+USRBIN           10.   DOSE-EQ      -27.      110.      200.      420.DoseEq4
 USRBIN         -300.     -200.     -700.      100.      100.      150. &
 AUXSCORE      USRBIN  ALL-PART             DoseEq5                    AMB74
 !@what.4=1100.0*mm
@@ -1131,7 +1131,7 @@ AUXSCORE      USRBIN  ALL-PART             DoseEq5                    AMB74
 !@what.7=-3000.0*mm
 !@what.8=-2000.0*mm
 !@what.9=-7000.0*mm
-USRBIN           10.   DOSE-EQ      -23.      110.      200.      420.DoseEq5
+USRBIN           10.   DOSE-EQ      -28.      110.      200.      420.DoseEq5
 USRBIN         -300.     -200.     -700.      100.      100.      150. &
 !@what.4=1100.0*mm
 !@what.5=2000.0*mm
@@ -1139,7 +1139,7 @@ USRBIN         -300.     -200.     -700.      100.      100.      150. &
 !@what.7=-3000.0*mm
 !@what.8=-2000.0*mm
 !@what.9=-7000.0*mm
-USRBIN           10.   DOSE-EM      -24.      110.      200.      420.DoseEM
+USRBIN           10.   DOSE-EM      -29.      110.      200.      420.DoseEM
 USRBIN         -300.     -200.     -700.      100.      100.      150. &
 !@what.4=1100.0*mm
 !@what.5=2000.0*mm
@@ -1147,7 +1147,7 @@ USRBIN         -300.     -200.     -700.      100.      100.      150. &
 !@what.7=-3000.0*mm
 !@what.8=-2000.0*mm
 !@what.9=-7000.0*mm
-USRBIN           10.      DOSE      -25.      110.      200.      420.Dose
+USRBIN           10.      DOSE      -30.      110.      200.      420.Dose
 USRBIN         -300.     -200.     -700.      100.      100.      150. &
 !@what.4=1100.0*mm
 !@what.5=2000.0*mm
@@ -1155,7 +1155,7 @@ USRBIN         -300.     -200.     -700.      100.      100.      150. &
 !@what.7=-3000.0*mm
 !@what.8=-2000.0*mm
 !@what.9=-7000.0*mm
-USRBIN           10.    PROTON      -26.      110.      200.      420.Protons
+USRBIN           10.    PROTON      -31.      110.      200.      420.Protons
 USRBIN         -300.     -200.     -700.      100.      100.      150. &
 !@what.4=1100.0*mm
 !@what.5=2000.0*mm
@@ -1163,7 +1163,7 @@ USRBIN         -300.     -200.     -700.      100.      100.      150. &
 !@what.7=-3000.0*mm
 !@what.8=-2000.0*mm
 !@what.9=-7000.0*mm
-USRBIN           10.  ELECTRON      -27.      110.      200.      420.Electrons
+USRBIN           10.  ELECTRON      -32.      110.      200.      420.Electrons
 USRBIN         -300.     -200.     -700.      100.      100.      150. &
 !@what.4=1100.0*mm
 !@what.5=2000.0*mm
@@ -1171,7 +1171,7 @@ USRBIN         -300.     -200.     -700.      100.      100.      150. &
 !@what.7=-3000.0*mm
 !@what.8=-2000.0*mm
 !@what.9=-7000.0*mm
-USRBIN           10.    PHOTON      -28.      110.      200.      420.Photons
+USRBIN           10.    PHOTON      -33.      110.      200.      420.Photons
 USRBIN         -300.     -200.     -700.      100.      100.      150. &
 !@what.4=1100.0*mm
 !@what.5=2000.0*mm
@@ -1179,15 +1179,15 @@ USRBIN         -300.     -200.     -700.      100.      100.      150. &
 !@what.7=-3000.0*mm
 !@what.8=-2000.0*mm
 !@what.9=-7000.0*mm
-USRBIN           10.    TRITON      -29.      110.      200.      420.Triton
+USRBIN           10.    TRITON      -34.      110.      200.      420.Triton
 USRBIN         -300.     -200.     -700.      100.      100.      150. &
-*USRBDX           99.  ELECTRON      -30.  ScorePla       Air17671.4587NeutrFlu2
+*USRBDX           99.  ELECTRON      -35.  ScorePla       Air17671.4587NeutrFlu2
 *USRBDX                               50.                           50. &
-*USRBDX           99.  ELECTRON      -31.  ScorePla       Air17671.4587NeutrFlu
+*USRBDX           99.  ELECTRON      -36.  ScorePla       Air17671.4587NeutrFlu
 *USRBDX                               50.                            1. &
-*USRBDX           -1.  ELECTRON      -32.  ScorePla       Air17671.4587NeutrCur2
+*USRBDX           -1.  ELECTRON      -37.  ScorePla       Air17671.4587NeutrCur2
 *USRBDX                               50.                           50. &
-*USRBDX           -1.  ELECTRON      -33.  ScorePla       Air17671.4587NeutrCur2
+*USRBDX           -1.  ELECTRON      -38.  ScorePla       Air17671.4587NeutrCur2
 *USRBDX                               50.                            1. &
 RESNUCLE          3.      -62.                      @ALLREGS          Resnuclei
 DCYSCORE          1.                    Resnuclei2                    RESNUCLE
@@ -1204,5 +1204,5 @@ DISCARD        MUONS
 * Set the random number seed
 RANDOMIZ          1.        1.
 * Set the number of primary histories to be simulated in the run
-START            10.                                     0.0  9999999.
+START            50.                                     0.0  9999999.
 STOP
