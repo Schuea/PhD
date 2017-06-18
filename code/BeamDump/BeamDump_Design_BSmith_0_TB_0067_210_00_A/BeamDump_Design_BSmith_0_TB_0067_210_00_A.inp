@@ -1195,14 +1195,14 @@ DCYSCORE          2.                    Resnuclei3                    RESNUCLE
 DCYSCORE          3.                    Resnuclei4                    RESNUCLE
 DCYSCORE          4.                    Resnuclei5                    RESNUCLE
 DCYSCORE          5.                    Resnuclei6                    RESNUCLE
-RESNUCLE          3.      -62.                      @ALLREGS          Resnuclei2
-RESNUCLE          3.      -62.                      @ALLREGS          Resnuclei3
-RESNUCLE          3.      -62.                      @ALLREGS          Resnuclei4
-RESNUCLE          3.      -62.                      @ALLREGS          Resnuclei5
-RESNUCLE          3.      -62.                      @ALLREGS          Resnuclei6
+RESNUCLE          3.      -63.                      @ALLREGS          Resnuclei2
+RESNUCLE          3.      -64.                      @ALLREGS          Resnuclei3
+RESNUCLE          3.      -65.                      @ALLREGS          Resnuclei4
+RESNUCLE          3.      -66.                      @ALLREGS          Resnuclei5
+RESNUCLE          3.      -67.                      @ALLREGS          Resnuclei6
 DISCARD        MUONS
 * Set the random number seed
 RANDOMIZ          1.        1.
 * Set the number of primary histories to be simulated in the run
-START          1000.                                     0.0  9999999.
+START            10.                                     0.0  9999999.
 STOP
