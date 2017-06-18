@@ -15,9 +15,9 @@ F77dline: False
 Run: <default>
 	Prev:     0
 	Last:     5
-	Status:   3
-	Pid:      0
-	StartRun: 1497715729
+	Status:   2
+	Pid:      23487
+	StartRun: 1497763252
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_300_00_A_21.bnn
 	Data: \I_\U.\e
@@ -423,7 +423,7 @@ Geometry:
 		Image.marker.0: 212.523809524 251.523809524 0.0 0.0 -325.0
 		Image.marker.1: 1440.48179272 251.529411765 0.0 0.0 325.0
 		Image.marker.2: 212.542857143 393.466666667 0.0 -75.0 -325.0
-		Image.prompt: 1
+		Image.prompt: True
 		Show._visible: True
 	End
 
@@ -438,7 +438,7 @@ Geometry:
 		Image.marker.0: 306.5 282.547619048 0.0 0.0 -325.0
 		Image.marker.1: 1534.42857143 338.476190476 -30.0 0.0 325.0
 		Image.marker.2: 1534.47619048 480.571428571 -105.0 0.0 325.0
-		Image.prompt: 1
+		Image.prompt: True
 		Options.shortcut: F3
 		Show._visible: True
 		layer: Media
@@ -448,12 +448,13 @@ Geometry:
 	Layer: 3D
 		3D: True
 		3D._visible: True
-		3D.edgedetect: 1
+		3D.edgedetect: True
+		Options.errors: False
 		Options.shortcut: F4
-		Options.viewport: 0
+		Options.viewport: False
 		Show: 0
-		Show.lattice: 1
-		Show.voxel: 1
+		Show.lattice: True
+		Show.voxel: True
 		deflights: 1
 		layer: 3D
 	End
@@ -463,22 +464,22 @@ End
 Plot: Red
 	Format: .eps
 	Type:   Geometry
-	basisu: -1 0 0
-	basisv: 0 1 0
+	basisu: -0.984628 -0.0110866 0.174313
+	basisv: 0.00345564 0.996552 0.0829019
 	boundaries: 1
 	cbcolors: 0
 	cblog: False
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 0
-	coord: X-Y
+	coord: U-V
 	cpd: 0
-	extends: 1069.93 563.771
+	extends: 23.2568 12.2545
 	grid: 0
 	index: 0
 	labels: 1
-	layer: Media
-	origin: -306.18 201.418 -220
+	layer: 3D
+	origin: -44.5175 -54.7791 165.073
 	subtype: Material
 	title: GeoViewer Red plot
 	x2log: False
@@ -499,10 +500,10 @@ Plot: Blue
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 1283.92 674.058
+	extends: 144 75.6001
 	labels: 1
 	layer: Drawing_xz
-	origin: -478.729 0 -240.541
+	origin: -14.1822 0 200.972
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -515,10 +516,10 @@ Plot: Magenta
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 429.982 226.176
+	extends: 83.3334 43.8343
 	labels: 1
 	layer: Drawing_yz
-	origin: -30 -105.983 -16.2818
+	origin: -30 -74.6423 226.696
 	subtype: Material
 	title: GeoViewer Magenta plot
 End
@@ -537,12 +538,12 @@ Plot: Green
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 743.008 392.262
+	extends: 358.318 189.17
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Drawing_yz
-	origin: 0 168.302 -123.909
+	origin: 0 -22.9315 149.273
 	subtype: Material
 	title: GeoViewer Green plot
 	x2log: False
