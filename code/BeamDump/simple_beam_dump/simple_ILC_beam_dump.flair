@@ -17,20 +17,12 @@ Run: <default>
 	Last:     5
 	Status:   3
 	Pid:      0
-	StartRun: 1496406257
+	StartRun: 1497816077
 
-	# USRxxx data file: simple_ILC_beam_dump_21.bnn
+	# USRxxx data file: simple_ILC_beam_dump_23.bnx
 	Data: \I_\U.\e
-		Unit: 21
-		Type: b
-		Rule: +,\I\d\d\d_fort\.\U
-		Rule: +,\I\d\d\d_ftn\.\U
-	End
-
-	# USRxxx data file: simple_ILC_beam_dump_22.bnn
-	Data: \I_\U.\e
-		Unit: 22
-		Type: b
+		Unit: 23
+		Type: x
 		Rule: +,\I\d\d\d_fort\.\U
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
@@ -57,9 +49,9 @@ Material: MgO
 End
 
 # Material
-Material: Stainles
+Material: Sulfur
 	alpha: 0
-	color: #40D0D0
+	color: #209010
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -67,9 +59,9 @@ Material: Stainles
 End
 
 # Material
-Material: Sulfur
+Material: Stainles
 	alpha: 0
-	color: #209010
+	color: #40D0D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -107,9 +99,9 @@ Material: Fe2O3
 End
 
 # Material
-Material: POTASSIU
+Material: Na2O
 	alpha: 0
-	color: #70B0B0
+	color: #301070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -167,16 +159,6 @@ Material: Chlorine
 End
 
 # Material
-Material: Cs
-	alpha: 0
-	color: #901070
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
 Material: SiO2
 	alpha: 0
 	color: #60D0B0
@@ -210,6 +192,16 @@ End
 Material: SO3
 	alpha: 0
 	color: #9010D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Eu
+	alpha: 0
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -257,9 +249,9 @@ Material: Cobalt
 End
 
 # Material
-Material: Na2O
+Material: POTASSIU
 	alpha: 0
-	color: #301070
+	color: #70B0B0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -287,9 +279,9 @@ Material: Phosphor
 End
 
 # Material
-Material: Eu
+Material: Cs
 	alpha: 0
-	color: #703070
+	color: #901070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -331,7 +323,7 @@ Plot: geometry_xy
 	basisv: 0 1 0
 	boundaries: 0
 	cbcolors: 0
-	cblog: 0
+	cblog: False
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 0
@@ -347,15 +339,15 @@ Plot: geometry_xy
 	subtype: Material
 	title: Geometry-XY
 	vectscale: 0.1
-	x2log: 0
+	x2log: False
 	x2tics: 0
 	xlabel: x [cm]
-	xlog: 0
-	y2log: 0
+	xlog: False
+	y2log: False
 	y2tics: 0
 	ylabel: y [cm]
-	ylog: 0
-	zlog: 0
+	ylog: False
+	zlog: False
 	ztics: 0
 End
 
@@ -406,7 +398,7 @@ Plot: simple_ILC_beam_dump_21_plot
 	bzmin: -1000.
 	cbcolors: 30
 	cblabel: GeV/cm3 per electron
-	cblog: 1
+	cblog: True
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 1
@@ -429,17 +421,17 @@ Plot: simple_ILC_beam_dump_21_plot
 	swap: 0
 	title: Energy deposition density
 	with.0: errorbars
-	x2log: 0
+	x2log: False
 	x2tics: 0
 	xlabel: z [cm]
-	xlog: 0
+	xlog: False
 	xrebin: 1
-	y2log: 0
+	y2log: False
 	y2tics: 0
 	ylabel: y [cm]
-	ylog: 0
+	ylog: False
 	yrebin: 1
-	zlog: 0
+	zlog: False
 	zrebin: 1
 	ztics: 0
 End
@@ -507,7 +499,7 @@ Plot: Red
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 1540.7 1155.53
+	extends: 1540.7 811.83
 	grid: 0
 	index: 0
 	labels: 1
@@ -541,14 +533,14 @@ Plot: Green
 	cbtics: 0
 	coord: Z-X
 	cpd: 0
-	extends: 1341.62 1006.21
+	extends: 41.9939 22.1702
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Media
 	nu: 200
 	nv: 200
-	origin: -99.3283 0 20.6609
+	origin: 1.05655 0 -306.772
 	subtype: Material
 	title: Geometry -XZ
 	x2log: 0
@@ -577,7 +569,7 @@ Plot: Blue
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 743.008 557.256
+	extends: 743.008 390.079
 	grid: 0
 	index: 0
 	labels: 1
@@ -610,7 +602,7 @@ Plot: Magenta
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 4600.51 3450.38
+	extends: 4600.51 2419.92
 	grid: 0
 	index: 0
 	labels: 1
@@ -625,5 +617,42 @@ Plot: Magenta
 	y2tics: 0
 	ylog: 0
 	zlog: 0
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D simple ILC beam dump 23"
+Plot: simple_ILC_beam_dump_23_plot
+	Format: .eps
+	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	det.0: 0
+	file.0: simple_ILC_beam_dump_23_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 1
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
+	title: USR-1D simple ILC beam dump 23
+	with.0: histerror
+	x.0: 2
+	x2log: False
+	x2tics: 0
+	xlog: True
+	y.0: 0
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
 	ztics: 0
 End

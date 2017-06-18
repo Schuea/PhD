@@ -179,27 +179,33 @@ LOW-MAT        Boron        5.       -2.      296.                    BORON
 LOW-MAT     Phosphor       15.       31.      296.                    PHOSPHO
 PHOTONUC          1.                        VACUUM     WATER        1.
 LAM-BIAS         0.0      0.02     WATER   NEUTRON                    INEPRI
-*USRBDX            1.   NEUTRON       49.   PipeVac   BLKBODY       20.Neutrons
-*USRBDX                               50.                           10. &
+USRBDX          111.   NEUTRON      -23.    Window   PipeVac      531.Neutrons
+USRBDX                               50.                            5. &
+USRBDX           11.   NEUTRON      -24.    Window   PipeVac      531.Neutron1
+USRBDX                               50.                            5. &
+USRBDX          111.   NEUTRON      -25.     Water      Tank      531.Neutron2
+USRBDX                               50.                            5. &
+USRBDX           11.   NEUTRON      -26.     Water      Tank      531.Neutron3
+USRBDX                               50.                            5. &
 !@what.4=850.0*cm
 !@what.5=650.0*cm
 !@what.6=800.0*cm
 !@what.7=-300.0*cm
 !@what.8=-200.0*cm
 !@what.9=-1700.0*cm
-USRBIN           10.    ENERGY      -21.      850.      650.      800.Energy
-USRBIN         -300.     -200.    -1700.      150.       85.      250. &
+*USRBIN           10.    ENERGY      -21.      850.      650.      800.Energy
+*USRBIN         -300.     -200.    -1700.      150.       85.      250. &
 !@what.4=850.0*cm
 !@what.5=650.0*cm
 !@what.6=800.0*cm
 !@what.7=-300.0*cm
 !@what.8=-200.0*cm
 !@what.9=-1700.0*cm
-USRBIN           10.   NEUTRON      -22.      850.      650.      800.Neutrons
-USRBIN         -300.     -200.    -1700.      150.       85.      250. &
+*USRBIN           10.   NEUTRON      -22.      850.      650.      800.Neutrons
+*USRBIN         -300.     -200.    -1700.      150.       85.      250. &
 *USRYIELD       3301.   NEUTRON       52.                              Ekin_n
 *USRYIELD                                     1000.                     &
 DISCARD        MUONS
 RANDOMIZ          1.        1.
-START            50.                                     0.0 99999999.
+START            10.                                     0.0 99999999.
 STOP
