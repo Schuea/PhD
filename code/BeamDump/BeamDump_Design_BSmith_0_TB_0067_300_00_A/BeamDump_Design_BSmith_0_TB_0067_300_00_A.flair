@@ -15,8 +15,8 @@ F77dline: False
 Run: <default>
 	Prev:     0
 	Last:     5
-	Status:   2
-	Pid:      23487
+	Status:   3
+	Pid:      0
 	StartRun: 1497763252
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_300_00_A_21.bnn
@@ -91,9 +91,89 @@ Run: <default>
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
 
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_300_00_A_30.bnn
+	Data: \I_\U.\e
+		Unit: 30
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_300_00_A_31.bnn
+	Data: \I_\U.\e
+		Unit: 31
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_300_00_A_32.bnn
+	Data: \I_\U.\e
+		Unit: 32
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_300_00_A_33.bnn
+	Data: \I_\U.\e
+		Unit: 33
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_300_00_A_34.bnn
+	Data: \I_\U.\e
+		Unit: 34
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_300_00_A_62.rnc
 	Data: \I_\U.\e
 		Unit: 62
+		Type: r
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_300_00_A_63.rnc
+	Data: \I_\U.\e
+		Unit: 63
+		Type: r
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_300_00_A_64.rnc
+	Data: \I_\U.\e
+		Unit: 64
+		Type: r
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_300_00_A_65.rnc
+	Data: \I_\U.\e
+		Unit: 65
+		Type: r
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_300_00_A_66.rnc
+	Data: \I_\U.\e
+		Unit: 66
+		Type: r
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_300_00_A_67.rnc
+	Data: \I_\U.\e
+		Unit: 67
 		Type: r
 		Rule: +,\I\d\d\d_fort\.\U
 		Rule: +,\I\d\d\d_ftn\.\U
@@ -161,16 +241,6 @@ Material: Fe2O3
 End
 
 # Material
-Material: Chlorine
-	alpha: 0
-	color: #9050D0
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
 Material: K2O
 	alpha: 0
 	color: #C09070
@@ -221,6 +291,16 @@ Material: BorConc
 End
 
 # Material
+Material: Ti-6Al4V
+	alpha: 0
+	color: #407030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
 Material: Vanadium
 	alpha: 0
 	color: #807070
@@ -251,9 +331,9 @@ Material: B2O3
 End
 
 # Material
-Material: Eu
+Material: Cs
 	alpha: 0
-	color: #703070
+	color: #901070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -341,9 +421,9 @@ Material: CaO
 End
 
 # Material
-Material: Ti-6Al4V
+Material: Chlorine
 	alpha: 0
-	color: #407030
+	color: #9050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -351,9 +431,9 @@ Material: Ti-6Al4V
 End
 
 # Material
-Material: Cs
+Material: Eu
 	alpha: 0
-	color: #901070
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -393,8 +473,8 @@ End
 # Geometry Information
 Geometry:
 	Frame.bsplit: 0.5
-	Frame.tsplit: 0.5
-	Frame.vsplit: 0.5
+	Frame.tsplit: 0.99
+	Frame.vsplit: 0.99
 
 	# Layer
 	Layer: Media
@@ -464,22 +544,22 @@ End
 Plot: Red
 	Format: .eps
 	Type:   Geometry
-	basisu: -0.984628 -0.0110866 0.174313
-	basisv: 0.00345564 0.996552 0.0829019
+	basisu: 0 0 1
+	basisv: 0 1 0
 	boundaries: 1
 	cbcolors: 0
 	cblog: False
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 0
-	coord: U-V
+	coord: Z-Y
 	cpd: 0
-	extends: 23.2568 12.2545
+	extends: 358.318 198.448
 	grid: 0
 	index: 0
 	labels: 1
 	layer: 3D
-	origin: -44.5175 -54.7791 165.073
+	origin: -35 -13.7125 -14.7699
 	subtype: Material
 	title: GeoViewer Red plot
 	x2log: False
@@ -500,10 +580,10 @@ Plot: Blue
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 144 75.6001
+	extends: 248.832 0.478523
 	labels: 1
 	layer: Drawing_xz
-	origin: -14.1822 0 200.972
+	origin: -25.4718 0 135.654
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -516,10 +596,10 @@ Plot: Magenta
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 83.3334 43.8343
+	extends: 83.3334 0.160565
 	labels: 1
 	layer: Drawing_yz
-	origin: -30 -74.6423 226.696
+	origin: -30 -34.1798 282.894
 	subtype: Material
 	title: GeoViewer Magenta plot
 End
@@ -538,7 +618,7 @@ Plot: Green
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 358.318 189.17
+	extends: 358.318 12272.4
 	grid: 0
 	index: 0
 	labels: 1
@@ -664,23 +744,92 @@ Plot: BeamDump_Design_BSmith_0_TB_0067_300_00_A_29_plot
 	title: USRBIN BeamDump Design BSmith 0 TB 0067 300 00 A 29
 End
 
+# USRBIN plot "USRBIN BeamDump Design BSmith 0 TB 0067 300 00 A 30"
+Plot: BeamDump_Design_BSmith_0_TB_0067_300_00_A_30_plot
+	Format: .eps
+	Type:   USRBIN
+	cbcolors: 30
+	cblog: 1
+	cbtics: 1
+	datafile: BeamDump_Design_BSmith_0_TB_0067_300_00_A_30.bnn
+	geo: -Auto-
+	title: USRBIN BeamDump Design BSmith 0 TB 0067 300 00 A 30
+End
+
+# USRBIN plot "USRBIN BeamDump Design BSmith 0 TB 0067 300 00 A 31"
+Plot: BeamDump_Design_BSmith_0_TB_0067_300_00_A_31_plot
+	Format: .eps
+	Type:   USRBIN
+	cbcolors: 30
+	cblog: 1
+	cbtics: 1
+	datafile: BeamDump_Design_BSmith_0_TB_0067_300_00_A_31.bnn
+	geo: -Auto-
+	title: USRBIN BeamDump Design BSmith 0 TB 0067 300 00 A 31
+End
+
+# USRBIN plot "USRBIN BeamDump Design BSmith 0 TB 0067 300 00 A 32"
+Plot: BeamDump_Design_BSmith_0_TB_0067_300_00_A_32_plot
+	Format: .eps
+	Type:   USRBIN
+	cbcolors: 30
+	cblog: 1
+	cbtics: 1
+	datafile: BeamDump_Design_BSmith_0_TB_0067_300_00_A_32.bnn
+	geo: -Auto-
+	title: USRBIN BeamDump Design BSmith 0 TB 0067 300 00 A 32
+End
+
+# USRBIN plot "USRBIN BeamDump Design BSmith 0 TB 0067 300 00 A 33"
+Plot: BeamDump_Design_BSmith_0_TB_0067_300_00_A_33_plot
+	Format: .eps
+	Type:   USRBIN
+	cbcolors: 30
+	cblog: 1
+	cbtics: 1
+	datafile: BeamDump_Design_BSmith_0_TB_0067_300_00_A_33.bnn
+	geo: -Auto-
+	title: USRBIN BeamDump Design BSmith 0 TB 0067 300 00 A 33
+End
+
+# USRBIN plot "USRBIN BeamDump Design BSmith 0 TB 0067 300 00 A 34"
+Plot: BeamDump_Design_BSmith_0_TB_0067_300_00_A_34_plot
+	Format: .eps
+	Type:   USRBIN
+	cbcolors: 30
+	cblog: 1
+	cbtics: 1
+	datafile: BeamDump_Design_BSmith_0_TB_0067_300_00_A_34.bnn
+	geo: -Auto-
+	title: USRBIN BeamDump Design BSmith 0 TB 0067 300 00 A 34
+End
+
 # RESNUCLE plot "RESNUCLE BeamDump Design BSmith 0 TB 0067 300 00 A 62"
 Plot: BeamDump_Design_BSmith_0_TB_0067_300_00_A_62_plot
 	Format: .eps
 	Type:   RESNUCLE
+	datafile: BeamDump_Design_BSmith_0_TB_0067_300_00_A_62.rnc
+	title: RESNUCLE BeamDump Design BSmith 0 TB 0067 300 00 A 62
+End
+
+# RESNUCLE plot "RESNUCLE BeamDump Design BSmith 0 TB 0067 300 00 A 63"
+Plot: BeamDump_Design_BSmith_0_TB_0067_300_00_A_63_plot
+	Format: .eps
+	Type:   RESNUCLE
 	cbcolors: 0
-	cblog: False
+	cblog: True
 	cbpalette: FLUKA
 	cbround: 0
-	cbtics: 0
+	cbtics: 1
 	cpd: 0
-	datafile: BeamDump_Design_BSmith_0_TB_0067_300_00_A_62.rnc
+	datafile: BeamDump_Design_BSmith_0_TB_0067_300_00_A_63.rnc
+	det: 1
 	grid: 0
 	index: 0
 	lw.0: 0
-	plot: Z
+	plot: N/Z
 	ps.0: 0
-	title: RESNUCLE BeamDump Design BSmith 0 TB 0067 300 00 A 62
+	title: RESNUCLE BeamDump Design BSmith 0 TB 0067 300 00 A 63
 	with.0: errorbars
 	x2log: False
 	x2tics: 0
@@ -690,4 +839,57 @@ Plot: BeamDump_Design_BSmith_0_TB_0067_300_00_A_62_plot
 	ylog: False
 	zlog: False
 	ztics: 0
+End
+
+# RESNUCLE plot "RESNUCLE BeamDump Design BSmith 0 TB 0067 300 00 A 64"
+Plot: BeamDump_Design_BSmith_0_TB_0067_300_00_A_64_plot
+	Format: .eps
+	Type:   RESNUCLE
+	datafile: BeamDump_Design_BSmith_0_TB_0067_300_00_A_64.rnc
+	title: RESNUCLE BeamDump Design BSmith 0 TB 0067 300 00 A 64
+End
+
+# RESNUCLE plot "RESNUCLE BeamDump Design BSmith 0 TB 0067 300 00 A 65"
+Plot: BeamDump_Design_BSmith_0_TB_0067_300_00_A_65_plot
+	Format: .eps
+	Type:   RESNUCLE
+	datafile: BeamDump_Design_BSmith_0_TB_0067_300_00_A_65.rnc
+	title: RESNUCLE BeamDump Design BSmith 0 TB 0067 300 00 A 65
+End
+
+# RESNUCLE plot "RESNUCLE BeamDump Design BSmith 0 TB 0067 300 00 A 66"
+Plot: BeamDump_Design_BSmith_0_TB_0067_300_00_A_66_plot
+	Format: .eps
+	Type:   RESNUCLE
+	cbcolors: 0
+	cblog: True
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_300_00_A_66.rnc
+	det: 1
+	grid: 0
+	index: 0
+	lw.0: 0
+	plot: N/Z
+	ps.0: 0
+	title: RESNUCLE BeamDump Design BSmith 0 TB 0067 300 00 A 66
+	with.0: errorbars
+	x2log: False
+	x2tics: 0
+	xlog: False
+	y2log: False
+	y2tics: 0
+	ylog: False
+	zlog: False
+	ztics: 0
+End
+
+# RESNUCLE plot "RESNUCLE BeamDump Design BSmith 0 TB 0067 300 00 A 67"
+Plot: BeamDump_Design_BSmith_0_TB_0067_300_00_A_67_plot
+	Format: .eps
+	Type:   RESNUCLE
+	datafile: BeamDump_Design_BSmith_0_TB_0067_300_00_A_67.rnc
+	title: RESNUCLE BeamDump Design BSmith 0 TB 0067 300 00 A 67
 End
