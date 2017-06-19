@@ -179,13 +179,17 @@ LOW-MAT        Boron        5.       -2.      296.                    BORON
 LOW-MAT     Phosphor       15.       31.      296.                    PHOSPHO
 PHOTONUC          1.                        VACUUM     WATER        1.
 LAM-BIAS         0.0      0.02     WATER   NEUTRON                    INEPRI
-USRBDX          111.   NEUTRON      -23.    Window   PipeVac      531.Neutrons
+USRBDX          101.   NEUTRON      -23.    Window   PipeVac      531.Neutrons
 USRBDX                               50.                            5. &
-USRBDX           11.   NEUTRON      -24.    Window   PipeVac      531.Neutron1
+USRBDX            1.   NEUTRON      -24.    Window   PipeVac      531.Neutron1
 USRBDX                               50.                            5. &
-USRBDX          111.   NEUTRON      -25.     Water      Tank      531.Neutron2
+USRBDX          111.   NEUTRON      -25.    Window   PipeVac      531.Neutron2
 USRBDX                               50.                            5. &
-USRBDX           11.   NEUTRON      -26.     Water      Tank      531.Neutron3
+USRBDX           11.   NEUTRON      -26.    Window   PipeVac      531.Neutron3
+USRBDX                               50.                            5. &
+USRBDX          111.   NEUTRON      -27.     Water      Tank      531.Neutron4
+USRBDX                               50.                            5. &
+USRBDX           11.   NEUTRON      -28.     Water      Tank      531.Neutron5
 USRBDX                               50.                            5. &
 !@what.4=850.0*cm
 !@what.5=650.0*cm
@@ -207,5 +211,5 @@ USRBDX                               50.                            5. &
 *USRYIELD                                     1000.                     &
 DISCARD        MUONS
 RANDOMIZ          1.        1.
-START            10.                                     0.0 99999999.
+START           500.                                     0.0 99999999.
 STOP

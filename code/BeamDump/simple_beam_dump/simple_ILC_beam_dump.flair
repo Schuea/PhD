@@ -5,7 +5,7 @@ Title: simple_ILC_beam_dump
 Input: simple_ILC_beam_dump.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Input
+Page: Plot
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -17,11 +17,51 @@ Run: <default>
 	Last:     5
 	Status:   3
 	Pid:      0
-	StartRun: 1497816077
+	StartRun: 1497819446
 
 	# USRxxx data file: simple_ILC_beam_dump_23.bnx
 	Data: \I_\U.\e
 		Unit: 23
+		Type: x
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: simple_ILC_beam_dump_24.bnx
+	Data: \I_\U.\e
+		Unit: 24
+		Type: x
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: simple_ILC_beam_dump_25.bnx
+	Data: \I_\U.\e
+		Unit: 25
+		Type: x
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: simple_ILC_beam_dump_26.bnx
+	Data: \I_\U.\e
+		Unit: 26
+		Type: x
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: simple_ILC_beam_dump_27.bnx
+	Data: \I_\U.\e
+		Unit: 27
+		Type: x
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: simple_ILC_beam_dump_28.bnx
+	Data: \I_\U.\e
+		Unit: 28
 		Type: x
 		Rule: +,\I\d\d\d_fort\.\U
 		Rule: +,\I\d\d\d_ftn\.\U
@@ -596,7 +636,7 @@ Plot: Magenta
 	basisv: 0 1 0
 	boundaries: 1
 	cbcolors: 0
-	cblog: 0
+	cblog: False
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 0
@@ -610,13 +650,13 @@ Plot: Magenta
 	origin: 0 0 400
 	subtype: Material
 	title: GeoViewer Magenta plot
-	x2log: 0
+	x2log: False
 	x2tics: 0
-	xlog: 0
-	y2log: 0
+	xlog: False
+	y2log: False
 	y2tics: 0
-	ylog: 0
-	zlog: 0
+	ylog: False
+	zlog: False
 	ztics: 0
 End
 
@@ -652,6 +692,240 @@ Plot: simple_ILC_beam_dump_23_plot
 	y.0: 0
 	y2log: False
 	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D simple ILC beam dump 24"
+Plot: simple_ILC_beam_dump_24_plot
+	Format: .eps
+	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	det.0: 0
+	file.0: simple_ILC_beam_dump_24_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 1
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
+	title: USR-1D simple ILC beam dump 24
+	with.0: histerror
+	x.0: 2
+	x2log: False
+	x2tics: 0
+	xlog: True
+	y.0: 0
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D simple ILC beam dump 25"
+Plot: simple_ILC_beam_dump_25_plot
+	Format: .eps
+	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	det.0: 0
+	file.0: simple_ILC_beam_dump_25_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 1
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
+	title: USR-1D simple ILC beam dump 25
+	with.0: histerror
+	x.0: 2
+	x2log: False
+	x2tics: 0
+	xlog: True
+	y.0: 0
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D simple ILC beam dump 26"
+Plot: simple_ILC_beam_dump_26_plot
+	Format: .eps
+	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	det.0: 0
+	file.0: simple_ILC_beam_dump_26_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 1
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
+	title: USR-1D simple ILC beam dump 26
+	with.0: histerror
+	x.0: 2
+	x2log: False
+	x2tics: 0
+	xlog: True
+	y.0: 0
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D simple ILC beam dump 27"
+Plot: simple_ILC_beam_dump_27_plot
+	Format: .eps
+	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	det.0: 0
+	file.0: simple_ILC_beam_dump_27_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 1
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
+	title: USR-1D simple ILC beam dump 27
+	with.0: histerror
+	x.0: 2
+	x2log: False
+	x2tics: 0
+	xlog: True
+	y.0: 0
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D simple ILC beam dump 28"
+Plot: simple_ILC_beam_dump_28_plot
+	Format: .eps
+	Type:   USR-1D
+	block.0: 1
+	block.1: 2
+	block.2: 3
+	block.3: 4
+	block.4: 5
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	det.0: 1
+	det.1: 1
+	det.2: 1
+	det.3: 1
+	det.4: 1
+	file.0: simple_ILC_beam_dump_28_tab.lis
+	file.1: simple_ILC_beam_dump_28_tab.lis
+	file.2: simple_ILC_beam_dump_28_tab.lis
+	file.3: simple_ILC_beam_dump_28_tab.lis
+	file.4: simple_ILC_beam_dump_28_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
+	key.1: 1
+	key.2: 1
+	key.3: 1
+	key.4: 1
+	lw.0: 1
+	lw.1: 1
+	lw.2: 1
+	lw.3: 1
+	lw.4: 1
+	name.0: [0.0 - 2.5 sr]
+	name.1: [2.5 - 5.0 sr]
+	name.2: [5.0 - 7.5 sr]
+	name.3: [7.5 - 10 sr]
+	name.4: [10 - 12.5 sr]
+	ndetectors: 5
+	ps.0: 1
+	ps.1: 1
+	ps.2: 1
+	ps.3: 1
+	ps.4: 1
+	pt.0: 0
+	pt.1: 0
+	pt.2: 0
+	pt.3: 0
+	pt.4: 0
+	show.0: 1
+	show.1: 1
+	show.2: 1
+	show.3: 1
+	show.4: 1
+	title: USR-1D simple ILC beam dump 28
+	with.0: histogram
+	with.1: histogram
+	with.2: histogram
+	with.3: histogram
+	with.4: histogram
+	x2log: False
+	x2tics: 0
+	xlabel: E [keV]
+	xlog: True
+	xnorm.0: 1./keV
+	xnorm.1: 1./keV
+	xnorm.2: 1./keV
+	xnorm.3: 1./keV
+	xnorm.4: 1./keV
+	y.0: 0
+	y.1: 0
+	y.2: 0
+	y.3: 0
+	y.4: 0
+	y2log: False
+	y2tics: 0
+	ylabel: dN2 / dE dOmega
 	ylog: True
 	zlog: False
 	ztics: 0
