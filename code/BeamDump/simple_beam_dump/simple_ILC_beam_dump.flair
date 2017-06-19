@@ -5,7 +5,7 @@ Title: simple_ILC_beam_dump
 Input: simple_ILC_beam_dump.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Plot
+Page: Input
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -17,7 +17,7 @@ Run: <default>
 	Last:     5
 	Status:   3
 	Pid:      0
-	StartRun: 1497819446
+	StartRun: 1497871425
 
 	# USRxxx data file: simple_ILC_beam_dump_23.bnx
 	Data: \I_\U.\e
@@ -66,6 +66,38 @@ Run: <default>
 		Rule: +,\I\d\d\d_fort\.\U
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
+
+	# USRxxx data file: simple_ILC_beam_dump_62.yie
+	Data: \I_\U.\e
+		Unit: 62
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: simple_ILC_beam_dump_63.yie
+	Data: \I_\U.\e
+		Unit: 63
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: simple_ILC_beam_dump_64.yie
+	Data: \I_\U.\e
+		Unit: 64
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: simple_ILC_beam_dump_65.yie
+	Data: \I_\U.\e
+		Unit: 65
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
 End
 
 # Material
@@ -89,9 +121,9 @@ Material: MgO
 End
 
 # Material
-Material: Sulfur
+Material: Stainles
 	alpha: 0
-	color: #209010
+	color: #40D0D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -99,9 +131,9 @@ Material: Sulfur
 End
 
 # Material
-Material: Stainles
+Material: Sulfur
 	alpha: 0
-	color: #40D0D0
+	color: #209010
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -139,9 +171,9 @@ Material: Fe2O3
 End
 
 # Material
-Material: Na2O
+Material: POTASSIU
 	alpha: 0
-	color: #301070
+	color: #70B0B0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -199,6 +231,16 @@ Material: Chlorine
 End
 
 # Material
+Material: Cs
+	alpha: 0
+	color: #901070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
 Material: SiO2
 	alpha: 0
 	color: #60D0B0
@@ -232,16 +274,6 @@ End
 Material: SO3
 	alpha: 0
 	color: #9010D0
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: Eu
-	alpha: 0
-	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -289,9 +321,9 @@ Material: Cobalt
 End
 
 # Material
-Material: POTASSIU
+Material: Na2O
 	alpha: 0
-	color: #70B0B0
+	color: #301070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -319,9 +351,9 @@ Material: Phosphor
 End
 
 # Material
-Material: Cs
+Material: Eu
 	alpha: 0
-	color: #901070
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -363,7 +395,7 @@ Plot: geometry_xy
 	basisv: 0 1 0
 	boundaries: 0
 	cbcolors: 0
-	cblog: False
+	cblog: 0
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 0
@@ -379,15 +411,15 @@ Plot: geometry_xy
 	subtype: Material
 	title: Geometry-XY
 	vectscale: 0.1
-	x2log: False
+	x2log: 0
 	x2tics: 0
 	xlabel: x [cm]
-	xlog: False
-	y2log: False
+	xlog: 0
+	y2log: 0
 	y2tics: 0
 	ylabel: y [cm]
-	ylog: False
-	zlog: False
+	ylog: 0
+	zlog: 0
 	ztics: 0
 End
 
@@ -438,7 +470,7 @@ Plot: simple_ILC_beam_dump_21_plot
 	bzmin: -1000.
 	cbcolors: 30
 	cblabel: GeV/cm3 per electron
-	cblog: True
+	cblog: 1
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 1
@@ -461,17 +493,17 @@ Plot: simple_ILC_beam_dump_21_plot
 	swap: 0
 	title: Energy deposition density
 	with.0: errorbars
-	x2log: False
+	x2log: 0
 	x2tics: 0
 	xlabel: z [cm]
-	xlog: False
+	xlog: 0
 	xrebin: 1
-	y2log: False
+	y2log: 0
 	y2tics: 0
 	ylabel: y [cm]
-	ylog: False
+	ylog: 0
 	yrebin: 1
-	zlog: False
+	zlog: 0
 	zrebin: 1
 	ztics: 0
 End
@@ -504,7 +536,7 @@ Plot: simple_ILC_beam_dump_22_plot
 	lw.0: 0
 	max: 1.19541422E-04
 	min: 1.37282341E-09
-	proj: X
+	proj: Y
 	ps.0: 0
 	pt.0: 0
 	swap: 0
@@ -539,7 +571,7 @@ Plot: Red
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 1540.7 811.83
+	extends: 1540.7 2193.07
 	grid: 0
 	index: 0
 	labels: 1
@@ -573,7 +605,7 @@ Plot: Green
 	cbtics: 0
 	coord: Z-X
 	cpd: 0
-	extends: 41.9939 22.1702
+	extends: 41.9939 59.9551
 	grid: 0
 	index: 0
 	labels: 1
@@ -609,12 +641,12 @@ Plot: Blue
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 743.008 390.079
+	extends: 743.008 1057.61
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Media
-	origin: 0 -134.504 -1499.29
+	origin: 0 -183.592 -35.5866
 	run: <simple_ILC_beam_dump>
 	subtype: Material
 	title: GeoViewer Blue plot
@@ -642,12 +674,12 @@ Plot: Magenta
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 4600.51 2419.92
+	extends: 1283.92 1833.06
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Media
-	origin: 0 0 400
+	origin: 232.684 292.566 400
 	subtype: Material
 	title: GeoViewer Magenta plot
 	x2log: False
@@ -666,7 +698,7 @@ Plot: simple_ILC_beam_dump_23_plot
 	Type:   USR-1D
 	block.0: 0
 	cbcolors: 0
-	cblog: False
+	cblog: 0
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 0
@@ -686,14 +718,14 @@ Plot: simple_ILC_beam_dump_23_plot
 	title: USR-1D simple ILC beam dump 23
 	with.0: histerror
 	x.0: 2
-	x2log: False
+	x2log: 0
 	x2tics: 0
-	xlog: True
+	xlog: 1
 	y.0: 0
-	y2log: False
+	y2log: 0
 	y2tics: 0
-	ylog: True
-	zlog: False
+	ylog: 1
+	zlog: 0
 	ztics: 0
 End
 
@@ -703,7 +735,7 @@ Plot: simple_ILC_beam_dump_24_plot
 	Type:   USR-1D
 	block.0: 0
 	cbcolors: 0
-	cblog: False
+	cblog: 0
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 0
@@ -723,14 +755,14 @@ Plot: simple_ILC_beam_dump_24_plot
 	title: USR-1D simple ILC beam dump 24
 	with.0: histerror
 	x.0: 2
-	x2log: False
+	x2log: 0
 	x2tics: 0
-	xlog: True
+	xlog: 1
 	y.0: 0
-	y2log: False
+	y2log: 0
 	y2tics: 0
-	ylog: True
-	zlog: False
+	ylog: 1
+	zlog: 0
 	ztics: 0
 End
 
@@ -777,7 +809,7 @@ Plot: simple_ILC_beam_dump_26_plot
 	Type:   USR-1D
 	block.0: 0
 	cbcolors: 0
-	cblog: False
+	cblog: 0
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 0
@@ -797,14 +829,14 @@ Plot: simple_ILC_beam_dump_26_plot
 	title: USR-1D simple ILC beam dump 26
 	with.0: histerror
 	x.0: 2
-	x2log: False
+	x2log: 0
 	x2tics: 0
-	xlog: True
+	xlog: 1
 	y.0: 0
-	y2log: False
+	y2log: 0
 	y2tics: 0
-	ylog: True
-	zlog: False
+	ylog: 1
+	zlog: 0
 	ztics: 0
 End
 
@@ -814,7 +846,7 @@ Plot: simple_ILC_beam_dump_27_plot
 	Type:   USR-1D
 	block.0: 0
 	cbcolors: 0
-	cblog: False
+	cblog: 0
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 0
@@ -834,14 +866,14 @@ Plot: simple_ILC_beam_dump_27_plot
 	title: USR-1D simple ILC beam dump 27
 	with.0: histerror
 	x.0: 2
-	x2log: False
+	x2log: 0
 	x2tics: 0
-	xlog: True
+	xlog: 1
 	y.0: 0
-	y2log: False
+	y2log: 0
 	y2tics: 0
-	ylog: True
-	zlog: False
+	ylog: 1
+	zlog: 0
 	ztics: 0
 End
 
@@ -855,7 +887,7 @@ Plot: simple_ILC_beam_dump_28_plot
 	block.3: 4
 	block.4: 5
 	cbcolors: 0
-	cblog: False
+	cblog: 0
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 0
@@ -909,10 +941,10 @@ Plot: simple_ILC_beam_dump_28_plot
 	with.2: histogram
 	with.3: histogram
 	with.4: histogram
-	x2log: False
+	x2log: 0
 	x2tics: 0
 	xlabel: E [keV]
-	xlog: True
+	xlog: 1
 	xnorm.0: 1./keV
 	xnorm.1: 1./keV
 	xnorm.2: 1./keV
@@ -923,10 +955,171 @@ Plot: simple_ILC_beam_dump_28_plot
 	y.2: 0
 	y.3: 0
 	y.4: 0
-	y2log: False
+	y2log: 0
 	y2tics: 0
 	ylabel: dN2 / dE dOmega
-	ylog: True
-	zlog: False
+	ylog: 1
+	zlog: 0
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D simple ILC beam dump 62"
+Plot: simple_ILC_beam_dump_62_plot
+	Format: .eps
+	Type:   USR-1D
+	block.0: 0
+	block.1: 0
+	cbcolors: 0
+	cblog: 0
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	det.0: 0
+	det.1: 0
+	file.0: simple_ILC_beam_dump_62_tab.lis
+	file.1: simple_ILC_beam_dump_63_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
+	key.1: 1
+	lc.0: red
+	lw.0: 2
+	lw.1: 1
+	name.0: Detector 1
+	name.1: #Detector 2
+	ndetectors: 2
+	ps.0: 1
+	ps.1: 1
+	pt.0: 0
+	pt.1: 0
+	show.0: 1
+	show.1: 1
+	title: USR-1D simple ILC beam dump 62
+	with.0: histogram
+	with.1: histogram
+	x.0: 2
+	x2log: 0
+	x2tics: 0
+	xlog: True
+	xnorm.0: 1./GeV
+	xnorm.1: 1./GeV
+	y.0: 0
+	y.1: 0
+	y2log: 0
+	y2tics: 0
+	ylog: 1
+	zlog: 0
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D simple ILC beam dump 63"
+Plot: simple_ILC_beam_dump_63_plot
+	Format: .eps
+	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: 0
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	det.0: 0
+	file.0: simple_ILC_beam_dump_63_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 1
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
+	title: USR-1D simple ILC beam dump 63
+	with.0: histerror
+	x.0: 2
+	x2log: 0
+	x2tics: 0
+	xlog: 1
+	y.0: 0
+	y2log: 0
+	y2tics: 0
+	ylog: 1
+	zlog: 0
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D simple ILC beam dump 64"
+Plot: simple_ILC_beam_dump_64_plot
+	Format: .eps
+	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: 0
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	det.0: 0
+	file.0: simple_ILC_beam_dump_64_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 1
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
+	title: USR-1D simple ILC beam dump 64
+	with.0: histerror
+	x.0: 2
+	x2log: 0
+	x2tics: 0
+	xlog: 1
+	y.0: 0
+	y2log: 0
+	y2tics: 0
+	ylog: 1
+	zlog: 0
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D simple ILC beam dump 65"
+Plot: simple_ILC_beam_dump_65_plot
+	Format: .eps
+	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: 0
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	det.0: 0
+	file.0: simple_ILC_beam_dump_65_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 1
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
+	title: USR-1D simple ILC beam dump 65
+	with.0: histerror
+	x.0: 2
+	x2log: 0
+	x2tics: 0
+	xlog: 1
+	y.0: 0
+	y2log: 0
+	y2tics: 0
+	ylog: 1
+	zlog: 0
 	ztics: 0
 End

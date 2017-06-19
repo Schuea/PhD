@@ -191,6 +191,14 @@ USRBDX          111.   NEUTRON      -27.     Water      Tank      531.Neutron4
 USRBDX                               50.                            5. &
 USRBDX           11.   NEUTRON      -28.     Water      Tank      531.Neutron5
 USRBDX                               50.                            5. &
+USRYIELD       2401.  ALL-NEUT      -62.     Water      Tank          ALLNEUT
+USRYIELD        100.       0.0       50.       90.       0.0        3. &
+USRYIELD       2401.   NEUTRON      -63.     Water      Tank          NEUT
+USRYIELD        100.       0.0       50.       90.       0.0        3. &
+USRYIELD       2401.  ALL-NEUT      -64.      Tank       Air          ALLNEUT2
+USRYIELD        100.       0.0       50.       90.       0.0        3. &
+USRYIELD       2401.   NEUTRON      -65.      Tank       Air          NEUT2
+USRYIELD        100.       0.0       50.       90.       0.0        3. &
 !@what.4=850.0*cm
 !@what.5=650.0*cm
 !@what.6=800.0*cm
@@ -211,5 +219,5 @@ USRBDX                               50.                            5. &
 *USRYIELD                                     1000.                     &
 DISCARD        MUONS
 RANDOMIZ          1.        1.
-START           500.                                     0.0 99999999.
+START            50.                                     0.0 99999999.
 STOP
