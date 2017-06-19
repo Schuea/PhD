@@ -7,7 +7,7 @@ Submit: *Default
 Notes:
 Composition of normal and boronated concrete from Paper "Application of neutron shield concrete to neutron scattering instrument TAIKAN in J-PARC" by Koichi Okuno et al.
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Plot
+Page: Geometry
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -343,16 +343,6 @@ Material: Phosphor
 End
 
 # Material
-Material: Ti-6Al4V
-	alpha: 0
-	color: #407030
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
 Material: Molybdenum
 	alpha: 0
 	color: #D03050
@@ -366,6 +356,16 @@ End
 Material: Vanadium
 	alpha: 0
 	color: #807070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: BorConc
+	alpha: 0
+	color: #4050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -393,9 +393,9 @@ Material: B2O3
 End
 
 # Material
-Material: Cs
+Material: Eu
 	alpha: 0
-	color: #901070
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -493,9 +493,9 @@ Material: CaO
 End
 
 # Material
-Material: BorConc
+Material: Ti-6Al4V
 	alpha: 0
-	color: #4050D0
+	color: #407030
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -503,9 +503,9 @@ Material: BorConc
 End
 
 # Material
-Material: Eu
+Material: Cs
 	alpha: 0
-	color: #703070
+	color: #901070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -602,13 +602,13 @@ Plot: Red
 	basisv: -0.00257333 0.994994 0.0998989
 	boundaries: 1
 	cbcolors: 0
-	cblog: False
+	cblog: 0
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 0
 	coord: U-V
 	cpd: 0
-	extends: 339.71 179.001
+	extends: 339.71 208.003
 	grid: 0
 	index: 0
 	labels: 1
@@ -616,13 +616,13 @@ Plot: Red
 	origin: -119.506 5.331 -29.0008
 	subtype: Material
 	title: GeoViewer Red plot
-	x2log: False
+	x2log: 0
 	x2tics: 0
-	xlog: False
-	y2log: False
+	xlog: 0
+	y2log: 0
 	y2tics: 0
-	ylog: False
-	zlog: False
+	ylog: 0
+	zlog: 0
 	ztics: 0
 End
 
@@ -640,12 +640,12 @@ Plot: Green
 	cbtics: 0
 	coord: Z-X
 	cpd: 0
-	extends: 495.944 261.828
+	extends: 287.005 175.953
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Media
-	origin: -126.521 0 -2.72653
+	origin: -16.3014 0 152.377
 	subtype: Material
 	title: GeoViewer Green plot
 	x2log: False
@@ -662,14 +662,14 @@ End
 Plot: Blue
 	Format: .eps
 	Type:   Geometry
-	basisu: 0 0 1
+	basisu: 1 0 0
 	basisv: 0 1 0
 	boundaries: 1
-	coord: Z-Y
-	extends: 1215.46 638.116
+	coord: X-Y
+	extends: 488.466 299.086
 	labels: 1
 	layer: Media
-	origin: 0.929042 213.563 -247.818
+	origin: 43.762 -61.4855 228
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -688,12 +688,12 @@ Plot: Magenta
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 608.391 320.021
+	extends: 293.398 179.872
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Image
-	origin: -20 0 -30
+	origin: -20 3.83814 251.194
 	subtype: Material
 	title: GeoViewer Magenta plot
 	x2log: 0
