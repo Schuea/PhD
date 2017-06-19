@@ -1063,14 +1063,54 @@ USRBIN         -300.     -200.     -700.      100.      100.      150. &
 !@what.9=-7000.0*mm
 USRBIN           10.    TRITON      -34.      110.      200.      420.Triton
 USRBIN         -300.     -200.     -700.      100.      100.      150. &
-USRBDX           99.   NEUTRON      -35.  ScorePla       Air17671.4587NeutrFlu
+USRBDX          111.   NEUTRON      -35.  ScorePla       Air17671.4587NeutrFlu
 USRBDX                               50.                            1. &
-USRBDX           99.   NEUTRON      -36.  ScorePla       Air17671.4587NeutrFlu2
-USRBDX                               50.                           50. &
-USRBDX           -1.   NEUTRON      -37.  ScorePla       Air17671.4587NeutrCur
+USRBDX          111.   NEUTRON      -36.  ScorePla       Air17671.4587NeutrFlu2
+USRBDX                               50.                           10. &
+USRBDX          101.   NEUTRON      -37.  ScorePla       Air17671.4587NeutrCur
 USRBDX                               50.                            1. &
-USRBDX           -1.   NEUTRON      -38.  ScorePla       Air17671.4587NeutrCur2
-USRBDX                               50.                           50. &
+USRBDX          101.   NEUTRON      -38.  ScorePla       Air17671.4587NeutrCur2
+USRBDX                               50.                           10. &
+USRYIELD       2401.   NEUTRON      -40.   TankWa1  TankEnd1          Neutrall
+USRYIELD        100.       0.0       50.       90.       0.0        3. &
+USRYIELD       2401.   NEUTRON      -41.   TankWa1  TankEnd1          Neutr1
+USRYIELD        100.       0.0       50.       10.       0.0        3. &
+USRYIELD       2401.   NEUTRON      -42.   TankWa1  TankEnd1          Neutr2
+USRYIELD        100.       0.0       50.       20.       10.        3. &
+USRYIELD       2401.   NEUTRON      -43.   TankWa1  TankEnd1          Neutr3
+USRYIELD        100.       0.0       50.       30.       20.        3. &
+USRYIELD       2401.   NEUTRON      -44.   TankWa1  TankEnd1          Neutr4
+USRYIELD        100.       0.0       50.       40.       30.        3. &
+USRYIELD       2401.   NEUTRON      -45.   TankWa1  TankEnd1          Neutr5
+USRYIELD        100.       0.0       50.       50.       40.        3. &
+USRYIELD       2401.   NEUTRON      -46.   TankWa1  TankEnd1          Neutr6
+USRYIELD        100.       0.0       50.       60.       50.        3. &
+USRYIELD       2401.   NEUTRON      -47.   TankWa1  TankEnd1          Neutr7
+USRYIELD        100.       0.0       50.       70.       60.        3. &
+USRYIELD       2401.   NEUTRON      -48.   TankWa1  TankEnd1          Neutr8
+USRYIELD        100.       0.0       50.       80.       70.        3. &
+USRYIELD       2401.   NEUTRON      -49.   TankWa1  TankEnd1          Neutr9
+USRYIELD        100.       0.0       50.       90.       80.        3. &
+USRYIELD       2401.   NEUTRON      -50.    Window  ScorePla          NeutWinall
+USRYIELD        100.       0.0       50.       90.       0.0        3. &
+USRYIELD       2401.   NEUTRON      -51.    Window  ScorePla          NeutWin1
+USRYIELD        100.       0.0       50.       10.       0.0        3. &
+USRYIELD       2401.   NEUTRON      -52.    Window  ScorePla          NeutWin2
+USRYIELD        100.       0.0       50.       20.       10.        3. &
+USRYIELD       2401.   NEUTRON      -53.    Window  ScorePla          NeutWin3
+USRYIELD        100.       0.0       50.       30.       20.        3. &
+USRYIELD       2401.   NEUTRON      -54.    Window  ScorePla          NeutWin4
+USRYIELD        100.       0.0       50.       40.       30.        3. &
+USRYIELD       2401.   NEUTRON      -55.    Window  ScorePla          NeutWin5
+USRYIELD        100.       0.0       50.       50.       40.        3. &
+USRYIELD       2401.   NEUTRON      -56.    Window  ScorePla          NeutWin6
+USRYIELD        100.       0.0       50.       60.       50.        3. &
+USRYIELD       2401.   NEUTRON      -57.    Window  ScorePla          NeutWin7
+USRYIELD        100.       0.0       50.       70.       60.        3. &
+USRYIELD       2401.   NEUTRON      -58.    Window  ScorePla          NeutWin8
+USRYIELD        100.       0.0       50.       80.       70.        3. &
+USRYIELD       2401.   NEUTRON      -59.    Window  ScorePla          NeutWin9
+USRYIELD        100.       0.0       50.       90.       80.        3. &
 RESNUCLE          3.      -62.                      @ALLREGS          Resnuclei
 DCYSCORE          1.                    Resnuclei2                    RESNUCLE
 DCYSCORE          2.                    Resnuclei3                    RESNUCLE
@@ -1086,5 +1126,5 @@ DISCARD        MUONS
 * Set the random number seed
 RANDOMIZ          1.        1.
 * Set the number of primary histories to be simulated in the run
-START            10.                                     0.0  9999999.
+START          1000.                                     0.0  9999999.
 STOP
