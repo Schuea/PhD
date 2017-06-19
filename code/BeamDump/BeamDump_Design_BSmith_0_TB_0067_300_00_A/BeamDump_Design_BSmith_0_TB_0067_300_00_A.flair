@@ -241,6 +241,16 @@ Material: Fe2O3
 End
 
 # Material
+Material: Chlorine
+	alpha: 0
+	color: #9050D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
 Material: K2O
 	alpha: 0
 	color: #C09070
@@ -291,16 +301,6 @@ Material: BorConc
 End
 
 # Material
-Material: Ti-6Al4V
-	alpha: 0
-	color: #407030
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
 Material: Vanadium
 	alpha: 0
 	color: #807070
@@ -331,9 +331,9 @@ Material: B2O3
 End
 
 # Material
-Material: Cs
+Material: Eu
 	alpha: 0
-	color: #901070
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -421,9 +421,9 @@ Material: CaO
 End
 
 # Material
-Material: Chlorine
+Material: Ti-6Al4V
 	alpha: 0
-	color: #9050D0
+	color: #407030
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -431,9 +431,9 @@ Material: Chlorine
 End
 
 # Material
-Material: Eu
+Material: Cs
 	alpha: 0
-	color: #703070
+	color: #901070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -473,8 +473,8 @@ End
 # Geometry Information
 Geometry:
 	Frame.bsplit: 0.5
-	Frame.tsplit: 0.99
-	Frame.vsplit: 0.99
+	Frame.tsplit: 0.5
+	Frame.vsplit: 0.5
 
 	# Layer
 	Layer: Media
@@ -554,7 +554,7 @@ Plot: Red
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 358.318 198.448
+	extends: 358.318 510.038
 	grid: 0
 	index: 0
 	labels: 1
@@ -580,7 +580,7 @@ Plot: Blue
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 248.832 0.478523
+	extends: 248.832 354.193
 	labels: 1
 	layer: Drawing_xz
 	origin: -25.4718 0 135.654
@@ -596,7 +596,7 @@ Plot: Magenta
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 83.3334 0.160565
+	extends: 83.3334 118.976
 	labels: 1
 	layer: Drawing_yz
 	origin: -30 -34.1798 282.894
@@ -618,12 +618,12 @@ Plot: Green
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 358.318 12272.4
+	extends: 13.4588 19.2153
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Drawing_yz
-	origin: 0 -22.9315 149.273
+	origin: 0 53.8664 -318.698
 	subtype: Material
 	title: GeoViewer Green plot
 	x2log: False
