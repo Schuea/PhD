@@ -17,7 +17,7 @@ Run: <default>
 	Last:     5
 	Status:   3
 	Pid:      0
-	StartRun: 1497871425
+	StartRun: 1497876014
 
 	# USRxxx data file: simple_ILC_beam_dump_23.bnx
 	Data: \I_\U.\e
@@ -571,7 +571,7 @@ Plot: Red
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 1540.7 2193.07
+	extends: 1540.7 943.365
 	grid: 0
 	index: 0
 	labels: 1
@@ -605,7 +605,7 @@ Plot: Green
 	cbtics: 0
 	coord: Z-X
 	cpd: 0
-	extends: 41.9939 59.9551
+	extends: 41.9939 25.745
 	grid: 0
 	index: 0
 	labels: 1
@@ -641,7 +641,7 @@ Plot: Blue
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 743.008 1057.61
+	extends: 743.008 454.941
 	grid: 0
 	index: 0
 	labels: 1
@@ -674,7 +674,7 @@ Plot: Magenta
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 1283.92 1833.06
+	extends: 1283.92 787.126
 	grid: 0
 	index: 0
 	labels: 1
@@ -772,7 +772,7 @@ Plot: simple_ILC_beam_dump_25_plot
 	Type:   USR-1D
 	block.0: 0
 	cbcolors: 0
-	cblog: False
+	cblog: 0
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 0
@@ -792,14 +792,14 @@ Plot: simple_ILC_beam_dump_25_plot
 	title: USR-1D simple ILC beam dump 25
 	with.0: histerror
 	x.0: 2
-	x2log: False
+	x2log: 0
 	x2tics: 0
-	xlog: True
+	xlog: 1
 	y.0: 0
-	y2log: False
+	y2log: 0
 	y2tics: 0
-	ylog: True
-	zlog: False
+	ylog: 1
+	zlog: 0
 	ztics: 0
 End
 
@@ -1001,7 +1001,7 @@ Plot: simple_ILC_beam_dump_62_plot
 	x.0: 2
 	x2log: 0
 	x2tics: 0
-	xlog: True
+	xlog: 1
 	xnorm.0: 1./GeV
 	xnorm.1: 1./GeV
 	y.0: 0
@@ -1055,6 +1055,9 @@ Plot: simple_ILC_beam_dump_64_plot
 	Format: .eps
 	Type:   USR-1D
 	block.0: 0
+	block.1: 0
+	block.2: 0
+	block.3: 0
 	cbcolors: 0
 	cblog: 0
 	cbpalette: FLUKA
@@ -1062,27 +1065,57 @@ Plot: simple_ILC_beam_dump_64_plot
 	cbtics: 0
 	cpd: 0
 	det.0: 0
+	det.1: 0
+	det.2: 0
+	det.3: 0
 	file.0: simple_ILC_beam_dump_64_tab.lis
+	file.1: simple_ILC_beam_dump_65_tab.lis
+	file.2: simple_ILC_beam_dump_62_tab.lis
+	file.3: simple_ILC_beam_dump_63_tab.lis
 	grid: 0
-	index: 0
+	index: 1
 	key.0: 1
+	key.1: 1
+	key.2: 1
+	key.3: 1
 	lc.0: red
 	lw.0: 2
+	lw.1: 1
+	lw.2: 1
+	lw.3: 1
 	name.0: Detector 1
-	ndetectors: 1
+	name.1: #Detector 2
+	name.2: #Detector 3
+	name.3: #Detector 4
+	ndetectors: 4
 	ps.0: 1
+	ps.1: 1
+	ps.2: 1
+	ps.3: 2
 	pt.0: 0
+	pt.1: 3
+	pt.2: 2
+	pt.3: 1
 	show.0: 1
+	show.1: 1
+	show.2: 1
+	show.3: 1
 	title: USR-1D simple ILC beam dump 64
-	with.0: histerror
+	with.0: linespoints
+	with.1: linespoints
+	with.2: linespoints
+	with.3: linespoints
 	x.0: 2
 	x2log: 0
 	x2tics: 0
 	xlog: 1
 	y.0: 0
+	y.1: 0
+	y.2: 0
+	y.3: 0
 	y2log: 0
 	y2tics: 0
-	ylog: 1
+	ylog: True
 	zlog: 0
 	ztics: 0
 End
