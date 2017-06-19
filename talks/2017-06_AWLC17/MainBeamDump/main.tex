@@ -65,7 +65,7 @@
   \end{textblock}
 } 
 
-\title[Neutrons from the main beam dumps]{\textbf{\alert{AWLC 2017} \\\LARGE The International Linear Collider \\ \small Background Simulations \& Neutrons from the main beam dumps}}
+\title[Neutrons from the main beam dumps]{\textbf{\alert{AWLC 2017} \\ \vspace*{0.3cm} The International Linear Collider \\ \LARGE Neutrons from the main beam dumps}}
 \author{\textbf{Anne Sch\"utz}}
 \institute{\textbf{DESY}}
 \date{\textbf{26. June 2017}}
@@ -93,6 +93,7 @@
 
 
 \section{FLUKA simulation of the ILC Beam Dump}
+\subsection{Project Overview}
 {
 \usebackgroundtemplate{
 \vbox to \paperheight{\vfil
@@ -113,20 +114,201 @@ Realistic simulation of the interaction between the neutrons and the lattice.
 \end{frame}
 }
 
-%(Fully integrated particle physics MonteCarlo simulation package)
+\AtBeginSubsection[] {
+  \begin{frame}<beamer>
+     \tableofcontents[currentsection,
+     currentsubsection,
+     %hideothersubsections,
+     subsectionstyle=show/shaded/hide,
+     subsubsectionstyle=show/show/hide]
+  \end{frame}
+}
 
+\subsection{The Beam Dump Designs}
+\begin{frame}{Designs by B. Smith}
+Design drawings by B. Smith, 2006-2007:
+\begin{itemize}
+ \item two different desings for the water beam dump: 0-TB-0067-210-00-A, 0-TB-0067-300-00-A
+ \item shielding walls: 0-TB-0067-404-00-A
+ \item surface site: 0-TB-0067-410-00-A
+\end{itemize}
+Report ``18\,MW Water Beam Dump Design'' about considerations and studies of:
+\begin{itemize}
+ \item Material qualities
+ \item Water temperature and pressure
+ \item Technical specifications
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Surface site: 0-TB-0067-410-00-A}
+\centering
+\only<1>{
+  \includegraphics[width=0.9\textwidth]{figures/0067_404-House.png}
+ }
+ \only<2>{
+   \includegraphics[height=0.92\textheight]{figures/0067_404-House_zoom.png}
+ }
+\end{frame}
+\begin{frame}{Shielding walls: 0-TB-0067-404-00-A}
+\centering
+\only<1>{
+ \includegraphics[width=0.92\textwidth]{figures/0067_404-Shielding.png}
+ }
+ \only<2>{
+  \includegraphics[width=0.65\textwidth,angle=90]{figures/0067_404-Shielding_zoom.png}
+  }
+\end{frame}
+
+\begin{frame}{Design 1: 0-TB-0067-210-00-A}
+\centering
+ \includegraphics[width=0.92\textwidth]{figures/TB-0067-210-00-A.png}
+\end{frame}
+\begin{frame}{Design 1: 0-TB-0067-210-00-A}
+\centering
+ \includegraphics[width=\textwidth]{figures/Design1_geometry.png}
+\end{frame}
+\begin{frame}{Design 1: 0-TB-0067-210-00-A}
+\centering
+ \includegraphics[width=0.5\textwidth]{figures/TB-0067-210-00-A_yz_view.png}
+ \hfill
+ \includegraphics[width=0.48\textwidth]{figures/Design1_geometry_3Dinside.png}
+\end{frame}
+
+\begin{frame}{Design 2: 0-TB-0067-300-00-A}
+\centering
+  \includegraphics[width=0.92\textwidth]{figures/TB-0067-300-00-A.png}
+\end{frame}
+\begin{frame}{Design 2: 0-TB-0067-300-00-A}
+\centering
+  \includegraphics[width=\textwidth]{figures/Design2_geometry.png}
+\end{frame}
+\begin{frame}{Design 2: 0-TB-0067-300-00-A}
+\centering
+  \includegraphics[width=0.5\textwidth]{figures/TB-0067-300-00-A_xz_view.png}
+  \hfill
+  \includegraphics[width=0.48\textwidth]{figures/Design2_geometry_drawing_xz.png}
+\end{frame}
+\begin{frame}{Design 2: 0-TB-0067-300-00-A}
+\centering
+  \includegraphics[width=0.49\textwidth]{figures/Design2_geometry_3Dinside1.png}
+    \includegraphics[width=0.49\textwidth]{figures/Design2_geometry_3Dinside2.png}\\
+      \includegraphics[width=0.49\textwidth]{figures/Design2_geometry_3Dinside3.png}
+\end{frame}
+
+
+
+\subsection{The FLUKA simulation}
+\begin{frame}
+ ILC1000B:
+ \begin{itemize}
+  \item Beam energy: 500\,GeV
+  \item Bunch population: 1.74e10
+  \item Bunch size: \textsigma\textsubscript{x} = 2.4\,mm, \textsigma\textsubscript{y} = 0.22\,mm
+  \item Bunches per train: 2450
+  \item Bunch train duration: 896.7\,\textmu s
+ \end{itemize}
+
+\end{frame}
+
+
+\subsubsection{Deposited Energy and Dose}
+\begin{frame}{Deposited Energy}
+\centering
+  \includegraphics[width=0.52\textwidth]{figures/Energy_deposition_xz.pdf}
+\end{frame}
+\begin{frame}{Total dose and EM dose}
+\centering
+  \includegraphics[width=0.52\textwidth]{figures/Dose.pdf}
+  \includegraphics[width=0.52\textwidth]{figures/Dose_EM.pdf}
+\end{frame}
+\begin{frame}{Dose equivalent after cooling times}
+\centering
+\hspace*{1.6cm} Instantanuous \hfill After 1 minute \hspace*{1.8cm} \\
+  \includegraphics[width=0.52\textwidth]{figures/Dose_equivalent.pdf}
+  \includegraphics[width=0.52\textwidth]{figures/Dose_equivalent_1minute.pdf}
+\end{frame}
+\begin{frame}{Dose equivalent after cooling times}
+\centering
+\hspace*{1.6cm} After 1 hour \hfill After 1 day \hspace*{1.8cm} \\
+  \includegraphics[width=0.52\textwidth]{figures/Dose_equivalent_1hour.pdf}
+  \includegraphics[width=0.52\textwidth]{figures/Dose_equivalent_1day.pdf}
+\end{frame}
+\begin{frame}{Dose equivalent after cooling times}
+\centering
+\hspace*{1.6cm} After 1 month \hfill After 1 year \hspace*{1.8cm} \\
+  \includegraphics[width=0.52\textwidth]{figures/Dose_equivalent_1month.pdf}
+  \includegraphics[width=0.52\textwidth]{figures/Dose_equivalent_1year.pdf}
+\end{frame}
+
+\AtBeginSubsubsection[] {
+  \begin{frame}<beamer>
+     \tableofcontents[currentsection,
+     currentsubsection,
+     %hideothersubsections,
+     subsectionstyle=show/shaded/hide,
+     subsubsectionstyle=show/show/hide]
+  \end{frame}
+}
+
+\subsubsection{Residual nuclei}
+\begin{frame}{Residual nuclei after cooling times}
+\centering
+\hspace*{1.6cm} Instantanuous \hfill After 1 minute \hspace*{1.8cm} \\
+  \includegraphics[width=0.52\textwidth]{figures/Residual_nuclei.pdf}
+  \includegraphics[width=0.52\textwidth]{figures/Residual_nuclei_1minute.pdf}
+\end{frame}
+\begin{frame}{Residual nuclei after cooling times}
+\centering
+\hspace*{1.6cm} After 1 hour \hfill After 1 day \hspace*{1.8cm} \\
+  \includegraphics[width=0.52\textwidth]{figures/Residual_nuclei_1hour.pdf}
+  \includegraphics[width=0.52\textwidth]{figures/Residual_nuclei_1day.pdf}
+\end{frame}
+\begin{frame}{Residual nuclei after cooling times}
+\centering
+\hspace*{1.6cm} After 1 month \hfill After 1 year \hspace*{1.8cm} \\
+  \includegraphics[width=0.52\textwidth]{figures/Residual_nuclei_1month.pdf}
+  \includegraphics[width=0.52\textwidth]{figures/Residual_nuclei_1year.pdf}
+\end{frame}
+
+\subsubsection{Particle Fluxes}
+\begin{frame}{Proton and Tritium fluxes}
+\centering
+\hspace*{2cm} Protons \hfill Tritium \hspace*{2cm} \\
+  \includegraphics[width=0.52\textwidth]{figures/Proton_flux_xz.pdf}
+  \includegraphics[width=0.52\textwidth]{figures/Triton_flux_xz.pdf}
+\end{frame}
+\begin{frame}{Electron and Photon fluxes}
+\centering
+\hspace*{2cm} Electrons \hfill Photons \hspace*{2cm} \\
+  \includegraphics[width=0.52\textwidth]{figures/Electron_flux_xz.pdf}
+  \includegraphics[width=0.52\textwidth]{figures/Photon_flux_xz.pdf}
+\end{frame}
+\begin{frame}{Neutron fluxes}
+\centering
+  \includegraphics[width=0.52\textwidth]{figures/Neutron_flux_xz.pdf}
+  \includegraphics[width=0.52\textwidth]{figures/Neutron_EnergyAngle_distribution.pdf}
+\end{frame}
+
+
+
+\section{Summary and Outlook}
 \begin{frame}{Summary and outlook}
  \flukalogo
- All goals of this study in an overview:
+ Aspects already addressed:
 \begin{itemize}
- \item Simulating the neutron flux,
- \item the number of neutrons reaching the IP,
- \item the neutron occupancy in SiD,
+ \item The number of neutrons produced,
  \item the dose of the beam dump surrounding,
  \item the influence of the water composition (amount of deuterium),
  \item the influence of the steel composition of the tank container,
  \item the amount of tritium produced in the water,
  \item the effect of the beam dump design.
+\end{itemize}
+\vspace*{0.2cm}
+ Goals for the next months:
+\begin{itemize}
+ \item Simulating the neutron flux through the EXT line,
+ \item the number of neutrons reaching the IP,
+ \item the neutron occupancy in SiD.
 \end{itemize}
 \end{frame}
 
