@@ -102,7 +102,7 @@
 }
 \begin{frame}{Neutron Background and Beam Dump Irradiation}
 \flukalogo
-The 16 MW beam is dumped into a water tank after collision.\\Neutrons ($\lesssim$\SI{e10}{\per\square\centi\metre\per\year}) are emitted that radiate the surroundings, and travel back towards the detectors.\\
+The 17\,MW\footnote{13.7\,MW average beam power + 20\% margin} beam is dumped into a water tank after collision.\\Neutrons ($\lesssim$\SI{e10}{\per\square\centi\metre\per\year}) are emitted that radiate the surroundings, and travel back towards the detectors.\\
 \vspace*{0.1cm}
 \alert{Simulating the energy depostions, irradiation, and number of background particles:}
 \begin{enumerate}
@@ -126,21 +126,21 @@ Realistic simulation of the interaction between the neutrons and the lattice.
 
 \subsection{The Beam Dump Designs}
 \begin{frame}{Designs by B. Smith}
-Design drawings by B. Smith, 2006-2007:
+Design drawings by B. Smith, 2006-2007~\cite{Smith}:
 \begin{itemize}
  \item two different desings for the water beam dump: 0-TB-0067-210-00-A, 0-TB-0067-300-00-A
  \item shielding walls: 0-TB-0067-404-00-A
  \item surface site: 0-TB-0067-410-00-A
 \end{itemize}
-Report ``18\,MW Water Beam Dump Design'' about considerations and studies of:
+Report ``18\,MW Water Beam Dump Design''~\cite{Smith_Report} about considerations and studies of:
 \begin{itemize}
  \item Material qualities
  \item Water temperature and pressure
- \item Technical specifications
+ \item Technical specifications of the dump designs
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Surface site: 0-TB-0067-410-00-A}
+\begin{frame}{\textbf{Surface site}: 0-TB-0067-410-00-A}
 \centering
 \only<1>{
   \includegraphics[width=0.9\textwidth]{figures/0067_404-House.png}
@@ -149,7 +149,7 @@ Report ``18\,MW Water Beam Dump Design'' about considerations and studies of:
    \includegraphics[height=0.92\textheight]{figures/0067_404-House_zoom.png}
  }
 \end{frame}
-\begin{frame}{Shielding walls: 0-TB-0067-404-00-A}
+\begin{frame}{\textbf{Shielding walls}: 0-TB-0067-404-00-A}
 \centering
 \only<1>{
  \includegraphics[width=0.92\textwidth]{figures/0067_404-Shielding.png}
@@ -159,36 +159,69 @@ Report ``18\,MW Water Beam Dump Design'' about considerations and studies of:
   }
 \end{frame}
 
-\begin{frame}{Design 1: 0-TB-0067-210-00-A}
+\begin{frame}{\textbf{Design 1}: 0-TB-0067-210-00-A}
 \centering
  \includegraphics[width=0.92\textwidth]{figures/TB-0067-210-00-A.png}
 \end{frame}
-\begin{frame}{Design 1: 0-TB-0067-210-00-A}
+{
+\usebackgroundtemplate{
+\vbox to \paperheight{\vspace*{1.2cm}
+ \tikz\node[opacity=0.3]{\hspace*{0.6cm} \includegraphics[width=0.92\textwidth]{figures/TB-0067-210-00-A.png}};
+ \vfil}}
+\begin{frame}{\textbf{Design 1}: 0-TB-0067-210-00-A}
+\begin{columns}
+ \begin{column}{0.5\textwidth}
+  Vessel:
+  \begin{itemize}
+   \item Diameter: 1.5\,m
+   \item Length: 6.5\,m
+   \item 316L Stainless Steel
+   \item Water pressure: 10\,bar
+  \end{itemize}
+  Window:
+  \begin{itemize}
+   \item Diameter: 300\,mm
+   \item Thickness: 1\,mm
+   \item Titanium alloy: Ti-6Al-4V 
+  \end{itemize}
+ \end{column}
+ \begin{column}{0.5\textwidth}
+  27\,X\textsubscript{0} needed to stop a 500\,GeV beam:
+  \begin{itemize}
+   \item Water: 18\,X\textsubscript{0}
+   \item Water cooled copper plates: 9\,X\textsubscript{0} = 126\,mm
+  \end{itemize}  
+ \end{column}
+\end{columns}
+
+\end{frame}
+}
+\begin{frame}{\textbf{Design 1}: 0-TB-0067-210-00-A}
 \centering
  \includegraphics[width=\textwidth]{figures/Design1_geometry.png}
 \end{frame}
-\begin{frame}{Design 1: 0-TB-0067-210-00-A}
+\begin{frame}{\textbf{Design 1}: 0-TB-0067-210-00-A}
 \centering
  \includegraphics[width=0.5\textwidth]{figures/TB-0067-210-00-A_yz_view.png}
  \hfill
  \includegraphics[width=0.48\textwidth]{figures/Design1_geometry_3Dinside.png}
 \end{frame}
 
-\begin{frame}{Design 2: 0-TB-0067-300-00-A}
+\begin{frame}{\textbf{Design 2}: 0-TB-0067-300-00-A}
 \centering
   \includegraphics[width=0.92\textwidth]{figures/TB-0067-300-00-A.png}
 \end{frame}
-\begin{frame}{Design 2: 0-TB-0067-300-00-A}
+\begin{frame}{\textbf{Design 2}: 0-TB-0067-300-00-A}
 \centering
   \includegraphics[width=\textwidth]{figures/Design2_geometry.png}
 \end{frame}
-\begin{frame}{Design 2: 0-TB-0067-300-00-A}
+\begin{frame}{\textbf{Design 2}: 0-TB-0067-300-00-A}
 \centering
   \includegraphics[width=0.5\textwidth]{figures/TB-0067-300-00-A_xz_view.png}
   \hfill
   \includegraphics[width=0.48\textwidth]{figures/Design2_geometry_drawing_xz.png}
 \end{frame}
-\begin{frame}{Design 2: 0-TB-0067-300-00-A}
+\begin{frame}{\textbf{Design 2}: 0-TB-0067-300-00-A}
 \centering
   \includegraphics[width=0.49\textwidth]{figures/Design2_geometry_3Dinside1.png}
     \includegraphics[width=0.49\textwidth]{figures/Design2_geometry_3Dinside2.png}\\
