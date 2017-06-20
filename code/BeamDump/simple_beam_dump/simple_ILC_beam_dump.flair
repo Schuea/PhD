@@ -13,11 +13,27 @@ F77dline: False
 
 # Run information
 Run: <default>
-	Prev:     0
-	Last:     5
+	Prev:     5
+	Last:     8
 	Status:   3
 	Pid:      0
-	StartRun: 1497876014
+	StartRun: 1497964882
+
+	# USRxxx data file: simple_ILC_beam_dump_21.bnn
+	Data: \I_\U.\e
+		Unit: 21
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: simple_ILC_beam_dump_22.bnn
+	Data: \I_\U.\e
+		Unit: 22
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
 
 	# USRxxx data file: simple_ILC_beam_dump_23.bnx
 	Data: \I_\U.\e
@@ -98,6 +114,14 @@ Run: <default>
 		Rule: +,\I\d\d\d_fort\.\U
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
+
+	# USRxxx data file: simple_ILC_beam_dump_99.rnc
+	Data: \I_\U.\e
+		Unit: 99
+		Type: r
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
 End
 
 # Material
@@ -121,9 +145,9 @@ Material: MgO
 End
 
 # Material
-Material: Stainles
+Material: Sulfur
 	alpha: 0
-	color: #40D0D0
+	color: #209010
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -131,9 +155,9 @@ Material: Stainles
 End
 
 # Material
-Material: Sulfur
+Material: Stainles
 	alpha: 0
-	color: #209010
+	color: #40D0D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -171,9 +195,9 @@ Material: Fe2O3
 End
 
 # Material
-Material: POTASSIU
+Material: Na2O
 	alpha: 0
-	color: #70B0B0
+	color: #301070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -231,16 +255,6 @@ Material: Chlorine
 End
 
 # Material
-Material: Cs
-	alpha: 0
-	color: #901070
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
 Material: SiO2
 	alpha: 0
 	color: #60D0B0
@@ -274,6 +288,16 @@ End
 Material: SO3
 	alpha: 0
 	color: #9010D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Eu
+	alpha: 0
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -321,9 +345,9 @@ Material: Cobalt
 End
 
 # Material
-Material: Na2O
+Material: POTASSIU
 	alpha: 0
-	color: #301070
+	color: #70B0B0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -351,9 +375,9 @@ Material: Phosphor
 End
 
 # Material
-Material: Eu
+Material: Cs
 	alpha: 0
-	color: #703070
+	color: #901070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -395,7 +419,7 @@ Plot: geometry_xy
 	basisv: 0 1 0
 	boundaries: 0
 	cbcolors: 0
-	cblog: 0
+	cblog: False
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 0
@@ -411,15 +435,15 @@ Plot: geometry_xy
 	subtype: Material
 	title: Geometry-XY
 	vectscale: 0.1
-	x2log: 0
+	x2log: False
 	x2tics: 0
 	xlabel: x [cm]
-	xlog: 0
-	y2log: 0
+	xlog: False
+	y2log: False
 	y2tics: 0
 	ylabel: y [cm]
-	ylog: 0
-	zlog: 0
+	ylog: False
+	zlog: False
 	ztics: 0
 End
 
@@ -463,14 +487,16 @@ End
 Plot: simple_ILC_beam_dump_21_plot
 	Format: .eps
 	Type:   USRBIN
-	axes: Z-Y
-	bymax: 400
-	bymin: -200.
-	bzmax: 700
-	bzmin: -1000.
+	axes: Z-X
+	bxmax: 6.666667
+	bxmin: -1.
+	bymax: 10
+	bymin: -10.
+	bzmax: 490.
+	bzmin: -490.
 	cbcolors: 30
-	cblabel: GeV/cm3 per electron
-	cblog: 1
+	cblabel: GeV/cm3
+	cblog: False
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 1
@@ -481,29 +507,30 @@ Plot: simple_ILC_beam_dump_21_plot
 	geo: -Auto-
 	geopos: 0.0
 	grid: 0
-	hist: 2D Projection
+	hist: 1D Projection
 	index: 1
-	int: 248.85757215402461
+	int: 206.31183993554518
 	lw.0: 0
-	max: 3.19891114E-05
-	min: 2.05898014E-18
-	proj: X
+	max: 2.26800516E-03
+	min: 1.05752726E-10
+	norm: 2e10
+	proj: Z
 	ps.0: 0
 	pt.0: 0
 	swap: 0
 	title: Energy deposition density
 	with.0: errorbars
-	x2log: 0
+	x2log: False
 	x2tics: 0
 	xlabel: z [cm]
-	xlog: 0
+	xlog: False
 	xrebin: 1
-	y2log: 0
+	y2log: False
 	y2tics: 0
 	ylabel: y [cm]
-	ylog: 0
+	ylog: False
 	yrebin: 1
-	zlog: 0
+	zlog: False
 	zrebin: 1
 	ztics: 0
 End
@@ -519,7 +546,7 @@ Plot: simple_ILC_beam_dump_22_plot
 	bzmin: -1000.
 	cbcolors: 30
 	cblabel: #/cm2 per electron
-	cblog: 1
+	cblog: True
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 1
@@ -542,17 +569,17 @@ Plot: simple_ILC_beam_dump_22_plot
 	swap: 0
 	title: Neutron flux
 	with.0: errorbars
-	x2log: 0
+	x2log: False
 	x2tics: 0
 	xlabel: z [cm]
-	xlog: 0
+	xlog: False
 	xrebin: 1
-	y2log: 0
+	y2log: False
 	y2tics: 0
 	ylabel: y [cm]
-	ylog: 0
+	ylog: False
 	yrebin: 1
-	zlog: 0
+	zlog: False
 	zrebin: 1
 	ztics: 0
 End
@@ -571,7 +598,7 @@ Plot: Red
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 1540.7 943.365
+	extends: 1540.7 811.83
 	grid: 0
 	index: 0
 	labels: 1
@@ -605,14 +632,14 @@ Plot: Green
 	cbtics: 0
 	coord: Z-X
 	cpd: 0
-	extends: 41.9939 25.745
+	extends: 1341.62 708.293
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Media
 	nu: 200
 	nv: 200
-	origin: 1.05655 0 -306.772
+	origin: -52.8696 0 -408.812
 	subtype: Material
 	title: Geometry -XZ
 	x2log: 0
@@ -641,12 +668,12 @@ Plot: Blue
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 743.008 454.941
+	extends: 2218.61 1164.77
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Media
-	origin: 0 -183.592 -35.5866
+	origin: 0 -17.3003 -38.0701
 	run: <simple_ILC_beam_dump>
 	subtype: Material
 	title: GeoViewer Blue plot
@@ -674,7 +701,7 @@ Plot: Magenta
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 1283.92 787.126
+	extends: 1283.92 675.357
 	grid: 0
 	index: 0
 	labels: 1
@@ -887,7 +914,7 @@ Plot: simple_ILC_beam_dump_28_plot
 	block.3: 4
 	block.4: 5
 	cbcolors: 0
-	cblog: 0
+	cblog: False
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 0
@@ -941,10 +968,10 @@ Plot: simple_ILC_beam_dump_28_plot
 	with.2: histogram
 	with.3: histogram
 	with.4: histogram
-	x2log: 0
+	x2log: False
 	x2tics: 0
 	xlabel: E [keV]
-	xlog: 1
+	xlog: True
 	xnorm.0: 1./keV
 	xnorm.1: 1./keV
 	xnorm.2: 1./keV
@@ -955,11 +982,11 @@ Plot: simple_ILC_beam_dump_28_plot
 	y.2: 0
 	y.3: 0
 	y.4: 0
-	y2log: 0
+	y2log: False
 	y2tics: 0
 	ylabel: dN2 / dE dOmega
-	ylog: 1
-	zlog: 0
+	ylog: True
+	zlog: False
 	ztics: 0
 End
 
@@ -1154,5 +1181,34 @@ Plot: simple_ILC_beam_dump_65_plot
 	y2tics: 0
 	ylog: 1
 	zlog: 0
+	ztics: 0
+End
+
+# RESNUCLE plot "RESNUCLE simple ILC beam dump 99"
+Plot: simple_ILC_beam_dump_99_plot
+	Format: .eps
+	Type:   RESNUCLE
+	cbcolors: 0
+	cblog: True
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: simple_ILC_beam_dump_99.rnc
+	det: 1
+	grid: 0
+	index: 0
+	lw.0: 0
+	plot: N/Z
+	ps.0: 0
+	title: RESNUCLE simple ILC beam dump 99
+	with.0: errorbars
+	x2log: False
+	x2tics: 0
+	xlog: False
+	y2log: False
+	y2tics: 0
+	ylog: False
+	zlog: False
 	ztics: 0
 End

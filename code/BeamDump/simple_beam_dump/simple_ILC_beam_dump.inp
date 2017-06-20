@@ -179,6 +179,13 @@ LOW-MAT        Boron        5.       -2.      296.                    BORON
 LOW-MAT     Phosphor       15.       31.      296.                    PHOSPHO
 PHOTONUC          1.                        VACUUM     WATER        1.
 LAM-BIAS         0.0      0.02     WATER   NEUTRON                    INEPRI
+SCORE        NEUTRON    ENERGY    TRITON   DOSE-EQ
+USRBIN           12.    ENERGY              Window
+USRBIN        Window                                                   &
+USRBIN           12.  ACTIVITY              Window
+USRBIN        Window                                                   &
+USRBIN           12.   DOSE-EQ              Window
+USRBIN        Window                                                   &
 USRBDX          101.   NEUTRON      -23.    Window   PipeVac      531.Neutrons
 USRBDX                               50.                            5. &
 USRBDX            1.   NEUTRON      -24.    Window   PipeVac      531.Neutron1
@@ -205,19 +212,19 @@ USRYIELD        100.       0.0       50.       90.       0.0        3. &
 !@what.7=-300.0*cm
 !@what.8=-200.0*cm
 !@what.9=-1700.0*cm
-*USRBIN           10.    ENERGY      -21.      850.      650.      800.Energy
-*USRBIN         -300.     -200.    -1700.      150.       85.      250. &
+USRBIN           10.    ENERGY      -21.      850.      650.      800.Energy
+USRBIN         -300.     -200.    -1700.      150.       85.      250. &
 !@what.4=850.0*cm
 !@what.5=650.0*cm
 !@what.6=800.0*cm
 !@what.7=-300.0*cm
 !@what.8=-200.0*cm
 !@what.9=-1700.0*cm
-*USRBIN           10.   NEUTRON      -22.      850.      650.      800.Neutrons
-*USRBIN         -300.     -200.    -1700.      150.       85.      250. &
-*USRYIELD       3301.   NEUTRON       52.                              Ekin_n
-*USRYIELD                                     1000.                     &
+USRBIN           10.   NEUTRON      -22.      850.      650.      800.Neutrons
+USRBIN         -300.     -200.    -1700.      150.       85.      250. &
+RESNUCLE          3.      -99.                      @ALLREGS          Resnucl
+RESNUCLE          3.      -99.                        Window          ResnuTank
 DISCARD        MUONS
 RANDOMIZ          1.        1.
-START            50.                                     0.0 99999999.
+START            30.                                     0.0 99999999.
 STOP
