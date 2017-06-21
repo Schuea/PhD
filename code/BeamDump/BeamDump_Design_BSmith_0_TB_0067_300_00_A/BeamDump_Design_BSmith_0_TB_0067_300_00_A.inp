@@ -1613,12 +1613,12 @@ DCYSCORE          2.                     ResnuWin3                    RESNUCLE
 DCYSCORE          3.                     ResnuWin4                    RESNUCLE
 DCYSCORE          4.                     ResnuWin5                    RESNUCLE
 DCYSCORE          5.                     ResnuWin6                    RESNUCLE
-RESNUCLE          3.      -94.                        Window          ResnuWin
-RESNUCLE          3.      -95.                        Window          ResnuWin2
-RESNUCLE          3.      -96.                        Window          ResnuWin3
-RESNUCLE          3.      -97.                        Window          ResnuWin4
-RESNUCLE          3.      -98.                        Window          ResnuWin5
-RESNUCLE          3.      -99.                        Window          ResnuWin6
+RESNUCLE          3.      -94.                        Window     113.4ResnuWin
+RESNUCLE          3.      -95.                        Window     113.4ResnuWin2
+RESNUCLE          3.      -96.                        Window     113.4ResnuWin3
+RESNUCLE          3.      -97.                        Window     113.4ResnuWin4
+RESNUCLE          3.      -98.                        Window     113.4ResnuWin5
+RESNUCLE          3.      -99.                        Window     113.4ResnuWin6
 DISCARD        MUONS
 * Set the random number seed
 RANDOMIZ          1.        1.
