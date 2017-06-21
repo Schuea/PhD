@@ -262,21 +262,22 @@ Report ``18\,MW Water Beam Dump Design''~\cite{Smith_Report} about consideration
   \animategraphics[loop,width=0.52\textwidth]{0.5}{DoseEQ_Time/Design2_}{1}{5}
   \end{center}
 \end{frame}
-\begin{frame}{Dose equivalent after cooling times}
-\centering
-\hspace*{1.6cm} Instantanuous \hfill After 1 minute \hspace*{1.8cm} \\
+\begin{frame}<1>[label=coolingtimesprev]
+  \frametitle<1>{Dose equivalent after cooling times}
+  \centering
+  \hspace*{1.6cm} Instantanuous \hfill After 1 minute \hspace*{1.8cm} \\
+  \framezoom<1><2>(0.1cm,1.1cm)(5.0cm,3.7cm)                                                                                                                                                                                                
+  \framezoom<1><2>(0.2cm,1.2cm)(5.1cm,3.6cm)                                                                                                                                                                                                
+  \framezoom<1><2>(0.3cm,1.3cm)(5.2cm,3.5cm)                                                                                                                                                                                                
+  \framezoom<1><2>(0.4cm,1.4cm)(5.3cm,3.4cm)                                                                                                                                                                                                
+  \framezoom<1><2>(0.5cm,1.5cm)(5.4cm,3.3cm)                                                                                                                                                                                                
+  \framezoom<1><2>(0.6cm,1.6cm)(5.5cm,3.2cm)                                                                                                                                                                                                
   \includegraphics[width=0.52\textwidth]{figures/Dose_equivalent.pdf}
   \includegraphics[width=0.52\textwidth]{figures/Dose_equivalent_1minute.pdf}
-\end{frame}
-\begin{frame}{Dose equivalent after cooling times}
-\centering
-\hspace*{1.6cm} After 1 hour \hfill After 1 day \hspace*{1.8cm} \\
+  \hspace*{1.6cm} After 1 hour \hfill After 1 day \hspace*{1.8cm} \\
   \includegraphics[width=0.52\textwidth]{figures/Dose_equivalent_1hour.pdf}
   \includegraphics[width=0.52\textwidth]{figures/Dose_equivalent_1day.pdf}
-\end{frame}
-\begin{frame}{Dose equivalent after cooling times}
-\centering
-\hspace*{1.6cm} After 1 month \hfill After 1 year \hspace*{1.8cm} \\
+  \hspace*{1.6cm} After 1 month \hfill After 1 year \hspace*{1.8cm} \\
   \includegraphics[width=0.52\textwidth]{figures/Dose_equivalent_1month.pdf}
   \includegraphics[width=0.52\textwidth]{figures/Dose_equivalent_1year.pdf}
 \end{frame}
@@ -434,5 +435,16 @@ L &[\si{\per\centi\metre\squared\per\second}] & \num{1.8e34} & \num{3.6e34} & \n
 \centering
 	\includegraphics[width=0.8\textwidth]{figures/ILCTDR-VOLUME_3-PART_II_ILCparametersUpgrades.pdf}
 \end{frame}
+
+\section{Zoom Plots}
+\begin{frame}
+  \begin{center}
+    \huge
+    ZOOM PLOTS\\
+    \tiny
+    Here be dragons
+  \end{center}
+\end{frame}
+\againframe<2->[noframenumbering]{coolingtimesprev}
 
 \end{document}
