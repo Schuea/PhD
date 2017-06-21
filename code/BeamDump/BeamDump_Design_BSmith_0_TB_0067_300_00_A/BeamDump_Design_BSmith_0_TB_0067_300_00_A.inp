@@ -791,7 +791,7 @@ TiTuHoW2     5 +InTub2 +yPiEnPl2 -yPiEnPl1 -TubOut57 -TubOut58 -TubOut59 -TubOut
                -TubOut99 -TubOu100 -TubOu101 -TubOu102 -TubOu103 -TubOu104 -TubOu105 -TubOu106
                -TubOu107 -TubOu108 -TubOu109 -TubOu110 -TubOu111 -TubOu112
 Tank         5 +OutTank +InTaEn2 -InTaEn1 -InTank -OuInlPi1 -OuInlPi2 -OuInlPi3 -OuInlPi4 -OuInlPi5 -OuInlPi6
-               -OuInlPi7 -OuInlPi8 -OuInlPi9 -OuInlP10 -OuInlP11 -OuInlP12 -OuDrain1 -OuDrain2 -OuDrain3 
+               -OuInlPi7 -OuInlPi8 -OuInlPi9 -OuInlP10 -OuInlP11 -OuInlP12 -OuDrain1 -OuDrain2 -OuDrain3
                -OuDrain4 -OuDrain5 -OutTub1 -OutTub2
 CuPlate1     5 +InTank +CuPlaPl2 +xPlane8 -CuPlaPl1 -yPlane7 -xPlane7
                | +InTank +CuPlaPl2 +xPlane6 -CuPlaPl1 -yPlane7 -xPlane5
@@ -1475,191 +1475,153 @@ ASSIGNMA     316L-SS  TankEnd1
 ASSIGNMA     316L-SS  TankEnd2
 PHOTONUC          1.                        VACUUM     WATER        1.
 LAM-BIAS         0.0      0.02     WATER   NEUTRON                    INEPRI
-!@what.4=1100.0*mm
-!@what.5=2000.0*mm
-!@what.6=4200.0*mm
-!@what.7=-3000.0*mm
-!@what.8=-2000.0*mm
-!@what.9=-7000.0*mm
-USRBIN           10.    ENERGY      -21.      110.      200.      420.Energy
-USRBIN         -300.     -200.     -700.      100.      100.      150. &
-!@what.4=1100.0*mm
-!@what.5=2000.0*mm
-!@what.6=4200.0*mm
-!@what.7=-3000.0*mm
-!@what.8=-2000.0*mm
-!@what.9=-7000.0*mm
-USRBIN           10.   NEUTRON      -22.      110.      200.      420.Neutrons
-USRBIN         -300.     -200.     -700.      100.      100.      150. &
+SCORE        NEUTRON    ENERGY    TRITON   DOSE-EQ
+USRBIN           10.    ENERGY      -21.      315.      600.      725.Energy
+USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN           10.   NEUTRON      -22.      315.      600.      725.Neutrons
+USRBIN         -825.     -200.    -1175.      100.      100.      150. &
 AUXSCORE      USRBIN  ALL-PART              DoseEq                    AMB74
-!@what.4=1100.0*mm
-!@what.5=2000.0*mm
-!@what.6=4200.0*mm
-!@what.7=-3000.0*mm
-!@what.8=-2000.0*mm
-!@what.9=-7000.0*mm
-USRBIN           10.   DOSE-EQ      -23.      110.      200.      420.DoseEq
-USRBIN         -300.     -200.     -700.      100.      100.      150. &
+USRBIN           10.   DOSE-EQ      -23.      315.      600.      725.DoseEq
+USRBIN         -825.     -200.    -1175.      100.      100.      150. &
 DCYSCORE          1.                       DoseEq1                    USRBIN
 DCYSCORE          2.                       DoseEq2                    USRBIN
 DCYSCORE          3.                       DoseEq3                    USRBIN
 DCYSCORE          4.                       DoseEq4                    USRBIN
 DCYSCORE          5.                       DoseEq5                    USRBIN
 AUXSCORE      USRBIN  ALL-PART             DoseEq1                    AMB74
-!@what.4=1100.0*mm
-!@what.5=2000.0*mm
-!@what.6=4200.0*mm
-!@what.7=-3000.0*mm
-!@what.8=-2000.0*mm
-!@what.9=-7000.0*mm
-USRBIN           10.   DOSE-EQ      -24.      110.      200.      420.DoseEq1
-USRBIN         -300.     -200.     -700.      100.      100.      150. &
+USRBIN           10.   DOSE-EQ      -24.      315.      600.      725.DoseEq1
+USRBIN         -825.     -200.    -1175.      100.      100.      150. &
 AUXSCORE      USRBIN  ALL-PART             DoseEq2                    AMB74
-!@what.4=1100.0*mm
-!@what.5=2000.0*mm
-!@what.6=4200.0*mm
-!@what.7=-3000.0*mm
-!@what.8=-2000.0*mm
-!@what.9=-7000.0*mm
-USRBIN           10.   DOSE-EQ      -25.      110.      200.      420.DoseEq2
-USRBIN         -300.     -200.     -700.      100.      100.      150. &
+USRBIN           10.   DOSE-EQ      -25.      315.      600.      725.DoseEq2
+USRBIN         -825.     -200.    -1175.      100.      100.      150. &
 AUXSCORE      USRBIN  ALL-PART             DoseEq3                    AMB74
-!@what.4=1100.0*mm
-!@what.5=2000.0*mm
-!@what.6=4200.0*mm
-!@what.7=-3000.0*mm
-!@what.8=-2000.0*mm
-!@what.9=-7000.0*mm
-USRBIN           10.   DOSE-EQ      -26.      110.      200.      420.DoseEq3
-USRBIN         -300.     -200.     -700.      100.      100.      150. &
+USRBIN           10.   DOSE-EQ      -26.      315.      600.      725.DoseEq3
+USRBIN         -825.     -200.    -1175.      100.      100.      150. &
 AUXSCORE      USRBIN  ALL-PART             DoseEq4                    AMB74
-!@what.4=1100.0*mm
-!@what.5=2000.0*mm
-!@what.6=4200.0*mm
-!@what.7=-3000.0*mm
-!@what.8=-2000.0*mm
-!@what.9=-7000.0*mm
-USRBIN           10.   DOSE-EQ      -27.      110.      200.      420.DoseEq4
-USRBIN         -300.     -200.     -700.      100.      100.      150. &
+USRBIN           10.   DOSE-EQ      -27.      315.      600.      725.DoseEq4
+USRBIN         -825.     -200.    -1175.      100.      100.      150. &
 AUXSCORE      USRBIN  ALL-PART             DoseEq5                    AMB74
-!@what.4=1100.0*mm
-!@what.5=2000.0*mm
-!@what.6=4200.0*mm
-!@what.7=-3000.0*mm
-!@what.8=-2000.0*mm
-!@what.9=-7000.0*mm
-USRBIN           10.   DOSE-EQ      -28.      110.      200.      420.DoseEq5
-USRBIN         -300.     -200.     -700.      100.      100.      150. &
-!@what.4=1100.0*mm
-!@what.5=2000.0*mm
-!@what.6=4200.0*mm
-!@what.7=-3000.0*mm
-!@what.8=-2000.0*mm
-!@what.9=-7000.0*mm
-USRBIN           10.   DOSE-EM      -29.      110.      200.      420.DoseEM
-USRBIN         -300.     -200.     -700.      100.      100.      150. &
-!@what.4=1100.0*mm
-!@what.5=2000.0*mm
-!@what.6=4200.0*mm
-!@what.7=-3000.0*mm
-!@what.8=-2000.0*mm
-!@what.9=-7000.0*mm
-USRBIN           10.      DOSE      -30.      110.      200.      420.Dose
-USRBIN         -300.     -200.     -700.      100.      100.      150. &
-!@what.4=1100.0*mm
-!@what.5=2000.0*mm
-!@what.6=4200.0*mm
-!@what.7=-3000.0*mm
-!@what.8=-2000.0*mm
-!@what.9=-7000.0*mm
-USRBIN           10.    PROTON      -31.      110.      200.      420.Protons
-USRBIN         -300.     -200.     -700.      100.      100.      150. &
-!@what.4=1100.0*mm
-!@what.5=2000.0*mm
-!@what.6=4200.0*mm
-!@what.7=-3000.0*mm
-!@what.8=-2000.0*mm
-!@what.9=-7000.0*mm
-USRBIN           10.  ELECTRON      -32.      110.      200.      420.Electrons
-USRBIN         -300.     -200.     -700.      100.      100.      150. &
-!@what.4=1100.0*mm
-!@what.5=2000.0*mm
-!@what.6=4200.0*mm
-!@what.7=-3000.0*mm
-!@what.8=-2000.0*mm
-!@what.9=-7000.0*mm
-USRBIN           10.    PHOTON      -33.      110.      200.      420.Photons
-USRBIN         -300.     -200.     -700.      100.      100.      150. &
-!@what.4=1100.0*mm
-!@what.5=2000.0*mm
-!@what.6=4200.0*mm
-!@what.7=-3000.0*mm
-!@what.8=-2000.0*mm
-!@what.9=-7000.0*mm
-USRBIN           10.    TRITON      -34.      110.      200.      420.Triton
-USRBIN         -300.     -200.     -700.      100.      100.      150. &
-USRBDX           -1.  ELECTRON      -35.  ScorePla       Air17671.4587NeutrFlu
-USRBDX                               50.                            1. &
-USRBDX           -1.  ELECTRON      -36.  ScorePla       Air17671.4587NeutrFlu2
-USRBDX                               50.                           10. &
-USRBDX           -1.  ELECTRON      -37.  ScorePla       Air17671.4587NeutrCur
-USRBDX                               50.                            1. &
-USRBDX           -1.  ELECTRON      -38.  ScorePla       Air17671.4587NeutrCur2
-USRBDX                               50.                           10. &
+USRBIN           10.   DOSE-EQ      -28.      315.      600.      725.DoseEq5
+USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN           10.   DOSE-EM      -29.      315.      600.      725.DoseEM
+USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN           10.      DOSE      -30.      315.      600.      725.Dose
+USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN           10.    PROTON      -31.      315.      600.      725.Protons
+USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN           10.  ELECTRON      -32.      315.      600.      725.Electrons
+USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN           10.    PHOTON      -33.      315.      600.      725.Photons
+USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN           10.    TRITON      -34.      315.      600.      725.Triton
+USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN           10.  POSITRON      -35.      315.      600.      725.Positron
+USRBIN         -825.     -200.    -1175.      100.      100.      150. &
 USRYIELD       2401.   NEUTRON      -40.    TankWa  TankEnd1          Neutrall
-USRYIELD        100.       0.0       50.       90.       0.0        3. &
+USRYIELD          1.       0.0       50.       90.       0.0        3. &
 USRYIELD       2401.   NEUTRON      -41.    TankWa  TankEnd1          Neutr1
-USRYIELD        100.       0.0       50.       10.       0.0        3. &
+USRYIELD          1.       0.0       50.       10.       0.0        3. &
 USRYIELD       2401.   NEUTRON      -42.    TankWa  TankEnd1          Neutr2
-USRYIELD        100.       0.0       50.       20.       10.        3. &
+USRYIELD          1.       0.0      100.       20.       10.        3. &
 USRYIELD       2401.   NEUTRON      -43.    TankWa  TankEnd1          Neutr3
-USRYIELD        100.       0.0       50.       30.       20.        3. &
+USRYIELD          1.       0.0      100.       30.       20.        3. &
 USRYIELD       2401.   NEUTRON      -44.    TankWa  TankEnd1          Neutr4
-USRYIELD        100.       0.0       50.       40.       30.        3. &
+USRYIELD          1.       0.0      100.       40.       30.        3. &
 USRYIELD       2401.   NEUTRON      -45.    TankWa  TankEnd1          Neutr5
-USRYIELD        100.       0.0       50.       50.       40.        3. &
+USRYIELD          1.       0.0      100.       50.       40.        3. &
 USRYIELD       2401.   NEUTRON      -46.    TankWa  TankEnd1          Neutr6
-USRYIELD        100.       0.0       50.       60.       50.        3. &
+USRYIELD          1.       0.0      100.       60.       50.        3. &
 USRYIELD       2401.   NEUTRON      -47.    TankWa  TankEnd1          Neutr7
-USRYIELD        100.       0.0       50.       70.       60.        3. &
+USRYIELD          1.       0.0      100.       70.       60.        3. &
 USRYIELD       2401.   NEUTRON      -48.    TankWa  TankEnd1          Neutr8
-USRYIELD        100.       0.0       50.       80.       70.        3. &
+USRYIELD          1.       0.0      100.       80.       70.        3. &
 USRYIELD       2401.   NEUTRON      -49.    TankWa  TankEnd1          Neutr9
-USRYIELD        100.       0.0       50.       90.       80.        3. &
+USRYIELD          1.       0.0      100.       90.       80.        3. &
 USRYIELD       2401.   NEUTRON      -50.    Window  ScorePla          NeutWinall
-USRYIELD        100.       0.0       50.       90.       0.0        3. &
+USRYIELD          1.       0.0      100.       90.       0.0        3. &
 USRYIELD       2401.   NEUTRON      -51.    Window  ScorePla          NeutWin1
-USRYIELD        100.       0.0       50.       10.       0.0        3. &
+USRYIELD          1.       0.0      100.       10.       0.0        3. &
 USRYIELD       2401.   NEUTRON      -52.    Window  ScorePla          NeutWin2
-USRYIELD        100.       0.0       50.       20.       10.        3. &
+USRYIELD          1.       0.0      100.       20.       10.        3. &
 USRYIELD       2401.   NEUTRON      -53.    Window  ScorePla          NeutWin3
-USRYIELD        100.       0.0       50.       30.       20.        3. &
+USRYIELD          1.       0.0      100.       30.       20.        3. &
 USRYIELD       2401.   NEUTRON      -54.    Window  ScorePla          NeutWin4
-USRYIELD        100.       0.0       50.       40.       30.        3. &
+USRYIELD          1.       0.0      100.       40.       30.        3. &
 USRYIELD       2401.   NEUTRON      -55.    Window  ScorePla          NeutWin5
-USRYIELD        100.       0.0       50.       50.       40.        3. &
+USRYIELD          1.       0.0      100.       50.       40.        3. &
 USRYIELD       2401.   NEUTRON      -56.    Window  ScorePla          NeutWin6
-USRYIELD        100.       0.0       50.       60.       50.        3. &
+USRYIELD          1.       0.0      100.       60.       50.        3. &
 USRYIELD       2401.   NEUTRON      -57.    Window  ScorePla          NeutWin7
-USRYIELD        100.       0.0       50.       70.       60.        3. &
+USRYIELD          1.       0.0      100.       70.       60.        3. &
 USRYIELD       2401.   NEUTRON      -58.    Window  ScorePla          NeutWin8
-USRYIELD        100.       0.0       50.       80.       70.        3. &
+USRYIELD          1.       0.0      100.       80.       70.        3. &
 USRYIELD       2401.   NEUTRON      -59.    Window  ScorePla          NeutWin9
-USRYIELD        100.       0.0       50.       90.       80.        3. &
-RESNUCLE          3.      -62.                      @ALLREGS          Resnuclei
+USRYIELD          1.       0.0      100.       90.       80.        3. &
+USRYIELD       2401.    PHOTON      -70.    TankWa  TankEnd1          Photall
+USRYIELD          1.       0.0      100.       90.       0.0        3. &
+USRYIELD       2401.    PHOTON      -71.    TankWa  TankEnd1          Phot1
+USRYIELD          1.       0.0      100.       10.       0.0        3. &
+USRYIELD       2401.    PHOTON      -72.    TankWa  TankEnd1          Phot2
+USRYIELD          1.       0.0      100.       20.       10.        3. &
+USRYIELD       2401.    PHOTON      -73.    TankWa  TankEnd1          Phot3
+USRYIELD          1.       0.0      100.       30.       20.        3. &
+USRYIELD       2401.    PHOTON      -74.    TankWa  TankEnd1          Phot4
+USRYIELD          1.       0.0      100.       40.       30.        3. &
+USRYIELD       2401.    PHOTON      -75.    TankWa  TankEnd1          Phot5
+USRYIELD          1.       0.0      100.       50.       40.        3. &
+USRYIELD       2401.    PHOTON      -76.    TankWa  TankEnd1          Phot6
+USRYIELD          1.       0.0      100.       60.       50.        3. &
+USRYIELD       2401.    PHOTON      -77.    TankWa  TankEnd1          Phot7
+USRYIELD          1.       0.0      100.       70.       60.        3. &
+USRYIELD       2401.    PHOTON      -78.    TankWa  TankEnd1          Phot8
+USRYIELD          1.       0.0      100.       80.       70.        3. &
+USRYIELD       2401.    PHOTON      -79.    TankWa  TankEnd1          Phot9
+USRYIELD          1.       0.0      100.       90.       80.        3. &
+USRYIELD       2401.    PHOTON      -80.    Window  ScorePla          PhotWinall
+USRYIELD          1.       0.0      100.       90.       0.0        3. &
+USRYIELD       2401.    PHOTON      -81.    Window  ScorePla          PhotWin1
+USRYIELD          1.       0.0      100.       10.       0.0        3. &
+USRYIELD       2401.    PHOTON      -82.    Window  ScorePla          PhotWin2
+USRYIELD          1.       0.0      100.       20.       10.        3. &
+USRYIELD       2401.    PHOTON      -83.    Window  ScorePla          PhotWin3
+USRYIELD          1.       0.0      100.       30.       20.        3. &
+USRYIELD       2401.    PHOTON      -84.    Window  ScorePla          PhotWin4
+USRYIELD          1.       0.0      100.       40.       30.        3. &
+USRYIELD       2401.    PHOTON      -85.    Window  ScorePla          PhotWin5
+USRYIELD          1.       0.0      100.       50.       40.        3. &
+USRYIELD       2401.    PHOTON      -86.    Window  ScorePla          PhotWin6
+USRYIELD          1.       0.0      100.       60.       50.        3. &
+USRYIELD       2401.    PHOTON      -87.    Window  ScorePla          PhotWin7
+USRYIELD          1.       0.0      100.       70.       60.        3. &
+USRYIELD       2401.    PHOTON      -88.    Window  ScorePla          PhotWin8
+USRYIELD          1.       0.0      100.       80.       70.        3. &
+USRYIELD       2401.    PHOTON      -89.    Window  ScorePla          PhotWin9
+USRYIELD          1.       0.0      100.       90.       80.        3. &
 DCYSCORE          1.                    Resnuclei2                    RESNUCLE
 DCYSCORE          2.                    Resnuclei3                    RESNUCLE
 DCYSCORE          3.                    Resnuclei4                    RESNUCLE
 DCYSCORE          4.                    Resnuclei5                    RESNUCLE
 DCYSCORE          5.                    Resnuclei6                    RESNUCLE
+RESNUCLE          3.      -62.                      @ALLREGS          Resnuclei
 RESNUCLE          3.      -63.                      @ALLREGS          Resnuclei2
 RESNUCLE          3.      -64.                      @ALLREGS          Resnuclei3
 RESNUCLE          3.      -65.                      @ALLREGS          Resnuclei4
 RESNUCLE          3.      -66.                      @ALLREGS          Resnuclei5
 RESNUCLE          3.      -67.                      @ALLREGS          Resnuclei6
+DCYSCORE          1.                     ResnuWin2                    RESNUCLE
+DCYSCORE          2.                     ResnuWin3                    RESNUCLE
+DCYSCORE          3.                     ResnuWin4                    RESNUCLE
+DCYSCORE          4.                     ResnuWin5                    RESNUCLE
+DCYSCORE          5.                     ResnuWin6                    RESNUCLE
+RESNUCLE          3.      -94.                        Window          ResnuWin
+RESNUCLE          3.      -95.                        Window          ResnuWin2
+RESNUCLE          3.      -96.                        Window          ResnuWin3
+RESNUCLE          3.      -97.                        Window          ResnuWin4
+RESNUCLE          3.      -98.                        Window          ResnuWin5
+RESNUCLE          3.      -99.                        Window          ResnuWin6
 DISCARD        MUONS
 * Set the random number seed
 RANDOMIZ          1.        1.
 * Set the number of primary histories to be simulated in the run
-START          1000.                                     0.0  9999999.
+START             5.                                     0.0  9999999.
 STOP
