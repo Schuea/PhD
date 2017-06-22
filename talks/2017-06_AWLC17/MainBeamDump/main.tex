@@ -17,6 +17,7 @@
 \usepackage{multimedia}
 \usepackage{fixltx2e}
 \usepackage{multicol}
+\usepackage{multirow}
 \usepackage{comment}
 \DeclareSIUnit\year{yr}
 
@@ -289,29 +290,29 @@ Beams are considered un-collided and un-disrupted.
 \centering
 \hspace*{1.6cm} Design 1 \hfill Design 2 \hspace*{1.8cm} \\
   \includegraphics[width=0.52\textwidth]{figures/Energy_deposition_xz_Design1.pdf}
-    \includegraphics[width=0.52\textwidth]{figures/Energy_deposition_xz_Design1.pdf}
+    \includegraphics[width=0.52\textwidth]{figures/Energy_deposition_xz_Design2.pdf}
 \end{frame}
-\begin{frame}{Deposited Engery over Z}
+\begin{frame}{Maximum Deposited Engery over Z}
 \centering
 \hspace*{1.6cm} Design 1 \hfill Design 2 \hspace*{1.8cm} \\
-  \includegraphics[width=0.52\textwidth]{figures/Dose_equivalent_total_1DMax_z_Design1.pdf}
-    \includegraphics[width=0.52\textwidth]{figures/Dose_equivalent_total_1DMax_z_Design2.pdf}
+  \includegraphics[width=0.52\textwidth]{figures/Energy_deposition_1DMax_z_Design1.pdf}
+    \includegraphics[width=0.52\textwidth]{figures/Energy_deposition_1DMax_z_Design2.pdf}
 \end{frame}
 \begin{frame}{Maximum Deposited Energy}
 \begin{center}
 \begin{tabular}{cc|c|c|c|}
-\cline{3-4}
+\cline{3-5}
 & & Water & Vessel & Window \\
 \hline
 \multicolumn{1}{ |c| }{\multirow{2}{*}{Design 1}}& 
   \multicolumn{1}{ |c| }{Max Deposited Energy [GeV/cm\textsuperscript{3}]} & 1 & 2 & 3\\
-\cline{2-4}
+\cline{2-5}
 \multicolumn{1}{ |c| }{} & \multicolumn{1}{ |c| }{Total Power [W]} & 1 & 2 & 3\\
 \hline
 \hline
 \multicolumn{1}{ |c| }{\multirow{2}{*}{Design 2}}& 
   \multicolumn{1}{ |c| }{Max Deposited Energy [GeV/cm\textsuperscript{3}]} & 1 &  2 & 3\\
-\cline{2-4}
+\cline{2-5}
 \multicolumn{1}{ |c| }{} & \multicolumn{1}{ |c| }{Total Power [W]} & 1 & 2 & 3\\
 \hline
 \end{tabular}
@@ -323,15 +324,15 @@ Beams are considered un-collided and un-disrupted.
 %  \includegraphics[width=0.52\textwidth]{figures/Dose.pdf}
 %  \includegraphics[width=0.52\textwidth]{figures/Dose_EM.pdf}
 %\end{frame}
-\begin{frame}{Dose Equivalent}
+\begin{frame}{Instantanuous Dose Equivalent}
 \centering
-\hspace*{1.6cm} Design 1 \hfill Design 2 \hspace*{1.8cm} \\
+\hspace*{1.8cm} Design 1 \hfill Design 2 \hspace*{1.8cm} \\
   \includegraphics[width=0.52\textwidth]{figures/Dose_equivalent_total_Design1.pdf}
     \includegraphics[width=0.52\textwidth]{figures/Dose_equivalent_total_Design2.pdf}
 \end{frame}
-\begin{frame}{Dose Equivalent over Z}
+\begin{frame}{Maximum Instantanuous Dose Equivalent over Z}
 \centering
-\hspace*{1.6cm} Design 1 \hfill Design 2 \hspace*{1.8cm} \\
+\hspace*{1.8cm} Design 1 \hfill Design 2 \hspace*{1.8cm} \\
   \includegraphics[width=0.52\textwidth]{figures/Dose_equivalent_total_1DMax_z_Design1.pdf}
     \includegraphics[width=0.52\textwidth]{figures/Dose_equivalent_total_1DMax_z_Design2.pdf}
 \end{frame}
@@ -343,33 +344,33 @@ Beams are considered un-collided and un-disrupted.
 \end{frame}
 \begin{frame}
   \frametitle{Dose equivalent after cooling times - Design 1}
-  \hypertarget{coolingtimesprev}{}
+  \hypertarget{coolingtimesprev_Design1}{}
   \centering
-    \hspace*{1.6cm} Instantanuous \hfill After 1 minute \hfill After 1 hour \hspace*{1.8cm} \\
+    \hspace*{1.2cm} Instantanuous \hfill After 1 minute \hfill After 1 hour \hspace*{1.5cm} \\
   \hyperlink{Dose_equivalent_Design1}{\includegraphics[width=0.3\textwidth]{figures/Dose_equivalent_total_Design1.pdf}}
   \hyperlink{Dose_equivalent_minute_Design1}{\includegraphics[width=0.3\textwidth]{DoseEQ_Time/Design1_1.pdf}}
   \hyperlink{Dose_equivalent_hour_Design1}{\includegraphics[width=0.3\textwidth]{DoseEQ_Time/Design1_2.pdf}}\\
-    \hspace*{1.6cm} After 1 day \hfill After 1 month \hfill After 1 year\hspace*{1.8cm} \\
+    \hspace*{1.2cm} After 1 day \hfill After 1 month \hfill After 1 year\hspace*{1.5cm} \\
   \hyperlink{Dose_equivalent_day_Design1}{\includegraphics[width=0.3\textwidth]{DoseEQ_Time/Design1_3.pdf}}
   \hyperlink{Dose_equivalent_month_Design1}{\includegraphics[width=0.3\textwidth]{DoseEQ_Time/Design1_4.pdf}}
   \hyperlink{Dose_equivalent_year_Design1}{\includegraphics[width=0.3\textwidth]{DoseEQ_Time/Design1_5.pdf}}
 \end{frame}
 \begin{frame}
   \frametitle{Dose equivalent after cooling times - Design 2}
-  \hypertarget{coolingtimesprev}{}
+  \hypertarget{coolingtimesprev_Design2}{}
   \centering
-    \hspace*{1.6cm} Instantanuous \hfill After 1 minute \hfill After 1 hour \hspace*{1.8cm} \\
+    \hspace*{1.2cm} Instantanuous \hfill After 1 minute \hfill After 1 hour \hspace*{1.5cm} \\
   \hyperlink{Dose_equivalent_Design2}{\includegraphics[width=0.3\textwidth]{figures/Dose_equivalent_total_Design2.pdf}}
   \hyperlink{Dose_equivalent_minute_Design2}{\includegraphics[width=0.3\textwidth]{DoseEQ_Time/Design2_1.pdf}}
   \hyperlink{Dose_equivalent_hour_Design2}{\includegraphics[width=0.3\textwidth]{DoseEQ_Time/Design2_2.pdf}}\\
-    \hspace*{1.6cm} After 1 day \hfill After 1 month \hfill After 1 year\hspace*{1.8cm} \\
+    \hspace*{1.2cm} After 1 day \hfill After 1 month \hfill After 1 year\hspace*{1.5cm} \\
   \hyperlink{Dose_equivalent_day_Design2}{\includegraphics[width=0.3\textwidth]{DoseEQ_Time/Design2_3.pdf}}
   \hyperlink{Dose_equivalent_month_Design2}{\includegraphics[width=0.3\textwidth]{DoseEQ_Time/Design2_4.pdf}}
   \hyperlink{Dose_equivalent_year_Design2}{\includegraphics[width=0.3\textwidth]{DoseEQ_Time/Design2_5.pdf}}
 \end{frame}
 \begin{frame}{Dose Equivalent over Time}
 \centering
-  \includegraphics[width=0.52\textwidth]{figures/DoseEQ_Time_Comparison.pdf}
+  \includegraphics[width=0.52\textwidth]{figures/DoseEQ_Time_Comparison.png}
 \end{frame}
 
 \AtBeginSubsubsection[] {
@@ -391,7 +392,7 @@ Beams are considered un-collided and un-disrupted.
 \end{frame}
 \begin{frame}
   \frametitle{Residual nuclei after cooling times - Design 1}
-  \hypertarget{coolingtimesprev}{}
+  \hypertarget{residualtimesprev_Design1}{}
   \centering
     \hspace*{1.6cm} Instantanuous \hfill After 1 minute \hfill After 1 hour \hspace*{1.8cm} \\
   \hyperlink{Residual_nuclei_Design1}{\includegraphics[width=0.3\textwidth]{figures/Residual_nuclei_Design1.pdf}}
@@ -404,7 +405,7 @@ Beams are considered un-collided and un-disrupted.
 \end{frame}
 \begin{frame}
   \frametitle{Residual nuclei after cooling times - Design 2}
-  \hypertarget{coolingtimesprev}{}
+  \hypertarget{residualtimesprev_Design2}{}
   \centering
     \hspace*{1.6cm} Instantanuous \hfill After 1 minute \hfill After 1 hour \hspace*{1.8cm} \\
   \hyperlink{Residual_nuclei_Design2}{\includegraphics[width=0.3\textwidth]{figures/Residual_nuclei_Design2.pdf}}
@@ -418,9 +419,9 @@ Beams are considered un-collided and un-disrupted.
 
 \begin{frame}{Number of radio-nuclides}
 \begin{center}
-\begin{tabular}{c|c|c|c|}
-\cline{3-4}
-& & Tritium & Berillyum & ... \\
+\begin{tabular}{|c|c|c|c|}
+\hline
+ & Tritium & Berillyum & ... \\
 \hline
 Design 1 & 1 & 2 & 3\\
 \hline
@@ -452,12 +453,12 @@ Design 2 & 1 & 2 & 3\\
 \end{frame}
 \begin{frame}{Neutron fluxes}
 \centering
-  \includegraphics[width=0.52\textwidth]{figures/Neutron_flux_xz_Design1.pdf}\\
+  \includegraphics[width=0.5\textwidth]{figures/Neutron_flux_xz_Design1.pdf}\\
   \centering
 \hspace*{1.6cm} x-direction \hfill y-direction \hfill z-direction \hspace*{1.8cm} \\
-  \includegraphics[width=0.3\textwidth]{figures/Neutron_flux_1DMax_x_Design1.pdf}
-  \includegraphics[width=0.3\textwidth]{figures/Neutron_flux_1DMax_y_Design1.pdf}
-  \includegraphics[width=0.3\textwidth]{figures/Neutron_flux_1DMax_z_Design1.pdf}
+  \includegraphics[width=0.31\textwidth]{figures/Neutron_flux_1DMax_x_Design1.pdf}\hfill
+  \includegraphics[width=0.31\textwidth]{figures/Neutron_flux_1DMax_y_Design1.pdf}\hfill
+  \includegraphics[width=0.31\textwidth]{figures/Neutron_flux_1DMax_z_Design1.pdf}
 \end{frame}
 \begin{frame}{Neutron fluxes}
 \centering
@@ -579,41 +580,78 @@ L &[\si{\per\centi\metre\squared\per\second}] & \num{1.8e34} & \num{3.6e34} & \n
   \end{center}
 \end{frame}
 \begin{frame}[plain]
- \hypertarget{Dose_equivalent_Design1}{\hyperlink{coolingtimesprev}{\includegraphics[width=\textwidth]{figures/Dose_equivalent_total_Design1.pdf}}}
+ \hypertarget{Dose_equivalent_Design1}{\hyperlink{coolingtimesprev_Design1}{\includegraphics[width=\textwidth]{figures/Dose_equivalent_total_Design1.pdf}}}
 \end{frame}
 \begin{frame}[plain]
- \hypertarget{Dose_equivalent_minute_Design1}{\hyperlink{coolingtimesprev}{\includegraphics[width=\textwidth]{DoseEQ_Time/Design1_1.pdf}}}
+ \hypertarget{Dose_equivalent_minute_Design1}{\hyperlink{coolingtimesprev_Design1}{\includegraphics[width=\textwidth]{DoseEQ_Time/Design1_1.pdf}}}
 \end{frame}
 \begin{frame}[plain]
- \hypertarget{Dose_equivalent_hour_Design1}{\hyperlink{coolingtimesprev}{\includegraphics[width=\textwidth]{DoseEQ_Time/Design1_2.pdf}}}
+ \hypertarget{Dose_equivalent_hour_Design1}{\hyperlink{coolingtimesprev_Design1}{\includegraphics[width=\textwidth]{DoseEQ_Time/Design1_2.pdf}}}
 \end{frame}
 \begin{frame}[plain]
- \hypertarget{Dose_equivalent_day_Design1}{\hyperlink{coolingtimesprev}{\includegraphics[width=\textwidth]{DoseEQ_Time/Design1_3.pdf}}}
+ \hypertarget{Dose_equivalent_day_Design1}{\hyperlink{coolingtimesprev_Design1}{\includegraphics[width=\textwidth]{DoseEQ_Time/Design1_3.pdf}}}
 \end{frame}
 \begin{frame}[plain]
- \hypertarget{Dose_equivalent_month_Design1}{\hyperlink{coolingtimesprev}{\includegraphics[width=\textwidth]{DoseEQ_Time/Design1_4.pdf}}}
+ \hypertarget{Dose_equivalent_month_Design1}{\hyperlink{coolingtimesprev_Design1}{\includegraphics[width=\textwidth]{DoseEQ_Time/Design1_4.pdf}}}
 \end{frame}
 \begin{frame}[plain]
- \hypertarget{Dose_equivalent_year_Design1}{\hyperlink{coolingtimesprev}{\includegraphics[width=\textwidth]{DoseEQ_Time/Design1_5.pdf}}}
+ \hypertarget{Dose_equivalent_year_Design1}{\hyperlink{coolingtimesprev_Design1}{\includegraphics[width=\textwidth]{DoseEQ_Time/Design1_5.pdf}}}
 \end{frame}
 %------------------------------------
 \begin{frame}[plain]
- \hypertarget{Dose_equivalent_Design2}{\hyperlink{coolingtimesprev}{\includegraphics[width=\textwidth]{figures/Dose_equivalent_total_Design2.pdf}}}
+ \hypertarget{Dose_equivalent_Design2}{\hyperlink{coolingtimesprev_Design2}{\includegraphics[width=\textwidth]{figures/Dose_equivalent_total_Design2.pdf}}}
 \end{frame}
 \begin{frame}[plain]
- \hypertarget{Dose_equivalent_minute_Design2}{\hyperlink{coolingtimesprev}{\includegraphics[width=\textwidth]{DoseEQ_Time/Design2_1.pdf}}}
+ \hypertarget{Dose_equivalent_minute_Design2}{\hyperlink{coolingtimesprev_Design2}{\includegraphics[width=\textwidth]{DoseEQ_Time/Design2_1.pdf}}}
 \end{frame}
 \begin{frame}[plain]
- \hypertarget{Dose_equivalent_hour_Design2}{\hyperlink{coolingtimesprev}{\includegraphics[width=\textwidth]{DoseEQ_Time/Design2_2.pdf}}}
+ \hypertarget{Dose_equivalent_hour_Design2}{\hyperlink{coolingtimesprev_Design2}{\includegraphics[width=\textwidth]{DoseEQ_Time/Design2_2.pdf}}}
 \end{frame}
 \begin{frame}[plain]
- \hypertarget{Dose_equivalent_day_Design2}{\hyperlink{coolingtimesprev}{\includegraphics[width=\textwidth]{DoseEQ_Time/Design2_3.pdf}}}
+ \hypertarget{Dose_equivalent_day_Design2}{\hyperlink{coolingtimesprev_Design2}{\includegraphics[width=\textwidth]{DoseEQ_Time/Design2_3.pdf}}}
 \end{frame}
 \begin{frame}[plain]
- \hypertarget{Dose_equivalent_month_Design2}{\hyperlink{coolingtimesprev}{\includegraphics[width=\textwidth]{DoseEQ_Time/Design2_4.pdf}}}
+ \hypertarget{Dose_equivalent_month_Design2}{\hyperlink{coolingtimesprev_Design2}{\includegraphics[width=\textwidth]{DoseEQ_Time/Design2_4.pdf}}}
 \end{frame}
 \begin{frame}[plain]
- \hypertarget{Dose_equivalent_year_Design2}{\hyperlink{coolingtimesprev}{\includegraphics[width=\textwidth]{DoseEQ_Time/Design2_5.pdf}}}
+ \hypertarget{Dose_equivalent_year_Design2}{\hyperlink{coolingtimesprev_Design2}{\includegraphics[width=\textwidth]{DoseEQ_Time/Design2_5.pdf}}}
 \end{frame}
 %------------------------------------
+\begin{frame}[plain]
+ \hypertarget{Residual_nuclei_Design1}{\hyperlink{residualtimesprev_Design1}{\includegraphics[width=\textwidth]{figures/Residual_nuclei_Design1.pdf}}}
+\end{frame}
+\begin{frame}[plain]
+ \hypertarget{Residual_nuclei_minute_Design1}{\hyperlink{residualtimesprev_Design1}{\includegraphics[width=\textwidth]{Residual_Time/Design1_1.pdf}}}
+\end{frame}
+\begin{frame}[plain]
+ \hypertarget{Residual_nuclei_hour_Design1}{\hyperlink{residualtimesprev_Design1}{\includegraphics[width=\textwidth]{Residual_Time/Design1_2.pdf}}}
+\end{frame}
+\begin{frame}[plain]
+ \hypertarget{Residual_nuclei_day_Design1}{\hyperlink{residualtimesprev_Design1}{\includegraphics[width=\textwidth]{Residual_Time/Design1_3.pdf}}}
+\end{frame}
+\begin{frame}[plain]
+ \hypertarget{Residual_nuclei_month_Design1}{\hyperlink{residualtimesprev_Design1}{\includegraphics[width=\textwidth]{Residual_Time/Design1_4.pdf}}}
+\end{frame}
+\begin{frame}[plain]
+ \hypertarget{Residual_nuclei_year_Design1}{\hyperlink{residualtimesprev_Design1}{\includegraphics[width=\textwidth]{Residual_Time/Design1_5.pdf}}}
+\end{frame}
+%------------------------------------
+\begin{frame}[plain]
+ \hypertarget{Residual_nuclei_Design2}{\hyperlink{residualtimesprev_Design2}{\includegraphics[width=\textwidth]{figures/Residual_nuclei_Design2.pdf}}}
+\end{frame}
+\begin{frame}[plain]
+ \hypertarget{Residual_nuclei_minute_Design2}{\hyperlink{residualtimesprev_Design2}{\includegraphics[width=\textwidth]{Residual_Time/Design2_1.pdf}}}
+\end{frame}
+\begin{frame}[plain]
+ \hypertarget{Residual_nuclei_hour_Design2}{\hyperlink{residualtimesprev_Design2}{\includegraphics[width=\textwidth]{Residual_Time/Design2_2.pdf}}}
+\end{frame}
+\begin{frame}[plain]
+ \hypertarget{Residual_nuclei_day_Design2}{\hyperlink{residualtimesprev_Design2}{\includegraphics[width=\textwidth]{Residual_Time/Design2_3.pdf}}}
+\end{frame}
+\begin{frame}[plain]
+ \hypertarget{Residual_nuclei_month_Design2}{\hyperlink{residualtimesprev_Design2}{\includegraphics[width=\textwidth]{Residual_Time/Design2_4.pdf}}}
+\end{frame}
+\begin{frame}[plain]
+ \hypertarget{Residual_nuclei_year_Design2}{\hyperlink{residualtimesprev_Design2}{\includegraphics[width=\textwidth]{Residual_Time/Design2_5.pdf}}}
+\end{frame}
 \end{document}
