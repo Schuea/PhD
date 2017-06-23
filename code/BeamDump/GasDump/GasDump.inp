@@ -1,0 +1,122 @@
+TITLE
+GasDump
+GLOBAL                                          1.
+* Set the defaults for precision simulations
+DEFAULTS                                                              PRECISIO
+* Define the beam characteristics
+!@scale=1.0
+BEAM           -500. -1.000875       0.0-.56940603-.05138681        1.ELECTRON
+* Define the beam position
+BEAMPOS          0.0       0.0     -750.       0.0       0.0
+!@what.1=60*60*24*30
+!@what.2=4*2450*1.74E10
+IRRPROFI    2592000. 1.7052E14
+* 1min, 1h, 1d, 1month, 1y
+!@what.3=60*60*24
+!@what.4=60*60*24*30
+!@what.5=60*60*24*365
+DCYTIMES         60.     3600.    86400.  2592000. 31536000.
+RADDECAY          1.
+GEOBEGIN                                                              COMBNAME
+    0    0          GasDump
+RPP Airbox     -200.0 200.0 -200.0 200.0 -800.0 800.0
+RPP BlackBox   -201.0 201.0 -201.0 201.0 -801.0 801.0
+ZCC InTank     0.0 .01017619145298 75.0
+ZCC OutTank    0.0 .01017619145298 130.0
+XYP EndPla1    -660.0
+XYP EndPla2    -600.0
+XYP EndPla3    600.0
+XYP EndPla4    660.0
+ZCC InBeaPi    0.0 0.0 15.0
+ZCC OutBeaPi   0.0 0.0 17.0
+XYP WindowPl   -660.1
+END
+BeaPipe      5 +Airbox +EndPla1 +OutBeaPi -InBeaPi
+BeaPiVa      5 +Airbox +WindowPl +InBeaPi
+Window       5 +EndPla1 +InBeaPi -WindowPl
+Tank         5 +OutTank +EndPla3 -InTank -EndPla2
+               | +OutTank +EndPla4 -EndPla3
+               | +OutTank +EndPla2 -EndPla1 -OutBeaPi
+Gas          5 +InTank +EndPla3 -EndPla2
+               | +EndPla2 +OutBeaPi -EndPla1
+Air          5 +Airbox -OutTank
+               | +Airbox +OutTank +EndPla1 -OutBeaPi
+               | +Airbox +OutTank -EndPla4
+Blackbod     5 +BlackBox -Airbox
+END
+GEOEND
+MATERIAL         15.                1.82                           0.0Phosphor
+LOW-MAT     Phosphor       15.       31.      296.                    PHOSPHO
+MATERIAL         16.               2.067                           0.0Sulfur
+LOW-MAT       Sulfur       16.       -2.      296.                    SULFUR
+MATERIAL         23.                6.11                           0.0Vanadium
+LOW-MAT     Vanadium       23.       -2.      296.                    VANADIUM
+MATERIAL         24.                7.18                           0.0Chromium
+LOW-MAT     Chromium       24.       -2.      296.                    CHROMIUM
+MATERIAL         25.                7.44                           0.0Mangan
+LOW-MAT       Mangan       25.       55.      296.                    MANGANES
+MATERIAL         42.               10.28                           0.0Molybden
+LOW-MAT     Molybden       42.       -2.      296.                    MOLYBDEN
+MATERIAL                            4.43                              Ti-6Al4V
+COMPOUND      -5.985  ALUMINUM     -0.25      IRON      -0.2    OXYGENTi-6Al4V
+COMPOUND       -89.8  TITANIUM     -0.39  Vanadium                    Ti-6Al4V
+MATERIAL                            7.99                              316L-SS
+COMPOUND       0.035    CARBON        2.    Mangan     14.89    NICKEL316L-SS
+COMPOUND         18.  Chromium        3.  Molybden      0.03    Sulfur316L-SS
+COMPOUND          1.   SILICON     0.045  Phosphor       61.      IRON316L-SS
+ASSIGNMA     316L-SS   BeaPipe
+ASSIGNMA      VACUUM   BeaPiVa
+ASSIGNMA    Ti-6Al4V    Window
+ASSIGNMA      COPPER      Tank
+ASSIGNMA    NITROGEN       Gas
+ASSIGNMA         AIR       Air
+ASSIGNMA    BLCKHOLE  Blackbod
+PHOTONUC          1.                        VACUUM     WATER        1.
+LAM-BIAS         0.0      0.02     WATER   NEUTRON                    INEPRI
+SCORE        NEUTRON    ENERGY    TRITON   DOSE-EQ
+USRBIN           10.    ENERGY      -21.      190.      190.      790.Energy
+USRBIN         -190.     -190.     -790.      100.      100.      150. &
+USRBIN           10.   NEUTRON      -22.      190.      190.      790.Neutron
+USRBIN         -190.     -190.     -790.      100.      100.      150. &
+USRBIN           10.    TRITON      -34.      190.      190.      790.Triton
+USRBIN         -190.     -190.     -790.      100.      100.      150. &
+AUXSCORE      USRBIN  ALL-PART              DoseEq                    AMB74
+USRBIN           10.   DOSE-EQ      -23.      190.      190.      790.DoseEq
+USRBIN         -190.     -190.     -790.      100.      100.      150. &
+DCYSCORE          1.                       DoseEq1                    USRBIN
+DCYSCORE          2.                       DoseEq2                    USRBIN
+DCYSCORE          3.                       DoseEq3                    USRBIN
+DCYSCORE          4.                       DoseEq4                    USRBIN
+DCYSCORE          5.                       DoseEq5                    USRBIN
+AUXSCORE      USRBIN  ALL-PART             DoseEq1                    AMB74
+USRBIN           10.   DOSE-EQ      -24.      190.      190.      790.DoseEq1
+USRBIN         -190.     -190.     -790.      100.      100.      200. &
+AUXSCORE      USRBIN  ALL-PART             DoseEq2                    AMB74
+USRBIN           10.   DOSE-EQ      -25.      190.      190.      790.DoseEq2
+USRBIN         -190.     -190.     -790.      100.      100.      200. &
+AUXSCORE      USRBIN  ALL-PART             DoseEq3                    AMB74
+USRBIN           10.   DOSE-EQ      -26.      190.      190.      790.DoseEq3
+USRBIN         -190.     -190.     -790.      100.      100.      200. &
+AUXSCORE      USRBIN  ALL-PART             DoseEq4                    AMB74
+USRBIN           10.   DOSE-EQ      -27.      190.      190.      790.DoseEq4
+USRBIN         -190.     -190.     -790.      100.      100.      200. &
+AUXSCORE      USRBIN  ALL-PART             DoseEq5                    AMB74
+USRBIN           10.   DOSE-EQ      -28.      190.      190.      790.DoseEq5
+USRBIN         -190.     -190.     -790.      100.      100.      200. &
+DCYSCORE          1.                    Resnuclei2                    RESNUCLE
+DCYSCORE          2.                    Resnuclei3                    RESNUCLE
+DCYSCORE          3.                    Resnuclei4                    RESNUCLE
+DCYSCORE          3.                    Resnuclei5                    RESNUCLE
+DCYSCORE          5.                    Resnuclei6                    RESNUCLE
+RESNUCLE          3.      -62.                      @ALLREGS          Resnuclei
+RESNUCLE          3.      -63.                      @ALLREGS          Resnuclei2
+RESNUCLE          3.      -64.                      @ALLREGS          Resnuclei3
+RESNUCLE          3.      -65.                      @ALLREGS          Resnuclei4
+RESNUCLE          3.      -66.                      @ALLREGS          Resnuclei5
+RESNUCLE          3.      -67.                      @ALLREGS          Resnuclei6
+DISCARD        MUONS
+* Set the random number seed
+RANDOMIZ          1.        1.
+* Set the number of primary histories to be simulated in the run
+START          1000.                                     0.0  9999999.
+STOP
