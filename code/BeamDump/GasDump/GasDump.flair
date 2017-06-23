@@ -5,7 +5,7 @@ Title: GasDump
 Input: GasDump.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Run
+Page: Input
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -15,9 +15,9 @@ F77dline: False
 Run: <default>
 	Prev:     0
 	Last:     5
-	Status:   1
+	Status:   4
 	Pid:      0
-	StartRun: 1498250726
+	StartRun: 1498250938
 End
 
 # Material
@@ -115,10 +115,10 @@ Plot: Red
 	basisv: 0 1 0
 	boundaries: 1
 	coord: X-Y
-	extends: 429.982 226.567
+	extends: 429.982 573.309
 	labels: 1
 	layer: Media
-	origin: 28.2809 0.0101762 0
+	origin: 33.2422 -14.8738 0
 	subtype: Material
 	title: GeoViewer Red plot
 End
@@ -131,10 +131,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 891.61 470.715
+	extends: 891.61 1194.94
 	labels: 1
 	layer: Media
-	origin: -53.7295 0 71.1085
+	origin: -50.2937 0 -18.2243
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -147,7 +147,7 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 1283.92 674.057
+	extends: 1283.92 1705.31
 	labels: 1
 	layer: Media
 	origin: 0 -38.8154 -173.232
@@ -163,7 +163,7 @@ Plot: Magenta
 	basisv: 0 1 0
 	boundaries: 1
 	coord: X-Y
-	extends: 619.174 325.692
+	extends: 619.174 826.629
 	labels: 1
 	layer: Media
 	origin: -116.981 -18.4693 0
