@@ -103,7 +103,7 @@
 }
 \begin{frame}{Neutron Background and Beam Dump Irradiation}
 \flukalogo
-The 17\,MW\footnote{13.7\,MW average beam power + 20\% margin} beam is dumped into a water tank after collision.\\The activation of the dump surrounding will permit access to the dump area. Neutrons ($\lesssim$\SI{e10}{\per\square\centi\metre\per\year}) are emitted that irradiate the surroundings, and travel back towards the detectors.\\
+The 17\,MW\footnote{13.7\,MW average beam power + 20\% margin} beam is dumped into a water tank after collision.\\The activation of the dump surrounding will permit access to the dump area. Neutrons ($\lesssim$\SI{e10}{\per\square\centi\metre\per\year}) are emitted that irradiate the surroundings, and travel back towards the detectors.~\cite{SLAC_FLUKA}\\
 \alert{Project goal: Simulating the energy depostion, irradiation, and background particles:}
 \begin{enumerate}
  \item Simulating the acitvation, and the neutrons from the beam dump with FLUKA, using the design drawings by B. Smith~\cite{Smith} to model the dump and the surrounding.
@@ -337,6 +337,7 @@ Beams are considered un-collided and un-disrupted.
 \hline
 \end{tabular}
 \end{center}
+Numbers comparable to former FLUKA simulations of the beam dump concepts for the ILC~\cite{NIM_paper} and CLIC~\cite{CLIC_dump}.
 \end{frame}
 
 \begin{frame}{Instantanuous Dose Equivalent}
@@ -458,6 +459,8 @@ Design 2 & 1 & 2 & 3\\
 \end{tabular}
 \end{center}
 
+The presence of certain nuclei is dependend on the choice of materials used for the dump vessel, the shielding\footnote{Composition of concrete and neutron shielding concrete was taken from \cite{Concrete}.} etc.
+
 \centering
 \hspace*{1.6cm} Tritium flux: Design 1 \hfill Tritium flux: Design 2 \hspace*{1.8cm} \\
   \includegraphics[width=0.52\textwidth]{figures/Tritium_flux_xz_Design1.pdf}
@@ -550,10 +553,12 @@ Design 2 \hspace*{1.4cm} Electrons \hfill Photons \hspace*{3.1cm} \\
 \begin{frame}{References}
 \setbeamertemplate{bibliography item}[text]
 \bibitem{Smith} B. Smith (Rutherford Lab), \emph{Design drawings 0-TB-0067-300-00-A, 0-TB-0067-210-00-A, 0-TB-0067-404-00-A}, Dec. 2006 - Jan. 2007
-\bibitem{TDR} T. Behnke, et al.
-\emph{The International Linear Collider - Technical Design Report}, 2013.
-\bibitem{LHC TDR} \emph{LHC - Design Report}, \url{http://ab-div.web.cern.ch/ab-div/Publications/LHC-DesignReport.html}
-\bibitem{IP beam parameters} ATLAS-CONF-2010-027. \emph{Characterization of Interaction-Point Beam Parameters Using the pp Event-Vertex Distribution Reconstructed in the ATLAS Detector at the LHC}, 2010. \url{http://cds.cern.ch/record/1277659/files/ATLAS-CONF-2010-027.pdf}
+\bibitem{Smith_Report} B. Smith (CCLRC Technology Department), \emph{18\,MW Water Beam Dump Concept}, Report 088-D-006-01, Jan. 2007
+\bibitem{SLAC_FLUKA} S. Darbha, \emph{Simulation of Neutron Backgrounds from the ILC Extraction Line Beam Dump}, SLAC-TN-07-013, Aug. 2007
+\bibitem{NIM_paper} P. Satyamurthy, et al., \emph{Design of an 18\,MW vortex flow water beam dump for 500\,GeV electrons/positrons of an international linear collider}, NIM A 679 (2012) 67-81
+\bibitem{CLIC_dump} A. Mereghetti, et al., \emph{FLUKA and Thermo-Mechanical Studies for the CLIC Main Dump}, CLIC-Note-876, Mach 2011
+\bibitem{Concrete} K. Okuno, et al., \emph{Application of neutron shield concrete to neutron scattering instrument TAIKAN in J-PARC}, Progress in Nuclear Science and Technology, Vol. 4, pp 619-622, 2014
+\bibitem{TDR} T. Behnke, et al., \emph{The International Linear Collider - Technical Design Report}, 2013.
 \end{frame}
 \end{thebibliography}
 
@@ -578,31 +583,27 @@ Design 2 \hspace*{1.4cm} Electrons \hfill Photons \hspace*{3.1cm} \\
 
 \section{ILC}
 
-%------Definition for column color in table
-\definecolor{Gray}{gray}{0.9}
-\newcolumntype{g}{>{\columncolor{Gray}}r}
-%-----------------------------------------
 \subsection{The ILC beam parameters}
-\begin{frame}{The beam parameters of the ILC compared to LHC}
+\begin{frame}{The beam parameters of the ILC}
 \ilclogo
 
 \begin{table}[]
 \centering
-\begin{tabularx}{\textwidth}{ll|rrrg}
+\begin{tabularx}{\textwidth}{ll|rrr}
 \hline
-& & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Baseline 500}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Lumi Upgrade}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{TeV Upgrade}} & {\centering\textbf{LHC 25ns}} \\ 
+& & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Baseline 500}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Lumi Upgrade}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{TeV Upgrade}} \\ 
 \hline
 \cline{1-6}
 \hline
-E$_{CM}$  &[\si{\GeV}] & 500  & 500  & \num{1000} & \num{14000}\\
-n$_b$ & & \num{1312} & \num{2625} & \num{2450} &  \num{2808} \\
-$\Delta t_b$ &[\si{\nano\second}] & 554  & 366   & 366 & 25 \\
-N & & \num{2.0e10}  & \num{2.0e10}  & \num{1.74e10}  & \num{11.5e10}\\
-q$_b$ &[\si{\nano\coulomb}] & 3.2  & 3.2  &  2.7 & 18.4 \\
-$\sigma_x^*$ &[\si{\nano\metre}] & 474  & 474  &  481 & \num{16700}\\
-$\sigma_y^*$ &[\si{\nano\metre}] & 5.9 &  5.9  &  2.8 & \num{16700}\\
-$\sigma_z$ &[\si{\milli\metre}] & 0.3  &  0.3  &  0.25 & 0.755\\
-L &[\si{\per\centi\metre\squared\per\second}] & \num{1.8e34} & \num{3.6e34} & \num{3.6e34} & \num{1.0e34}\\
+E$_{CM}$  &[\si{\GeV}] & 500  & 500  & \num{1000}\\
+n$_b$ & & \num{1312} & \num{2625} & \num{2450}  \\
+$\Delta t_b$ &[\si{\nano\second}] & 554  & 366   & 366\\
+N & & \num{2.0e10}  & \num{2.0e10}  & \num{1.74e10}  \\
+q$_b$ &[\si{\nano\coulomb}] & 3.2  & 3.2  &  2.7  \\
+$\sigma_x^*$ &[\si{\nano\metre}] & 474  & 474  &  481 \\
+$\sigma_y^*$ &[\si{\nano\metre}] & 5.9 &  5.9  &  2.8 \\
+$\sigma_z$ &[\si{\milli\metre}] & 0.3  &  0.3  &  0.25 \\
+L &[\si{\per\centi\metre\squared\per\second}] & \num{1.8e34} & \num{3.6e34} & \num{3.6e34} \\
 \hline
 \end{tabularx}
 \end{table}
