@@ -66,7 +66,7 @@
   \end{textblock}
 } 
 
-\title[Neutrons from the main beam dumps]{\textbf{\alert{AWLC 2017} \\ \vspace*{0.3cm} The International Linear Collider \\ \LARGE Neutrons from the main beam dumps}}
+\title[Neutrons from the main beam dumps]{\textbf{\alert{AWLC 2017} \\ \vspace*{0.3cm} The International Linear Collider \\ \LARGE FLUKA simulation\\of the main beam dumps}}
 \author{\textbf{Anne Sch\"utz}}
 \institute{\textbf{DESY}}
 \date{\textbf{26. June 2017}}
@@ -104,11 +104,11 @@
 \begin{frame}{Neutron Background and Beam Dump Irradiation}
 \flukalogo
 The 17\,MW\footnote{13.7\,MW average beam power + 20\% margin} beam is dumped into a water tank after collision.\\The activation of the dump surrounding will permit access to the dump area. Neutrons ($\lesssim$\SI{e10}{\per\square\centi\metre\per\year}) are emitted that irradiate the surroundings, and travel back towards the detectors.~\cite{SLAC_FLUKA}\\
-\alert{Project goal: Simulating the energy depostion, irradiation, and background particles:}
+\vspace*{0.1cm}
+\alert{Goal: Simulating the energy depostion, irradiation, and background particles:}
 \begin{enumerate}
  \item Simulating the acitvation, and the neutrons from the beam dump with FLUKA, using the design drawings by B. Smith~\cite{Smith} to model the dump and the surrounding.
- \item Neutrons through the EXT line:\\
- With Benno List (DESY): Python program to plug the real extraction line lattice into FLUKA. Realistic simulation of the interaction between the neutrons and the lattice.
+ \item Neutrons through the EXT line: With Benno List (DESY): Python program to plug the real extraction line lattice into FLUKA. Realistic simulation of the interaction between the neutrons and the lattice.
  \item Simulating the neutrons reaching the interaction point in a full detector simulation.
 \end{enumerate}
 \end{frame}
@@ -132,7 +132,8 @@ Design drawings by B. Smith, 2006-2007~\cite{Smith}:
  \item shielding walls: 0-TB-0067-404-00-A
  \item surface site: 0-TB-0067-410-00-A
 \end{itemize}
-Report ``18\,MW Water Beam Dump Design''~\cite{Smith_Report} about considerations and studies of:
+\vspace*{0.2cm}
+Note~\cite{Smith_Report} by B. Smith reports on considerations and studies of:
 \begin{itemize}
  \item Material qualities
  \item Water temperature and pressure
@@ -141,27 +142,30 @@ Report ``18\,MW Water Beam Dump Design''~\cite{Smith_Report} about consideration
 \end{frame}
 
 \begin{frame}{\textbf{Surface site}: 0-TB-0067-410-00-A}
-\centering
-\only<1>{
+\begin{center}
+ \only<1>{
   \includegraphics[width=0.9\textwidth]{figures/0067_404-House.png}
  }
  \only<2>{
    \includegraphics[height=0.92\textheight]{figures/0067_404-House_zoom.png}
  }
+\end{center}
 \end{frame}
 \begin{frame}{\textbf{Shielding walls}: 0-TB-0067-404-00-A}
-\centering
+\begin{center}
 \only<1>{
  \includegraphics[width=0.92\textwidth]{figures/0067_404-Shielding.png}
  }
  \only<2>{
   \includegraphics[width=0.65\textwidth,angle=90]{figures/0067_404-Shielding_zoom.png}
   }
+\end{center}
 \end{frame}
 
 \begin{frame}{\textbf{Design 1}: 0-TB-0067-210-00-A}
-\centering
- \includegraphics[width=0.92\textwidth]{figures/TB-0067-210-00-A.png}
+\begin{center}
+  \includegraphics[width=0.92\textwidth]{figures/TB-0067-210-00-A.png}
+\end{center}
 \end{frame}
 {
 \usebackgroundtemplate{
@@ -197,19 +201,22 @@ Report ``18\,MW Water Beam Dump Design''~\cite{Smith_Report} about consideration
 \end{frame}
 }
 \begin{frame}{\textbf{Design 1}: 0-TB-0067-210-00-A}
-\centering
+\begin{center}
  \includegraphics[width=\textwidth]{figures/Design1_geometry.png}
+\end{center}
 \end{frame}
 \begin{frame}{\textbf{Design 1}: 0-TB-0067-210-00-A}
-\centering
+\begin{center}
  \includegraphics[width=0.5\textwidth]{figures/TB-0067-210-00-A_yz_view.png}
  \hfill
  \includegraphics[width=0.48\textwidth]{figures/Design1_geometry_3Dinside.png}
+\end{center}
 \end{frame}
 
 \begin{frame}{\textbf{Design 2}: 0-TB-0067-300-00-A}
-\centering
+\begin{center}
   \includegraphics[width=0.92\textwidth]{figures/TB-0067-300-00-A.png}
+ \end{center}
 \end{frame}
 {
 \usebackgroundtemplate{
@@ -241,7 +248,7 @@ Report ``18\,MW Water Beam Dump Design''~\cite{Smith_Report} about consideration
   \end{itemize}  
     Additionally high water pressure section:
   \begin{itemize}
-   \item Titanium tubes
+   \item Titanium tubes, 4\,cm diameter
    \item High pressure water flow
    \item In total 1.98\,X\textsubscript{0}
   \end{itemize} 
@@ -251,26 +258,31 @@ Report ``18\,MW Water Beam Dump Design''~\cite{Smith_Report} about consideration
 \end{frame}
 }
 \begin{frame}{\textbf{Design 2}: 0-TB-0067-300-00-A}
-\centering
+\begin{center}
   \includegraphics[width=\textwidth]{figures/Design2_geometry.png}
+\end{center}
 \end{frame}
 \begin{frame}{\textbf{Design 2}: 0-TB-0067-300-00-A}
-\centering
+\begin{center}
   \includegraphics[width=0.5\textwidth]{figures/TB-0067-300-00-A_xz_view.png}
   \hfill
   \includegraphics[width=0.48\textwidth]{figures/Design2_geometry_drawing_xz.png}
+\end{center}
 \end{frame}
 \begin{frame}{\textbf{Design 2}: 0-TB-0067-300-00-A}
-\centering
+\begin{center}
   \includegraphics[width=0.49\textwidth]{figures/Design2_geometry_3Dinside1.png}
     \includegraphics[width=0.49\textwidth]{figures/Design2_geometry_3Dinside2.png}\\
       \includegraphics[width=0.49\textwidth]{figures/Design2_geometry_3Dinside3.png}
+\end{center}
 \end{frame}
 
 
 
 \subsection{The FLUKA simulation}
 \begin{frame}
+For the simulation, the ILC1000B was chosen as the scenario with the largest beam power.\\
+\vspace*{0.5cm}
  ILC1000B:
  \begin{itemize}
   \item Beam energy: 500\,GeV
@@ -279,29 +291,29 @@ Report ``18\,MW Water Beam Dump Design''~\cite{Smith_Report} about consideration
   \item Bunches per train: 2450
   \item Bunch train duration: 896.7\,\textmu s
  \end{itemize}
-
+\vspace*{0.2cm}
 Beams are considered un-collided and un-disrupted.
 \end{frame}
 
 
 \subsubsection{Deposited Energy and Dose}
-\begin{frame}{Deposited Energy}
+\begin{frame}{Deposited Energy per bunch}
 \begin{center}
 \hspace*{1.6cm} Design 1 \hfill Design 2 \hspace*{1.8cm} \\
   \includegraphics[width=0.52\textwidth]{figures/Energy_deposition_xz_Design1.pdf}
     \includegraphics[width=0.52\textwidth]{figures/Energy_deposition_xz_Design2.pdf}
 \end{center}
- Shielding walls seem to stop particles fluxes well, but large scattering in Design 2 at high water pressure sections.
+ Shielding walls seem to stop particles fluxes well, but large scattering in Design 2 at high water pressure sections leads to energy deposition outside the walls.
 \end{frame}
-\begin{frame}{Maximum Deposited Engery over Z}
+\begin{frame}{Maximum Deposited Engery over Z per bunch}
 \begin{center}
 \hspace*{1.6cm} Design 1 \hfill Design 2 \hspace*{1.8cm} \\
-  \includegraphics[width=0.51\textwidth]{figures/Energy_deposition_1DMax_z_Design1.pdf}
-    \includegraphics[width=0.51\textwidth]{figures/Energy_deposition_1DMax_z_Design2.pdf}
+  \includegraphics[width=0.51\textwidth]{figures/Energy_deposition_1DMax_z_Design1_withLabels.pdf}
+    \includegraphics[width=0.51\textwidth]{figures/Energy_deposition_1DMax_z_Design2_withLabels.pdf}
 \end{center}
-  Maximum deposited energy within the water tank up to \textbf{10\textsuperscript{8}-10\textsuperscript{9}\,GeV/cm\textsuperscript{3} (= 0.016 - 0.16 J/cm\textsuperscript{3}) per bunch}.
+  \textbf{Maximum deposited energy} within the water tank up to \textbf{10\textsuperscript{8}-10\textsuperscript{9}\,GeV/cm\textsuperscript{3} (= 0.016 - 0.16 J/cm\textsuperscript{3}) per bunch}.
 \end{frame}
-\begin{frame}{Average Deposited Energy and Power per bunch}
+\begin{frame}{Average Deposited Energy \& Power per region per bunch}
 \begin{center}
 \begin{tabular}{cc|c|c|c|c|c|c|c|}
 \cline{3-5}
@@ -319,7 +331,7 @@ Beams are considered un-collided and un-disrupted.
 \multicolumn{1}{ |c| }{} & \multicolumn{1}{ |c| }{Power [kW/cm\textsuperscript{3}]} & 268.4 & 4.866 & 0.002\\
 \hline
 \end{tabular}
-\vspace*{1cm}\\
+\vspace*{0.7cm}\\
 \begin{tabular}{cc|c|c|c|}
 \cline{3-5}
 & & \textbf{Cu plate 1} & \textbf{Last Cu plate} & \textbf{Iron shielding}\\
@@ -337,28 +349,30 @@ Beams are considered un-collided and un-disrupted.
 \hline
 \end{tabular}
 \end{center}
-Numbers comparable to former FLUKA simulations of the beam dump concepts for the ILC~\cite{NIM_paper} and CLIC~\cite{CLIC_dump}.
+Numbers comparable to former FLUKA simulations of beam dump concepts for the ILC~\cite{NIM_paper} and CLIC~\cite{CLIC_dump}.
 \end{frame}
 
-\begin{frame}{Instantanuous Dose Equivalent}
+\begin{frame}{Instantanuous Dose Equivalent per bunch}
 \begin{center}
 \hspace*{1.8cm} Design 1 \hfill Design 2 \hspace*{1.8cm} \\
   \includegraphics[width=0.52\textwidth]{figures/Dose_equivalent_total_Design1.pdf}
     \includegraphics[width=0.52\textwidth]{figures/Dose_equivalent_total_Design2.pdf}
 \end{center}
+The two desgins show comparable distributions of the dose equivalent.
 \end{frame}
 \begin{frame}{Maximum Instantanuous Dose Equivalent over Z}
 \begin{center}
 \hspace*{1.8cm} Design 1 \hfill Design 2 \hspace*{1.8cm} \\
-  \includegraphics[width=0.51\textwidth]{figures/Dose_equivalent_total_1DMax_z_Design1.pdf}
-    \includegraphics[width=0.51\textwidth]{figures/Dose_equivalent_total_1DMax_z_Design2.pdf}
+  \includegraphics[width=0.51\textwidth]{figures/Dose_equivalent_1DMax_z_Design1_withLabels.pdf}
+    \includegraphics[width=0.51\textwidth]{figures/Dose_equivalent_1DMax_z_Design2_withLabels.pdf}
 \end{center}
-Maximum dose equivalent within the water tank up to \textbf{100\,Sv per bunch}.
+Maximum dose equivalent within the water tank up to \textbf{100\,Sv per bunch}. Peaks in distributions at locations with lots of material.
 \end{frame}
 \begin{frame}{Dose equivalent after cooling times}
 \textbf{After one month of beam operation}, the beam is turned off.\\
 Different \textbf{cooling times} are considered:\\
 \textbf{1 minute, 1 hour, 1 day, 1 month, and 1 year}\\
+\vspace*{0.3cm}
 \hspace*{1.6cm} Design 1 \hfill Design 2 \hspace*{1.8cm} \\
   \begin{center}
   \animategraphics[loop,width=0.49\textwidth]{0.5}{DoseEQ_Time/Design1_}{1}{5}
@@ -366,9 +380,9 @@ Different \textbf{cooling times} are considered:\\
   \end{center}
 \end{frame}
 \begin{frame}
-  \frametitle{Dose equivalent after cooling times - Design 1}
+  \frametitle{Dose equivalent after cooling times - \textbf{Design 1}}
   \hypertarget{coolingtimesprev_Design1}{}
-  \centering
+  \begin{center}
     \hspace*{1.2cm} Instantanuous \hfill After 1 minute \hfill After 1 hour \hspace*{1.5cm} \\
   \hyperlink{Dose_equivalent_Design1}{\includegraphics[width=0.3\textwidth]{figures/Dose_equivalent_total_Design1.pdf}}
   \hyperlink{Dose_equivalent_minute_Design1}{\includegraphics[width=0.3\textwidth]{DoseEQ_Time/Design1_1.pdf}}
@@ -377,11 +391,12 @@ Different \textbf{cooling times} are considered:\\
   \hyperlink{Dose_equivalent_day_Design1}{\includegraphics[width=0.3\textwidth]{DoseEQ_Time/Design1_3.pdf}}
   \hyperlink{Dose_equivalent_month_Design1}{\includegraphics[width=0.3\textwidth]{DoseEQ_Time/Design1_4.pdf}}
   \hyperlink{Dose_equivalent_year_Design1}{\includegraphics[width=0.3\textwidth]{DoseEQ_Time/Design1_5.pdf}}
+ \end{center}
 \end{frame}
 \begin{frame}
-  \frametitle{Dose equivalent after cooling times - Design 2}
+  \frametitle{Dose equivalent after cooling times - \textbf{Design 2}}
   \hypertarget{coolingtimesprev_Design2}{}
-  \centering
+  \begin{center}
     \hspace*{1.2cm} Instantanuous \hfill After 1 minute \hfill After 1 hour \hspace*{1.5cm} \\
   \hyperlink{Dose_equivalent_Design2}{\includegraphics[width=0.3\textwidth]{figures/Dose_equivalent_total_Design2.pdf}}
   \hyperlink{Dose_equivalent_minute_Design2}{\includegraphics[width=0.3\textwidth]{DoseEQ_Time/Design2_1.pdf}}
@@ -390,10 +405,12 @@ Different \textbf{cooling times} are considered:\\
   \hyperlink{Dose_equivalent_day_Design2}{\includegraphics[width=0.3\textwidth]{DoseEQ_Time/Design2_3.pdf}}
   \hyperlink{Dose_equivalent_month_Design2}{\includegraphics[width=0.3\textwidth]{DoseEQ_Time/Design2_4.pdf}}
   \hyperlink{Dose_equivalent_year_Design2}{\includegraphics[width=0.3\textwidth]{DoseEQ_Time/Design2_5.pdf}}
+ \end{center}
 \end{frame}
 \begin{frame}{Dose Equivalent over Time}
-\centering
-  \includegraphics[width=0.52\textwidth]{figures/DoseEQ_Time_Comparison.png}\\
+\begin{center}
+  \includegraphics[width=0.52\textwidth]{figures/DoseEQ_Time_Comparison.png}
+\end{center}
 \textbf{After one year}, the dose rate drops to \textbf{}.
 \end{frame}
 
@@ -411,17 +428,18 @@ Different \textbf{cooling times} are considered:\\
 \begin{frame}{Residual nuclei after cooling times}
 \textbf{After one month of beam operation}, the beam is turned off.\\
 Different \textbf{cooling times} are considered:\\
-\textbf{1 minute, 1 hour, 1 day, 1 month, and 1 year}
+\textbf{1 minute, 1 hour, 1 day, 1 month, and 1 year}\\
+\vspace*{0.3cm}
+\hspace*{1.6cm} Design 1 \hfill Design 2 \hspace*{1.8cm} \\
   \begin{center}
-  \hspace*{1.6cm} Design 1 \hfill Design 2 \hspace*{1.8cm} \\
   \animategraphics[loop,width=0.49\textwidth]{0.5}{Residual_Time/Design1_}{1}{5}
   \animategraphics[loop,width=0.49\textwidth]{0.5}{Residual_Time/Design2_}{1}{5}
   \end{center}
 \end{frame}
 \begin{frame}
-  \frametitle{Residual nuclei after cooling times - Design 1}
+  \frametitle{Residual nuclei after cooling times - \textbf{Design 1}}
   \hypertarget{residualtimesprev_Design1}{}
-  \centering
+  \begin{center}
     \hspace*{1.6cm} Instantanuous \hfill After 1 minute \hfill After 1 hour \hspace*{1.8cm} \\
   \hyperlink{Residual_nuclei_Design1}{\includegraphics[width=0.3\textwidth]{figures/Residual_nuclei_Design1.pdf}}
   \hyperlink{Residual_nuclei_minute_Design1}{\includegraphics[width=0.3\textwidth]{Residual_Time/Design1_1.pdf}}
@@ -430,11 +448,12 @@ Different \textbf{cooling times} are considered:\\
   \hyperlink{Residual_nuclei_day_Design1}{\includegraphics[width=0.3\textwidth]{Residual_Time/Design1_3.pdf}}
   \hyperlink{Residual_nuclei_month_Design1}{\includegraphics[width=0.3\textwidth]{Residual_Time/Design1_4.pdf}}
   \hyperlink{Residual_nuclei_year_Design1}{\includegraphics[width=0.3\textwidth]{Residual_Time/Design1_5.pdf}}
+ \end{center}
 \end{frame}
 \begin{frame}
   \frametitle{Residual nuclei after cooling times - Design 2}
   \hypertarget{residualtimesprev_Design2}{}
-  \centering
+  \begin{center}
     \hspace*{1.6cm} Instantanuous \hfill After 1 minute \hfill After 1 hour \hspace*{1.8cm} \\
   \hyperlink{Residual_nuclei_Design2}{\includegraphics[width=0.3\textwidth]{figures/Residual_nuclei_Design2.pdf}}
   \hyperlink{Residual_nuclei_minute_Design2}{\includegraphics[width=0.3\textwidth]{Residual_Time/Design2_1.pdf}}
@@ -443,6 +462,7 @@ Different \textbf{cooling times} are considered:\\
   \hyperlink{Residual_nuclei_day_Design2}{\includegraphics[width=0.3\textwidth]{Residual_Time/Design2_3.pdf}}
   \hyperlink{Residual_nuclei_month_Design2}{\includegraphics[width=0.3\textwidth]{Residual_Time/Design2_4.pdf}}
   \hyperlink{Residual_nuclei_year_Design2}{\includegraphics[width=0.3\textwidth]{Residual_Time/Design2_5.pdf}}
+ \end{center}
 \end{frame}
 
 \begin{frame}{Number of radio-nuclides}
@@ -461,22 +481,24 @@ Design 2 & 1 & 2 & 3\\
 
 The presence of certain nuclei is dependend on the choice of materials used for the dump vessel, the shielding\footnote{Composition of concrete and neutron shielding concrete was taken from \cite{Concrete}.} etc.
 
-\centering
+\begin{center}
 \hspace*{1.6cm} Tritium flux: Design 1 \hfill Tritium flux: Design 2 \hspace*{1.8cm} \\
   \includegraphics[width=0.52\textwidth]{figures/Tritium_flux_xz_Design1.pdf}
     \includegraphics[width=0.52\textwidth]{figures/Tritium_flux_xz_Design2.pdf}
+ \end{center}
 \end{frame}
 
 \subsubsection{Particle Fluxes}
 
 \begin{frame}{Electron and Photon fluxes from one bunch}
-\centering
+\begin{center}
 Design 1 \hspace*{1.4cm} Electrons \hfill Photons \hspace*{3.1cm} \\
  \includegraphics[width=0.37\textwidth]{figures/Electron_flux_xz_Design1.pdf}
   \includegraphics[width=0.37\textwidth]{figures/Photon_flux_xz_Design1.pdf}\\
 Design 2 \hspace*{1.4cm} Electrons \hfill Photons \hspace*{3.1cm} \\ 
 \includegraphics[width=0.37\textwidth]{figures/Electron_flux_xz_Design2.pdf}
   \includegraphics[width=0.37\textwidth]{figures/Photon_flux_xz_Design2.pdf}
+\end{center}
 \end{frame}
 \begin{frame}{Neutron fluxes from one bunch: \textbf{Design 1}}
 \begin{columns}
@@ -487,11 +509,10 @@ Design 2 \hspace*{1.4cm} Electrons \hfill Photons \hspace*{3.1cm} \\
   The neutrons spread more in the positive x and y-direction. Within the tank, the neutrons are mainly produced in the water vortex system. When the beam is stopped by the copper plates, the neutron production rate decreases.
  \end{column}
 \end{columns}
-  \centering
 \hspace*{1cm} x-direction \hfill y-direction \hfill z-direction \hspace*{1cm} \\
   \includegraphics[width=0.31\textwidth]{figures/Neutron_flux_1DMax_x_Design1.pdf}\hfill
   \includegraphics[width=0.31\textwidth]{figures/Neutron_flux_1DMax_y_Design1.pdf}\hfill
-  \includegraphics[width=0.31\textwidth]{figures/Neutron_flux_1DMax_z_Design1.pdf}
+  \includegraphics[width=0.31\textwidth]{figures/Neutron_flux_1DMax_z_Design1_withLabels.pdf}
 \end{frame}
 \begin{frame}{Neutron fluxes from one bunch: \textbf{Design 2}}
 \begin{columns}
@@ -502,21 +523,38 @@ Design 2 \hspace*{1.4cm} Electrons \hfill Photons \hspace*{3.1cm} \\
   The neutrons again spread more in the positive x and y-direction. Within the tank, the point of highest neutron production is the high pressure water system. The production rate again decreases with the beam being stopped by the copper plates.
  \end{column}
 \end{columns}
-  \centering
 \hspace*{1cm} x-direction \hfill y-direction \hfill z-direction \hspace*{1cm} \\
   \includegraphics[width=0.31\textwidth]{figures/Neutron_flux_1DMax_x_Design2.pdf}\hfill
   \includegraphics[width=0.31\textwidth]{figures/Neutron_flux_1DMax_y_Design2.pdf}\hfill
-  \includegraphics[width=0.31\textwidth]{figures/Neutron_flux_1DMax_z_Design2.pdf}
+  \includegraphics[width=0.31\textwidth]{figures/Neutron_flux_1DMax_z_Design2_withLabels.pdf}
 \end{frame}
 
 
 \section{Summary and Outlook}
+\begin{frame}{Conclusion}
+ \flukalogo
+ Water beam dump designs:
+ \begin{itemize}
+  \item The simulations of the two water beam dump designs by B. Smith show \textbf{comparable results}.
+  \item The irradiation of the beam dump surrounding \textbf{???}.
+  \item \textbf{Design 2} seems to be \textbf{more elaborated regarding the water cooling flow system}.\\
+  This leads to \textbf{larger spreads in the energy deposition} due to the high water pressure sections.
+ \end{itemize}
+ \visible<2>{
+ FOR FUN:
+ \begin{itemize}
+  \item Simulated simplified gas dump filled with Nitrogen
+  \item Copper walls with a thickness of $\sim$60\,cm
+ \end{itemize}
+  }
+\end{frame}
+
 \begin{frame}{Summary and outlook}
  \flukalogo
  Aspects already addressed:
 \begin{itemize}
  \item The dose of the beam dump surrounding,
- \item the number of particles, such as neutrons, produced,
+ \item the number of particles produced, such as neutrons and photons etc.,
  \item the amount of tritium produced in the water,
  \item the effect of the beam dump design.
 \end{itemize}
@@ -524,7 +562,7 @@ Design 2 \hspace*{1.4cm} Electrons \hfill Photons \hspace*{3.1cm} \\
  Goals for the next months:
 \begin{itemize}
  \item Studying the influence of the water composition (amount of deuterium),
-  \item the influence of the steel composition of the tank container,
+ \item the influence of the composition of the steel vessel and the concrete shielding,
  \item simulating the neutron flux through the EXT line,
  \item the number of neutrons reaching the IP,
  \item the neutron occupancy in SiD.
@@ -557,6 +595,8 @@ Design 2 \hspace*{1.4cm} Electrons \hfill Photons \hspace*{3.1cm} \\
 \bibitem{SLAC_FLUKA} S. Darbha, \emph{Simulation of Neutron Backgrounds from the ILC Extraction Line Beam Dump}, SLAC-TN-07-013, Aug. 2007
 \bibitem{NIM_paper} P. Satyamurthy, et al., \emph{Design of an 18\,MW vortex flow water beam dump for 500\,GeV electrons/positrons of an international linear collider}, NIM A 679 (2012) 67-81
 \bibitem{CLIC_dump} A. Mereghetti, et al., \emph{FLUKA and Thermo-Mechanical Studies for the CLIC Main Dump}, CLIC-Note-876, Mach 2011
+\end{frame}
+\begin{frame}{References}
 \bibitem{Concrete} K. Okuno, et al., \emph{Application of neutron shield concrete to neutron scattering instrument TAIKAN in J-PARC}, Progress in Nuclear Science and Technology, Vol. 4, pp 619-622, 2014
 \bibitem{TDR} T. Behnke, et al., \emph{The International Linear Collider - Technical Design Report}, 2013.
 \end{frame}
@@ -575,10 +615,11 @@ Design 2 \hspace*{1.4cm} Electrons \hfill Photons \hspace*{3.1cm} \\
 \section{FLUKA simulation}
 \subsection{Particle Fluxes}
 \begin{frame}{Proton fluxes}
-\centering
+\begin{center}
 \hspace*{2cm} Design 1 \hfill Design 2 \hspace*{2cm} \\
   \includegraphics[width=0.52\textwidth]{figures/Proton_flux_xz_Design1.pdf}
     \includegraphics[width=0.52\textwidth]{figures/Proton_flux_xz_Design2.pdf}
+\end{center}
 \end{frame}
 
 \section{ILC}
@@ -588,12 +629,12 @@ Design 2 \hspace*{1.4cm} Electrons \hfill Photons \hspace*{3.1cm} \\
 \ilclogo
 
 \begin{table}[]
-\centering
+\begin{center}
 \begin{tabularx}{\textwidth}{ll|rrr}
 \hline
 & & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Baseline 500}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Lumi Upgrade}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{TeV Upgrade}} \\ 
 \hline
-\cline{1-6}
+\cline{1-5}
 \hline
 E$_{CM}$  &[\si{\GeV}] & 500  & 500  & \num{1000}\\
 n$_b$ & & \num{1312} & \num{2625} & \num{2450}  \\
@@ -606,18 +647,21 @@ $\sigma_z$ &[\si{\milli\metre}] & 0.3  &  0.3  &  0.25 \\
 L &[\si{\per\centi\metre\squared\per\second}] & \num{1.8e34} & \num{3.6e34} & \num{3.6e34} \\
 \hline
 \end{tabularx}
+\end{center}
 \end{table}
 \end{frame}
 
 \begin{frame}{ILC baseline parameters}
 \ilclogo
-\centering
+\begin{center}
 	\includegraphics[width=\textwidth]{figures/ILCTDR-VOLUME_3-PART_II_ILCparameters.pdf}
+\end{center}
 \end{frame}
 \begin{frame}{ILC parameters for the different upgrade stages}
 \ilclogo
-\centering
+\begin{center}
 	\includegraphics[width=0.8\textwidth]{figures/ILCTDR-VOLUME_3-PART_II_ILCparametersUpgrades.pdf}
+\end{center}
 \end{frame}
 
 \section{Zoom Plots}
