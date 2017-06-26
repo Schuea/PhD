@@ -63,14 +63,14 @@ void Draw_Points_over_Time()
    const Int_t nx = 5;
    char *Time[nx] = {"One minute", "One hour", "One day", "One month", "One year"};
    //float Design1[nx] = {1.0, 2.0, 3.0, 4.0, 5.0};
-   double Design1[nx] = {1.0*pow(10.,8.),pow(10.,6.),pow(10.,2.),pow(10.,1.),pow(10.,-2.)};
+   double Design1[nx] = {5.0*pow(10.,3.),3.0*pow(10.,2.),5.0*pow(10.,0.),9.0*pow(10.,-1.),8.0*pow(10.,-2.)};
    TCanvas *c1 = new TCanvas("c1","demo bin labels",10,10,900,500);
    c1->SetGrid();
    c1->SetTopMargin(0.15);
    c1->SetLogy();
    gStyle->SetTitleW(0.5); //title width
    gStyle->SetTitleH(0.1); //title height
-   TH1F *h1 = new TH1F("h1","test;;y axis [label]",5,0,5);
+   TH1F *h1 = new TH1F("h1","Decrease of dose equivalent in the middle of the vessel over time;;Dose equivalent [mSv/s]",5,0,5);
    h1->SetStats(0);
    h1->SetFillColor(38);
    //h1->SetBit(TH1::kCanRebin);
@@ -86,8 +86,8 @@ void Draw_Points_over_Time()
    h1->SetMarkerColor(kRed);
    h1->Draw("hist p");
    
-   float Design2[nx] = {5.0, 4.0, 3.0, 2.0, 1.0};
-   TH1F *h2 = new TH1F("h2","test",5,0,5);
+   double Design2[nx] = {6.0*pow(10.,3.), 1.0*pow(10.,2.), 5.0*pow(10.,1.), 2.0*pow(10.,1.), 8.0*pow(10.,0.)};
+   TH1F *h2 = new TH1F("h2","Decrease of dose equivalent in the middle of the vessel over time",5,0,5);
    h2->SetStats(0);
    h2->SetFillColor(38);
    //h2->SetBit(TH1::kCanRebin);
