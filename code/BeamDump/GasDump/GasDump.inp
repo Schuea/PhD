@@ -19,17 +19,17 @@ DCYTIMES         60.     3600.    86400.  2592000. 31536000.
 RADDECAY          1.
 GEOBEGIN                                                              COMBNAME
     0    0          GasDump
-RPP Airbox     -200.0 200.0 -200.0 200.0 -800.0 800.0
-RPP BlackBox   -201.0 201.0 -201.0 201.0 -801.0 801.0
-ZCC InTank     0.0 .01017619145298 75.0
-ZCC OutTank    0.0 .01017619145298 130.0
-XYP EndPla1    -660.0
-XYP EndPla2    -600.0
-XYP EndPla3    600.0
-XYP EndPla4    660.0
-ZCC InBeaPi    0.0 0.0 15.0
-ZCC OutBeaPi   0.0 0.0 17.0
-XYP WindowPl   -660.1
+RPP Airbox     -200. 200. -200. 200. -5200. 5200.
+RPP BlackBox   -201. 201. -201. 201. -5201. 5201.
+ZCC InTank     0.0 .01017619145298 75.
+ZCC OutTank    0.0 .01017619145298 130.
+XYP EndPla1    -5060.
+XYP EndPla2    -5000.
+XYP EndPla3    5000.
+XYP EndPla4    5060.
+ZCC InBeaPi    0.0 0.0 15.
+ZCC OutBeaPi   0.0 0.0 17.
+XYP WindowPl   -5060.1
 END
 BeaPipe      5 +Airbox +EndPla1 +OutBeaPi -InBeaPi
 BeaPiVa      5 +Airbox +WindowPl +InBeaPi
@@ -74,35 +74,35 @@ ASSIGNMA    BLCKHOLE  Blackbod
 PHOTONUC          1.                        VACUUM     WATER        1.
 LAM-BIAS         0.0      0.02     WATER   NEUTRON                    INEPRI
 SCORE        NEUTRON    ENERGY    TRITON   DOSE-EQ
-USRBIN           10.    ENERGY      -21.      190.      190.      790.Energy
-USRBIN         -190.     -190.     -790.      100.      100.      150. &
-USRBIN           10.   NEUTRON      -22.      190.      190.      790.Neutron
-USRBIN         -190.     -190.     -790.      100.      100.      150. &
-USRBIN           10.    TRITON      -34.      190.      190.      790.Triton
-USRBIN         -190.     -190.     -790.      100.      100.      150. &
+USRBIN           10.    ENERGY      -21.      190.      190.     5150.Energy
+USRBIN         -190.     -190.    -5150.      100.      100.      150. &
+USRBIN           10.   NEUTRON      -22.      190.      190.     5150.Neutron
+USRBIN         -190.     -190.    -5150.      100.      100.      150. &
+USRBIN           10.    TRITON      -34.      190.      190.     5150.Triton
+USRBIN         -190.     -190.    -5150.      100.      100.      150. &
 AUXSCORE      USRBIN  ALL-PART              DoseEq                    AMB74
-USRBIN           10.   DOSE-EQ      -23.      190.      190.      790.DoseEq
-USRBIN         -190.     -190.     -790.      100.      100.      150. &
+USRBIN           10.   DOSE-EQ      -23.      190.      190.     5150.DoseEq
+USRBIN         -190.     -190.    -5150.      100.      100.      150. &
 DCYSCORE          1.                       DoseEq1                    USRBIN
 DCYSCORE          2.                       DoseEq2                    USRBIN
 DCYSCORE          3.                       DoseEq3                    USRBIN
 DCYSCORE          4.                       DoseEq4                    USRBIN
 DCYSCORE          5.                       DoseEq5                    USRBIN
 AUXSCORE      USRBIN  ALL-PART             DoseEq1                    AMB74
-USRBIN           10.   DOSE-EQ      -24.      190.      190.      790.DoseEq1
-USRBIN         -190.     -190.     -790.      100.      100.      200. &
+USRBIN           10.   DOSE-EQ      -24.      190.      190.     5150.DoseEq1
+USRBIN         -190.     -190.    -5150.      100.      100.      200. &
 AUXSCORE      USRBIN  ALL-PART             DoseEq2                    AMB74
-USRBIN           10.   DOSE-EQ      -25.      190.      190.      790.DoseEq2
-USRBIN         -190.     -190.     -790.      100.      100.      200. &
+USRBIN           10.   DOSE-EQ      -25.      190.      190.     5150.DoseEq2
+USRBIN         -190.     -190.    -5150.      100.      100.      200. &
 AUXSCORE      USRBIN  ALL-PART             DoseEq3                    AMB74
-USRBIN           10.   DOSE-EQ      -26.      190.      190.      790.DoseEq3
-USRBIN         -190.     -190.     -790.      100.      100.      200. &
+USRBIN           10.   DOSE-EQ      -26.      190.      190.     5150.DoseEq3
+USRBIN         -190.     -190.    -5150.      100.      100.      200. &
 AUXSCORE      USRBIN  ALL-PART             DoseEq4                    AMB74
-USRBIN           10.   DOSE-EQ      -27.      190.      190.      790.DoseEq4
-USRBIN         -190.     -190.     -790.      100.      100.      200. &
+USRBIN           10.   DOSE-EQ      -27.      190.      190.     5150.DoseEq4
+USRBIN         -190.     -190.    -5150.      100.      100.      200. &
 AUXSCORE      USRBIN  ALL-PART             DoseEq5                    AMB74
-USRBIN           10.   DOSE-EQ      -28.      190.      190.      790.DoseEq5
-USRBIN         -190.     -190.     -790.      100.      100.      200. &
+USRBIN           10.   DOSE-EQ      -28.      190.      190.     5150.DoseEq5
+USRBIN         -190.     -190.    -5150.      100.      100.      200. &
 DCYSCORE          1.                    Resnuclei2                    RESNUCLE
 DCYSCORE          2.                    Resnuclei3                    RESNUCLE
 DCYSCORE          3.                    Resnuclei4                    RESNUCLE
@@ -118,5 +118,5 @@ DISCARD        MUONS
 * Set the random number seed
 RANDOMIZ          1.        1.
 * Set the number of primary histories to be simulated in the run
-START           100.                                     0.0  9999999.
+START           500.                                     0.0  9999999.
 STOP
