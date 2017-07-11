@@ -5,7 +5,7 @@ Title: GasDump
 Input: GasDump.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Run
+Page: Input
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -13,11 +13,11 @@ F77dline: False
 
 # Run information
 Run: <default>
-	Prev:     5
-	Last:     9
-	Status:   4
+	Prev:     0
+	Last:     5
+	Status:   3
 	Pid:      0
-	StartRun: 1499368913
+	StartRun: 1499497153
 
 	# USRxxx data file: GasDump_21.bnn
 	Data: \I_\U.\e
@@ -247,7 +247,7 @@ Plot: Red
 	Format: .eps
 	Type:   Geometry
 	basisu: -0.999283 -0.00233704 0.0377841
-	basisv: -0.000408685 0.9987 0.0509636
+	basisv: -0.00040869 0.9987 0.0509636
 	boundaries: 1
 	cbcolors: 0
 	cblog: False
@@ -282,10 +282,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 6624.74 3497.45
+	extends: 5850.35 3088.62
 	labels: 1
 	layer: Media
-	origin: 363.572 0 -6.40921
+	origin: 65.2167 0 -7.66206
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -298,7 +298,7 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 1122.28 589.196
+	extends: 1122.28 841.71
 	labels: 1
 	layer: Media
 	origin: 0 -137.526 -3954.84
@@ -320,7 +320,7 @@ Plot: Magenta
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 619.174 325.693
+	extends: 619.174 464.38
 	grid: 0
 	index: 0
 	labels: 1
@@ -343,12 +343,8 @@ Plot: Energy_deposition
 	Format: .eps
 	Type:   USRBIN
 	axes: Auto
-	bxmax: 5198.4
-	bxmin: -5200
 	bymax: 3.8
 	bymin: -3.8
-	bzmax: 200.1333
-	bzmin: -200
 	cbcolors: 30
 	cblabel: GeV/cm3 per bunch
 	cblog: True
@@ -363,10 +359,10 @@ Plot: Energy_deposition
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 9.6428763778800316E-004
+	int: 484.03247348768764
 	lw.0: 0
-	max: 4.19298480E-08
-	min: 2.85742262E-14
+	max: 8.04918483E-02
+	min: 2.63627485E-15
 	norm: 1.74e10
 	proj: Y
 	ps.0: 0
@@ -378,8 +374,6 @@ Plot: Energy_deposition
 	x2tics: 0
 	xlabel: z [cm]
 	xlog: False
-	xmax: 5200
-	xmin: -5200
 	xrebin: 1
 	y2log: False
 	y2tics: 0
@@ -412,10 +406,10 @@ Plot: Neutron_flux
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 7145.8875336076508
+	int: 7397.7028203167847
 	lw.0: 0
-	max: 1.50203216
-	min: 7.15519022E-08
+	max: 0.359748721
+	min: 1.16029697E-09
 	norm: 1.74e10
 	proj: Y
 	ps.0: 0
@@ -705,10 +699,10 @@ Plot: Dose_equivalent_1year
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 79949874546223.906
+	int: 85080079733782.391
 	lw.0: 0
-	max: 6.03404411E+10
-	min: 2.96803516E-13
+	max: 2.31220879E+10
+	min: 1.00852627E-12
 	norm: 1e-12
 	proj: Y
 	ps.0: 0
