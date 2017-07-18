@@ -10,7 +10,7 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include -g -Wall -Wextra -pthread -O2 -std=c++
 CXXFLAGS +=  $(shell root-config --glibs)
 
 # Executables produced by this Makefile
-RUN = ../NewVertexPlotter ../PairsMomentumComparison
+RUN = ../NewVertexPlotter ../PairsMomentumComparison ../LumiPlotter
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
@@ -19,6 +19,7 @@ TESTS = #Test
 # Useful variables
 MAIN_CALCULATE_VERTEX = ../objects/Calculate_vertex.o
 MAIN_MOMENTUM_COMPARISON = ../objects/main_compare_PTPz_pairs.o
+MAIN_LUMIPLOTTER = ../objects/main_LumiPlotter.o
 USEFUL = ../objects/UsefulFunctions.o
 STYLE = ../objects/Style.o
 STYLEUTILS = ../objects/Style_Utils.o
@@ -83,10 +84,16 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 ../PairsMomentumComparison : $(MAIN_MOMENTUM_COMPARISON) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
+../LumiPlotter : $(MAIN_LUMIPLOTTER) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
 ../objects/Calculate_vertex.o : ../src/Calculate_vertex.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_compare_PTPz_pairs.o : ../src/main_compare_PTPz_pairs.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/main_LumiPlotter.o : ../src/main_LumiPlotter.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/UsefulFunctions.o : ../../General/src/UsefulFunctions.cc
