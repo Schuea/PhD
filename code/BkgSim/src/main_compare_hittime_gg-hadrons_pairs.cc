@@ -26,165 +26,165 @@
 using namespace std;
 
 int main(int const argc, char const * const * const argv) {
-				UsePhDStyle();
-				TH1::SetDefaultSumw2();
+	UsePhDStyle();
+	TH1::SetDefaultSumw2();
 
-				std::vector<std::string> *pair_inputfilenames = new std::vector<std::string>();
-				std::string ewpw_inputfilename;
-				std::string ewpb_inputfilename;
-				std::string ebpw_inputfilename;
-				std::string ebpb_inputfilename;
-				std::vector<std::string> argument_subdetectors;
+	std::vector<std::string> *pair_inputfilenames = new std::vector<std::string>();
+	std::string ewpw_inputfilename;
+	std::string ewpb_inputfilename;
+	std::string ebpw_inputfilename;
+	std::string ebpb_inputfilename;
+	std::vector<std::string> argument_subdetectors;
 
-				int NUMBER_OF_pairFILES = 0;
-				bool NUMBER_OF_pairFILES_set = false;
-				bool pair_inputfile_set = false;
-				bool ewpw_inputfile_set = false;
-				bool ewpb_inputfile_set = false;
-				bool ebpw_inputfile_set = false;
-				bool ebpb_inputfile_set = false;
-				bool subdetector_set = false;
+	int NUMBER_OF_pairFILES = 0;
+	bool NUMBER_OF_pairFILES_set = false;
+	bool pair_inputfile_set = false;
+	bool ewpw_inputfile_set = false;
+	bool ewpb_inputfile_set = false;
+	bool ebpw_inputfile_set = false;
+	bool ebpb_inputfile_set = false;
+	bool subdetector_set = false;
 
-				for (int i = 1; i < argc; i++) {
-								if (argv[i] == std::string("-n")) {
-												if (argv[i + 1] != NULL && argv[i + 1] != std::string("-s") 
-																				&& argv[i + 1] != std::string("-i")
-																				&& argv[i + 1] != std::string("-ewpw") 
-																				&& argv[i + 1] != std::string("-ewpb") 
-																				&& argv[i + 1] != std::string("-ebpw") 
-																				&& argv[i + 1] != std::string("-ebpb")) {
-																NUMBER_OF_pairFILES = std::stoi(argv[i + 1]);
-																std::cout << "Number of pair input files = " << NUMBER_OF_pairFILES << std::endl;
-																NUMBER_OF_pairFILES_set = true;
-												} else {
-																std::cerr << "You didn't give an argument for the number of pair files!" << std::endl;
-												}
-								}
+	for (int i = 1; i < argc; i++) {
+		if (argv[i] == std::string("-n")) {
+			if (argv[i + 1] != NULL && argv[i + 1] != std::string("-s") 
+					&& argv[i + 1] != std::string("-i")
+					&& argv[i + 1] != std::string("-ewpw") 
+					&& argv[i + 1] != std::string("-ewpb") 
+					&& argv[i + 1] != std::string("-ebpw") 
+					&& argv[i + 1] != std::string("-ebpb")) {
+				NUMBER_OF_pairFILES = std::stoi(argv[i + 1]);
+				std::cout << "Number of pair input files = " << NUMBER_OF_pairFILES << std::endl;
+				NUMBER_OF_pairFILES_set = true;
+			} else {
+				std::cerr << "You didn't give an argument for the number of pair files!" << std::endl;
+			}
+		}
+	}
+	for (int i = 1; i < argc; i++) {
+		if (argv[i] == std::string("-i") && argv[i + 1] != std::string("-n") && argv[i + 1] != std::string("-s")
+				&& argv[i + 1] != std::string("-ewpw") 
+				&& argv[i + 1] != std::string("-ewpb") 
+				&& argv[i + 1] != std::string("-ebpw") 
+				&& argv[i + 1] != std::string("-ebpb")) {
+			if (argv[i + 1] != NULL) {
+				int j = 1;
+				do {
+					if (argv[i + j] != std::string("-n") && argv[i + j] != std::string("-s")
+							&& argv[i + j] != std::string("-ewpw") 
+							&& argv[i + j] != std::string("-ewpb") 
+							&& argv[i + j] != std::string("-ebpw") 
+							&& argv[i + j] != std::string("-ebpb")) {
+						pair_inputfilenames->push_back(argv[i + j]);
+						++j;
+					} else {
+						break;
+					}
+				} while (j <= NUMBER_OF_pairFILES);
+				pair_inputfile_set = true;
+			} else {
+				std::cerr << "You didn't give an argument for the pair inputfile(s)!" << std::endl;
+			}
+		}
+		if (argv[i] == std::string("-ewpw") && argv[i + 1] != std::string("-n") && argv[i + 1] != std::string("-s")
+				&& argv[i + 1] != std::string("-i") 
+				&& argv[i + 1] != std::string("-ewpb") 
+				&& argv[i + 1] != std::string("-ebpw") 
+				&& argv[i + 1] != std::string("-ebpb")) {
+			if (argv[i + 1] != NULL && argv[i + 1] != std::string("-n") && argv[i + 1] != std::string("-s")
+					&& argv[i + 1] != std::string("-i") 
+					&& argv[i + 1] != std::string("-ewpb") 
+					&& argv[i + 1] != std::string("-ebpw") 
+					&& argv[i + 1] != std::string("-ebpb")) {
+				ewpw_inputfilename = argv[i + 1];
+			} else {
+				std::cerr << "You didn't give an argument for the inputfile(s)!" << std::endl;
+				exit(1);
+			}
+			ewpw_inputfile_set = true;
+		}
+		if (argv[i] == std::string("-ewpb") && argv[i + 1] != std::string("-n") && argv[i + 1] != std::string("-s")
+				&& argv[i + 1] != std::string("-i") 
+				&& argv[i + 1] != std::string("-ewpw") 
+				&& argv[i + 1] != std::string("-ebpw") 
+				&& argv[i + 1] != std::string("-ebpb")) {
+			if (argv[i + 1] != NULL && argv[i + 1] != std::string("-n") && argv[i + 1] != std::string("-s")
+					&& argv[i + 1] != std::string("-i") 
+					&& argv[i + 1] != std::string("-ewpw") 
+					&& argv[i + 1] != std::string("-ebpw") 
+					&& argv[i + 1] != std::string("-ebpb")) {
+				ewpb_inputfilename = argv[i + 1];
+			} else {
+				std::cerr << "You didn't give an argument for the inputfile(s)!" << std::endl;
+				exit(1);
+			}
+			ewpb_inputfile_set = true;
+		}	
+		if (argv[i] == std::string("-ebpw") && argv[i + 1] != std::string("-n") && argv[i + 1] != std::string("-s")
+				&& argv[i + 1] != std::string("-i") 
+				&& argv[i + 1] != std::string("-ewpb") 
+				&& argv[i + 1] != std::string("-ewpw") 
+				&& argv[i + 1] != std::string("-ebpb")) {
+			if (argv[i + 1] != NULL && argv[i + 1] != std::string("-n") && argv[i + 1] != std::string("-s")
+					&& argv[i + 1] != std::string("-i") 
+					&& argv[i + 1] != std::string("-ewpb") 
+					&& argv[i + 1] != std::string("-ewpw") 
+					&& argv[i + 1] != std::string("-ebpb")) {
+				ebpw_inputfilename = argv[i + 1];
+			} else {
+				std::cerr << "You didn't give an argument for the inputfile(s)!" << std::endl;
+				exit(1);
+			}
+			ebpw_inputfile_set = true;
+		}
+		if (argv[i] == std::string("-ebpb") && argv[i + 1] != std::string("-n") && argv[i + 1] != std::string("-s")
+				&& argv[i + 1] != std::string("-i") 
+				&& argv[i + 1] != std::string("-ewpb") 
+				&& argv[i + 1] != std::string("-ebpw") 
+				&& argv[i + 1] != std::string("-ewpw")) {
+			if (argv[i + 1] != NULL && argv[i + 1] != std::string("-n") && argv[i + 1] != std::string("-s")
+					&& argv[i + 1] != std::string("-i") 
+					&& argv[i + 1] != std::string("-ewpb") 
+					&& argv[i + 1] != std::string("-ebpw") 
+					&& argv[i + 1] != std::string("-ewpw")) {
+				ebpb_inputfilename = argv[i + 1];
+			} else {
+				std::cerr << "You didn't give an argument for the inputfile(s)!" << std::endl;
+				exit(1);
+			}
+			ebpb_inputfile_set = true;
+		}
+		if (argv[i] == std::string("-s")) {
+			if (argv[i + 1] != NULL && argv[i + 1] != std::string("-n") 
+					&& argv[i + 1] != std::string("-i") 
+					&& argv[i + 1] != std::string("-ewpw") 
+					&& argv[i + 1] != std::string("-ewpb") 
+					&& argv[i + 1] != std::string("-ebpw") 
+					&& argv[i + 1] != std::string("-ebpb")) {
+				if (argv[i + 1] != NULL) {
+					int j = 1;
+					do {
+						argument_subdetectors.push_back(argv[i + j]);
+						++j;
+					} while (argv[i + j] != NULL && argv[i + j] != std::string("-n") 
+							&& argv[i + j] != std::string("-i")
+							&& argv[i + j] != std::string("-ewpw") 
+							&& argv[i + j] != std::string("-ewpb") 
+							&& argv[i + j] != std::string("-ebpw") 
+							&& argv[i + j] != std::string("-ebpb"));
+					subdetector_set = true;
+				} else {
+					std::cerr << "You didn't give an argument for the subdetector!" << std::endl;
 				}
-				for (int i = 1; i < argc; i++) {
-								if (argv[i] == std::string("-i") && argv[i + 1] != std::string("-n") && argv[i + 1] != std::string("-s")
-																&& argv[i + 1] != std::string("-ewpw") 
-																&& argv[i + 1] != std::string("-ewpb") 
-																&& argv[i + 1] != std::string("-ebpw") 
-																&& argv[i + 1] != std::string("-ebpb")) {
-												if (argv[i + 1] != NULL) {
-																int j = 1;
-																do {
-																				if (argv[i + j] != std::string("-n") && argv[i + j] != std::string("-s")
-																												&& argv[i + j] != std::string("-ewpw") 
-																												&& argv[i + j] != std::string("-ewpb") 
-																												&& argv[i + j] != std::string("-ebpw") 
-																												&& argv[i + j] != std::string("-ebpb")) {
-																								pair_inputfilenames->push_back(argv[i + j]);
-																								++j;
-																				} else {
-																								break;
-																				}
-																} while (j <= NUMBER_OF_pairFILES);
-																pair_inputfile_set = true;
-												} else {
-																std::cerr << "You didn't give an argument for the pair inputfile(s)!" << std::endl;
-												}
-								}
-								if (argv[i] == std::string("-ewpw") && argv[i + 1] != std::string("-n") && argv[i + 1] != std::string("-s")
-																&& argv[i + 1] != std::string("-i") 
-																&& argv[i + 1] != std::string("-ewpb") 
-																&& argv[i + 1] != std::string("-ebpw") 
-																&& argv[i + 1] != std::string("-ebpb")) {
-												if (argv[i + 1] != NULL && argv[i + 1] != std::string("-n") && argv[i + 1] != std::string("-s")
-																				&& argv[i + 1] != std::string("-i") 
-																				&& argv[i + 1] != std::string("-ewpb") 
-																				&& argv[i + 1] != std::string("-ebpw") 
-																				&& argv[i + 1] != std::string("-ebpb")) {
-																ewpw_inputfilename = argv[i + 1];
-												} else {
-																std::cerr << "You didn't give an argument for the inputfile(s)!" << std::endl;
-																exit(1);
-												}
-												ewpw_inputfile_set = true;
-								}
-								if (argv[i] == std::string("-ewpb") && argv[i + 1] != std::string("-n") && argv[i + 1] != std::string("-s")
-																&& argv[i + 1] != std::string("-i") 
-																&& argv[i + 1] != std::string("-ewpw") 
-																&& argv[i + 1] != std::string("-ebpw") 
-																&& argv[i + 1] != std::string("-ebpb")) {
-												if (argv[i + 1] != NULL && argv[i + 1] != std::string("-n") && argv[i + 1] != std::string("-s")
-																				&& argv[i + 1] != std::string("-i") 
-																				&& argv[i + 1] != std::string("-ewpw") 
-																				&& argv[i + 1] != std::string("-ebpw") 
-																				&& argv[i + 1] != std::string("-ebpb")) {
-																ewpb_inputfilename = argv[i + 1];
-												} else {
-																std::cerr << "You didn't give an argument for the inputfile(s)!" << std::endl;
-																exit(1);
-												}
-												ewpb_inputfile_set = true;
-								}	
-								if (argv[i] == std::string("-ebpw") && argv[i + 1] != std::string("-n") && argv[i + 1] != std::string("-s")
-																&& argv[i + 1] != std::string("-i") 
-																&& argv[i + 1] != std::string("-ewpb") 
-																&& argv[i + 1] != std::string("-ewpw") 
-																&& argv[i + 1] != std::string("-ebpb")) {
-												if (argv[i + 1] != NULL && argv[i + 1] != std::string("-n") && argv[i + 1] != std::string("-s")
-																				&& argv[i + 1] != std::string("-i") 
-																				&& argv[i + 1] != std::string("-ewpb") 
-																				&& argv[i + 1] != std::string("-ewpw") 
-																				&& argv[i + 1] != std::string("-ebpb")) {
-																ebpw_inputfilename = argv[i + 1];
-												} else {
-																std::cerr << "You didn't give an argument for the inputfile(s)!" << std::endl;
-																exit(1);
-												}
-												ebpw_inputfile_set = true;
-								}
-								if (argv[i] == std::string("-ebpb") && argv[i + 1] != std::string("-n") && argv[i + 1] != std::string("-s")
-																&& argv[i + 1] != std::string("-i") 
-																&& argv[i + 1] != std::string("-ewpb") 
-																&& argv[i + 1] != std::string("-ebpw") 
-																&& argv[i + 1] != std::string("-ewpw")) {
-												if (argv[i + 1] != NULL && argv[i + 1] != std::string("-n") && argv[i + 1] != std::string("-s")
-																				&& argv[i + 1] != std::string("-i") 
-																				&& argv[i + 1] != std::string("-ewpb") 
-																				&& argv[i + 1] != std::string("-ebpw") 
-																				&& argv[i + 1] != std::string("-ewpw")) {
-																ebpb_inputfilename = argv[i + 1];
-												} else {
-																std::cerr << "You didn't give an argument for the inputfile(s)!" << std::endl;
-																exit(1);
-												}
-												ebpb_inputfile_set = true;
-								}
-								if (argv[i] == std::string("-s")) {
-												if (argv[i + 1] != NULL && argv[i + 1] != std::string("-n") 
-																				&& argv[i + 1] != std::string("-i") 
-																				&& argv[i + 1] != std::string("-ewpw") 
-																				&& argv[i + 1] != std::string("-ewpb") 
-																				&& argv[i + 1] != std::string("-ebpw") 
-																				&& argv[i + 1] != std::string("-ebpb")) {
-																if (argv[i + 1] != NULL) {
-																				int j = 1;
-																				do {
-																								argument_subdetectors.push_back(argv[i + j]);
-																								++j;
-																				} while (argv[i + j] != NULL && argv[i + j] != std::string("-n") 
-																												&& argv[i + j] != std::string("-i")
-																												&& argv[i + j] != std::string("-ewpw") 
-																												&& argv[i + j] != std::string("-ewpb") 
-																												&& argv[i + j] != std::string("-ebpw") 
-																												&& argv[i + j] != std::string("-ebpb"));
-																				subdetector_set = true;
-																} else {
-																				std::cerr << "You didn't give an argument for the subdetector!" << std::endl;
-																}
-												}
-								}
-				}
-				if (!pair_inputfile_set || !ewpw_inputfile_set || !ewpb_inputfile_set || !ebpw_inputfile_set || !ebpb_inputfile_set || !subdetector_set || !NUMBER_OF_pairFILES_set) {
-								std::cerr
-												<< "You didn't give the name for the subdector, the inputfiles or the amount of files. Please try again!"
-												<< std::endl;
-								exit(1);
-				}
+			}
+		}
+	}
+	if (!pair_inputfile_set || !ewpw_inputfile_set || !ewpb_inputfile_set || !ebpw_inputfile_set || !ebpb_inputfile_set || !subdetector_set || !NUMBER_OF_pairFILES_set) {
+		std::cerr
+			<< "You didn't give the name for the subdector, the inputfiles or the amount of files. Please try again!"
+			<< std::endl;
+		exit(1);
+	}
 
 	std::vector<std::string> *inputfiles = new std::vector<std::string>();
 	inputfiles->push_back(ewpw_inputfilename);
@@ -192,7 +192,7 @@ int main(int const argc, char const * const * const argv) {
 	inputfiles->push_back(ebpw_inputfilename);
 	inputfiles->push_back(ebpb_inputfilename);
 	inputfiles->insert(inputfiles->end(), pair_inputfilenames->begin(), pair_inputfilenames->end());
-	
+
 
 	std::vector<Subdetector*> * SubDetectors = new std::vector<Subdetector*>();
 	std::string* subdetector_name = new std::string("");
@@ -208,7 +208,7 @@ int main(int const argc, char const * const * const argv) {
 	for (size_t subdetector_iterator = 0; subdetector_iterator < SubDetectors->size(); ++subdetector_iterator) {
 
 		for (size_t file_iterator = 0; file_iterator < inputfiles->size(); ++file_iterator) {
-		
+
 			TFile *file = TFile::Open(inputfiles->at(file_iterator).c_str());
 			TTree *tree = Get_TTree(file, SubDetectors->at(subdetector_iterator)->GetName());
 
@@ -219,32 +219,32 @@ int main(int const argc, char const * const * const argv) {
 			tree->SetBranchStatus("*", 0);
 			tree->SetBranchStatus("event_id", kTRUE);
 			tree->SetBranchAddress("event_id", &event_id);
-			
+
 			if (tree->GetName() == std::string("Tree_EcalBarrel") 
-											|| tree->GetName() == std::string("Tree_EcalEndcap")
-											|| tree->GetName() == std::string("Tree_HcalBarrel") 
-											|| tree->GetName() == std::string("Tree_HcalEndcap")
-											|| tree->GetName() == std::string("Tree_MuonBarrel") 
-											|| tree->GetName() == std::string("Tree_MuonEndcap")
-											|| tree->GetName() == std::string("Tree_BeamCal") 
-											|| tree->GetName() == std::string("Tree_LumiCal")) {
-							tree->SetBranchStatus("HitMotherCreationTime", 1);
-							tree->SetBranchAddress("HitMotherCreationTime", &creationtime);
-							tree->SetBranchStatus("HitContrTime", 1);
-							tree->SetBranchAddress("HitContrTime", &actualtime);
+					|| tree->GetName() == std::string("Tree_EcalEndcap")
+					|| tree->GetName() == std::string("Tree_HcalBarrel") 
+					|| tree->GetName() == std::string("Tree_HcalEndcap")
+					|| tree->GetName() == std::string("Tree_MuonBarrel") 
+					|| tree->GetName() == std::string("Tree_MuonEndcap")
+					|| tree->GetName() == std::string("Tree_BeamCal") 
+					|| tree->GetName() == std::string("Tree_LumiCal")) {
+				tree->SetBranchStatus("HitMotherCreationTime", 1);
+				tree->SetBranchAddress("HitMotherCreationTime", &creationtime);
+				tree->SetBranchStatus("HitContrTime", 1);
+				tree->SetBranchAddress("HitContrTime", &actualtime);
 			}
 			else if (tree->GetName() == std::string("Tree_SiVertexBarrel")
-											|| tree->GetName() == std::string("Tree_SiVertexEndcap")
-											|| tree->GetName() == std::string("Tree_SiTrackerBarrel")
-											|| tree->GetName() == std::string("Tree_SiTrackerEndcap")
-											|| tree->GetName() == std::string("Tree_SiTrackerForward")) {
-							tree->SetBranchStatus("HitParticleCreationTime", 1);
-							tree->SetBranchAddress("HitParticleCreationTime", &creationtime);
-							tree->SetBranchStatus("HitTime", 1);
-							tree->SetBranchAddress("HitTime", &actualtime);
+					|| tree->GetName() == std::string("Tree_SiVertexEndcap")
+					|| tree->GetName() == std::string("Tree_SiTrackerBarrel")
+					|| tree->GetName() == std::string("Tree_SiTrackerEndcap")
+					|| tree->GetName() == std::string("Tree_SiTrackerForward")) {
+				tree->SetBranchStatus("HitParticleCreationTime", 1);
+				tree->SetBranchAddress("HitParticleCreationTime", &creationtime);
+				tree->SetBranchStatus("HitTime", 1);
+				tree->SetBranchAddress("HitTime", &actualtime);
 			} else {
-							std::cerr << "The given TTree name does not match any TTree in the inputfile!" << std::endl;
-							std::terminate();
+				std::cerr << "The given TTree name does not match any TTree in the inputfile!" << std::endl;
+				std::terminate();
 			}
 
 			//Now we loop through the tree
@@ -258,7 +258,7 @@ int main(int const argc, char const * const * const argv) {
 			for (long long int i = 0; i < entries; ++i) {
 				tree->GetEntry(i);
 				if( file_iterator < 4){
-								Hits_Time_gg->Fill(actualtime,weight);
+					Hits_Time_gg->Fill(actualtime,weight);
 				}
 				//if( file_iterator == 0	&& event_id <= 291){ //ewpw
 				//	Hits_Time_gg->Fill(actualtime); 
@@ -285,7 +285,7 @@ int main(int const argc, char const * const * const argv) {
 	Hits_Time_pairs->SetMinimum(0.5);
 	Hits_Time_gg->SetMinimum(0.5);
 
-	
+
 	TCanvas *canvas1 = new TCanvas("canvas1", "canvas", 800, 600);
 
 	canvas1->cd();
@@ -358,7 +358,7 @@ int main(int const argc, char const * const * const argv) {
 
 	canvas1->Print(("output/gg-hadrons_pairs_comparison_time_"+subdetectornames+".pdf").c_str());
 	canvas1->Print(("output/gg-hadrons_pairs_comparison_time_"+subdetectornames+".cxx").c_str());
-	
+
 	return 0;
 }
 
