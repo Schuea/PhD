@@ -276,6 +276,7 @@ int main(int const argc, char const * const * const argv) {
 		file->Close();
 	}
 
+  Outputfile->cd();
 	std::vector< TH1D* > ProjectionY_xz;
 	ProjectionY_xz.emplace_back( histo_x->ProjectionY("Projection_xz_1Kink",62.5*zbin/300.,62.5*zbin/300.+1) );
 	ProjectionY_xz.emplace_back( histo_x->ProjectionY("Projection_xz_2Kink",205.0*zbin/300.,205.0*zbin/300.+1) );
