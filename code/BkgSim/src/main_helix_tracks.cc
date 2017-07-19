@@ -157,6 +157,7 @@ int main(int const argc, char const * const * const argv) {
 	Helix helix(BField);
 	//Looping through the root file(s):
 	for (int file_iterator = 0; file_iterator < NUMBER_OF_FILES; ++file_iterator) {
+    std::cout << inputfilenames->at(file_iterator) << std::endl;
 		TFile *file = TFile::Open(inputfilenames->at(file_iterator).c_str());
 		TTree *tree = Get_TTree(file, "MCP");
 
