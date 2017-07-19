@@ -40,19 +40,30 @@ int main(int const argc, char const * const * const argv){
 		}
 	}
 
-	std::vector< float > lumi;
 	std::string Buzz_word_START = "$HISTOGRAM::lumi_ee";
 	std::string Buzz_word_END = "$HISTOGRAM::lumi_eg";
-	bool READ = false;
-	bool STOP_READ = false;
+
+  std::stringstream new_outputfilename;
+  new_outputfilename << "output/" << outputfilename << ".root";
+	TFile* ROOTFile = new TFile(new_outputfilename.str().c_str(),"RECREATE","Luminosity histogram");
+  std::vector< TH1F* > LumiHistos;
 
 	for(size_t no_files = 0; no_files < inputfilenames.size(); ++ no_files){
+	  
+    std::vector< float > lumi;
+    std::stringstream name;
+    name << "Lumi_" << no_files+1;
+    TH1F* temp = new TH1F(name.str().c_str(),"Luminosity vs. E_CM",200,0,250.025);
+    temp->SetBit(TH1::kIsAverage);
+		LumiHistos.push_back( temp );
 
 		std::ifstream inputfile( inputfilenames.at(no_files) );
 		std::string line;
+	  bool READ = false;
+	  bool STOP_READ = false;
 
 		if(inputfile.is_open()){
-			std::cout << "Opened the text file." << std::endl;
+			std::cout << "Opened the text file "<< inputfilenames.at(no_files) << std::endl;
 			while (!inputfile.eof()){
 				std::getline(inputfile, line);
 				if ( Buzz_word_START.compare(line)==0){
@@ -68,16 +79,16 @@ int main(int const argc, char const * const * const argv){
 					std::istringstream in(line);
 					std::string col1, col2, col3, col4;
 					in >> col1 >> col2 >> col3 >> col4;
-std::cout << col1 << " - "  << col2 << " - " << col3 << " - " << col4 << std::endl;
+          //std::cout << col1 << " - "  << col2 << " - " << col3 << " - " << col4 << std::endl;
 
 					lumi.push_back(std::stof(col1));
-					std::cout << lumi.back() << std::endl;
+					//std::cout << lumi.back() << std::endl;
 					lumi.push_back(std::stof(col2));
-					std::cout << lumi.back() << std::endl;
+					//std::cout << lumi.back() << std::endl;
 					lumi.push_back(std::stof(col3));
-					std::cout << lumi.back() << std::endl;
+					//std::cout << lumi.back() << std::endl;
 					lumi.push_back(std::stof(col4));
-					std::cout << lumi.back() << std::endl;
+					//std::cout << lumi.back() << std::endl;
 				}
 				if ( STOP_READ == true ) break;
 			}
@@ -88,17 +99,21 @@ std::cout << col1 << " - "  << col2 << " - " << col3 << " - " << col4 << std::en
 			exit(1);
 		}
 
-		std::stringstream new_outputfilename;
-		new_outputfilename << outputfilename << "_" << no_files;
-		std::cout << "Output will be created: " << new_outputfilename.str() << std::endl;
 
-		TFile* ROOTFile = new TFile(new_outputfilename.str().c_str(),"CREATE","Luminosity histogram");
-		TH1F* LumiHisto = new TH1F("Lumi","Luminosity vs. E_CM",200,0,250.025);
 		for(int bin = 1; bin <= 200; ++bin){
-			LumiHisto->SetBinContent( bin, lumi.at(bin-1) );
+			LumiHistos.at(no_files)->SetBinContent( bin, lumi.at(bin-1) );
 		}
-		ROOTFile->Write();
-		ROOTFile->Close();
 	}
+	TH1F* combined_LumiHistos = (TH1F*) LumiHistos.at(0)->Clone();
+  combined_LumiHistos->SetName("Lumi");
+  combined_LumiHistos->SetBit(TH1::kIsAverage);
+	for(size_t no_files = 1; no_files < inputfilenames.size(); ++ no_files){
+    combined_LumiHistos->Add(LumiHistos.at(no_files));
+  }
+  combined_LumiHistos->SetMinimum( std::pow(10.0,21.0) );
+
+	std::cout << "Output will be created: " << outputfilename << std::endl;
+	ROOTFile->Write();
+	ROOTFile->Close();
 	return 0;
 }
