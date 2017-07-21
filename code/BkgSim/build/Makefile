@@ -10,9 +10,9 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include -g -Wall -Wextra -pthread -O2 -std=c++
 CXXFLAGS +=  $(shell root-config --glibs)
 
 # Executables produced by this Makefile
-RUN = ../NewOccupancyPlotter ../HelixPlotter ../HelixEnvelopePlotter ../HelixEnvelopeComparison
+RUN = ../NewOccupancyPlotter ../HelixPlotter ../HelixEnvelopePlotter ../HelixEnvelopeComparison ../CompareEnvelopeProjections
 
-#RUN = ../NewOccupancyPlotter ../OccupancyPlotter ../ParticleCountPlotter ../FullBufferMapsPlotter ../FullBufferHistoPlotter ../ParticleOriginsTimePlotter ../HittimePlotter ../ggHadrons_HittimePlotter ../ggHadrons_pairs_HittimePlotter ../ggHadrons_pairs_PT_Plotter ../MomentumTimePlotter ../LatePrimariesCalculater ../HelixPlotter ../HelixEnvelopePlotter
+#RUN = ../NewOccupancyPlotter ../OccupancyPlotter ../ParticleCountPlotter ../FullBufferMapsPlotter ../FullBufferHistoPlotter ../ParticleOriginsTimePlotter ../HittimePlotter ../ggHadrons_HittimePlotter ../ggHadrons_pairs_HittimePlotter ../ggHadrons_pairs_PT_Plotter ../MomentumTimePlotter ../LatePrimariesCalculater ../HelixPlotter ../HelixEnvelopePlotter ../CompareEnvelopeProjections
 
 
 # All tests produced by this Makefile.  Remember to add new tests you
@@ -35,6 +35,7 @@ MAIN_OCCUPANCY_NEW = ../objects/main_occupancy_new.o
 MAIN_HELIX = ../objects/main_helix_tracks.o
 MAIN_HELIX_ENVELOPES = ../objects/main_helix_tracks_envelopes.o
 MAIN_HELIX_COMPARISON = ../objects/main_helix_tracks_envelopes_comparison.o
+MAIN_HELIX_ENVELOPE_PROJECTIONS_COMPARISON = ../objects/main_CompareEnvelopeProjection.o
 CONFIG = ../objects/ConfigReader.o ../objects/ConfigReaderAnalysis.o
 USEFUL = ../objects/UsefulFunctions.o
 STYLE = ../objects/Style.o
@@ -149,6 +150,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 ../HelixEnvelopeComparison : $(MAIN_HELIX_COMPARISON) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
+../CompareEnvelopeProjections : $(MAIN_HELIX_ENVELOPE_PROJECTIONS_COMPARISON) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
 ../objects/ConfigReader.o : ../src/ConfigReader.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
@@ -198,6 +202,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_helix_tracks_envelopes_comparison.o : ../src/main_helix_tracks_envelopes_comparison.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/main_CompareEnvelopeProjection.o : ../src/main_CompareEnvelopeProjection.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/UsefulFunctions.o : ../../General/src/UsefulFunctions.cc
