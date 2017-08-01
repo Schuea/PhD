@@ -1,0 +1,74 @@
+TITLE
+Extraction_line
+GLOBAL                                          1.
+* Set the defaults for precision simulations
+DEFAULTS                                                              PRECISIO
+* Define the beam characteristics
+!@scale=1.0
+BEAM           -500. -1.000875       0.0-.56940603-.05138681        1.NEUTRON
+* Define the beam position
+BEAMPOS          0.0       0.0       -1.       0.0       0.0          NEGATIVE
+ROT-DEFI        301.       0.0       0.0       0.0       0.0      200.Transl
+* Added by flair Transformation Dialog
+ROT-DEFI        302.       0.0     -90.0       0.0       0.0       0.0Transl2
+* Added by flair Transformation Dialog
+ROT-DEFI        302.       0.0       0.0       0.0       0.0     400.0Transl2
+* Added by flair Transformation Dialog
+ROT-DEFI        303.               -45.0                              Transl3
+* Added by flair Transformation Dialog
+ROT-DEFI        303.                                             600.0Transl3
+GEOBEGIN                                                              COMBNAME
+    0    0          Extraction_line
+ZCC In_Tun     0.0 -50. 250.
+ZCC Out_Tun    0.0 -50. 300.
+XYP End1       0.0
+XYP End2       -10000.
+XZP Floor1     -200.
+ZCC In_BeaPi   0.0 0.0 19.
+ZCC Ou_BeaPi   0.0 0.0 20.
+XZP Floor2     -250.
+RPP BlackBox   -360. 360. -360. 360. -10100. 100.
+RPP Prototyp   -100. 100. -100. 100. -900. -800.
+RPP Box1       -100. 100. -100. 100. -1100. -1000.
+RPP Out_Magn   -50. 50. -70. 70. -900. -800.
+RPP Box2       -100.0 100.0 -100.0 100.0 -1300.0 -1200.0
+RPP Box3       -100.0 100.0 -100.0 100.0 -1500.0 -1400.0
+END
+Tunnel       5 +Out_Tun +End1 -In_Tun -End2 -Floor1
+Floor        5 +Out_Tun +End1 +Floor1 -End2 -Floor2
+BeamPipe     5 +End1 +Ou_BeaPi -End2 -In_BeaPi -Prototyp -Box1 -Box2 -Box3
+BeaPipVa     5 +End1 +In_BeaPi -End2 -Prototyp -Box1 -Box2 -Box3
+TunAir       5 +In_Tun +End1 -End2 -Floor1 -Ou_BeaPi -Prototyp -Box1 -Box2 -Box3
+BlackBod     5 +End1 +BlackBox -Out_Tun -End2 -Floor2
+               | +End1 +Floor2 +BlackBox -End2
+               | +BlackBox -End1
+BlackBo1     5 +End2 +BlackBox
+Lat_Magn     5 +Out_Magn -Ou_BeaPi
+Lat_BePi     5 +Ou_BeaPi +Prototyp -In_BeaPi
+Lat_Vac      5 +In_BeaPi +Prototyp
+Lat_Air      5 +Prototyp -Out_Magn
+Lattice1     5 +Box1
+Lattice2     5 +Box2
+Lattice3     5 +Box3
+END
+LATTICE     Lattice1                            1.                    Transl
+LATTICE     Lattice2                            2.                    Transl2
+LATTICE     Lattice3                            3.                    Transl3
+GEOEND
+ASSIGNMA      OXYGEN    Tunnel
+ASSIGNMA      OXYGEN     Floor
+ASSIGNMA    TITANIUM  BeamPipe
+ASSIGNMA      VACUUM  BeaPipVa
+ASSIGNMA         AIR    TunAir
+ASSIGNMA    BLCKHOLE  BlackBod
+ASSIGNMA    BLCKHOLE  BlackBo1
+ASSIGNMA      COPPER  Lat_Magn
+ASSIGNMA    TITANIUM  Lat_BePi
+ASSIGNMA      VACUUM   Lat_Vac
+ASSIGNMA         AIR   Lat_Air
+DISCARD        MUONS
+* Set the random number seed
+RANDOMIZ          1.        1.
+* Set the number of primary histories to be simulated in the run
+START           100.                                     0.0  9999999.
+STOP
