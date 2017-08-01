@@ -5,18 +5,19 @@ GLOBAL                                          1.
 DEFAULTS                                                              PRECISIO
 * Define the beam characteristics
 !@scale=1.0
-BEAM           -500. -1.000875       0.0-.56940603-.05138681        1.NEUTRON
+BEAM           -500. -1.000875       0.0      -5.0      -5.0        1.NEUTRON
 * Define the beam position
-BEAMPOS          0.0       0.0       -1.       0.0       0.0          NEGATIVE
+BEAMPOS          0.0       0.0   -2000.0       0.0       0.0
+SOURCE
 ROT-DEFI        301.       0.0       0.0       0.0       0.0      200.Transl
 * Added by flair Transformation Dialog
-ROT-DEFI        302.       0.0     -90.0       0.0       0.0       0.0Transl2
+ROT-DEFI        302.       0.0      -90.       0.0       0.0       0.0Transl2
 * Added by flair Transformation Dialog
-ROT-DEFI        302.       0.0       0.0       0.0       0.0     400.0Transl2
+ROT-DEFI        302.       0.0       0.0       0.0       0.0      400.Transl2
 * Added by flair Transformation Dialog
-ROT-DEFI        303.               -45.0                              Transl3
+ROT-DEFI        303.                -45.                              Transl3
 * Added by flair Transformation Dialog
-ROT-DEFI        303.                                             600.0Transl3
+ROT-DEFI        303.                                              600.Transl3
 GEOBEGIN                                                              COMBNAME
     0    0          Extraction_line
 ZCC In_Tun     0.0 -50. 250.
@@ -31,8 +32,8 @@ RPP BlackBox   -360. 360. -360. 360. -10100. 100.
 RPP Prototyp   -100. 100. -100. 100. -900. -800.
 RPP Box1       -100. 100. -100. 100. -1100. -1000.
 RPP Out_Magn   -50. 50. -70. 70. -900. -800.
-RPP Box2       -100.0 100.0 -100.0 100.0 -1300.0 -1200.0
-RPP Box3       -100.0 100.0 -100.0 100.0 -1500.0 -1400.0
+RPP Box2       -100. 100. -100. 100. -1300. -1200.
+RPP Box3       -100. 100. -100. 100. -1500. -1400.
 END
 Tunnel       5 +Out_Tun +End1 -In_Tun -End2 -Floor1
 Floor        5 +Out_Tun +End1 +Floor1 -End2 -Floor2
@@ -51,10 +52,11 @@ Lattice1     5 +Box1
 Lattice2     5 +Box2
 Lattice3     5 +Box3
 END
-LATTICE     Lattice1                            1.                    Transl
-LATTICE     Lattice2                            2.                    Transl2
-LATTICE     Lattice3                            3.                    Transl3
-GEOEND
+LATTICE     Lattice1                           1.0       1.0          rot#001
+LATTICE     Lattice2                           2.0       2.0          rot#002
+LATTICE     Lattice3                           3.0       3.0          rot#003
+GEOEND          150.      150.     -700.     -150.     -150.    -1700.DEBUG
+GEOEND          300.      300.      500.                               &
 ASSIGNMA      OXYGEN    Tunnel
 ASSIGNMA      OXYGEN     Floor
 ASSIGNMA    TITANIUM  BeamPipe
@@ -66,6 +68,8 @@ ASSIGNMA      COPPER  Lat_Magn
 ASSIGNMA    TITANIUM  Lat_BePi
 ASSIGNMA      VACUUM   Lat_Vac
 ASSIGNMA         AIR   Lat_Air
+USRBIN           10.    ENERGY      -21.      150.      150.     -700.Energy
+USRBIN         -150.     -150.    -1700.      100.      100.      150. &
 DISCARD        MUONS
 * Set the random number seed
 RANDOMIZ          1.        1.
