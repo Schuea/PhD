@@ -16,7 +16,7 @@ IRRPROFI    8.967E-4 1.7052E14
 !@what.4=60*60*24*30
 !@what.5=60*60*24*365
 DCYTIMES         60.     3600.    86400.  2592000. 31536000.
-RADDECAY          1.
+RADDECAY          1.                           0.0         0
 !point          -30.       0.0     -325.                              marker7
 !point          -30.       0.0      325.                              marker8
 !point          -30.      -75.     -325.                              marker9
