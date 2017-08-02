@@ -15,9 +15,9 @@ F77dline: False
 Run: <default>
 	Prev:     0
 	Last:     3
-	Status:   3
-	Pid:      0
-	StartRun: 1501600479
+	Status:   2
+	Pid:      4563
+	StartRun: 1501665608
 
 	# USRxxx data file: extraction_line_21.bnn
 	Data: \I_\U.\e
@@ -75,10 +75,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 1540.7 813.396
+	extends: 1283.92 677.829
 	labels: 1
 	layer: Media
-	origin: 15.3114 0 -1324.95
+	origin: 58.7885 0 -4226.81
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -110,7 +110,7 @@ Plot: Magenta
 	extends: 358.318 188.479
 	labels: 1
 	layer: Lattice
-	origin: -10.1184 0 -1237.66
+	origin: -19.2059 0 -1538.3
 	subtype: Material
 	title: GeoViewer Magenta plot
 End

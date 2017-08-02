@@ -5,10 +5,10 @@ GLOBAL                                          1.
 DEFAULTS                                                              PRECISIO
 * Define the beam characteristics
 !@scale=1.0
-BEAM           -500. -1.000875       0.0      -5.0      -5.0        1.NEUTRON
+BEAM           -500. -1.000875     -20.0       -5.       -5.        1.NEUTRON
 * Define the beam position
-BEAMPOS          0.0       0.0   -2000.0       0.0       0.0
-SOURCE
+BEAMPOS          0.0       0.0    -5000.       0.0       0.0
+*SOURCE
 ROT-DEFI        301.       0.0       0.0       0.0       0.0      200.Transl
 * Added by flair Transformation Dialog
 ROT-DEFI        302.       0.0      -90.       0.0       0.0       0.0Transl2
@@ -52,9 +52,9 @@ Lattice1     5 +Box1
 Lattice2     5 +Box2
 Lattice3     5 +Box3
 END
-LATTICE     Lattice1                           1.0       1.0          rot#001
-LATTICE     Lattice2                           2.0       2.0          rot#002
-LATTICE     Lattice3                           3.0       3.0          rot#003
+LATTICE     Lattice1                            1.        1.          rot#001
+LATTICE     Lattice2                            2.        2.          rot#002
+LATTICE     Lattice3                            3.        3.          rot#003
 GEOEND          150.      150.     -700.     -150.     -150.    -1700.DEBUG
 GEOEND          300.      300.      500.                               &
 ASSIGNMA      OXYGEN    Tunnel
