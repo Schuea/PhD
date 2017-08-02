@@ -27,6 +27,7 @@ void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, int integ
 void Draw_multiple_plots (int num_layers, int start_layer, std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, int integral_startbin, bool integral_numhits);
 void Print_multiple_plots_from_same_vec (int num_layers, std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, int integral_startbin, bool integral_numhits, std::string output);
 
+//For BDS Muon study only:
 double weight = 0.08846; //The weight is the same for both scenarios, for both, the electron and the positron line, e.g.: 5sp+wall, elec: (4321/10155 * 898.34)/4321
 
 int main(int const argc, char const * const * const argv) {
@@ -101,7 +102,7 @@ int main(int const argc, char const * const * const argv) {
     barrel = true;
   }
   else{
-    std::cerr << "This subdetector shape was not recognized!" << std::endl; 
+    std::cerr << "The given subdetector shape was not recognized!" << std::endl; 
     exit(-1);
   }
   bool Silicon = false;
@@ -117,7 +118,7 @@ int main(int const argc, char const * const * const argv) {
     Calo = true;
   }
   else{
-    std::cerr << "This subdetector name was not recognized!" << std::endl; 
+    std::cerr << "The given subdetector name was not recognized!" << std::endl; 
     exit(-1);
   }
 
@@ -212,26 +213,67 @@ int main(int const argc, char const * const * const argv) {
 
   //Make histogram vectors for storing the histograms
   std::string subdetectorname = det.getName();
-  std::vector < std::string > all_name_sp;
-  std::vector < std::string > all_name_spwall ;
-  all_name_sp.emplace_back( "All_layers_5sp" );
-  all_name_sp.emplace_back( "All_layers_wrt_#cells_5sp" );
-  all_name_sp.emplace_back( "All_layers_losthits_5sp" );
-  all_name_sp.emplace_back( "All_layers_deadcells_5sp" );
-  all_name_spwall.emplace_back( "All_layers_5sp_wall" );
-  all_name_spwall.emplace_back( "All_layers_wrt_#cells_5sp_wall" );
-  all_name_spwall.emplace_back( "All_layers_losthits_5sp_wall" );
-  all_name_spwall.emplace_back( "All_layers_deadcells_5sp_wall" );
-  std::vector < std::string > title_sp;
-  std::vector < std::string > title_spwall ;
-  title_sp.emplace_back( "Occupancy for " + subdetectorname + " - 5 spoilers;Number of hits per cell;Number of cells" );
-  title_sp.emplace_back( "Occupancy for " + subdetectorname + " wrt to tot # cells - 5 spoilers;Number of hits per cell;Number of cells" );
-  title_sp.emplace_back( "Number of hits lost for a given buffer depth for " + subdetectorname + " - 5 spoilers;Assumend buffer depth;Number of hits lost" );
-  title_sp.emplace_back( "Number of dead cells for a given buffer depth for " + subdetectorname + " - 5 spoilers;Assumend buffer depth;Number of dead cells" );
-  title_spwall.emplace_back( "Occupancy for " + subdetectorname + " - 5 spoilers+wall;Number of hits per cell;Number of cells" );
-  title_spwall.emplace_back( "Occupancy for " + subdetectorname + " wrt to tot # cells - 5 spoilers+wall;Number of hits per cell;Number of cells" );
-  title_spwall.emplace_back( "Number of hits lost for a given buffer depth for " + subdetectorname + " - 5 spoilers+wall;Assumend buffer depth;Number of hits lost" );
-  title_spwall.emplace_back( "Number of dead cells for a given buffer depth for " + subdetectorname + " - 5 spoilers+wall;Assumend buffer depth;Number of dead cells" );
+  //std::vector < std::string > all_name_sp;
+  //std::vector < std::string > all_name_spwall ;
+  //all_name_sp.emplace_back( "All_layers_5sp" );
+  //all_name_sp.emplace_back( "All_layers_wrt_#cells_5sp" );
+  //all_name_sp.emplace_back( "All_layers_losthits_5sp" );
+  //all_name_sp.emplace_back( "All_layers_deadcells_5sp" );
+  //all_name_spwall.emplace_back( "All_layers_5sp_wall" );
+  //all_name_spwall.emplace_back( "All_layers_wrt_#cells_5sp_wall" );
+  //all_name_spwall.emplace_back( "All_layers_losthits_5sp_wall" );
+  //all_name_spwall.emplace_back( "All_layers_deadcells_5sp_wall" );
+  std::vector < std::string > all_name_set1;
+  std::vector < std::string > all_name_set2 ;
+  std::vector < std::string > all_name_set3;
+  std::vector < std::string > all_name_set4 ;
+  all_name_set1.emplace_back( "All_layers_set1" );
+  all_name_set1.emplace_back( "All_layers_wrt_#cells_set1" );
+  all_name_set1.emplace_back( "All_layers_losthits_set1" );
+  all_name_set1.emplace_back( "All_layers_deadcells_set1" );
+  all_name_set2.emplace_back( "All_layers_set2" );
+  all_name_set2.emplace_back( "All_layers_wrt_#cells_set2" );
+  all_name_set2.emplace_back( "All_layers_losthits_set2" );
+  all_name_set2.emplace_back( "All_layers_deadcells_set2" );
+  all_name_set3.emplace_back( "All_layers_set3" );
+  all_name_set3.emplace_back( "All_layers_wrt_#cells_set3" );
+  all_name_set3.emplace_back( "All_layers_losthits_set3" );
+  all_name_set3.emplace_back( "All_layers_deadcells_set3" );
+  all_name_set4.emplace_back( "All_layers_set4" );
+  all_name_set4.emplace_back( "All_layers_wrt_#cells_set4" );
+  all_name_set4.emplace_back( "All_layers_losthits_set4" );
+  all_name_set4.emplace_back( "All_layers_deadcells_set4" );
+  //std::vector < std::string > title_sp;
+  //std::vector < std::string > title_spwall ;
+  //title_sp.emplace_back( "Occupancy for " + subdetectorname + " - 5 spoilers;Number of hits per cell;Number of cells" );
+  //title_sp.emplace_back( "Occupancy for " + subdetectorname + " wrt to tot # cells - 5 spoilers;Number of hits per cell;Number of cells" );
+  //title_sp.emplace_back( "Number of hits lost for a given buffer depth for " + subdetectorname + " - 5 spoilers;Assumend buffer depth;Number of hits lost" );
+  //title_sp.emplace_back( "Number of dead cells for a given buffer depth for " + subdetectorname + " - 5 spoilers;Assumend buffer depth;Number of dead cells" );
+  //title_spwall.emplace_back( "Occupancy for " + subdetectorname + " - 5 spoilers+wall;Number of hits per cell;Number of cells" );
+  //title_spwall.emplace_back( "Occupancy for " + subdetectorname + " wrt to tot # cells - 5 spoilers+wall;Number of hits per cell;Number of cells" );
+  //title_spwall.emplace_back( "Number of hits lost for a given buffer depth for " + subdetectorname + " - 5 spoilers+wall;Assumend buffer depth;Number of hits lost" );
+  //title_spwall.emplace_back( "Number of dead cells for a given buffer depth for " + subdetectorname + " - 5 spoilers+wall;Assumend buffer depth;Number of dead cells" );
+  std::vector < std::string > title_set1;
+  std::vector < std::string > title_set2 ;
+  std::vector < std::string > title_set3;
+  std::vector < std::string > title_set4 ;
+  title_set1.emplace_back( "Occupancy for " + subdetectorname + " - set1;Number of hits per cell;Number of cells" );
+  title_set1.emplace_back( "Occupancy for " + subdetectorname + " wrt to tot # cells - set1;Number of hits per cell;Number of cells" );
+  title_set1.emplace_back( "Number of hits lost for a given buffer depth for " + subdetectorname + " - set1;Assumend buffer depth;Number of hits lost" );
+  title_set1.emplace_back( "Number of dead cells for a given buffer depth for " + subdetectorname + " - set1;Assumend buffer depth;Number of dead cells" );
+  title_set2.emplace_back( "Occupancy for " + subdetectorname + " - set2;Number of hits per cell;Number of cells" );
+  title_set2.emplace_back( "Occupancy for " + subdetectorname + " wrt to tot # cells - set2;Number of hits per cell;Number of cells" );
+  title_set2.emplace_back( "Number of hits lost for a given buffer depth for " + subdetectorname + " - set2;Assumend buffer depth;Number of hits lost" );
+  title_set2.emplace_back( "Number of dead cells for a given buffer depth for " + subdetectorname + " - set2;Assumend buffer depth;Number of dead cells" );
+  title_set3.emplace_back( "Occupancy for " + subdetectorname + " - set3;Number of hits per cell;Number of cells" );
+  title_set3.emplace_back( "Occupancy for " + subdetectorname + " wrt to tot # cells - set3;Number of hits per cell;Number of cells" );
+  title_set3.emplace_back( "Number of hits lost for a given buffer depth for " + subdetectorname + " - set3;Assumend buffer depth;Number of hits lost" );
+  title_set3.emplace_back( "Number of dead cells for a given buffer depth for " + subdetectorname + " - set3;Assumend buffer depth;Number of dead cells" );
+  title_set4.emplace_back( "Occupancy for " + subdetectorname + " - set4;Number of hits per cell;Number of cells" );
+  title_set4.emplace_back( "Occupancy for " + subdetectorname + " wrt to tot # cells - set4;Number of hits per cell;Number of cells" );
+  title_set4.emplace_back( "Number of hits lost for a given buffer depth for " + subdetectorname + " - set4;Assumend buffer depth;Number of hits lost" );
+  title_set4.emplace_back( "Number of dead cells for a given buffer depth for " + subdetectorname + " - set4;Assumend buffer depth;Number of dead cells" );
+
   std::vector< TH1D* > All_Layers_histo;
   std::vector< TH1D* > All_Layers_histo_numcells;
   std::vector< TH1D* > All_Layers_histo_bufferdepth;
@@ -262,12 +304,24 @@ int main(int const argc, char const * const * const argv) {
     std::vector< std::string > title;
     std::vector< std::string > name;
     if (num_hitcount_classes == 0){
-      title = title_sp;
-      name = all_name_sp;
+      title = title_set1;
+      name = all_name_set1;
+    }
+    else if (num_hitcount_classes == 1){
+      title = title_set2;
+      name = all_name_set2;
+    }
+    else if (num_hitcount_classes == 2){
+      title = title_set3;
+      name = all_name_set3;
+    }
+    else if (num_hitcount_classes == 3){
+      title = title_set4;
+      name = all_name_set4;
     }
     else{
-      title = title_spwall;
-      name = all_name_spwall;
+    	std::cerr << "There are more hitcount classes than expected!" << std::endl; 
+    	exit(-1);
     }
     All_Layers_histo.emplace_back( new TH1D(name.at(0).c_str(), title.at(0).c_str(), xrange, 0, xrange) );
     All_Layers_histo_numcells.emplace_back( new TH1D(name.at(1).c_str(), title.at(1).c_str(), xrange, 0, xrange) );
@@ -277,16 +331,32 @@ int main(int const argc, char const * const * const argv) {
     for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
       std::stringstream layername, layername2, layername3, layername4;
       if (num_hitcount_classes == 0){
-        layername << "Layer_" << number_layer << "_5sp";
-        layername2 << "Layer_" << number_layer << "_numcells_5sp";
-        layername3 << "Layer_" << number_layer << "_losthits_5sp";
-        layername4 << "Layer_" << number_layer << "_deadcells_5sp";
+        layername << "Layer_" << number_layer << "_set1";
+        layername2 << "Layer_" << number_layer << "_numcells_set1";
+        layername3 << "Layer_" << number_layer << "_losthits_set1";
+        layername4 << "Layer_" << number_layer << "_deadcells_set1";
+      }
+      else if (num_hitcount_classes == 1){
+        layername << "Layer_" << number_layer << "_set2";
+        layername2 << "Layer_" << number_layer << "_numcells_set2";
+        layername3 << "Layer_" << number_layer << "_losthits_set2";
+        layername4 << "Layer_" << number_layer << "_deadcells_set2";
+      }
+      else if (num_hitcount_classes == 2){
+        layername << "Layer_" << number_layer << "_set3";
+        layername2 << "Layer_" << number_layer << "_numcells_set3";
+        layername3 << "Layer_" << number_layer << "_losthits_set3";
+        layername4 << "Layer_" << number_layer << "_deadcells_set3";
+      }
+      else if (num_hitcount_classes == 3){
+        layername << "Layer_" << number_layer << "_set4";
+        layername2 << "Layer_" << number_layer << "_numcells_set4";
+        layername3 << "Layer_" << number_layer << "_losthits_set4";
+        layername4 << "Layer_" << number_layer << "_deadcells_set4";
       }
       else{
-        layername << "Layer_" << number_layer << "_5sp_wall";
-        layername2 << "Layer_" << number_layer << "_numcells_5sp_wall";
-        layername3 << "Layer_" << number_layer << "_losthits_5sp_wall";
-        layername4 << "Layer_" << number_layer << "_deadcells_5sp_wall";
+      	std::cerr << "There are more hitcount classes than expected!" << std::endl; 
+      	exit(-1);
       }
       histos.emplace_back(new TH1D(layername.str().c_str(), title.at(0).c_str(), xrange, 0, xrange));
       histos_numcells.emplace_back(new TH1D(layername2.str().c_str(), title.at(1).c_str(), xrange, 0, xrange));
@@ -502,6 +572,16 @@ void Draw_All_Layer_plots_together ( std::vector< TH1D* > histo, TCanvas* canvas
     if (integral_numhits == true) tot2 += histo.at(1)->GetBinContent(bin)*histo.at(1)->GetBinLowEdge(bin);
     else tot2 += histo.at(1)->GetBinContent(bin);
   }
+  int tot3 = 0;
+  for(int bin = integral_startbin; bin <= histo.at(2)->GetNbinsX(); ++bin){
+    if (integral_numhits == true) tot3 += histo.at(2)->GetBinContent(bin)*histo.at(2)->GetBinLowEdge(bin);
+    else tot3 += histo.at(2)->GetBinContent(bin);
+  }
+  int tot4 = 0;
+  for(int bin = integral_startbin; bin <= histo.at(3)->GetNbinsX(); ++bin){
+    if (integral_numhits == true) tot4 += histo.at(3)->GetBinContent(bin)*histo.at(3)->GetBinLowEdge(bin);
+    else tot4 += histo.at(3)->GetBinContent(bin);
+  }
   //std::vector< TPaveStats* > stats;
   //float boxsize = 0.0;
   for (size_t vec_entry = 0; vec_entry < histo.size(); ++vec_entry){
@@ -545,23 +625,49 @@ void Draw_All_Layer_plots_together ( std::vector< TH1D* > histo, TCanvas* canvas
   text1->SetTextFont(62);
   text1->SetTextColor(2);
   text1->SetFillColor(0);
-  text1->AddText("5 spoilers");
+  text1->AddText("set1");
   text1->AddLine(0,0.5,1,0.5);
-  std::stringstream entries_sp;
-  entries_sp << "Entries = " << tot;
-  text1->AddText(entries_sp.str().c_str());
+  std::stringstream entries_set1;
+  entries_set1 << "Entries = " << tot;
+  text1->AddText(entries_set1.str().c_str());
+
   TPaveText *text2 = new TPaveText(0.75,0.7,0.95,0.8,"brNDC");
   text2->SetTextFont(62);
   text2->SetTextColor(4);
   text2->SetFillColor(0);
   //text->AddLine(0,0.5,1,0.5);
-  text2->AddText("5 spoilers + wall");
+  text2->AddText("set2");
   text2->AddLine(0,0.5,1,0.5);
-  std::stringstream entries_spwall;
-  entries_spwall << "Entries = " << tot2;
-  text2->AddText(entries_spwall.str().c_str());
+  std::stringstream entries_set2;
+  entries_set2 << "Entries = " << tot2;
+  text2->AddText(entries_set2.str().c_str());
+  
+  TPaveText *text3 = new TPaveText(0.75,0.7,0.95,0.8,"brNDC");
+  text3->SetTextFont(62);
+  text3->SetTextColor(5);
+  text3->SetFillColor(0);
+  //text->AddLine(0,0.5,1,0.5);
+  text3->AddText("set3");
+  text3->AddLine(0,0.5,1,0.5);
+  std::stringstream entries_set3;
+  entries_set3 << "Entries = " << tot3;
+  text3->AddText(entries_set3.str().c_str());
+
+  TPaveText *text4 = new TPaveText(0.75,0.7,0.95,0.8,"brNDC");
+  text4->SetTextFont(62);
+  text4->SetTextColor(6);
+  text4->SetFillColor(0);
+  //text->AddLine(0,0.5,1,0.5);
+  text4->AddText("set4");
+  text4->AddLine(0,0.5,1,0.5);
+  std::stringstream entries_set4;
+  entries_set4 << "Entries = " << tot4;
+  text4->AddText(entries_set4.str().c_str());
+
   text1->Draw();
   text2->Draw();
+  text3->Draw();
+  text4->Draw();
 }
 void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, int integral_startbin, bool integral_numhits){
   int tot = 0;
@@ -603,17 +709,21 @@ void Print_multiple_plots_from_same_vec (int num_layers, std::vector< TH1D* > hi
   int start_layer = 0;
   Draw_multiple_plots(num_layers, start_layer, histos, canvas, normalize, integral_startbin, integral_numhits);
   std::stringstream output1;
-  output1 << output << "_5spoilers";
+  output1 << output << "_set1";
   canvas->Print((output1.str() + ".pdf").c_str());
   canvas->Print((output1.str() + ".cxx").c_str());
 
-
-  start_layer = num_layers;
+  int i = 1;
+  do{
+  start_layer = num_layers*i;
   Draw_multiple_plots(num_layers, start_layer, histos, canvas, normalize, integral_startbin, integral_numhits);
   std::stringstream output2;
-  output2 << output << "_5spoilers_wall";
+  output2 << output << "_set2";
   canvas->Print((output2.str() + ".pdf").c_str());
   canvas->Print((output2.str() + ".cxx").c_str());
+  ++i;
+  }
+  while (std::find(histos.begin(), histos.end(), histos.at(num_layers) ) != histos.end() );
 }
 void Draw_multiple_plots (int num_layers, int start_layer, std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, int integral_startbin, bool integral_numhits){
   int i = 0;
