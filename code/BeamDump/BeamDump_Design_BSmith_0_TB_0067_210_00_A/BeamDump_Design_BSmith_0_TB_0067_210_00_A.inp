@@ -941,6 +941,7 @@ ASSIGNMA      VACUUM  ScorePl1
 DISCARD        MUONS
 PHOTONUC          1.                        VACUUM     WATER        1.
 LAM-BIAS         0.0     -0.02     WATER    PHOTON
+LAM-BIAS         0.0     -0.02  Ti-6Al4V    PHOTON
 !@what.1=2.0*MeV
 !@what.2=2.0*MeV
 EMFCUT         0.002     0.002              Inlet1  WinInlWa        1.
@@ -949,7 +950,6 @@ PHYSICS           1.                                                  COALESCE
 !@what.1=1.0*MeV
 !@what.5=1.0*MeV
 PHYSICS        0.001                                   0.001          PEATHRES
-LAM-BIAS         0.0     -0.02  Ti-6Al4V    PHOTON
 SCORE        NEUTRON    ENERGY    TRITON   DOSE-EQ
 USRBIN           10.    ENERGY      -21.      315.      600.      725.Energy
 USRBIN         -825.     -200.    -1175.      100.      100.      150. &
