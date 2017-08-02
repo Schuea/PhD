@@ -15,8 +15,8 @@ F77dline: False
 
 # Run information
 Run: <default>
-	Prev:     6
-	Last:     11
+	Prev:     0
+	Last:     5
 	Status:   3
 	Pid:      0
 	StartRun: 1498044787
@@ -719,6 +719,16 @@ Material: Phosphor
 End
 
 # Material
+Material: Ti-6Al4V
+	alpha: 0
+	color: #407030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
 Material: Molybdenum
 	alpha: 0
 	color: #D03050
@@ -732,16 +742,6 @@ End
 Material: Vanadium
 	alpha: 0
 	color: #807070
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: BorConc
-	alpha: 0
-	color: #4050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -769,9 +769,9 @@ Material: B2O3
 End
 
 # Material
-Material: Eu
+Material: Cs
 	alpha: 0
-	color: #703070
+	color: #901070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -869,9 +869,9 @@ Material: CaO
 End
 
 # Material
-Material: Ti-6Al4V
+Material: BorConc
 	alpha: 0
-	color: #407030
+	color: #4050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -879,9 +879,9 @@ Material: Ti-6Al4V
 End
 
 # Material
-Material: Cs
+Material: Eu
 	alpha: 0
-	color: #901070
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
