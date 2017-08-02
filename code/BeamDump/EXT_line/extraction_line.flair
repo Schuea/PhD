@@ -5,7 +5,7 @@ Title: EXTraction line
 Input: extraction_line.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Input
+Page: Plot
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -15,8 +15,8 @@ F77dline: False
 Run: <default>
 	Prev:     0
 	Last:     3
-	Status:   2
-	Pid:      4563
+	Status:   3
+	Pid:      0
 	StartRun: 1501665608
 
 	# USRxxx data file: extraction_line_21.bnn
@@ -106,13 +106,29 @@ Plot: Magenta
 	basisu: 0 0 1
 	basisv: 1 0 0
 	boundaries: 1
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
 	coord: Z-X
+	cpd: 0
 	extends: 358.318 188.479
+	grid: 0
+	index: 0
 	labels: 1
 	layer: Lattice
 	origin: -19.2059 0 -1538.3
 	subtype: Material
 	title: GeoViewer Magenta plot
+	x2log: False
+	x2tics: 0
+	xlog: False
+	y2log: False
+	y2tics: 0
+	ylog: False
+	zlog: False
+	ztics: 0
 End
 
 # USRBIN plot "USRBIN extraction line 21"
@@ -121,7 +137,7 @@ Plot: extraction_line_21_plot
 	Type:   USRBIN
 	axes: Auto
 	cbcolors: 30
-	cblog: False
+	cblog: True
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 1
@@ -133,11 +149,11 @@ Plot: extraction_line_21_plot
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 0.0000000000000000
+	int: 119.13484729320659
 	lw.0: 0
-	max: 0.00000000
-	min: 1.00000002E+30
-	proj: X
+	max: 9.80761761E-05
+	min: 3.02616210E-10
+	proj: Y
 	ps.0: 0
 	pt.0: 0
 	swap: 0
