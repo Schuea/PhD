@@ -16,7 +16,7 @@ IRRPROFI    8.967E-4 1.7052E14
 !@what.4=60*60*24*30
 !@what.5=60*60*24*365
 DCYTIMES         60.     3600.    86400.  2592000. 31536000.
-RADDECAY          1.                           0.0         0
+RADDECAY          1.                           0.0    100010
 !point          -30.       0.0     -325.                              marker7
 !point          -30.       0.0      325.                              marker8
 !point          -30.      -75.     -325.                              marker9
@@ -939,17 +939,21 @@ ASSIGNMA     BorConc  BorConcr
 ASSIGNMA    NormConc  ConcrShi
 ASSIGNMA      VACUUM  ScorePl1
 DISCARD        MUONS
-PHOTONUC          1.                        VACUUM     WATER        1.
+PHOTONUC          1.                        VACUUM       AIR        1.
 LAM-BIAS         0.0     -0.02     WATER    PHOTON
 LAM-BIAS         0.0     -0.02  Ti-6Al4V    PHOTON
-!@what.1=2.0*MeV
-!@what.2=2.0*MeV
-EMFCUT         0.002     0.002              Inlet1  WinInlWa        1.
-PHYSICS                                                               EVAPORAT
+EMFCUT        -0.002     0.002               WATER     WATER        1.PROD-CUT
+EMFCUT        -0.002     0.002             316L-SS   316L-SS        1.PROD-CUT
+EMFCUT        -0.002     0.002              Inlet1  WinInlWa        1.
+PHYSICS           3.                                                  EVAPORAT
 PHYSICS           1.                                                  COALESCE
-!@what.1=1.0*MeV
-!@what.5=1.0*MeV
-PHYSICS        0.001                                   0.001          PEATHRES
+!@what.1=1.0*TeV
+!@what.2=1.0*TeV
+!@what.3=1.0*TeV
+!@what.4=1.0*TeV
+!@what.5=1.0*TeV
+!@what.6=1.0*TeV
+PHYSICS        1000.     1000.     1000.     1000.     1000.     1000.PEATHRES
 SCORE        NEUTRON    ENERGY    TRITON   DOSE-EQ
 USRBIN           10.    ENERGY      -21.      315.      600.      725.Energy
 USRBIN         -825.     -200.    -1175.      100.      100.      150. &
