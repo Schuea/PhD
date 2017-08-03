@@ -1,5 +1,5 @@
-#define ACTIV_STUDY
-*#undef ACTIV_STUDY
+#define ACTIV_STUDY 
+#undef ACTIV_STUDY 
 TITLE
 BeamDump_Design_BSmith_0_TB_0067_210_00_A
 GLOBAL                                          1.
@@ -10,7 +10,7 @@ DEFAULTS                                                              PRECISIO
 BEAM           -500. -1.000875       0.0-.56940603-.05138681        1.ELECTRON
 * Define the beam position
 BEAMPOS          0.0       0.0     -750.       0.0       0.0
-#if ACTIV_STUDY
+#if ACTIV_STUDY 
 !@what.1=0.8967*ms
 !@what.2=4*2450*1.74E10
 IRRPROFI    8.967E-4 1.7052E14
@@ -20,7 +20,7 @@ IRRPROFI    8.967E-4 1.7052E14
 !@what.5=60*60*24*365
 DCYTIMES         60.     3600.    86400.  2592000. 31536000.
 RADDECAY          1.                           0.0    100010
-#endif 
+#endif  
 !point          -30.       0.0     -325.                              marker7
 !point          -30.       0.0      325.                              marker8
 !point          -30.      -75.     -325.                              marker9
@@ -946,18 +946,18 @@ DISCARD        MUONS
 PHOTONUC          1.                        VACUUM       AIR        1.
 LAM-BIAS         0.0     -0.02     WATER    PHOTON
 LAM-BIAS         0.0     -0.02  Ti-6Al4V    PHOTON
-#if ACTIV_STUDY
+#if ACTIV_STUDY 
 !@what.2=100.0*keV
 EMFCUT        -0.001     1.E-4               WATER     WATER        1.PROD-CUT
 !@what.2=100.0*keV
 EMFCUT        -0.001     1.E-4             316L-SS   316L-SS        1.PROD-CUT
 !@what.2=100.0*keV
 EMFCUT        -0.001     1.E-4              Inlet1  WinInlWa        1.
-#else 
+#else  
 EMFCUT        -0.002     0.002               WATER     WATER        1.PROD-CUT
 EMFCUT        -0.002     0.002             316L-SS   316L-SS        1.PROD-CUT
 EMFCUT        -0.002     0.002              Inlet1  WinInlWa        1.
-#endif 
+#endif  
 PHYSICS           3.                                                  EVAPORAT
 PHYSICS           1.                                                  COALESCE
 !@what.1=1.0*TeV
@@ -968,14 +968,10 @@ PHYSICS           1.                                                  COALESCE
 !@what.6=1.0*TeV
 PHYSICS        1000.     1000.     1000.     1000.     1000.     1000.PEATHRES
 SCORE        NEUTRON    ENERGY    TRITON   DOSE-EQ
-USRBIN           10.    ENERGY      -21.      315.      600.      725.Energy
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
-USRBIN           10.   NEUTRON      -22.      315.      600.      725.Neutrons
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
 AUXSCORE      USRBIN  ALL-PART              DoseEq                    AMB74
 USRBIN           10.   DOSE-EQ      -23.      315.      600.      725.DoseEq
 USRBIN         -825.     -200.    -1175.      100.      100.      150. &
-#if ACTIV_STUDY
+#if ACTIV_STUDY 
 DCYSCORE          1.                       DoseEq1                    USRBIN
 DCYSCORE          2.                       DoseEq2                    USRBIN
 DCYSCORE          3.                       DoseEq3                    USRBIN
@@ -996,7 +992,33 @@ USRBIN           10.   DOSE-EQ      -27.      315.      600.      725.DoseEq4
 USRBIN         -825.     -200.    -1175.      100.      100.      150. &
 USRBIN           10.   DOSE-EQ      -28.      315.      600.      725.DoseEq5
 USRBIN         -825.     -200.    -1175.      100.      100.      150. &
-#endif 
+RESNUCLE          3.      -62.                      @ALLREGS          Resnuclei
+DCYSCORE          1.                    Resnuclei2                    RESNUCLE
+DCYSCORE          2.                    Resnuclei3                    RESNUCLE
+DCYSCORE          3.                    Resnuclei4                    RESNUCLE
+DCYSCORE          4.                    Resnuclei5                    RESNUCLE
+DCYSCORE          5.                    Resnuclei6                    RESNUCLE
+RESNUCLE          3.      -63.                      @ALLREGS          Resnuclei2
+RESNUCLE          3.      -64.                      @ALLREGS          Resnuclei3
+RESNUCLE          3.      -65.                      @ALLREGS          Resnuclei4
+RESNUCLE          3.      -66.                      @ALLREGS          Resnuclei5
+RESNUCLE          3.      -67.                      @ALLREGS          Resnuclei6
+RESNUCLE          3.      -94.                        Window     113.4ResnuWin
+DCYSCORE          1.                     ResnuWin2                    RESNUCLE
+DCYSCORE          2.                     ResnuWin3                    RESNUCLE
+DCYSCORE          3.                     ResnuWin4                    RESNUCLE
+DCYSCORE          4.                     ResnuWin5                    RESNUCLE
+DCYSCORE          5.                     ResnuWin6                    RESNUCLE
+RESNUCLE          3.      -95.                        Window     113.4ResnuWin2
+RESNUCLE          3.      -96.                        Window     113.4ResnuWin3
+RESNUCLE          3.      -97.                        Window     113.4ResnuWin4
+RESNUCLE          3.      -98.                        Window     113.4ResnuWin5
+RESNUCLE          3.      -99.                        Window     113.4ResnuWin6
+#else 
+USRBIN           10.    ENERGY      -21.      315.      600.      725.Energy
+USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN           10.   NEUTRON      -22.      315.      600.      725.Neutrons
+USRBIN         -825.     -200.    -1175.      100.      100.      150. &
 USRBIN           10.   DOSE-EM      -29.      315.      600.      725.DoseEM
 USRBIN         -825.     -200.    -1175.      100.      100.      150. &
 USRBIN           10.      DOSE      -30.      315.      600.      725.Dose
@@ -1091,30 +1113,7 @@ USRYIELD       2401.    PHOTON      -88.    Window  ScorePla          PhotWin8
 USRYIELD          1.       0.0      100.       80.       70.        3. &
 USRYIELD       2401.    PHOTON      -89.    Window  ScorePla          PhotWin9
 USRYIELD          1.       0.0      100.       90.       80.        3. &
-#if ACTIV_STUDY
-DCYSCORE          1.                    Resnuclei2                    RESNUCLE
-DCYSCORE          2.                    Resnuclei3                    RESNUCLE
-DCYSCORE          3.                    Resnuclei4                    RESNUCLE
-DCYSCORE          4.                    Resnuclei5                    RESNUCLE
-DCYSCORE          5.                    Resnuclei6                    RESNUCLE
-RESNUCLE          3.      -62.                      @ALLREGS          Resnuclei
-RESNUCLE          3.      -63.                      @ALLREGS          Resnuclei2
-RESNUCLE          3.      -64.                      @ALLREGS          Resnuclei3
-RESNUCLE          3.      -65.                      @ALLREGS          Resnuclei4
-RESNUCLE          3.      -66.                      @ALLREGS          Resnuclei5
-RESNUCLE          3.      -67.                      @ALLREGS          Resnuclei6
-DCYSCORE          1.                     ResnuWin2                    RESNUCLE
-DCYSCORE          2.                     ResnuWin3                    RESNUCLE
-DCYSCORE          3.                     ResnuWin4                    RESNUCLE
-DCYSCORE          4.                     ResnuWin5                    RESNUCLE
-DCYSCORE          5.                     ResnuWin6                    RESNUCLE
-RESNUCLE          3.      -94.                        Window     113.4ResnuWin
-RESNUCLE          3.      -95.                        Window     113.4ResnuWin2
-RESNUCLE          3.      -96.                        Window     113.4ResnuWin3
-RESNUCLE          3.      -97.                        Window     113.4ResnuWin4
-RESNUCLE          3.      -98.                        Window     113.4ResnuWin5
-RESNUCLE          3.      -99.                        Window     113.4ResnuWin6
-#endif 
+#endif  
 * Set the random number seed
 RANDOMIZ          1.        1.
 * Set the number of primary histories to be simulated in the run
