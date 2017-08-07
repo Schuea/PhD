@@ -27,8 +27,9 @@ void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, int integ
 void Draw_multiple_plots (int num_layers, int start_layer, std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, int integral_startbin, bool integral_numhits);
 void Print_multiple_plots_from_same_vec (int num_layers, std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, int integral_startbin, bool integral_numhits, std::string output);
 
+double weight = 1.0;
 //For BDS Muon study only:
-double weight = 0.08846; //The weight is the same for both scenarios, for both, the electron and the positron line, e.g.: 5sp+wall, elec: (4321/10155 * 898.34)/4321
+//weight = 0.08846; //The weight is the same for both scenarios, for both, the electron and the positron line, e.g.: 5sp+wall, elec: (4321/10155 * 898.34)/4321
 
 int main(int const argc, char const * const * const argv) {
   std::vector<std::string> *inputfilenames = new std::vector<std::string>();
