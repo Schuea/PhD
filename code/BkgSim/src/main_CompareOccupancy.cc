@@ -80,12 +80,12 @@ void Plot_everything(std::vector< std::string > inputfilenames, std::string laye
   canvas->Print( ("output/Occupancy_Comparison_"+layer+"_"+outputfilename+".pdf").c_str() );
   canvas->Print( ("output/Occupancy_Comparison_"+layer+"_"+outputfilename+".cxx").c_str() );
 
-  Plot_Comparison_histos( inputfilenames, layer+"_losthits", "Assumend buffer depth", "Number of hits lost" );
+  Plot_Comparison_histos( inputfilenames, layer+"_losthits", "Assumed buffer depth", "Number of hits lost" );
   canvas->Update();
   canvas->Print( ("output/Occupancy_Comparison_"+layer+"_losthits_"+outputfilename+".pdf").c_str() );
   canvas->Print( ("output/Occupancy_Comparison_"+layer+"_losthits_"+outputfilename+".cxx").c_str() );
 
-  Plot_Comparison_histos( inputfilenames, layer+"_deadcells", "Assumend buffer depth", "Number of dead cells" );
+  Plot_Comparison_histos( inputfilenames, layer+"_deadcells", "Assumed buffer depth", "Number of dead cells" );
   canvas->Update();
   canvas->Print( ("output/Occupancy_Comparison_"+layer+"_deadcells_"+outputfilename+".pdf").c_str() );
   canvas->Print( ("output/Occupancy_Comparison_"+layer+"_deadcells_"+outputfilename+".cxx").c_str() );
@@ -105,7 +105,7 @@ void Plot_everything(std::vector< std::string > inputfilenames, std::string laye
 }
 
 void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::string histoname, std::string x_title, std::string y_title){
-  TLegend* legend = new TLegend(0.58,0.65,0.98,0.85);
+  TLegend* legend = new TLegend(0.5,0.6,0.98,0.85);
   legend->SetFillColor(kWhite);
 
   std::string name;
