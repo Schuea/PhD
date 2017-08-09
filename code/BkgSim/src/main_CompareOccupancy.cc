@@ -11,7 +11,7 @@
 #include <sstream>
 #include "Style.h"
 
-void Plot_everything(std::vector< std::string > inputfilenames, std::string layer, std::string outputfilename); 
+void Plot_everything(std::vector< std::string > inputfilenames, std::string layer, std::string outputfilename);
 void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::string histoname, std::string x_title, std::string y_title);
 
 int main(int const argc, char const * const * const argv){
@@ -50,11 +50,6 @@ int main(int const argc, char const * const * const argv){
 		}
 	}
 
-
-  std::stringstream new_outputfilename;
-  new_outputfilename << "output/Occupancy_Comparison_" << outputfilename << ".root";
-	TFile* ROOTFile = new TFile(new_outputfilename.str().c_str(),"RECREATE","Comparison of occupancies");
-
   Plot_everything( inputfilenames, "All_layers", outputfilename );
   Plot_everything( inputfilenames, "Layer_0", outputfilename );
   Plot_everything( inputfilenames, "Layer_1", outputfilename );
@@ -62,9 +57,6 @@ int main(int const argc, char const * const * const argv){
   Plot_everything( inputfilenames, "Layer_3", outputfilename );
   Plot_everything( inputfilenames, "Layer_4", outputfilename );
 
-	std::cout << "Output will be created: " << outputfilename << std::endl;
-	ROOTFile->Write();
-	ROOTFile->Close();
 	return 0;
 }
 
@@ -116,7 +108,11 @@ void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::stri
     TFile* inputfile = new TFile( inputfilenames.at(no_files).c_str() );
     std::ifstream ifile( inputfilenames.at(no_files).c_str() );
     if( (bool)ifile == 1){
-      TH1F* temp = (TH1F*) inputfile->Get( histoname.c_str() );
+      TH1F* temp = new TH1F();
+      temp = (TH1F*) inputfile->Get( histoname.c_str() );
+      //if ( histoname.find("deadcells") != std::string::npos ){
+        temp->SetMinimum(std::pow(10.0,-9.0));
+      //}
       temp->SetLineWidth(2);
       temp->SetMarkerSize(0.7);
       if(no_files == 0){
