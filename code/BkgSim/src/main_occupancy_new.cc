@@ -459,7 +459,7 @@ void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, int integ
   if(normalize == true){
     histo->Scale(1.0/histo->GetBinContent(1));
     histo->SetMinimum( pow(10,-12) );
-    histo->SetMaximum( 1.1*normalized_max );
+    histo->SetMaximum( 2*normalized_max );
   }
   histo->SetLineColor(2);
   histo->Draw("hist");
@@ -510,7 +510,7 @@ void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool nor
       if(normalize == true){
         histos.at(number_histo)->Scale(1.0/histos.at(number_histo)->GetBinContent(1));
         histos.at(number_histo)->SetMinimum( pow(10,-12) );
-        histos.at(number_histo)->SetMaximum( 1.1*normalized_max );
+        histos.at(number_histo)->SetMaximum( 2*normalized_max );
       }
       else{
         histos.at(number_histo)->SetMaximum(max);
@@ -550,7 +550,7 @@ void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool nor
       if(normalize == true){
         histos.at(number_histo)->Scale(1.0/histos.at(number_histo)->GetBinContent(1));
         histos.at(number_histo)->SetMinimum( pow(10,-12) );
-        histos.at(number_histo)->SetMaximum( normalized_max );
+        histos.at(number_histo)->SetMaximum( 2*normalized_max );
       }
       else{
         histos.at(number_histo)->SetMaximum(max);
