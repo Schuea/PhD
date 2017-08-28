@@ -247,11 +247,9 @@ int main(int const argc, char const * const * const argv) {
 
   //Find out the maximum number of hits per cell and the total number of hits overall
   int tot_no_hits;
-  int tot_no_hit_cells;
   int max_no_hits = 0;
 
-  tot_no_hit_cells = cellhits.Get_HitCount().size();
-  for (size_t vecpos = 0; vecpos < tot_no_hit_cells; ++vecpos) {
+  for (size_t vecpos = 0; vecpos < cellhits.Get_HitCount().size(); ++vecpos) {
     if (cellhits.Get_HitCount().at(vecpos) > max_no_hits){
       max_no_hits = cellhits.Get_HitCount().at(vecpos);
     }
@@ -319,8 +317,6 @@ int main(int const argc, char const * const * const argv) {
       long long int deadcells = 0;
       for (int bin = i+1; bin < histos.at(number_layer)->GetNbinsX(); ++bin) {//go through the histo from bufferdepth value onwards
         tot += histos.at(number_layer)->GetBinContent(bin) * ( histos.at(number_layer)->GetBinLowEdge(bin) - i );//how many hits would be lost with given bufferdepth: Sum the number of hits in each of these bins minus the bufferdepth value !
-      }
-      for (int bin = i; bin < histos.at(number_layer)->GetNbinsX(); ++bin) {//go through the histo from bufferdepth value onwards
         deadcells += histos.at(number_layer)->GetBinContent(bin);
       }
       histos_bufferdepth.at(number_layer)->SetBinContent(i+1, tot);
@@ -332,8 +328,6 @@ int main(int const argc, char const * const * const argv) {
     long long int deadcells = 0;
     for (int bin = i+1; bin < All_Layers_histo->GetNbinsX(); ++bin) {//go through the histo from bufferdepth value onwards
       tot += All_Layers_histo->GetBinContent(bin) * ( All_Layers_histo->GetBinLowEdge(bin) - i );//Sum the total number of hits in each of these bins minus the bufferdepth value !
-    }
-    for (int bin = i; bin < All_Layers_histo->GetNbinsX(); ++bin) {//go through the histo from bufferdepth value onwards
       deadcells += All_Layers_histo->GetBinContent(bin);
     }
     All_Layers_histo_bufferdepth->SetBinContent(i+1, tot);
@@ -344,7 +338,6 @@ int main(int const argc, char const * const * const argv) {
   std::cout<< "Total number of hits counted for subdetector "<< subdetectorname <<std::endl;
   std::cout << tot_no_hits <<std::endl;
   std::cout<< "Total number of cells that are hit for subdetector "<< subdetectorname <<std::endl;
-  std::cout << tot_no_hit_cells <<std::endl;
   std::cout << tot_num_hitcells <<std::endl;
   std::cout<< "---------------" <<std::endl;
 
