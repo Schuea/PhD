@@ -254,15 +254,15 @@ int main(int const argc, char const * const * const argv) {
   }
 
   std::string subdetectorname = det.getName();
-	TFile* Outputfile = new TFile(("output/Occupancy_"+subdetectorname+"_"+outputfile_name+".root").c_str(),"RECREATE");
+	TFile* Outputfile = new TFile(("output/OccupancyMap_"+subdetectorname+"_"+outputfile_name+".root").c_str(),"RECREATE");
   //Make histogram vectors for storing the histograms
   std::vector < std::string > title;
   if (barrel){
-    title.emplace_back( "Occupancy for " + subdetectorname + ";z [mm];phi [rad];Number of hits per cell" );
+    title.emplace_back( "Occupancy map for " + subdetectorname + ";z [mm];phi [rad];Number of hits per cell" );
     title.emplace_back( "Number of dead cells for" + subdetectorname + ";z [mm];phi [rad];Number of dead cells" );
   }
   else {
-    title.emplace_back( "Occupancy for " + subdetectorname + ";x [mm];y [mm];Number of hits per cell" );
+    title.emplace_back( "Occupancy map for " + subdetectorname + ";x [mm];y [mm];Number of hits per cell" );
     title.emplace_back( "Number of dead cells for" + subdetectorname + ";x [mm];y [mm];Number of dead cells" );
   }
 
