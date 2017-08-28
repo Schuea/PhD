@@ -489,10 +489,10 @@ void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool nor
     //histos.at(number_histo)->Scale(weight);
   }
   double max=GetMinMaxForMultipleOverlappingHistograms(histos,true).second;
-  double normalized_max = 0.0;
   for (size_t number_histo = 0; number_histo< histos.size(); ++number_histo) {
     if(number_histo == 0){
       int tot = 0;
+      double normalized_max = 0.0;
       for(int bin = integral_startbin; bin <= histos.at(number_histo)->GetNbinsX(); ++bin){
         if (integral_numhits == true) tot += histos.at(number_histo)->GetBinContent(bin)*histos.at(number_histo)->GetBinLowEdge(bin);
         else tot += histos.at(number_histo)->GetBinContent(bin);
@@ -536,10 +536,14 @@ void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool nor
     }
     if(number_histo > 0){
       int tot = 0;
+      double normalized_max = 0.0;
       for(int bin = integral_startbin; bin <= histos.at(number_histo)->GetNbinsX(); ++bin){
         if (integral_numhits == true) tot += histos.at(number_histo)->GetBinContent(bin)*histos.at(number_histo)->GetBinLowEdge(bin);
         else tot += histos.at(number_histo)->GetBinContent(bin);
+        if(bin > 1 && normalized_max < histos.at(number_histo)->GetBinContent(bin)) normalized_max = histos.at(number_histo)->GetBinContent(bin);//After normalization, the first bin is not interesting any more -> find maximum of distribution for setting the y-axis range 
       }
+      normalized_max = normalized_max / histos.at(number_histo)->GetBinContent(1);
+
       if(normalize == true){
         histos.at(number_histo)->Scale(1.0/histos.at(number_histo)->GetBinContent(1));
         histos.at(number_histo)->SetMinimum( pow(10,-12) );
