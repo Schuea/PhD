@@ -2,6 +2,7 @@
 #include "TTree.h"
 #include "TCanvas.h"
 #include "TH2D.h"
+#include "TH3D.h"
 #include "TPaveStats.h"
 
 
@@ -28,6 +29,7 @@ long long int MakeNewCellID(double const x, double const y, Subdetector const & 
 std::pair< double, double > Get_historange(int layer, Subdetector detector);
 std::pair< double, double > Get_historangebins(int layer, Subdetector detector);
 void Draw_single_plots ( TH2D* histo );
+void Draw_single_plots ( TH3D* histo );
 
 double weight = 1.0;
 
@@ -265,9 +267,11 @@ int main(int const argc, char const * const * const argv) {
     title.emplace_back( "Occupancy map for " + subdetectorname + ";x [mm];y [mm];Number of hits per cell" );
     title.emplace_back( "Number of dead cells for" + subdetectorname + ";x [mm];y [mm];Number of dead cells" );
   }
+  title.emplace_back( "Hitpositions for" + subdetectorname + ";x [mm];y [mm];z [mm];Number of hits" );
 
   std::vector< TH2D* > histos;
   std::vector< TH2D* > histos_deadcells;
+  std::vector< TH3D* > histos3D;
 
   //Find out the maximum number of hits per cell and the total number of hits overall
   int tot_no_hits;
@@ -288,9 +292,10 @@ int main(int const argc, char const * const * const argv) {
   double yrangebins = 1.0;
 
   for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
-    std::stringstream layername, layername2, layername3, layername4;
+    std::stringstream layername, layername2, layername3;
     layername << "Layer_" << number_layer;
     layername2 << "Layer_" << number_layer << "_deadcells";
+    layername3 << "Layer_" << number_layer << "_3D";
     if (Silicon){
       xrange = Get_historange(number_layer, det).first;
       yrange = Get_historange(number_layer, det).second;
@@ -310,6 +315,8 @@ int main(int const argc, char const * const * const argv) {
     //TH2D* temp2 = new TH2D(layername2.str().c_str(), title.at(1).c_str(), xrangebins, -xrange, xrange, yrangebins, -yrange, yrange);
     histos.push_back( temp1 );
     histos_deadcells.push_back( temp2 );
+    TH3D* temp3 = new TH3D(layername3.str().c_str(), title.at(2).c_str(), 300, -det.getRLayer().at(number_layer)*1.1, det.getRLayer().at(number_layer)*1.1, 200, -det.getRLayer().at(number_layer)*1.1, det.getRLayer().at(number_layer)*1.1, 200, -det.getZHalf().at(number_layer)*1.1, det.getZHalf().at(number_layer)*1.1 );
+    histos3D.push_back( temp3 );
   }
   //Filling the primary histograms with the entries from the cellhits
   double xvalue = 0.0;
@@ -326,8 +333,14 @@ int main(int const argc, char const * const * const argv) {
         xvalue = cellhits.Get_HitPosition('x').at(vecpos);
         yvalue = cellhits.Get_HitPosition('y').at(vecpos);
       }
-      if (Silicon) histos.at(current_layer -1 ) -> Fill( xvalue, yvalue, cellhits.Get_HitCount().at(vecpos) );//-1 for Silicon detectors only, because layer count starts from 1
-      else  histos.at(current_layer) -> Fill( xvalue, yvalue, cellhits.Get_HitCount().at(vecpos) );
+      if (Silicon){
+        histos.at(current_layer -1 ) -> Fill( xvalue, yvalue, cellhits.Get_HitCount().at(vecpos) );//-1 for Silicon detectors only, because layer count starts from 1
+        histos3D.at(current_layer -1 ) -> Fill( cellhits.Get_HitPosition('x').at(vecpos), cellhits.Get_HitPosition('y').at(vecpos), cellhits.Get_HitPosition('z').at(vecpos) );//-1 for Silicon detectors only, because layer count starts from 1
+      }
+      else{
+        histos.at(current_layer) -> Fill( xvalue, yvalue, cellhits.Get_HitCount().at(vecpos) );
+        histos3D.at(current_layer) -> Fill( cellhits.Get_HitPosition('x').at(vecpos), cellhits.Get_HitPosition('y').at(vecpos), cellhits.Get_HitPosition('z').at(vecpos) );//-1 for Silicon detectors only, because layer count starts from 1
+      }
     }
   }
 
@@ -355,14 +368,38 @@ int main(int const argc, char const * const * const argv) {
     Draw_single_plots( histos.at(number_layer) ); 
     std::stringstream histos_output;
     histos_output << "output/OccupancyMap_" << subdetectorname << "_layer_" << number_layer << "_" << outputfile_name;
+    canvas->Update();
     canvas->Print((histos_output.str() + ".pdf").c_str());
     canvas->Print((histos_output.str() + ".cxx").c_str());
 
     Draw_single_plots ( histos_deadcells.at(number_layer) );
     std::stringstream histos_deadcells_output;
     histos_deadcells_output << "output/OccupancyMap_deadcells_" << subdetectorname << "_layer_" << number_layer << "_" << outputfile_name;
+    canvas->Update();
     canvas->Print((histos_deadcells_output.str() + ".pdf").c_str());
     canvas->Print((histos_deadcells_output.str() + ".cxx").c_str());
+  }
+  TCanvas *canvas2 = new TCanvas("canvas2", "canvas2", 800, 600);
+  for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
+    gStyle->SetCanvasPreferGL(kTRUE);
+    gStyle->SetPalette(1);
+    TPad *th3Pad  = new TPad("box", "box", 0.01, 0.01, 0.99, 0.84);
+    th3Pad->SetTopMargin(0);
+    th3Pad->SetBottomMargin(0);
+    th3Pad->Draw();
+    th3Pad->cd();
+    //histo->SetContour(Max);
+    histos3D.at(number_layer)->SetDirectory(0);
+    //histo->SetStats(1);
+    histos3D.at(number_layer)->Draw("glcolz");
+    histos3D.at(number_layer)->Write();
+    //Draw_single_plots( histos3D.at(number_layer) ); 
+    std::stringstream histos3D_output;
+    histos3D_output << "output/OccupancyMap_3D_" << subdetectorname << "_layer_" << number_layer << "_" << outputfile_name;
+    canvas2->Write();
+    canvas2->SaveAs((histos3D_output.str() + ".png").c_str());
+    canvas2->SaveAs((histos3D_output.str() + ".pdf").c_str());
+    canvas2->SaveAs((histos3D_output.str() + ".cxx").c_str());
   }
 
 	Outputfile->Write();
@@ -393,13 +430,16 @@ int CalculateLayer(long long int const id, Subdetector const & SubDetector) {
 }
 
 double CalculatePhi(double x, double y){
-  double phi =0;
-  if(x>0) return phi = atan(y/x);
-  if(x<0 && y>=0) return phi = atan(y/x) + M_PI;
-  if(x<0 && y<0)  return phi = atan(y/x) - M_PI;
-  if(x==0 && y>0)  return phi = 0.5*M_PI;
-  if(x==0 && y<0)  return phi = -0.5*M_PI;
-  else return -101;
+  double phi = 0.0;
+  phi = atan2(y,x);
+  //std::cout << "x = " << x << ", y = " << y << " -> phi = " << phi << std::endl;
+  return phi;
+  //if(x>0) return phi = atan(y/x);
+  //if(x<0 && y>=0) return phi = atan(y/x) + M_PI;
+  //if(x<0 && y<0)  return phi = atan(y/x) - M_PI;
+  //if(x==0 && y>0)  return phi = 0.5*M_PI;
+  //if(x==0 && y<0)  return phi = -0.5*M_PI;
+  //else return -101;
 }
 
 long long int MakeNewCellID(double const x, double const y, Subdetector const & component){
@@ -454,8 +494,18 @@ std::pair< double, double > Get_historangebins(int layer, Subdetector detector){
 }
 
 void Draw_single_plots ( TH2D* histo){
+  gStyle->SetCanvasPreferGL(kFALSE);
   histo->SetStats(1);
   //histo->SetMinimum(0.1);
   histo->Draw("colz");
 }
-
+void Draw_single_plots ( TH3D* histo){
+  gStyle->SetCanvasPreferGL(kTRUE);
+  gStyle->SetPalette(1);
+  //histo->SetContour(Max);
+  histo->SetDirectory(0);
+  histo->SetStats(1);
+  //histo->SetMinimum(0.1);
+  histo->Draw("glcolz");
+  histo->Write();
+}
