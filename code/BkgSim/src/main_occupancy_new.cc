@@ -303,6 +303,7 @@ int main(int const argc, char const * const * const argv) {
   //Filling numcells plots: fill with bin contents from occupancy plots in 'histos', then normalize it by first bin when drawing
   long long int tot_num_cells = 0;
   long long int tot_num_hitcells = 0;
+  std::vector< long long int > tot_num_hitcells_per_layer;
   for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
     tot_num_cells += det.getNumberOfCells().at(number_layer);
     for (int bin = 2; bin < histos.at(number_layer)->GetNbinsX(); ++bin) {
@@ -310,7 +311,8 @@ int main(int const argc, char const * const * const argv) {
       histos_numcells.at(number_layer)->SetBinContent(bin, histos.at(number_layer)->GetBinContent(bin) );
     }
     histos.at( number_layer )->SetBinContent(1, det.getNumberOfCells().at(number_layer) - tot_num_hitcells );//Set first bin to number of cells that didn't get hit
-    histos_numcells.at( number_layer )->SetBinContent(1, det.getNumberOfCells().at(number_layer));//Set first bin to total number of cells per layer
+    histos_numcells.at( number_layer )->SetBinContent(1, det.getNumberOfCells().at(number_layer) - tot_num_hitcells);
+    tot_num_hitcells_per_layer.push_back(tot_num_hitcells);//store number of cells that got hit per layer in this vector
     tot_num_hitcells = 0;
   }
   for (int bin = 2; bin < All_Layers_histo->GetNbinsX(); ++bin) {
@@ -318,7 +320,7 @@ int main(int const argc, char const * const * const argv) {
     All_Layers_histo_numcells->SetBinContent(bin, All_Layers_histo->GetBinContent(bin));
   }
   All_Layers_histo->SetBinContent(1, tot_num_cells - tot_num_hitcells);//Set first bin to number of cells that didn't get hit
-  All_Layers_histo_numcells->SetBinContent(1, tot_num_cells);//Set first bin to total number of cells
+  All_Layers_histo_numcells->SetBinContent(1, tot_num_cells - tot_num_hitcells);
 
   //Filling bufferdepth plots:
   for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
@@ -360,6 +362,10 @@ int main(int const argc, char const * const * const argv) {
   }
   std::cout << "Total number of cells that are hit for subdetector " << subdetectorname << std::endl;
   std::cout << tot_num_hitcells << std::endl;
+  std::cout << "For layer: " << std::endl;
+  for(int layer_no = 0; layer_no < det.getNumberOfCells().size(); ++layer_no){
+    std::cout << layer_no << ": " << tot_num_hitcells_per_layer.at(layer_no) << std::endl;
+  }
   std::cout << "---------------" << std::endl;
 
   //Plot the histogram and save it
@@ -373,7 +379,7 @@ int main(int const argc, char const * const * const argv) {
 
   std::stringstream output2;
   output2 << "output/occupancy_numcells_" << subdetectorname << "_" << outputfile_name;
-  Print_multiple_plots_from_same_vec (histos_numcells, canvas, true, std::vector< long long int >(), 2, true,  output2.str());
+  Print_multiple_plots_from_same_vec (histos_numcells, canvas, true, det.getNumberOfCells(), 2, true,  output2.str());
 
   std::stringstream output3;
   output3 << "output/occupancy_bufferdepth_" << subdetectorname << "_" << outputfile_name;
@@ -393,7 +399,7 @@ int main(int const argc, char const * const * const argv) {
   canvas->Print((All_output.str() + ".pdf").c_str());
   canvas->Print((All_output.str() + ".cxx").c_str());
 
-  Draw_single_plots ( All_Layers_histo_numcells,canvas, true, 0.0, 2, true); 
+  Draw_single_plots ( All_Layers_histo_numcells,canvas, tot_num_cells, 0.0, 2, true); 
   std::stringstream All_numcells_output1;
   All_numcells_output1 << "output/occupancy_numcells_all_layers_" << subdetectorname << "_" << outputfile_name;
   canvas->Print((All_numcells_output1.str() + ".pdf").c_str());
