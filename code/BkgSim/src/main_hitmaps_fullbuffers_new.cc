@@ -378,28 +378,8 @@ int main(int const argc, char const * const * const argv) {
     canvas->Update();
     canvas->Print((histos_deadcells_output.str() + ".pdf").c_str());
     canvas->Print((histos_deadcells_output.str() + ".cxx").c_str());
-  }
-  TCanvas *canvas2 = new TCanvas("canvas2", "canvas2", 800, 600);
-  for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
-    gStyle->SetCanvasPreferGL(kTRUE);
-    gStyle->SetPalette(1);
-    TPad *th3Pad  = new TPad("box", "box", 0.01, 0.01, 0.99, 0.84);
-    th3Pad->SetTopMargin(0);
-    th3Pad->SetBottomMargin(0);
-    th3Pad->Draw();
-    th3Pad->cd();
-    //histo->SetContour(Max);
-    histos3D.at(number_layer)->SetDirectory(0);
-    //histo->SetStats(1);
-    histos3D.at(number_layer)->Draw("glcolz");
-    histos3D.at(number_layer)->Write();
-    //Draw_single_plots( histos3D.at(number_layer) ); 
-    std::stringstream histos3D_output;
-    histos3D_output << "output/OccupancyMap_3D_" << subdetectorname << "_layer_" << number_layer << "_" << outputfile_name;
-    canvas2->Write();
-    canvas2->SaveAs((histos3D_output.str() + ".png").c_str());
-    canvas2->SaveAs((histos3D_output.str() + ".pdf").c_str());
-    canvas2->SaveAs((histos3D_output.str() + ".cxx").c_str());
+    
+    Draw_single_plots( histos3D.at(number_layer) ); 
   }
 
 	Outputfile->Write();
@@ -494,18 +474,12 @@ std::pair< double, double > Get_historangebins(int layer, Subdetector detector){
 }
 
 void Draw_single_plots ( TH2D* histo){
-  gStyle->SetCanvasPreferGL(kFALSE);
   histo->SetStats(1);
   //histo->SetMinimum(0.1);
   histo->Draw("colz");
 }
 void Draw_single_plots ( TH3D* histo){
-  gStyle->SetCanvasPreferGL(kTRUE);
-  gStyle->SetPalette(1);
-  //histo->SetContour(Max);
-  histo->SetDirectory(0);
   histo->SetStats(1);
   //histo->SetMinimum(0.1);
-  histo->Draw("glcolz");
-  histo->Write();
+  histo->Draw("");
 }
