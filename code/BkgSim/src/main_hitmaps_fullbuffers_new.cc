@@ -249,6 +249,7 @@ int main(int const argc, char const * const * const argv) {
       }
       //std::cout << "HitCellID1 = " << HitCellID1 << std::endl;
       long long int const combined_cell_id = (long long) HitCellID1 << 32 | HitCellID0;
+      //std::cout << "combined_cell_id = " << combined_cell_id << std::endl;
       //Use the CellHits class for storing the hit cells and their hitcounts
       cellhits.Check_CellID(combined_cell_id, HitPosition_x, HitPosition_y, HitPosition_z);
     }
@@ -267,7 +268,7 @@ int main(int const argc, char const * const * const argv) {
     title.emplace_back( "Occupancy map for " + subdetectorname + ";x [mm];y [mm];Number of hits per cell" );
     title.emplace_back( "Number of dead cells for" + subdetectorname + ";x [mm];y [mm];Number of dead cells" );
   }
-  title.emplace_back( "Hitpositions for" + subdetectorname + ";x [mm];y [mm];z [mm];Number of hits" );
+  title.emplace_back( "Hitpositions for" + subdetectorname + ";z [mm];x [mm];y [mm];Number of hits" );
 
   std::vector< TH2D* > histos;
   std::vector< TH2D* > histos_deadcells;
@@ -315,7 +316,8 @@ int main(int const argc, char const * const * const argv) {
     //TH2D* temp2 = new TH2D(layername2.str().c_str(), title.at(1).c_str(), xrangebins, -xrange, xrange, yrangebins, -yrange, yrange);
     histos.push_back( temp1 );
     histos_deadcells.push_back( temp2 );
-    TH3D* temp3 = new TH3D(layername3.str().c_str(), title.at(2).c_str(), 300, -det.getRLayer().at(number_layer)*1.1, det.getRLayer().at(number_layer)*1.1, 200, -det.getRLayer().at(number_layer)*1.1, det.getRLayer().at(number_layer)*1.1, 200, -det.getZHalf().at(number_layer)*1.1, det.getZHalf().at(number_layer)*1.1 );
+    //TH3D* temp3 = new TH3D(layername3.str().c_str(), title.at(2).c_str(), 100, -det.getZHalf().at(number_layer)*1.1, det.getZHalf().at(number_layer)*1.1, 100, -det.getRLayer().at(number_layer)*1.1, det.getRLayer().at(number_layer)*1.1, 100, -det.getRLayer().at(number_layer)*1.1, det.getRLayer().at(number_layer)*1.1 );
+    TH3D* temp3 = new TH3D(layername3.str().c_str(), title.at(2).c_str(), 120, -det.getZHalf().at(number_layer)*1.1, det.getZHalf().at(number_layer)*1.1, 120, -det.getRLayer().at(number_layer)*1.1, det.getRLayer().at(number_layer)*1.1, 120, -det.getRLayer().at(number_layer)*1.1, det.getRLayer().at(number_layer)*1.1 );
     histos3D.push_back( temp3 );
   }
   //Filling the primary histograms with the entries from the cellhits
@@ -330,16 +332,23 @@ int main(int const argc, char const * const * const argv) {
         yvalue = CalculatePhi( cellhits.Get_HitPosition('x').at(vecpos), cellhits.Get_HitPosition('y').at(vecpos));
       }
       else {
+        if (cellhits.Get_HitPosition('z').at(vecpos) < 0) continue;
         xvalue = cellhits.Get_HitPosition('x').at(vecpos);
         yvalue = cellhits.Get_HitPosition('y').at(vecpos);
       }
       if (Silicon){
+        //histos.at(current_layer -1 ) -> Fill( xvalue, yvalue );//-1 for Silicon detectors only, because layer count starts from 1
         histos.at(current_layer -1 ) -> Fill( xvalue, yvalue, cellhits.Get_HitCount().at(vecpos) );//-1 for Silicon detectors only, because layer count starts from 1
-        histos3D.at(current_layer -1 ) -> Fill( cellhits.Get_HitPosition('x').at(vecpos), cellhits.Get_HitPosition('y').at(vecpos), cellhits.Get_HitPosition('z').at(vecpos) );//-1 for Silicon detectors only, because layer count starts from 1
+        if(cellhits.Get_HitCount().at(vecpos)<100){
+          histos3D.at(current_layer -1 ) -> Fill( cellhits.Get_HitPosition('z').at(vecpos), cellhits.Get_HitPosition('x').at(vecpos), cellhits.Get_HitPosition('y').at(vecpos), cellhits.Get_HitCount().at(vecpos) );//-1 for Silicon detectors only, because layer count starts from 1
+        }
       }
       else{
+        //histos.at(current_layer) -> Fill( xvalue, yvalue );
         histos.at(current_layer) -> Fill( xvalue, yvalue, cellhits.Get_HitCount().at(vecpos) );
-        histos3D.at(current_layer) -> Fill( cellhits.Get_HitPosition('x').at(vecpos), cellhits.Get_HitPosition('y').at(vecpos), cellhits.Get_HitPosition('z').at(vecpos) );//-1 for Silicon detectors only, because layer count starts from 1
+        if(cellhits.Get_HitCount().at(vecpos)<100){
+          histos3D.at(current_layer) -> Fill( cellhits.Get_HitPosition('z').at(vecpos), cellhits.Get_HitPosition('x').at(vecpos), cellhits.Get_HitPosition('y').at(vecpos), cellhits.Get_HitCount().at(vecpos) );//-1 for Silicon detectors only, because layer count starts from 1
+        }
       }
     }
   }
@@ -423,8 +432,8 @@ double CalculatePhi(double x, double y){
 }
 
 long long int MakeNewCellID(double const x, double const y, Subdetector const & component){
-  int newX = static_cast<int>(x/component.getCellSizeX()); //Check if Cell Size Area is the same as Cell Dimension
-  int newY = static_cast<int>(y/component.getCellSizeY()); //Check if Cell Size Area is the same as Cell Dimension
+  int newX = static_cast<int>(x/component.getCellSizeX());
+  int newY = static_cast<int>(y/component.getCellSizeY());
   if(x >= 0) ++newX;
   if(y >= 0) ++newY;
   bitset<32> bitY = newY;
@@ -481,5 +490,5 @@ void Draw_single_plots ( TH2D* histo){
 void Draw_single_plots ( TH3D* histo){
   histo->SetStats(1);
   //histo->SetMinimum(0.1);
-  histo->Draw("");
+  histo->Draw("colz");
 }
