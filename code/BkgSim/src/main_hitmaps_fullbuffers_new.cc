@@ -11,6 +11,7 @@
 #include <iomanip>
 #include <ctime>
 #include <sstream>
+#include <fstream>
 #include <limits>
 #include <string>
 #include <vector>
@@ -72,19 +73,22 @@ int main(int const argc, char const * const * const argv) {
         argv[i + 1] != std::string("-b") && 
         argv[i + 1] != std::string("-s")) {
       if (argv[i + 1] != NULL) {
-        int j = 1;
-        do {
-          if (argv[i + j] != std::string("-n") && 
-              argv[i + j] != std::string("-o") &&
-              argv[i + j] != std::string("-b") &&
-              argv[i + j] != std::string("-s")) {
-            inputfilenames->push_back(argv[i + j]);
-            ++j;
-          } else {
-            break;
-          }
-        } while (j <= NUMBER_OF_FILES);
-        inputfile_set = true;
+        std::string filelist = argv[i + 1];
+        if (access(filelist.c_str(), F_OK) == -1 ) {
+          std::cerr << "The text file does not exist!" << std::endl;
+          exit(2);
+        }
+        else {
+          std::ifstream inputfilelist( filelist );
+          int line = 1;
+          std::string file;
+          do {
+            std::getline(inputfilelist, file);
+            inputfilenames->push_back(file);
+            ++line;
+          } while (line <= NUMBER_OF_FILES);
+          inputfile_set = true;
+        }
       } else {
         std::cerr << "You didn't give an argument for the inputfile(s)!" << std::endl;
       }
@@ -168,6 +172,7 @@ int main(int const argc, char const * const * const argv) {
 
   CellHits cellhits( &det );
   for (int file_iterator = 0; file_iterator < NUMBER_OF_FILES; ++file_iterator) {
+    //std::cout << inputfilenames->at(file_iterator) << std::endl;
     TFile *file = TFile::Open(inputfilenames->at(file_iterator).c_str());
     TTree *tree = Get_TTree(file, det.getName());
 
@@ -227,7 +232,7 @@ int main(int const argc, char const * const * const argv) {
         HitPosition_y = F_HitPosition_y;
         HitPosition_z = F_HitPosition_z;
       }
-      //if (pdg != 13 && pdg != -13) continue;
+      if (pdg < 11) continue;
       //if (endcap && *HitPosition_z < 0) continue;
       //std::cout << "HitPosition_x = " << HitPosition_x << std::endl;
       //std::cout << "HitPosition_y = " << HitPosition_y << std::endl;
@@ -247,9 +252,9 @@ int main(int const argc, char const * const * const argv) {
         std::cerr << "This subdetector shape was not recognized!" << std::endl; 
         exit(-1);
       }
-      //std::cout << "HitCellID1 = " << HitCellID1 << std::endl;
+      std::cout << "HitCellID1 = " << HitCellID1 << std::endl;
       long long int const combined_cell_id = (long long) HitCellID1 << 32 | HitCellID0;
-      //std::cout << "combined_cell_id = " << combined_cell_id << std::endl;
+      std::cout << "combined_cell_id = " << combined_cell_id << std::endl;
       //Use the CellHits class for storing the hit cells and their hitcounts
       cellhits.Check_CellID(combined_cell_id, HitPosition_x, HitPosition_y, HitPosition_z);
     }
@@ -432,8 +437,10 @@ double CalculatePhi(double x, double y){
 }
 
 long long int MakeNewCellID(double const x, double const y, Subdetector const & component){
+  std::cout << "x = " << x << ", y = " << y << std::endl;
   int newX = static_cast<int>(x/component.getCellSizeX());
   int newY = static_cast<int>(y/component.getCellSizeY());
+  std::cout << "newX = " << newX << ", newY = " << newY << std::endl;
   if(x >= 0) ++newX;
   if(y >= 0) ++newY;
   bitset<32> bitY = newY;
