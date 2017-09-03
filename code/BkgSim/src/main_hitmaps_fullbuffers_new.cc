@@ -15,6 +15,7 @@
 #include <limits>
 #include <string>
 #include <vector>
+#include <iomanip>
 
 #include "UsefulFunctions.h"
 #include "GeneralFunctions_SiDBkgSim_new.h"
@@ -25,8 +26,8 @@
 using namespace std;
 
 double CalculatePhi(double x, double y);
-int CalculateLayer(long long int const id, Subdetector const & SubDetector); 
-long long int MakeNewCellID(double const x, double const y, Subdetector const & component);
+uint64_t CalculateLayer(uint64_t const id, Subdetector const & SubDetector); 
+uint32_t MakeNewCellID(double const x, double const y, Subdetector const & component);
 std::pair< double, double > Get_historange(int layer, Subdetector detector);
 std::pair< double, double > Get_historangebins(int layer, Subdetector detector);
 void Draw_single_plots ( TH2D* histo );
@@ -219,8 +220,8 @@ int main(int const argc, char const * const * const argv) {
     //Combine the two Cell ID's into a single new Cell ID
     //See how often the new Cell ID occurs in total, this is the occupancy
 
-    long long int const entries = tree->GetEntries();
-    for (long long int i = 0; i < entries; ++i) {
+    uint64_t const entries = tree->GetEntries();
+    for (uint64_t i = 0; i < entries; ++i) {
       tree->GetEntry(i);
       if (Silicon){
         HitPosition_x = D_HitPosition_x;
@@ -238,7 +239,7 @@ int main(int const argc, char const * const * const argv) {
       //std::cout << "HitPosition_y = " << HitPosition_y << std::endl;
       //std::cout << "HitPosition_z = " << HitPosition_z << std::endl;
       //Make a combined cell ID
-      long long int HitCellID1 = 0;
+      uint32_t HitCellID1 = 0;
       if (endcap){
         HitCellID1 = MakeNewCellID(HitPosition_x,HitPosition_y,det);
       }
@@ -252,11 +253,12 @@ int main(int const argc, char const * const * const argv) {
         std::cerr << "This subdetector shape was not recognized!" << std::endl; 
         exit(-1);
       }
+      std::cout << "HitCellID0 = " << HitCellID0 << std::endl;
       std::cout << "HitCellID1 = " << HitCellID1 << std::endl;
-      long long int const combined_cell_id = (long long) HitCellID1 << 32 | HitCellID0;
+      uint64_t const combined_cell_id = (uint64_t(HitCellID1) << 32) | HitCellID0;
       std::cout << "combined_cell_id = " << combined_cell_id << std::endl;
       //Use the CellHits class for storing the hit cells and their hitcounts
-      cellhits.Check_CellID(combined_cell_id, HitPosition_x, HitPosition_y, HitPosition_z);
+      cellhits.Check_CellID(combined_cell_id, HitPosition_x, HitPosition_y, HitPosition_z, det);
     }
     file->Close();
   }
@@ -330,7 +332,7 @@ int main(int const argc, char const * const * const argv) {
   double yvalue = 0.0;
   for (size_t vecpos = 0; vecpos < cellhits.Get_HitCount().size(); ++vecpos) {
     if(cellhits.Get_HitCount().at(vecpos) > 0){
-      //std::cout << "Layer: " << cellhits.Get_Layer().at(vecpos) << std::endl;
+      std::cout << "Layer: " << cellhits.Get_Layer().at(vecpos) << std::endl;
       int current_layer = cellhits.Get_Layer().at(vecpos);
       if (barrel){
         xvalue = cellhits.Get_HitPosition('z').at(vecpos);
@@ -400,27 +402,32 @@ int main(int const argc, char const * const * const argv) {
   return 0;
 }
 
-int CalculateLayer(long long int const id, Subdetector const & SubDetector) {
-  std::bitset<64> cellidbit(id);
-  std::string CellID_ = cellidbit.to_string();
-  int LayerInt = -1;
-  std::stringstream LayerID;
+uint64_t CalculateLayer(uint64_t const id, Subdetector const & SubDetector) {
+//  std::ostringstream CellID_ss;
+//  CellID_ss << id;
+//  std::string CellID_;
+//  CellID_ = CellID_ss.str();
+//
+//  std::istringstream LayerID;
+//
+//  //This for loop calculates the layer id
+//  //From a sring of 0's and 1's, e.g. 00001011010010
+//  //The StartBin is the first bin in the string we are interested in (when reading from right to left)
+//  //The LengthBin is the length of the string we are interested in
+//  //We read from left to right, but we specify the start position from right to left
+//  //There is a magic +1 in there because strings start at element 0.
+//  for (int i = CellID_.size() - (SubDetector.getStartBitLayer() + SubDetector.getLengthBitLayer()); i <= CellID_.size() - (SubDetector.getStartBitLayer() + 1);
+//      ++i) {
+//    LayerID << CellID_.at(i);
+//  }
 
-  //This for loop calculates the layer id
-  //From a sring of 0's and 1's, e.g. 00001011010010
-  //The StartBin is the first bin in the string we are interested in (when reading from right to left)
-  //The LengthBin is the length of the string we are interested in
-  //We read from left to right, but we specify the start position from right to left
-  //There is a magic +1 in there because strings start at element 0.
-  for (int i = CellID_.size() - (SubDetector.getStartBitLayer() + SubDetector.getLengthBitLayer()); i <= CellID_.size() - (SubDetector.getStartBitLayer() + 1);
-      ++i) {
-    LayerID << CellID_.at(i);
-  }
+  uint64_t LayerID64;
+//  LayerID >> LayerID64
 
-  std::bitset<64> LayerIDbit(LayerID.str());
-  LayerInt = LayerIDbit.to_ulong();
+  LayerID64 = id << (64 - SubDetector.getLengthBitLayer() - SubDetector.getStartBitLayer());
+  LayerID64 = LayerID64 >> (64 - SubDetector.getLengthBitLayer());
 
-  return LayerInt;
+  return LayerID64;
 }
 
 double CalculatePhi(double x, double y){
@@ -436,19 +443,19 @@ double CalculatePhi(double x, double y){
   //else return -101;
 }
 
-long long int MakeNewCellID(double const x, double const y, Subdetector const & component){
+uint32_t MakeNewCellID(double const x, double const y, Subdetector const & component){
   std::cout << "x = " << x << ", y = " << y << std::endl;
-  int newX = static_cast<int>(x/component.getCellSizeX());
-  int newY = static_cast<int>(y/component.getCellSizeY());
-  std::cout << "newX = " << newX << ", newY = " << newY << std::endl;
+  uint16_t newX = static_cast<uint16_t>(x/component.getCellSizeX());
+  uint16_t newY = static_cast<uint16_t>(y/component.getCellSizeY());
   if(x >= 0) ++newX;
   if(y >= 0) ++newY;
-  bitset<32> bitY = newY;
-  newY = 0;
-  for(int i = 0; i < 31; ++i){
-    newY += bitY[i]*pow(2,i);
-  }
-  return (long long int) newX << 32 | newY;
+  std::cout << "newX = " << newX << ", newY = " << newY << std::endl;
+  //uint32_t bitY = newY;
+  //newY = 0;
+  //for(int i = 0; i < 31; ++i){
+  //  newY += bitY[i]*pow(2,i);
+  //}
+  return (uint32_t(newX) << 16) | newY;
 }
 
 std::pair< double, double > Get_historange(int layer, Subdetector detector){

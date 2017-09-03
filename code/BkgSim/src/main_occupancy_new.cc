@@ -221,7 +221,7 @@ int main(int const argc, char const * const * const argv) {
       //std::cout << "HitCellID1 = " << HitCellID1 << std::endl;
       long long int const combined_cell_id = (long long) HitCellID1 << 32 | HitCellID0;
       //Use the CellHits class for storing the hit cells and their hitcounts
-      cellhits.Check_CellID(combined_cell_id, HitPosition_x, HitPosition_y, HitPosition_z);
+      cellhits.Check_CellID(combined_cell_id, HitPosition_x, HitPosition_y, HitPosition_z, det);
     }
     file->Close();
   }

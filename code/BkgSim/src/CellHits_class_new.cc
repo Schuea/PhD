@@ -16,7 +16,7 @@
 
 #include "CellHits_class_new.h"
 
-std::vector<long long int> CellHits::Get_CellID() const {
+std::vector<uint64_t> CellHits::Get_CellID() const {
 	return CellID;
 }
 std::vector<int> CellHits::Get_HitCount() const {
@@ -34,33 +34,41 @@ std::vector< float > CellHits::Get_HitPosition(char xyz) const {
 std::vector<int> CellHits::Get_Layer() const {
 	return Layer;
 }
-int CellHits::CalculateLayer(long long int const id) {
-  std::bitset<64> cellidbit(id);
-  std::string CellID_ = cellidbit.to_string();
-  int LayerInt = -1;
-  std::stringstream LayerID;
+uint64_t CellHits::CalculateLayer(uint64_t const id, Subdetector const & subdetector) {
+//  std::bitset<64> cellidbit(id);
+//  std::string CellID_ = cellidbit.to_string();
+//  int LayerInt = -1;
+//  std::stringstream LayerID;
+//
+//  //This for loop calculates the layer id
+//  //From a sring of 0's and 1's, e.g. 00001011010010
+//  //The StartBin is the first bin in the string we are interested in (when reading from right to left)
+//  //The LengthBin is the length of the string we are interested in
+//  //We read from left to right, but we specify the start position from right to left
+//  //There is a magic +1 in there because strings start at element 0.
+//  for (int i = CellID_.size() - (SubDetector->getStartBitLayer() + SubDetector->getLengthBitLayer()); i <= CellID_.size() - (SubDetector->getStartBitLayer() + 1);
+//      ++i) {
+//    LayerID << CellID_.at(i);
+//  }
+//
+//  std::bitset<64> LayerIDbit(LayerID.str());
+//  LayerInt = LayerIDbit.to_ulong();
+//
+//  return LayerInt;
 
-  //This for loop calculates the layer id
-  //From a sring of 0's and 1's, e.g. 00001011010010
-  //The StartBin is the first bin in the string we are interested in (when reading from right to left)
-  //The LengthBin is the length of the string we are interested in
-  //We read from left to right, but we specify the start position from right to left
-  //There is a magic +1 in there because strings start at element 0.
-  for (int i = CellID_.size() - (SubDetector->getStartBitLayer() + SubDetector->getLengthBitLayer()); i <= CellID_.size() - (SubDetector->getStartBitLayer() + 1);
-      ++i) {
-    LayerID << CellID_.at(i);
-  }
+  uint64_t LayerID64;
+//  LayerID >> LayerID64
 
-  std::bitset<64> LayerIDbit(LayerID.str());
-  LayerInt = LayerIDbit.to_ulong();
+  LayerID64 = id << (64 - subdetector.getLengthBitLayer() - subdetector.getStartBitLayer());
+  LayerID64 = LayerID64 >> (64 - subdetector.getLengthBitLayer());
 
-  return LayerInt;
+  return LayerID64;
 }
 int CellHits::Get_NumberHitsPerLayer(int LayerNumber) {
 	return Calculate_NumberHitsPerLayer(LayerNumber);
 }
 
-void CellHits::Check_CellID(long long int const id, float const x, float const y, float const z) {
+void CellHits::Check_CellID(uint64_t const id, float const x, float const y, float const z, Subdetector const & subdetector) {
 	bool cell_exists(false);
 	int vector_element(-1);
 	for (size_t i = 0; i < CellID.size(); ++i) {
@@ -78,7 +86,7 @@ void CellHits::Check_CellID(long long int const id, float const x, float const y
 		HitPosition_x.push_back(x);
 		HitPosition_y.push_back(y);
 		HitPosition_z.push_back(z);
-		Layer.push_back(CalculateLayer(id));
+		Layer.push_back(CalculateLayer(id, subdetector));
 	}
 }
 
