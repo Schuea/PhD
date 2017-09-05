@@ -10,6 +10,7 @@
 #include <iomanip>
 #include <ctime>
 #include <sstream>
+#include <fstream>
 #include <limits>
 #include <string>
 #include <vector>
@@ -18,12 +19,13 @@
 #include "GeneralFunctions_SiDBkgSim_new.h"
 #include "CellHits_class_new.h"
 #include "Subdetector_class_new.h"
+#include "Style.h"
 
 using namespace std;
 
 double CalculatePhi(double x, double y);
-int CalculateLayer(long long int const id, Subdetector const & SubDetector); 
-long long int MakeNewCellID(double const x, double const y, Subdetector const & component);
+uint64_t CalculateLayer(uint64_t const id, Subdetector const & SubDetector); 
+uint32_t MakeNewCellID(double const x, double const y, Subdetector const & component);
 void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, double normalization_factor, int integral_startbin, bool integral_numhits);
 void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, bool integral_numhits);
 void Print_multiple_plots_from_same_vec (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, bool integral_numhits, std::string output);
@@ -31,6 +33,7 @@ void Print_multiple_plots_from_same_vec (std::vector< TH1D* > histos, TCanvas* c
 double weight = 1.0;
 
 int main(int const argc, char const * const * const argv) {
+  UsePhDStyle();
   std::vector<std::string> *inputfilenames = new std::vector<std::string>();
   std::string argument_subdetectors;
 
@@ -59,24 +62,34 @@ int main(int const argc, char const * const * const argv) {
     }
   }
   for (int i = 1; i < argc; i++) {
-    if (argv[i] == std::string("-i") && argv[i + 1] != std::string("-n") && argv[i + 1] != std::string("-s")) {
+     if (argv[i] == std::string("-i") && 
+        argv[i + 1] != std::string("-n") && 
+        argv[i + 1] != std::string("-o") && 
+        argv[i + 1] != std::string("-s")) {
       if (argv[i + 1] != NULL) {
-        int j = 1;
-        do {
-          if (argv[i + j] != std::string("-n") && argv[i + j] != std::string("-s")) {
-            inputfilenames->push_back(argv[i + j]);
-            ++j;
-          } else {
-            break;
-          }
-        } while (j <= NUMBER_OF_FILES);
-        inputfile_set = true;
+        std::string filelist = argv[i + 1];
+        if (access(filelist.c_str(), F_OK) == -1 ) {
+          std::cerr << "The text file does not exist!" << std::endl;
+          exit(2);
+        }
+        else {
+          std::ifstream inputfilelist( filelist );
+          int line = 1;
+          std::string file;
+          do {
+            std::getline(inputfilelist, file);
+            inputfilenames->push_back(file);
+            ++line;
+          } while (line <= NUMBER_OF_FILES);
+          inputfile_set = true;
+        }
       } else {
         std::cerr << "You didn't give an argument for the inputfile(s)!" << std::endl;
       }
     }
     if (argv[i] == std::string("-s")) {
       if (argv[i + 1] != NULL && 
+          argv[i + 1] != std::string("-i") && 
           argv[i + 1] != std::string("-n") && 
           argv[i + 1] != std::string("-o")) {
         argument_subdetectors = argv[i + 1];
@@ -88,6 +101,7 @@ int main(int const argc, char const * const * const argv) {
     if (argv[i] == std::string("-o")) {
       if (argv[i + 1] != NULL && 
           argv[i + 1] != std::string("-n") && 
+          argv[i + 1] != std::string("-i") && 
           argv[i + 1] != std::string("-s")) {
         outputfile_name = argv[i + 1];
       } else {
@@ -204,7 +218,7 @@ int main(int const argc, char const * const * const argv) {
       //std::cout << "HitPosition_z = " << HitPosition_z << std::endl;
       
       //Make a combined cell ID
-      long long int HitCellID1 = 0;
+      uint32_t HitCellID1 = 0;
       if (endcap){
         HitCellID1 = MakeNewCellID(HitPosition_x,HitPosition_y,det);
       }
@@ -219,7 +233,7 @@ int main(int const argc, char const * const * const argv) {
         exit(-1);
       }
       //std::cout << "HitCellID1 = " << HitCellID1 << std::endl;
-      long long int const combined_cell_id = (long long) HitCellID1 << 32 | HitCellID0;
+      uint64_t const combined_cell_id = (uint64_t(HitCellID1) << 32) | HitCellID0;
       //Use the CellHits class for storing the hit cells and their hitcounts
       cellhits.Check_CellID(combined_cell_id, HitPosition_x, HitPosition_y, HitPosition_z, det);
     }
@@ -421,27 +435,34 @@ int main(int const argc, char const * const * const argv) {
   return 0;
 }
 
-int CalculateLayer(long long int const id, Subdetector const & SubDetector) {
-  std::bitset<64> cellidbit(id);
-  std::string CellID_ = cellidbit.to_string();
-  int LayerInt = -1;
-  std::stringstream LayerID;
+uint64_t CalculateLayer(uint64_t const id, Subdetector const & SubDetector) {
+  //std::bitset<64> cellidbit(id);
+  //std::string CellID_ = cellidbit.to_string();
+  //int LayerInt = -1;
+  //std::stringstream LayerID;
 
-  //This for loop calculates the layer id
-  //From a sring of 0's and 1's, e.g. 00001011010010
-  //The StartBin is the first bin in the string we are interested in (when reading from right to left)
-  //The LengthBin is the length of the string we are interested in
-  //We read from left to right, but we specify the start position from right to left
-  //There is a magic +1 in there because strings start at element 0.
-  for (int i = CellID_.size() - (SubDetector.getStartBitLayer() + SubDetector.getLengthBitLayer()); i <= CellID_.size() - (SubDetector.getStartBitLayer() + 1);
-      ++i) {
-    LayerID << CellID_.at(i);
-  }
+  ////This for loop calculates the layer id
+  ////From a sring of 0's and 1's, e.g. 00001011010010
+  ////The StartBin is the first bin in the string we are interested in (when reading from right to left)
+  ////The LengthBin is the length of the string we are interested in
+  ////We read from left to right, but we specify the start position from right to left
+  ////There is a magic +1 in there because strings start at element 0.
+  //for (int i = CellID_.size() - (SubDetector.getStartBitLayer() + SubDetector.getLengthBitLayer()); i <= CellID_.size() - (SubDetector.getStartBitLayer() + 1);
+  //    ++i) {
+  //  LayerID << CellID_.at(i);
+  //}
 
-  std::bitset<64> LayerIDbit(LayerID.str());
-  LayerInt = LayerIDbit.to_ulong();
+  //std::bitset<64> LayerIDbit(LayerID.str());
+  //LayerInt = LayerIDbit.to_ulong();
+  //return LayerInt;
 
-  return LayerInt;
+  uint64_t LayerID64;
+//  LayerID >> LayerID64
+
+  LayerID64 = id << (64 - SubDetector.getLengthBitLayer() - SubDetector.getStartBitLayer());
+  LayerID64 = LayerID64 >> (64 - SubDetector.getLengthBitLayer());
+
+  return LayerID64;
 }
 
 double CalculatePhi(double x, double y){
@@ -453,17 +474,19 @@ double CalculatePhi(double x, double y){
   if(x==0 && y<0)  return phi = -0.5*M_PI;
   else return -101;
 }
-long long int MakeNewCellID(double const x, double const y, Subdetector const & component){
-  int newX = static_cast<int>(x/component.getCellSizeX()); //Check if Cell Size Area is the same as Cell Dimension
-  int newY = static_cast<int>(y/component.getCellSizeY()); //Check if Cell Size Area is the same as Cell Dimension
+
+uint32_t MakeNewCellID(double const x, double const y, Subdetector const & component){
+  uint16_t newX = static_cast<uint16_t>(x/component.getCellSizeX());
+  uint16_t newY = static_cast<uint16_t>(y/component.getCellSizeY());
   if(x >= 0) ++newX;
   if(y >= 0) ++newY;
-  bitset<32> bitY = newY;
-  newY = 0;
-  for(int i = 0; i < 31; ++i){
-    newY += bitY[i]*pow(2,i);
-  }
-  return (long long int) newX << 32 | newY;
+  //std::cout << "newX = " << newX << ", newY = " << newY << std::endl;
+  //bitset<32> bitY = newY;
+  //newY = 0;
+  //for(int i = 0; i < 31; ++i){
+  //  newY += bitY[i]*pow(2,i);
+  //}
+  return (uint32_t(newX) << 16) | newY;
 }
 
 void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, double normalization_factor, int integral_startbin, bool integral_numhits){
