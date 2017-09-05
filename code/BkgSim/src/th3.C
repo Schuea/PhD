@@ -21,10 +21,10 @@
 #include <TPaveLabel.h>
 
 //set maximum of colour scale
-double Max = 310.;
+double Max = 80.;
 //Studied subdetector
 std::string Subdetector = "SiVertexBarrel";
-std::string specialname = "ILC250_DanielJeans"; //Change this name!
+std::string specialname = "ILC500_5T_TEST"; //Change this name!
 
 namespace
 {
