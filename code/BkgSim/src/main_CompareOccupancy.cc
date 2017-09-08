@@ -11,6 +11,9 @@
 #include <sstream>
 #include "Style.h"
 
+#include "UsefulFunctions.h"
+#include "Style.h"
+
 void Plot_everything(std::vector< std::string > inputfilenames, std::string layer, std::string outputfilename);
 void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::string histoname, std::string x_title, std::string y_title);
 
@@ -97,60 +100,65 @@ void Plot_everything(std::vector< std::string > inputfilenames, std::string laye
 }
 
 void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::string histoname, std::string x_title, std::string y_title){
-  TLegend* legend = new TLegend(0.5,0.6,0.98,0.85);
+  TLegend* legend;
+  if(inputfilenames.size()<3) legend = new TLegend(0.5,0.7,0.98,0.85);
+  else                         legend = new TLegend(0.5,0.6,0.98,0.85);
   legend->SetFillColor(kWhite);
 
-  std::string name;
   
+  std::vector< TH1F* > histos;
 	for(size_t no_files = 0; no_files < inputfilenames.size(); ++ no_files){
-    name = " ";
-
     TFile* inputfile = new TFile( inputfilenames.at(no_files).c_str() );
     std::ifstream ifile( inputfilenames.at(no_files).c_str() );
     if( (bool)ifile == 1){
       TH1F* temp = new TH1F();
       temp = (TH1F*) inputfile->Get( histoname.c_str() );
-      //if ( histoname.find("deadcells") != std::string::npos ){
-        temp->SetMinimum(std::pow(10.0,-9.0));
-      //}
-      temp->SetLineWidth(2);
-      temp->SetMarkerSize(0.7);
-      if(no_files == 0){
-        name = "set  2: TDR";
-        temp->SetLineColor(1);
-        temp->SetMarkerColor(1);
-        temp->SetMarkerStyle(4);
-        temp->GetXaxis()->SetTitle( x_title.c_str() );
-        temp->GetYaxis()->SetTitle( y_title.c_str() );
-        temp->Draw();
-      }
-      else{
-        if(no_files == 1){
-          temp->SetLineColor(2);
-          temp->SetMarkerColor(2);
-          temp->SetMarkerStyle(8);
-          name = "set  4: TDR + Emittance_x";
-        }
-        if(no_files == 2){
-          temp->SetLineColor(3);
-          temp->SetMarkerColor(3);
-          temp->SetMarkerStyle(25);
-          name = "set 15: TDR + Emittance_x + Beta_x";
-        }
-        if(no_files == 3){
-          temp->SetLineColor(4);
-          temp->SetMarkerColor(4);
-          temp->SetMarkerStyle(21);
-          name = "set 16: TDR + Emittance_x + Beta_x + Beta_y";
-        }
-        temp->Draw("SAMES");
-      }
-      legend->AddEntry(temp,name.c_str(),"p");
-		}
+      histos.push_back(temp);
+    }
 		else{
 			std::cout<<"Error! File "<< inputfilenames.at(no_files) << " not found!";
 			exit(1);
 		}
-	}
+  }
+  double max=GetMinMaxForMultipleOverlappingHistograms(histos,true).second;
+  std::string name;
+  for(size_t no_histo = 0; no_histo < histos.size(); ++ no_histo){
+    name = " ";
+    histos.at(no_histo)->SetMinimum( std::pow(10.0,-9.0) );
+    histos.at(no_histo)->SetMaximum( max );
+    histos.at(no_histo)->SetLineWidth(2);
+    histos.at(no_histo)->SetMarkerSize(0.7);
+    if(no_histo == 0){
+      name = "set  2: TDR";
+      histos.at(no_histo)->SetLineColor(1);
+      histos.at(no_histo)->SetMarkerColor(1);
+      histos.at(no_histo)->SetMarkerStyle(4);
+      histos.at(no_histo)->GetXaxis()->SetTitle( x_title.c_str() );
+      histos.at(no_histo)->GetYaxis()->SetTitle( y_title.c_str() );
+      histos.at(no_histo)->Draw();
+    }
+    else{
+      if(no_histo == 1){
+        histos.at(no_histo)->SetLineColor(2);
+        histos.at(no_histo)->SetMarkerColor(2);
+        histos.at(no_histo)->SetMarkerStyle(8);
+        name = "set  4: TDR + Emittance_x";
+      }
+      if(no_histo == 2){
+        histos.at(no_histo)->SetLineColor(3);
+        histos.at(no_histo)->SetMarkerColor(3);
+        histos.at(no_histo)->SetMarkerStyle(25);
+        name = "set 15: TDR + Emittance_x + Beta_x";
+      }
+      if(no_histo == 3){
+        histos.at(no_histo)->SetLineColor(4);
+        histos.at(no_histo)->SetMarkerColor(4);
+        histos.at(no_histo)->SetMarkerStyle(21);
+        name = "set 16: TDR + Emittance_x + Beta_x + Beta_y";
+      }
+      histos.at(no_histo)->Draw("SAMES");
+    }
+    legend->AddEntry(histos.at(no_histo),name.c_str(),"p");
+  }
   legend->Draw();
 }

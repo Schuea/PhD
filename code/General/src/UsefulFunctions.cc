@@ -81,6 +81,20 @@ std::pair< double, double> GetMinMaxForMultipleOverlappingHistograms(std::vector
   std::pair< double, double > result(min,max);
   return result;
 }
+std::pair< double, double> GetMinMaxForMultipleOverlappingHistograms(std::vector< TH1F* > histos, bool const logscale){
+  double min(std::numeric_limits< double >::max()),max(std::numeric_limits< double >::min());
+  for(int i = 0; i < histos.size(); ++i){
+    if(histos.at(i)->GetMinimum() < min) min = histos.at(i)->GetMinimum();
+    if(histos.at(i)->GetMaximum() > max) max = histos.at(i)->GetMaximum();
+  }
+  if(logscale) max *= 10;
+  else max *= 1.1;
+  if(logscale) min *= 0.1;
+  else if(min < 0) min *= 1.1;
+  std::pair< double, double > result(min,max);
+  return result;
+}
+
 
 TTree* Get_TTree(TFile* inputfile, std::string subdetector_name) {
 	std::stringstream temp;

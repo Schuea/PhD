@@ -21,6 +21,7 @@ int FindMin(int const value, int min);
 std::string Convert_FloatToString (float number);
 void NormalizeHistogram(TH1* histo, float size = 1.0);
 void PRINT(TCanvas* canvas, std::string title, std::string PDFtitle);
+std::pair< double, double> GetMinMaxForMultipleOverlappingHistograms(const std::vector< TH1F* > histos, bool logscale);
 std::pair< double, double> GetMinMaxForMultipleOverlappingHistograms(const std::vector< TH1D* > histos, bool logscale);
 TTree* Get_TTree(TFile* inputfile, std::string subdetector_name); 
 
