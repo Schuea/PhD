@@ -29,12 +29,17 @@ But again, this can not be done with electrostatic capacitors since the field gr
 A particle traveling from one capacitor to the next would then lose kinetic energy again.
 A solution is quickly found by using time dependent electric fields.\\
 In very simple terms, the key principles of a linear collider are thereby already explained.
-Better accelerating structures, such as drift chambers and later on superconducting radio frequency (RF) cavities, were developed over the years.
+Better accelerating structures such as drift chambers and later on superconducting radio frequency (RF) cavities were developed over the years.
 The first linear accelerator using normal conducting drift chambers of increasing lengths was built by Rolf Wider\o e at the university of Karlsruhe in Germany.
-Nowadays, particle accelerators all over the world mainly use the superconducting RF cavities since the electric resistance is minimal due to their superconducting nature.
+RF fields are applied to the drift chambers such that the particles are accelerated in between the chambers when passing through the gaps.
+Since the particle gains energy by passing through a gap, the chambers need to have increasing length in order to guarantee the particle being accelerated by the same phase of the RF field.
+\todo{picture of linac with increasing drift chambers}
+Nowadays, particle accelerators all over the world mainly use RF cavities instead of drift tubes, with the possibility of being made of superconducting material since the electric resistance is minimal due to their superconducting nature.
+Unlike before the acceleration takes place inside the cavities, and all cavities are of the same length and shape.
+To still guarantee the particle to be accelerated by the same RF phase, the RF frequency is varied.
 \todo{picture of RF cavities}
 
-Rolf Wider\o e did not only build the first linear accelerator, he much more invented the principles of the betatron, the very first accelerating structure using electromagnetic fields.
+Rolf Wider\o e did not only build the first linear accelerator, he even more importantly invented the principles of the betatron, the very first accelerating structure using electromagnetic fields.
 Also the cyclotron which was invented in 1928 uses a magnetic field to deflect the charged particles on a radial path, and therefore allow the accelerating structure to be much smaller than a linear accelerator.
 Exactly that idea was needed to advance particle acceleration from linear to circular.
 
@@ -42,7 +47,17 @@ Exactly that idea was needed to advance particle acceleration from linear to cir
 \label{Linear-Circular}
 
 Circular acceleration does also have certain challenges.
-Since the particle gains energy over time its the radius of its circular path increases if the magnetic field is constant.
-The accelerator has to be built accordingly taking the increase in the radius into account, or needs to use magnets with their field strengths increasing over time.
-Ladder is done in modern circular accelerators, like synchrotron accelerators such as the Large Hadron Collider (LHC) at CERN in Switzerland.
+Since the particle gains energy over time, the radius of its circular path increases if the magnetic field is constant.
+The accelerator has to be built accordingly taking the increase in the radius into account, or needs to use magnets with variable field strengths.
+Ladder is done in synchrotron machines, a type of circular accelerator combining the principles of all particle accelerators mentioned above: acceleration in RF cavities, variation of the RF frequency, and variable magnetic field strengths.
+In this way, the particles are traveling along a stationary orbit, passing through the same magnets and cavities over and over again.
+To insure the stability of the orbit, not only bending dipole magnets can be found but also sextupole and octupole magnets which focus the particles and correct orbit fluctuations.
+The synchrotron beams naturally form beam bunches because of being accelerated by an alternating RF field.
+With the particle momentum having a Gaussian distribution, slow particles, i.e. particles with smaller than the ideal momentum, arrive at the accelerating cavity later than the ideal particle, and faster particles earlier respectively.
+Therefore particles will be accelerated by different phases of the RF field: particles arriving later will experience a higher phase and will be accelerated more, particles arriving too early will experience a smaller phases and therefore will be accelerated less.
+The particles oscillate about the ideal stable phase, and therefore form beam bunches.
+\todo{picture of the RF phases: Beschleunigerphysik slides, BeschleunigerSS12_04, p.5}
+
+Currently, the world's largest circular particle collider is the Large Hadron Collider (LHC) at CERN in Switzerland, a synchrotron machine with a circumference of \unit{27}{km}.
+The collision energy is \unit{13}{TeV}.
 The reason why large synchrotron rings need pre-accelerators is that the range for changing the magnet's field strength is limited.
