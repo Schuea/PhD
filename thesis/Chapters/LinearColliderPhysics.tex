@@ -52,12 +52,21 @@ The accelerator has to be built accordingly taking the increase in the radius in
 Ladder is done in synchrotron machines, a type of circular accelerator combining the principles of all particle accelerators mentioned above: acceleration in RF cavities, variation of the RF frequency, and variable magnetic field strengths.
 In this way, the particles are traveling along a stationary orbit, passing through the same magnets and cavities over and over again.
 To insure the stability of the orbit, not only bending dipole magnets can be found but also sextupole and octupole magnets which focus the particles and correct orbit fluctuations.
-The synchrotron beams naturally form beam bunches because of being accelerated by an alternating RF field.
+Because of being accelerated by an alternating RF field, the synchrotron beams naturally form beam bunches in the following way:
 With the particle momentum having a Gaussian distribution, slow particles, i.e. particles with smaller than the ideal momentum, arrive at the accelerating cavity later than the ideal particle, and faster particles earlier respectively.
-Therefore particles will be accelerated by different phases of the RF field: particles arriving later will experience a higher phase and will be accelerated more, particles arriving too early will experience a smaller phases and therefore will be accelerated less.
+Therefore particles will be accelerated by different phases of the RF field: particles arriving later will experience a higher phase and will be accelerated more, particles arriving too early will experience a smaller phase and therefore will be accelerated less.
 The particles oscillate about the ideal stable phase, and therefore form beam bunches.
-\todo{picture of the RF phases: Beschleunigerphysik slides, BeschleunigerSS12_04, p.5}
+\todo{picture of the RF phases: Beschleunigerphysik slides}%BeschleunigerSS12_04, p.5
 
-Currently, the world's largest circular particle collider is the Large Hadron Collider (LHC) at CERN in Switzerland, a synchrotron machine with a circumference of \unit{27}{km}.
-The collision energy is \unit{13}{TeV}.
-The reason why large synchrotron rings need pre-accelerators is that the range for changing the magnet's field strength is limited.
+Currently, the world's largest circular particle collider is the Large Hadron Collider (LHC) at CERN in Switzerland, a synchrotron machine with a circumference of \SI{27}{\kilo\meter}.
+The collision energy of the two colliding proton beams is \SI{13}{\TeV}, and its nominal peak luminosity \lumi is \SI{e34}{\centi\meter^{-2}\second^{-1}}.
+The luminosity of a particle collider is proportional to the amount of collisions that can occur, and it is defined as:
+\begin{align}
+ \mathcal{L}&=\frac{N_1N_2 \cdot n_b \cdot f}{2\pi \cdot \sqrt{\sigma_{x,1}+\sigma_{x,2}} \sqrt{\sigma_{y,1}+\sigma_{y,2}}}\\
+ \intertext{If the bunch sizes of the opposite beams are the same:}
+ &=\frac{N_1N_2 \cdot n_b \cdot f}{4\pi \cdot \sigma_x \sigma_y}
+\end{align}
+$N_{1,2}$ is the number of particles per bunch, which is usually the same for both beams so that $N_1=N_2$.
+$f$ is the revolution frequency, the number of revolutions a bunch makes per second.
+$n_{b}$ is the number of bunches, and $\sigma_{x,y}$ is the beam bunch size in the horizontal and the vertical plane.
+%The reason why large synchrotron rings need pre-accelerators is that the range for changing the magnet's field strength is limited.
