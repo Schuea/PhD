@@ -62,11 +62,31 @@ Currently, the world's largest circular particle collider is the Large Hadron Co
 The collision energy of the two colliding proton beams is \SI{13}{\TeV}, and its nominal peak luminosity \lumi is \SI{e34}{\centi\meter^{-2}\second^{-1}}.
 The luminosity of a particle collider is proportional to the amount of collisions that can occur, and it is defined as:
 \begin{align}
- \mathcal{L}&=\frac{N_1N_2 \cdot n_b \cdot f}{2\pi \cdot \sqrt{\sigma_{x,1}+\sigma_{x,2}} \sqrt{\sigma_{y,1}+\sigma_{y,2}}}\\
+ \mathcal{L}&=\frac{N_1N_2 \cdot n_b \cdot f}{2\pi \cdot \sqrt{\sigma^2_{x,1}+\sigma^2_{x,2}} \sqrt{\sigma^2_{y,1}+\sigma^2_{y,2}}}\\
  \intertext{If the bunch sizes of the opposite beams are the same:}
  &=\frac{N_1N_2 \cdot n_b \cdot f}{4\pi \cdot \sigma_x \sigma_y}
 \end{align}
-$N_{1,2}$ is the number of particles per bunch, which is usually the same for both beams so that $N_1=N_2$.
+$N_{1,2}$ is the number of particles per bunch, which is usually the same for both beams, so that $N_1=N_2$.
 $f$ is the revolution frequency, the number of revolutions a bunch makes per second.
 $n_{b}$ is the number of bunches, and $\sigma_{x,y}$ is the beam bunch size in the horizontal and the vertical plane.
+Table ?? in Chapter~\ref{ILC} lists these parameters and their values for the LHC in comparison to the International Linear Collider (ILC).
+In order to translate the luminosity in an event rate, the luminosity value has to be divided by the cross-section $\sigma_p$ of the physics process that is of interest.
+Since the LHC detectors do only measure events from inelastic scattering, the LHC event rate can be calculated by taking only the cross-section for inelastic proton-proton scattering into account, which is measured to be \SI{78}{\milli\barn}~\cite{inelXSection}.
+\begin{align}
+ \dot{N}&=\mathcal{L}\cdot\sigma_{inelastic}\\
+ &=10^{34} \textrm{cm}^{-2}s^{-1} \cdot 78\textrm{\,mb}\\
+ &=7.8\times 10^8 s^{-1}
+\end{align}
+%https://www.lhc-closer.es/taking_a_closer_look_at_lhc/0.cross_section
+Per second about 780 million events are occurring at the LHC.
 %The reason why large synchrotron rings need pre-accelerators is that the range for changing the magnet's field strength is limited.
+The LHC is a so-called ``discovery machine''.
+With its high luminosity and high collision energy, the possible physics processes from the hadron collisions cover wide energy ranges.  
+New particles, first seen for example as resonance peaks in the measured mass spectra, can be discovered easier due to the large phase-space.
+This was the case in 2012 for instance, when the LHC found a peak at an energy of \SI{126}{\GeV}, shortly after recognized as the very first measurement of a Higgs boson.~\cite{Higgs}
+
+Why these so-called ``discovery machines'' are hadron and not lepton colliders, and why they are circular and not linear, is to be explained with the physical qualities of the colliding particles.
+Hadrons are by definition composite particles, providing the possibility of covering a large energy range when during collision their partons are interacting.
+This so-called deep inelastic scattering is explained in more detail in Chapter~\ref{StandardModel}.
+In contrast to that, collision of leptons as elementary particles is the interaction of exactly these leptons at exactly their given energy.
+This is one of the reasons why lepton colliders are called ``precision machines''.
