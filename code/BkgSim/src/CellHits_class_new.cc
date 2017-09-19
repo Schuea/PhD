@@ -35,29 +35,7 @@ std::vector<int> CellHits::Get_Layer() const {
 	return Layer;
 }
 uint64_t CellHits::CalculateLayer(uint64_t const id, Subdetector const & subdetector) {
-//  std::bitset<64> cellidbit(id);
-//  std::string CellID_ = cellidbit.to_string();
-//  int LayerInt = -1;
-//  std::stringstream LayerID;
-//
-//  //This for loop calculates the layer id
-//  //From a sring of 0's and 1's, e.g. 00001011010010
-//  //The StartBin is the first bin in the string we are interested in (when reading from right to left)
-//  //The LengthBin is the length of the string we are interested in
-//  //We read from left to right, but we specify the start position from right to left
-//  //There is a magic +1 in there because strings start at element 0.
-//  for (int i = CellID_.size() - (SubDetector->getStartBitLayer() + SubDetector->getLengthBitLayer()); i <= CellID_.size() - (SubDetector->getStartBitLayer() + 1);
-//      ++i) {
-//    LayerID << CellID_.at(i);
-//  }
-//
-//  std::bitset<64> LayerIDbit(LayerID.str());
-//  LayerInt = LayerIDbit.to_ulong();
-//
-//  return LayerInt;
-
   uint64_t LayerID64;
-//  LayerID >> LayerID64
 
   LayerID64 = id << (64 - subdetector.getLengthBitLayer() - subdetector.getStartBitLayer());
   LayerID64 = LayerID64 >> (64 - subdetector.getLengthBitLayer());

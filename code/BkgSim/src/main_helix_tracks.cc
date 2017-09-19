@@ -141,8 +141,6 @@ int main(int const argc, char const * const * const argv) {
 	//std::string const title_y = "Pairs spiraling in the magnetic field;z [mm];y [mm];# of particles per (0.03mm x 0.58mm)";
 	TH2D* histo_x = new TH2D("Helix_tracks_xz", title_x.c_str(), zbin,zmin,zmax, xbin, xmin, xmax);
 	TH2D* histo_y = new TH2D("Helix_tracks_yz", title_y.c_str(), zbin,zmin,zmax, ybin, ymin, ymax);
-	//TH1D* histo_x_projected = new TH1D("Helix_tracks_x_projected", "Projected x position;x [mm];# of particles per (0.03mm x 0.58mm)", xbin,xmin,xmax);
-	//TH1D* histo_y_projected = new TH1D("Helix_tracks_y_projected", "Projected y position;y [mm];# of particles per (0.03mm x 0.58mm)", ybin,ymin,ymax);
 	//TTree for outputfile -> store new x, y and z positions of the helixes in there 
 	double tree_x(0),tree_y(0),tree_z(0);
 	outputtree->Branch("x",&tree_x);
@@ -201,8 +199,6 @@ int main(int const argc, char const * const * const argv) {
 		std::vector< double > momentum;
 		double z = zmin;
 		double* helix_positions = nullptr;
-		//double new_x = 0;
-		//double new_y = 0;
 
 		float const beampipe_angle1 = 3.266*M_PI/180;
 		float const beampipe_angle2 = 5.329*M_PI/180;
@@ -222,8 +218,6 @@ int main(int const argc, char const * const * const argv) {
 			tree->GetEntry(i);
 			//if (particleID != -11) continue;
 			if (momentum_z < 0 /*|| momentum_z>0.1*/) continue;
-			//if ( sqrt(momentum_x*momentum_x+momentum_y*momentum_y)>0.0004 && momentum_z > 0.005) continue;
-			//if ( (momentum_x >0.002 || momentum_x<-0.002) && (momentum_y>0.002 || momentum_y<-0.002) && momentum_z > 0.2) continue;
 			if (CreatedInSimulation_Status == 1) continue;
 			vertex = { vertex_x, vertex_y, vertex_z };
 			momentum = { momentum_x, momentum_y, momentum_z };
@@ -240,10 +234,6 @@ int main(int const argc, char const * const * const argv) {
 				z_array[step-1]=helix_positions[2]*1000.0;
         w_array[step-1]=1.0/(double)NUMBER_OF_BUNCHES;
         if(i == 1 && step==1) std::cout << w_array[step-1] << std::endl;
-				//if(step > 190/300*zbin){
-				//histo_x_projected->Fill(x_array[step-1]);
-				//histo_y_projected->Fill(y_array[step-1]);
-				//}
 				//Fill the output TTree:
 				tree_x = x_array[step-1];
 				tree_y = y_array[step-1];
@@ -284,9 +274,6 @@ int main(int const argc, char const * const * const argv) {
 	ProjectionY_xz.push_back( temp1 );
 	ProjectionY_xz.push_back( temp2 );
 	ProjectionY_xz.push_back( temp3 );
-	//ProjectionY_xz.emplace_back( histo_x->ProjectionY("Projection_xz_1Kink",(62.5-5.0)*zbin/300.,(62.5+5.0)*zbin/300.) );
-	//ProjectionY_xz.emplace_back( histo_x->ProjectionY("Projection_xz_2Kink",(205.0-5.0)*zbin/300.,(205.0+5.0)*zbin/300.) );
-	//ProjectionY_xz.emplace_back( histo_x->ProjectionY("Projection_xz_3Kink",(295.0-5.0)*zbin/300.,(295.0+5.0)*zbin/300.) );
 	std::vector< TH1D* > ProjectionY_yz;
   TH1D* temp4 = (TH1D*)histo_y->ProjectionY("Projection_yz_1Kink",62.5*zbin/300.,62.5*zbin/300.+1);
   TH1D* temp5 = (TH1D*)histo_y->ProjectionY("Projection_yz_2Kink",205.0*zbin/300.,205.0*zbin/300.+1);
@@ -294,9 +281,6 @@ int main(int const argc, char const * const * const argv) {
 	ProjectionY_yz.push_back( temp4 );
 	ProjectionY_yz.push_back( temp5 );
 	ProjectionY_yz.push_back( temp6 );
-	//ProjectionY_yz.emplace_back( histo_y->ProjectionY("Projection_yz_1Kink",(62.5-5.0)*zbin/300.,(62.5+5.0)*zbin/300.) );
-	//ProjectionY_yz.emplace_back( histo_y->ProjectionY("Projection_yz_2Kink",(205.0-5.0)*zbin/300.,(205.0+5.0)*zbin/300.) );
-	//ProjectionY_yz.emplace_back( histo_y->ProjectionY("Projection_yz_3Kink",(295.0-5.0)*zbin/300.,(295.0+5.0)*zbin/300.) );
 
 	double original_binsize = (double)(xmax - xmin)/(double)xbin;
 	std::vector< double > variable_bins_vec;
@@ -408,11 +392,6 @@ int main(int const argc, char const * const * const argv) {
 
 	canvas->Print(("output/"+histoname_y+"_"+specialname+".pdf").c_str());
 	canvas->Print(("output/"+histoname_y+"_"+specialname+".cxx").c_str());
-
-	//histo_x_projected->Draw();
-	//canvas->Print("output/phill_x_projected.pdf");
-	//histo_y_projected->Draw();
-	//canvas->Print("output/phill_y_projected.pdf");
 
 	canvas->SetLogy(1);
 	Print_ProjectionY_plots( Rebinned_ProjectionY_xz, false );

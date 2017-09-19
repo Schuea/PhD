@@ -121,10 +121,7 @@ int main(int const argc, char const * const * const argv){
 
   for( size_t file_iterator = 0; file_iterator < specialnames.size(); ++ file_iterator){
     TFile *file1 = TFile::Open( ("output/HelixEnvelopes_xz_"+specialnames.at(file_iterator)+".root").c_str() );
-    std::cout << __LINE__ << endl;
     TFile *file2 = TFile::Open( ("output/HelixEnvelopes_yz_"+specialnames.at(file_iterator)+".root").c_str() );
-
-    std::cout << __LINE__ << endl;
 
     gr_x.push_back( (TGraph*)file1->Get( "gr999" ));
     gr_x.push_back( (TGraph*)file1->Get( "gr999neg" ));
@@ -154,13 +151,8 @@ int main(int const argc, char const * const * const argv){
   SetAllLineStyles(all_lines);
   DrawAllLines(all_lines);
 
-    std::cout << __LINE__ << endl;
   TLegend* leg1 = MakeLegend(gr_x);
-  //TLegend *leg1 = new TLegend(0.18,0.11,0.38,0.3);
-  //leg1->SetBorderSize(0);
-  //leg1->SetFillColorAlpha(0,0);
   leg1->Draw();
-  //resultx->Draw("hist");
   c.Print( ("output/HelixEnvelopes_COMPARISON_xz_"+outputname+".pdf").c_str() );
   c.Print( ("output/HelixEnvelopes_COMPARISON_xz_"+outputname+".cxx").c_str() );
 

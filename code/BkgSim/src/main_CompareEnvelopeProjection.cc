@@ -102,7 +102,6 @@ int main(int const argc, char const * const * const argv){
         temp->Draw("SAMES");
       }
       legend->AddEntry(temp,name.c_str(),"p");
-      //inputfile->Close();
 		}
 		else{
 			std::cout<<"Error! File "<< inputfilenames.at(no_files) << " not found!";
@@ -114,9 +113,6 @@ int main(int const argc, char const * const * const argv){
 
   float ymin = -0.001; 
   float ymax = 4.0*std::pow(10.0,4.0);
-  //ymin = gPad->GetFrame()->GetY1(); 
-  //ymax = gPad->GetFrame()->GetY2();
-  //std::cout << "ymin, ymax: " << ymin << ", " << ymax << std::endl;
 
   TLine* line = new TLine(-12,ymin,-12,ymax);
   TLine* line2 = new TLine(12,ymin,12,ymax);

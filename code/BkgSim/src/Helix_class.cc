@@ -2,16 +2,13 @@
 
 void Helix::Calculate_radius(){
 				radius = sqrt(px*px+py*py)/(0.3*B);
-				//std::cout << "radius = " << radius << std::endl;
 }
 
 double Helix::Calculate_number_turn() const{
-			  //std::cout << "number_turn = " << number_turn << std::endl;
         return (z-z0)/(pz*2.0*M_PI/(0.3*B));
 }
 
 double Helix::Calculate_xi() const{
-			  //std::cout << "xi = " << xi << std::endl;
 				if (beta == 0 ){ //if the particle's circle is on the right hand side of the p_T vector, the angle starts off from pi and not 0.
           return charge*Calculate_number_turn()*(2.0*M_PI) + M_PI;
         } else{
@@ -21,9 +18,7 @@ double Helix::Calculate_xi() const{
 
 void Helix::Calculate_circlecenter(){
 				beta = M_PI*0.5 + charge*M_PI*0.5; //beta is the angle between the x-axis and the axis perpendicular to p_T in the xy-plane
-			  //std::cout << "beta = " << beta << std::endl;
 				cx = radius*cos(beta);//cx and cy are the x- and y-coordinates of the center of the circle that the helix performs in the xy-plane
-				//cy = radius*sin(beta); //not needed because it will always be 0 (beta = 0 or pi)
 }
 
 double* Helix::Get_position(double const pos_z){
@@ -41,18 +36,6 @@ double* Helix::Get_position(double const pos_z){
 				position[2] = z + z0;
 
 				pointer = position;
-			  //if (std::abs(position.at(0)) > 4.0/1000.0 || std::abs(position.at(1)) > 4.0/1000.0){ //Only for the positions that are 4 mm away from the IP (0.0.0)
-			  //				std::cout << "charge = " << charge << std::endl;
-			  //				std::cout << "px = " << px << std::endl;
-			  //				std::cout << "py = " << py << std::endl;
-				//				std::cout << "radius = " << radius << std::endl;
-			  //				std::cout << "cx = " << cx << std::endl;
-			  //				std::cout << "cy = " << cy << std::endl;
-			  //				std::cout << "number_turn = " << number_turn << std::endl;
-			  //				std::cout << "xi = " << xi << std::endl;
-			  //				std::cout << "position.at(0) = " << position.at(0) << std::endl;
-			  //				std::cout << "position.at(1) = " << position.at(1) << std::endl;
-			  //}
 				return pointer;
 }
 
@@ -84,9 +67,6 @@ void Helix::Set_particlevalues(std::vector< double > const mom, float const part
         else if (px > 0 && py < 0){//4. quadrant
           alpha = 2*M_PI - alpha;
         }
-       // std::cout << "alpha = " << alpha << std::endl;
         sinalpha = sin(alpha);
-        //std::cout << "sinalpha = " << sinalpha << std::endl;
         cosalpha = cos(alpha);
-        //std::cout << "cosalpha = " << cosalpha << std::endl;
 }

@@ -21,19 +21,19 @@ double * InvertYaxis(int const n, double *y){
 TGraph * MakeTheGraph(TH2D *h, float const acceptance){
   int const sizeX = h->GetNbinsX();
   int const sizeY = h->GetNbinsY();
-  double const binSizeY = 29*2/200.; //Maybe be wrong
-  double const binSizeX = 300.0/800.; //Maybe be wrong
+  double const binSizeY = 29*2/200.; 
+  double const binSizeX = 300.0/800.;
   int const n = sizeX-1;
   double x1[n], y1[n];
-  for(int i = 1; i < sizeX; ++i){ //Maybe be wrong
+  for(int i = 1; i < sizeX; ++i){
     int total(0);
-    for(int j = 1; j < sizeY; ++j){ //Maybe be wrong
+    for(int j = 1; j < sizeY; ++j){
       total += h->GetBinContent(i,j);
     }
     x1[i-1] = 0;
     y1[i-1] = 0;
     int toTenPercent(0);
-    for(int j = 1; j < sizeY; ++j){ //Maybe be wrong
+    for(int j = 1; j < sizeY; ++j){
       toTenPercent += h->GetBinContent(i,j) + h->GetBinContent(i, sizeY-j);
       if(toTenPercent > (1.0-acceptance)*total){
         x1[i-1] = i * binSizeX;
@@ -190,11 +190,7 @@ int main(int const argc, char const * const * const argv){
   DrawAllLines(all_lines);
 
   TLegend* leg1 = MakeLegend(all_graphs1);
-  //TLegend *leg1 = new TLegend(0.18,0.11,0.38,0.3);
-  //leg1->SetBorderSize(0);
-  //leg1->SetFillColorAlpha(0,0);
   leg1->Draw();
-  //resultx->Draw("hist");
   c.Print( ("output/HelixEnvelopes_"+plane1+"_"+specialname+".pdf").c_str() );
   c.Print( ("output/HelixEnvelopes_"+plane1+"_"+specialname+".cxx").c_str() );
   outputfile1->Write();
