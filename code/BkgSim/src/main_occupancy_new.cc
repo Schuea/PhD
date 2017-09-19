@@ -211,11 +211,7 @@ int main(int const argc, char const * const * const argv) {
         HitPosition_y = F_HitPosition_y;
         HitPosition_z = F_HitPosition_z;
       }
-      //if (pdg != 13 && pdg != -13) continue;
-      //if (endcap && *HitPosition_z < 0) continue;
-      //std::cout << "HitPosition_x = " << HitPosition_x << std::endl;
-      //std::cout << "HitPosition_y = " << HitPosition_y << std::endl;
-      //std::cout << "HitPosition_z = " << HitPosition_z << std::endl;
+      if (endcap && *HitPosition_z < 0) continue;//Only compute one of the endcaps
       
       //Make a combined cell ID
       uint32_t HitCellID1 = 0;
@@ -232,7 +228,6 @@ int main(int const argc, char const * const * const argv) {
         std::cerr << "This subdetector shape was not recognized!" << std::endl; 
         exit(-1);
       }
-      //std::cout << "HitCellID1 = " << HitCellID1 << std::endl;
       uint64_t const combined_cell_id = (uint64_t(HitCellID1) << 32) | HitCellID0;
       //Use the CellHits class for storing the hit cells and their hitcounts
       cellhits.Check_CellID(combined_cell_id, HitPosition_x, HitPosition_y, HitPosition_z, det);
@@ -301,7 +296,6 @@ int main(int const argc, char const * const * const argv) {
   }
   for (size_t vecpos = 0; vecpos < cellhits.Get_HitCount().size(); ++vecpos) {
     if(cellhits.Get_HitCount().at(vecpos) > 0){
-      //std::cout << "Layer: " << cellhits.Get_Layer().at(vecpos) << std::endl;
       int current_layer = cellhits.Get_Layer().at(vecpos);
       if (Silicon){
         histos.at(current_layer - 1 )->Fill( cellhits.Get_HitCount().at(vecpos),weight );//-1 for Silicon detectors only, because layer count starts from 1
@@ -338,7 +332,6 @@ int main(int const argc, char const * const * const argv) {
 
   //Filling bufferdepth plots:
   for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
-    //for (int i = 1; i <= max_no_hits; ++i){//For each bufferdepth up to max number of hits per cell that were counted
     for (int i = 0; i <= max_no_hits; ++i){//For each bufferdepth up to max number of hits per cell that were counted
       long long int tot = 0;
       long long int deadcells = 0;
@@ -350,7 +343,6 @@ int main(int const argc, char const * const * const argv) {
       histos_deadcells.at(number_layer)->SetBinContent(i+1, deadcells);
     }
   }
-  //for (int i = 1; i <= max_no_hits; ++i){//For each bufferdepth
   for (int i = 0; i <= max_no_hits; ++i){//For each bufferdepth
     long long int tot = 0;
     long long int deadcells = 0;
@@ -389,7 +381,6 @@ int main(int const argc, char const * const * const argv) {
 
   std::stringstream output;
   output << "output/occupancy_" << subdetectorname << "_" << outputfile_name;
-  //void Print_multiple_plots_from_same_vec (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, int integral_startbin, bool integral_numhits, std::string output);
   Print_multiple_plots_from_same_vec (histos, canvas, false, std::vector< long long int >() , 2, true,  output.str());
 
   std::stringstream output2;
@@ -399,15 +390,12 @@ int main(int const argc, char const * const * const argv) {
   std::stringstream output3;
   output3 << "output/occupancy_bufferdepth_" << subdetectorname << "_" << outputfile_name;
   Print_multiple_plots_from_same_vec (histos_bufferdepth, canvas, true, tot_num_hits_per_layer, 1, false,  output3.str());
-  //Print_multiple_plots_from_same_vec (histos_bufferdepth, canvas, true, 1, false,  output3.str());
 
   std::stringstream output4;
   output4 << "output/occupancy_deadcells_" << subdetectorname << "_" << outputfile_name;
   Print_multiple_plots_from_same_vec (histos_deadcells, canvas, true, det.getNumberOfCells(), 1, false, output4.str());
-  //Print_multiple_plots_from_same_vec (histos_deadcells, canvas, true, 2, false, output4.str());
 
 
-  //void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, int integral_startbin, bool integral_numhits);
   Draw_single_plots( All_Layers_histo,canvas, false, 0.0, 2, true); 
   std::stringstream All_output;
   All_output << "output/occupancy_all_layers_" << subdetectorname << "_" << outputfile_name;
@@ -437,28 +425,8 @@ int main(int const argc, char const * const * const argv) {
 }
 
 uint64_t CalculateLayer(uint64_t const id, Subdetector const & SubDetector) {
-  //std::bitset<64> cellidbit(id);
-  //std::string CellID_ = cellidbit.to_string();
-  //int LayerInt = -1;
-  //std::stringstream LayerID;
-
-  ////This for loop calculates the layer id
-  ////From a sring of 0's and 1's, e.g. 00001011010010
-  ////The StartBin is the first bin in the string we are interested in (when reading from right to left)
-  ////The LengthBin is the length of the string we are interested in
-  ////We read from left to right, but we specify the start position from right to left
-  ////There is a magic +1 in there because strings start at element 0.
-  //for (int i = CellID_.size() - (SubDetector.getStartBitLayer() + SubDetector.getLengthBitLayer()); i <= CellID_.size() - (SubDetector.getStartBitLayer() + 1);
-  //    ++i) {
-  //  LayerID << CellID_.at(i);
-  //}
-
-  //std::bitset<64> LayerIDbit(LayerID.str());
-  //LayerInt = LayerIDbit.to_ulong();
-  //return LayerInt;
 
   uint64_t LayerID64;
-//  LayerID >> LayerID64
 
   LayerID64 = id << (64 - SubDetector.getLengthBitLayer() - SubDetector.getStartBitLayer());
   LayerID64 = LayerID64 >> (64 - SubDetector.getLengthBitLayer());
@@ -481,34 +449,23 @@ uint32_t MakeNewCellID(double const x, double const y, Subdetector const & compo
   uint16_t newY = static_cast<uint16_t>(y/component.getCellSizeY());
   if(x >= 0) ++newX;
   if(y >= 0) ++newY;
-  //std::cout << "newX = " << newX << ", newY = " << newY << std::endl;
-  //bitset<32> bitY = newY;
-  //newY = 0;
-  //for(int i = 0; i < 31; ++i){
-  //  newY += bitY[i]*pow(2,i);
-  //}
   return (uint32_t(newX) << 16) | newY;
 }
 
 void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, double normalization_factor, int integral_startbin, bool integral_numhits){
   int tot = 0;
-  //double normalized_max = 0;
   for(int bin = integral_startbin; bin <= histo->GetNbinsX(); ++bin){
     if (integral_numhits == true) tot += histo->GetBinContent(bin)*histo->GetBinLowEdge(bin);
     else tot += histo->GetBinContent(bin);
-    //if(bin > 1 && normalized_max < histo->GetBinContent(bin)) normalized_max = histo->GetBinContent(bin);//After normalization, the first bin is not interesting any more -> find maximum of distribution for setting the y-axis range 
   }
-  //normalized_max = normalized_max / histo->GetBinContent(1);
   
   histo->SetStats(0);
   histo->Sumw2(1);
-  //histo->Scale(weight);
   histo->SetMinimum(0.1);
   if(normalize == true){
     if(normalization_factor == 0.0) histo->Scale(1.0/histo->GetBinContent(1));
     else histo->Scale(1.0/normalization_factor);
     histo->SetMinimum( pow(10,-12) );
-    //histo->SetMaximum( 2*normalized_max );
   }
   histo->SetLineColor(2);
   histo->Draw("hist");
@@ -542,25 +499,20 @@ void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool nor
   for (size_t number_histo = 0; number_histo< histos.size(); ++number_histo) {
     histos.at(number_histo)->SetStats(0);
     histos.at(number_histo)->Sumw2(1);
-    //histos.at(number_histo)->Scale(weight);
   }
   double max=GetMinMaxForMultipleOverlappingHistograms(histos,true).second;
   for (size_t number_histo = 0; number_histo< histos.size(); ++number_histo) {
     if(number_histo == 0){
       int tot = 0;
-      //double normalized_max = 0.0;
       for(int bin = integral_startbin; bin <= histos.at(number_histo)->GetNbinsX(); ++bin){
         if (integral_numhits == true) tot += histos.at(number_histo)->GetBinContent(bin)*histos.at(number_histo)->GetBinLowEdge(bin);
         else tot += histos.at(number_histo)->GetBinContent(bin);
-        //if(bin > 1 && normalized_max < histos.at(number_histo)->GetBinContent(bin)) normalized_max = histos.at(number_histo)->GetBinContent(bin);//After normalization, the first bin is not interesting any more -> find maximum of distribution for setting the y-axis range 
       }
-      //normalized_max = normalized_max / histos.at(number_histo)->GetBinContent(1);
 
       if(normalize == true){
         if( normalization_factor.empty() ) histos.at(number_histo)->Scale(1.0/histos.at(number_histo)->GetBinContent(1));
         else histos.at(number_histo)->Scale( 1.0/normalization_factor.at(number_histo) );
         histos.at(number_histo)->SetMinimum( pow(10,-12) );
-        //histos.at(number_histo)->SetMaximum( 2*normalized_max );
       }
       else{
         histos.at(number_histo)->SetMaximum(max);
@@ -593,19 +545,15 @@ void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool nor
     }
     if(number_histo > 0){
       int tot = 0;
-      //double normalized_max = 0.0;
       for(int bin = integral_startbin; bin <= histos.at(number_histo)->GetNbinsX(); ++bin){
         if (integral_numhits == true) tot += histos.at(number_histo)->GetBinContent(bin)*histos.at(number_histo)->GetBinLowEdge(bin);
         else tot += histos.at(number_histo)->GetBinContent(bin);
-        //if(bin > 1 && normalized_max < histos.at(number_histo)->GetBinContent(bin)) normalized_max = histos.at(number_histo)->GetBinContent(bin);//After normalization, the first bin is not interesting any more -> find maximum of distribution for setting the y-axis range 
       }
-      //normalized_max = normalized_max / histos.at(number_histo)->GetBinContent(1);
 
       if(normalize == true){
         if( normalization_factor.empty() ) histos.at(number_histo)->Scale(1.0/histos.at(number_histo)->GetBinContent(1));
         else histos.at(number_histo)->Scale( 1.0/normalization_factor.at(number_histo) );
         histos.at(number_histo)->SetMinimum( pow(10,-12) );
-        //histos.at(number_histo)->SetMaximum( 2*normalized_max );
       }
       else{
         histos.at(number_histo)->SetMaximum(max);
@@ -637,7 +585,6 @@ void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool nor
       text2->SetTextFont(62);
       text2->SetTextColor(color);
       text2->SetFillColor(0);
-      //text->AddLine(0,0.5,1,0.5);
       std::stringstream title2;
       title2 << histos.at(number_histo)->GetName();
       text2->AddText(title2.str().c_str());
