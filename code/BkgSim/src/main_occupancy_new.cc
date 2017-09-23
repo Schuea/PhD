@@ -211,7 +211,7 @@ int main(int const argc, char const * const * const argv) {
         HitPosition_y = F_HitPosition_y;
         HitPosition_z = F_HitPosition_z;
       }
-      if (endcap && *HitPosition_z < 0) continue;//Only compute one of the endcaps
+      if (endcap && HitPosition_z < 0) continue;//Only compute one of the endcaps
       
       //Make a combined cell ID
       uint32_t HitCellID1 = 0;
