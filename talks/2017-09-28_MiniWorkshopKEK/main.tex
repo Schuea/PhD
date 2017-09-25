@@ -9,6 +9,7 @@
 \usepackage{textgreek}
 \usepackage{tabularx}
 \usepackage{booktabs}
+\usepackage{xspace,multicol}
 \usepackage{siunitx}
 \usepackage{appendixnumberbeamer}
 \usepackage[absolute,overlay]{textpos} %for positioning the logos where I want
@@ -26,6 +27,20 @@
 \DeclareSIUnit\nb{\nano\barn}
 \DeclareSIUnit\pb{\pico\barn}
 \DeclareSIUnit\fb{\femto\barn}
+
+\newcommand{\electron}{e$^-$\xspace}
+\newcommand{\positron}{e$^+$\xspace}
+\newcommand{\murm}{%
+  \ifmmode
+    \mathchoice
+        {\hbox{\normalsize\textmu}}
+        {\hbox{\normalsize\textmu}}
+        {\hbox{\scriptsize\textmu}}
+        {\hbox{\tiny\textmu}}%
+  \else
+    \textmu
+  \fi
+}
 
 \mode<presentation>
 {
@@ -117,6 +132,10 @@
 %---------------------------------------------------------------------------------------------------------
 
 \section{Muons from the muon spoilers}
+\begin{frame}
+ \centering \LARGE Muons from the BDS system
+\end{frame}
+
 \begin{frame}{BDS tunnel layout}
 \ilclogo
 \begin{center}
@@ -334,6 +353,9 @@ For both scenarios, 5 Spoilers w/ and w/o Wall, 10$^{-9}$ - 10$^{-7}$ of all cel
 %--------------------------------------------------------------------------------------------------------------
 
 \section{FLUKA simulation of the ILC Beam Dump}
+\begin{frame}
+ \centering \LARGE FLUKA simulation of the main beam dump
+\end{frame}
 \subsection{Project Overview}
 {
 \usebackgroundtemplate{
@@ -639,6 +661,103 @@ The dose rate measured at the longitudinal shower maximum inside the vessel over
 \end{itemize}
 \end{frame}
 
+%--------------------------------------------------------------------------------------------------------------
+
+\section{Pair background studies for the new ILC250 schemes}
+\begin{frame}
+ \centering \LARGE Pair background studies for the new ILC250 schemes
+\end{frame}
+
+\begin{frame}{ILC250 Beam Parameter Sets}
+ \begin{table}
+\caption{Possible beam parameter sets for the ILC250 stage. The table only lists the parameters that are to be changed with respect to the original ILC250 parameters given in the Technical Design Report (TDR)~\cite[p. 11]{TDR1}.}
+\label{tab:Parameters}
+\centering
+\begin{tabularx}{0.55\textwidth}{llll}
+\hline\hline
+\textbf{Set}  & \textbf{$\epsilon_x$ [\murm m]} & \textbf{$\beta_x$ [mm]} & \textbf{$\beta_y$ [mm]}\\
+\hline
+\cline{1-4}
+\hline
+ TDR & 10 & 13.0 & 0.41\\
+ (A) & 5 & 13.0 & 0.41\\
+ (B) & 5 & 9.19 & 0.41\\
+ (C) & 5 & 9.19 & 0.58\\
+\hline\hline
+\end{tabularx}
+\end{table}
+Reduced emittance leads to stronger beam-beam interactions, and therefore to increased \positron \electron pair background.
+\end{frame}
+
+\subsection{Pair background envelopes}
+\begin{frame}{Pair background envelopes}
+ \begin{figure}
+\centering
+\begin{subfigure}[t]{0.35\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Helix_tracks_xz_100bunches_250GeV_5T_DanielJeans-1.jpg}
+\caption{ILC250 set (TDR)}
+\end{subfigure}
+\hspace*{0.1cm}
+\begin{subfigure}[t]{0.35\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Helix_tracks_xz_80bunches_250GeV_5T_Reduced_Emittance_x-1.jpg}
+\caption{ILC250 set (A)}
+\end{subfigure}
+\\
+\begin{subfigure}[t]{0.35\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Helix_tracks_xz_50bunches_250GeV_5T_Reduced_Emittance_x_Reduced_Beta_x-1.jpg}
+\caption{ILC250 set (B)}
+\end{subfigure}
+\hspace*{0.1cm}
+\begin{subfigure}[t]{0.35\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Helix_tracks_xz_50bunches_250GeV_5T_Reduced_Emittance_x_Reduced_Beta_x_Increased_Beta_y-1.jpg}
+\caption{ILC250 set (C)}
+\end{subfigure}
+\caption{Pair background density for the different ILC250 beam parameter sets.
+The beam pipe is represented by the red solid lines.}
+\label{fig:Envelopes}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Projection of the pair background density along x}
+\begin{center}
+ \includegraphics[width=0.72\textwidth]{ILC250_figures/HelixEnvelope_Projection_Comparison_250GeV_parametersets_NEWSETNAMES.png}
+\end{center}
+The envelopes are in all schemes well contained within in the beam pipe. Less than 10 particles per bunch crossing are to be expected outside the beam pipe.
+\end{frame}
+
+\begin{frame}{SiD Vertex Detector Occupancy: All layers}
+ \begin{figure}
+\centering
+\begin{subfigure}[t]{0.45\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt__cells_ILC250_ALL_SETS_6Sep2017_NEWSETNAMES.png}
+\caption{Normalized Occumancy: Number of cells containing a certain amount of hits, normalized by the total number of cells of the vertex detector.}
+\end{subfigure}
+\hspace*{0.1cm}
+\begin{subfigure}[t]{0.45\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_deadcells_ILC250_ALL_SETS_6Sep2017_NEWSETNAMES.png}
+\caption{Ratio of dead cells in comparison to all cells of the vertex detector.}
+\end{subfigure}
+\end{figure}
+\end{frame}
+
+\begin{frame}{SiD Vertex Detector Occupancy: Layer 0}
+\begin{center}
+ \includegraphics[width=0.6\textwidth]{ILC250_figures/Occupancy_Comparison_Layer_0_numcells_ILC250_ALL_SETS_6Sep2017_NEWSETNAMES.png}
+\end{center}
+The occupancy in layer 0 for the new sets is significantly increased with respect to the TDR scheme.\\
+SiD is confident that the occupancy can be accommodated in the design of the pixel detector.\\
+Studies with smaller original L* of \SI{3.5}{\meter} are ongoing. $\rightarrow$ \alert{Stay tuned!}
+\end{frame}
+
+
+%---------------------------------------------------------------------------------
 
 \section*{The end}
 {
@@ -668,7 +787,9 @@ The dose rate measured at the longitudinal shower maximum inside the vessel over
 \end{frame}
 \begin{frame}{References}
 \bibitem{Concrete} K. Okuno, et al., \emph{Application of neutron shield concrete to neutron scattering instrument TAIKAN in J-PARC}, Progress in Nuclear Science and Technology, Vol. 4, pp 619-622, 2014
-\bibitem{TDR} T. Behnke, et al., \emph{The International Linear Collider - Technical Design Report}, 2013.
+\end{frame}
+\begin{frame}{References}
+\bibitem{TDR1} T. Behnke, et al., \emph{The International Linear Collider - Technical Design Report, Volume 1}, 2013.
 \end{frame}
 \end{thebibliography}
 
