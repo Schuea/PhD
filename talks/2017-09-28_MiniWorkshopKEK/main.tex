@@ -14,6 +14,7 @@
 \usepackage{appendixnumberbeamer}
 \usepackage[absolute,overlay]{textpos} %for positioning the logos where I want
 
+
 \usepackage{animate}
 \usepackage{multimedia}
 \usepackage{fixltx2e}
@@ -107,22 +108,22 @@
   \titlepage
 \end{frame}
 }
-
+\setcounter{tocdepth}{2}
 \begin{frame}{Table of contents}
   \tableofcontents
 \end{frame}
 \begin{frame}{Table of contents}
   For more information, see the more detailed talks:
   \begin{itemize}
-   \item BDS muon study:\\
+   \item \alert{BDS muon study}:\\
    {\small
    \url{https://agenda.linearcollider.org/event/7371/contributions/38190/attachments/30975/46399/MuonSpoilerStudy_ASchuetz.pdf}
    }
-   \item Beam dump study:\\
+   \item \alert{Beam dump study}:\\
    {\small
    \url{https://agenda.linearcollider.org/event/7507/contributions/39283/attachments/31735/47826/BeamDump_ASchuetz.pdf}
    }
-   \item Pair background study for ILC250 schemes:\\
+   \item \alert{Pair background study for ILC250 schemes}:\\
    {\small
    See LCWS2017 in Strasbourg in October
    }
@@ -133,7 +134,9 @@
 
 \section{Muons from the muon spoilers}
 \begin{frame}
- \centering \LARGE Muons from the BDS system
+ \begin{center}
+  {\LARGE Muons from the BDS system}
+ \end{center}
 \end{frame}
 
 \begin{frame}{BDS tunnel layout}
@@ -201,7 +204,17 @@ e\textsuperscript{-} beam line
 \end{center}
 \end{frame}
 
-\section{MUCARLO simulation}
+\setcounter{tocdepth}{3}
+\AtBeginSubsection[] {
+  \begin{frame}<beamer>
+     \tableofcontents[currentsection,
+     currentsubsection,
+     %hideothersubsections,
+     subsectionstyle=show/shaded/hide,
+     subsubsectionstyle=show/show/hide]
+  \end{frame}
+}
+\subsection{MUCARLO simulation}
 \begin{frame}{MUCARLO simulation overview}
 \ilclogo
 
@@ -229,7 +242,7 @@ e\textsuperscript{-} beam line
 \end{columns}
 \end{frame}
 
-\subsection{Muon 4-vectors}
+\subsubsection{Muon 4-vectors}
 \begin{frame}{Muons in the detector}
 \ilclogo
 4-vectors of the muons are given to SiD and ILD for studying the effect of the muons on the detector performance.\\
@@ -242,7 +255,7 @@ e\textsuperscript{-} beam line
 \end{tabular}
 \end{frame}
 
-\section{Motivation}
+\subsubsection{Motivation}
 \begin{frame}{}
 Question to SiD and ILD: Do we need the muon wall at all?!
 MID people would be happy to get rid of it because of safety issues, and the costs for such a iron wall.
@@ -250,12 +263,12 @@ MID people would be happy to get rid of it because of safety issues, and the cos
 \includegraphics[height=0.5\textheight]{muons_figures/Muon_wall_required.pdf}
 \end{center}
 \textit{On the other hand:}\\
-Removing the wall would mean NO access to IR when the beam is on!\\
-And expecting considerably higher rates when going to 1\,TeV $\rightarrow$ maybe wall then neccessary anyway!
+\alert{Removing the wall would mean NO access to IR when the beam is on!\\
+And expecting considerably higher rates when going to 1\,TeV $\rightarrow$ maybe wall then neccessary anyway!}
 \end{frame}
 
-\section{Results}
-\subsection{Event displays of muons in the SiD detector}
+\subsection{Results}
+\subsubsection{Event displays of muons in the SiD detector}
 \begin{frame}{WIRED4 event display - 5 Spoilers + Wall}
 \sidlogo
 1 train's worth of muons ($\sim$ 515 muons) \textbf{from the positron line only}:
@@ -283,7 +296,7 @@ The spatial distribution is due to the tunnel shape and its shielding effects.
 %New command: column type
 \newcolumntype{P}[1]{>{\centering}p{#1}}
 
-\subsection{Analysis - Total number of hits}
+\subsubsection{Analysis - Total number of hits}
 \begin{frame}{Total number of hits}
 \sidlogo
 \begin{columns}
@@ -304,8 +317,9 @@ The spatial distribution is due to the tunnel shape and its shielding effects.
 \end{frame}
 
 
-\subsection{Analysis - Occupancies}
-\begin{frame}{Occupancy plots - \small SiTrackerEndcap}
+\subsubsection{Analysis - Occupancies}
+
+\begin{frame}{Occupancy plots - \small EcalEndcap}
 \sidlogo
 \begin{columns}
  \begin{column}{0.25\textwidth}
@@ -315,21 +329,14 @@ The spatial distribution is due to the tunnel shape and its shielding effects.
   {\footnotesize The following occupancy plots are normalized by the first bin.}
  \end{column}
  \begin{column}{0.75\textwidth}
-\includegraphics[width=\textwidth]{muons_figures/figures/SiTrackerEndcap_Occupancy.png}
+\includegraphics[height=0.62\textheight]{muons_figures/figures/EcalEndcap_Occupancy.png}
 \end{column}
 \end{columns}
-For both scenarios, 5 Spoilers w/ and w/o Wall, 10$^{-9}$ - 10$^{-7}$ of all cells that get hit have 4 hits.
-\end{frame}
-\begin{frame}{Occupancy plots - \small EcalEndcap}
-\sidlogo
- \begin{center}
-\includegraphics[height=0.62\textheight]{muons_figures/figures/EcalEndcap_Occupancy.png}
-\end{center}
 \small '5 Spoilers + Wall' seems to do better by an order of magnitude, when looking at a buffer depth of 4. The occupancy is still at a level of only $\sim$10$^{-6}$.\\
 \small The '5 Spoiler' case shows up to 27 hits per cell.$\rightarrow$ Constant occupancy for all buffer depths.
 \end{frame}
 
-\subsection{Analysis - Dead cells}
+\subsubsection{Analysis - Dead cells}
 \begin{frame}{Dead cells - \small EcalEndcap}
 \sidlogo
  \begin{center}
@@ -338,7 +345,7 @@ For both scenarios, 5 Spoilers w/ and w/o Wall, 10$^{-9}$ - 10$^{-7}$ of all cel
 \small For an assumed buffer depth of 4, the total number of dead cells is different by about two orders of magnitude. $\rightarrow$ In the '5 Spoiler' case, 10$^{-3}$ cells would have reached the buffer limit.
 \end{frame}
 
-\section{Conclusion and Outlook}
+\subsection{Conclusion}
 \begin{frame}
 \textit{Conclusion:}
 \begin{itemize}
@@ -353,9 +360,7 @@ For both scenarios, 5 Spoilers w/ and w/o Wall, 10$^{-9}$ - 10$^{-7}$ of all cel
 %--------------------------------------------------------------------------------------------------------------
 
 \section{FLUKA simulation of the ILC Beam Dump}
-\begin{frame}
- \centering \LARGE FLUKA simulation of the main beam dump
-\end{frame}
+
 \subsection{Project Overview}
 {
 \usebackgroundtemplate{
@@ -374,16 +379,6 @@ The 17\,MW\footnote{13.7\,MW average beam power + 20\% margin} beam is dumped in
  \item Simulating the neutrons reaching the interaction point in a full detector simulation.
 \end{enumerate}
 \end{frame}
-}
-
-\AtBeginSubsection[] {
-  \begin{frame}<beamer>
-     \tableofcontents[currentsection,
-     currentsubsection,
-     %hideothersubsections,
-     subsectionstyle=show/shaded/hide,
-     subsubsectionstyle=show/show/hide]
-  \end{frame}
 }
 
 \subsection{The Beam Dump Designs}
@@ -574,51 +569,7 @@ The dose rate measured at the longitudinal shower maximum inside the vessel over
 \textbf{After one year}, the dose rate drops to \\\textbf{$\sim$ 0.1\,mSv/s} for \textcolor{Red}{Design 1} and to \textbf{$\sim$ 10\,mSv/s} for \textcolor{Blue}{Design 2}.
 \end{frame}
 
-\AtBeginSubsubsection[] {
-  \begin{frame}<beamer>
-     \tableofcontents[currentsection,
-     currentsubsection,
-     %hideothersubsections,
-     subsectionstyle=show/shaded/hide,
-     subsubsectionstyle=show/show/hide]
-  \end{frame}
-}
-
-
-
-\subsubsection{Particle Fluxes}
-
-\begin{frame}{Neutron fluxes from one bunch: \textbf{Design 1}}
-\begin{columns}
- \begin{column}{0.5\textwidth}
-    \includegraphics[width=\textwidth]{BeamDump_figures/Neutron_flux_xz_Design1.pdf}
- \end{column}
- \begin{column}{0.5\textwidth}
-  The neutrons spread more in the positive x and y-direction. Within the tank, the neutrons are mainly produced in the water vortex system. When the beam is stopped by the copper plates, the neutron production rate decreases.
- \end{column}
-\end{columns}
-\hspace*{1cm} x-direction \hfill y-direction \hfill z-direction \hspace*{1cm} \\
-  \includegraphics[width=0.31\textwidth]{BeamDump_figures/Neutron_flux_1DMax_x_Design1.pdf}\hfill
-  \includegraphics[width=0.31\textwidth]{BeamDump_figures/Neutron_flux_1DMax_y_Design1.pdf}\hfill
-  \includegraphics[width=0.31\textwidth]{BeamDump_figures/Neutron_flux_1DMax_z_Design1_withLabels.pdf}
-\end{frame}
-\begin{frame}{Neutron fluxes from one bunch: \textbf{Design 2}}
-\begin{columns}
- \begin{column}{0.5\textwidth}
-    \includegraphics[width=\textwidth]{BeamDump_figures/Neutron_flux_xz_Design2.pdf}
- \end{column}
- \begin{column}{0.5\textwidth}
-  The neutrons again spread more in the positive x and y-direction. Within the tank, the point of highest neutron production is the high pressure water system. The production rate again decreases with the beam being stopped by the copper plates.
- \end{column}
-\end{columns}
-\hspace*{1cm} x-direction \hfill y-direction \hfill z-direction \hspace*{1cm} \\
-  \includegraphics[width=0.31\textwidth]{BeamDump_figures/Neutron_flux_1DMax_x_Design2.pdf}\hfill
-  \includegraphics[width=0.31\textwidth]{BeamDump_figures/Neutron_flux_1DMax_y_Design2.pdf}\hfill
-  \includegraphics[width=0.31\textwidth]{BeamDump_figures/Neutron_flux_1DMax_z_Design2_withLabels.pdf}
-\end{frame}
-
-
-\section{Summary and Outlook}
+\subsection{Summary and Outlook}
 \begin{frame}{Conclusion}
  \flukalogo
  Water beam dump designs:
@@ -662,15 +613,20 @@ The dose rate measured at the longitudinal shower maximum inside the vessel over
 \end{frame}
 
 %--------------------------------------------------------------------------------------------------------------
-
+\AtBeginSection[] {
+  \begin{frame}<beamer>
+     \tableofcontents[currentsection,
+     currentsubsection,
+     %hideothersubsections,
+     subsectionstyle=show/shaded/hide,
+     subsubsectionstyle=show/show/hide]
+  \end{frame}
+}
 \section{Pair background studies for the new ILC250 schemes}
-\begin{frame}
- \centering \LARGE Pair background studies for the new ILC250 schemes
-\end{frame}
 
 \begin{frame}{ILC250 Beam Parameter Sets}
  \begin{table}
-\caption{Possible beam parameter sets for the ILC250 stage. The table only lists the parameters that are to be changed with respect to the original ILC250 parameters given in the Technical Design Report (TDR)~\cite[p. 11]{TDR1}.}
+\caption{Possible beam parameter sets for the ILC250 stage.\\{\small The table only lists the parameters that are to be changed with respect to the original ILC250 parameters given in the Technical Design Report (TDR)~\cite[p. 11]{TDR1}.}}
 \label{tab:Parameters}
 \centering
 \begin{tabularx}{0.55\textwidth}{llll}
@@ -686,11 +642,11 @@ The dose rate measured at the longitudinal shower maximum inside the vessel over
 \hline\hline
 \end{tabularx}
 \end{table}
-Reduced emittance leads to stronger beam-beam interactions, and therefore to increased \positron \electron pair background.
+\alert{Reduced emittance leads to stronger beam-beam interactions, and therefore to increased \positron \electron pair background.}
 \end{frame}
 
 \subsection{Pair background envelopes}
-\begin{frame}{Pair background envelopes}
+\begin{frame}{Pair background density in a 5\,T solenoid field}
  \begin{figure}
 \centering
 \begin{subfigure}[t]{0.35\textwidth}
@@ -727,22 +683,23 @@ The beam pipe is represented by the red solid lines.}
 \begin{center}
  \includegraphics[width=0.72\textwidth]{ILC250_figures/HelixEnvelope_Projection_Comparison_250GeV_parametersets_NEWSETNAMES.png}
 \end{center}
-The envelopes are in all schemes well contained within in the beam pipe. Less than 10 particles per bunch crossing are to be expected outside the beam pipe.
+The envelopes are in all schemes well contained within the beam pipe. Less than 10 particles per bunch crossing are to be expected outside the beam pipe.
 \end{frame}
 
+\subsection{SiD Occupancy}
 \begin{frame}{SiD Vertex Detector Occupancy: All layers}
  \begin{figure}
 \centering
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt__cells_ILC250_ALL_SETS_6Sep2017_NEWSETNAMES.png}
-\caption{Normalized Occumancy: Number of cells containing a certain amount of hits, normalized by the total number of cells of the vertex detector.}
+\caption{\alert{Normalized Occupancy}: Number of cells containing a certain amount of hits, normalized by the total number of cells of the vertex detector.}
 \end{subfigure}
-\hspace*{0.1cm}
-\begin{subfigure}[t]{0.45\textwidth}
+\hspace*{0.2cm}
+\begin{subfigure}[t]{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_deadcells_ILC250_ALL_SETS_6Sep2017_NEWSETNAMES.png}
-\caption{Ratio of dead cells in comparison to all cells of the vertex detector.}
+\caption{\alert{Normalized number of dead cells}: Number of cells with full buffer, normalized by the total number of cells of the vertex detector.}
 \end{subfigure}
 \end{figure}
 \end{frame}
@@ -777,18 +734,27 @@ Studies with smaller original L* of \SI{3.5}{\meter} are ongoing. $\rightarrow$ 
 
 \section*{References}
 \begin{thebibliography}{9}
-\begin{frame}{References}
 \setbeamertemplate{bibliography item}[text]
+\begin{frame}{References for the BDS muon study}
+\tiny
+\bibitem{MUCARLO_talk}  \emph{ECFA 2016: Talk by Glen White about the MUCARLO simulation of the muons from the muon spoilers}. \url{https://agenda.linearcollider.org/event/7014/contributions/34689/attachments/30076/44961/ILC_muons.pptx}
+\bibitem{Jonas_talk}  \emph{DESY summer student program: Talk by Jonas Glomitza (RWTH Aachen) about ``The Impacts of the Muon Spoiler Background on the ILC Detector Performance'', 08. September 2016}. \url{https://indico.desy.de/getFile.py/access?contribId=9&resId=0&materialId=slides&confId=15972}
+\bibitem{Suppression}  \emph{FERMILAB-CONF-07-276-AD: ``Suppression of Muon Backgrounds generated in the ILC Beam Delivery System'', Drozhdin et.al, 2007}. \url{https://inspirehep.net/record/771808/files/fermilab-conf-07-276.pdf}
+\bibitem{MUCARLO}  \emph{``Calculation of Muon Background in Electron Accelerators using the Monte Carlo Computer Program MUCARLO'', Rokni et.al}. \url{http://www.slac.stanford.edu/cgi-wrap/getdoc/slac-pub-7054.pdf}
+\bibitem{MuonBackground_1TeV}  \emph{SLAC-PUB-6385: ``Muon Background in a 1.0-TeV Linear Collider'', L.P. Keller, 1993}. \url{http://www.slac.stanford.edu/pubs/slacpubs/6250/slac-pub-6385.pdf}
+\bibitem{MuonBackground_0.5TeV}  \emph{SLAC-PUB-5533: ``Calculation of Muon Background in a 0.5 TeV Linear Collider'', L.P. Keller, 1991}. \url{http://www.slac.stanford.edu/cgi-wrap/getdoc/slac-pub-5533.pdf}
+\end{frame}
+\begin{frame}{References for the FLUKA study}
+\tiny
 \bibitem{Smith} B. Smith (Rutherford Lab), \emph{Design drawings 0-TB-0067-300-00-A, 0-TB-0067-210-00-A, 0-TB-0067-404-00-A}, Dec. 2006 - Jan. 2007
 \bibitem{Smith_Report} B. Smith (CCLRC Technology Department), \emph{18\,MW Water Beam Dump Concept}, Report 088-D-006-01, Jan. 2007
 \bibitem{SLAC_FLUKA} S. Darbha, \emph{Simulation of Neutron Backgrounds from the ILC Extraction Line Beam Dump}, SLAC-TN-07-013, Aug. 2007
 \bibitem{NIM_paper} P. Satyamurthy, et al., \emph{Design of an 18\,MW vortex flow water beam dump for 500\,GeV electrons/positrons of an international linear collider}, NIM A 679 (2012) 67-81
 \bibitem{CLIC_dump} A. Mereghetti, et al., \emph{FLUKA and Thermo-Mechanical Studies for the CLIC Main Dump}, CLIC-Note-876, Mach 2011
-\end{frame}
-\begin{frame}{References}
 \bibitem{Concrete} K. Okuno, et al., \emph{Application of neutron shield concrete to neutron scattering instrument TAIKAN in J-PARC}, Progress in Nuclear Science and Technology, Vol. 4, pp 619-622, 2014
 \end{frame}
-\begin{frame}{References}
+\begin{frame}{References for the Pair background study}
+\tiny
 \bibitem{TDR1} T. Behnke, et al., \emph{The International Linear Collider - Technical Design Report, Volume 1}, 2013.
 \end{frame}
 \end{thebibliography}
@@ -849,6 +815,23 @@ In the 'Spoiler + Wall' case, the lower energy muons are either stopped or defle
  \begin{center}
 \includegraphics[height=0.78\textheight]{muons_figures/Explanation_Hits_Subdetectors.pdf}
 \end{center}
+\end{frame}
+
+\subsection{Analysis - SiD Occupancy}
+\begin{frame}{Occupancy plots - \small SiTrackerEndcap}
+\sidlogo
+\begin{columns}
+ \begin{column}{0.25\textwidth}
+ \small
+  Comparison of the muon occupancy in the \textcolor{red}{'5 Spoilers} and the \textcolor{blue}{'5 Spoilers + Wall'} case.\\{\small The \textcolor{green}{buffer depth} of the current sensor design is 4.}\\
+  \vspace*{0.2cm}
+  {\footnotesize The following occupancy plots are normalized by the first bin.}
+ \end{column}
+ \begin{column}{0.75\textwidth}
+\includegraphics[width=\textwidth]{muons_figures/figures/SiTrackerEndcap_Occupancy.png}
+\end{column}
+\end{columns}
+For both scenarios, 5 Spoilers w/ and w/o Wall, 10$^{-9}$ - 10$^{-7}$ of all cells that get hit have 4 hits.
 \end{frame}
 
 \subsection{Analysis - Dead cells}
@@ -996,6 +979,34 @@ Design 2 \hspace*{1.4cm} Electrons \hfill Photons \hspace*{3.1cm} \\
   \includegraphics[width=0.52\textwidth]{BeamDump_figures/Proton_flux_xz_Design1.pdf}
     \includegraphics[width=0.52\textwidth]{BeamDump_figures/Proton_flux_xz_Design2.pdf}
 \end{center}
+\end{frame}
+\begin{frame}{Neutron fluxes from one bunch: \textbf{Design 1}}
+\begin{columns}
+ \begin{column}{0.5\textwidth}
+    \includegraphics[width=\textwidth]{BeamDump_figures/Neutron_flux_xz_Design1.pdf}
+ \end{column}
+ \begin{column}{0.5\textwidth}
+  The neutrons spread more in the positive x and y-direction. Within the tank, the neutrons are mainly produced in the water vortex system. When the beam is stopped by the copper plates, the neutron production rate decreases.
+ \end{column}
+\end{columns}
+\hspace*{1cm} x-direction \hfill y-direction \hfill z-direction \hspace*{1cm} \\
+  \includegraphics[width=0.31\textwidth]{BeamDump_figures/Neutron_flux_1DMax_x_Design1.pdf}\hfill
+  \includegraphics[width=0.31\textwidth]{BeamDump_figures/Neutron_flux_1DMax_y_Design1.pdf}\hfill
+  \includegraphics[width=0.31\textwidth]{BeamDump_figures/Neutron_flux_1DMax_z_Design1_withLabels.pdf}
+\end{frame}
+\begin{frame}{Neutron fluxes from one bunch: \textbf{Design 2}}
+\begin{columns}
+ \begin{column}{0.5\textwidth}
+    \includegraphics[width=\textwidth]{BeamDump_figures/Neutron_flux_xz_Design2.pdf}
+ \end{column}
+ \begin{column}{0.5\textwidth}
+  The neutrons again spread more in the positive x and y-direction. Within the tank, the point of highest neutron production is the high pressure water system. The production rate again decreases with the beam being stopped by the copper plates.
+ \end{column}
+\end{columns}
+\hspace*{1cm} x-direction \hfill y-direction \hfill z-direction \hspace*{1cm} \\
+  \includegraphics[width=0.31\textwidth]{BeamDump_figures/Neutron_flux_1DMax_x_Design2.pdf}\hfill
+  \includegraphics[width=0.31\textwidth]{BeamDump_figures/Neutron_flux_1DMax_y_Design2.pdf}\hfill
+  \includegraphics[width=0.31\textwidth]{BeamDump_figures/Neutron_flux_1DMax_z_Design2_withLabels.pdf}
 \end{frame}
 
 
