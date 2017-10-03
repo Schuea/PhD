@@ -14,6 +14,7 @@
 \usepackage{textgreek}
 \usepackage{tabularx}
 \usepackage{booktabs}
+\usepackage{xspace,multicol}
 \usepackage{siunitx}
 \usepackage{units}
 \usepackage{appendixnumberbeamer}
@@ -25,6 +26,7 @@
 \usepackage{multicol}
 \usepackage{comment}
 \DeclareSIUnit\year{yr}
+\newcommand{\lumi}{$\mathcal{L}$\xspace}
 
 \mode<presentation>
 {
@@ -98,7 +100,7 @@
 \newcommand{\electron}{e$^-$}
 \newcommand{\positron}{e$^+$}
 
-\title[ILC \& Background Simulations]{\textbf{\LARGE The International Linear Collider \\ Background Simulations \& Optimizing the Final Focus Region \\ \small GK Workshop, Bad Liebenzell}}
+\title[ILC \& Background Simulations]{\textbf{\LARGE The International Linear Collider -\\ \large Background Simulations \& \\Optimizations of the Final-Focus Region \\\vspace*{0.2cm} \small GK Workshop, Bad Liebenzell}}
 \author{\textbf{Anne Sch\"utz}}
 \institute{\textbf{KIT, DESY}}
 \date{\textbf{11. October 2017}}
@@ -131,7 +133,8 @@
      \tableofcontents[currentsection,
      currentsubsection,
      %hideothersubsections,
-     subsectionstyle=show/shaded/hide]
+     subsectionstyle=show/shaded/hide,
+     subsubsectionstyle=show/show/hide]
   \end{frame}
 }
 
@@ -169,12 +172,12 @@ My supervisors\\
 \begin{frame}{My Ph.D topic}
 \ilclogo
 \begin{center}
-\includegraphics[width=0.4\textwidth]{figures/ILCTDR-VOLUME_3-PART_II_FFRegion.png}
 \begin{block}{}
 \centering
 \textit{Optimizing the design of the Final-Focus Region\\for the International Linear Collider}
 \end{block}
-\includegraphics[width=0.7\textwidth]{figures/ILC_schematic_layout.png}
+\vspace*{0.2cm}
+\includegraphics[width=0.8\textwidth]{figures/ILC_schematic_layout.png}
 \end{center}
 \end{frame}
 
@@ -240,7 +243,7 @@ Therefore a linear collider:
 \newcolumntype{g}{>{\columncolor{Gray}}r}
 %-----------------------------------------
 \subsection{The beam parameters}
-\begin{frame}{The beam parameters of the ILC}
+\begin{frame}{The beam parameters of the \textbf{ILC}}
 \ilclogo
 
 \begin{table}[]
@@ -259,7 +262,7 @@ q$_b$ &[\si{\nano\coulomb}] & 3.2  & 3.2  &  2.7 & 18.4 \\
 $\sigma_x^*$ &[\si{\nano\metre}] & 474  & 474  &  481 & \num{16700}\\
 $\sigma_y^*$ &[\si{\nano\metre}] & 5.9 &  5.9  &  2.8 & \num{16700}\\
 $\sigma_z$ &[\si{\milli\metre}] & 0.3  &  0.3  &  0.25 & 0.755\\
-L &[\si{\per\centi\metre\squared\per\second}] & \num{1.8e34} & \num{3.6e34} & \num{3.6e34} & \num{1.0e34}\\
+\lumi &[\si{\per\centi\metre\squared\per\second}] & \num{1.8e34} & \num{3.6e34} & \num{3.6e34} & \num{1.0e34}\\
 \hline
 \end{tabularx}
 \end{table}
@@ -304,151 +307,9 @@ The two detectors can be swapped in the so-called \textbf{push-pull-system}.
 \end{center}
 \end{column}
 \end{columns}
-
-\end{frame}
-%--------------------------------------------------------------
-\subsection{Physics motivation}
-\begin{frame}[fragile]{The physics motivation of the ILC}
-\ilclogo
-
-\begin{block}{}
-\centering
-\textcolor{JungleGreen}{Cleanliness} - \textcolor{WildStrawberry}{Democracy} - \textcolor{Periwinkle}{Calculability} - \textcolor{LimeGreen}{Detail}
-\end{block}
-
-\visible<2->{
-\begin{overprint}
-\onslide<2>
-\begin{itemize}
-\color{JungleGreen}
-\item Small background
-\item Small detector occupancy
-\item Smaller energy range
-\item No out-of-time pileup or underlying events
-\end{itemize}
-\centering
-\includegraphics[width=0.6\textwidth]{figures/ILC_LHC_eventdisplay_comparison.pdf}
-
-\onslide<3>
-\begin{itemize}
-\color{WildStrawberry}
-\item Elementary coupling \textit{e} of photons is the same for all quarks and leptons
-\item e$^+$e$^-$ annihilation produces pairs of all species, SM and exotics, at similar rates
-\item No triggers
-\end{itemize}
-
-\onslide<4>
-\begin{itemize}
-\color{Periwinkle}
-\item Point-like elementary particles in initial state
-\item Coupling only to electroweak interactions
-\item No systematic uncertainties due to PDF uncertainties and QCD corrections
-\end{itemize}
-
-\onslide<5>
-\begin{itemize}
-\color{LimeGreen}
-\item Reconstruction of complete events
-\item Quark and lepton momenta determined by kinematic fits
-\item Study of spin-dependence of production and decay processes
-\end{itemize}
-
-\onslide<6>
-\begin{columns}
-\begin{column}{0.24\textwidth}
-\begin{itemize}
-\color{JungleGreen}
-\item Small background
-\item Small detector occupancy
-\item Smaller energy range
-\item No out-of-time pileup or underlying events
-\end{itemize}
-\end{column}
-\begin{column}{0.26\textwidth}
-\begin{itemize}
-\color{WildStrawberry}
-\item Elementary coupling \textit{e} of \textgamma \, the same for all quarks \& leptons
-\item e$^+$e$^-$ annihilation produces pairs of all species, SM \& exotics, at similar rates
-\item No triggers
-\end{itemize}
-\end{column}
-\begin{column}{0.27\textwidth}
-\begin{itemize}
-\color{Periwinkle}
-\item Pointlike elementary particles in initial state
-\item Coupling only to EW interactions
-\item No sys. uncert. due to PDF uncertainties and QCD corrections
-\end{itemize}
-\end{column}
-\begin{column}{0.27\textwidth}
-\begin{itemize}
-\color{LimeGreen}
-\item Reconstruction of complete events
-\item Quark \& lepton momenta determined by kinematic fits
-\item Study of spin-dependence of production \& decay process
-\end{itemize}
-\end{column}
-\end{columns}
-\end{overprint}
-}%end visible
 \end{frame}
 
-\begin{comment}
-\begin{frame}{The physics motivation of the ILC - Higgs factory}
-\ilclogo
-\begin{itemize}
-\item Higgs factory\\
-Fraction of the total cross section for Higgs production:\\
-In pp: \num{e-9}, in e$^+$e$^-$: \num{e-2} $\approx$ 1\%
-\item Each individual Higgs coupling will be measured to a percent accuracy, and the global width of the Higgs can be measured directly:\\LHC experiments have to make a global fit to all Higgs signals (plus using theoretical assumptions of the width), in order to get the Higgs couplings $ \rightarrow$ can never be as precise as at the ILC
-\end{itemize}
-\visible<2->{
-\begin{columns}
- \begin{column}[t]{0.5\textwidth}
-   \includegraphics[width=0.85\textwidth]{figures/PhysicsMotivation-ILCPAC2012-Peskin_PrecisionHiggsCouplings.pdf}
- \end{column}
- \begin{column}[t]{0.5\textwidth}
-   \includegraphics[width=0.83\textwidth]{figures/Higgs_Coupling_Precision_2013.pdf}
- \end{column}
-\end{columns}
-}
-\end{frame}
-\end{comment}
-
-\begin{frame}{The physics motivation of the ILC - Summary}
-\ilclogo
-\alert{\MakeUppercase{Precise measurements:}}\\
-\begin{itemize}
-\item The initial particle energy is precisely known. There are no PDFs, as the initial particles are elementary.
-\item Due to the high energy resolution, peaks are now measurable that weren't measurable before. Particles with small mass difference are distinguishable.
-\item c-tagging is possible because of small distance between IP and the  detectors (nano-sized beam)
-\end{itemize}
-\alert{\MakeUppercase{Clean environment:}}\\
-\begin{itemize}
-\item Due to polarization of both beams, background can be ``switched off''.
-\item Small background and no underlying events or out-of-time pileup.
-\end{itemize}
-\alert{\MakeUppercase{Model independent:}}\\
-\begin{itemize}
-\item The reactions will be measured and reconstructed in completeness. No theoretical assumptions have to be taken into account.
-\item New physics and BSM physics are accessible.
-\end{itemize}
-
-\end{frame}
-
-\section{Background simulation and Final-Focus optimization}
-\begin{frame}{Background simulation \& Final-Focus optimization}
-\ilclogo
-\begin{block}{}
-\centering The ILC will be a \textcolor{Periwinkle}{high luminosity} particle accelerator \\with \textcolor{JungleGreen}{extraordinary precision}.
-\end{block}
-\vspace*{1cm}
-\textcolor{JungleGreen}{The high precision depends on the cleanliness}, \textcolor{Periwinkle}{the high luminosity on the capability to focus the beam to nanometer size}.\\
-\vspace*{0.5cm}
-\visible<2->{In order to minimize the effect of the background on the detectors and the measurements, the different background sources need to be modeled in great detail, \\also with respect to a possible optimization of the Final-Focus layout.}
-\end{frame}
-
-\subsection{SiD detector}
+\subsubsection{SiD detector}
 \begin{frame}{SiD detector}
 \sidlogo
  I am in the SiD-Optimization group.\\
@@ -495,6 +356,132 @@ In pp: \num{e-9}, in e$^+$e$^-$: \num{e-2} $\approx$ 1\%
 \end{figure}
 {\small SiD detector model: Vertex detector (red), ECAL (green), HCAL (pink), Muon system (blue)}
 \end{frame}
+%--------------------------------------------------------------
+\subsection{Physics motivation}
+\begin{frame}[fragile]{The physics motivation of the ILC}
+\ilclogo
+
+\begin{block}{}
+\centering
+\textcolor{JungleGreen}{Cleanliness} - \textcolor{WildStrawberry}{Democracy} - \textcolor{Periwinkle}{Calculability} - \textcolor{LimeGreen}{Detail}
+\end{block}
+
+\visible<2->{
+\begin{overprint}
+\onslide<2>
+\begin{itemize}
+\color{JungleGreen}
+\item Small background
+\item Due to polarization, background can be ``switched off''
+\item Small detector occupancy
+\item Smaller energy range
+\item No out-of-time pileup or underlying events
+\end{itemize}
+\centering
+\includegraphics[width=0.6\textwidth]{figures/ILC_LHC_eventdisplay_comparison.pdf}
+
+\onslide<3>
+\begin{itemize}
+\color{WildStrawberry}
+\item Elementary coupling \textit{e} of photons is the same for all quarks and leptons
+\item e$^+$e$^-$ annihilation produces pairs of all species, SM and exotics, at similar rates
+\item Model independence
+\item No triggers
+\end{itemize}
+
+\onslide<4>
+\begin{itemize}
+\color{Periwinkle}
+\item Point-like elementary particles in initial state
+\item Coupling only to electroweak interactions
+\item No systematic uncertainties due to PDF uncertainties and QCD corrections
+\end{itemize}
+
+\onslide<5>
+\begin{itemize}
+\color{LimeGreen}
+\item Reconstruction of complete events
+\item Quark and lepton momenta determined by kinematic fits
+\item Due to high energy resolution, particles with small mass difference distinguishable $\rightarrow$ Peaks are measurable that weren't measurable before
+\item c-tagging possible because of small distance between IP and the detector (nano-sized beam !)
+\end{itemize}
+
+\onslide<6>
+\begin{columns}
+\begin{column}{0.24\textwidth}
+\begin{itemize}
+\color{JungleGreen}
+\item Small background
+\item Small detector occupancy
+\item Smaller energy range
+\item No out-of-time pileup or underlying events
+\end{itemize}
+\end{column}
+\begin{column}{0.26\textwidth}
+\begin{itemize}
+\color{WildStrawberry}
+\item Elementary coupling \textit{e} of \textgamma \, the same for all quarks \& leptons
+\item e$^+$e$^-$ annihilation produces pairs of all species, SM \& exotics, at similar rates
+\item No triggers
+\end{itemize}
+\end{column}
+\begin{column}{0.27\textwidth}
+\begin{itemize}
+\color{Periwinkle}
+\item Pointlike elementary particles in initial state
+\item Coupling only to EW interactions
+\item No sys. uncert. due to PDF uncertainties and QCD corrections
+\end{itemize}
+\end{column}
+\begin{column}{0.27\textwidth}
+\begin{itemize}
+\color{LimeGreen}
+\item Reconstruction of complete events
+\item Quark \& lepton momenta determined by kinematic fits
+\item High energy resolution
+\item c-tagging
+\end{itemize}
+\end{column}
+\end{columns}
+\end{overprint}
+}%end visible
+\end{frame}
+
+\begin{comment}
+\begin{frame}{The physics motivation of the ILC - Higgs factory}
+\ilclogo
+\begin{itemize}
+\item Higgs factory\\
+Fraction of the total cross section for Higgs production:\\
+In pp: \num{e-9}, in e$^+$e$^-$: \num{e-2} $\approx$ 1\%
+\item Each individual Higgs coupling will be measured to a percent accuracy, and the global width of the Higgs can be measured directly:\\LHC experiments have to make a global fit to all Higgs signals (plus using theoretical assumptions of the width), in order to get the Higgs couplings $ \rightarrow$ can never be as precise as at the ILC
+\end{itemize}
+\visible<2->{
+\begin{columns}
+ \begin{column}[t]{0.5\textwidth}
+   \includegraphics[width=0.85\textwidth]{figures/PhysicsMotivation-ILCPAC2012-Peskin_PrecisionHiggsCouplings.pdf}
+ \end{column}
+ \begin{column}[t]{0.5\textwidth}
+   \includegraphics[width=0.83\textwidth]{figures/Higgs_Coupling_Precision_2013.pdf}
+ \end{column}
+\end{columns}
+}
+\end{frame}
+\end{comment}
+
+\section{Background simulation and Final-Focus optimization}
+\begin{frame}{Background simulation \& Final-Focus optimization}
+\ilclogo
+\begin{block}{}
+\centering The ILC will be a \textcolor{Periwinkle}{high luminosity} particle accelerator \\with \textcolor{JungleGreen}{extraordinary precision}.
+\end{block}
+\vspace*{1cm}
+\textcolor{JungleGreen}{The high precision depends on the cleanliness}, \textcolor{Periwinkle}{the high luminosity on the capability to focus the beam to nanometer size}.\\
+\vspace*{0.5cm}
+\visible<2->{In order to minimize the effect of the background on the detectors and the measurements, the different background sources need to be modeled in great detail, \\also with respect to a possible optimization of the Final-Focus layout.}
+\end{frame}
+
+
 
 \subsection{Background sources}
 
@@ -506,16 +493,16 @@ The main sources of background:
   \begin{itemize}
     \item Beam-beam interactions:
     \begin{itemize}
-      \item Pair background
+      \item \textbf{Pair background}
       \item Bhabha scattering
       \item \textgamma \textgamma $\rightarrow$ hadrons
     \end{itemize}
     \vspace*{0.5cm}
     \item Machine background:
     \begin{itemize}
-      \item Muons from the Beam Delivery System
+      \item \textbf{Muons from the Beam Delivery System}
       \item Background from the Final-Focus system (beam halo collimators)
-      \item Neutrons from the Main Beam Dumps
+      \item \textbf{Neutrons from the Main Beam Dumps}
     \end{itemize}
   \end{itemize}
  \end{column}
@@ -526,20 +513,99 @@ The main sources of background:
  \includegraphics[height=0.15\textheight]{figures/bhabha_scattering.pdf} 
  \includegraphics[height=0.15\textheight]{figures/gammagamma_hadrons.pdf}\\
  \vspace*{0.5cm}
- \includegraphics[width=0.8\textwidth]{figures/wall_shielding.png}
+ \includegraphics[width=0.8\textwidth]{figures/BDS_Tunnel_Spoilers+Wall.png}
  \end{column}
 \end{columns}
 \end{frame}
 
 \subsection{Pair background}
+\subsubsection{Changing the ILC, and therefore SiD?}
+\begin{frame}{The beam parameters of the \textbf{ILC250}}
+\ilclogo
+\alert{Going from ILC500 to ILC250}: New beam parameters under discussion in order to increase the luminosity:
+\begin{table}[]
+\centering
+\begin{tabularx}{\textwidth}{ll|rrrr}
+\hline
+& & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{TDR Baseline}} & \textbf{Set (A)} & \textbf{Set (B)} & \textbf{Set (C)}\\ 
+\hline
+\cline{1-6}
+\hline
+E$_{CM}$  &[\si{\GeV}] & 250  & 250  & 250 & 250\\
+n$_b$ & & \num{1312} & \num{1312} & \num{1312} &  \num{1312} \\
+N & & \num{2.0e10}  & \num{2.0e10}  & \num{2.0e10}  & \num{2.0e10}\\
+$\epsilon_x^*$ &[\si{\micro\metre}] & 10  & \textbf{5}  &  \textbf{5} & \textbf{5}\\
+$\epsilon_y^*$ &[\si{\nano\metre}] & 35 &  35  &  35 & 35\\
+$\beta_x^*$ &[\si{\milli\metre}] & 13  &  13  &  \textbf{9.19} & \textbf{9.19}\\
+$\beta_y^*$ &[\si{\milli\metre}] & 0.41  &  0.41  &  0.41 & \textbf{0.58}\\
+\lumi &[\si{\per\centi\metre\squared\per\second}] & \num{0.8e34} & \num{1.37e34} & \num{1.97e34} & \num{1.80e34}\\
+\hline
+\end{tabularx}
+\end{table}
+\begin{flushright}
+ \small Work in progress... 
+\end{flushright}
+\alert{Reduced emittance leads to stronger beam-beam interactions, and therefore to increased \positron \electron pair background.}
+\end{frame}
+\subsubsection{Pair background densities}
+\begin{frame}{Pair background density in a 5\,T solenoid field}
+ \begin{figure}
+\centering
+\begin{subfigure}[t]{0.35\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Helix_tracks_xz_100bunches_250GeV_5T_DanielJeans-1.jpg}
+\caption{ILC250 set (TDR)}
+\end{subfigure}
+\hspace*{0.1cm}
+\begin{subfigure}[t]{0.35\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Helix_tracks_xz_80bunches_250GeV_5T_Reduced_Emittance_x-1.jpg}
+\caption{ILC250 set (A)}
+\end{subfigure}
+\\
+\begin{subfigure}[t]{0.35\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Helix_tracks_xz_50bunches_250GeV_5T_Reduced_Emittance_x_Reduced_Beta_x-1.jpg}
+\caption{ILC250 set (B)}
+\end{subfigure}
+\hspace*{0.1cm}
+\begin{subfigure}[t]{0.35\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Helix_tracks_xz_50bunches_250GeV_5T_Reduced_Emittance_x_Reduced_Beta_x_Increased_Beta_y-1.jpg}
+\caption{ILC250 set (C)}
+\end{subfigure}
+\caption{Pair background density for the different ILC250 beam parameter sets.
+The beam pipe is represented by the red solid lines.}
+\label{fig:Envelopes}
+\end{figure}
 
-\begin{frame}{Pair background envelopes - 500GeV}
-%The helix tracks were calculated by a Helix algorithm that I have written.\\
-Due to their P\textsubscript{T} ranging between 0 and 2\,GeV, the envelopes of all pair background helixes have a characteristic shape.
-   \includegraphics[width=0.51\textwidth]{figures/PairHelixes_500GeV_5T_10bunches_xz.png}\hspace*{0.1cm}
-   \includegraphics[width=0.51\textwidth]{figures/HelixEnvelopes_Helix_tracks_xz_Helix_in_beampipe_10bunches_500GeV_5T.pdf}\\
-The envelopes show that at any given point the beam pipe is 4mm away from 99.9\% of all pair particle tracks.\\
-This suggests the possibility to \textbf{reduce the beam pipe and vertex detector radius} by $\sim$2mm.
+\end{frame}
+
+\begin{frame}{Projection of the pair background density along x}
+\begin{center}
+ \includegraphics[width=0.72\textwidth]{ILC250_figures/HelixEnvelope_Projection_Comparison_250GeV_parametersets_NEWSETNAMES.png}
+\end{center}
+The envelopes are in all schemes well contained within the beam pipe. Less than 10 particles per bunch crossing are to be expected outside the beam pipe.
+\end{frame}
+
+\subsubsection{SiD Occupancy}
+\begin{frame}{SiD Vertex Detector Occupancy}
+ Normalized Detector Occupancy: Number of cells containing a certain amount of hits, normalized by the total number of cells of the vertex detector.
+ \begin{figure}
+\centering
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt__cells_ILC250_ALL_SETS_6Sep2017_NEWSETNAMES.png}
+\caption{\alert{Normalized Occupancy for all layers}}
+\end{subfigure}
+\hspace*{0.2cm}
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_Layer_0_numcells_ILC250_ALL_SETS_6Sep2017_NEWSETNAMES.png}
+\caption{\alert{Normalized Occupancy for layer 0}}
+\end{subfigure}
+\end{figure}
+SiD is confident that the occupancy can be accommodated in the design of the pixel detector.
 \end{frame}
 
 
@@ -609,10 +675,6 @@ Together with the muons from the e\textsuperscript{-} line, there will be \textb
 The spatial distribution is due to the tunnel shape and its shielding effects.
 \end{frame}
 
-\begin{frame}{The Muons in SiD - Spatial Distribution}
- \includegraphics[width=0.9\textwidth]{figures/Explanation_Spatial_distribution_NEW.pdf}
-\end{frame}
-
 \begin{frame}{The Muon Occupancy in SiD}
  \includegraphics[width=0.6\textwidth]{figures/Hits_in_SiD_subdetectors_MuonSpoilerStudy.pdf}
   \includegraphics[width=0.45\textwidth]{figures/Explanation_Hits_Subdetectors.pdf}\\
@@ -640,18 +702,186 @@ The current SiD electronics design has a \textcolor{Green}{buffer depth of 4}, i
 \end{frame}
 
 
-\subsection{Neutrons from the beam dumps}
-\input{../General_ILC_slides/ILC_beamdump.tex}
+\subsection{Neutrons from the Main Beam Dumps}
+\subsection{Project Overview}
+{
+\usebackgroundtemplate{
+\vbox to \paperheight{\vfil
+ \tikz\node[opacity=0.1]{\includegraphics[width=\paperwidth]{BeamDump_figures/TB-0067-300-00-A_yz_view.png}};
+ \vfil}
+}
+\begin{frame}{Neutron Background and Beam Dump Irradiation}
+\flukalogo
+The 17\,MW\footnote{13.7\,MW average beam power + 20\% margin} beam is dumped into a water tank after collision.\\The activation of the dump surrounding will permit access to the dump area. Neutrons ($\lesssim$\SI{e10}{\per\square\centi\metre\per\year}) are emitted that irradiate the surroundings, and travel back towards the detectors.~\cite{SLAC_FLUKA}\\
+\vspace*{0.1cm}
+\alert{Goal: Simulating the energy deposition, irradiation, and background particles:}
+\begin{enumerate}
+ \item Simulating the activation, and the neutrons from the beam dump with FLUKA, using the design drawings by B. Smith~\cite{Smith} to model the dump and the surrounding.
+ \item Neutrons through the EXT line: With Benno List (DESY): Python program to plug the real extraction line lattice into FLUKA. Realistic simulation of the interaction between the neutrons and the lattice.
+ \item Simulating the neutrons reaching the interaction point in a full detector simulation.
+\end{enumerate}
+\end{frame}
+}
+
+\subsection{The Beam Dump Designs}
+\begin{frame}{\textbf{Design 1}}
+\begin{center}
+  \includegraphics[width=0.92\textwidth]{BeamDump_figures/TB-0067-210-00-A.png}
+\end{center}
+\end{frame}
+{
+\usebackgroundtemplate{
+\vbox to \paperheight{\vspace*{1.2cm}
+ \tikz\node[opacity=0.3]{\hspace*{0.6cm} \includegraphics[width=0.92\textwidth]{BeamDump_figures/TB-0067-210-00-A.png}};
+ \vfil}}
+\begin{frame}{\textbf{Design 1}}
+\begin{columns}
+ \begin{column}{0.5\textwidth}
+  Vessel:
+  \begin{itemize}
+   \item Diameter: 1.5\,m
+   \item Length: 6.5\,m
+   \item 316L Stainless Steel
+   \item Water pressure: 10\,bar
+  \end{itemize}
+  Window:
+  \begin{itemize}
+   \item Diameter: 300\,mm
+   \item Thickness: 1\,mm
+   \item Titanium alloy: Ti-6Al-4V 
+  \end{itemize}
+ \end{column}
+ \begin{column}{0.5\textwidth}
+  27\,X\textsubscript{0} needed to stop a 500\,GeV beam:
+  \begin{itemize}
+   \item Water: 18\,X\textsubscript{0}
+   \item Water cooled copper plates: 9\,X\textsubscript{0} = 126\,mm
+  \end{itemize}  
+ \end{column}
+\end{columns}
+
+\end{frame}
+}
+
+\begin{frame}{\textbf{Design 2}}
+\begin{center}
+  \includegraphics[width=0.92\textwidth]{BeamDump_figures/TB-0067-300-00-A.png}
+ \end{center}
+\end{frame}
+{
+\usebackgroundtemplate{
+\vbox to \paperheight{\vspace*{1.2cm}
+ \tikz\node[opacity=0.3]{\hspace*{0.6cm} \includegraphics[width=0.92\textwidth]{BeamDump_figures/TB-0067-300-00-A.png}};
+ \vfil}}
+\begin{frame}{\textbf{Design 2}}
+\begin{columns}
+ \begin{column}{0.5\textwidth}
+  Vessel:
+  \begin{itemize}
+   \item Diameter: 1.5\,m
+   \item Length: 6.5\,m
+   \item 316L Stainless Steel
+   \item Water pressure: 10\,bar
+  \end{itemize}
+  Window:
+  \begin{itemize}
+   \item Diameter: 300\,mm
+   \item Thickness: 1\,mm
+   \item Titanium alloy: Ti-6Al-4V 
+  \end{itemize}
+ \end{column}
+ \begin{column}{0.5\textwidth}
+  27\,X\textsubscript{0} needed to stop a 500\,GeV beam:
+  \begin{itemize}
+   \item Water: 18\,X\textsubscript{0}
+   \item Water cooled copper plates: 9\,X\textsubscript{0} = 126\,mm
+  \end{itemize}  
+    Additionally high water pressure section:
+  \begin{itemize}
+   \item Titanium tubes, 4\,cm diameter
+   \item High pressure water flow
+   \item In total 1.98\,X\textsubscript{0}
+  \end{itemize} 
+ \end{column}
+\end{columns}
+
+\end{frame}
+}
+
+\subsection{The FLUKA simulation}
+\subsubsection{Deposited Energy and Dose}
+\begin{frame}{Deposited Energy per bunch}
+\begin{center}
+\hspace*{1.6cm} Design 1 \hfill Design 2 \hspace*{1.8cm} \\
+  \includegraphics[width=0.52\textwidth]{BeamDump_figures/Energy_deposition_xz_Design1.pdf}
+    \includegraphics[width=0.52\textwidth]{BeamDump_figures/Energy_deposition_xz_Design2.pdf}
+\end{center}
+ Shielding walls seem to stop particles fluxes well, but large scattering in Design 2 at high water pressure sections leads to energy deposition outside the walls.
+\end{frame}
+\begin{frame}{Maximum Deposited Energy over Z per bunch}
+\begin{center}
+\hspace*{1.6cm} Design 1 \hfill Design 2 \hspace*{1.8cm} \\
+  \includegraphics[width=0.51\textwidth]{BeamDump_figures/Energy_deposition_1DMax_z_Design1_withLabels.pdf}
+    \includegraphics[width=0.51\textwidth]{BeamDump_figures/Energy_deposition_1DMax_z_Design2_withLabels.pdf}
+\end{center}
+  \textbf{Maximum deposited energy} within the water tank up to \textbf{10\textsuperscript{8}-10\textsuperscript{9}\,GeV/cm\textsuperscript{3} (= 0.016 - 0.16 J/cm\textsuperscript{3}) per bunch}.
+\end{frame}
+
+
+\begin{frame}{Instantaneous Dose Equivalent per bunch}
+\begin{center}
+\hspace*{1.8cm} Design 1 \hfill Design 2 \hspace*{1.8cm} \\
+  \includegraphics[width=0.52\textwidth]{BeamDump_figures/Dose_equivalent_total_Design1.pdf}
+    \includegraphics[width=0.52\textwidth]{BeamDump_figures/Dose_equivalent_total_Design2.pdf}
+\end{center}
+The two designs show comparable distributions of the dose equivalent.
+\end{frame}
+\begin{frame}
+\textbf{After one month of beam operation}, the beam is turned off.\\
+  \begin{center}
+    \hspace*{1.4cm} Instantaneous \hfill After 1 year\hspace*{2cm} \\
+  \includegraphics[width=0.5\textwidth]{BeamDump_figures/Dose_equivalent_total_Design1.pdf}
+  \includegraphics[width=0.5\textwidth]{DoseEQ_Time/Design1_5.pdf}
+ \end{center}
+\end{frame}
+\begin{frame}{Dose Rate over Time}
+The dose rate measured at the longitudinal shower maximum inside the vessel over time:
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{BeamDump_figures/DoseEQ_Time_Comparison.pdf}
+\end{center}
+\textbf{After one year}, the dose rate drops to \\\textbf{$\sim$ 0.1\,mSv/s} for \textcolor{Red}{Design 1} and to \textbf{$\sim$ 10\,mSv/s} for \textcolor{Blue}{Design 2}.
+\end{frame}
+
+\subsection{Summary and Outlook}
+\begin{frame}{Conclusion}
+ \flukalogo
+ Water beam dump designs:
+ \begin{itemize}
+  \item The simulations of the two water beam dump designs by B. Smith show \textbf{comparable results}.
+  \item The dose rate of the beam dump surrounding is still after one year in the order of \textbf{10\textsuperscript{-1}\,mSv/s}.
+  \item \textbf{Design 2} seems to be \textbf{more elaborated regarding the water cooling flow system}.
+  This leads to \textbf{larger spreads in the energy deposition} due to the high water pressure sections.
+ \end{itemize}
+ Goals for the next months:
+\begin{itemize}
+ \item Studying the influence of the water composition (amount of deuterium),
+ \item the influence of the composition of the steel vessel and the concrete shielding,
+ \item simulating the neutron flux through the EXT line,
+ \item the number of neutrons reaching the IP,
+ \item the neutron occupancy in SiD.
+\end{itemize}
+\end{frame}
+
 
 \section{Summary and Outlook}
 \begin{frame}
 Understanding the backgrounds occurring at a collider is crutial for the design of both, the machine and the detectors.
 \textit{What I have done so far:}
  \begin{itemize} 
-  \item Studied the \textbf{pair background} wrt timing, origin and envelopes for 500, 350 and 250GeV ILC staging scenarios \textcolor{Green}{$\rightarrow$ essential for design of the beam pipe, the vertex detector and the sensors}
-  \item Studied two different \textbf{muon shielding possibilies} and the muon occupancy in SiD \textcolor{Green}{$\rightarrow$ Spoilers + magnetized wall is prefered shielding option}
-  \item Modelled the \textbf{Main Beam Dump} and the EXT line with FLUKA \textcolor{Green}{$\rightarrow$ Simulation of the irradiation and the detector neutron background}
-  \item Data taking at ATF2 \& Collaboration with RHUL \textcolor{Green}{$\rightarrow$ Measuring and simulating the particles emitted from the machine}
+  \item Studied the \textbf{pair background} wrt timing, origin and envelopes for 500, 350 and 250GeV ILC staging scenarios \textcolor{Blue}{$\rightarrow$ essential for design of the beam pipe, the vertex detector and the sensors}
+  \item Studied two different \textbf{muon shielding possibilies} and the muon occupancy in SiD \textcolor{Blue}{$\rightarrow$ ``Spoilers + magnetized wall'' is prefered shielding option}
+  \item Modelled the \textbf{Main Beam Dump} and the EXT line with FLUKA \textcolor{Blue}{$\rightarrow$ Simulation of the irradiation and the detector neutron background}
+  \item Data taking at ATF2 in Japan \& Collaboration with RHUL \textcolor{Blue}{$\rightarrow$ Measuring and simulating the particles emitted from the machine}
  \end{itemize}
 \end{frame}
 
@@ -771,6 +1001,9 @@ Since their P\textsubscript{T} ranges between 0 and 2\,GeV, they form \textbf{he
 \end{frame}
 
 \section{Muons from the BDS}
+\begin{frame}{The Muons in SiD - Spatial Distribution}
+ \includegraphics[width=0.9\textwidth]{figures/Explanation_Spatial_distribution_NEW.pdf}
+\end{frame}
 \begin{frame}{The Muon Energy}
 \begin{center}
   \includegraphics[width=0.65\textwidth]{figures/muon_energy.pdf}
