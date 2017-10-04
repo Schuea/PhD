@@ -5,7 +5,7 @@ Title: GasDump
 Input: GasDump.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Input
+Page: Plot
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -17,7 +17,7 @@ Run: <default>
 	Last:     5
 	Status:   3
 	Pid:      0
-	StartRun: 1506947519
+	StartRun: 1507064168
 
 	# USRxxx data file: GasDump_21.bnn
 	Data: \I_\U.\e
@@ -194,10 +194,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 0.636005 0.335771
+	extends: 1484 783.46
 	labels: 1
 	layer: Media
-	origin: 7.05145 0 -50060
+	origin: -199.752 0 -50923.8
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -255,12 +255,8 @@ Plot: Energy_deposition
 	Format: .eps
 	Type:   USRBIN
 	axes: Auto
-	bxmax: 6000
-	bxmin: -6000
 	bymax: 3.8
 	bymin: -3.8
-	bzmax: 200
-	bzmin: -200
 	cbcolors: 30
 	cblabel: GeV/cm3 per bunch
 	cblog: True
@@ -275,10 +271,10 @@ Plot: Energy_deposition
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 1.6948871913323768E-002
+	int: 437.93441557285763
 	lw.0: 0
-	max: 5.44788925E-08
-	min: 1.50923145E-14
+	max: 1.72591098E-02
+	min: 4.96408000E-16
 	norm: 1.74e10
 	proj: Y
 	ps.0: 0
@@ -921,10 +917,10 @@ Plot: GasDump_21_plot
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 2.2600458011073039E-002
+	int: 499.12023971062456
 	lw.0: 0
-	max: 4.08673539E-09
-	min: 9.39286588E-16
+	max: 1.91027226E-04
+	min: 1.71386198E-18
 	proj: Y
 	ps.0: 0
 	pt.0: 0
@@ -948,24 +944,79 @@ End
 Plot: GasDump_22_plot
 	Format: .eps
 	Type:   USRBIN
+	axes: Auto
 	cbcolors: 30
-	cblog: 1
+	cblog: True
+	cbpalette: FLUKA
+	cbround: 0
 	cbtics: 1
+	cpd: 0
 	datafile: GasDump_22.bnn
+	det: 1
+	errors: 0
 	geo: -Auto-
+	grid: 0
+	hist: 2D Projection
+	index: 0
+	lw.0: 0
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
 	title: USRBIN GasDump 22
+	with.0: errorbars
+	x2log: False
+	x2tics: 0
+	xlog: False
+	xrebin: 1
+	y2log: False
+	y2tics: 0
+	ylog: False
+	yrebin: 1
+	zlog: False
+	zrebin: 1
+	ztics: 0
 End
 
 # USRBIN plot "USRBIN GasDump 23"
 Plot: GasDump_23_plot
 	Format: .eps
 	Type:   USRBIN
+	axes: Auto
 	cbcolors: 30
-	cblog: 1
+	cblog: True
+	cbpalette: FLUKA
+	cbround: 0
 	cbtics: 1
+	cpd: 0
 	datafile: GasDump_23.bnn
+	det: 1
+	errors: 0
 	geo: -Auto-
+	grid: 0
+	hist: 2D Projection
+	index: 0
+	int: 660656566.86036623
+	lw.0: 0
+	max: 2.93638659
+	min: 2.29429187E-09
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
 	title: USRBIN GasDump 23
+	with.0: errorbars
+	x2log: False
+	x2tics: 0
+	xlog: False
+	xrebin: 1
+	y2log: False
+	y2tics: 0
+	ylog: False
+	yrebin: 1
+	zlog: False
+	zrebin: 1
+	ztics: 0
 End
 
 # USRBIN plot "USRBIN GasDump 34"

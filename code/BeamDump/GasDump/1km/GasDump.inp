@@ -9,7 +9,8 @@ DEFAULTS                                                              PRECISIO
 !@scale=1.0
 BEAM           -500. -1.000875       0.0-.56940603-.05138681        1.ELECTRON
 * Define the beam position
-BEAMPOS          0.0       0.0     -750.       0.0       0.0
+!@what.3=-510.00*m
+BEAMPOS          0.0       0.0   -51000.       0.0       0.0
 #if ACTIV_STUDY 
 !@what.1=0.8967*ms
 !@what.2=4*2450*1.74E10
