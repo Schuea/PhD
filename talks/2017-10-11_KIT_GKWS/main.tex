@@ -447,8 +447,14 @@ The two detectors can be swapped in the so-called \textbf{push-pull-system}.
 }%end visible
 \end{frame}
 
-\begin{comment}
-\begin{frame}{The physics motivation of the ILC - Higgs factory}
+\subsection{Physics Goals}
+\begin{frame}{Physics goals for the different ILC stages}
+\begin{center}
+  \includegraphics[width=0.65\textwidth]{figures/ILCTDR-VOLUME_1_PhysicsGoals.pdf}
+\end{center}
+We want to do PRECISION measurements, and find new particles and new physics! :)
+\end{frame}
+\begin{frame}{ILC as a Higgs factory}
 \ilclogo
 \begin{itemize}
 \item Higgs factory\\
@@ -456,33 +462,43 @@ Fraction of the total cross section for Higgs production:\\
 In pp: \num{e-9}, in e$^+$e$^-$: \num{e-2} $\approx$ 1\%
 \item Each individual Higgs coupling will be measured to a percent accuracy, and the global width of the Higgs can be measured directly:\\LHC experiments have to make a global fit to all Higgs signals (plus using theoretical assumptions of the width), in order to get the Higgs couplings $ \rightarrow$ can never be as precise as at the ILC
 \end{itemize}
-\visible<2->{
-\begin{columns}
- \begin{column}[t]{0.5\textwidth}
-   \includegraphics[width=0.85\textwidth]{figures/PhysicsMotivation-ILCPAC2012-Peskin_PrecisionHiggsCouplings.pdf}
- \end{column}
- \begin{column}[t]{0.5\textwidth}
-   \includegraphics[width=0.83\textwidth]{figures/Higgs_Coupling_Precision_2013.pdf}
- \end{column}
-\end{columns}
-}
+\hspace*{0.4cm}
+ \includegraphics[width=0.43\textwidth]{figures/PhysicsMotivation-ILCPAC2012-Peskin_PrecisionHiggsCouplings.pdf}
+ \hspace*{0.2cm}
+ \includegraphics[width=0.4\textwidth]{figures/Higgs_Coupling_Precision_2013.pdf}
 \end{frame}
-\end{comment}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+     \tableofcontents[currentsection,
+     currentsubsection,
+     %hideothersubsections,
+     subsectionstyle=show/shaded/hide,
+     subsubsectionstyle=show/show/hide]
+  \end{frame}
+}
+
+\section{Latest News from the ILC}
+\begin{frame}{Down grading the ILC?}
+ \alert{The Japanese government asks for a cost reduction of ??\%.}\\ \vspace*{0.3cm}
+ \visible<2->{
+ To achieve such a dramatic cost reduction, the full machine needs to be down graded.\\
+ \alert{Instead of \SI{500}{GeV} center-of-mass energy} as the first stage, it was decided to start with \alert{\SI{250}{GeV}}.\\
+ This comes with revisiting the machine parameters $\rightarrow$ increasing the possible luminosity $\rightarrow$ increasing the possible Physics outcome.
+ }
+ \visible<3->{
+ \vspace*{0.3cm}\\
+ In order to increase the luminosity, the horizontal emittance $\epsilon_x$ is reduced.\\
+ \textcolor{Red}{Downside:\\
+ This leads to stronger beam-beam interactions, and therefore larger backgrounds!}\\
+ Work in progress:\\
+ Looking at effects on the SiD detector. Maybe the detector design has to be changed!
+ }
+\end{frame}
+
 
 \section{Background simulation and Final-Focus optimization}
-\begin{frame}{Background simulation \& Final-Focus optimization}
-\ilclogo
-\begin{block}{}
-\centering The ILC will be a \textcolor{Periwinkle}{high luminosity} particle accelerator \\with \textcolor{JungleGreen}{extraordinary precision}.
-\end{block}
-\vspace*{1cm}
-\textcolor{JungleGreen}{The high precision depends on the cleanliness}, \textcolor{Periwinkle}{the high luminosity on the capability to focus the beam to nanometer size}.\\
-\vspace*{0.5cm}
-\visible<2->{In order to minimize the effect of the background on the detectors and the measurements, the different background sources need to be modeled in great detail, \\also with respect to a possible optimization of the Final-Focus layout.}
-\end{frame}
-
-
-
 \subsection{Background sources}
 
 \begin{frame}{Background sources}
@@ -493,14 +509,14 @@ The main sources of background:
   \begin{itemize}
     \item Beam-beam interactions:
     \begin{itemize}
-      \item \textbf{Pair background}
+      \item Pair background
       \item Bhabha scattering
       \item \textgamma \textgamma $\rightarrow$ hadrons
     \end{itemize}
     \vspace*{0.5cm}
     \item Machine background:
     \begin{itemize}
-      \item \textbf{Muons from the Beam Delivery System}
+      \item Muons from the Beam Delivery System
       \item Background from the Final-Focus system (beam halo collimators)
       \item \textbf{Neutrons from the Main Beam Dumps}
     \end{itemize}
@@ -518,192 +534,8 @@ The main sources of background:
 \end{columns}
 \end{frame}
 
-\subsection{Pair background}
-\subsubsection{Changing the ILC, and therefore SiD?}
-\begin{frame}{The beam parameters of the \textbf{ILC250}}
-\ilclogo
-\alert{Going from ILC500 to ILC250}: New beam parameters under discussion in order to increase the luminosity:
-\begin{table}[]
-\centering
-\begin{tabularx}{\textwidth}{ll|rrrr}
-\hline
-& & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{TDR Baseline}} & \textbf{Set (A)} & \textbf{Set (B)} & \textbf{Set (C)}\\ 
-\hline
-\cline{1-6}
-\hline
-E$_{CM}$  &[\si{\GeV}] & 250  & 250  & 250 & 250\\
-n$_b$ & & \num{1312} & \num{1312} & \num{1312} &  \num{1312} \\
-N & & \num{2.0e10}  & \num{2.0e10}  & \num{2.0e10}  & \num{2.0e10}\\
-$\epsilon_x^*$ &[\si{\micro\metre}] & 10  & \textbf{5}  &  \textbf{5} & \textbf{5}\\
-$\epsilon_y^*$ &[\si{\nano\metre}] & 35 &  35  &  35 & 35\\
-$\beta_x^*$ &[\si{\milli\metre}] & 13  &  13  &  \textbf{9.19} & \textbf{9.19}\\
-$\beta_y^*$ &[\si{\milli\metre}] & 0.41  &  0.41  &  0.41 & \textbf{0.58}\\
-\lumi &[\si{\per\centi\metre\squared\per\second}] & \num{0.8e34} & \num{1.37e34} & \num{1.97e34} & \num{1.80e34}\\
-\hline
-\end{tabularx}
-\end{table}
-\begin{flushright}
- \small Work in progress... 
-\end{flushright}
-\alert{Reduced emittance leads to stronger beam-beam interactions, and therefore to increased \positron \electron pair background.}
-\end{frame}
-\subsubsection{Pair background densities}
-\begin{frame}{Pair background density in a 5\,T solenoid field}
- \begin{figure}
-\centering
-\begin{subfigure}[t]{0.35\textwidth}
-\centering
-\includegraphics[width=\textwidth]{ILC250_figures/Helix_tracks_xz_100bunches_250GeV_5T_DanielJeans-1.jpg}
-\caption{ILC250 set (TDR)}
-\end{subfigure}
-\hspace*{0.1cm}
-\begin{subfigure}[t]{0.35\textwidth}
-\centering
-\includegraphics[width=\textwidth]{ILC250_figures/Helix_tracks_xz_80bunches_250GeV_5T_Reduced_Emittance_x-1.jpg}
-\caption{ILC250 set (A)}
-\end{subfigure}
-\\
-\begin{subfigure}[t]{0.35\textwidth}
-\centering
-\includegraphics[width=\textwidth]{ILC250_figures/Helix_tracks_xz_50bunches_250GeV_5T_Reduced_Emittance_x_Reduced_Beta_x-1.jpg}
-\caption{ILC250 set (B)}
-\end{subfigure}
-\hspace*{0.1cm}
-\begin{subfigure}[t]{0.35\textwidth}
-\centering
-\includegraphics[width=\textwidth]{ILC250_figures/Helix_tracks_xz_50bunches_250GeV_5T_Reduced_Emittance_x_Reduced_Beta_x_Increased_Beta_y-1.jpg}
-\caption{ILC250 set (C)}
-\end{subfigure}
-\caption{Pair background density for the different ILC250 beam parameter sets.
-The beam pipe is represented by the red solid lines.}
-\label{fig:Envelopes}
-\end{figure}
-
-\end{frame}
-
-\begin{frame}{Projection of the pair background density along x}
-\begin{center}
- \includegraphics[width=0.72\textwidth]{ILC250_figures/HelixEnvelope_Projection_Comparison_250GeV_parametersets_NEWSETNAMES.png}
-\end{center}
-The envelopes are in all schemes well contained within the beam pipe. Less than 10 particles per bunch crossing are to be expected outside the beam pipe.
-\end{frame}
-
-\subsubsection{SiD Occupancy}
-\begin{frame}{SiD Vertex Detector Occupancy}
- Normalized Detector Occupancy: Number of cells containing a certain amount of hits, normalized by the total number of cells of the vertex detector.
- \begin{figure}
-\centering
-\begin{subfigure}[t]{0.48\textwidth}
-\centering
-\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt__cells_ILC250_ALL_SETS_6Sep2017_NEWSETNAMES.png}
-\caption{\alert{Normalized Occupancy for all layers}}
-\end{subfigure}
-\hspace*{0.2cm}
-\begin{subfigure}[t]{0.48\textwidth}
-\centering
-\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_Layer_0_numcells_ILC250_ALL_SETS_6Sep2017_NEWSETNAMES.png}
-\caption{\alert{Normalized Occupancy for layer 0}}
-\end{subfigure}
-\end{figure}
-SiD is confident that the occupancy can be accommodated in the design of the pixel detector.
-\end{frame}
-
-
-\subsection{Muons from the BDS}
-
-\begin{frame}{The BDS}
-\begin{center}
-  \includegraphics[width=0.9\textwidth]{figures/BDS_electron_tunnel.pdf}
-  \end{center}
-The Beam Delivery System (BDS) contains the Final Focus System, and therefore focusses the beam on its way to the Interaction Point (IP).
-\end{frame}
-  \begin{frame}{The BDS}
-\begin{center}
-  \includegraphics[width=0.7\textwidth]{figures/BDS_Tunnel_Spoilers+Wall.png}
-\end{center}
-Muons are created along the BDS, when the beam halo interacts with the beam line material.
-\end{frame}
-
-\begin{frame}{The Muon Spoilers}
-\begin{columns}
- \begin{column}{0.4\textwidth}
- The two suggested shielding scenarios:
-  \begin{itemize}
-   \item 5 Spoilers
-   \begin{itemize}
-    \item 70\,cm radius, 5\,m long
-    \item magnetized iron
-    \item at 5 locations along the BDS
-   \end{itemize}
-   \item 5 Spoilers + Wall
-    \begin{itemize}
-    \item 4\,m x 5\,m, 5\,m long
-    \item magnetized iron
-    \item close to the interaction region
-   \end{itemize}
-  \end{itemize}
-
- \end{column}
- \begin{column}{0.6\textwidth}
-  \fbox{\includegraphics[width=\textwidth]{figures/Spoiler.png}}\\\vspace*{0.3cm}
-  \fbox{\includegraphics[width=\textwidth]{figures/Muon_wall.pdf}}
- \end{column}
-\end{columns} 
-\end{frame}
-
-\begin{frame}{WIRED4 event display - 5 Spoilers + Wall}
-\sidlogo
-1 train's worth of muons ($\sim$ 515 muons) \textbf{from the positron line only}:
-\begin{center}
-\includegraphics[height=0.6\textheight]{figures/muons_positron_5spoilers_wall_515_xyview_croped.png}
-{\tiny xy-view}
-\includegraphics[height=0.6\textheight]{figures/muons_positron_5spoilers_wall_515_zyview_croped.png}
-{\tiny zy-view}
-\end{center}
-Together with the muons from the e\textsuperscript{-} line, there will be \textbf{$\sim$ 900 muons per train in the '5 Spoilers + Wall' scenario}.
-\end{frame}
-\begin{frame}{WIRED4 event display - 5 Spoilers}
-\sidlogo
-1 train's worth of muons ($\sim$ 2961 muons) \textbf{from the positron line only}:
-\begin{center}
-\includegraphics[height=0.6\textheight]{figures/muons_positron_5spoilers_2961_xyview_croped.png}
-{\tiny xy-view}
-\includegraphics[height=0.6\textheight]{figures/muons_positron_5spoilers_2961_zyview_croped.png}
-{\tiny zy-view}
-\end{center}
-Together with the muons from the e\textsuperscript{-} line, there will be \textbf{$\sim$ 5600 muons per train in the '5 Spoilers' scenario}.\\
-The spatial distribution is due to the tunnel shape and its shielding effects.
-\end{frame}
-
-\begin{frame}{The Muon Occupancy in SiD}
- \includegraphics[width=0.6\textwidth]{figures/Hits_in_SiD_subdetectors_MuonSpoilerStudy.pdf}
-  \includegraphics[width=0.45\textwidth]{figures/Explanation_Hits_Subdetectors.pdf}\\
-The number of hits in the different SiD subdetectors for both shielding scenarios (\textcolor{Red}{``5 Spoilers''} and \textcolor{Blue}{``5 Spoilers + Wall''}) is not evenly distributed.\\
-The number of hits depends on the effective area of the subdetector system.
- \end{frame}
- 
-\begin{frame}{The Muon Occupancy in SiD ECAL endcaps}
-\begin{center}
-  \includegraphics[width=0.61\textwidth]{figures/EcalEndcap_DeadCells.png}
-\end{center}
-{\small A readout cell is ``dead'' when all buffers of the sensor are already filled. No more hits can be stored.}\\
-The current SiD electronics design has a \textcolor{Green}{buffer depth of 4}, i.e. \textcolor{Blue}{10\textsuperscript{-6}} - \textcolor{Red}{10\textsuperscript{-4}} of all hits are dead in the ECAL endcaps.
-\end{frame}
-\begin{frame}
- With the shown results from the occupancy analysis of the muons from the current MUCARLO simulations, the \textbf{SiD group prefers to keep the magnetized wall} in order to keep the occupancy in the SiD detector as low as possible.
- \begin{columns}
-  \begin{column}{0.4\textwidth}
-    This will also allow access to the detector parking garage, since the wall represents a tertiary containment device against not only muons but also photons and neutrons from the machine background.
-  \end{column}
-  \begin{column}{0.6\textwidth}
-    \includegraphics[width=\textwidth]{figures/wall_shielding.png}
-  \end{column}
- \end{columns}
-\end{frame}
-
-
 \subsection{Neutrons from the Main Beam Dumps}
-\subsection{Project Overview}
+\subsubsection{Project Overview}
 {
 \usebackgroundtemplate{
 \vbox to \paperheight{\vfil
@@ -723,7 +555,7 @@ The 17\,MW\footnote{13.7\,MW average beam power + 20\% margin} beam is dumped in
 \end{frame}
 }
 
-\subsection{The Beam Dump Designs}
+\subsubsection{The Beam Dump Designs}
 \begin{frame}{\textbf{Design 1}}
 \begin{center}
   \includegraphics[width=0.92\textwidth]{BeamDump_figures/TB-0067-210-00-A.png}
@@ -808,8 +640,7 @@ The 17\,MW\footnote{13.7\,MW average beam power + 20\% margin} beam is dumped in
 \end{frame}
 }
 
-\subsection{The FLUKA simulation}
-\subsubsection{Deposited Energy and Dose}
+\subsubsection{The FLUKA simulation}
 \begin{frame}{Deposited Energy per bunch}
 \begin{center}
 \hspace*{1.6cm} Design 1 \hfill Design 2 \hspace*{1.8cm} \\
@@ -818,15 +649,6 @@ The 17\,MW\footnote{13.7\,MW average beam power + 20\% margin} beam is dumped in
 \end{center}
  Shielding walls seem to stop particles fluxes well, but large scattering in Design 2 at high water pressure sections leads to energy deposition outside the walls.
 \end{frame}
-\begin{frame}{Maximum Deposited Energy over Z per bunch}
-\begin{center}
-\hspace*{1.6cm} Design 1 \hfill Design 2 \hspace*{1.8cm} \\
-  \includegraphics[width=0.51\textwidth]{BeamDump_figures/Energy_deposition_1DMax_z_Design1_withLabels.pdf}
-    \includegraphics[width=0.51\textwidth]{BeamDump_figures/Energy_deposition_1DMax_z_Design2_withLabels.pdf}
-\end{center}
-  \textbf{Maximum deposited energy} within the water tank up to \textbf{10\textsuperscript{8}-10\textsuperscript{9}\,GeV/cm\textsuperscript{3} (= 0.016 - 0.16 J/cm\textsuperscript{3}) per bunch}.
-\end{frame}
-
 
 \begin{frame}{Instantaneous Dose Equivalent per bunch}
 \begin{center}
@@ -852,7 +674,7 @@ The dose rate measured at the longitudinal shower maximum inside the vessel over
 \textbf{After one year}, the dose rate drops to \\\textbf{$\sim$ 0.1\,mSv/s} for \textcolor{Red}{Design 1} and to \textbf{$\sim$ 10\,mSv/s} for \textcolor{Blue}{Design 2}.
 \end{frame}
 
-\subsection{Summary and Outlook}
+\subsubsection{Summary and Outlook}
 \begin{frame}{Conclusion}
  \flukalogo
  Water beam dump designs:
@@ -984,6 +806,34 @@ focusing to reduce the amplitude of beam-halo particles while leaving the beam c
 \end{frame}
 
 \section{Pair background}
+\subsubsection{Changing the ILC, and therefore SiD?}
+\begin{frame}{The beam parameters of the \textbf{ILC250}}
+\ilclogo
+\alert{Going from ILC500 to ILC250}: New beam parameters under discussion in order to increase the luminosity:
+\begin{table}[]
+\centering
+\begin{tabularx}{\textwidth}{ll|rrrr}
+\hline
+& & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{TDR Baseline}} & \textbf{Set (A)} & \textbf{Set (B)} & \textbf{Set (C)}\\ 
+\hline
+\cline{1-6}
+\hline
+E$_{CM}$  &[\si{\GeV}] & 250  & 250  & 250 & 250\\
+n$_b$ & & \num{1312} & \num{1312} & \num{1312} &  \num{1312} \\
+N & & \num{2.0e10}  & \num{2.0e10}  & \num{2.0e10}  & \num{2.0e10}\\
+$\epsilon_x^*$ &[\si{\micro\metre}] & 10  & \textbf{5}  &  \textbf{5} & \textbf{5}\\
+$\epsilon_y^*$ &[\si{\nano\metre}] & 35 &  35  &  35 & 35\\
+$\beta_x^*$ &[\si{\milli\metre}] & 13  &  13  &  \textbf{9.19} & \textbf{9.19}\\
+$\beta_y^*$ &[\si{\milli\metre}] & 0.41  &  0.41  &  0.41 & \textbf{0.58}\\
+\lumi &[\si{\per\centi\metre\squared\per\second}] & \num{0.8e34} & \num{1.37e34} & \num{1.97e34} & \num{1.80e34}\\
+\hline
+\end{tabularx}
+\end{table}
+\begin{flushright}
+ \small Work in progress... 
+\end{flushright}
+\alert{Reduced emittance leads to stronger beam-beam interactions, and therefore to increased \positron \electron pair background.}
+\end{frame}
 
 \subsection{Pair background helixes}
 \begin{frame}{Pair background -  P\textsubscript{T}}
@@ -1000,7 +850,132 @@ Since their P\textsubscript{T} ranges between 0 and 2\,GeV, they form \textbf{he
 \end{center}
 \end{frame}
 
+\subsubsection{Pair background densities}
+\begin{frame}{Pair background density in a 5\,T solenoid field}
+ \begin{figure}
+\centering
+\begin{subfigure}[t]{0.35\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Helix_tracks_xz_100bunches_250GeV_5T_DanielJeans-1.jpg}
+\caption{ILC250 set (TDR)}
+\end{subfigure}
+\hspace*{0.1cm}
+\begin{subfigure}[t]{0.35\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Helix_tracks_xz_80bunches_250GeV_5T_Reduced_Emittance_x-1.jpg}
+\caption{ILC250 set (A)}
+\end{subfigure}
+\\
+\begin{subfigure}[t]{0.35\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Helix_tracks_xz_50bunches_250GeV_5T_Reduced_Emittance_x_Reduced_Beta_x-1.jpg}
+\caption{ILC250 set (B)}
+\end{subfigure}
+\hspace*{0.1cm}
+\begin{subfigure}[t]{0.35\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Helix_tracks_xz_50bunches_250GeV_5T_Reduced_Emittance_x_Reduced_Beta_x_Increased_Beta_y-1.jpg}
+\caption{ILC250 set (C)}
+\end{subfigure}
+\caption{Pair background density for the different ILC250 beam parameter sets.
+The beam pipe is represented by the red solid lines.}
+\label{fig:Envelopes}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Projection of the pair background density along x}
+\begin{center}
+ \includegraphics[width=0.72\textwidth]{ILC250_figures/HelixEnvelope_Projection_Comparison_250GeV_parametersets_NEWSETNAMES.png}
+\end{center}
+The envelopes are in all schemes well contained within the beam pipe. Less than 10 particles per bunch crossing are to be expected outside the beam pipe.
+\end{frame}
+
+\subsubsection{SiD Occupancy}
+\begin{frame}{SiD Vertex Detector Occupancy}
+ Normalized Detector Occupancy: Number of cells containing a certain amount of hits, normalized by the total number of cells of the vertex detector.
+ \begin{figure}
+\centering
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt__cells_ILC250_ALL_SETS_6Sep2017_NEWSETNAMES.png}
+\caption{\alert{Normalized Occupancy for all layers}}
+\end{subfigure}
+\hspace*{0.2cm}
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_Layer_0_numcells_ILC250_ALL_SETS_6Sep2017_NEWSETNAMES.png}
+\caption{\alert{Normalized Occupancy for layer 0}}
+\end{subfigure}
+\end{figure}
+SiD is confident that the occupancy can be accommodated in the design of the pixel detector.
+\end{frame}
+
 \section{Muons from the BDS}
+
+\begin{frame}{The BDS}
+\begin{center}
+  \includegraphics[width=0.9\textwidth]{figures/BDS_electron_tunnel.pdf}
+  \end{center}
+The Beam Delivery System (BDS) contains the Final Focus System, and therefore focusses the beam on its way to the Interaction Point (IP).
+\end{frame}
+  \begin{frame}{The BDS}
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{figures/BDS_Tunnel_Spoilers+Wall.png}
+\end{center}
+Muons are created along the BDS, when the beam halo interacts with the beam line material.
+\end{frame}
+
+\begin{frame}{The Muon Spoilers}
+\begin{columns}
+ \begin{column}{0.4\textwidth}
+ The two suggested shielding scenarios:
+  \begin{itemize}
+   \item 5 Spoilers
+   \begin{itemize}
+    \item 70\,cm radius, 5\,m long
+    \item magnetized iron
+    \item at 5 locations along the BDS
+   \end{itemize}
+   \item 5 Spoilers + Wall
+    \begin{itemize}
+    \item 4\,m x 5\,m, 5\,m long
+    \item magnetized iron
+    \item close to the interaction region
+   \end{itemize}
+  \end{itemize}
+
+ \end{column}
+ \begin{column}{0.6\textwidth}
+  \fbox{\includegraphics[width=\textwidth]{figures/Spoiler.png}}\\\vspace*{0.3cm}
+  \fbox{\includegraphics[width=\textwidth]{figures/Muon_wall.pdf}}
+ \end{column}
+\end{columns} 
+\end{frame}
+
+\begin{frame}{WIRED4 event display - 5 Spoilers + Wall}
+\sidlogo
+1 train's worth of muons ($\sim$ 515 muons) \textbf{from the positron line only}:
+\begin{center}
+\includegraphics[height=0.6\textheight]{figures/muons_positron_5spoilers_wall_515_xyview_croped.png}
+{\tiny xy-view}
+\includegraphics[height=0.6\textheight]{figures/muons_positron_5spoilers_wall_515_zyview_croped.png}
+{\tiny zy-view}
+\end{center}
+Together with the muons from the e\textsuperscript{-} line, there will be \textbf{$\sim$ 900 muons per train in the '5 Spoilers + Wall' scenario}.
+\end{frame}
+\begin{frame}{WIRED4 event display - 5 Spoilers}
+\sidlogo
+1 train's worth of muons ($\sim$ 2961 muons) \textbf{from the positron line only}:
+\begin{center}
+\includegraphics[height=0.6\textheight]{figures/muons_positron_5spoilers_2961_xyview_croped.png}
+{\tiny xy-view}
+\includegraphics[height=0.6\textheight]{figures/muons_positron_5spoilers_2961_zyview_croped.png}
+{\tiny zy-view}
+\end{center}
+Together with the muons from the e\textsuperscript{-} line, there will be \textbf{$\sim$ 5600 muons per train in the '5 Spoilers' scenario}.\\
+The spatial distribution is due to the tunnel shape and its shielding effects.
+\end{frame}
 \begin{frame}{The Muons in SiD - Spatial Distribution}
  \includegraphics[width=0.9\textwidth]{figures/Explanation_Spatial_distribution_NEW.pdf}
 \end{frame}
@@ -1009,6 +984,32 @@ Since their P\textsubscript{T} ranges between 0 and 2\,GeV, they form \textbf{he
   \includegraphics[width=0.65\textwidth]{figures/muon_energy.pdf}
 \end{center}
 The energy distribution of the muons from the ``5 Spoilers + Wall'' scenario does not reach the same maximum energy. The muons are decelerated and stopped within the magnetized wall.
+\end{frame}
+
+\begin{frame}{The Muon Occupancy in SiD}
+ \includegraphics[width=0.6\textwidth]{figures/Hits_in_SiD_subdetectors_MuonSpoilerStudy.pdf}
+  \includegraphics[width=0.45\textwidth]{figures/Explanation_Hits_Subdetectors.pdf}\\
+The number of hits in the different SiD subdetectors for both shielding scenarios (\textcolor{Red}{``5 Spoilers''} and \textcolor{Blue}{``5 Spoilers + Wall''}) is not evenly distributed.\\
+The number of hits depends on the effective area of the subdetector system.
+ \end{frame}
+ 
+\begin{frame}{The Muon Occupancy in SiD ECAL endcaps}
+\begin{center}
+  \includegraphics[width=0.61\textwidth]{figures/EcalEndcap_DeadCells.png}
+\end{center}
+{\small A readout cell is ``dead'' when all buffers of the sensor are already filled. No more hits can be stored.}\\
+The current SiD electronics design has a \textcolor{Green}{buffer depth of 4}, i.e. \textcolor{Blue}{10\textsuperscript{-6}} - \textcolor{Red}{10\textsuperscript{-4}} of all hits are dead in the ECAL endcaps.
+\end{frame}
+\begin{frame}
+ With the shown results from the occupancy analysis of the muons from the current MUCARLO simulations, the \textbf{SiD group prefers to keep the magnetized wall} in order to keep the occupancy in the SiD detector as low as possible.
+ \begin{columns}
+  \begin{column}{0.4\textwidth}
+    This will also allow access to the detector parking garage, since the wall represents a tertiary containment device against not only muons but also photons and neutrons from the machine background.
+  \end{column}
+  \begin{column}{0.6\textwidth}
+    \includegraphics[width=\textwidth]{figures/wall_shielding.png}
+  \end{column}
+ \end{columns}
 \end{frame}
 
 \end{document}
