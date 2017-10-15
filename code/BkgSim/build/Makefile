@@ -10,7 +10,7 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include -g -Wall -Wextra -pthread -O2 -std=c++
 CXXFLAGS +=  $(shell root-config --glibs)
 
 # Executables produced by this Makefile
-RUN = ../NewOccupancyPlotter ../CompareOccupancies  ../NewFullBufferMapsPlotter ../HelixPlotter ../HelixEnvelopePlotter ../HelixEnvelopeComparison ../CompareEnvelopeProjections
+RUN = ../NewOccupancyPlotter ../NewOccupancyPlotter_Phi ../CompareOccupancies  ../NewFullBufferMapsPlotter ../HelixPlotter ../HelixEnvelopePlotter ../HelixEnvelopeComparison ../CompareEnvelopeProjections
 
 #RUN = ../NewOccupancyPlotter ../OccupancyPlotter ../ParticleCountPlotter ../FullBufferMapsPlotter ../FullBufferHistoPlotter ../ParticleOriginsTimePlotter ../HittimePlotter ../ggHadrons_HittimePlotter ../ggHadrons_pairs_HittimePlotter ../ggHadrons_pairs_PT_Plotter ../MomentumTimePlotter ../LatePrimariesCalculater ../HelixPlotter ../HelixEnvelopePlotter ../CompareEnvelopeProjections
 
@@ -21,6 +21,7 @@ TESTS = #Test
 
 # Useful variables
 MAIN_OCCUPANCY_NEW = ../objects/main_occupancy_new.o
+MAIN_OCCUPANCY_NEW_PHI = ../objects/main_occupancy_r_phi_new.o
 MAIN_OCCUPANCY_NEW_COMPARISON = ../objects/main_CompareOccupancy.o
 MAIN_HITMAPSFULLBUFFER_NEW = ../objects/main_hitmaps_fullbuffers_new.o
 #MAIN_OCCUPANCY = ../objects/main_occupancy.o
@@ -110,6 +111,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 ../NewOccupancyPlotter : $(MAIN_OCCUPANCY_NEW) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
+../NewOccupancyPlotter_Phi : $(MAIN_OCCUPANCY_NEW_PHI) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
 ../CompareOccupancies : $(MAIN_OCCUPANCY_NEW_COMPARISON) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
@@ -168,6 +172,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_occupancy_new.o : ../src/main_occupancy_new.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/main_occupancy_r_phi_new.o : ../src/main_occupancy_r_phi_new.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_CompareOccupancy.o : ../src/main_CompareOccupancy.cc
