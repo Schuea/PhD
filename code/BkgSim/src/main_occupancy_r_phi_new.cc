@@ -257,7 +257,7 @@ int main(int const argc, char const * const * const argv) {
   }
 
   std::string subdetectorname = det.getName();
-  TFile* Outputfile = new TFile(("output/Occupancy_"+subdetectorname+"_"+outputfile_name+".root").c_str(),"RECREATE");
+  TFile* Outputfile = new TFile(("output/Occupancy_Phi_"+subdetectorname+"_"+outputfile_name+".root").c_str(),"RECREATE");
   //Make histogram vectors for storing the histograms
   std::vector < std::string > all_name;
   all_name.emplace_back( "All_layers_normocc1" );
@@ -311,8 +311,8 @@ int main(int const argc, char const * const * const argv) {
   double ymax1, ymin1 = 0.0;  
   double ymax2, ymin2 = 0.0;  
   if(barrel){
-	xmin1 = 0.0;
-	xmax1 = 2*M_PI;
+	xmin1 = -1.0*M_PI;
+	xmax1 = M_PI;
   xbins1 = 100;
 	xmin2 = -1.0*det.getZHalf().at(max_num_layers-1);
 	xmax2 = det.getZHalf().at(max_num_layers-1);
@@ -411,8 +411,8 @@ int main(int const argc, char const * const * const argv) {
 		    fill_x_2 = cellhits.Get_HitPosition('y').at(vecpos);
 	    }
 	    else std::cerr << "Detector shape not recognized. Histograms cannot be filled!" << std::endl;
-      std::cout << "fill_x_1 = " << fill_x_1 << std::endl;
-      std::cout << "fill_x_2 = " << fill_x_2 << std::endl;
+      //std::cout << "fill_x_1 = " << fill_x_1 << std::endl;
+      //std::cout << "fill_x_2 = " << fill_x_2 << std::endl;
 
 	    int current_layer = cellhits.Get_Layer().at(vecpos);
 	    if (Silicon){
@@ -421,7 +421,7 @@ int main(int const argc, char const * const * const argv) {
 	    normoccupancy_1.at(current_layer)->Fill( fill_x_1, cellhits.Get_HitCount().at(vecpos) );
 	    normoccupancy_2.at(current_layer)->Fill( fill_x_2, cellhits.Get_HitCount().at(vecpos) );
 
-      std::cout << "cellhits.Get_HitCount().at(vecpos) = " << cellhits.Get_HitCount().at(vecpos) << std::endl;
+      //std::cout << "cellhits.Get_HitCount().at(vecpos) = " << cellhits.Get_HitCount().at(vecpos) << std::endl;
 	    All_Layers_normoccupancy_1->Fill( fill_x_1, cellhits.Get_HitCount().at(vecpos) );
 	    All_Layers_normoccupancy_2->Fill( fill_x_2, cellhits.Get_HitCount().at(vecpos) );
 
@@ -576,13 +576,7 @@ void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, double no
   text1->Draw();
 }
 void Draw_single_plots ( TH2D* histo, TCanvas* canvas, bool normalize, double normalization_factor, int integral_startbin, bool integral_numhits){
-  int tot = 0;
-  for(int bin = integral_startbin; bin <= histo->GetNbinsX(); ++bin){
-    if (integral_numhits == true) tot += histo->GetBinContent(bin)*histo->GetBinLowEdge(bin);
-    else tot += histo->GetBinContent(bin);
-  }
-  
-  histo->SetStats(0);
+  histo->SetStats(1);
   histo->Sumw2(1);
   histo->SetMinimum(0.1);
   if(normalize == true){
@@ -592,20 +586,6 @@ void Draw_single_plots ( TH2D* histo, TCanvas* canvas, bool normalize, double no
   }
   histo->SetLineColor(2);
   histo->Draw("hist");
-  canvas->Update();
-
-  TPaveText *text1 = new TPaveText(0.75,0.8,0.95,0.9,"brNDC");
-  text1->SetTextFont(62);
-  text1->SetTextColor(2);
-  text1->SetFillColor(0);
-  std::stringstream title;
-  title << histo->GetName();
-  text1->AddText(title.str().c_str());
-  text1->AddLine(0,0.5,1,0.5);
-  std::stringstream entries;
-  entries << "Entries = " << tot; 
-  text1->AddText(entries.str().c_str());
-  text1->Draw();
 }
 void Print_multiple_plots_from_same_vec (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, bool integral_numhits, std::string output){
   Draw_multiple_plots(histos, canvas, normalize, normalization_factor, integral_startbin, integral_numhits);
@@ -729,17 +709,11 @@ void Draw_multiple_plots (std::vector< TH2D* > histos, TCanvas* canvas, bool nor
   int color = 2; // Very first histogram will be drawn with the color 2, then counted up
   int marker = 20; // Very first histogram will be drawn with the marker style 20, then counted up
   for (size_t number_histo = 0; number_histo< histos.size(); ++number_histo) {
-    histos.at(number_histo)->SetStats(0);
+    histos.at(number_histo)->SetStats(1);
     histos.at(number_histo)->Sumw2(1);
   }
   for (size_t number_histo = 0; number_histo< histos.size(); ++number_histo) {
     if(number_histo == 0){
-      int tot = 0;
-      for(int bin = integral_startbin; bin <= histos.at(number_histo)->GetNbinsX(); ++bin){
-        if (integral_numhits == true) tot += histos.at(number_histo)->GetBinContent(bin)*histos.at(number_histo)->GetBinLowEdge(bin);
-        else tot += histos.at(number_histo)->GetBinContent(bin);
-      }
-
       if(normalize == true){
         if( normalization_factor.empty() ) histos.at(number_histo)->Scale(1.0/histos.at(number_histo)->GetBinContent(1));
         else histos.at(number_histo)->Scale( 1.0/normalization_factor.at(number_histo) );
@@ -761,26 +735,9 @@ void Draw_multiple_plots (std::vector< TH2D* > histos, TCanvas* canvas, bool nor
       else{
         text1 = new TPaveText(0.75,0.8,0.95,0.9,"brNDC");
       }
-      text1->SetTextFont(62);
-      text1->SetTextColor(color);
-      text1->SetFillColor(0);
-      std::stringstream title;
-      title << histos.at(number_histo)->GetName();
-      text1->AddText(title.str().c_str());
-      text1->AddLine(0,0.5,1,0.5);
-      std::stringstream entries1;
-      entries1 << "Entries = " << tot; 
-      text1->AddText(entries1.str().c_str());
-      text1->Draw();
       i=1;
     }
     if(number_histo > 0){
-      int tot = 0;
-      for(int bin = integral_startbin; bin <= histos.at(number_histo)->GetNbinsX(); ++bin){
-        if (integral_numhits == true) tot += histos.at(number_histo)->GetBinContent(bin)*histos.at(number_histo)->GetBinLowEdge(bin);
-        else tot += histos.at(number_histo)->GetBinContent(bin);
-      }
-
       if(normalize == true){
         if( normalization_factor.empty() ) histos.at(number_histo)->Scale(1.0/histos.at(number_histo)->GetBinContent(1));
         else histos.at(number_histo)->Scale( 1.0/normalization_factor.at(number_histo) );
@@ -813,17 +770,6 @@ void Draw_multiple_plots (std::vector< TH2D* > histos, TCanvas* canvas, bool nor
       else{
         text2 = new TPaveText(0.75,0.8-i*0.1,0.95,0.9-i*0.1,"brNDC");
       }
-      text2->SetTextFont(62);
-      text2->SetTextColor(color);
-      text2->SetFillColor(0);
-      std::stringstream title2;
-      title2 << histos.at(number_histo)->GetName();
-      text2->AddText(title2.str().c_str());
-      text2->AddLine(0,0.5,1,0.5);
-      std::stringstream entries2;
-      entries2 << "Entries = " << tot;//-1 because of entries in first bin count 1 because of setbincontent
-      text2->AddText(entries2.str().c_str());
-      text2->Draw();
       i++;
     }
   }
