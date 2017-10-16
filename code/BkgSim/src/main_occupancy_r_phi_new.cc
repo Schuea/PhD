@@ -172,7 +172,7 @@ int main(int const argc, char const * const * const argv) {
 
   CellHits cellhits( &det );
   for (int file_iterator = 0; file_iterator < NUMBER_OF_FILES; ++file_iterator) {
-    std::cout << inputfilenames->at(file_iterator) << std::endl;
+    //std::cout << inputfilenames->at(file_iterator) << std::endl;
     TFile *file = TFile::Open(inputfilenames->at(file_iterator).c_str());
     TTree *tree = Get_TTree(file, det.getName());
 
@@ -289,6 +289,8 @@ int main(int const argc, char const * const * const argv) {
   std::vector< TH2D* > normlosthits_2;
   std::vector< TH1D* > normdeadcells_2;
 
+  //std::cout << __LINE__ << std::endl;
+
   //Find out the maximum number of hits per cell and the total number of hits overall
   std::vector< long long int > tot_num_hits_per_layer;
   int tot_no_hits;
@@ -302,6 +304,7 @@ int main(int const argc, char const * const * const argv) {
   }
   int max_num_layers = det.getNumberOfLayers();
 
+  //std::cout << __LINE__ << std::endl;
   int xbins1, xbins2, ybins1, ybins2 = 0;  
   double xmax1, xmin1 = 0.0;  
   double xmax2, xmin2 = 0.0;  
@@ -310,44 +313,54 @@ int main(int const argc, char const * const * const argv) {
   if(barrel){
 	xmin1 = 0.0;
 	xmax1 = 2*M_PI;
-	xmin2 = -1.0*det.getZHalf().at(max_num_layers);
-	xmax2 = det.getZHalf().at(max_num_layers);
+  xbins1 = 100;
+	xmin2 = -1.0*det.getZHalf().at(max_num_layers-1);
+	xmax2 = det.getZHalf().at(max_num_layers-1);
+  xbins2 = (int)det.getZHalf().at(max_num_layers-1);
 
 	ymin1 = 0;
+	ymax1 = 50;
+  ybins1 = 50;
 	ymin2 = 0;
-	ymax1 = tot_no_hits;
-	ymax2 = tot_no_hits;
+	ymax2 = 50;
+  ybins2 = 50;
   }
   else if(endcap){
-	xmin1 = -1.0*det.getRMax().at(max_num_layers);
-	xmax1 = det.getRMax().at(max_num_layers);
+	xmin1 = -1.0*det.getRMax().at(max_num_layers-1);
+	xmax1 = det.getRMax().at(max_num_layers-1);
+  xbins1 = (int)det.getRMax().at(max_num_layers-1);
 	xmin2 = xmin1;
 	xmax2 = xmax1;
+  xbins2 = (int)det.getRMax().at(max_num_layers-1);
 
 	ymin1 = 0;
+	ymax1 = 50;
+  ybins1 = 50;
 	ymin2 = 0;
-	ymax1 = tot_no_hits;
-	ymax2 = tot_no_hits;
+	ymax2 = 50;
+  ybins2 = 50;
 
   }
   else std::cerr << "Detector shape not recognized. Histograms cannot be filled!" << std::endl;
+  //std::cout << __LINE__ << std::endl;
 
   //Make the histograms
-  TH2D* All_Layers_normoccupancy_1   = new TH2D(all_name.at(1).c_str(), title.at(1).c_str(), xbins1, xmin1, xmax1, ybins1, ymin1, ymax1);
-  TH2D* All_Layers_normlosthits_1    = new TH2D(all_name.at(2).c_str(), title.at(2).c_str(), xbins1, xmin1, xmax1, ybins1, ymin1, ymax1);
-  TH1D* All_Layers_normdeadcells_1   = new TH1D(all_name.at(3).c_str(), title.at(3).c_str(), xbins1, xmin1, xmax1);
-  TH2D* All_Layers_normoccupancy_2   = new TH2D(all_name.at(4).c_str(), title.at(4).c_str(), xbins2, xmin2, xmax2, ybins2, ymin2, ymax2);
-  TH2D* All_Layers_normlosthits_2    = new TH2D(all_name.at(5).c_str(), title.at(5).c_str(), xbins2, xmin2, xmax2, ybins2, ymin2, ymax2);
-  TH1D* All_Layers_normdeadcells_2   = new TH1D(all_name.at(6).c_str(), title.at(6).c_str(), xbins2, xmin2, xmax2);
+  TH2D* All_Layers_normoccupancy_1   = new TH2D(all_name.at(0).c_str(), title.at(0).c_str(), xbins1, xmin1, xmax1, ybins1, ymin1, ymax1);
+  TH2D* All_Layers_normlosthits_1    = new TH2D(all_name.at(1).c_str(), title.at(1).c_str(), xbins1, xmin1, xmax1, ybins1, ymin1, ymax1);
+  TH1D* All_Layers_normdeadcells_1   = new TH1D(all_name.at(2).c_str(), title.at(2).c_str(), xbins1, xmin1, xmax1);
+  TH2D* All_Layers_normoccupancy_2   = new TH2D(all_name.at(3).c_str(), title.at(3).c_str(), xbins2, xmin2, xmax2, ybins2, ymin2, ymax2);
+  TH2D* All_Layers_normlosthits_2    = new TH2D(all_name.at(4).c_str(), title.at(4).c_str(), xbins2, xmin2, xmax2, ybins2, ymin2, ymax2);
+  TH1D* All_Layers_normdeadcells_2   = new TH1D(all_name.at(5).c_str(), title.at(5).c_str(), xbins2, xmin2, xmax2);
 
   if(endcap){
-	All_Layers_normoccupancy_1 ->GetXaxis()->SetTitle("x [mm]");
+	  All_Layers_normoccupancy_1 ->GetXaxis()->SetTitle("x [mm]");
   	All_Layers_normlosthits_1  ->GetXaxis()->SetTitle("x [mm]");
   	All_Layers_normdeadcells_1 ->GetXaxis()->SetTitle("x [mm]");
   	All_Layers_normoccupancy_2 ->GetXaxis()->SetTitle("y [mm]");
   	All_Layers_normlosthits_2  ->GetXaxis()->SetTitle("y [mm]");
   	All_Layers_normdeadcells_2 ->GetXaxis()->SetTitle("y [mm]");
   }
+  //std::cout << __LINE__ << std::endl;
   for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
     std::stringstream layername_occ1, layername_lost1, layername_dead1, layername_occ2, layername_lost2, layername_dead2;
     layername_occ1  << "Layer_" << number_layer << "_occupancy1";
@@ -357,33 +370,35 @@ int main(int const argc, char const * const * const argv) {
     layername_lost2 << "Layer_" << number_layer << "_losthits2";
     layername_dead2 << "Layer_" << number_layer << "_deadcells2";
 
-    TH2D* temp2 = new TH2D(layername_occ1.str().c_str(),  title.at(1).c_str(), xbins1, xmin1, xmax1, ybins1, ymin1, ymax1);
-    TH2D* temp3 = new TH2D(layername_lost1.str().c_str(), title.at(2).c_str(), xbins1, xmin1, xmax1, ybins1, ymin1, ymax1);
-    TH1D* temp4 = new TH1D(layername_dead1.str().c_str(), title.at(3).c_str(), xbins1, xmin1, xmax1);
-    TH2D* temp5 = new TH2D(layername_occ2.str().c_str(),  title.at(4).c_str(), xbins2, xmin2, xmax2, ybins2, ymin2, ymax2);
-    TH2D* temp6 = new TH2D(layername_lost2.str().c_str(), title.at(5).c_str(), xbins2, xmin2, xmax2, ybins2, ymin2, ymax2);
-    TH1D* temp7 = new TH1D(layername_dead2.str().c_str(), title.at(6).c_str(), xbins2, xmin2, xmax2);
+    TH2D* temp1 = new TH2D(layername_occ1.str().c_str(),  title.at(0).c_str(), xbins1, xmin1, xmax1, ybins1, ymin1, ymax1);
+    TH2D* temp2 = new TH2D(layername_lost1.str().c_str(), title.at(1).c_str(), xbins1, xmin1, xmax1, ybins1, ymin1, ymax1);
+    TH1D* temp3 = new TH1D(layername_dead1.str().c_str(), title.at(2).c_str(), xbins1, xmin1, xmax1);
+    TH2D* temp4 = new TH2D(layername_occ2.str().c_str(),  title.at(3).c_str(), xbins2, xmin2, xmax2, ybins2, ymin2, ymax2);
+    TH2D* temp5 = new TH2D(layername_lost2.str().c_str(), title.at(4).c_str(), xbins2, xmin2, xmax2, ybins2, ymin2, ymax2);
+    TH1D* temp6 = new TH1D(layername_dead2.str().c_str(), title.at(5).c_str(), xbins2, xmin2, xmax2);
     if(endcap){
-         temp2->GetXaxis()->SetTitle("x [mm]");
+       temp1->GetXaxis()->SetTitle("x [mm]");
+    	 temp2->GetXaxis()->SetTitle("x [mm]");
     	 temp3->GetXaxis()->SetTitle("x [mm]");
-    	 temp4->GetXaxis()->SetTitle("x [mm]");
+    	 temp4->GetXaxis()->SetTitle("y [mm]");
     	 temp5->GetXaxis()->SetTitle("y [mm]");
     	 temp6->GetXaxis()->SetTitle("y [mm]");
-    	 temp7->GetXaxis()->SetTitle("y [mm]");
     }
-    normoccupancy_1.push_back(   temp2);
-    normlosthits_1.push_back(	 temp3);
-    normdeadcells_1.push_back(   temp4);
-    normoccupancy_2.push_back(   temp5);
-    normlosthits_2.push_back(	 temp6);
-    normdeadcells_2.push_back(   temp7);
+  //std::cout << __LINE__ << std::endl;
+    normoccupancy_1.push_back(   temp1);
+    normlosthits_1.push_back(	   temp2);
+    normdeadcells_1.push_back(   temp3);
+    normoccupancy_2.push_back(   temp4);
+    normlosthits_2.push_back(	   temp5);
+    normdeadcells_2.push_back(   temp6);
   }
-  //Filling the primary histograms with the entries from the cellhits: fill with number of hits per cell
+
   long long int tot_num_cells = 0;
   for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
     tot_num_cells += det.getNumberOfCells().at(number_layer);
     tot_num_hits_per_layer.push_back(0);
   }
+  //std::cout << __LINE__ << std::endl;
   for (size_t vecpos = 0; vecpos < cellhits.Get_HitCount().size(); ++vecpos) {
     if(cellhits.Get_HitCount().at(vecpos) > 0){
 	    double fill_x_1, fill_x_2 = 0.0;
@@ -396,6 +411,8 @@ int main(int const argc, char const * const * const argv) {
 		    fill_x_2 = cellhits.Get_HitPosition('y').at(vecpos);
 	    }
 	    else std::cerr << "Detector shape not recognized. Histograms cannot be filled!" << std::endl;
+      std::cout << "fill_x_1 = " << fill_x_1 << std::endl;
+      std::cout << "fill_x_2 = " << fill_x_2 << std::endl;
 
 	    int current_layer = cellhits.Get_Layer().at(vecpos);
 	    if (Silicon){
@@ -404,9 +421,11 @@ int main(int const argc, char const * const * const argv) {
 	    normoccupancy_1.at(current_layer)->Fill( fill_x_1, cellhits.Get_HitCount().at(vecpos) );
 	    normoccupancy_2.at(current_layer)->Fill( fill_x_2, cellhits.Get_HitCount().at(vecpos) );
 
+      std::cout << "cellhits.Get_HitCount().at(vecpos) = " << cellhits.Get_HitCount().at(vecpos) << std::endl;
 	    All_Layers_normoccupancy_1->Fill( fill_x_1, cellhits.Get_HitCount().at(vecpos) );
 	    All_Layers_normoccupancy_2->Fill( fill_x_2, cellhits.Get_HitCount().at(vecpos) );
 
+  //std::cout << __LINE__ << std::endl;
 	    if(cellhits.Get_HitCount().at(vecpos) >= bufferdepth){
 		    normdeadcells_1.at(current_layer)->Fill( fill_x_1 );
 		    normdeadcells_2.at(current_layer)->Fill( fill_x_2 );
@@ -421,6 +440,7 @@ int main(int const argc, char const * const * const argv) {
 	    tot_num_hits_per_layer.at(current_layer) += cellhits.Get_HitCount().at(vecpos);
     }
   }
+  //std::cout << __LINE__ << std::endl;
 
 
   //Plot the histogram and save it
@@ -451,6 +471,7 @@ int main(int const argc, char const * const * const argv) {
   output6 << "output/normdeadcells_2_" << subdetectorname << "_" << outputfile_name;
   Print_multiple_plots_from_same_vec (normdeadcells_2, canvas, true, det.getNumberOfCells(), 1, false, output6.str());
 
+  //std::cout << __LINE__ << std::endl;
 
   Draw_single_plots( All_Layers_normoccupancy_1,canvas, true, tot_no_hits, 1, false); 
   std::stringstream All_output;
