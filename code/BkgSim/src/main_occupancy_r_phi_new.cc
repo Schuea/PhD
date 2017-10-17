@@ -2,7 +2,6 @@
 #include "TTree.h"
 #include "TCanvas.h"
 #include "TH1D.h"
-#include "TH2D.h"
 #include "TPaveStats.h"
 
 
@@ -28,11 +27,8 @@ double CalculatePhi(double x, double y);
 uint64_t CalculateLayer(uint64_t const id, Subdetector const & SubDetector); 
 uint32_t MakeNewCellID(double const x, double const y, Subdetector const & component);
 void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, double normalization_factor, int integral_startbin, bool integral_numhits);
-void Draw_single_plots ( TH2D* histo, TCanvas* canvas, bool normalize, double normalization_factor, int integral_startbin, bool integral_numhits);
 void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, bool integral_numhits);
-void Draw_multiple_plots (std::vector< TH2D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, bool integral_numhits);
 void Print_multiple_plots_from_same_vec (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, bool integral_numhits, std::string output);
-void Print_multiple_plots_from_same_vec (std::vector< TH2D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, bool integral_numhits, std::string output);
 
 
 int main(int const argc, char const * const * const argv) {
@@ -267,26 +263,26 @@ int main(int const argc, char const * const * const argv) {
   all_name.emplace_back( "All_layers_losthits2" );
   all_name.emplace_back( "All_layers_deadcells2" );
   std::vector < std::string > title;
-  title.emplace_back( "Normalized occupancy for " + subdetectorname + ";#phi;Number of hits per cell;Number of cells" );
+  title.emplace_back( "Normalized occupancy for " + subdetectorname + ";#phi;Average number of hits per cell" );
   std::stringstream title_temp;
-  title_temp << "Number of hits lost for a buffer depth of " << bufferdepth << "for " << subdetectorname << ";#phi;Number of hits lost";
+  title_temp << "Number of hits lost for a buffer depth of " << bufferdepth << "for " << subdetectorname << ";#phi;Average number of hits lost";
   title.emplace_back( title_temp.str() );
   std::stringstream title_temp2;
   title_temp2 << "Number of dead cells for a buffer depth of " << bufferdepth << "for " << subdetectorname << ";#phi;Number of dead cells";
   title.emplace_back( title_temp2.str() );
-  title.emplace_back( "Normalized occupancy for " + subdetectorname + ";z [mm];Number of hits per cell;Number of cells" );
+  title.emplace_back( "Normalized occupancy for " + subdetectorname + ";z [mm];Average number of hits per cell" );
   std::stringstream title_temp3;
-  title_temp3 << "Number of hits lost for a buffer depth of " << bufferdepth << "for " << subdetectorname << ";z [mm];Number of hits lost";
+  title_temp3 << "Number of hits lost for a buffer depth of " << bufferdepth << "for " << subdetectorname << ";z [mm];Average number of hits lost";
   title.emplace_back( title_temp3.str() );
   std::stringstream title_temp4;
   title_temp4 << "Number of dead cells for a buffer depth of " << bufferdepth << "for " << subdetectorname << ";z [mm];Number of dead cells";
   title.emplace_back( title_temp4.str() );
 
-  std::vector< TH2D* > normoccupancy_1;
-  std::vector< TH2D* > normlosthits_1;
+  std::vector< TH1D* > normoccupancy_1;
+  std::vector< TH1D* > normlosthits_1;
   std::vector< TH1D* > normdeadcells_1;
-  std::vector< TH2D* > normoccupancy_2;
-  std::vector< TH2D* > normlosthits_2;
+  std::vector< TH1D* > normoccupancy_2;
+  std::vector< TH1D* > normlosthits_2;
   std::vector< TH1D* > normdeadcells_2;
 
   //std::cout << __LINE__ << std::endl;
@@ -305,55 +301,38 @@ int main(int const argc, char const * const * const argv) {
   int max_num_layers = det.getNumberOfLayers();
 
   //std::cout << __LINE__ << std::endl;
-  int xbins1, xbins2, ybins1, ybins2 = 0;  
+  int xbins1, xbins2 = 0;  
   double xmax1, xmin1 = 0.0;  
   double xmax2, xmin2 = 0.0;  
-  double ymax1, ymin1 = 0.0;  
-  double ymax2, ymin2 = 0.0;  
   if(barrel){
-	xmin1 = -1.0*M_PI;
-	xmax1 = M_PI;
-  xbins1 = 100;
-	xmin2 = -1.0*det.getZHalf().at(max_num_layers-1);
-	xmax2 = det.getZHalf().at(max_num_layers-1);
-  xbins2 = (int)det.getZHalf().at(max_num_layers-1);
-
-	ymin1 = 0;
-	ymax1 = 50;
-  ybins1 = 50;
-	ymin2 = 0;
-	ymax2 = 50;
-  ybins2 = 50;
+	  xmin1 = -1.0*M_PI;
+	  xmax1 = M_PI;
+	  xbins1 = 100;
+	  xmin2 = -1.0*det.getZHalf().at(max_num_layers-1);
+	  xmax2 = det.getZHalf().at(max_num_layers-1);
+	  xbins2 = (int)det.getZHalf().at(max_num_layers-1);
   }
   else if(endcap){
-	xmin1 = -1.0*det.getRMax().at(max_num_layers-1);
-	xmax1 = det.getRMax().at(max_num_layers-1);
-  xbins1 = (int)det.getRMax().at(max_num_layers-1);
-	xmin2 = xmin1;
-	xmax2 = xmax1;
-  xbins2 = (int)det.getRMax().at(max_num_layers-1);
-
-	ymin1 = 0;
-	ymax1 = 50;
-  ybins1 = 50;
-	ymin2 = 0;
-	ymax2 = 50;
-  ybins2 = 50;
-
+	  xmin1 = -1.0*det.getRMax().at(max_num_layers-1);
+	  xmax1 = det.getRMax().at(max_num_layers-1);
+	  xbins1 = (int)det.getRMax().at(max_num_layers-1);
+	  xmin2 = xmin1;
+	  xmax2 = xmax1;
+	  xbins2 = (int)det.getRMax().at(max_num_layers-1);
   }
   else std::cerr << "Detector shape not recognized. Histograms cannot be filled!" << std::endl;
   //std::cout << __LINE__ << std::endl;
 
   //Make the histograms
-  TH2D* All_Layers_normoccupancy_1   = new TH2D(all_name.at(0).c_str(), title.at(0).c_str(), xbins1, xmin1, xmax1, ybins1, ymin1, ymax1);
-  TH2D* All_Layers_normlosthits_1    = new TH2D(all_name.at(1).c_str(), title.at(1).c_str(), xbins1, xmin1, xmax1, ybins1, ymin1, ymax1);
+  TH1D* All_Layers_normoccupancy_1   = new TH1D(all_name.at(0).c_str(), title.at(0).c_str(), xbins1, xmin1, xmax1);
+  TH1D* All_Layers_normlosthits_1    = new TH1D(all_name.at(1).c_str(), title.at(1).c_str(), xbins1, xmin1, xmax1);
   TH1D* All_Layers_normdeadcells_1   = new TH1D(all_name.at(2).c_str(), title.at(2).c_str(), xbins1, xmin1, xmax1);
-  TH2D* All_Layers_normoccupancy_2   = new TH2D(all_name.at(3).c_str(), title.at(3).c_str(), xbins2, xmin2, xmax2, ybins2, ymin2, ymax2);
-  TH2D* All_Layers_normlosthits_2    = new TH2D(all_name.at(4).c_str(), title.at(4).c_str(), xbins2, xmin2, xmax2, ybins2, ymin2, ymax2);
+  TH1D* All_Layers_normoccupancy_2   = new TH1D(all_name.at(3).c_str(), title.at(3).c_str(), xbins2, xmin2, xmax2);
+  TH1D* All_Layers_normlosthits_2    = new TH1D(all_name.at(4).c_str(), title.at(4).c_str(), xbins2, xmin2, xmax2);
   TH1D* All_Layers_normdeadcells_2   = new TH1D(all_name.at(5).c_str(), title.at(5).c_str(), xbins2, xmin2, xmax2);
 
   if(endcap){
-	  All_Layers_normoccupancy_1 ->GetXaxis()->SetTitle("x [mm]");
+	All_Layers_normoccupancy_1 ->GetXaxis()->SetTitle("x [mm]");
   	All_Layers_normlosthits_1  ->GetXaxis()->SetTitle("x [mm]");
   	All_Layers_normdeadcells_1 ->GetXaxis()->SetTitle("x [mm]");
   	All_Layers_normoccupancy_2 ->GetXaxis()->SetTitle("y [mm]");
@@ -370,14 +349,14 @@ int main(int const argc, char const * const * const argv) {
     layername_lost2 << "Layer_" << number_layer << "_losthits2";
     layername_dead2 << "Layer_" << number_layer << "_deadcells2";
 
-    TH2D* temp1 = new TH2D(layername_occ1.str().c_str(),  title.at(0).c_str(), xbins1, xmin1, xmax1, ybins1, ymin1, ymax1);
-    TH2D* temp2 = new TH2D(layername_lost1.str().c_str(), title.at(1).c_str(), xbins1, xmin1, xmax1, ybins1, ymin1, ymax1);
+    TH1D* temp1 = new TH1D(layername_occ1.str().c_str(),  title.at(0).c_str(), xbins1, xmin1, xmax1);
+    TH1D* temp2 = new TH1D(layername_lost1.str().c_str(), title.at(1).c_str(), xbins1, xmin1, xmax1);
     TH1D* temp3 = new TH1D(layername_dead1.str().c_str(), title.at(2).c_str(), xbins1, xmin1, xmax1);
-    TH2D* temp4 = new TH2D(layername_occ2.str().c_str(),  title.at(3).c_str(), xbins2, xmin2, xmax2, ybins2, ymin2, ymax2);
-    TH2D* temp5 = new TH2D(layername_lost2.str().c_str(), title.at(4).c_str(), xbins2, xmin2, xmax2, ybins2, ymin2, ymax2);
+    TH1D* temp4 = new TH1D(layername_occ2.str().c_str(),  title.at(3).c_str(), xbins2, xmin2, xmax2);
+    TH1D* temp5 = new TH1D(layername_lost2.str().c_str(), title.at(4).c_str(), xbins2, xmin2, xmax2);
     TH1D* temp6 = new TH1D(layername_dead2.str().c_str(), title.at(5).c_str(), xbins2, xmin2, xmax2);
     if(endcap){
-       temp1->GetXaxis()->SetTitle("x [mm]");
+       	 temp1->GetXaxis()->SetTitle("x [mm]");
     	 temp2->GetXaxis()->SetTitle("x [mm]");
     	 temp3->GetXaxis()->SetTitle("x [mm]");
     	 temp4->GetXaxis()->SetTitle("y [mm]");
@@ -386,56 +365,92 @@ int main(int const argc, char const * const * const argv) {
     }
   //std::cout << __LINE__ << std::endl;
     normoccupancy_1.push_back(   temp1);
-    normlosthits_1.push_back(	   temp2);
+    normlosthits_1.push_back(	 temp2);
     normdeadcells_1.push_back(   temp3);
     normoccupancy_2.push_back(   temp4);
-    normlosthits_2.push_back(	   temp5);
+    normlosthits_2.push_back(	 temp5);
     normdeadcells_2.push_back(   temp6);
   }
 
+  //std::cout << __LINE__ << std::endl;
+  std::vector< std::vector< int > > ave_hits_1;
+  std::vector< std::vector< int > > ave_hits_2;
+  std::vector< std::vector< int > > ave_losthits_1;
+  std::vector< std::vector< int > > ave_losthits_2;
+  std::vector< std::vector< long long int > > num_cells_per_bin_1;
+  std::vector< std::vector< long long int > > num_cells_per_bin_2;
   long long int tot_num_cells = 0;
   for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
-    tot_num_cells += det.getNumberOfCells().at(number_layer);
-    tot_num_hits_per_layer.push_back(0);
+	  tot_num_cells += det.getNumberOfCells().at(number_layer);
+	  tot_num_hits_per_layer.push_back(0);
+
+	//Prepare vectors that will contain all hits in certain bins of x
+	  std::vector < int > temp1;
+	  std::vector < int > temp2;
+	  for (size_t bins = 0; bins < xbins1; ++bins) {
+		  temp1.push_back( 0 );
+	  }
+	  for (size_t bins = 0; bins < xbins2; ++bins) {
+		  temp2.push_back( 0 );
+	  }
+	  ave_hits_1.push_back( temp1 );
+	  ave_hits_2.push_back( temp2 );
+	  ave_losthits_1.push_back( temp1 );
+	  ave_losthits_2.push_back( temp2 );
+  	  num_cells_per_bin_1.push_back( temp1 );
+  	  num_cells_per_bin_2.push_back( temp2 );
   }
-  //std::cout << __LINE__ << std::endl;
+  double fill_x_1, fill_x_2 = 0.0;
+  for (size_t vecpos = 0; vecpos < cellhits.Get_HitCount().size(); ++vecpos) {
+	  if (barrel){
+		  fill_x_1 = CalculatePhi( cellhits.Get_HitPosition('x').at(vecpos),cellhits.Get_HitPosition('y').at(vecpos) );
+		  fill_x_2 = cellhits.Get_HitPosition('z').at(vecpos);
+	  }
+	  else if (endcap){
+		  fill_x_1 = cellhits.Get_HitPosition('x').at(vecpos);
+		  fill_x_2 = cellhits.Get_HitPosition('y').at(vecpos);
+	  }
+	  else std::cerr << "Detector shape not recognized. Histograms cannot be filled!" << std::endl;
+	  //std::cout << "fill_x_1 = " << fill_x_1 << std::endl;
+	  //std::cout << "fill_x_2 = " << fill_x_2 << std::endl;
+	  int current_layer = cellhits.Get_Layer().at(vecpos);
+	  if (Silicon){
+	          current_layer -= 1;//-1 for Silicon detectors only, because layer count starts from 1
+	  }
+	  int phi_bin_1, phi_bin_2 = 0;
+	  phi_bin_1 = fill_x_1/(2.0*M_PI) * xbins1; //Find in which bin fill_x_1 lies
+  	  num_cells_per_bin_1.at( current_layer ).at(phi_bin_1) += 1;
+	  ave_hits_1.at( current_layer ).at(phi_bin_1) += cellhits.Get_HitCount().at(vecpos);
+	  if(cellhits.Get_HitCount().at(vecpos) > bufferdepth) ave_losthits_1.at( current_layer ).at(phi_bin_1) += cellhits.Get_HitCount().at(vecpos) - bufferdepth;
+
+	  phi_bin_2 = fill_x_2/(2.0*M_PI) * xbins2; //Find in which bin fill_x_2 lies
+  	  num_cells_per_bin_2.at( current_layer ).at(phi_bin_2) += 1;
+	  ave_hits_2.at( current_layer ).at(phi_bin_2) += cellhits.Get_HitCount().at(vecpos);
+	  if(cellhits.Get_HitCount().at(vecpos) > bufferdepth) ave_losthits_2.at( current_layer ).at(phi_bin_2) += cellhits.Get_HitCount().at(vecpos) - bufferdepth;
+  }
+  for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
+	  for (size_t bins = 0; bins < xbins1; ++bins) {
+	    	  normoccupancy_1.at(number_layer)->SetBinContent( bins, (double)ave_hits_1.at(number_layer).at(bins)/(double)num_cells_per_bin_1.at(number_layer).at(bins) );
+		  All_Layers_normoccupancy_1->SetBinContent( bins, (double)ave_hits_1.at(number_layer).at(bins)/(double)num_cells_per_bin_1.at(number_layer).at(bins) );
+	  }
+	  for (size_t bins = 0; bins < xbins2; ++bins) {
+	    	  normoccupancy_2.at(number_layer)->SetBinContent( bins, (double)ave_hits_2.at(number_layer).at(bins)/(double)num_cells_per_bin_2.at(number_layer).at(bins) );
+		  All_Layers_normoccupancy_2->SetBinContent( bins, (double)ave_hits_2.at(number_layer).at(bins)/(double)num_cells_per_bin_2.at(number_layer).at(bins) );
+	  }
+  }
   for (size_t vecpos = 0; vecpos < cellhits.Get_HitCount().size(); ++vecpos) {
     if(cellhits.Get_HitCount().at(vecpos) > 0){
-	    double fill_x_1, fill_x_2 = 0.0;
-	    if (barrel){
-		    fill_x_1 = CalculatePhi( cellhits.Get_HitPosition('x').at(vecpos),cellhits.Get_HitPosition('y').at(vecpos) );
-		    fill_x_2 = cellhits.Get_HitPosition('z').at(vecpos);
-	    }
-	    else if (endcap){
-		    fill_x_1 = cellhits.Get_HitPosition('x').at(vecpos);
-		    fill_x_2 = cellhits.Get_HitPosition('y').at(vecpos);
-	    }
-	    else std::cerr << "Detector shape not recognized. Histograms cannot be filled!" << std::endl;
-      //std::cout << "fill_x_1 = " << fill_x_1 << std::endl;
-      //std::cout << "fill_x_2 = " << fill_x_2 << std::endl;
-
 	    int current_layer = cellhits.Get_Layer().at(vecpos);
 	    if (Silicon){
 		    current_layer -= 1;//-1 for Silicon detectors only, because layer count starts from 1
 	    }
-	    normoccupancy_1.at(current_layer)->Fill( fill_x_1, cellhits.Get_HitCount().at(vecpos) );
-	    normoccupancy_2.at(current_layer)->Fill( fill_x_2, cellhits.Get_HitCount().at(vecpos) );
-
       //std::cout << "cellhits.Get_HitCount().at(vecpos) = " << cellhits.Get_HitCount().at(vecpos) << std::endl;
-	    All_Layers_normoccupancy_1->Fill( fill_x_1, cellhits.Get_HitCount().at(vecpos) );
-	    All_Layers_normoccupancy_2->Fill( fill_x_2, cellhits.Get_HitCount().at(vecpos) );
-
-  //std::cout << __LINE__ << std::endl;
 	    if(cellhits.Get_HitCount().at(vecpos) >= bufferdepth){
 		    normdeadcells_1.at(current_layer)->Fill( fill_x_1 );
 		    normdeadcells_2.at(current_layer)->Fill( fill_x_2 );
-		    normlosthits_1.at(current_layer)->Fill(  fill_x_1,cellhits.Get_HitCount().at(vecpos) - bufferdepth );
-		    normlosthits_2.at(current_layer)->Fill(  fill_x_2,cellhits.Get_HitCount().at(vecpos) - bufferdepth );
 
 		    All_Layers_normdeadcells_1->Fill( fill_x_1 );
 		    All_Layers_normdeadcells_2->Fill( fill_x_2 );
-		    All_Layers_normlosthits_1->Fill(  fill_x_1, cellhits.Get_HitCount().at(vecpos) - bufferdepth );
-		    All_Layers_normlosthits_2->Fill(  fill_x_2, cellhits.Get_HitCount().at(vecpos) - bufferdepth );
 	    }
 	    tot_num_hits_per_layer.at(current_layer) += cellhits.Get_HitCount().at(vecpos);
     }
@@ -528,12 +543,14 @@ uint64_t CalculateLayer(uint64_t const id, Subdetector const & SubDetector) {
 
 double CalculatePhi(double x, double y){
   double phi =0;
-  if(x>0) return phi = atan(y/x);
-  if(x<0 && y>=0) return phi = atan(y/x) + M_PI;
-  if(x<0 && y<0)  return phi = atan(y/x) - M_PI;
-  if(x==0 && y>0)  return phi = 0.5*M_PI;
-  if(x==0 && y<0)  return phi = -0.5*M_PI;
-  else return -101;
+  if(x>0) phi = atan(y/x);
+  if(x<0 && y>=0) phi = atan(y/x) + M_PI;
+  if(x<0 && y<0)  phi = atan(y/x) - M_PI;
+  if(x==0 && y>0) phi = 0.5*M_PI;
+  if(x==0 && y<0) phi = -0.5*M_PI;
+  else phi = -101;
+  phi += M_PI;
+  return phi;
 }
 
 uint32_t MakeNewCellID(double const x, double const y, Subdetector const & component){
@@ -575,25 +592,7 @@ void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, double no
   text1->AddText(entries.str().c_str());
   text1->Draw();
 }
-void Draw_single_plots ( TH2D* histo, TCanvas* canvas, bool normalize, double normalization_factor, int integral_startbin, bool integral_numhits){
-  histo->SetStats(1);
-  histo->Sumw2(1);
-  histo->SetMinimum(0.1);
-  if(normalize == true){
-    if(normalization_factor == 0.0) histo->Scale(1.0/histo->GetBinContent(1));
-    else histo->Scale(1.0/normalization_factor);
-    histo->SetMinimum( pow(10,-12) );
-  }
-  histo->SetLineColor(2);
-  histo->Draw("hist");
-}
 void Print_multiple_plots_from_same_vec (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, bool integral_numhits, std::string output){
-  Draw_multiple_plots(histos, canvas, normalize, normalization_factor, integral_startbin, integral_numhits);
-  canvas->Print((output + ".pdf").c_str());
-  canvas->Print((output + ".cxx").c_str());
-
-}
-void Print_multiple_plots_from_same_vec (std::vector< TH2D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, bool integral_numhits, std::string output){
   Draw_multiple_plots(histos, canvas, normalize, normalization_factor, integral_startbin, integral_numhits);
   canvas->Print((output + ".pdf").c_str());
   canvas->Print((output + ".cxx").c_str());
@@ -704,73 +703,4 @@ void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool nor
     }
   }
 }
-void Draw_multiple_plots (std::vector< TH2D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, bool integral_numhits){
-  int i = 0;
-  int color = 2; // Very first histogram will be drawn with the color 2, then counted up
-  int marker = 20; // Very first histogram will be drawn with the marker style 20, then counted up
-  for (size_t number_histo = 0; number_histo< histos.size(); ++number_histo) {
-    histos.at(number_histo)->SetStats(1);
-    histos.at(number_histo)->Sumw2(1);
-  }
-  for (size_t number_histo = 0; number_histo< histos.size(); ++number_histo) {
-    if(number_histo == 0){
-      if(normalize == true){
-        if( normalization_factor.empty() ) histos.at(number_histo)->Scale(1.0/histos.at(number_histo)->GetBinContent(1));
-        else histos.at(number_histo)->Scale( 1.0/normalization_factor.at(number_histo) );
-        histos.at(number_histo)->SetMinimum( pow(10,-12) );
-      }
-      else{
-        //histos.at(number_histo)->SetMaximum(max);
-        histos.at(number_histo)->SetMinimum(0.1);
-      }
-      histos.at(number_histo)->SetLineColor(color);
-      histos.at(number_histo)->SetMarkerColor(color);
-      histos.at(number_histo)->SetMarkerStyle(marker);
-      histos.at(number_histo)->Draw("P");
-      canvas->Update();
-      TPaveText *text1;
-      if (histos.size() > 5){
-        text1 = new TPaveText(0.6,0.8,0.8,0.9,"brNDC");
-      }
-      else{
-        text1 = new TPaveText(0.75,0.8,0.95,0.9,"brNDC");
-      }
-      i=1;
-    }
-    if(number_histo > 0){
-      if(normalize == true){
-        if( normalization_factor.empty() ) histos.at(number_histo)->Scale(1.0/histos.at(number_histo)->GetBinContent(1));
-        else histos.at(number_histo)->Scale( 1.0/normalization_factor.at(number_histo) );
-        histos.at(number_histo)->SetMinimum( pow(10,-12) );
-      }
-      else{
-        //histos.at(number_histo)->SetMaximum(max);
-        histos.at(number_histo)->SetMinimum(0.1);
-      }
-      color++;
-      marker++;
-      if(color == 5 || color == 10) color += 1; // 5 would be yellow, 10 would be very light gray 
-      histos.at(number_histo)->SetLineColor(color);
-      histos.at(number_histo)->SetMarkerColor(color);
-      histos.at(number_histo)->SetMarkerStyle(marker);
-      histos.at(number_histo)->Draw("P,SAMES");
-      canvas->Update();
-      TPaveText *text2;
-      if (histos.size() > 5) {
-        if(number_histo >= 5){
-          if(number_histo == 5) {
-            i=0;
-          }
-          text2 = new TPaveText(0.75,0.8-i*0.1,0.95,0.9-i*0.1,"brNDC");
-        }
-        else {
-          text2 = new TPaveText(0.6,0.8-i*0.1,0.8,0.9-i*0.1,"brNDC");
-        }
-      } 
-      else{
-        text2 = new TPaveText(0.75,0.8-i*0.1,0.95,0.9-i*0.1,"brNDC");
-      }
-      i++;
-    }
-  }
-}
+
