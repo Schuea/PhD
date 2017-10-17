@@ -152,7 +152,7 @@ int main(int const argc, char const * const * const argv) {
 
   CellHits cellhits( &det );
   for (int file_iterator = 0; file_iterator < NUMBER_OF_FILES; ++file_iterator) {
-    std::cout << inputfilenames->at(file_iterator) << std::endl;
+    //std::cout << inputfilenames->at(file_iterator) << std::endl;
     TFile *file = TFile::Open(inputfilenames->at(file_iterator).c_str());
     TTree *tree = Get_TTree(file, det.getName());
 
