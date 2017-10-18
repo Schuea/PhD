@@ -26,6 +26,7 @@ using namespace std;
 double CalculatePhi(double x, double y);
 uint64_t CalculateLayer(uint64_t const id, Subdetector const & SubDetector); 
 uint32_t MakeNewCellID(double const x, double const y, Subdetector const & component);
+int Find_Cells_per_Bin(int layer, int bin, double binsize, int which_histo, Subdetector const & SubDetector);
 void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, double normalization_factor, int integral_startbin, bool integral_numhits);
 void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, bool integral_numhits);
 void Print_multiple_plots_from_same_vec (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, bool integral_numhits, std::string output);
@@ -377,8 +378,8 @@ int main(int const argc, char const * const * const argv) {
   std::vector< std::vector< int > > ave_hits_2;
   std::vector< std::vector< int > > ave_losthits_1;
   std::vector< std::vector< int > > ave_losthits_2;
-  std::vector< std::vector< long long int > > num_cells_per_bin_1;
-  std::vector< std::vector< long long int > > num_cells_per_bin_2;
+  std::vector< std::vector< int > > num_cells_per_bin_1;
+  std::vector< std::vector< int > > num_cells_per_bin_2;
   long long int tot_num_cells = 0;
   for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
 	  tot_num_cells += det.getNumberOfCells().at(number_layer);
@@ -401,33 +402,42 @@ int main(int const argc, char const * const * const argv) {
   	  num_cells_per_bin_2.push_back( temp2 );
   }
   double fill_x_1, fill_x_2 = 0.0;
+  double binsize_1, binsize_2 = 0.0;
   for (size_t vecpos = 0; vecpos < cellhits.Get_HitCount().size(); ++vecpos) {
-	  if (barrel){
-		  fill_x_1 = CalculatePhi( cellhits.Get_HitPosition('x').at(vecpos),cellhits.Get_HitPosition('y').at(vecpos) );
-		  fill_x_2 = cellhits.Get_HitPosition('z').at(vecpos);
-	  }
-	  else if (endcap){
-		  fill_x_1 = cellhits.Get_HitPosition('x').at(vecpos);
-		  fill_x_2 = cellhits.Get_HitPosition('y').at(vecpos);
-	  }
-	  else std::cerr << "Detector shape not recognized. Histograms cannot be filled!" << std::endl;
-	  //std::cout << "fill_x_1 = " << fill_x_1 << std::endl;
-	  //std::cout << "fill_x_2 = " << fill_x_2 << std::endl;
 	  int current_layer = cellhits.Get_Layer().at(vecpos);
 	  if (Silicon){
 	          current_layer -= 1;//-1 for Silicon detectors only, because layer count starts from 1
 	  }
+
+	  if (barrel){
+		  fill_x_1 = CalculatePhi( cellhits.Get_HitPosition('x').at(vecpos),cellhits.Get_HitPosition('y').at(vecpos) );
+      binsize_1 = (2.0*M_PI)/(double)xbins1;
+		  fill_x_2 = cellhits.Get_HitPosition('z').at(vecpos);
+      binsize_2 = (2.0*det.getZHalf().at(max_num_layers - 1))/(double)xbins2;
+	  }
+	  else if (endcap){
+		  fill_x_1 = cellhits.Get_HitPosition('x').at(vecpos);
+      binsize_1 = (2.0*det.getRMax().at(max_num_layers - 1))/(double)xbins1;
+		  fill_x_2 = cellhits.Get_HitPosition('y').at(vecpos);
+      binsize_2 = (2.0*det.getRMax().at(max_num_layers - 1))/(double)xbins2;
+	  }
+	  else std::cerr << "Detector shape not recognized. Histograms cannot be filled!" << std::endl;
+	  //std::cout << "fill_x_1 = " << fill_x_1 << std::endl;
+	  //std::cout << "fill_x_2 = " << fill_x_2 << std::endl;
 	  int phi_bin_1, phi_bin_2 = 0;
-	  phi_bin_1 = fill_x_1/(2.0*M_PI) * xbins1; //Find in which bin fill_x_1 lies
-  	  num_cells_per_bin_1.at( current_layer ).at(phi_bin_1) += 1;
+    phi_bin_1 = fill_x_1/binsize_1; //Find in which bin fill_x_1 lies
+    //int Find_Cells_per_Bin(int layer, int bin, double binsize, int which_histo, std::string subdetector_type);
+  	num_cells_per_bin_1.at( current_layer ).at(phi_bin_1) = Find_Cells_per_Bin(current_layer, phi_bin_1, binsize_1, 1, det);
 	  ave_hits_1.at( current_layer ).at(phi_bin_1) += cellhits.Get_HitCount().at(vecpos);
 	  if(cellhits.Get_HitCount().at(vecpos) > bufferdepth) ave_losthits_1.at( current_layer ).at(phi_bin_1) += cellhits.Get_HitCount().at(vecpos) - bufferdepth;
 
-	  phi_bin_2 = fill_x_2/(2.0*M_PI) * xbins2; //Find in which bin fill_x_2 lies
-  	  num_cells_per_bin_2.at( current_layer ).at(phi_bin_2) += 1;
+	  phi_bin_2 = fill_x_2/binsize_2; //Find in which bin fill_x_2 lies
+  	num_cells_per_bin_2.at( current_layer ).at(phi_bin_2) = Find_Cells_per_Bin(current_layer, phi_bin_2, binsize_2, 2, det);
 	  ave_hits_2.at( current_layer ).at(phi_bin_2) += cellhits.Get_HitCount().at(vecpos);
 	  if(cellhits.Get_HitCount().at(vecpos) > bufferdepth) ave_losthits_2.at( current_layer ).at(phi_bin_2) += cellhits.Get_HitCount().at(vecpos) - bufferdepth;
   }
+
+
   for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
 	  for (size_t bins = 0; bins < xbins1; ++bins) {
 	    	  normoccupancy_1.at(number_layer)->SetBinContent( bins, (double)ave_hits_1.at(number_layer).at(bins)/(double)num_cells_per_bin_1.at(number_layer).at(bins) );
@@ -592,12 +602,45 @@ void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, double no
   text1->AddText(entries.str().c_str());
   text1->Draw();
 }
+
+int Find_Cells_per_Bin(int layer, int bin, double binsize, int which_histo, Subdetector const & det){
+  int num_cells = 0;
+  if (det.getShape().find("barrel") != std::string::npos) {
+    if (which_histo == 1) num_cells = (det.getZHalf().at(layer)*2.0/det.getCellSizeX()) * (binsize*det.getRMax().at(layer)/det.getCellSizeX());//number of cells along barrel * number of cells on part of circumference
+    else if (which_histo == 2) num_cells = (binsize/det.getCellSizeX()) * (2.0*M_PI*det.getRMax().at(layer)/det.getCellSizeX());//number of cells in z bin * number of cells along whole circumference
+    else{
+      std::cerr << "This histo config does not exist!" << std::endl; 
+      exit(-2);
+    }
+  }
+  else if (det.getShape().find("endcap") != std::string::npos) {
+    if (which_histo == 1){
+      if (std::abs(bin) <= det.getRMin().at(layer)){
+        num_cells = (2.0*(det.getRMax().at(layer)*sin( acos( std::abs(bin)/det.getRMax().at(layer) ) )) - 2.0*(det.getRMin().at(layer)*sin( acos( std::abs(bin)/det.getRMin().at(layer) ) )))/det.getCellSizeY();
+      }
+      else num_cells = 2.0*(det.getRMax().at(layer)*sin( acos( std::abs(bin)/det.getRMax().at(layer) ) ))/det.getCellSizeY();
+    }
+    else if (which_histo == 2){
+      if (std::abs(bin) <= det.getRMin().at(layer)){
+        num_cells = (2.0*(det.getRMax().at(layer)*sin( acos( std::abs(bin)/det.getRMax().at(layer) ) )) - 2.0*(det.getRMin().at(layer)*sin( acos( std::abs(bin)/det.getRMin().at(layer) ) )))/det.getCellSizeX();
+      }
+      else num_cells = 2.0*(det.getRMax().at(layer)*sin( acos( std::abs(bin)/det.getRMax().at(layer) ) ))/det.getCellSizeX();
+    }
+    else{
+      std::cerr << "This histo config does not exist!" << std::endl; 
+      exit(-2);
+    }
+  }
+  else std::cerr << "Detector shape not recognized. Histograms cannot be filled!" << std::endl;
+  return num_cells;
+}
+
 void Print_multiple_plots_from_same_vec (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, bool integral_numhits, std::string output){
   Draw_multiple_plots(histos, canvas, normalize, normalization_factor, integral_startbin, integral_numhits);
   canvas->Print((output + ".pdf").c_str());
   canvas->Print((output + ".cxx").c_str());
-
 }
+
 void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, bool integral_numhits){
   int i = 0;
   int color = 2; // Very first histogram will be drawn with the color 2, then counted up
