@@ -372,6 +372,7 @@ int main(int const argc, char const * const * const argv) {
     normlosthits_2.push_back(	 temp5);
     normdeadcells_2.push_back(   temp6);
   }
+  std::cout << __LINE__ << std::endl;
 
   //std::cout << __LINE__ << std::endl;
   std::vector< std::vector< int > > ave_hits_1;
@@ -398,9 +399,10 @@ int main(int const argc, char const * const * const argv) {
 	  ave_hits_2.push_back( temp2 );
 	  ave_losthits_1.push_back( temp1 );
 	  ave_losthits_2.push_back( temp2 );
-  	  num_cells_per_bin_1.push_back( temp1 );
-  	  num_cells_per_bin_2.push_back( temp2 );
+  	num_cells_per_bin_1.push_back( temp1 );
+  	num_cells_per_bin_2.push_back( temp2 );
   }
+  std::cout << __LINE__ << std::endl;
   double fill_x_1, fill_x_2 = 0.0;
   double binsize_1, binsize_2 = 0.0;
   for (size_t vecpos = 0; vecpos < cellhits.Get_HitCount().size(); ++vecpos) {
@@ -422,21 +424,25 @@ int main(int const argc, char const * const * const argv) {
       binsize_2 = (2.0*det.getRMax().at(max_num_layers - 1))/(double)xbins2;
 	  }
 	  else std::cerr << "Detector shape not recognized. Histograms cannot be filled!" << std::endl;
-	  //std::cout << "fill_x_1 = " << fill_x_1 << std::endl;
-	  //std::cout << "fill_x_2 = " << fill_x_2 << std::endl;
+  std::cout << __LINE__ << std::endl;
+	  std::cout << "fill_x_1 = " << fill_x_1 << std::endl;
+	  std::cout << "fill_x_2 = " << fill_x_2 << std::endl;
 	  int phi_bin_1, phi_bin_2 = 0;
-    phi_bin_1 = fill_x_1/binsize_1; //Find in which bin fill_x_1 lies
+    phi_bin_1 = (int)((fill_x_1+xmax1)/binsize_1); //Find in which bin fill_x_1 lies
+	  std::cout << "phi_bin_1 = " << phi_bin_1 << std::endl;
     //int Find_Cells_per_Bin(int layer, int bin, double binsize, int which_histo, std::string subdetector_type);
   	num_cells_per_bin_1.at( current_layer ).at(phi_bin_1) = Find_Cells_per_Bin(current_layer, phi_bin_1, binsize_1, 1, det);
 	  ave_hits_1.at( current_layer ).at(phi_bin_1) += cellhits.Get_HitCount().at(vecpos);
 	  if(cellhits.Get_HitCount().at(vecpos) > bufferdepth) ave_losthits_1.at( current_layer ).at(phi_bin_1) += cellhits.Get_HitCount().at(vecpos) - bufferdepth;
 
-	  phi_bin_2 = fill_x_2/binsize_2; //Find in which bin fill_x_2 lies
+	  phi_bin_2 = (int)((fill_x_2+xmax2)/binsize_2); //Find in which bin fill_x_2 lies
+	  std::cout << "phi_bin_2 = " << phi_bin_2 << std::endl;
   	num_cells_per_bin_2.at( current_layer ).at(phi_bin_2) = Find_Cells_per_Bin(current_layer, phi_bin_2, binsize_2, 2, det);
 	  ave_hits_2.at( current_layer ).at(phi_bin_2) += cellhits.Get_HitCount().at(vecpos);
 	  if(cellhits.Get_HitCount().at(vecpos) > bufferdepth) ave_losthits_2.at( current_layer ).at(phi_bin_2) += cellhits.Get_HitCount().at(vecpos) - bufferdepth;
   }
 
+  std::cout << __LINE__ << std::endl;
 
   for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
 	  for (size_t bins = 0; bins < xbins1; ++bins) {
@@ -465,7 +471,7 @@ int main(int const argc, char const * const * const argv) {
 	    tot_num_hits_per_layer.at(current_layer) += cellhits.Get_HitCount().at(vecpos);
     }
   }
-  //std::cout << __LINE__ << std::endl;
+  std::cout << __LINE__ << std::endl;
 
 
   //Plot the histogram and save it
@@ -553,13 +559,14 @@ uint64_t CalculateLayer(uint64_t const id, Subdetector const & SubDetector) {
 
 double CalculatePhi(double x, double y){
   double phi =0;
-  if(x>0) phi = atan(y/x);
-  if(x<0 && y>=0) phi = atan(y/x) + M_PI;
-  if(x<0 && y<0)  phi = atan(y/x) - M_PI;
-  if(x==0 && y>0) phi = 0.5*M_PI;
-  if(x==0 && y<0) phi = -0.5*M_PI;
-  else phi = -101;
-  phi += M_PI;
+  phi = atan2(y, x);
+  //if(x>0) phi = atan(y/x);
+  //if(x<0 && y>=0) phi = atan(y/x) + M_PI;
+  //if(x<0 && y<0)  phi = atan(y/x) - M_PI;
+  //if(x==0 && y>0) phi = 0.5*M_PI;
+  //if(x==0 && y<0) phi = -0.5*M_PI;
+  //else phi = -101;
+  //phi += M_PI;
   return phi;
 }
 
