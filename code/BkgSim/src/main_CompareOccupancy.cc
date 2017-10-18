@@ -129,7 +129,7 @@ void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::stri
     histos.at(no_histo)->SetLineWidth(2);
     histos.at(no_histo)->SetMarkerSize(0.7);
     if(no_histo == 0){
-      name = "set  2: TDR";
+      name = "set TDR";
       histos.at(no_histo)->SetLineColor(1);
       histos.at(no_histo)->SetMarkerColor(1);
       histos.at(no_histo)->SetMarkerStyle(4);
@@ -142,19 +142,19 @@ void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::stri
         histos.at(no_histo)->SetLineColor(2);
         histos.at(no_histo)->SetMarkerColor(2);
         histos.at(no_histo)->SetMarkerStyle(8);
-        name = "set  4: TDR + Emittance_x";
+        name = "set (A): TDR + Emittance_x";
       }
       if(no_histo == 2){
         histos.at(no_histo)->SetLineColor(3);
         histos.at(no_histo)->SetMarkerColor(3);
         histos.at(no_histo)->SetMarkerStyle(25);
-        name = "set 15: TDR + Emittance_x + Beta_x";
+        name = "set (B): TDR + Emittance_x + Beta_x";
       }
       if(no_histo == 3){
         histos.at(no_histo)->SetLineColor(4);
         histos.at(no_histo)->SetMarkerColor(4);
         histos.at(no_histo)->SetMarkerStyle(21);
-        name = "set 16: TDR + Emittance_x + Beta_x + Beta_y";
+        name = "set (C): TDR + Emittance_x + Beta_x + Beta_y";
       }
       histos.at(no_histo)->Draw("SAMES");
     }
