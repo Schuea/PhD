@@ -115,20 +115,30 @@
 
 %---------------------------------------------------------------------------------------------------------
 
-\setcounter{tocdepth}{3}
-\AtBeginSubsection[] {
-  \begin{frame}<beamer>
-     \tableofcontents[currentsection,
-     currentsubsection,
-     %hideothersubsections,
-     subsectionstyle=show/shaded/hide,
-     subsubsectionstyle=show/show/hide]
-  \end{frame}
-}
+\section{New beam parameter sets for the ILC250 stage}
 
-%--------------------------------------------------------------------------------------------------------------
-
-
+\begin{frame}{ILC250 Beam Parameter Sets}
+At AWLC17 at SLAC, the ILC250 beam parameters were suggested to be changed in order to \textbf{increase the luminosity}.\\
+In the current CR, set (A) was selected as the new parameter scheme.
+ \begin{table}
+\label{tab:Parameters}
+\centering
+\begin{tabularx}{0.55\textwidth}{llll}
+\hline\hline
+\textbf{Set}  & \textbf{$\epsilon_x$ [\murm m]} & \textbf{$\beta_x$ [mm]} & \textbf{$\beta_y$ [mm]}\\
+\hline
+\cline{1-4}
+\hline
+ TDR & 10 & 13.0 & 0.41\\
+ \alert{(A)} & 5 & 13.0 & 0.41\\
+ (B) & 5 & 9.19 & 0.41\\
+ (C) & 5 & 9.19 & 0.58\\
+\hline\hline
+\end{tabularx}
+\end{table}
+\alert{Caveat:\\
+Reducing the emittance leads to stronger beam-beam interactions, and therefore to increased \positron \electron pair background.}
+\end{frame}
 %--------------------------------------------------------------------------------------------------------------
 \AtBeginSection[] {
   \begin{frame}<beamer>
@@ -139,33 +149,21 @@
      subsubsectionstyle=show/show/hide]
   \end{frame}
 }
-
-\section{New beam parameter sets for the ILC250 stage}
-
-\begin{frame}{ILC250 Beam Parameter Sets}
- \begin{table}
-\caption{Possible beam parameter sets for the ILC250 stage.\\{\small The table only lists the parameters that are to be changed with respect to the original ILC250 parameters given in the Technical Design Report (TDR)~\cite[p. 11]{TDR1}.}}
-\label{tab:Parameters}
-\centering
-\begin{tabularx}{0.55\textwidth}{llll}
-\hline\hline
-\textbf{Set}  & \textbf{$\epsilon_x$ [\murm m]} & \textbf{$\beta_x$ [mm]} & \textbf{$\beta_y$ [mm]}\\
-\hline
-\cline{1-4}
-\hline
- TDR & 10 & 13.0 & 0.41\\
- (A) & 5 & 13.0 & 0.41\\
- (B) & 5 & 9.19 & 0.41\\
- (C) & 5 & 9.19 & 0.58\\
-\hline\hline
-\end{tabularx}
-\end{table}
-\alert{Reduced emittance leads to stronger beam-beam interactions, and therefore to increased \positron \electron pair background.}
-\end{frame}
-
+%--------------------------------------------------------------------------------------------------------------
 \section{Pair background density}
 \begin{frame}{Background event generation using GuineaPig}
- The background generation in GuineaPig \textit{does not include a crossing angle}!\\
+GuineaPig acc.dat file:\\
+{\small\texttt{\textcolor{Gray}{\$ACCELERATOR:: ILC-250GeV-SetC \\                                                                            
+\{energy=125.0;particles=2.0;charge\_sign=-1;\\
+f\_rep=10.0;n\_b=1312;\\}
+beta\_x=9.19;beta\_y=0.58;\\
+emitt\_x=5.0;\textcolor{Gray}{emitt\_y=0.035;\\
+sigma\_z=300.0;scale\_step=1.0;\\
+waist\_x=240;waist\_y=240;\\
+espread.1=0.00188;espread.2=0.00152;which\_espread=3;\}}
+}}\\
+\vspace*{0.3cm}
+ The background generation in GuineaPig \alert{does not include a crossing angle}!\\
  The crossing angle is applied later on in the Geant4 simulation of the SiD detector.
 \end{frame}
 
@@ -212,37 +210,113 @@ The envelopes are in all schemes well contained within the beam pipe. Less than 
 \end{frame}
 
 \section{SiD Occupancy}
-\begin{frame}{SiD Vertex Detector Occupancy: All layers}
+\subsection{SiD design: New L*, w antiDiD}
+\begin{frame}{VXD Occupancy: New L*, w antiDiD}
 \sidlogo
+\alert{Normalized Occupancy}: Number of cells containing a certain amount of hits, normalized by the total number of cells of the vertex detector.
  \begin{figure}
 \centering
 \begin{subfigure}[t]{0.48\textwidth}
 \centering
-\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt__cells_ILC250_ALL_SETS_6Sep2017_NEWSETNAMES.png}
-\caption{\alert{Normalized Occupancy}: Number of cells containing a certain amount of hits, normalized by the total number of cells of the vertex detector.}
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt_cells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD.pdf}
+\caption{\alert{All layers}}
 \end{subfigure}
 \hspace*{0.2cm}
 \begin{subfigure}[t]{0.48\textwidth}
 \centering
-\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_deadcells_ILC250_ALL_SETS_6Sep2017_NEWSETNAMES.png}
-\caption{\alert{Normalized number of dead cells}: Number of cells with full buffer, normalized by the total number of cells of the vertex detector.}
+ \includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_Layer_0_numcells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD.png}
+ \caption{\alert{Layer 0}}
 \end{subfigure}
 \end{figure}
+The occupancy in layer 0 for the new sets is significantly increased with respect to the TDR scheme.
 \end{frame}
 
-\begin{frame}{SiD Vertex Detector Occupancy: Layer 0}
+\begin{frame}{VXD Occupancy: New L*, w antiDiD - Dead cells}
+\sidlogo
+\alert{Normalized number of dead cells}: Number of cells with full buffer, normalized by the total number of cells of the vertex detector.
+\begin{figure}
+\centering
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_deadcells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD.png}
+\caption{\alert{All Layers}}
+ \end{subfigure}
+\hspace*{0.2cm}
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+ \includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_Layer_0_deadcells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD.png}
+\caption{\alert{Layer 0}}
+\end{subfigure}
+\end{figure}
+In layer 0, the number of cells with full buffers reaches the critical limit (10\textsuperscript{-4} of all cells).
+\end{frame}
+%--------------------------------------------------------------------------------------------------------------
+\setcounter{tocdepth}{3}
+\AtBeginSubsection[] {
+  \begin{frame}<beamer>
+     \tableofcontents[currentsection,
+     currentsubsection,
+     %hideothersubsections,
+     subsectionstyle=show/shaded/hide,
+     subsubsectionstyle=show/show/hide]
+  \end{frame}
+}
+%--------------------------------------------------------------------------------------------------------------
+\subsection{Comparing different SiD designs}
+\begin{frame}{VXD Occupancy: Different SiD designs, all layers}
 \sidlogo
 \begin{center}
- \includegraphics[width=0.6\textwidth]{ILC250_figures/Occupancy_Comparison_Layer_0_numcells_ILC250_ALL_SETS_6Sep2017_NEWSETNAMES.png}
+\footnotesize old L*, w/o antiDiD \hfill old L*, w antiDiD \\
+\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt_cells_ILC250_Comparison_ALL_SETS_5T_old_LStar.pdf}\hfill
+\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt_cells_ILC250_Comparison_ALL_SETS_5T_old_LStar_w_antiDiD.pdf}\\
+new L*, w/o antiDiD  \hfill new L*, w antiDiD\\
+\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt_cells_ILC250_ALL_SETS_6Sep2017_NEWSETNAMES.png}\hfill
+\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt_cells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD.pdf}
 \end{center}
-The occupancy in layer 0 for the new sets is significantly increased with respect to the TDR scheme.
+\end{frame}
+\begin{frame}{VXD Occupancy: Different SiD designs, layer 0}
+\sidlogo
+\begin{center}
+\footnotesize old L*, w/o antiDiD \hfill old L*, w antiDiD \\
+\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_Layer_0_numcells_ILC250_Comparison_ALL_SETS_5T_old_LStar.png}\hfill
+\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_Layer_0_numcells_ILC250_Comparison_ALL_SETS_5T_old_LStar_w_antiDiD.png}\\
+new L*, w/o antiDiD  \hfill new L*, w antiDiD\\
+\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_Layer_0_numcells_ILC250_ALL_SETS_6Sep2017_NEWSETNAMES.png}\hfill
+\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_Layer_0_numcells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{VXD Occupancy: Different SiD designs, Set (A)}
+\sidlogo
+\begin{figure}
+\centering
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt_cells_ILC250_Comparison_Set_A_All_SiD_designs.png}
+\caption{\alert{All layers}}
+ \end{subfigure}
+\hspace*{0.2cm}
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_Layer_0_numcells_ILC250_Comparison_Set_A_All_SiD_designs.png}
+\caption{\alert{Layer 0}}
+\end{subfigure}
+\end{figure}
+\normalsize SiD design with \textbf{old L* (3.5\,m) and antiDiD} shows the \textbf{lowest occupancy}.
+\end{frame}
+
+\subsection{Phi dependency}
+\begin{frame}{VXD Occupancy: Phi dependendy}
+\sidlogo
+
 \end{frame}
 
 \section{Conclusion}
 \begin{frame}
 \sidlogo
- According to the shown studies of the background density and the SiD occupancy for the new ILC250 parameter sets, SiD is confident that the increased occupancy can be accommodated in the design of the Vertex Detector.\\
- The SiD Optimization Group gives green light for the current Change Request, and welcomes the efforts on increasing the luminosity for the ILC250 stage.
+ According to the shown studies of the background density and the SiD occupancy for the new ILC250 parameter sets,\\
+ \alert{SiD is confident that the increased occupancy can be accommodated in the design of the Vertex Detector.}\\
+ \textbf{The SiD Optimization Group gives green light for the current Change Request, and welcomes the efforts on increasing the luminosity for the ILC250 stage.}
 \end{frame}
 
 
@@ -282,12 +356,9 @@ The occupancy in layer 0 for the new sets is significantly increased with respec
 \begin{center}
 \LARGE Additional Material
 \end{center}
-  \tableofcontents
 \end{frame}
 
-\section{ILC}
-
-\subsection{The ILC beam parameters}
+\section{The ILC beam parameters}
 \begin{frame}{ILC baseline parameters}
 \ilclogo
 \begin{center}
