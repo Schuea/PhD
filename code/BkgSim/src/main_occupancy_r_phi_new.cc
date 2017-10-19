@@ -27,9 +27,9 @@ double CalculatePhi(double x, double y);
 uint64_t CalculateLayer(uint64_t const id, Subdetector const & SubDetector); 
 uint32_t MakeNewCellID(double const x, double const y, Subdetector const & component);
 int Find_Cells_per_Bin(int layer, int bin, double binsize, int which_histo, Subdetector const & SubDetector);
-void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, double normalization_factor, int integral_startbin, bool integral_numhits);
-void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, bool integral_numhits);
-void Print_multiple_plots_from_same_vec (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, bool integral_numhits, std::string output);
+void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, double normalization_factor, int integral_startbin);
+void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin);
+void Print_multiple_plots_from_same_vec (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, std::string output);
 
 
 int main(int const argc, char const * const * const argv) {
@@ -266,17 +266,17 @@ int main(int const argc, char const * const * const argv) {
   std::vector < std::string > title;
   title.emplace_back( "Normalized occupancy for " + subdetectorname + ";#phi;Average number of hits per cell" );
   std::stringstream title_temp;
-  title_temp << "Number of hits lost for a buffer depth of " << bufferdepth << "for " << subdetectorname << ";#phi;Average number of hits lost";
+  title_temp << "Number of hits lost for a buffer depth of " << bufferdepth << " for " << subdetectorname << ";#phi;Average number of hits lost";
   title.emplace_back( title_temp.str() );
   std::stringstream title_temp2;
-  title_temp2 << "Number of dead cells for a buffer depth of " << bufferdepth << "for " << subdetectorname << ";#phi;Number of dead cells";
+  title_temp2 << "Number of dead cells for a buffer depth of " << bufferdepth << " for " << subdetectorname << ";#phi;Number of dead cells";
   title.emplace_back( title_temp2.str() );
   title.emplace_back( "Normalized occupancy for " + subdetectorname + ";z [mm];Average number of hits per cell" );
   std::stringstream title_temp3;
-  title_temp3 << "Number of hits lost for a buffer depth of " << bufferdepth << "for " << subdetectorname << ";z [mm];Average number of hits lost";
+  title_temp3 << "Number of hits lost for a buffer depth of " << bufferdepth << " for " << subdetectorname << ";z [mm];Average number of hits lost";
   title.emplace_back( title_temp3.str() );
   std::stringstream title_temp4;
-  title_temp4 << "Number of dead cells for a buffer depth of " << bufferdepth << "for " << subdetectorname << ";z [mm];Number of dead cells";
+  title_temp4 << "Number of dead cells for a buffer depth of " << bufferdepth << " for " << subdetectorname << ";z [mm];Number of dead cells";
   title.emplace_back( title_temp4.str() );
 
   std::vector< TH1D* > normoccupancy_1;
@@ -389,10 +389,10 @@ int main(int const argc, char const * const * const argv) {
 	//Prepare vectors that will contain all hits in certain bins of x
 	  std::vector < int > temp1;
 	  std::vector < int > temp2;
-	  for (size_t bins = 0; bins < xbins1; ++bins) {
+	  for (size_t bins = 0; bins < xbins1+1; ++bins) {
 		  temp1.push_back( 0 );
 	  }
-	  for (size_t bins = 0; bins < xbins2; ++bins) {
+	  for (size_t bins = 0; bins < xbins2+1; ++bins) {
 		  temp2.push_back( 0 );
 	  }
 	  ave_hits_1.push_back( temp1 );
@@ -428,14 +428,13 @@ int main(int const argc, char const * const * const argv) {
 	  std::cout << "fill_x_1 = " << fill_x_1 << std::endl;
 	  std::cout << "fill_x_2 = " << fill_x_2 << std::endl;
 	  int phi_bin_1, phi_bin_2 = 0;
-    phi_bin_1 = (int)((fill_x_1+xmax1)/binsize_1); //Find in which bin fill_x_1 lies
+    phi_bin_1 = (int)((fill_x_1+xmax1)/binsize_1)+1; //Find in which bin fill_x_1 lies
 	  std::cout << "phi_bin_1 = " << phi_bin_1 << std::endl;
-    //int Find_Cells_per_Bin(int layer, int bin, double binsize, int which_histo, std::string subdetector_type);
   	num_cells_per_bin_1.at( current_layer ).at(phi_bin_1) = Find_Cells_per_Bin(current_layer, phi_bin_1, binsize_1, 1, det);
 	  ave_hits_1.at( current_layer ).at(phi_bin_1) += cellhits.Get_HitCount().at(vecpos);
 	  if(cellhits.Get_HitCount().at(vecpos) > bufferdepth) ave_losthits_1.at( current_layer ).at(phi_bin_1) += cellhits.Get_HitCount().at(vecpos) - bufferdepth;
 
-	  phi_bin_2 = (int)((fill_x_2+xmax2)/binsize_2); //Find in which bin fill_x_2 lies
+	  phi_bin_2 = (int)((fill_x_2+xmax2)/binsize_2)+1; //Find in which bin fill_x_2 lies
 	  std::cout << "phi_bin_2 = " << phi_bin_2 << std::endl;
   	num_cells_per_bin_2.at( current_layer ).at(phi_bin_2) = Find_Cells_per_Bin(current_layer, phi_bin_2, binsize_2, 2, det);
 	  ave_hits_2.at( current_layer ).at(phi_bin_2) += cellhits.Get_HitCount().at(vecpos);
@@ -444,15 +443,31 @@ int main(int const argc, char const * const * const argv) {
 
   std::cout << __LINE__ << std::endl;
 
-  for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
-	  for (size_t bins = 0; bins < xbins1; ++bins) {
-	    	  normoccupancy_1.at(number_layer)->SetBinContent( bins, (double)ave_hits_1.at(number_layer).at(bins)/(double)num_cells_per_bin_1.at(number_layer).at(bins) );
-		  All_Layers_normoccupancy_1->SetBinContent( bins, (double)ave_hits_1.at(number_layer).at(bins)/(double)num_cells_per_bin_1.at(number_layer).at(bins) );
+  for (size_t bins = 1; bins <= xbins1; ++bins) {
+    int ave_hits_all_layers, ave_losthits_all_layers = 0.0;
+    int num_cells_per_bin_all_layers = 0.0;
+    for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
+      normoccupancy_1.at(number_layer)->SetBinContent( bins, (double)ave_hits_1.at(number_layer).at(bins-1)/(double)num_cells_per_bin_1.at(number_layer).at(bins-1) );
+      normlosthits_1.at(number_layer)->SetBinContent( bins, (double)ave_losthits_1.at(number_layer).at(bins-1)/(double)num_cells_per_bin_1.at(number_layer).at(bins-1) );
+      ave_hits_all_layers += ave_hits_1.at(number_layer).at(bins-1);
+      ave_losthits_all_layers += ave_losthits_1.at(number_layer).at(bins-1);
+      num_cells_per_bin_all_layers += num_cells_per_bin_1.at(number_layer).at(bins-1);
+    }
+    All_Layers_normoccupancy_1->SetBinContent( bins, (double)ave_hits_all_layers/(double)num_cells_per_bin_all_layers );
+    All_Layers_normlosthits_1->SetBinContent( bins, (double)ave_losthits_all_layers/(double)num_cells_per_bin_all_layers );
+  }
+	for (size_t bins = 1; bins <= xbins2; ++bins) {
+    int ave_hits_all_layers, ave_losthits_all_layers = 0.0;
+    int num_cells_per_bin_all_layers = 0.0;
+    for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
+	    normoccupancy_2.at(number_layer)->SetBinContent( bins, (double)ave_hits_2.at(number_layer).at(bins-1)/(double)num_cells_per_bin_2.at(number_layer).at(bins-1) );
+      normlosthits_2.at(number_layer)->SetBinContent( bins, (double)ave_losthits_2.at(number_layer).at(bins-1)/(double)num_cells_per_bin_2.at(number_layer).at(bins-1) );
+      ave_hits_all_layers += ave_hits_2.at(number_layer).at(bins-1);
+      ave_losthits_all_layers += ave_losthits_2.at(number_layer).at(bins-1);
+      num_cells_per_bin_all_layers += num_cells_per_bin_2.at(number_layer).at(bins-1);
 	  }
-	  for (size_t bins = 0; bins < xbins2; ++bins) {
-	    	  normoccupancy_2.at(number_layer)->SetBinContent( bins, (double)ave_hits_2.at(number_layer).at(bins)/(double)num_cells_per_bin_2.at(number_layer).at(bins) );
-		  All_Layers_normoccupancy_2->SetBinContent( bins, (double)ave_hits_2.at(number_layer).at(bins)/(double)num_cells_per_bin_2.at(number_layer).at(bins) );
-	  }
+		All_Layers_normoccupancy_2->SetBinContent( bins, (double)ave_hits_all_layers/(double)num_cells_per_bin_all_layers );
+    All_Layers_normlosthits_2->SetBinContent( bins, (double)ave_losthits_all_layers/(double)num_cells_per_bin_all_layers );
   }
   for (size_t vecpos = 0; vecpos < cellhits.Get_HitCount().size(); ++vecpos) {
     if(cellhits.Get_HitCount().at(vecpos) > 0){
@@ -480,61 +495,61 @@ int main(int const argc, char const * const * const argv) {
 
   std::stringstream output;
   output << "output/normoccupancy_1_" << subdetectorname << "_" << outputfile_name;
-  Print_multiple_plots_from_same_vec (normoccupancy_1, canvas, true, tot_num_hits_per_layer , 1, false,  output.str());
+  Print_multiple_plots_from_same_vec (normoccupancy_1, canvas, false, tot_num_hits_per_layer , 1, output.str());
 
   std::stringstream output2;
   output2 << "output/normoccupancy_2_" << subdetectorname << "_" << outputfile_name;
-  Print_multiple_plots_from_same_vec (normoccupancy_2, canvas, true, tot_num_hits_per_layer, 1, false,  output2.str());
+  Print_multiple_plots_from_same_vec (normoccupancy_2, canvas, false, tot_num_hits_per_layer, 1, output2.str());
 
   std::stringstream output3;
   output3 << "output/normlosthits_1_" << subdetectorname << "_" << outputfile_name;
-  Print_multiple_plots_from_same_vec (normlosthits_1, canvas, true, tot_num_hits_per_layer, 1, false,  output3.str());
+  Print_multiple_plots_from_same_vec (normlosthits_1, canvas, true, tot_num_hits_per_layer, 1, output3.str());
 
   std::stringstream output4;
   output4 << "output/normlosthits_2_" << subdetectorname << "_" << outputfile_name;
-  Print_multiple_plots_from_same_vec (normlosthits_2, canvas, true, tot_num_hits_per_layer, 1, false, output4.str());
+  Print_multiple_plots_from_same_vec (normlosthits_2, canvas, true, tot_num_hits_per_layer, 1, output4.str());
 
   std::stringstream output5;
   output5 << "output/normdeadcells_1_" << subdetectorname << "_" << outputfile_name;
-  Print_multiple_plots_from_same_vec (normdeadcells_1, canvas, true, det.getNumberOfCells(), 1, false,  output5.str());
+  Print_multiple_plots_from_same_vec (normdeadcells_1, canvas, true, det.getNumberOfCells(), 1, output5.str());
 
   std::stringstream output6;
   output6 << "output/normdeadcells_2_" << subdetectorname << "_" << outputfile_name;
-  Print_multiple_plots_from_same_vec (normdeadcells_2, canvas, true, det.getNumberOfCells(), 1, false, output6.str());
+  Print_multiple_plots_from_same_vec (normdeadcells_2, canvas, true, det.getNumberOfCells(), 1, output6.str());
 
   //std::cout << __LINE__ << std::endl;
 
-  Draw_single_plots( All_Layers_normoccupancy_1,canvas, true, tot_no_hits, 1, false); 
+  Draw_single_plots( All_Layers_normoccupancy_1,canvas, false, tot_no_hits, 1); 
   std::stringstream All_output;
   All_output << "output/normoccupancy_1_all_layers_" << subdetectorname << "_" << outputfile_name;
   canvas->Print((All_output.str() + ".pdf").c_str());
   canvas->Print((All_output.str() + ".cxx").c_str());
 
-  Draw_single_plots ( All_Layers_normoccupancy_2,canvas, true, tot_no_hits, 1, false); 
+  Draw_single_plots ( All_Layers_normoccupancy_2,canvas, false, tot_no_hits, 1); 
   std::stringstream All_output2;
   All_output2 << "output/normoccupancy_2_all_layers_" << subdetectorname << "_" << outputfile_name;
   canvas->Print((All_output2.str() + ".pdf").c_str());
   canvas->Print((All_output2.str() + ".cxx").c_str());
 
-  Draw_single_plots( All_Layers_normlosthits_1,canvas, true, tot_no_hits, 1, false); 
+  Draw_single_plots( All_Layers_normlosthits_1,canvas, true, tot_no_hits, 1); 
   std::stringstream All_output3;
   All_output3 << "output/normlosthits_1_all_layers_" << subdetectorname << "_" << outputfile_name;
   canvas->Print((All_output3.str() + ".pdf").c_str());
   canvas->Print((All_output3.str() + ".cxx").c_str());
 
-  Draw_single_plots ( All_Layers_normlosthits_2,canvas, true, tot_no_hits, 1, false); 
+  Draw_single_plots ( All_Layers_normlosthits_2,canvas, true, tot_no_hits, 1); 
   std::stringstream All_output4;
   All_output4 << "output/normlosthits_2_all_layers_" << subdetectorname << "_" << outputfile_name;
   canvas->Print((All_output4.str() + ".pdf").c_str());
   canvas->Print((All_output4.str() + ".cxx").c_str());
 
-  Draw_single_plots( All_Layers_normdeadcells_1,canvas, true, tot_num_cells, 1, false); 
+  Draw_single_plots( All_Layers_normdeadcells_1,canvas, true, tot_num_cells, 1); 
   std::stringstream All_output5;
   All_output5 << "output/normdeadcells_1_all_layers_" << subdetectorname << "_" << outputfile_name;
   canvas->Print((All_output5.str() + ".pdf").c_str());
   canvas->Print((All_output5.str() + ".cxx").c_str());
 
-  Draw_single_plots ( All_Layers_normdeadcells_2,canvas, true, tot_num_cells, 1, false); 
+  Draw_single_plots ( All_Layers_normdeadcells_2,canvas, true, tot_num_cells, 1); 
   std::stringstream All_output6;
   All_output6 << "output/normdeadcells_2_all_layers_" << subdetectorname << "_" << outputfile_name;
   canvas->Print((All_output6.str() + ".pdf").c_str());
@@ -577,11 +592,10 @@ uint32_t MakeNewCellID(double const x, double const y, Subdetector const & compo
   if(y >= 0) ++newY;
   return (uint32_t(newX) << 16) | newY;
 }
-void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, double normalization_factor, int integral_startbin, bool integral_numhits){
+void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, double normalization_factor, int integral_startbin){
   int tot = 0;
   for(int bin = integral_startbin; bin <= histo->GetNbinsX(); ++bin){
-    if (integral_numhits == true) tot += histo->GetBinContent(bin)*histo->GetBinLowEdge(bin);
-    else tot += histo->GetBinContent(bin);
+    tot += histo->GetBinContent(bin);
   }
   
   histo->SetStats(0);
@@ -639,16 +653,17 @@ int Find_Cells_per_Bin(int layer, int bin, double binsize, int which_histo, Subd
     }
   }
   else std::cerr << "Detector shape not recognized. Histograms cannot be filled!" << std::endl;
+  std::cout << "cells per bin = " << num_cells << std::endl;
   return num_cells;
 }
 
-void Print_multiple_plots_from_same_vec (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, bool integral_numhits, std::string output){
-  Draw_multiple_plots(histos, canvas, normalize, normalization_factor, integral_startbin, integral_numhits);
+void Print_multiple_plots_from_same_vec (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, std::string output){
+  Draw_multiple_plots(histos, canvas, normalize, normalization_factor, integral_startbin);
   canvas->Print((output + ".pdf").c_str());
   canvas->Print((output + ".cxx").c_str());
 }
 
-void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, bool integral_numhits){
+void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin){
   int i = 0;
   int color = 2; // Very first histogram will be drawn with the color 2, then counted up
   int marker = 20; // Very first histogram will be drawn with the marker style 20, then counted up
@@ -661,8 +676,7 @@ void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool nor
     if(number_histo == 0){
       int tot = 0;
       for(int bin = integral_startbin; bin <= histos.at(number_histo)->GetNbinsX(); ++bin){
-        if (integral_numhits == true) tot += histos.at(number_histo)->GetBinContent(bin)*histos.at(number_histo)->GetBinLowEdge(bin);
-        else tot += histos.at(number_histo)->GetBinContent(bin);
+        tot += histos.at(number_histo)->GetBinContent(bin);
       }
 
       if(normalize == true){
@@ -702,8 +716,7 @@ void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool nor
     if(number_histo > 0){
       int tot = 0;
       for(int bin = integral_startbin; bin <= histos.at(number_histo)->GetNbinsX(); ++bin){
-        if (integral_numhits == true) tot += histos.at(number_histo)->GetBinContent(bin)*histos.at(number_histo)->GetBinLowEdge(bin);
-        else tot += histos.at(number_histo)->GetBinContent(bin);
+        tot += histos.at(number_histo)->GetBinContent(bin);
       }
 
       if(normalize == true){
