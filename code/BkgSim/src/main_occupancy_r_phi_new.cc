@@ -27,9 +27,9 @@ double CalculatePhi(double x, double y);
 uint64_t CalculateLayer(uint64_t const id, Subdetector const & SubDetector); 
 uint32_t MakeNewCellID(double const x, double const y, Subdetector const & component);
 int Find_Cells_per_Bin(int layer, int bin, double binsize, int which_histo, Subdetector const & SubDetector);
-void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, double normalization_factor, int integral_startbin);
-void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin);
-void Print_multiple_plots_from_same_vec (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, std::string output);
+void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, double normalization_factor);
+void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor);
+void Print_multiple_plots_from_same_vec (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, std::string output);
 
 
 int main(int const argc, char const * const * const argv) {
@@ -372,7 +372,6 @@ int main(int const argc, char const * const * const argv) {
     normlosthits_2.push_back(	 temp5);
     normdeadcells_2.push_back(   temp6);
   }
-  std::cout << __LINE__ << std::endl;
 
   //std::cout << __LINE__ << std::endl;
   std::vector< std::vector< int > > ave_hits_1;
@@ -402,7 +401,7 @@ int main(int const argc, char const * const * const argv) {
   	num_cells_per_bin_1.push_back( temp1 );
   	num_cells_per_bin_2.push_back( temp2 );
   }
-  std::cout << __LINE__ << std::endl;
+  //std::cout << __LINE__ << std::endl;
   double fill_x_1, fill_x_2 = 0.0;
   double binsize_1, binsize_2 = 0.0;
   for (size_t vecpos = 0; vecpos < cellhits.Get_HitCount().size(); ++vecpos) {
@@ -424,50 +423,67 @@ int main(int const argc, char const * const * const argv) {
       binsize_2 = (2.0*det.getRMax().at(max_num_layers - 1))/(double)xbins2;
 	  }
 	  else std::cerr << "Detector shape not recognized. Histograms cannot be filled!" << std::endl;
-  std::cout << __LINE__ << std::endl;
+  //std::cout << __LINE__ << std::endl;
 	  std::cout << "fill_x_1 = " << fill_x_1 << std::endl;
 	  std::cout << "fill_x_2 = " << fill_x_2 << std::endl;
 	  int phi_bin_1, phi_bin_2 = 0;
     phi_bin_1 = (int)((fill_x_1+xmax1)/binsize_1)+1; //Find in which bin fill_x_1 lies
 	  std::cout << "phi_bin_1 = " << phi_bin_1 << std::endl;
-  	num_cells_per_bin_1.at( current_layer ).at(phi_bin_1) = Find_Cells_per_Bin(current_layer, phi_bin_1, binsize_1, 1, det);
+  	num_cells_per_bin_1.at( current_layer ).at(phi_bin_1) += 1;
+  	//num_cells_per_bin_1.at( current_layer ).at(phi_bin_1) = Find_Cells_per_Bin(current_layer, phi_bin_1, binsize_1, 1, det);
 	  ave_hits_1.at( current_layer ).at(phi_bin_1) += cellhits.Get_HitCount().at(vecpos);
 	  if(cellhits.Get_HitCount().at(vecpos) > bufferdepth) ave_losthits_1.at( current_layer ).at(phi_bin_1) += cellhits.Get_HitCount().at(vecpos) - bufferdepth;
 
 	  phi_bin_2 = (int)((fill_x_2+xmax2)/binsize_2)+1; //Find in which bin fill_x_2 lies
 	  std::cout << "phi_bin_2 = " << phi_bin_2 << std::endl;
-  	num_cells_per_bin_2.at( current_layer ).at(phi_bin_2) = Find_Cells_per_Bin(current_layer, phi_bin_2, binsize_2, 2, det);
+  	num_cells_per_bin_2.at( current_layer ).at(phi_bin_2) += 1;
+  	//num_cells_per_bin_2.at( current_layer ).at(phi_bin_2) = Find_Cells_per_Bin(current_layer, phi_bin_2, binsize_2, 2, det);
 	  ave_hits_2.at( current_layer ).at(phi_bin_2) += cellhits.Get_HitCount().at(vecpos);
 	  if(cellhits.Get_HitCount().at(vecpos) > bufferdepth) ave_losthits_2.at( current_layer ).at(phi_bin_2) += cellhits.Get_HitCount().at(vecpos) - bufferdepth;
   }
 
-  std::cout << __LINE__ << std::endl;
+  //std::cout << __LINE__ << std::endl;
 
   for (size_t bins = 1; bins <= xbins1; ++bins) {
-    int ave_hits_all_layers, ave_losthits_all_layers = 0.0;
+    int ave_hits_all_layers = 0.0;
+    int ave_losthits_all_layers = 0.0;
     int num_cells_per_bin_all_layers = 0.0;
     for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
-      normoccupancy_1.at(number_layer)->SetBinContent( bins, (double)ave_hits_1.at(number_layer).at(bins-1)/(double)num_cells_per_bin_1.at(number_layer).at(bins-1) );
-      normlosthits_1.at(number_layer)->SetBinContent( bins, (double)ave_losthits_1.at(number_layer).at(bins-1)/(double)num_cells_per_bin_1.at(number_layer).at(bins-1) );
+      if(num_cells_per_bin_1.at(number_layer).at(bins-1) != 0)
+      {
+	      std::cout << "num_cells_per_bin_1.at(number_layer).at(bins-1) = " << num_cells_per_bin_1.at(number_layer).at(bins-1) << std::endl;
+        normoccupancy_1.at(number_layer)->SetBinContent( bins, (double)ave_hits_1.at(number_layer).at(bins-1)/(double)num_cells_per_bin_1.at(number_layer).at(bins-1) );
+        normlosthits_1.at(number_layer)->SetBinContent( bins, (double)ave_losthits_1.at(number_layer).at(bins-1)/(double)num_cells_per_bin_1.at(number_layer).at(bins-1) );
+      }
       ave_hits_all_layers += ave_hits_1.at(number_layer).at(bins-1);
       ave_losthits_all_layers += ave_losthits_1.at(number_layer).at(bins-1);
       num_cells_per_bin_all_layers += num_cells_per_bin_1.at(number_layer).at(bins-1);
     }
-    All_Layers_normoccupancy_1->SetBinContent( bins, (double)ave_hits_all_layers/(double)num_cells_per_bin_all_layers );
-    All_Layers_normlosthits_1->SetBinContent( bins, (double)ave_losthits_all_layers/(double)num_cells_per_bin_all_layers );
+    if(num_cells_per_bin_all_layers != 0)
+    {
+      All_Layers_normoccupancy_1->SetBinContent( bins, (double)ave_hits_all_layers/(double)num_cells_per_bin_all_layers );
+      All_Layers_normlosthits_1->SetBinContent( bins, (double)ave_losthits_all_layers/(double)num_cells_per_bin_all_layers );
+    }
   }
 	for (size_t bins = 1; bins <= xbins2; ++bins) {
-    int ave_hits_all_layers, ave_losthits_all_layers = 0.0;
+    int ave_hits_all_layers = 0.0;
+    int ave_losthits_all_layers = 0.0;
     int num_cells_per_bin_all_layers = 0.0;
     for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
-	    normoccupancy_2.at(number_layer)->SetBinContent( bins, (double)ave_hits_2.at(number_layer).at(bins-1)/(double)num_cells_per_bin_2.at(number_layer).at(bins-1) );
-      normlosthits_2.at(number_layer)->SetBinContent( bins, (double)ave_losthits_2.at(number_layer).at(bins-1)/(double)num_cells_per_bin_2.at(number_layer).at(bins-1) );
+      if(num_cells_per_bin_2.at(number_layer).at(bins-1) != 0)
+      {
+        normoccupancy_2.at(number_layer)->SetBinContent( bins, (double)ave_hits_2.at(number_layer).at(bins-1)/(double)num_cells_per_bin_2.at(number_layer).at(bins-1) );
+        normlosthits_2.at(number_layer)->SetBinContent( bins, (double)ave_losthits_2.at(number_layer).at(bins-1)/(double)num_cells_per_bin_2.at(number_layer).at(bins-1) );
+      }
       ave_hits_all_layers += ave_hits_2.at(number_layer).at(bins-1);
       ave_losthits_all_layers += ave_losthits_2.at(number_layer).at(bins-1);
       num_cells_per_bin_all_layers += num_cells_per_bin_2.at(number_layer).at(bins-1);
 	  }
-		All_Layers_normoccupancy_2->SetBinContent( bins, (double)ave_hits_all_layers/(double)num_cells_per_bin_all_layers );
-    All_Layers_normlosthits_2->SetBinContent( bins, (double)ave_losthits_all_layers/(double)num_cells_per_bin_all_layers );
+    if(num_cells_per_bin_all_layers != 0)
+    {
+      All_Layers_normoccupancy_2->SetBinContent( bins, (double)ave_hits_all_layers/(double)num_cells_per_bin_all_layers );
+      All_Layers_normlosthits_2->SetBinContent( bins, (double)ave_losthits_all_layers/(double)num_cells_per_bin_all_layers );
+    }
   }
   for (size_t vecpos = 0; vecpos < cellhits.Get_HitCount().size(); ++vecpos) {
     if(cellhits.Get_HitCount().at(vecpos) > 0){
@@ -477,6 +493,14 @@ int main(int const argc, char const * const * const argv) {
 	    }
       //std::cout << "cellhits.Get_HitCount().at(vecpos) = " << cellhits.Get_HitCount().at(vecpos) << std::endl;
 	    if(cellhits.Get_HitCount().at(vecpos) >= bufferdepth){
+	      if (barrel){
+		      fill_x_1 = CalculatePhi( cellhits.Get_HitPosition('x').at(vecpos),cellhits.Get_HitPosition('y').at(vecpos) );
+		      fill_x_2 = cellhits.Get_HitPosition('z').at(vecpos);
+	      }
+	      else if (endcap){
+		      fill_x_1 = cellhits.Get_HitPosition('x').at(vecpos);
+		      fill_x_2 = cellhits.Get_HitPosition('y').at(vecpos);
+	      }
 		    normdeadcells_1.at(current_layer)->Fill( fill_x_1 );
 		    normdeadcells_2.at(current_layer)->Fill( fill_x_2 );
 
@@ -486,7 +510,7 @@ int main(int const argc, char const * const * const argv) {
 	    tot_num_hits_per_layer.at(current_layer) += cellhits.Get_HitCount().at(vecpos);
     }
   }
-  std::cout << __LINE__ << std::endl;
+  //std::cout << __LINE__ << std::endl;
 
 
   //Plot the histogram and save it
@@ -495,61 +519,61 @@ int main(int const argc, char const * const * const argv) {
 
   std::stringstream output;
   output << "output/normoccupancy_1_" << subdetectorname << "_" << outputfile_name;
-  Print_multiple_plots_from_same_vec (normoccupancy_1, canvas, false, tot_num_hits_per_layer , 1, output.str());
+  Print_multiple_plots_from_same_vec (normoccupancy_1, canvas, false, tot_num_hits_per_layer, output.str());
 
   std::stringstream output2;
   output2 << "output/normoccupancy_2_" << subdetectorname << "_" << outputfile_name;
-  Print_multiple_plots_from_same_vec (normoccupancy_2, canvas, false, tot_num_hits_per_layer, 1, output2.str());
+  Print_multiple_plots_from_same_vec (normoccupancy_2, canvas, false, tot_num_hits_per_layer, output2.str());
 
   std::stringstream output3;
   output3 << "output/normlosthits_1_" << subdetectorname << "_" << outputfile_name;
-  Print_multiple_plots_from_same_vec (normlosthits_1, canvas, true, tot_num_hits_per_layer, 1, output3.str());
+  Print_multiple_plots_from_same_vec (normlosthits_1, canvas, true, tot_num_hits_per_layer, output3.str());
 
   std::stringstream output4;
   output4 << "output/normlosthits_2_" << subdetectorname << "_" << outputfile_name;
-  Print_multiple_plots_from_same_vec (normlosthits_2, canvas, true, tot_num_hits_per_layer, 1, output4.str());
+  Print_multiple_plots_from_same_vec (normlosthits_2, canvas, true, tot_num_hits_per_layer, output4.str());
 
   std::stringstream output5;
   output5 << "output/normdeadcells_1_" << subdetectorname << "_" << outputfile_name;
-  Print_multiple_plots_from_same_vec (normdeadcells_1, canvas, true, det.getNumberOfCells(), 1, output5.str());
+  Print_multiple_plots_from_same_vec (normdeadcells_1, canvas, true, det.getNumberOfCells(), output5.str());
 
   std::stringstream output6;
   output6 << "output/normdeadcells_2_" << subdetectorname << "_" << outputfile_name;
-  Print_multiple_plots_from_same_vec (normdeadcells_2, canvas, true, det.getNumberOfCells(), 1, output6.str());
+  Print_multiple_plots_from_same_vec (normdeadcells_2, canvas, true, det.getNumberOfCells(), output6.str());
 
   //std::cout << __LINE__ << std::endl;
 
-  Draw_single_plots( All_Layers_normoccupancy_1,canvas, false, tot_no_hits, 1); 
+  Draw_single_plots( All_Layers_normoccupancy_1,canvas, false, tot_no_hits); 
   std::stringstream All_output;
   All_output << "output/normoccupancy_1_all_layers_" << subdetectorname << "_" << outputfile_name;
   canvas->Print((All_output.str() + ".pdf").c_str());
   canvas->Print((All_output.str() + ".cxx").c_str());
 
-  Draw_single_plots ( All_Layers_normoccupancy_2,canvas, false, tot_no_hits, 1); 
+  Draw_single_plots ( All_Layers_normoccupancy_2,canvas, false, tot_no_hits); 
   std::stringstream All_output2;
   All_output2 << "output/normoccupancy_2_all_layers_" << subdetectorname << "_" << outputfile_name;
   canvas->Print((All_output2.str() + ".pdf").c_str());
   canvas->Print((All_output2.str() + ".cxx").c_str());
 
-  Draw_single_plots( All_Layers_normlosthits_1,canvas, true, tot_no_hits, 1); 
+  Draw_single_plots( All_Layers_normlosthits_1,canvas, true, tot_no_hits); 
   std::stringstream All_output3;
   All_output3 << "output/normlosthits_1_all_layers_" << subdetectorname << "_" << outputfile_name;
   canvas->Print((All_output3.str() + ".pdf").c_str());
   canvas->Print((All_output3.str() + ".cxx").c_str());
 
-  Draw_single_plots ( All_Layers_normlosthits_2,canvas, true, tot_no_hits, 1); 
+  Draw_single_plots ( All_Layers_normlosthits_2,canvas, true, tot_no_hits); 
   std::stringstream All_output4;
   All_output4 << "output/normlosthits_2_all_layers_" << subdetectorname << "_" << outputfile_name;
   canvas->Print((All_output4.str() + ".pdf").c_str());
   canvas->Print((All_output4.str() + ".cxx").c_str());
 
-  Draw_single_plots( All_Layers_normdeadcells_1,canvas, true, tot_num_cells, 1); 
+  Draw_single_plots( All_Layers_normdeadcells_1,canvas, true, tot_num_cells); 
   std::stringstream All_output5;
   All_output5 << "output/normdeadcells_1_all_layers_" << subdetectorname << "_" << outputfile_name;
   canvas->Print((All_output5.str() + ".pdf").c_str());
   canvas->Print((All_output5.str() + ".cxx").c_str());
 
-  Draw_single_plots ( All_Layers_normdeadcells_2,canvas, true, tot_num_cells, 1); 
+  Draw_single_plots ( All_Layers_normdeadcells_2,canvas, true, tot_num_cells); 
   std::stringstream All_output6;
   All_output6 << "output/normdeadcells_2_all_layers_" << subdetectorname << "_" << outputfile_name;
   canvas->Print((All_output6.str() + ".pdf").c_str());
@@ -592,37 +616,6 @@ uint32_t MakeNewCellID(double const x, double const y, Subdetector const & compo
   if(y >= 0) ++newY;
   return (uint32_t(newX) << 16) | newY;
 }
-void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, double normalization_factor, int integral_startbin){
-  int tot = 0;
-  for(int bin = integral_startbin; bin <= histo->GetNbinsX(); ++bin){
-    tot += histo->GetBinContent(bin);
-  }
-  
-  histo->SetStats(0);
-  histo->Sumw2(1);
-  histo->SetMinimum(0.1);
-  if(normalize == true){
-    if(normalization_factor == 0.0) histo->Scale(1.0/histo->GetBinContent(1));
-    else histo->Scale(1.0/normalization_factor);
-    histo->SetMinimum( pow(10,-12) );
-  }
-  histo->SetLineColor(2);
-  histo->Draw("hist");
-  canvas->Update();
-
-  TPaveText *text1 = new TPaveText(0.75,0.8,0.95,0.9,"brNDC");
-  text1->SetTextFont(62);
-  text1->SetTextColor(2);
-  text1->SetFillColor(0);
-  std::stringstream title;
-  title << histo->GetName();
-  text1->AddText(title.str().c_str());
-  text1->AddLine(0,0.5,1,0.5);
-  std::stringstream entries;
-  entries << "Entries = " << tot; 
-  text1->AddText(entries.str().c_str());
-  text1->Draw();
-}
 
 int Find_Cells_per_Bin(int layer, int bin, double binsize, int which_histo, Subdetector const & det){
   int num_cells = 0;
@@ -653,72 +646,83 @@ int Find_Cells_per_Bin(int layer, int bin, double binsize, int which_histo, Subd
     }
   }
   else std::cerr << "Detector shape not recognized. Histograms cannot be filled!" << std::endl;
-  std::cout << "cells per bin = " << num_cells << std::endl;
+  //std::cout << "cells per bin = " << num_cells << std::endl;
   return num_cells;
 }
 
-void Print_multiple_plots_from_same_vec (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, std::string output){
-  Draw_multiple_plots(histos, canvas, normalize, normalization_factor, integral_startbin);
+void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, double normalization_factor){
+  histo->SetStats(1);
+  histo->Sumw2(1);
+  histo->SetMinimum(0.1);
+  if(normalize == true){
+    if(normalization_factor == 0.0) histo->Scale(1.0/histo->GetBinContent(1));
+    else histo->Scale(1.0/normalization_factor);
+    histo->SetMinimum( pow(10,-12) );
+  }
+  histo->SetLineColor(2);
+  histo->Draw("hist");
+  canvas->Update();
+  float boxsize = 0.0;
+  TPaveStats* stats = (TPaveStats*)histo->GetListOfFunctions()->FindObject("stats");
+  stats->SetTextColor(2);
+  stats->SetX1NDC(0.75); //new x start position
+  stats->SetX2NDC(0.95); //new x end position
+  stats->SetY1NDC(0.8); //new y start position
+  stats->SetY2NDC(0.9); //new y end position
+  boxsize = stats->GetY2NDC() - stats->GetY1NDC();
+}
+
+void Print_multiple_plots_from_same_vec (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, std::string output){
+  Draw_multiple_plots(histos, canvas, normalize, normalization_factor);
   canvas->Print((output + ".pdf").c_str());
   canvas->Print((output + ".cxx").c_str());
 }
 
-void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin){
-  int i = 0;
+void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor){
   int color = 2; // Very first histogram will be drawn with the color 2, then counted up
   int marker = 20; // Very first histogram will be drawn with the marker style 20, then counted up
   for (size_t number_histo = 0; number_histo< histos.size(); ++number_histo) {
-    histos.at(number_histo)->SetStats(0);
+    histos.at(number_histo)->SetStats(1);
     histos.at(number_histo)->Sumw2(1);
   }
+  std::vector< TPaveStats* > stats;
+  float boxsize = 0.0;
   double max=GetMinMaxForMultipleOverlappingHistograms(histos,true).second;
   for (size_t number_histo = 0; number_histo< histos.size(); ++number_histo) {
     if(number_histo == 0){
-      int tot = 0;
-      for(int bin = integral_startbin; bin <= histos.at(number_histo)->GetNbinsX(); ++bin){
-        tot += histos.at(number_histo)->GetBinContent(bin);
-      }
-
       if(normalize == true){
         if( normalization_factor.empty() ) histos.at(number_histo)->Scale(1.0/histos.at(number_histo)->GetBinContent(1));
         else histos.at(number_histo)->Scale( 1.0/normalization_factor.at(number_histo) );
+        histos.at(number_histo)->SetMaximum( pow(10,-1) );
         histos.at(number_histo)->SetMinimum( pow(10,-12) );
       }
       else{
         histos.at(number_histo)->SetMaximum(max);
-        histos.at(number_histo)->SetMinimum(0.1);
+        histos.at(number_histo)->SetMinimum(0.5);
       }
       histos.at(number_histo)->SetLineColor(color);
       histos.at(number_histo)->SetMarkerColor(color);
       histos.at(number_histo)->SetMarkerStyle(marker);
-      histos.at(number_histo)->Draw("P");
+      histos.at(number_histo)->Draw("hist,p");
       canvas->Update();
-      TPaveText *text1;
+      stats.push_back( (TPaveStats*)histos.at(number_histo)->GetListOfFunctions()->FindObject("stats") );
+      stats.at(number_histo)->SetTextColor(2);
       if (histos.size() > 5){
-        text1 = new TPaveText(0.6,0.8,0.8,0.9,"brNDC");
+        stats.at(number_histo)->SetX1NDC(0.6); //new x start position
+        stats.at(number_histo)->SetX2NDC(0.8); //new x end position
+        stats.at(number_histo)->SetY1NDC(0.8); //new y start position
+        stats.at(number_histo)->SetY2NDC(0.9); //new y end position
       }
       else{
-        text1 = new TPaveText(0.75,0.8,0.95,0.9,"brNDC");
+        stats.at(number_histo)->SetX1NDC(0.75); //new x start position
+        stats.at(number_histo)->SetX2NDC(0.95); //new x end position
+        stats.at(number_histo)->SetY1NDC(0.8); //new y start position
+        stats.at(number_histo)->SetY2NDC(0.9); //new y end position
       }
-      text1->SetTextFont(62);
-      text1->SetTextColor(color);
-      text1->SetFillColor(0);
-      std::stringstream title;
-      title << histos.at(number_histo)->GetName();
-      text1->AddText(title.str().c_str());
-      text1->AddLine(0,0.5,1,0.5);
-      std::stringstream entries1;
-      entries1 << "Entries = " << tot; 
-      text1->AddText(entries1.str().c_str());
-      text1->Draw();
-      i=1;
+      boxsize = stats.at(number_histo)->GetY2NDC() - stats.at(number_histo)->GetY1NDC();
     }
-    if(number_histo > 0){
+    else if(number_histo > 0){
       int tot = 0;
-      for(int bin = integral_startbin; bin <= histos.at(number_histo)->GetNbinsX(); ++bin){
-        tot += histos.at(number_histo)->GetBinContent(bin);
-      }
-
       if(normalize == true){
         if( normalization_factor.empty() ) histos.at(number_histo)->Scale(1.0/histos.at(number_histo)->GetBinContent(1));
         else histos.at(number_histo)->Scale( 1.0/normalization_factor.at(number_histo) );
@@ -726,7 +730,7 @@ void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool nor
       }
       else{
         histos.at(number_histo)->SetMaximum(max);
-        histos.at(number_histo)->SetMinimum(0.1);
+        histos.at(number_histo)->SetMinimum(0.5);
       }
       color++;
       marker++;
@@ -734,35 +738,26 @@ void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool nor
       histos.at(number_histo)->SetLineColor(color);
       histos.at(number_histo)->SetMarkerColor(color);
       histos.at(number_histo)->SetMarkerStyle(marker);
-      histos.at(number_histo)->Draw("P,SAMES");
+      histos.at(number_histo)->Draw("hist,p,SAMES");
       canvas->Update();
-      TPaveText *text2;
+      stats.push_back( (TPaveStats*)histos.at(number_histo)->GetListOfFunctions()->FindObject("stats") );
+      stats.at(number_histo)->SetTextColor(color);
       if (histos.size() > 5) {
         if(number_histo >= 5){
-          if(number_histo == 5) {
-            i=0;
-          }
-          text2 = new TPaveText(0.75,0.8-i*0.1,0.95,0.9-i*0.1,"brNDC");
+          stats.at(number_histo)->SetX1NDC(0.75); //new x start position
+          stats.at(number_histo)->SetX2NDC(0.95); //new x end position
         }
         else {
-          text2 = new TPaveText(0.6,0.8-i*0.1,0.8,0.9-i*0.1,"brNDC");
+          stats.at(number_histo)->SetX1NDC(0.6); //new x start position
+          stats.at(number_histo)->SetX2NDC(0.8); //new x end position
         }
       } 
       else{
-        text2 = new TPaveText(0.75,0.8-i*0.1,0.95,0.9-i*0.1,"brNDC");
+          stats.at(number_histo)->SetX1NDC(0.75); //new x start position
+          stats.at(number_histo)->SetX2NDC(0.95); //new x end position
       }
-      text2->SetTextFont(62);
-      text2->SetTextColor(color);
-      text2->SetFillColor(0);
-      std::stringstream title2;
-      title2 << histos.at(number_histo)->GetName();
-      text2->AddText(title2.str().c_str());
-      text2->AddLine(0,0.5,1,0.5);
-      std::stringstream entries2;
-      entries2 << "Entries = " << tot;//-1 because of entries in first bin count 1 because of setbincontent
-      text2->AddText(entries2.str().c_str());
-      text2->Draw();
-      i++;
+      stats.at(number_histo)->SetY2NDC(stats.at(number_histo-1)->GetY1NDC()); //new y end position
+      stats.at(number_histo)->SetY1NDC(stats.at(number_histo)->GetY2NDC()-boxsize); //new y start position
     }
   }
 }
