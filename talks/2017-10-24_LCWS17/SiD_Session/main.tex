@@ -500,13 +500,13 @@ The envelopes are in all schemes well contained within the beam pipe. Less than 
 \centering
 \begin{subfigure}[t]{0.48\textwidth}
 \centering
-\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt__cells_ILC250_ALL_SETS_6Sep2017_NEWSETNAMES.png}
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt_cells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD.png}
 \caption{\alert{Normalized Occupancy}: Number of cells containing a certain amount of hits, normalized by the total number of cells of the vertex detector.}
 \end{subfigure}
 \hspace*{0.2cm}
 \begin{subfigure}[t]{0.48\textwidth}
 \centering
-\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_deadcells_ILC250_ALL_SETS_6Sep2017_NEWSETNAMES.png}
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_deadcells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD.png}
 \caption{\alert{Normalized number of dead cells}: Number of cells with full buffer, normalized by the total number of cells of the vertex detector.}
 \end{subfigure}
 \end{figure}
@@ -514,23 +514,82 @@ The occupancy for the new sets is significantly increased wrt TDR scheme.\\
 \textbf{SiD is confident that the occupancy can be accommodated in the design of the pixel detector.}
 \end{frame}
 
-\begin{frame}{SiD VXD Occupancy: Different SiD designs}
- \begin{figure}
+\subsubsection{Comparing different SiD designs}
+\begin{frame}{VXD Occupancy: Different SiD designs, Set (A)}
+\sidlogo
+
+\begin{figure}
 \centering
 \begin{subfigure}[t]{0.48\textwidth}
 \centering
-\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt__cells_ILC250_ALL_SETS_6Sep2017_NEWSETNAMES.png}
-\caption{\alert{Normalized Occupancy}: Number of cells containing a certain amount of hits, normalized by the total number of cells of the vertex detector.}
-\end{subfigure}
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt_cells_ILC250_Comparison_Set_A_All_SiD_designs.png}
+\caption{\alert{All layers}}
+ \end{subfigure}
 \hspace*{0.2cm}
 \begin{subfigure}[t]{0.48\textwidth}
 \centering
-\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_deadcells_ILC250_ALL_SETS_6Sep2017_NEWSETNAMES.png}
-\caption{\alert{Normalized number of dead cells}: Number of cells with full buffer, normalized by the total number of cells of the vertex detector.}
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_Layer_0_numcells_ILC250_Comparison_Set_A_All_SiD_designs.png}
+\caption{\alert{Layer 0}}
 \end{subfigure}
 \end{figure}
+\normalsize SiD design with \textbf{old L* (3.5\,m) and antiDiD} shows the \textbf{lowest occupancy}.
+\end{frame}
+
+\subsubsection{Dependency on Phi and Z}
+\begin{frame}{VXD Occupancy: Comparison of parameter sets}
+\sidlogo
+\alert{Normalized number of dead cells per $\Phi$ or z-bin}\footnote{$\Phi$-bin size: 2$\pi$/100 = 0.062\,rad, z-bin size: 0.5\,mm}: Number of cells with full buffer, normalized by the total number of cells of the vertex detector.
+\begin{figure}
+\centering
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Phi_Comparison_All_layers_deadcells1_ILC250_ALL_SETS_5T_w_antiDiD.pdf}
+ \end{subfigure}
+\hspace*{0.2cm}
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Phi_Comparison_All_layers_deadcells2_ILC250_ALL_SETS_5T_w_antiDiD.pdf}
+\end{subfigure}
+\end{figure}
+No strong dependence in $\Phi$ or z. AntiDiD reduces hits from pairs backscattering from the BeamCal.
+\end{frame}
+
+\begin{frame}{VXD Occupancy: Different SiD designs, Set (A)}
+\sidlogo
+\flushright \textit{Work in progess...}
+\begin{figure}
+\centering
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Phi_Comparison_All_layers_deadcells1_ILC250_Set_A_All_SiD_designs.pdf}
+ \end{subfigure}
+\hspace*{0.2cm}
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Phi_Comparison_All_layers_deadcells2_ILC250_Set_A_All_SiD_designs.pdf}
+\end{subfigure}
+\end{figure}
+\flushleft Comparing the different SiD designs, the meaning of the antiDiD becomes more clear. $\rightarrow$ We might want to keep the antiDiD!\\
+Again, the SiD design with the old L* yields smaller occupancies.
+\end{frame}
+
+\begin{frame}{Summary and Outlook}
+ \textit{Summary:}
+ \begin{itemize}
+  \item The study shows that SiD will be able to accommodate the increase in occupancy in the detector design.
+  \item \alert{SiD welcomes the change to the ILC250 beam parameters as in CR-0016, in order to increase the luminosity.}
+ \end{itemize}
+ \vspace*{0.5cm}
+ \textit{Outlook:}
+  \begin{itemize}
+   \item Closer look at the $\Phi$ and z dependency
+   \item Repeat the study with a larger beam pipe and VXD radius
+   \vspace*{0.2cm}
+   \item Tim is currently looking at the effect on the Higgs cross-section
+  \end{itemize}
 
 \end{frame}
+
 
 
 %---------------------------------------------------------------------------------
