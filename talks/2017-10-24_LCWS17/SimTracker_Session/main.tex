@@ -281,6 +281,7 @@ In layer 0, the number of cells with full buffers reaches the critical limit (10
 \subsection{Comparing different SiD designs}
 \begin{frame}{VXD Occupancy: Different SiD designs, Set (A)}
 \sidlogo
+
 \begin{figure}
 \centering
 \begin{subfigure}[t]{0.48\textwidth}
@@ -298,10 +299,41 @@ In layer 0, the number of cells with full buffers reaches the critical limit (10
 \normalsize SiD design with \textbf{old L* (3.5\,m) and antiDiD} shows the \textbf{lowest occupancy}.
 \end{frame}
 
-\subsection{Phi dependency}
-\begin{frame}{VXD Occupancy: Phi dependendy}
+\subsection{Dependency on Phi and Z}
+\begin{frame}{VXD Occupancy: Comparison of parameter sets}
 \sidlogo
+\alert{Normalized number of dead cells per $\Phi$ or z-bin}\footnote{$\Phi$-bin size: 2$\pi$/100 = 0.062\,rad, z-bin size: 0.5\,mm}: Number of cells with full buffer, normalized by the total number of cells of the vertex detector.
+\begin{figure}
+\centering
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Phi_Comparison_All_layers_deadcells1_ILC250_ALL_SETS_5T_w_antiDiD.pdf}
+ \end{subfigure}
+\hspace*{0.2cm}
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Phi_Comparison_All_layers_deadcells2_ILC250_ALL_SETS_5T_w_antiDiD.pdf}
+\end{subfigure}
+\end{figure}
+No strong dependence in $\Phi$ or z. AntiDiD reduces hits from pairs backscattering from the BeamCal.
+\end{frame}
 
+\begin{frame}{VXD Occupancy: Different SiD designs, Set (A)}
+\sidlogo
+\begin{figure}
+\centering
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Phi_Comparison_All_layers_deadcells1_ILC250_Set_A_All_SiD_designs.pdf}
+ \end{subfigure}
+\hspace*{0.2cm}
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Phi_Comparison_All_layers_deadcells2_ILC250_Set_A_All_SiD_designs.pdf}
+\end{subfigure}
+\end{figure}
+Comparing the different SiD designs, the meaning of the antiDiD becomes more clear.\\
+Again, the SiD design with the old L* yields smaller occupancies.
 \end{frame}
 
 \section{Conclusion}
@@ -309,7 +341,15 @@ In layer 0, the number of cells with full buffers reaches the critical limit (10
 \sidlogo
  According to the shown studies of the background density and the SiD occupancy for the new ILC250 parameter sets,\\
  \alert{SiD is confident that the increased occupancy can be accommodated in the design of the Vertex Detector.}\\
- \textbf{The SiD Optimization Group gives green light for the current Change Request, and welcomes the efforts on increasing the luminosity for the ILC250 stage.}
+ \textbf{The SiD Optimization Group gives green light for the current Change Request, and welcomes the efforts on increasing the luminosity for the ILC250 stage.}\\
+ \vspace*{0.5cm}
+ Further studies are ongoing:
+ \begin{itemize}
+  \item Increased beam pipe and VXD radius
+  \item Smaller VXD pixel size
+  \item Effects on various physics processes
+ \end{itemize}
+
 \end{frame}
 
 
