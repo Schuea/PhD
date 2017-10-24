@@ -119,6 +119,7 @@
 
 \begin{frame}{ILC250 Beam Parameter Sets}
 At AWLC17 at SLAC, the ILC250 beam parameters were suggested to be changed in order to \textbf{increase the luminosity}.\\
+{\small Yokoya: \url{https://agenda.linearcollider.org/event/7507/contributions/39290/attachments/31821/47993/HigherLumi250GeV-AWLC2017-Yokoya.pdf}}\\
 In the current CR, set (A) was selected as the new parameter scheme.
  \begin{table}
 \label{tab:Parameters}
@@ -166,6 +167,21 @@ espread.1=0.00188;espread.2=0.00152;which\_espread=3;\}}
  The background generation in GuineaPig \alert{does not include a crossing angle}!\\
  The crossing angle is applied later on in the Geant4 simulation of the SiD detector.
 \end{frame}
+
+\begin{frame}{Pair background density in a 5\,T solenoid field}
+\sidlogo
+Calculating the path of the pairs deflected in the magnetic field
+\begin{tikzpicture}
+\node [anchor=west] (pipe) at (-1,3) {\Large Beam pipe};
+\begin{scope}[xshift=1.5cm]
+    \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.7\textwidth]{ILC250_figures/Helix_tracks_xz_100bunches_250GeV_5T_DanielJeans-1.jpg}};
+    \begin{scope}[x={(image.south east)},y={(image.north west)}]
+        \draw [-latex, ultra thick, red] (pipe) to[out=0, in=-120] (0.3,0.65);
+    \end{scope}
+\end{scope}
+\end{tikzpicture}%
+\end{frame}
+
 
 \begin{frame}{Pair background density in a 5\,T solenoid field}
 \sidlogo
@@ -218,7 +234,7 @@ The envelopes are in all schemes well contained within the beam pipe. Less than 
 \centering
 \begin{subfigure}[t]{0.48\textwidth}
 \centering
-\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt_cells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD.pdf}
+\includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt_cells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD.png}
 \caption{\alert{All layers}}
 \end{subfigure}
 \hspace*{0.2cm}
@@ -263,29 +279,6 @@ In layer 0, the number of cells with full buffers reaches the critical limit (10
 }
 %--------------------------------------------------------------------------------------------------------------
 \subsection{Comparing different SiD designs}
-\begin{frame}{VXD Occupancy: Different SiD designs, all layers}
-\sidlogo
-\begin{center}
-\footnotesize old L*, w/o antiDiD \hfill old L*, w antiDiD \\
-\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt_cells_ILC250_Comparison_ALL_SETS_5T_old_LStar.pdf}\hfill
-\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt_cells_ILC250_Comparison_ALL_SETS_5T_old_LStar_w_antiDiD.pdf}\\
-new L*, w/o antiDiD  \hfill new L*, w antiDiD\\
-\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt_cells_ILC250_ALL_SETS_6Sep2017_NEWSETNAMES.png}\hfill
-\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt_cells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD.pdf}
-\end{center}
-\end{frame}
-\begin{frame}{VXD Occupancy: Different SiD designs, layer 0}
-\sidlogo
-\begin{center}
-\footnotesize old L*, w/o antiDiD \hfill old L*, w antiDiD \\
-\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_Layer_0_numcells_ILC250_Comparison_ALL_SETS_5T_old_LStar.png}\hfill
-\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_Layer_0_numcells_ILC250_Comparison_ALL_SETS_5T_old_LStar_w_antiDiD.png}\\
-new L*, w/o antiDiD  \hfill new L*, w antiDiD\\
-\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_Layer_0_numcells_ILC250_ALL_SETS_6Sep2017_NEWSETNAMES.png}\hfill
-\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_Layer_0_numcells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD.png}
-\end{center}
-\end{frame}
-
 \begin{frame}{VXD Occupancy: Different SiD designs, Set (A)}
 \sidlogo
 \begin{figure}
@@ -369,6 +362,30 @@ new L*, w/o antiDiD  \hfill new L*, w antiDiD\\
 \ilclogo
 \begin{center}
 	\includegraphics[width=0.8\textwidth]{figures/ILCTDR-VOLUME_3-PART_II_ILCparametersUpgrades.pdf}
+\end{center}
+\end{frame}
+
+\section{Comparing different SiD designs}
+\begin{frame}{VXD Occupancy: Different SiD designs, all layers}
+\sidlogo
+\begin{center}
+\footnotesize old L*, w/o antiDiD \hfill old L*, w antiDiD \\
+\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt_cells_ILC250_Comparison_ALL_SETS_5T_old_LStar.png}\hfill
+\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt_cells_ILC250_Comparison_ALL_SETS_5T_old_LStar_w_antiDiD.png}\\
+new L*, w/o antiDiD  \hfill new L*, w antiDiD\\
+\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt_cells_ILC250_Comparison_ALL_SETS_5T.png}\hfill
+\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_All_layers_wrt_cells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD.png}
+\end{center}
+\end{frame}
+\begin{frame}{VXD Occupancy: Different SiD designs, layer 0}
+\sidlogo
+\begin{center}
+\footnotesize old L*, w/o antiDiD \hfill old L*, w antiDiD \\
+\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_Layer_0_numcells_ILC250_Comparison_ALL_SETS_5T_old_LStar.png}\hfill
+\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_Layer_0_numcells_ILC250_Comparison_ALL_SETS_5T_old_LStar_w_antiDiD.png}\\
+new L*, w/o antiDiD  \hfill new L*, w antiDiD\\
+\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_Layer_0_numcells_ILC250_Comparison_ALL_SETS_5T.png}\hfill
+\includegraphics[width=0.44\textwidth]{ILC250_figures/Occupancy_Comparison_Layer_0_numcells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD.png}
 \end{center}
 \end{frame}
 
