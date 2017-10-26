@@ -91,7 +91,7 @@
 \title[ILC250 backgrounds \& SiD Occupancy]{\textbf{\alert{LCWS2017, Strasbourg} \\ \vspace*{0.5cm}  Background \& SiD Occupancy Studies\\for the ILC250 stage}}
 \author{\textbf{Anne Sch\"utz}}
 \institute{\textbf{DESY}}
-\date{\textbf{24. October 2017}}
+\date{\textbf{26. October 2017}}
 
 \titlegraphic{\hspace*{1cm}\includegraphics[height=1.0cm]{figures/ILC.jpeg}\hfill~%
    \includegraphics[height=1.0cm]{figures/DESY_Logo.png}\hspace*{1.5cm}
@@ -116,11 +116,9 @@
 %---------------------------------------------------------------------------------------------------------
 
 \section{New beam parameter sets for the ILC250 stage}
-
+\subsection{CR-0016: Changing the ILC250 beam parameters}
 \begin{frame}{ILC250 Beam Parameter Sets}
-At AWLC17 at SLAC, the ILC250 beam parameters were suggested to be changed in order to \textbf{increase the luminosity}.\\
-{\small Yokoya: \url{https://agenda.linearcollider.org/event/7507/contributions/39290/attachments/31821/47993/HigherLumi250GeV-AWLC2017-Yokoya.pdf}}\\
-In the current CR, set (A) was selected as the new parameter scheme.
+At AWLC17 at SLAC, it was suggested that the \textbf{ILC250 beam parameters be changed} in order to increase the luminosity.~\cite{AWLC_Yokoya}
  \begin{table}
 \label{tab:Parameters}
 \centering
@@ -137,21 +135,35 @@ In the current CR, set (A) was selected as the new parameter scheme.
 \hline\hline
 \end{tabularx}
 \end{table}
+In CR-0016\footnote{EDMS No.: D*1159725}, set (A) was selected as the new parameter scheme.\\
+$\rightarrow$ \textbf{Increase in luminosity} from 0.81$\cdot 10^{34}$ to 1.37$\cdot 10^{34}$ cm$^{-2}$s$^{-1}$\\
 \alert{Caveat:\\
-Reducing the emittance leads to stronger beam-beam interactions, and therefore to increased \positron \electron pair background.}
+\textbf{Reducing the emittance} leads to stronger beam-beam interactions, and therefore to \textbf{increased \positron \electron pair background}.}
 \end{frame}
-%--------------------------------------------------------------------------------------------------------------
-\AtBeginSection[] {
-  \begin{frame}<beamer>
-     \tableofcontents[currentsection,
-     currentsubsection,
-     %hideothersubsections,
-     subsectionstyle=show/shaded/hide,
-     subsubsectionstyle=show/show/hide]
-  \end{frame}
-}
-%--------------------------------------------------------------------------------------------------------------
-\section{Pair background density}
+
+\begin{frame}{ILC250 luminosity}
+ \begin{table}
+\label{tab:Parameters}
+\centering
+\begin{tabularx}{0.35\textwidth}{ll}
+\hline\hline
+\textbf{Set}  & Lumi [cm$^{-2}$s$^{-1}$] \\
+\hline
+\cline{1-2}
+\hline
+ TDR & 8.08e+33\\
+ \textcolor{Red}{(A)} &  1.37e+34 \\
+ \textcolor{Green}{(B)} & 1.97e+34 \\
+ \textcolor{Blue}{(C)} & 1.80e+34 \\
+\hline\hline
+\end{tabularx}
+\end{table}
+Luminosity spectrum as generated with GuineaPig:\\\vspace*{0.1cm}
+\includegraphics[width=0.48\textwidth]{ILC250_figures/Lumi_ILC250_ALL_SETS_Full_range.png}\hfill
+\includegraphics[width=0.49\textwidth]{ILC250_figures/Lumi_ILC250_ALL_SETS_Zoomin.png}
+\end{frame}
+
+\subsection{GuineaPig Pair Background Generation}
 \begin{frame}{Background event generation using GuineaPig}
 GuineaPig acc.dat file:\\
 {\small\texttt{\textcolor{Gray}{\$ACCELERATOR:: ILC-250GeV-SetC \\                                                                            
@@ -168,9 +180,22 @@ espread.1=0.00188;espread.2=0.00152;which\_espread=3;\}}
  The crossing angle is applied later on in the Geant4 simulation of the SiD detector.
 \end{frame}
 
+
+%--------------------------------------------------------------------------------------------------------------
+\AtBeginSection[] {
+  \begin{frame}<beamer>
+     \tableofcontents[currentsection,
+     currentsubsection,
+     %hideothersubsections,
+     subsectionstyle=show/shaded/hide,
+     subsubsectionstyle=show/show/hide]
+  \end{frame}
+}
+%--------------------------------------------------------------------------------------------------------------
+\section{Pair background density}
 \begin{frame}{Pair background density in a 5\,T solenoid field}
 \sidlogo
-Calculating the path of the pairs deflected in the magnetic field
+Calculating the path of the pairs deflected in the magnetic field, and projecting the tracks onto the xz-plane:\vspace*{0.2cm}
 \begin{tikzpicture}
 \node [anchor=west] (pipe) at (-1,3) {\Large Beam pipe};
 \begin{scope}[xshift=1.5cm]
@@ -222,10 +247,44 @@ The beam pipe is represented by the red solid lines.}
 \begin{center}
  \includegraphics[width=0.72\textwidth]{ILC250_figures/HelixEnvelope_Projection_Comparison_250GeV_parametersets_NEWSETNAMES.png}
 \end{center}
-The envelopes are in all schemes well contained within the beam pipe. Less than 10 particles per bunch crossing are to be expected outside the beam pipe.
+The envelopes are well contained within the beam pipe in all schemes. Less than 10 particles per bunch crossing are to be expected outside the beam pipe.
 \end{frame}
 
 \section{SiD Occupancy}
+\subsection{SiD Vertex Detector}
+\begin{frame}{SiD vertex detector design}
+ \sidlogo
+ \begin{columns}
+  \begin{column}{0.6\textwidth}
+ \textbf{\Large Current SiD design}:\\
+  \vspace*{0.1cm}
+  \begin{itemize}
+   \item L* = 4.1\,m
+   \item antiDiD: magnetic field to sweep the pair background particles through the outgoing beam pipe
+  \end{itemize}
+  \vspace*{0.5cm}
+  \textbf{\Large Vertex detector}:\\
+  \vspace*{0.2cm}
+  Technology baseline not yet decided.\\
+  \vspace*{0.1cm}
+  \textbf{VXD requirements}:
+  \begin{itemize}
+   \item Spatial resolution: < 4 \textmu m\\
+   \item Momentum resolution: $\sim$ 2-5$\cdot 10^{-5}$GeV\\
+   \item $\sim$ 0.1\%X\textsubscript{0} per layer
+  \end{itemize}
+  \vspace*{0.1cm}
+   Inner most layer: 14\,mm radius
+
+  \end{column}
+  \begin{column}{0.4\textwidth}
+  \includegraphics[width=\textwidth]{figures/SiD_detector_model.pdf}\\
+   \includegraphics[width=\textwidth]{figures/SiD_VXD.png}
+  \end{column}
+ \end{columns}
+
+\end{frame}
+
 \subsection{SiD design: New L*, w antiDiD}
 \begin{frame}{VXD Occupancy: New L*, w antiDiD}
 \sidlogo
@@ -299,8 +358,8 @@ In layer 0, the number of cells with full buffers reaches the critical limit (10
 \normalsize SiD design with \textbf{old L* (3.5\,m) and antiDiD} shows the \textbf{lowest occupancy}.
 \end{frame}
 
-\subsection{Dependency on Phi and Z}
-\begin{frame}{VXD Occupancy: Comparison of parameter sets}
+\subsection{Dependency on $\Phi$ and Z}
+\begin{frame}{VXD Occupancy: Dependency on $\Phi$ and z}
 \sidlogo
 \alert{Normalized number of dead cells per $\Phi$ or z-bin}\footnote{$\Phi$-bin size: 2$\pi$/100 = 0.062\,rad, z-bin size: 0.5\,mm}: Number of cells with full buffer, normalized by the total number of cells of the vertex detector.
 \begin{figure}
@@ -318,8 +377,9 @@ In layer 0, the number of cells with full buffers reaches the critical limit (10
 No strong dependence in $\Phi$ or z. AntiDiD reduces hits from pairs backscattering from the BeamCal.
 \end{frame}
 
-\begin{frame}{VXD Occupancy: Different SiD designs, Set (A)}
+\begin{frame}{VXD Occupancy: Dependency on $\Phi$ and z, Set (A)}
 \sidlogo
+\flushright \textit{\small Work in progress...}
 \begin{figure}
 \centering
 \begin{subfigure}[t]{0.48\textwidth}
@@ -332,22 +392,24 @@ No strong dependence in $\Phi$ or z. AntiDiD reduces hits from pairs backscatter
 \includegraphics[width=\textwidth]{ILC250_figures/Occupancy_Phi_Comparison_All_layers_deadcells2_ILC250_Set_A_All_SiD_designs.pdf}
 \end{subfigure}
 \end{figure}
-Comparing the different SiD designs, the meaning of the antiDiD becomes more clear.\\
+\flushleft Comparing the different SiD designs, the meaning of the antiDiD becomes more clear.\\
 Again, the SiD design with the old L* yields smaller occupancies.
 \end{frame}
 
 \section{Conclusion}
 \begin{frame}
 \sidlogo
+\vspace*{0.5cm}
  According to the shown studies of the background density and the SiD occupancy for the new ILC250 parameter sets,\\
  \alert{SiD is confident that the increased occupancy can be accommodated in the design of the Vertex Detector.}\\
- \textbf{The SiD Optimization Group gives green light for the current Change Request, and welcomes the efforts on increasing the luminosity for the ILC250 stage.}\\
+ \textbf{The SiD Optimization Group gives the green light for the current Change Request, and welcomes the efforts on increasing the luminosity for the ILC250 stage.}\\
  \vspace*{0.5cm}
  Further studies are ongoing:
  \begin{itemize}
   \item Increased beam pipe and VXD radius
   \item Smaller VXD pixel size
   \item Effects on various physics processes
+  \item Effects on Higgs cross-section (together with Tim Barklow (SLAC))
  \end{itemize}
 
 \end{frame}
