@@ -65,6 +65,11 @@ The geometry of lattice parts are described in classes within the \bdsim framewo
 \label{fig:ATF2_BDSIM}
 \end{figure}
 Accelerator descriptions from other tools such as MADX can be converted to \bdsim input. 
+
+\begin{itemize}
+ \item BDSIM framework at DESY - explain
+\end{itemize}
+
 %---------------------------------------------------
 \subsection{Background studies}
 \subsubsection{RHUL Cherenkov detector}
@@ -215,11 +220,43 @@ Especially significant is Figure~\ref{fig:AverageSignal_Asymmetric_5mm_101} with
 \label{sec:BDSIM_sim}
 As the data in the figures in the two previous sections have shown, the collimator reduces the existing background level if closed to an aperture of \SI{10}{\milli\metre}. By closing the jaws further, the background level increases again. The questions where this already existing background is coming from, and how the background is increased by the jaws driven into the beam, are now addresses by the following plots showing data from \bdsim simulations of the ATF2 lattice.
 
+\begin{itemize}
+ \item Number of particles at ATF2 line components - done, but has to be redone
+ \item Number of particles at ATF2 IP - done, but has to be redone
+\end{itemize}
+
 \subsection{Effect on background level at IP}
 \label{collimator_bkg_IP}
 We have seen that the background level around the collimator area is dramatically affected by the movement of the collimator jaws. However, the actual effect of the collimator on the background level at the interaction point might be different, and is now discussed.
 
 %---------------------------------------------------
 \section{Background from Muon Spoilers in the Beam Delivery System}
+\label{BDS_Muons}
+
+\begin{itemize}
+ \item Motivation: stop muons from reaching IP
+ \item Two different spoiler scenarios
+ \item Muon wall needed?
+\end{itemize}
+
 \subsection{MUCARLO}
+\label{BDS_Muons:MUCARLO}
+\begin{itemize}
+ \item Event generation with MUCARLO - explain
+ \item Table of muons per cross section for different spoiler scenarios - to be inserted
+\end{itemize}
+
 \subsection{Effect of Muons on the SiD performance}
+\label{BDS_Muons:SiD}
+\begin{itemize}
+ \item Insert PACMAN into SiD geometry  - RE-RUN THE SIMULATION!
+ \item Wired4 event diplays - explain difference in spatial distribution
+ \item Hit numbers in SiD subdetectors - insert plot
+ \item SiD Occupancy plots - insert plots of calos
+\end{itemize}
+
+\subsection{Conclusion, outlook}
+\begin{itemize}
+ \item SiD wants muon wall
+ \item Improvement for future: redo study for ILC250
+\end{itemize}
