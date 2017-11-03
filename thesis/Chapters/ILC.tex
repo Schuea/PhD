@@ -28,25 +28,28 @@ In the BDS, the beams are focused to nanometer size by the Final Focus (FF) syst
 After that, the beams are then finally brought into collision with a crossing angle of \SI{14}{mrad} at the IP.\cite[p. 9-10]{TDR1}
 Table~\ref{tab:ILC_parameters} shows the machine parameters for the baseline design at \SI{500}{\GeV} center-of-mass energy, and for the luminosity and the energy upgrade stages.
 
+
+%\multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Baseline 500}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Lumi Upgrade}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{TeV Upgrade}} & {\centering\textbf{LHC 25ns}} \\ 
+
 \begin{table}
-\caption{Beam parameters for different phases in the ILC operation scenario (Baseline 500, Luminosity Upgrade, TeV Upgrade)~\cite{SiDBkgNote}}.
+\caption{Beam parameters for different phases in the ILC operation scenario (ILC250, Baseline 500, Luminosity Upgrade, TeV Upgrade)~\multicitep{TDR1, p. 11; CR-0016} in comparison to LHC beam parameters~\cite{SiDBkgNote}}.
 \label{tab:ILC_parameters}
 \centering
-\begin{tabularx}{0.74\textwidth}{ll|rrr}
+\begin{tabularx}{0.92\textwidth}{ll|rrrrg}
 \hline\hline
-& & \textbf{Baseline 500} & \textbf{Lumi Upgrade} & \textbf{TeV Upgrade}\\
+& & \multicolumn{1}{>{\centering}p{2cm}}{\textbf{ILC250}} & \multicolumn{1}{>{\centering}p{2cm}}{\textbf{Baseline 500}} & \multicolumn{1}{>{\centering}p{2cm}}{\textbf{Lumi Upgrade}} & \multicolumn{1}{>{\centering}p{2cm}}{\textbf{TeV Upgrade}} & \textbf{LHC 25ns}\\
 \hline
-\cline{1-5}
+\cline{1-7}
 \hline
-E$_{CM}$  &(\si{\GeV}) & 500  & 500  & \num{1000} \\
-n$_b$ & & \num{1312} & \num{2625} & \num{2450}  \\
-$\Delta t_b$ &(\si{\nano\second}) & 554  & 366   & 366 \\
-N & & \num{2.0e10}  & \num{2.0e10}  & \num{1.74e10}  \\
-q$_b$ &(\si{\nano\coulomb}) & 3.2  & 3.2  &  2.7  \\
-$\sigma_x^*$ &(\si{\nano\metre}) & 474  & 474  &  481 \\
-$\sigma_y^*$ &(\si{\nano\metre}) & 5.9 &  5.9  &  2.8 \\
-$\sigma_z$ &(\si{\milli\metre}) & 0.3  &  0.3  &  0.25 \\
-L &(\si{\per\centi\metre\squared\per\second}) & \num{1.8e34} & \num{3.6e34} & \num{3.6e34} \\
+E$_{CM}$  &(\si{\GeV})& 250 & 500  & 500  & \num{1000} & \num{14000}\\
+n$_b$ & & \num{1312} & \num{1312} & \num{2625} & \num{2450} & \num{2808} \\
+$\Delta t_b$ &(\si{\nano\second}) & 554 & 554  & 366   & 366 & 25\\
+N & & \num{2.0e10} & \num{2.0e10}  & \num{2.0e10}  & \num{1.74e10} & \num{11.5e10} \\
+q$_b$ &(\si{\nano\coulomb})  & 3.2 & 3.2  & 3.2  &  2.7 & 18.4  \\
+$\sigma_x^*$ &(\si{\nano\metre}) & 515.5 & 474  & 474  &  481 & \num{16700}\\
+$\sigma_y^*$ &(\si{\nano\metre}) & 7.7 & 5.9 &  5.9  &  2.8 & \num{16700}\\
+$\sigma_z$ &(\si{\milli\metre}) & 0.3 & 0.3  &  0.3  &  0.25 & 0.755\\
+L &(\si{\per\centi\metre\squared\per\second}) & \num{1.35e34} & \num{1.8e34} & \num{3.6e34} & \num{3.6e34} & \num{1.0e34}\\
 \hline\hline
 \end{tabularx}
 \end{table}
