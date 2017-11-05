@@ -24,34 +24,78 @@ Out of convenience, the unit for energy in particle physics is therefore eV.\\
 By this logic a particle is accelerated to higher energies by applying higher and higher electrostatic fields. 
 Exactly this was done in the beginning of particle accelerators by increasing the voltage applied to a capacitor and shooting the charged particle through. 
 Unfortunately, there are limits to the amount of voltage that can be applied before an electric breakdown.
-The solution seems simple: putting several capacitors in a row.
+The solution seems simple by putting several capacitors in a row.
 But again, this can not be done with electrostatic capacitors since the field gradient between two different capacitors is directed in the opposite direction.
-A particle traveling from one capacitor to the next would then lose kinetic energy again.
-A solution is quickly found by using time dependent electric fields.\\
+A particle traveling from one capacitor to the next would then lose kinetic energy again in the gap between two capacitors.
+A solution is quickly found by using time dependent electric fields, which change the orientation of their field periodically.\\
 In very simple terms, the key principles of a linear collider are thereby already explained.
 Better accelerating structures such as drift chambers and later on superconducting radio frequency (RF) cavities were developed over the years.
 The first linear accelerator using normal conducting drift chambers of increasing lengths was built by Rolf Wider\o e at the university of Karlsruhe in Germany.
 RF fields are applied to the drift chambers such that the particles are accelerated in between the chambers when passing through the gaps.
-Since the particle gains energy by passing through a gap, the chambers need to have increasing length in order to guarantee the particle being accelerated by the same phase of the RF field.
-\todo{picture of linac with increasing drift chambers}
+Since the particle gains energy by passing through a gap, the chambers need to have increasing lengths in order to guarantee the particle being accelerated by the same phase of the RF field.
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{Figures/Wideroe_Linac.png}
+\caption[Schematic layout of a Wider\o e linac]{Schematic layout of a linear accelerator with drift chambers of increasing lengths after the design by Rolf Wider\o e.~\cite[p. 40]{Hinterberger}}
+\label{fig:Wideroe_Linac}
+\end{figure}
 Nowadays, particle accelerators all over the world mainly use RF cavities instead of drift tubes, with the possibility of being made of superconducting material since the electric resistance is minimal due to their superconducting nature.
 Unlike before the acceleration takes place inside the cavities, and all cavities are of the same length and shape.
 To still guarantee the particle to be accelerated by the same RF phase, the RF frequency is varied.
 \todo{picture of RF cavities}
 
 Rolf Wider\o e did not only build the first linear accelerator, he even more importantly invented the principles of the betatron, the very first accelerating structure using electromagnetic fields.
-Also the cyclotron which was invented in 1928 uses a magnetic field to deflect the charged particles on a radial path, and therefore allow the accelerating structure to be much smaller than a linear accelerator.
+Also the cyclotron which was invented in 1928 uses a magnetic field to deflect the charged particles on a radial path, and therefore allow the accelerator to be much smaller than before.
 Exactly that idea was needed to advance particle acceleration from linear to circular.
 
-\section{Linear colliders in comparison to circular colliders}
+\subsection{Linear colliders in comparison to circular colliders}
 \label{Linear-Circular}
 
 Circular acceleration does also have certain challenges.
-Since the particle gains energy over time, the radius of its circular path increases if the magnetic field is constant.
-The accelerator has to be built accordingly taking the increase in the radius into account, or needs to use magnets with variable field strengths.
+From the equilibrium of the Lorentz and the centripetal force follows:
+\begin{align}
+q(\vec{v}\times \vec{B}) &= \frac{m\vec{v}^2}{r}\\
+qvB\vec{e_r} &= \frac{mv^2}{r}\vec{e_r} \nonumber \\
+ r&=\frac{mv}{qB}\\
+ &=\frac{p}{qB}\label{eq:MagField_Radius}
+\end{align}
+Since the momentum $p$ of the charged particle rises over time, the radius $r$ of its circular path increases if the magnetic field $B$ is constant.
+The accelerator hence has to be built accordingly taking the increase in the radius into account, or needs to use magnets with variable field strengths.
 Ladder is done in synchrotron machines, a type of circular accelerator combining the principles of all particle accelerators mentioned above: acceleration in RF cavities, variation of the RF frequency, and variable magnetic field strengths.
-In this way, the particles are traveling along a stationary orbit, passing through the same magnets and cavities over and over again.
-To insure the stability of the orbit, not only bending dipole magnets can be found but also sextupole and octupole magnets which focus the particles and correct orbit fluctuations.
+In this way, the particles are traveling along a stationary orbit, passing through the same magnets and cavities over and over again until the desired collison energy is reached.
+To insure the stability of the orbit, not only bending dipole magnets can be found but also quadrupole magnets for focussing the particles, and sextupole and octupole magnets which then correct orbit fluctuations.
+The need for higher order correction magnets can be derived from the expansion of the magnetic field around the ideal path of the particle (x = 0):
+\begin{alignat}{5}
+ B_y(x) &= B_{y0} &&+ \frac{\partial B_y}{\partial x}x &&+ \frac{1}{2!}\frac{\partial^2 B_y}{\partial x^2}x^2 &&+ \frac{1}{3!}\frac{\partial^3 B_y}{\partial x^3}x^3 &+ ...\\
+ \intertext{When multiplying with $\frac{q}{p}$:}
+ \frac{q}{p}B_y(x) &= \frac{q}{p}B_{y0} &&+ \frac{q}{p}\frac{\partial B_y}{\partial x}x &&+  \frac{1}{2!}\frac{q}{p}\frac{\partial^2 B_y}{\partial x^2}x^2 &&+ \frac{1}{3!}\frac{q}{p}\frac{\partial^3 B_y}{\partial x^3}x^3 &+ ...\\
+  &= \frac{1}{r} &&+ kx &&+ \frac{1}{2!}mx^2 &&+ \frac{1}{3!}ox^3 &+ ... \label{eq:field_components}\\
+  &\rightarrow \textnormal{dipole} &&+ \textnormal{quadrupole} &&+ \textnormal{sextupole} &&+ \textnormal{octupole} &+ ...
+\end{alignat}
+Equation~\ref{eq:field_components} shows directly the connection between the radius and the magnetic field in the dipole component (compare with Equation~\ref{eq:MagField_Radius}.
+In the quadrupole, sextupole and octupole components, a factor for the magnet strength is introduced.
+According to the Maxwell equation $\nabla \vec{B} = \frac{\partial B_y}{\partial x} -\frac{\partial B_x}{\partial y} = 0$, the Lorentz force on a particle in a quadrupole magnet, has therefore to be written as (cf. \cite[p. 372]{VacuumElectronics}):
+\begin{multicols}{2}
+\noindent 
+\begin{align}
+ F_x &= -qv\frac{\partial B_x}{\partial y}x \nonumber\\
+  &= -q\beta c\frac{\partial B_x}{\partial y}x\\
+  &= -gx\label{eq:Quad_Lorentz_x}
+\end{align}
+\columnbreak
+\begin{align}
+ F_y &= qv\frac{\partial B_y}{\partial x}y\nonumber \\
+  &= q\beta c\frac{\partial B_y}{\partial x}y\\
+  &= gy \label{eq:Quad_Lorentz_y}
+\end{align}
+\end{multicols}
+From Equations~\ref{eq:Quad_Lorentz_x} and \ref{eq:Quad_Lorentz_y}, it becomes clear that quadrupoles can only focus in one direction, while it defocuses in the other.
+\todo{Add picture of quadrupole magnet.}
+\todo{Explain that the further particles away from ideal path, the higher the focussing strength is}
+Due to that fact, so-called FODO structures are commonly used in particle colliders.
+FODO is an alternating structure made out of focusing quadrupole magnets (``F'') and defocusing ones (``D''), with drift paths in between.
+After several of these structures, which act like optical lenses, the particle beam is focused on both directions, horizontally and vertically.\\
+\todo{Explain here the beam envelope,beta-function}
 Because of being accelerated by an alternating RF field, the synchrotron beams naturally form beam bunches in the following way:
 With the particle momentum having a Gaussian distribution, slow particles, i.e. particles with smaller than the ideal momentum, arrive at the accelerating cavity later than the ideal particle, and faster particles earlier respectively.
 Therefore particles will be accelerated by different phases of the RF field: particles arriving later will experience a higher phase and will be accelerated more, particles arriving too early will experience a smaller phase and therefore will be accelerated less.
