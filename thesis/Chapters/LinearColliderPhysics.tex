@@ -72,7 +72,7 @@ The particles oscillate about the ideal stable phase, and therefore form beam bu
 This oscillation is called ``synchrotron oscillation''.
 \begin{figure}
 \centering
-\includegraphics[width=0.5\textwidth]{Figures/RFphase.png}
+\includegraphics[width=0.4\textwidth]{Figures/RFphase.png}
 \caption[Phase focusing]{RF voltage as a function of the RF phase. In the ideal case, the particles arrive at the RF phase $\psi_s$. 
 Particles with a smaller momentum ($\Delta$p/p $<$ 0) will arrive later than the ideal particles, and will therefore be accelerated more, particles with larger momentum will be accelerated less respectively.}
 \label{fig:RFPhase}
@@ -81,7 +81,7 @@ Particles with a smaller momentum ($\Delta$p/p $<$ 0) will arrive later than the
 
 Rolf Wider\o e did not only build the first linear accelerator, he even more importantly invented the principles of the betatron, the very first accelerating structure using electromagnetic fields.
 Also the cyclotron which was invented in 1928 uses a magnetic field to deflect the charged particles on a radial path, and therefore allow the accelerator to be much smaller than before.
-Exactly that idea was needed to advance particle acceleration from linear to circular.
+Exactly that idea was needed to advance from purely linear to circular in particle accelerators.
 
 \subsection{Transversal beam dynamics}
 \label{AccPhysics:Magnets}
@@ -130,7 +130,7 @@ The magnetic field lines point from the magnetic north pole to the south pole, a
 The further a beam particle is away from the center, the stronger is the magnetic field it experiences, and the more it is deflected towards the center.
 \begin{figure}
 \centering
-\includegraphics[width=0.5\textwidth]{Figures/Quadrupole.png}
+\includegraphics[width=0.4\textwidth]{Figures/Quadrupole.png}
 \caption[Cross-section of a quadrupole magnet]{Schematic cross-section of a quadrupole magnet with the four magnetic north and south poles.
 The beam pipe is centered in the middle between the pole shoes.
 A positively charged particle inside the beam pipe would be focused in the y-direction and defocused in x.~\cite[p. 88]{Hinterberger}}
@@ -148,19 +148,45 @@ After several of these structures, which act like optical lenses, the particle b
 Due to the restoring force, particles that were deflected by the focusing magnets start to perform betatron oscillations around the ideal particle path.
 The amplitude of these oscillations is the beam envelope that covers the paths of all beam particles, i.e. the maximum transverse beam dimension at a given location.
 It can be expressed by the two beam parameters $\beta$ and $\epsilon$ which will be explained in the following:\\
-The beta function $\beta$ is a measure of the spatial dependency of the amplitude and the wave length of the betatron oscillations.
-
-\begin{figure}
+The beta function $\beta$ describes the spatial dependency of the amplitude and the wave length of the betatron oscillations.
+It is a periodic function, dependent on the focusing strengths and the order of the magnets in the beam line.
+At any given point along the beam line, the $\beta$ value can be given in its units of length.
+Of particular interest is its value at the interaction point (IP), the point of the beam collisions, where it is then  named $\beta^*$ .
+The smaller the beta function is, the narrower is the beam.\\
+Like the beta function, the transverse emittance $\epsilon$ is defined in the horizontal and vertical plane.
+$\epsilon$ is a direct measure of the convergence of the beam with respect to its spread in space and in momentum.
+A small emittance therefore means that the beam particles are confined to a small space, whilst they are all of the same momentum.
+It also has the units of length, and is often given as the normalized emittance $\epsilon^* = \epsilon\gamma$, with the relativistic Lorentz factor $\gamma=\frac{1}{\sqrt{1-v^2/c^2}}$.\\
+Together, the spatial amplitude of the betatron oscillations can be written as $A = \sqrt{\epsilon\beta}$.
+Since the amplitude of these oscillations counts towards the size of the beam, it can then be written as $\sigma_{betatron} = A = \sqrt{\epsilon\beta}$.
+The amplitude is also shown as the maximum extent in x in the so-called phase space ellipse, shown in Figure~\ref{fig:PhaseSpaceEllipse}.
+The phase space consists of x and x', meaning the position and the momentum of the particles.
+The ellipse drawn in the phase space is the region in which the motion of the particles is stable, it illustrates the qualities of the particle beam.
+Since the particle's spread in position and momentum varies along the beam line, the shape of the ellipse changes constantly, but the area of the ellipse stays the same.
+The variables $\alpha$ and $\gamma$ are defined here as: $\alpha = -\frac12\beta'$ and $\gamma = \frac{1+\alpha^2}{\beta}$.~\cite[]{Wiedemann}
+\todo{Check reference to the phase space ellipse variables}
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{Figures/PhaseSpaceEllipse.png}
 \caption[Phase space ellipse]{Phase space ellipse~\cite[p. 158]{Wiedemann}}
 \label{fig:PhaseSpaceEllipse}
 \end{figure}
+\todo{Exchange picture of phase space ellipse}
+\\The actual transverse size of the beam is not yet fully defined by the spatial amplitude of the betatron oscillations.~\cite[cf. p. 108ff]{Conte}
+Also the deviation from the ideal particle trajectory due to the momentum spread has to be taken into account, which is defined by the dispersion function $\eta$.
+Like $\epsilon$ and $\beta$, it is dependent on the position along the beam line, and can be defined as $\eta = \frac{dx}{d\delta}$, with the fractional deviation from the ideal particle momentum $\delta = \Delta x'/x'_0$.
+With this knowledge, the overall beam size can now be calculated:
+\begin{align}
+ \sigma&=\sqrt{\sigma^2_{betatron}+\sigma^2_{dispersion}}\\
+ &=\sqrt{\epsilon\cdot\beta+\left(\eta\frac{\Delta x'}{x'_0}\right)^2}
+\end{align}
 
 
 \subsection{Linear colliders in comparison to circular colliders}
 \label{Linear-Circular}
-
+These transversal beam dynamics described in the section above are of course valid for circular as well as linear accelerators.
+In both machines, the acceleration with RF cavities, for instance, is accompanied by beam deflections and corrections with the help of magnets.
+Naturally, the beam line of a circular collider contains on average more magnets than a linear collider.\\
 Currently, the world's largest circular particle collider is the Large Hadron Collider (LHC) at CERN in Switzerland, a synchrotron machine with a circumference of \SI{27}{\kilo\meter}.
 The collision energy of the two colliding proton beams is \SI{13}{\TeV}, and its nominal peak luminosity \lumi is \SI{e34}{\centi\meter^{-2}\second^{-1}}.
 The luminosity of a particle collider is proportional to the amount of collisions that can occur, and it is defined as:
