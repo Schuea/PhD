@@ -182,11 +182,11 @@ With this knowledge, the overall beam size can now be calculated:
 
 \subsection{Linear colliders in comparison to circular colliders}
 \label{Linear-Circular}
-These transversal beam dynamics described in the section above are of course valid for circular as well as linear accelerators.
+These transversal beam dynamics, described in the section above, are of course valid for circular as well as linear accelerators.
 In both machines, the acceleration with RF cavities, for instance, is accompanied by beam deflections and corrections with the help of magnets.
 Naturally, the beam line of a circular collider contains on average more magnets than a linear collider.\\
 Currently, the world's largest circular particle collider is the Large Hadron Collider (LHC) at CERN in Switzerland, a synchrotron machine with a circumference of \SI{27}{\kilo\meter}.
-The collision energy of the two colliding proton beams is \SI{13}{\TeV}, and its nominal peak luminosity \lumi is \SI{e34}{\centi\meter^{-2}\second^{-1}}.
+The collision energy of the two colliding proton beams is \SI{13}{\TeV} in the current run, and its nominal peak luminosity \lumi is \SI{e34}{\centi\meter^{-2}\second^{-1}}.~\cite[p. 3]{LHC_Paper}
 The luminosity of a particle collider is proportional to the amount of collisions that can occur, and it is defined as:
 \begin{align}
  \mathcal{L}&=\frac{N_1N_2 \cdot n_b \cdot f}{2\pi \cdot \sqrt{\sigma^2_{x,1}+\sigma^2_{x,2}} \sqrt{\sigma^2_{y,1}+\sigma^2_{y,2}}}\\
@@ -197,23 +197,51 @@ $N_{1,2}$ is the number of particles per bunch, which is usually the same for bo
 $f$ is the revolution frequency, the number of revolutions a bunch makes per second.
 $n_{b}$ is the number of bunches, and $\sigma_{x,y}$ is the beam bunch size in the horizontal and the vertical plane.
 Table~\ref{tab:ILC_parameters} in Chapter~\ref{ILC} lists these parameters and their values for the LHC in comparison to the International Linear Collider (ILC).
-In order to translate the luminosity in an event rate, the luminosity value has to be divided by the cross-section $\sigma_p$ of the physics process that is of interest.
-Since the LHC detectors do only measure events from inelastic scattering, the LHC event rate can be calculated by taking only the cross-section for inelastic proton-proton scattering into account, which is measured to be \SI{78}{\milli\barn}~\cite{inelXSection}.
+In order to translate the luminosity into an event rate, the luminosity value has to be divided by the cross-section $\sigma_p$ of the physics process that is of interest.
+Since the LHC detectors do only measure events from inelastic scattering, the LHC event rate can be calculated by taking only the cross-section for inelastic proton-proton scattering into account, which is measured to be \SI{78}{\milli\barn}~\cite{inelXSection}. Barn (``b'') is the unit of cross-sections in particle physics, and is equivalent to \SI{e-28}{\meter\squared}.
 \begin{align}
  \dot{N}&=\mathcal{L}\cdot\sigma_{inelastic}\\
  &=10^{34} \textrm{cm}^{-2}s^{-1} \cdot 78\textrm{\,mb}\\
  &=7.8\times 10^8 s^{-1}
 \end{align}
 %https://www.lhc-closer.es/taking_a_closer_look_at_lhc/0.cross_section
-Per second about 780 million events are occurring at the LHC.
-%The reason why large synchrotron rings need pre-accelerators is that the range for changing the magnet's field strength is limited.
-The LHC is a so-called ``discovery machine''.
+Per second about 780 million events are occurring at the LHC, because of which it is a so-called ``discovery machine''.
 With its high luminosity and high collision energy, the possible physics processes from the hadron collisions cover wide energy ranges.  
-New particles, first seen for example as resonance peaks in the measured mass spectra, can be discovered easier due to the large phase-space.
-This was the case in 2012 for instance, when the LHC found a peak at an energy of \SI{126}{\GeV}, shortly after recognized as the very first measurement of a Higgs boson.~\cite{Higgs}
-
+New particles, first seen for example as resonance peaks in the measured mass spectra, can be discovered easier due to the large phase space.
+This was the case in 2012 for instance, when the LHC found a peak at an energy of \SI{126}{\GeV}, shortly after recognized as the very first measurement of a Higgs boson.~\cite{Higgs}\\
+%The reason why large synchrotron rings need pre-accelerators is that the range for changing the magnet's field strength is limited.
 Why these so-called ``discovery machines'' are hadron and not lepton colliders, and why they are circular and not linear, is to be explained with the physical qualities of the colliding particles.
-Hadrons are by definition composite particles, providing the possibility of covering a large energy range when during collision their partons are interacting.
-This so-called deep inelastic scattering is explained in more detail in Chapter~\ref{StandardModel}.
-In contrast to that, collision of leptons as elementary particles is the interaction of exactly these leptons at exactly their given energy.
+Hadrons are by definition composite particles, the actual colliding particles in a collision are therefore their partons, the constituents of the hadrons.
+Which energy the single partons have, follows a certain probability function, leading to the fact that the collision energy in hadron colliders can cover a large range.
+This so-called deep inelastic scattering is explained in more detail in Chapter~\ref{StandardModel}.\\
+In contrast to that, a collision of leptons as elementary particles is the interaction of exactly these leptons at exactly their given energy.
 This is one of the reasons why lepton colliders are called ``precision machines''.
+Being able to set the collision energy precisely means that the events occurring in lepton colliders can be preselected.\\
+The decision whether to build a lepton or a hadron collider therefore depends solemnly on the physics goal.
+The next question to be answered is which design the collider should have, linear or circular.
+Again, both alternatives have clear advantages and disadvantages.
+One advantage of circular accelerators was already mentioned before, namely the possibility to go to high energies by simply letting the beams perform more revolutions and hence gain more and more energy from every turn.
+This is not possible in linear colliders, since the beams are not restored after collision but dumped.
+The full collision energy has to be gained in a single go.
+The only way to increase the collision energy of a linear collider is to make the accelerating line longer. So, why do linear colliders exist at all?\\
+The answer lies in the synchrotron radiation, radiation in the form of photons being emitted by deflecting charged particles.
+Every deflection in a magnetic field yields an energy loss in form of this synchrotron light, and the more magnets an accelerator has, the more energy loss the beam suffers from.
+The synchrotron radiation power is defined as~\cite[p. 33]{Wille}:
+\begin{equation}
+ P_S = \frac{e^2c}{6\pi\epsilon_0}\frac{1}{(m_0c^2)^4}\frac{E^4}{R^2}
+\end{equation}
+This directly leads to the energy loss per turn in a circular collider of radius R, for which one turn takes the time interval $T$:
+\begin{align}
+ \Delta E &= P_S\cdot T\\
+ &= P_S\frac{2\pi R}{c}\\
+ &=\frac{e^2}{3\epsilon_0(m_0c^2)^4}\frac{E^4}{R} \label{eq:Eloss_synchrotron_radiation}
+\end{align}
+In order to counteract the loss, the beam has to be accelerated by at least $Delta E$ for every turn.
+Equation~\ref{eq:Eloss_synchrotron_radiation} also implies that a circular accelerator with high beam energies either has to have accelerating cavities with extremely high gradients, or that its radius has be so large that it can compensate the $E^4$ factor.
+Having a closer look at the equation, it now becomes clear why the LHC for example is a hadron collider:
+Due to the factor $m_0^{-4}$, the synchrotron radiation is much lower for particles with higher masses.
+When comparing the LHC with a radius of \SI{2804}{\meter} running at \SI{6.5}{\GeV} with protons and with electrons, then it can be calculated directly that an ``Electron-LHC'' would lose about \num{1.14e13} times as much energy from synchrotron radiation than the existing LHC, simply because of the electron-proton mass ratio:
+\begin{align*}
+ \frac{\Delta E_e}{\Delta E_p} &= \frac{7.49\cdot10^{10} \textnormal{MeV}}{6.59\cdot10^{-3} \textnormal{MeV}}\\
+ &=1.14\cdot10^{13}
+\end{align*}
