@@ -2,15 +2,15 @@
 \label{LinearColliderPhysics}
 
 \begin{chapterabstract}
-Since the invention of the first particle accelerator in 1930, many new forms of accelerators were discovered and developed over the years. 
+Since the invention of the first particle accelerators in the late 1920s, many new forms of accelerators were discovered and developed over the years. 
 Even though they may differ in shape and form, they all rely on the same principles. 
 After a brief introduction of these principles of accelerator physics, there will be a description of the two classes of particle accelerators which are mainly used for high-energy physics nowadays: linear and circular colliders. 
 By looking at their advantages and disadvantages, the differences between them will be elaborated.
 \end{chapterabstract}
 \newline
 
-In 1930, J. D. Cockcroft and E. T. S. Walton constructed the first particle accelerator, in order to probe the nuclei of lithium atoms with protons accelerated to several hundred keV. 
-They found that the key in particle acceleration lies in electrostatics.
+After Ernest Rutherford had demonstrated the nuclear reactions of nitrogen with alpha particles from radioactive decays in 1919, he recognized the need for other more controlled sources of accelerated particles.
+In the following years, physicists endeavored to develop necessary devices, and found that the key principle in particle acceleration lies in electrostatics.~\cite[p. 3f]{Livingston}
 
 \section{Principles of particle acceleration}
 \label{AccPhysics:Principles}
@@ -30,7 +30,7 @@ A particle traveling from one capacitor to the next would then lose kinetic ener
 A solution is quickly found by using time dependent electric fields, which change the orientation of their field periodically.\\
 In very simple terms, the key principles of a linear collider are thereby already explained.
 Better accelerating structures such as drift chambers and later on superconducting radio frequency (RF) cavities were developed over the years.
-The first linear accelerator using normal conducting drift chambers of increasing lengths was built by Rolf Wider\o e at the university of Karlsruhe in Germany.
+The first linear accelerator using normal conducting drift chambers of increasing lengths was built and demonstrated by Rolf Wider\o e in 1928.~\cite[p. 6]{Wilson}
 A schematic drawing of such a structure is shown in Figure~\ref{fig:Wideroe_Linac}.
 RF fields are applied to the drift chambers such that the particles are accelerated in between the chambers when passing through the gaps.
 Since the particle gains energy by passing through a gap, the chambers need to have increasing lengths in order to guarantee the particle being accelerated by the same phase of the RF field.
@@ -80,10 +80,10 @@ Particles with a smaller momentum ($\Delta$p/p $<$ 0) will arrive later than the
 %To still guarantee the particle to be accelerated by the same RF phase, the RF frequency is varied over the length of the linear collider.
 
 Rolf Wider\o e did not only build the first linear accelerator, he even more importantly invented the principles of the betatron, the very first accelerating structure using electromagnetic fields.
-Also the cyclotron which was invented in 1928 uses a magnetic field to deflect the charged particles on a radial path, and therefore allow the accelerator to be much smaller than before.
+Also the cyclotron which was invented in 1930 uses a magnetic field to deflect the charged particles on a radial path, and therefore allow the accelerator to be much smaller than before.~\cite[cf. p. 8]{Wilson}
 Exactly that idea was needed to advance from purely linear to circular in particle accelerators.
 
-\subsection{Transversal beam dynamics}
+\section{Transversal beam dynamics}
 \label{AccPhysics:Magnets}
 
 Circular acceleration does also have certain challenges.
@@ -180,8 +180,8 @@ With this knowledge, the overall beam size can now be calculated:
 \end{align}
 
 
-\subsection{Linear colliders in comparison to circular colliders}
-\label{Linear-Circular}
+\section{Linear colliders in comparison to circular colliders}
+\label{AccPhysics:Linear-Circular}
 These transversal beam dynamics, described in the section above, are of course valid for circular as well as linear accelerators.
 In both machines, the acceleration with RF cavities, for instance, is accompanied by beam deflections and corrections with the help of magnets.
 Naturally, the beam line of a circular collider contains on average more magnets than a linear collider.\\
@@ -236,12 +236,14 @@ This directly leads to the energy loss per turn in a circular collider of radius
  &= P_S\frac{2\pi R}{c}\\
  &=\frac{e^2}{3\epsilon_0(m_0c^2)^4}\frac{E^4}{R} \label{eq:Eloss_synchrotron_radiation}
 \end{align}
-In order to counteract the loss, the beam has to be accelerated by at least $Delta E$ for every turn.
-Equation~\ref{eq:Eloss_synchrotron_radiation} also implies that a circular accelerator with high beam energies either has to have accelerating cavities with extremely high gradients, or that its radius has be so large that it can compensate the $E^4$ factor.
+In order to counteract the loss, the beam has to be accelerated by at least $\Delta E$ for every turn.
+Equation~\ref{eq:Eloss_synchrotron_radiation} also implies that a circular accelerator with high beam energies either has to have accelerating cavities with extremely high gradients, or that its radius has be so large that it can compensate the factor $E^4$.
 Having a closer look at the equation, it now becomes clear why the LHC for example is a hadron collider:
 Due to the factor $m_0^{-4}$, the synchrotron radiation is much lower for particles with higher masses.
-When comparing the LHC with a radius of \SI{2804}{\meter} running at \SI{6.5}{\GeV} with protons and with electrons, then it can be calculated directly that an ``Electron-LHC'' would lose about \num{1.14e13} times as much energy from synchrotron radiation than the existing LHC, simply because of the electron-proton mass ratio:
+When comparing the LHC (with a radius of \SI{2804}{\meter}) one time with \SI{6.5}{\GeV} beams of protons and another time with electrons, then it can be calculated directly that an ``Electron-LHC'' would lose about 1.14\,$\cdot\,10^{13}$ times as much energy from synchrotron radiation than the existing LHC, simply because of the electron-proton mass ratio:
 \begin{align*}
  \frac{\Delta E_e}{\Delta E_p} &= \frac{7.49\cdot10^{10} \textnormal{MeV}}{6.59\cdot10^{-3} \textnormal{MeV}}\\
- &=1.14\cdot10^{13}
+ &=1.14\cdot10^{13}\\
+ &=\frac{m_e^4}{m_p^4}
 \end{align*}
+Concluding, a circular hadron collider lends itself to be a particle accelerator in the high-energy frontier, whereas a linear lepton collider is destined to be a collider in the precision frontier.
