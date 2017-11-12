@@ -19,24 +19,50 @@ Due to the fact that linear colliders can be extended in length, the beam energi
 Therefore, the ILC has the possibility to upgrade the machine to higher energies later on.
 
 \subsection{The Layout}
-Figure~\ref{fig:ILC_Layout} shows the schematic layout of the ILC for the \SI{500}{\GeV} stage.
+Figure~\ref{fig:ILC_Layout} shows the schematic layout of the ILC.
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{Figures/ILC_layout.png}
-\caption[Schematic layout of the ILC]{Schematic layout of the ILC~\cite[p. 9]{TDR1}}
+\includegraphics[width=\textwidth]{Figures/ILC_layout_edited.png}
+\caption[Schematic layout of the ILC]{Schematic layout of the ILC~\cite[cf. p. 9]{TDR1}}
 \label{fig:ILC_Layout}
-\end{figure}
-The electrons originate in the polarized source based on a photocathode DC gun.
-When these electrons pass through an undulator, high-energy photons are produced which are then converted to electron-positron pairs.
-The polarized positrons from these pairs continue in the positron line which is from that point on equivalent to the electron line.
-After passing the \SI{5}{\GeV} Damping Rings (DR) with a circumference of \SI{3.2}{\kilo\meter}, the electron and positron beams are compressed into bunches by a two-stage compressor system.
-Subsequent to that, the bunches are injected into the main linacs.
-The main linacs have a length of \SI{11}{\kilo\meter}, and use superconducting radio frequency (RF) cavities with a frequency of \SI{1.3}{\giga\hertz} and an average accelerating gradient of \SI{31.5}{MV/m}.
-For the machine upgrade to \SI{1}{\TeV}, the linacs can be extended in length.
+\end{figure}\todo{I have edited this figure slightly -> how to do the citation correctly?}
+The electrons are produced by a photo-cathode.
+By shining a circularly polarized laser on the electron beam, one reaches a beam polarization of at least 80\,\%, i.e. more than 80\,\% of all electrons will be left-handed\footnote{For a left-handed particle, its spin and its momentum are antiparallel, pointing in opposite directions.}:
+\begin{equation}
+ P_e = \frac{N_L-N_R}{N_L+N_R} > 0.8
+\end{equation}
+The positron source consists of an undulator and a conversion target.
+In an undulator, several dipole magnets are placed in a line in such a way that their polarity alternates periodically (see Figure~\ref{fig:Undulator}).
+For the creation of the positrons, the actual electron beam is used, which is guided through the undulator.
+By doing so, the electrons are deflected several times and emit synchrotron radiation photons, as explained in Chapter~\ref{AccPhysics:Linear-Circular}.
+The photons are then converted in the conversion target, where \positron \electron pairs are produced due to pair production.
+The positrons are captured and form the positron beam.\todo{Which material is the conversion target in the positron source? What is the positron production efficiency?}
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{Figures/Undulator_edited.png}
+\caption[Schematic layout of an undulator]{Schematic of an electron beam traveling through an undulator with dipole magnets in alternating order.~\cite[cf. p. 41]{Wille}}
+\label{fig:Undulator}
+\end{figure}\todo{I have edited this figure slightly -> how to do the citation correctly?}
+The polarized positrons continue in the positron line which is from that point on equivalent to the electron line.\todo{positron polarization?}
+Since the electrons and positrons have a large emittance when they originate from their sources, their momentum and beam size have to be condensed.
+This is done in the damping rings (DR), which have a circumference of \SI{3.2}{\kilo\meter}.
+As discussed several times before, the beams will emit synchrotron radiation when they are deflected in the magnetic field of dipole magnets.
+Exactly this is desired in the damping rings in order to ``cool'' the beams, i.e. to reduce their momentum due to the emission of light.
+In a second step the beams are then accelerated again which increases their momentum in the desired direction.
+The result is a high quality beam with small beam emittance.\\
+After passing the damping rings, the electron and positron beams are compressed into bunches by a two-stage compressor system.
+Subsequent to that, the bunches are injected into the main linear accelerator structures (linacs).
+The main linacs have a length of \SI{5}{\kilo\meter}, and use superconducting RF cavities which are shown in Figure~\ref{fig:Tesla_Cavity}. 
+For the machine upgrade to \SI{500}{\GeV}, the linacs can be extended in length.
+Since these exact cavities are already in use for the European XFEL (X-Ray Free-Electron Laser) at Deutsches Elektronen-Synchrotron (DESY) in Hamburg, their high performance has been demonstrated.
+It has been shown that they have an average accelerating gradient of \SI{31.5}{MV/m}, and that they can be operated with a frequency of \SI{1.3}{\giga\hertz}.\\
 The Beam Delivery System (BDS), which has an overall length of about \SI{4.4}{\kilo\meter}, transports the bunches from the linacs to the Interaction Point (IP).
-In the BDS, the beams are focused to nanometer size by the Final Focus (FF) system.
-After that, the beams are then finally brought into collision with a crossing angle of \SI{14}{mrad} at the IP.\cite[p. 9-10]{TDR1}
-Table~\ref{tab:ILC_parameters} shows the machine parameters for the baseline design at \SI{500}{\GeV} center-of-mass energy, and for the luminosity and the energy upgrade stages.
+In the BDS, the beams are focused to nanometer size by the Final-Focus (FF) system.
+The Final-Focus system is a crucial part of the ILC program.
+Only with nanometer-sized beams, the ILC can reach luminosities comparable to or beyond the LHC.
+To demonstrate the feasibility of nanometer-scale beams, a test facility was build that is a small scale prototype of the FF system for the ILC: the Accelerator Test Facility (ATF2), which will be presented in more detail in Section~\ref{ATF2}.
+\\After the Final-Focus system, the beams are then finally brought into collision with a crossing angle of \SI{14}{mrad} at the IP.\cite[p. 9-10]{TDR1}
+Table~\ref{tab:ILC_parameters} shows the machine parameters for the baseline design at \SI{250}{\GeV} center-of-mass energy, and for the luminosity and the energy upgrade stages.
 
 
 %\multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Baseline 500}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Lumi Upgrade}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{TeV Upgrade}} & {\centering\textbf{LHC 25ns}} \\ 
