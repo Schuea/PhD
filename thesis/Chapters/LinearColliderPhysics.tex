@@ -97,7 +97,7 @@ qvB\vec{e_r} &= \frac{mv^2}{r}\vec{e_r} \nonumber \\
 Since the momentum $p$ of the charged particle rises over time, the radius $r$ of its circular path increases if the magnetic field $B$ is constant.
 The accelerator hence has to be built accordingly taking the increase in the radius into account, or needs to use magnets with variable field strengths.
 Ladder is done in synchrotron machines, a type of circular accelerator combining the principles of all particle accelerators mentioned above: acceleration in RF cavities, variation of the RF frequency, and variable magnetic field strengths.
-In this way, the particles are traveling along a stationary orbit, passing through the same magnets and cavities over and over again until the desired collision energy is reached.
+In this way, the particles are traveling along a stationary orbit, passing through the same magnets and cavities over and over again until the desired beam energy is reached.
 To insure the stability of the orbit, not only bending dipole magnets can be found but also quadrupole magnets for focusing the particles, and sextupole and octupole magnets which then correct orbit fluctuations.
 The need for higher order correction magnets can be derived from the expansion of the magnetic field around the ideal path of the particle (x = 0):
 \begin{alignat}{5}
@@ -179,14 +179,23 @@ With this knowledge, the overall beam size can now be calculated:
  &=\sqrt{\epsilon\cdot\beta+\left(\eta\frac{\Delta x'}{x'_0}\right)^2}
 \end{align}
 
-
 \section{Linear colliders in comparison to circular colliders}
 \label{AccPhysics:Linear-Circular}
 These transversal beam dynamics, described in the section above, are of course valid for circular as well as linear accelerators.
 In both machines, the acceleration with RF cavities, for instance, is accompanied by beam deflections and corrections with the help of magnets.
 Naturally, the beam line of a circular collider contains on average more magnets than a linear collider.\\
 Currently, the world's largest circular particle collider is the Large Hadron Collider (LHC) at CERN in Switzerland, a synchrotron machine with a circumference of \SI{27}{\kilo\meter}.
-The collision energy of the two colliding proton beams is \SI{13}{\TeV} in the current run, and its nominal peak luminosity \lumi is \SI{e34}{\centi\meter^{-2}\second^{-1}}.~\cite[p. 3]{LHC_Paper}
+The collision energy of the two colliding proton beams is \SI{13}{\TeV} in the current run, and its nominal peak luminosity \lumi is \SI{e34}{\centi\meter^{-2}\second^{-1}}.~\cite[p. 3]{LHC_Paper}\\
+The collision energy $\sqrt{s}$, or often called center-of-mass energy $E_{cm}$, between the beams with 4-vectors $p_1$ and $p_2$ is calculated as:
+\begin{align*}
+ s &= (p_1+p_2)^2\\
+ &=p_1^2+1p_1p_2+p_2^2\\
+ &=m_1^2+2(E_1E_2-\vec{p_1}\vec{p_2})+m_2^2\\
+\intertext{In a particle collider, where the beam particles have the same mass $m$ and beam energy $E$:}
+&\approx2m^2+2E^2+2|\vec{p}|^2\\
+&=4E^2
+\end{align*}
+The collision energy in a particle collider is therefore $\sqrt{s}=2E$.\\
 The luminosity of a particle collider is proportional to the amount of collisions that can occur, and it is defined as:
 \begin{align}
  \mathcal{L}&=\frac{N_1N_2 \cdot n_b \cdot f}{2\pi \cdot \sqrt{\sigma^2_{x,1}+\sigma^2_{x,2}} \sqrt{\sigma^2_{y,1}+\sigma^2_{y,2}}}\\
