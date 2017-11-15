@@ -112,13 +112,13 @@ Since the water tanks are designed to be sufficient for all energy and luminosit
 This leads to high irradiation of the beam dump surrounding and dangerous conditions for maintenance staff.
 In Chapter~\ref{BeamDumps} about the simulation of the main beam dumps done for this thesis, more details are given for the current beam dump designs.
 
-\paragraph{Staging}
+\subsection{Staging}
 As mentioned above, it was decided in 2017 to reduce the center-of-mass energy of the first ILC stage to \SI{250}{\GeV}.~\cite{ICFA_Statement}
 Regarding the ILC layout, several options are under discussion which are shown in Figure~\ref{fig:Staging}.
 These options would yield a cost reduction of up to 40\,\% by reducing the length of the tunnel (options A, B and C), or by additionally reducing the number of RF cavities (options A', B' and C').
 Overall, option A' foresees the shortest possible tunnel for a the \SI{250}{\GeV} and the smallest number of cavities, and therefore results in the highest cost reduction.
 On the other hand, the options with a longer tunnel would give a more positive sign to the ILC community that an energy upgrade is planned for the future.
-\begin{figure}{h}
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.7\textwidth]{Figures/Staging.png}
 \caption[Different layouts for the ILC250 stage]{Different layouts for the ILC250 stage.
@@ -128,6 +128,19 @@ The discussions about the layout involves also the length of the tunnel.
 Option B and C would foresee longer tunnels that would facilitate a later energy upgrade to 350 or \SI{500}{\GeV}.\\
 Options A', B' and C' correspond to options A, B and C regarding the tunnel length, but they assume RF cavities with a gradient of \SI{35}{\mega\volt\per\meter} instead of \SI{31.5}{\mega\volt\per\meter} in order to reduce the number of cavities needed.~\cite[p. 19]{Staging}}
 \label{fig:Staging}
+\end{figure}
+\\Figure~\ref{fig:ILC_runningtime} shows two possible running scenarios for the staged ILC.
+In both cases the ILC will have energy and luminosity upgrades, so that it will reach the same integrated luminosity over a different amount of time.
+On the left hand side, the plot shows an expected operation time of 15 years for the ILC250 with a luminosity upgrade at the midway-point.
+After an energy upgrade by extending the main linac, the operation at \SI{500}{\GeV} and a short run at \SI{350}{\GeV} for dedicated measurements of the Top quark qualities would be possible.
+The overall operation time would stretch out to 26 years.\\
+For the second scenario on the right hand side of Figure~\ref{fig:ILC_runningtime}, it was assumed that the beam parameters are changed in such a way that the beam is more strongly focused at the IP and therefore that the instantaneous luminosity is enhanced.
+That shortens the operation time of the ILC250 stage to 11 years, and the overall run time to 22 years.~\cite[p. 7]{PhysicsCase}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{Figures/ILC_runningtime.png}
+\caption[ILC run plan]{Two possible ILC run plans for the staged ILC.~\cite[p. 8]{PhysicsCase}}
+\label{fig:ILC_runningtime}
 \end{figure}
 
 \section{Possible Site}
@@ -140,20 +153,20 @@ Morioka and Sendai are the biggest cities around the candidate site, with Tokyo 
 Although being in the north of Japan, the travel time from Tokyo is only about three hours, and the proximity to the coast line allows the transportation of construction, machine and detector parts by ship.
 \begin{figure}
 \centering
-\includegraphics[width=0.6\textwidth]{Figures/ILC-site.jpg}
+\includegraphics[width=0.5\textwidth]{Figures/ILC-site.jpg}
 \caption[Possible site for the ILC]{The possible site for the ILC are the Kitakami mountains in the Tohuku Prefecture.\cite{Kitakami}}
 \label{fig:ILC_Site}
 \end{figure}
 
 
-\subsection{Physics Motivation}
+\section{Physics Motivation}
 \label{ILC:physicsmotivation}
 After having shown that the ILC as a linear lepton collider is designed to be a state-of-the-art precision machine, this section will present its physics goals.
 With the LHC as the so-called ``discovery machine'', the ILC will be a complementary collider being aimed for much needed precision than for searching for new particles at high energies.
 The ILC is often called the future Higgs factory which will measure the qualities of the Higgs boson with much higher precision than it had been done so far.
 Additionally, the different stages of the ILC will also measure the Top quark qualities, and will have access to Beyond Standard Model (BSM) physics.
  
-\subsubsection{The way to go}
+\subsection{The way to go}
 To reach the precision the ILC promises, it must achieve four different objectives.
 These objectives are all linked so that one cannot be achieved without the others.
 
@@ -195,23 +208,51 @@ Additionally, the nanometer-sized beam of the ILC allows c-tagging, which improv
 The charm quark (c) hadronizes a small distance away from the primary IP, which is a perfect way to identify that a charm quark was involved in the event.
 Since the distance between the primary and the so-called seconday vertex can only be measured by a vertex detector with micrometer resolution, c-tagging is in general very difficult, but will be possible at the ILC.
 
-\subsubsection{ILC as a Higgs factory}
+\subsection{ILC as a Higgs factory}
 The ILC250 stage will be a so-called Higgs factory, tuned to the Higgs mass of \SI{125}{\GeV}.
-Due to the large luminosity and the capability for precision measurements, the individual Higgs couplings can be measured to a percent accuracy and the global width of the Higgs can be measured directly.
-At the LHC, the experiments have to make a global fit to all Higgs signals and make theoretical assumptions of the Higgs width, in order to get the Higgs couplings.
-This can not be as precise as at the ILC, as can be seen in Figure~\ref{fig:Higgs_couplings}.
-Only for the coupling to photons, the LHC yields more precise measurements which can only be topped by the combination of the LHC and the ILC results.
+Due to the large luminosity and the capability for precision measurements as has been shown in the section above, the individual Higgs boson qualities can be measured to a percent accuracy in a completly model independent way.
+These Higgs boson parameters include the Higgs mass, its couplings to Standard Model particles, as well as its global decay width.
+In contrast, the LHC experiments are not able to access the global decay width and the Higgs couplings in a model independent way as at the ILC.
+Global fits to all Higgs signals together with theoretical assumptions of its decay width are the only way to gain the Higgs couplings.
+\\After a brief overview of the Higgs production modes and the determination of the Higgs boson parameters at the ILC, it will be shown that the precisions achievable at the LHC can not reach the ILC performance.
 
+\subsubsection{The Higgs production modes at an \positron\electron collider}
+There are three main production modes for Higgs bosons at an \positron\electron collider, such as the ILC.
+As can be seen in Figure~\ref{fig:HiggsProduction}, the largest contribution to the overall production cross section is the Higgsstrahlung process, where a radiative Higgs boson is produced in association with a Z boson ($e^+e^-\rightarrow Zh$).
+In vector boson fusion (VBF) processes, like the WW fusion and the ZZ fusion, the fusion of two bosons produces a Higgs boson and a pair of leptons.
+For the WW fusion, an electron-neutrino and its anti-neutrino are produced ($e^+e^-\rightarrow \nu\bar{\nu} h$), whilst for the ZZ fusion it is an electron and a positron ($e^+e^-\rightarrow e^+e^-h$).
+The production cross sections for these processes as a function of the center-of-mass energy behave quite differently:
+The dominant process at energies between 200 and \SI{450}{\GeV} is the Higgsstrahlung process, replaced by the WW fusion process above \SI{450}{\GeV}.
+For this energy range, the ZZ fusion cross section contributes the least, with less than \SI{10}{fb}.
+Since the Higgsstrahlung process peaks at \SI{250}{\GeV}, the ILC250 stage will provide an even more precise measurement of the Higgsstrahlung cross section and hence of the branching ratios (BR) of the various decay modes of the Higgs boson than at a center-of-mass energy of \SI{500}{\GeV}.
+This is true despite the lower luminosity at \SI{250}{\GeV}, due to the larger cross section and the smaller background occupancy of the detectors (see Chapter~\ref{PairBkg:occupancy}).
 \begin{figure}
 \centering
+\includegraphics[width=0.5\textwidth]{Figures/HiggsProductionCrossSection.png}
+\caption[Cross section for the Higgs production modes at ILC]{Cross sections for the Higgs production modes at the ILC.~\cite[p. 13]{PhysicsCase}
+The three main processes are ZZ fusion, WW fusion, and Higgsstrahlung.}
+\label{fig:HiggsProduction}
+\end{figure}
+
+\subsubsection{The Higgs measurements}
+To know the Higgs couplings to Standard Model (SM) particles as precise as possible is one of the most important goals for the ILC.
+Many theories about particles beyond the SM predict deviations from the SM couplings of the 1\,\% level.
+Therefore, only with the highest precisions a new particle might be discovered outside our current knowledge.\\
+Since a decay width of a specific process is proportional to the decay branching ratio, which is again proportional to the coupling strength squared, the precision on the coupling measurement is directly dependent on how accurate the full process can be measured and recorded.~\cite{PhysicsCase}
+Due to large background levels and therefore high detector occupancies in hadron colliders, specific processes are not easily distinguishable from background events.
+This is the reason why LHC experiments can not measure the full Higgs cross section without \textit{model dependent} assumptions.
+As on the contrary, the reconstruction of complete events at the ILC with its low background occupancies is achieved without theoretical assumptions, a \textit{model independent} determination of the Higgs qualities is possible.\\
+This leads to differences in the relative Higgs boson coupling precisions of a factor of up to 10 between High-Luminosity LHC (HL-LHC) and ILC results, as can be seen in Figure~\ref{fig:Higgs_couplings}.
+\begin{figure}[h]
+\centering
 \includegraphics[width=0.5\textwidth]{Figures/Higgs_couplings.png}
-\caption[Higgs coupling precisions]{Comparison of the Higgs coupling precision reached at the ILC and at the LHC.\cite[p. 9]{ILCPhysics}\\
-The plot shows the relative precisions for the Higgs couplings calculated from the model-dependent fits to simulated data from the High-Luminosity LHC and the ILC.}
+\caption[Higgs coupling precisions]{Comparison of the precision reached at the ILC and at the High-Luminosity LHC (HL-LHC) for couplings g(hXX) of the Higgs boson (h) to SM particles (X).~\cite[p. 17]{PhysicsCase}\\
+The plot shows the relative precisions for the Higgs couplings calculated from the \textbf{model dependent} fits to simulated data from the HL-LHC, and from these fits combined with \textbf{model independent} fits to simulated data from the ILC.}
 \label{fig:Higgs_couplings}
 \end{figure}
 %TODO : Check if there is a more up-to-date picture
 
-
+\newpage
 \section{The Experiments}
 \label{ILC:detectors}
 In order to preserve the competitive spirit and the ability to cross-check results, the ILC has two detectors despite the fact that it is a linear and not a circular collider.
@@ -224,10 +265,27 @@ The focus will lie on SiD, since some of the background studies presented in thi
 \subsection{The Silicon Detector}
 The SiD is designed to be a robust, compact detector.
 Its vertex and tracker system, as well as the electromagnetic calorimeter (ECAL) are purely based on silicon sensors.
-The silicon design in comparison to other designs for the vertex and tracking detectors is more robust regarding the beam background and timing.
-The final decision on the sensor technology is not made yet, which allows the detector to have the most recent state-of-the-art technology.
-\todo{Add possible sensor technology for subdetectors, buffer depth}
-With also the highly segmented hadronic calorimeter being inside the solenoid field, particle tracking is possible even in the calorimeters.
+The silicon design in comparison to other designs for the vertex and tracking detectors is more robust regarding the beam background and timing.~\cite[cf. p. 57ff]{TDR4}\\
+The vertex detector will be the inner most subdetector with the measurements of a Coke can.
+Still, with its five layers for the barrel and the endcaps it will be able to do very precise measurements.
+The requirements for the vertex detector performance are very demanding:
+The spatial resolution has to be less than \SI{3}{\micro\meter}, which allows not only very precise tracking, but also the verification of the primary vertex of an event, as well as of the secondary vertex of a Bottom quark (b-tagging) and even of a Charm quark (c-tagging).
+Ladder is very challenging due to the short flight distance of the Charm quark of only a few microns before it hadronizes.
+Additionally, a very small material budget of about 0.1\,X$_0$ is foreseen for the vertex detector, since particles shall not perform particle showers in this subdetector.~\cite{SiD_Update}
+The final decision on the sensor technology is not made yet, which allows the detector to have the most recent state-of-the-art technology.\\
+Outside vertex detector is the Silicon Tracker.
+For its five barrel layers and four endcap layers, silicon strip sensors are planed that will use so-called KPiX ASIC readout chips.
+These KPiX chips have a buffer depth of four in the current design, which means that up to four hits per sensor can be stored on the chip's buffer.
+Any further hit can not be recorded and is lost.
+That makes thorough simulations of the expected backgrounds reaching the detector very important.
+The sensors can still be adapted with respect to design and technology used, so that the detector is optimized as best as possible.\\
+The electromagnetic calorimeter (ECAL) will be using these exact KPiX chips as well, as it is also based on silicon sensors.
+The ECAL with its 30 layers is designed to be a granular imaging calorimeter, meaning that electromagnetic particle showers developing in the tungsten layers between the sensitive silicon layers can not only be measured in width and length, but rather their shower particles can be tracked individually.\\
+The same will be true for the highly segmented hadronic calorimeter (HCAL).
+With all subdetectors mentioned so far being inside the \SI{5}{\tesla} solenoid field of the SiD solenoid magnet, particle tracking is therefore possible not only in the tracking subdetectors, but even in the calorimeters.
+The 40 active layers of the HCAL will contain scintillators measuring particle showers that are developing in the steel layers in between.\\
+Finally, the muon chamber, which is the only subdetector outside the solenoid magnet, will use long scintillator strips based on the HCAL sensor technology.
+Its purpose is not only to identify muons being produced in the beam collisions, but also to record the tail of hadronic showers that have started in the HCAL.\\
 Being designed to be compact, the measurements for the full detector are \SI{14}{m} in height and \SI{11}{m} in length.
 To compensate the small radius, the magnetic field of the superconducting solenoid magnet is \SI{5}{T}, so that SiD is still hermetic and contains the full particle showers.
 Figure~\ref{fig:SiD} shows visualization of the SiD detector and its subdetectors.
@@ -242,7 +300,7 @@ Outside the muon endcaps is the detector specific background shielding, called `
 \\Overall, the SiD detector is optimized for Particle Flow Algorithms (PFA).
 PFA is a reconstruction method that reconstructs each particle of the final state individually and uses the different subdetectors for a specific purpose.
 Therefore, charged particles are reconstructed from tracks in the tracker device, the ECAL is used for photons, and the ECAL and HCAL together for other neutral particles.~\cite{PFA}
-Table~\ref{tab:KeyParametersSiD} lists the key parameters and measurements of the SiD subdetector systems.
+Table~\ref{tab:KeyParametersSiD} lists the key parameters and measurements of the SiD subdetector systems.\\
 \begin{table}
 \caption{Key parameters of the baseline SiD design. All dimensions are given in cm.\cite{SiDBkgNote}}
 \label{tab:KeyParametersSiD}
@@ -270,9 +328,15 @@ BeamCal & Semiconductor-W & 326.5 & 344 & 14.0 \\
 \hline\hline
 \end{tabularx}
 \end{table}
+Part of the detector, but not part of the sensitive subdetectors, is ``Pacman''.
+Pacman is a detector specific shielding against machine background that reaches the detector and would increase the detector occupancy.
+It is placed on either side of the detector, and has an outer radius of about \SI{2.8}{\meter}, hence it covers the full radius of all subdetectors inside the solenoid magnet.
+The inner layer of Pacman is made of iron, the outer layer of borated concrete which is specially designed to stop neutrons.
+The thickness is about \SI{3.4}{\meter}.~\cite{SiD_Geo}
+Its use can be seen in the simulation of the machine backgrounds in Chapters~\ref{BDS_Muons:SiD} and \ref{BeamDumps:SiDocc}.
 
+\newpage
 \subsection{The International Large Detector}
-
 Like the SiD detector, ILD is a multi-purpose particle detector that is optimized for PFA.
 Its vertex detector is also based on silicon sensors, whereas the tracker is a combination of both, a silicon strip and pixel detector and a time projection chamber (TPC).
 Also similar to SiD, the calorimeters are within the solenoid magnet, which is only surrounded by the muon system.
