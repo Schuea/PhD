@@ -265,27 +265,54 @@ The focus will lie on SiD, since some of the background studies presented in thi
 \subsection{The Silicon Detector}
 The SiD is designed to be a robust, compact detector.
 Its vertex and tracker system, as well as the electromagnetic calorimeter (ECAL) are purely based on silicon sensors.
-The silicon design in comparison to other designs for the vertex and tracking detectors is more robust regarding the beam background and timing.~\cite[cf. p. 57ff]{TDR4}\\
+The silicon design in comparison to other designs for the vertex and tracking detectors is more robust regarding the beam background and timing.~\cite[cf. p. 57ff]{TDR4}
+\paragraph{Vertex Detector}
 The vertex detector will be the inner most subdetector with the measurements of a Coke can.
 Still, with its five layers for the barrel and the endcaps it will be able to do very precise measurements.
 The requirements for the vertex detector performance are very demanding:
 The spatial resolution has to be less than \SI{3}{\micro\meter}, which allows not only very precise tracking, but also the verification of the primary vertex of an event, as well as of the secondary vertex of a Bottom quark (b-tagging) and even of a Charm quark (c-tagging).
 Ladder is very challenging due to the short flight distance of the Charm quark of only a few microns before it hadronizes.
 Additionally, a very small material budget of about 0.1\,X$_0$ is foreseen for the vertex detector, since particles shall not perform particle showers in this subdetector.~\cite{SiD_Update}
-The final decision on the sensor technology is not made yet, which allows the detector to have the most recent state-of-the-art technology.\\
+The final decision on the sensor technology is not made yet, which allows the detector to have the most recent state-of-the-art technology.
+\paragraph{Tracking Detector}
 Outside vertex detector is the Silicon Tracker.
 For its five barrel layers and four endcap layers, silicon strip sensors are planed that will use so-called KPiX ASIC readout chips.
 These KPiX chips have a buffer depth of four in the current design, which means that up to four hits per sensor can be stored on the chip's buffer.
 Any further hit can not be recorded and is lost.
 That makes thorough simulations of the expected backgrounds reaching the detector very important.
-The sensors can still be adapted with respect to design and technology used, so that the detector is optimized as best as possible.\\
+The sensors can still be adapted with respect to design and technology used, so that the detector is optimized as best as possible.
+\paragraph{Electromagnetic Calorimeter}
 The electromagnetic calorimeter (ECAL) will be using these exact KPiX chips as well, as it is also based on silicon sensors.
-The ECAL with its 30 layers is designed to be a granular imaging calorimeter, meaning that electromagnetic particle showers developing in the tungsten layers between the sensitive silicon layers can not only be measured in width and length, but rather their shower particles can be tracked individually.\\
+The ECAL with its 30 layers is designed to be a granular imaging calorimeter, meaning that electromagnetic particle showers developing in the tungsten layers between the sensitive silicon layers can not only be measured in width and length, but rather their shower particles can be tracked individually.
+\paragraph{Hadronic Calorimeter}
 The same will be true for the highly segmented hadronic calorimeter (HCAL).
 With all subdetectors mentioned so far being inside the \SI{5}{\tesla} solenoid field of the SiD solenoid magnet, particle tracking is therefore possible not only in the tracking subdetectors, but even in the calorimeters.
-The 40 active layers of the HCAL will contain scintillators measuring particle showers that are developing in the steel layers in between.\\
-Finally, the muon chamber, which is the only subdetector outside the solenoid magnet, will use long scintillator strips based on the HCAL sensor technology.
-Its purpose is not only to identify muons being produced in the beam collisions, but also to record the tail of hadronic showers that have started in the HCAL.\\
+The 40 active layers of the HCAL will contain scintillators measuring particle showers that are developing in the steel layers in between.\todo{RPC or scintillator?}
+\paragraph{Muon System}
+The muon chamber, which is the only subdetector outside the solenoid magnet, will use long scintillator strips based on the HCAL sensor technology.
+Its purpose is not only to identify muons being produced in the beam collisions, but also to record the tail of hadronic showers that have started in the HCAL.
+\paragraph{Forward System}
+Finally, the forward systems of SiD make the detector hermetic, i.e. the detector is a closed system which can catch particles under every possible solid angle.
+The forward region covers a polar angle $\theta > $ \SI{3}{\milli\radian}.
+Boosted particles with high momentum along the beam direction that go under an angle $\theta < $ \SI{3}{\milli\radian} will therefore indeed escape the detector.
+These losses are not avoidable since detector components cannot be built inside the beam pipe and the detector is not designed for physics that require measurements of these small-angle particles.
+Therefore the detector is still called hermetic.
+The forward system consists of the Luminosity Calorimeter (LumiCal) and the Beam Calorimeter (BeamCal).
+Next to providing hermeticity, the LumiCal will measure the luminosity integrated over time, whilst the BeamCal will give an indication of the instantaneous luminosity by measuring the \positron \electron pair background from beam-beam interactions, which is explained in Section~\ref{BeamBeam:pairs}.
+Since the pair background is directly dependent on the beam qualities, the BeamCal measurements will indicate variations in the beam parameters.
+Like the ECAL, both, the LumiCal and the BeamCal, are sampling calorimeters using tungsten layers for the particle shower development and semiconductors for the sensitive layers.
+As the forward region is highly affected by high-energy particles that are typically boosted in the forward direction, the sensors have to be specifically designed to withstand radiation damage.
+This damage results from large energy depositions from the boosted particles as well as from different background, such as the pair background as mentioned before.
+With all of these particles hitting the forward system, it is expected to have an occupancy of 100\,\%, which needs to be accounted for in the readout technology.~\cite[p. 133ff]{TDR4}
+\paragraph{Pacman}
+Part of the detector, but not part of the sensitive subdetectors, is ``Pacman''.
+Pacman is a detector specific shielding against machine background that reaches the detector and would increase the detector occupancy.
+It is placed on either side of the detector, and has an outer radius of about \SI{2.8}{\meter}, hence it covers the full radius of all subdetectors inside the solenoid magnet.
+The inner layer of Pacman is made of iron, the outer layer of borated concrete which is specially designed to stop neutrons.
+The thickness is about \SI{3.4}{\meter}.~\cite{SiD_Geo}
+Its use can be seen in the simulation of the machine backgrounds in Chapters~\ref{BDS_Muons:SiD} and \ref{BeamDumps:SiDocc}.
+
+\paragraph{The overall SiD concept}
 Being designed to be compact, the measurements for the full detector are \SI{14}{m} in height and \SI{11}{m} in length.
 To compensate the small radius, the magnetic field of the superconducting solenoid magnet is \SI{5}{T}, so that SiD is still hermetic and contains the full particle showers.
 Figure~\ref{fig:SiD} shows visualization of the SiD detector and its subdetectors.
@@ -314,7 +341,7 @@ Tracker & Silicon strips & 21.7 & 122.1 & $\pm 152.2$ \\
 ECAL & Silicon pixels-W & 126.5 & 140.9 & $\pm 176.5$ \\
 HCAL & RPC-steel & 141.7 & 249.3 & $\pm 301.8$ \\
 Solenoid & 5 T SC & 259.1 & 339.2 & $\pm 298.3$ \\
-Flux return & Scintillator-steel & 340.2 & 604.2 & $\pm 303.3$ \\
+Muon System & Scintillator-steel & 340.2 & 604.2 & $\pm 303.3$ \\
 \hline
 SiD Endcap & Technology & Inner z & Outer z & Outer radius\\
 \hline
@@ -322,18 +349,27 @@ Vertex detector & Silicon pixels & 7.3 & 83.4 & 16.6 \\
 Tracker & Silicon strips & 77.0 & 164.3 & 125.5 \\
 ECAL & Silicon pixel-W & 165.7 & 180.0 & 125.0 \\
 HCAL & RPC-steel & 180.5 & 302.8 & 140.2 \\
-Flux return & Scintillator/steel & 303.3 & 567.3 & 604.2 \\
+Myon System & Scintillator/steel & 303.3 & 567.3 & 604.2 \\
 LumiCal & Silicon-W & 155.7 & 169.55 &  20.0 \\
 BeamCal & Semiconductor-W & 326.5 & 344 & 14.0 \\
 \hline\hline
 \end{tabularx}
 \end{table}
-Part of the detector, but not part of the sensitive subdetectors, is ``Pacman''.
-Pacman is a detector specific shielding against machine background that reaches the detector and would increase the detector occupancy.
-It is placed on either side of the detector, and has an outer radius of about \SI{2.8}{\meter}, hence it covers the full radius of all subdetectors inside the solenoid magnet.
-The inner layer of Pacman is made of iron, the outer layer of borated concrete which is specially designed to stop neutrons.
-The thickness is about \SI{3.4}{\meter}.~\cite{SiD_Geo}
-Its use can be seen in the simulation of the machine backgrounds in Chapters~\ref{BDS_Muons:SiD} and \ref{BeamDumps:SiDocc}.
+
+\paragraph{SiD detector variants}
+Since the publication of the Technical Design Report about the design details of the ILC accelerator, the detectors, the facilities etc., there have been official changes to the design.
+The changes regarding the overall accelerator and facility design are suggested as Change Requests (CR), and are reviewed and approved by a Technical Change and Management Board.~\cite{TCMB} \todo{Is that the right reference to the TCMB?}
+Some of the Change Requests effect the detector designs directly, such as the change of L*, the distance between the interaction point and the last quadrupole magnet (QD0).
+But there are also changes to the detector concepts, that are made internally by the detector groups.\\
+There are major SiD detector design variants that are subject of discussions and simulation studies:
+\begin{itemize}
+ \item \underline{Change of L*}\\
+ CR-002~\cite{CR-002}
+ \item \underline{Anti-DiD Field}\\
+ \item \underline{Design variants of the inner region of the BeamCal}\\
+\end{itemize}
+
+
 
 \newpage
 \subsection{The International Large Detector}
