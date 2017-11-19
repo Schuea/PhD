@@ -177,7 +177,6 @@ BCOR5mm]{scrbook}
 \tableofcontents         %%% create a TOC
 \listoffigures
 \listoftodos
-\include{Misc/nomenclature}
 
 \mainmatter              %%% now the thesis really starts
 \include{Chapters/Introduction}          %%% include all chapters in order
@@ -192,7 +191,8 @@ BCOR5mm]{scrbook}
 \include{Chapters/Results}
 \include{Chapters/Conclusion}
 
-\begin{appendix}                              %%% start the appendix for longer calculations/info
+\begin{appendix} %%% start the appendix for longer calculations/info
+\include{Misc/nomenclature}
 \include{Appendix/appendix}
 \end{appendix}
 
