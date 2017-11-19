@@ -116,6 +116,8 @@ BCOR5mm]{scrbook}
 \newcommand{\positron}{e$^+$\xspace}
 \newcommand{\lumi}{$\mathcal{L}$\xspace}
 
+\DeclareSIUnit\gauss{G}
+
 %------Definition for column color in table
 \definecolor{Gray}{gray}{0.9}
 \newcolumntype{g}{>{\columncolor{Gray}}r}
@@ -175,6 +177,7 @@ BCOR5mm]{scrbook}
 \tableofcontents         %%% create a TOC
 \listoffigures
 \listoftodos
+\include{Misc/nomenclature}
 
 \mainmatter              %%% now the thesis really starts
 \include{Chapters/Introduction}          %%% include all chapters in order
