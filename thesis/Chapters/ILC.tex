@@ -303,8 +303,8 @@ Next to providing hermeticity, the LumiCal will measure the luminosity integrate
 Since the pair background is directly dependent on the beam qualities, the BeamCal measurements will indicate variations in the beam parameters.
 Like the ECAL, both, the LumiCal and the BeamCal, are sampling calorimeters using tungsten layers for the particle shower development and semiconductors for the sensitive layers.
 As the forward region is highly affected by high-energy particles that are typically boosted in the forward direction, the sensors have to be specifically designed to withstand radiation damage.
-This damage results from large energy depositions from the boosted particles as well as from different background, such as the pair background as mentioned before.
-With all of these particles hitting the forward system, the BeamCal is expected to have an occupancy of 100\,\%, i.e. all of the BeamCal pixels are expected to be hit by particles.
+The damage results from large energy depositions from the boosted particles as well as from different background, such as the pair background as mentioned before.
+With this flux of particles hitting the forward system, the BeamCal is expected to have an occupancy of 100\,\%, i.e. all of the BeamCal pixels are expected to be hit by particles.
 This large occupancy needs to be accounted for in the readout technology.~\cite[p. 133ff]{TDR4}
 \paragraph{Pacman}
 Part of the detector, but not part of the sensitive subdetectors, is ``Pacman''.
@@ -357,7 +357,6 @@ BeamCal & Semiconductor-W & 326.5 & 344 & 14.0 \\
 \hline\hline
 \end{tabularx}
 \end{table}
-
 \paragraph{SiD detector variants}
 Since the publication of the Technical Design Report about the design details of the ILC accelerator, the detectors, the facilities etc., there have been official changes to the design.
 The changes regarding the overall accelerator and facility design are suggested as Change Requests (CR), and are reviewed and approved by a Technical Change and Management Board.~\cite{TCMB} \todo{Is that the right reference to the TCMB?}
@@ -370,10 +369,36 @@ There are major SiD detector design variants that are subject of discussions and
  Therefore both detectors have their own QD0 magnets, which are part of the push-pull system.
  The official Change Request CR-002~\cite{CR-002} decided on a common L* for both detector concepts.
  Before, the distance (L*) between the IP and QD0 was different for SiD and ILD, as L* is dependent on the size of the detector.
- Since the diverging L* values mean different beam operation depending on which detector was in use, CR-002 dictated a change of the detector designs in such a way to have the same L* for both detectors, in order to facilitate the beam operation.\\
+ Since the diverging L* values mean different beam operation depending on which detector was in use, CR-002 dictated a change of the detector designs in such a way that L* is the same for both detectors, in order to facilitate the beam operation.
  For SiD, the dictated change of L* from 3.5 to \SI{4.1}{\meter} implied in practice that the BeamCal had to be repositioned, since it is attached to the QD0 support structure. 
  The BeamCal moved from a former distance to the IP of 2.95 to \SI{3.265}{\meter}.~\cite{SiDBkgNote}
  \item \underline{Design variants of the inner region of the BeamCal}\\
+ The BeamCal surrounds the ingoing and outgoing beam pipe.
+ For the inner region around the beam pipes, there are three different design variants that include a different amount of instrumentation, as shown in Figure~\ref{fig:BeamCal}.
+ By cutting out the area between the beam pipes, the sensitive material is removed from the inner region with the highest density of background flux.
+ Doing so will reduce the overall BeamCal radiation damage, but also lessens the potential for measuring physics events.
+ \begin{figure}
+ \centering
+  \begin{subfigure}[b]{0.3\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/beamcal_plug.png}
+   \caption{Instrumented inner region}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.3\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/beamcal_wedge.png}
+   \caption{Wedge cutout}
+   \end{subfigure}
+    \begin{subfigure}[b]{0.3\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/beamcal_circle.png}
+   \caption{Circle cutout}
+   \end{subfigure}
+   \caption[Design variants of the SiD BeamCal]{Three different design variants of the inner region of the SiD BeamCal.
+   From (a) to (c), the instrumentation of the inner region decreases with an increasing fraction of material cut out.}
+   \label{fig:BeamCal}
+ \end{figure}
+
  \item \underline{Anti-DiD Field}\\
  The BeamCal is expected to have an occupancy of 100\,\% due to boosted particles as well as background particles such as the \positron\electron pairs from beam-beam interactions, as explained before.
  In order to suppress hits from these \positron\electron pairs, it was proposed to include an additional magnet in the detector design, the so-called anti-DiD (Detector Integrated Dipole) magnet.~\cite{antiDiD}
