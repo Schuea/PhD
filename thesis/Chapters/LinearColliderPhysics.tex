@@ -1,8 +1,8 @@
-\chapter{Accelerator Physics of Linear Colliders}
+\chapter{Accelerator physics of linear colliders}
 \label{LinearColliderPhysics}
 
 \begin{chapterabstract}
-Since the invention of the first particle accelerators in the late 1920s, many new forms of accelerators were discovered and developed over the years. 
+Since the invention of the first particle accelerators in the late 1920s, many different forms of accelerators were discovered and developed over the years. 
 Even though they may differ in shape and form, they all rely on the same principles. 
 After a brief introduction of these principles of accelerator physics, there will be a description of the two classes of particle accelerators which are mainly used for high-energy physics nowadays: linear and circular colliders. 
 By looking at their advantages and disadvantages, the differences between them will be elaborated.
@@ -28,7 +28,7 @@ The solution seems simple by putting several capacitors in a row.
 But again, this can not be done with electrostatic capacitors since the field gradient between two different capacitors is directed in the opposite direction.
 A particle traveling from one capacitor to the next would then lose kinetic energy again in the gap between two capacitors.
 A solution is quickly found by using time dependent electric fields, which change the orientation of their field periodically.\\
-In very simple terms, the key principles of a linear collider are thereby already explained.
+In simple terms, the key principles of a linear collider are thereby already explained.
 Better accelerating structures such as drift chambers and later on superconducting radio frequency (RF) cavities were developed over the years.
 The first linear accelerator using normal conducting drift chambers of increasing lengths was built and demonstrated by Rolf Wider\o e in 1928.~\cite[p. 6]{Wilson}
 A schematic drawing of such a structure is shown in Figure~\ref{fig:Wideroe_Linac}.
@@ -40,8 +40,9 @@ Since the particle gains energy by passing through a gap, the chambers need to h
 \caption[Schematic layout of a Wider\o e linac]{Schematic layout of a linear accelerator with drift chambers of increasing lengths after the design by Rolf Wider\o e.~\cite[p. 40]{Hinterberger}}
 \label{fig:Wideroe_Linac}
 \end{figure}
-\\Nowadays, particle accelerators all over the world mainly use RF cavities instead of drift tubes, with the possibility of being made of superconducting material since the electric resistance is minimal due to their superconducting nature.
-Unlike before the acceleration takes place inside the cavities, and all cavities are of the same length and shape.
+\\Nowadays, particle accelerators all over the world mainly use RF cavities instead of drift tubes.
+High-power RF cavitites are made of superconducting material, since its electric resistance is minimal.
+Unlike before, the acceleration takes place inside the cavities, and all cavity cells are of the same length and shape.
 Their characteristic shape has the effect that the electromagnetic (EM) wave inside the cavity is resonant.
 Figure~\ref{fig:Tesla_Cavity} shows a 9-cell niobium cavity developed at Deutsches Elektronen-Synchrotron (DESY) in Hamburg besides other facilities.
 Its shape is called ``TESLA-style'', and its accelerating gradient exceeds \SI{35}{\mega\volt\per\meter} whilst it can be tuned to a RF frequency of \SI{1.3}{\giga\hertz} .~\cite[p. 15f]{TDR31}
@@ -79,8 +80,8 @@ Particles with a smaller momentum ($\Delta$p/p $<$ 0) will arrive later than the
 \end{figure}
 %To still guarantee the particle to be accelerated by the same RF phase, the RF frequency is varied over the length of the linear collider.
 
-Rolf Wider\o e did not only build the first linear accelerator, he even more importantly invented the principles of the betatron, the very first accelerating structure using electromagnetic fields.
-Also the cyclotron which was invented in 1930 uses a magnetic field to deflect the charged particles on a radial path, and therefore allow the accelerator to be much smaller than before.~\cite[cf. p. 8]{Wilson}
+Rolf Wider\o e did not only build the first linear accelerator, he even more importantly invented the very first accelerating structures using electromagnetic fields.
+In a magnetic field, the charged particles are deflected on a radial path, which therefore allows the accelerator to be much smaller than before.~\cite[cf. p. 8]{Wilson}
 Exactly that idea was needed to advance from purely linear to circular in particle accelerators.
 
 \section{Transversal beam dynamics}
@@ -96,7 +97,7 @@ qvB\vec{e_r} &= \frac{mv^2}{r}\vec{e_r} \nonumber \\
 \end{align}
 Since the momentum $p$ of the charged particle rises over time, the radius $r$ of its circular path increases if the magnetic field $B$ is constant.
 The accelerator hence has to be built accordingly taking the increase in the radius into account, or needs to use magnets with variable field strengths.
-Ladder is done in synchrotron machines, a type of circular accelerator combining the principles of all particle accelerators mentioned above: acceleration in RF cavities, variation of the RF frequency, and variable magnetic field strengths.
+Latter is done in synchrotron machines, a type of circular accelerator combining the principles of all particle accelerators mentioned above: acceleration in RF cavities, variation of the RF frequency, and variable magnetic field strengths.
 In this way, the particles are traveling along a stationary orbit, passing through the same magnets and cavities over and over again until the desired beam energy is reached.
 To insure the stability of the orbit, not only bending dipole magnets can be found but also quadrupole magnets for focusing the particles, and sextupole and octupole magnets which then correct orbit fluctuations.
 The need for higher order correction magnets can be derived from the expansion of the magnetic field around the ideal path of the particle (x = 0):
@@ -167,12 +168,12 @@ The variables $\alpha$ and $\gamma$ are defined here as: $\alpha = -\frac12\beta
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{Figures/PhaseSpaceEllipse_w_AxisTitles.png}
-\caption[Phase space ellipse]{Phase space ellipse~\cite[cf. p. 158]{Wiedemann}}
+\caption[Phase space ellipse]{Phase space ellipse~\cite[based on p. 158]{Wiedemann}}
 \label{fig:PhaseSpaceEllipse}
-\end{figure}\todo{I have edited this figure slightly -> how to do the citation correctly?}
+\end{figure}
 \\The actual transverse size of the beam is not yet fully defined by the spatial amplitude of the betatron oscillations.~\cite[cf. p. 108ff]{Conte}
 Also the deviation from the ideal particle trajectory due to the momentum spread has to be taken into account, which is defined by the dispersion function $\eta$.
-Like $\epsilon$ and $\beta$, it is dependent on the position along the beam line, and can be defined as $\eta = \frac{dx}{d\delta}$, with the fractional deviation from the ideal particle momentum $\delta = \Delta x'/x'_0$.
+Like $\epsilon$ and $\beta$, it is dependent on the position along the beam line, and can be defined as $\eta = \frac{dx}{d\delta}$, with the fractional deviation from the ideal particle momentum $x'_0$: $\delta = \Delta x'/x'_0$.
 With this knowledge, the overall beam size can now be calculated:
 \begin{align}
  \sigma&=\sqrt{\sigma^2_{betatron}+\sigma^2_{dispersion}}\\
@@ -183,7 +184,7 @@ With this knowledge, the overall beam size can now be calculated:
 \label{AccPhysics:Linear-Circular}
 These transversal beam dynamics, described in the section above, are of course valid for circular as well as linear accelerators.
 In both machines, the acceleration with RF cavities, for instance, is accompanied by beam deflections and corrections with the help of magnets.
-Naturally, the beam line of a circular collider contains on average more magnets than a linear collider.\\
+Naturally, the beam line of a circular collider contains on average more bending magnets than a linear collider.\\
 Currently, the world's largest circular particle collider is the Large Hadron Collider (LHC) at CERN in Switzerland, a synchrotron machine with a circumference of \SI{27}{\kilo\meter}.
 The collision energy of the two colliding proton beams is \SI{13}{\TeV} in the current run, and its nominal peak luminosity \lumi is \SI{e34}{\centi\meter^{-2}\second^{-1}}.~\cite[p. 3]{LHC_Paper}\\
 The collision energy $\sqrt{s}$, or often called center-of-mass energy $E_{cm}$, between the beams with 4-vectors $p_1$ and $p_2$ is calculated as:
@@ -226,11 +227,11 @@ This so-called deep inelastic scattering is explained in more detail in Chapter~
 In contrast to that, a collision of leptons as elementary particles is the interaction of exactly these leptons at exactly their given energy.
 This is one of the reasons why lepton colliders are called ``precision machines''.
 Being able to set the collision energy precisely means that the events occurring in lepton colliders can be preselected.\\
-The decision whether to build a lepton or a hadron collider therefore depends solemnly on the physics goal.
+The decision whether to build a lepton or a hadron collider therefore depends mainly on the physics goal.
 The next question to be answered is which design the collider should have, linear or circular.
 Again, both alternatives have clear advantages and disadvantages.
 One advantage of circular accelerators was already mentioned before, namely the possibility to go to high energies by simply letting the beams perform more revolutions and hence gain more and more energy from every turn.
-This is not possible in linear colliders, since the beams are not restored after collision but dumped.
+This is not possible in linear colliders, since the beams are not used after collision but dumped.
 The full collision energy has to be gained in a single go.
 The only way to increase the collision energy of a linear collider is to make the accelerating line longer. So, why do linear colliders exist at all?\\
 The answer lies in the synchrotron radiation, radiation in the form of photons being emitted by deflecting charged particles.
@@ -256,3 +257,12 @@ When comparing the LHC (with a radius of \SI{2804}{\meter}) one time with \SI{6.
  &=\frac{m_e^4}{m_p^4}
 \end{align*}
 Concluding, a circular hadron collider lends itself to be a particle accelerator in the high-energy frontier, whereas a linear lepton collider is destined to be a collider in the precision frontier.
+
+\paragraph{A question of money}
+Also the cost for the accelerator might be a deciding factor when considering the design for a future collider.
+For the overall expected cost, there is a rough rule of thumb formulated by Burton Richter in 1980. \todo{Find reference to cost argument by B. Richter}
+Based on cost estimates of previous accelerators, the cost of circular accelerators tends to grow quadratically with the center-of-mass energy that is aimed for, whilst it grows linearly with the energy for linear colliders.
+Strictly speaking, the proportional cost growth for linear colliders is true considering only the accelerating structures, since the achievable energy is increasing linearly with the length of the accelerator.
+But there is more to a linear collider than just the accelerating structure: damping rings, focusing systems and beam dumps are only a few examples of what a linear collider layout contains as well.
+These elements, which add inevitable basic costs, are explained in more detail in Chapter~\ref{ILC:layout}.\\
+Apart from the basic costs, the increase in costs when reaching to higher center-of-mass energies is larger for circular than for linear colliders.
