@@ -14,7 +14,7 @@ The International Linear Collider (ILC) is a proposed linear \positron\electron 
 \section{Motivating the layout}
 \label{ILC:layout}
 The ILC was originally designed to collide electron and positron beams with a center-of-mass energy of \SI{500}{\GeV} in the first stage of operation.
-Because of political developments and the request in 2017 to reduce the construction cost, the first stage collision energy was reduced to \SI{250}{\GeV}.
+Because of political developments and the request in 2017 to reduce the initial construction cost, the first stage collision energy was reduced to \SI{250}{\GeV}.
 Due to the fact that linear colliders can be extended in length, the beam energies can linearly be increased.
 Therefore, the ILC has the possibility to upgrade the machine to higher energies later on.
 
@@ -23,26 +23,25 @@ Figure~\ref{fig:ILC_Layout} shows the schematic layout of the ILC.
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{Figures/ILC_layout_edited.png}
-\caption[Schematic layout of the ILC]{Schematic layout of the ILC~\cite[cf. p. 9]{TDR1}}
+\caption[Schematic layout of the ILC]{Schematic layout of the ILC~\cite[based on p. 9]{TDR1}}
 \label{fig:ILC_Layout}
-\end{figure}\todo{I have edited this figure slightly -> how to do the citation correctly?}
+\end{figure}
 The electrons are produced by a GaAs photocathode in a DC electron gun.~\cite[p. 13]{TDR32}
 By shining a circularly polarized laser on the electron beam, one reaches a beam polarization of at least 80\,\%, i.e. more than 80\,\% of all electrons will be left-handed\footnote{For a left-handed particle, its spin and its momentum are antiparallel, pointing in opposite directions.}:
 \begin{equation}
  P_e = \frac{N_L-N_R}{N_L+N_R} > 0.8
 \end{equation}
 The positron source consists of an undulator and a conversion target.
-In an undulator, several dipole magnets are placed in a line in such a way that their polarity alternates periodically (see Figure~\ref{fig:Undulator}).\todo{I have edited this figure slightly -> how to do the citation correctly?}
-For the creation of the positrons, the actual electron beam is used, which is guided through the  \SI{231}{\meter} long undulator after being pre-accelerated.
-By doing so, the electrons are deflected several times and emit synchrotron radiation photons, as explained in Chapter~\ref{AccPhysics:Linear-Circular}.
+In an undulator, several dipole magnets are placed in a line in such a way that their polarity alternates periodically (see Figure~\ref{fig:Undulator}).
+For the creation of the positrons, the actual electron beam is used, which is guided through the  \SI{231}{\meter} long helical undulator after being pre-accelerated.
+Using an undulator with a helical magnetic field causes the electrons to be deflected on a helical trajectory, and to emit synchrotron radiation photons that are circularly polarized\footnote{For circularly polarized light, the field vector of its electromagnetic wave rotates around the direction of propagation.}.
 The high-energy photons are then converted in the \SI{7}{\milli\meter} thick titanium-alloy conversion target, where \positron \electron pairs are produced due to pair production.
-The positrons are captured and form the positron beam.
-Due to the usage of an undulator and the conversion from photons, the positrons will have a polarization of 30\,\%.~\cite[p. 14]{TDR32}
+As the pair production from circularly polarized photons yield longitudinally polarized \positron \electron pairs~\cite{Polarization}, the beam of the captured positrons will have a polarization of 30\,\%.~\cite[p. 14]{TDR32}
 The whole process leads to a positron yield of 1.5 positrons per original beam electron passing through the undulator.~\cite{Ushakov}
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{Figures/Undulator_edited.png}
-\caption[Schematic layout of an undulator]{Schematic of an electron beam traveling through an undulator with dipole magnets in alternating order.~\cite[cf. p. 41]{Wille}}
+\caption[Schematic layout of an undulator]{Schematic of an electron beam traveling through an undulator with dipole magnets in alternating order.~\cite[based on p. 41]{Wille}}
 \label{fig:Undulator}
 \end{figure}
 \\The polarized positrons then continue along the positron line which is from that point on equivalent to the electron line.
@@ -59,7 +58,7 @@ The usage of two separate systems allows more flexibility in the operation, e.g.
 Subsequent to that, the bunches are injected into the main linear accelerator structures (main linacs).
 The main linacs have a length of \SI{5}{\kilo\meter}, and use superconducting RF cavities which are shown in Figure~\ref{fig:Tesla_Cavity} in Chapter~\ref{AccPhysics:Principles}. 
 For the machine upgrade to \SI{500}{\GeV}, the linacs can be extended in length.
-Since these exact cavities are already in use for the European XFEL (X-Ray Free-Electron Laser) at Deutsches Elektronen-Synchrotron (DESY) in Hamburg, their high performance has been demonstrated.
+Since these cavities are already in use for the European XFEL (X-Ray Free-Electron Laser) at Deutsches Elektronen-Synchrotron (DESY) in Hamburg, their high performance has been demonstrated.
 It has been shown that they have an average accelerating gradient of \SI{31.5}{MV/m}, and that they can be operated with a frequency of \SI{1.3}{\giga\hertz}.~\cite{Walker}\\
 The Beam Delivery System (BDS), which has an overall length of about \SI{4.4}{\kilo\meter}, transports the bunches from the linacs to the Interaction Point (IP).
 In the BDS, the beams are focused to nanometer size by the Final-Focus (FF) system.
