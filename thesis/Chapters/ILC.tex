@@ -82,27 +82,31 @@ They are located \SI{13.4}{\meter} up- and downstream of the IP.~\cite[p. 154]{T
 Table~\ref{tab:ILC_parameters} shows the machine parameters for the baseline design at \SI{250}{\GeV} center-of-mass energy, and for the energy and the luminosity upgrade stages.
 %\multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Baseline 500}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Lumi Upgrade}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{TeV Upgrade}} & {\centering\textbf{LHC 25ns}} \\ 
 \begin{table}
-\caption{Beam parameters for different phases in the ILC operation scenario (ILC250, Baseline 500, Luminosity Upgrade, TeV Upgrade)~\cites[p. 11]{TDR1}{CR-0016} in comparison to LHC Run 2 beam parameters~\cites[p. 3ff]{LHC_TDR}{LHC_Parameters}}.
+\caption{Beam parameters for different phases in the ILC operation scenario (ILC250, ILC500, Luminosity Upgrade, TeV Upgrade)~\cites[p. 11]{TDR1}{CR-0016} in comparison to LHC Run 2 beam parameters~\cites[p. 3ff]{LHC_TDR}{LHC_Parameters}}.
 \label{tab:ILC_parameters}
 \centering
-\begin{tabularx}{0.92\textwidth}{ll|rrrrg}
+\begin{tabularx}{0.99\textwidth}{lll|rrrrg}
 \hline\hline
-& & \multicolumn{1}{>{\centering}p{2cm}}{\textbf{ILC250}} & \multicolumn{1}{>{\centering}p{2cm}}{\textbf{Baseline 500}} & \multicolumn{1}{>{\centering}p{2cm}}{\textbf{Lumi Upgrade}} & \multicolumn{1}{>{\centering}p{2cm}}{\textbf{TeV Upgrade}} & \textbf{LHC 25ns}\\
+& && \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{ILC250}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{ILC500}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Lumi Up}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{TeV\\Up}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{LHC 25ns}}\\
 \hline
-\cline{1-7}
+\cline{1-8}
 \hline
-E$_{CM}$  &(\si{\GeV})& 250 & 500  & 500  & \num{1000} & \num{14000}\\
-n$_b$ & & \num{1312} & \num{1312} & \num{2625} & \num{2450} & \num{2808} \\
-$\Delta t_b$ &(\si{\nano\second}) & 554 & 554  & 366   & 366 & 25\\
-N & & \num{2.0e10} & \num{2.0e10}  & \num{2.0e10}  & \num{1.74e10} & \num{11.5e10} \\
-q$_b$ &(\si{\nano\coulomb})  & 3.2 & 3.2  & 3.2  &  2.7 & 18.4  \\
-$\sigma_x^*$ &(\si{\nano\metre}) & 515.5 & 474  & 474  &  481 & \num{16700}\\
-$\sigma_y^*$ &(\si{\nano\metre}) & 7.7 & 5.9 &  5.9  &  2.8 & \num{16700}\\
-$\sigma_z$ &(\si{\milli\metre}) & 0.3 & 0.3  &  0.3  &  0.25 & 0.755\\
-L &(\si{\per\centi\metre\squared\per\second}) & \num{1.35e34} & \num{1.8e34} & \num{3.6e34} & \num{3.6e34} & \num{1.0e34}\\
+E$_{CM}$  &{\small Center-of-mass energy}&{\small(\si{\GeV})}& 250 & 500  & 500  & \num{1000} & \num{14000}\\
+n$_b$ &{\small Number of bunches}&& \num{1312} & \num{1312} & \num{2625} & \num{2450} & \num{2808} \\
+$\Delta t_b$ &{\small Bunch seperation}&{\small(\si{\nano\second})} & 554 & 554  & 366   & 366 & 25\\
+N &{\small Bunch population}&& 2.0$\cdot10^{10}$ & 2.0$\cdot10^{10}$  & 2.0$\cdot10^{10}$  & 1.74$\cdot10^{10}$ & 11.5$\cdot10^{10}$\\
+q$_b$ &{\small Bunch charge}&{\small(\si{\nano\coulomb})}  & 3.2 & 3.2  & 3.2  &  2.7 & 18.4  \\
+$\sigma_x^*$ &{\small Horiz. beam size at IP}&{\small(\si{\nano\metre})} & 515.5 & 474  & 474  &  481 & \num{16700}\\
+$\sigma_y^*$ &{\small Vert. beam size at IP}&{\small(\si{\nano\metre})} & 7.7 & 5.9 &  5.9  &  2.8 & \num{16700}\\
+$\sigma_z$ &{\small Longit. beam size}&{\small(\si{\milli\metre})} & 0.3 & 0.3  &  0.3  &  0.25 & 0.755\\
+L &{\small Luminosity}&{\small(\si{\per\centi\metre\squared\per\second})} & 1.35$\cdot10^{34}$ & 1.8$\cdot10^{34}$ & 3.6$\cdot10^{34}$ &3.6$\cdot10^{34}$ & 1.0$\cdot10^{34}$\\
 \hline\hline
 \end{tabularx}
 \end{table}
+For all ILC running scenarios, the horizontal and vertical beam sizes are several orders of magnitude smaller than for the LHC Run 2, which is the reason for the comparable luminosities as mentioned above.
+Although the number of bunches per pulse and the bunch population are smaller, the LHC luminosity can be exceeded.
+It is striking that the horizontal and vertical beam sizes are symmetric for the LHC, whereas they are different for the ILC.
+This is a design choice, reducing the effect of beamstrahlung whilst enhancing the luminosity.\todo{Finish explanation}\\
 The Interaction Region (IR) houses the two detectors for the ILC, the Silicon Detector (SiD) and the International Large Detector (ILD), which are in a so-called ``push-pull'' system.
 The detectors and the push-pull system are explained in more detail in Section~\ref{ILC:detectors}.\\
 Finally, after collision the spent beams are guided through the extraction line (EXT) towards the main beam dumps, where they are dumped.
