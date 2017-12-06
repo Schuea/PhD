@@ -63,7 +63,7 @@ It has been shown that they have an average accelerating gradient of \SI{31.5}{M
 The Beam Delivery System (BDS), which has an overall length of about \SI{4.4}{\kilo\meter}, transports the bunches from the linacs to the Interaction Point (IP).
 In the BDS, the beams are focused to nanometer size by the Final-Focus (FF) system.
 The Final-Focus system is a crucial part of the ILC program.
-Only with nanometer-sized beams, the ILC can reach luminosities comparable to or beyond the Large Hadron Collider (LHC) at CERN.
+Only with nanometer-sized beams, the ILC can reach luminosities comparable to or beyond the Large Hadron Collider (LHC) at CERN, since the total production cross-section for \positron \electron colliders is several orders of magnitude smaller than for proton-proton colliders, such as the LHC, at their respective collision energies.
 To demonstrate the feasibility of nanometer-scale beams, a test facility was build that is a small scale prototype of the FF system for the ILC: the Accelerator Test Facility (ATF2), which will be presented in more detail in Section~\ref{ATF2}.
 The BDS system does not only contain the quadrupoles and sextupoles in FF system, but also various feedback diagnostics and beam-halo collimators for removing the halo of particles around the beam core in order to reduce the beam background at the IP. 
 Additionally, shielding systems are installed at various locations along the BDS line, again in order to keep the background level at the IP as low as possible.
@@ -81,7 +81,7 @@ They are located \SI{13.4}{\meter} up- and downstream of the IP.~\cite[p. 154]{T
 \end{figure}
 Table~\ref{tab:ILC_parameters} shows the machine parameters for the baseline design at \SI{250}{\GeV} center-of-mass energy, and for the energy and the luminosity upgrade stages.
 %\multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Baseline 500}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Lumi Upgrade}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{TeV Upgrade}} & {\centering\textbf{LHC 25ns}} \\ 
-\begin{table}
+\begin{table}[h]
 \caption{Beam parameters for different phases in the ILC operation scenario (ILC250, ILC500, Luminosity Upgrade, TeV Upgrade)~\cites[p. 11]{TDR1}{CR-0016} in comparison to LHC Run 2 beam parameters~\cites[p. 3ff]{LHC_TDR}{LHC_Parameters}}.
 \label{tab:ILC_parameters}
 \centering
@@ -103,10 +103,13 @@ L &{\small Luminosity}&{\small(\si{\per\centi\metre\squared\per\second})} & 1.35
 \hline\hline
 \end{tabularx}
 \end{table}
-For all ILC running scenarios, the horizontal and vertical beam sizes are several orders of magnitude smaller than for the LHC Run 2, which is the reason for the comparable luminosities as mentioned above.
+For all ILC running scenarios, the beam sizes are several orders of magnitude smaller than for the LHC Run 2, which is the reason for the comparable luminosities as mentioned above.
 Although the number of bunches per pulse and the bunch population are smaller, the LHC luminosity can be exceeded.
-It is striking that the horizontal and vertical beam sizes are symmetric for the LHC, whereas they are different for the ILC.
-This is a design choice, reducing the effect of beamstrahlung whilst enhancing the luminosity.\todo{Finish explanation}\\
+It is striking that the beam sizes in the horizontal and vertical plane are symmetric for the LHC, whereas they are different for the ILC.
+This is a design choice, reducing the effect of beamstrahlung whilst enhancing the luminosity.
+As shown in Equation~\ref{eq:pair_number} in Chapter~\ref{BeamBeam:pairs}, the number of background particles from beamstrahlung is inversely proportional to the sum of the beam sizes, $\sigma_x+\sigma_y$.
+At the same time, the luminosity is inversely proportional to the product of the beam sizes, $\sigma_x\cdot\sigma_y$, as shown in Equation~\ref{eq:luminosity} in Chapter~\ref{AccPhysics:Linear-Circular}.
+By choosing the beam sizes to be $\sigma_x\gg\sigma_y$, the product is small leading to large luminosities, while the sum is large leading to a diminished background rate.\\
 The Interaction Region (IR) houses the two detectors for the ILC, the Silicon Detector (SiD) and the International Large Detector (ILD), which are in a so-called ``push-pull'' system.
 The detectors and the push-pull system are explained in more detail in Section~\ref{ILC:detectors}.\\
 Finally, after collision the spent beams are guided through the extraction line (EXT) towards the main beam dumps, where they are dumped.
