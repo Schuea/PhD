@@ -34,7 +34,19 @@ The Standard Model explains how the elementary particles interact with each othe
 \section{Production modes}
 \label{Production_modes}
 
-\todo{Cross-section of lepton collider in comparison to LHC}
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.4\textwidth}
+\includegraphics[width=\textwidth]{Figures/ILC_cross_section.png}
+\caption{\positron \electron cross-section~\cite{ILC_cross}}
+\end{subfigure}
+\begin{subfigure}[b]{0.4\textwidth}
+\includegraphics[width=\textwidth]{Figures/LHC_cross_section.pdf}
+\caption{pp cross-section~\cite{LHC_cross}}
+\end{subfigure}
+\caption[Cross-sections for ILC and LHC]{Cross-section at \positron \electron and pp colliders as a function of the collision energy.}
+\label{fig:Cross_sections}
+\end{figure}
 
 \section{Backgrounds}
 \label{Backgrounds}
@@ -47,10 +59,12 @@ The Standard Model explains how the elementary particles interact with each othe
 For a Gaussian beam, the average energy $E_{\gamma}$ of photons from the deflection of the colliding particles is proportional to [5]:
 \begin{equation}
  E_{\gamma} \propto \frac{N}{(\sigma_x+\sigma_y)\sigma_z}
+ \label{eq:pair_energy}
 \end{equation}
 where N is the number of particles per bunch. The average number of photons is proportional to:
 \begin{equation}
  n_{\gamma} \propto \frac{N}{(\sigma_x+\sigma_y)}
+ \label{eq:pair_number}
 \end{equation}
 %Therefore, in ILC chapter about beam parameters: Hence flat beams with $\sigma_x\gg\sigma_y$ are used. The product of the horizontal and vertical beam sizes is small leading to high luminosity while the sum of them is large, reducing the beamstrahlung effect.
 
