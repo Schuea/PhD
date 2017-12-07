@@ -63,22 +63,31 @@ It has been shown that they have an average accelerating gradient of \SI{31.5}{M
 The Beam Delivery System (BDS), which has an overall length of about \SI{4.4}{\kilo\meter}, transports the bunches from the linacs to the Interaction Point (IP).
 In the BDS, the beams are focused to nanometer size by the Final-Focus (FF) system.
 The Final-Focus system is a crucial part of the ILC program.
-Only with nanometer-sized beams, the ILC can reach luminosities comparable to or beyond the Large Hadron Collider (LHC) at CERN, since the total production cross-section for \positron \electron colliders is several orders of magnitude smaller than for proton-proton colliders, such as the LHC, at their respective collision energies.
+Only with nanometer-sized beams, the ILC can reach luminosities comparable to or beyond the Large Hadron Collider (LHC) at CERN, since the total production cross-section for \positron \electron colliders is several orders of magnitude smaller than for proton-proton colliders, such as the LHC, at their respective collision energies (see Figure~\ref{fig:Cross_sections}).
 To demonstrate the feasibility of nanometer-scale beams, a test facility was build that is a small scale prototype of the FF system for the ILC: the Accelerator Test Facility (ATF2), which will be presented in more detail in Section~\ref{ATF2}.
-The BDS system does not only contain the quadrupoles and sextupoles in FF system, but also various feedback diagnostics and beam-halo collimators for removing the halo of particles around the beam core in order to reduce the beam background at the IP. 
+The BDS system does not only contain the quadrupoles and sextupoles in the FF system, but also various feedback diagnostics and beam-halo collimators for removing the halo of particles around the beam core in order to reduce the beam background at the IP. 
 Additionally, shielding systems are installed at various locations along the BDS line, again in order to keep the background level at the IP as low as possible.
 Chapter~\ref{BDS_Muons} will talk about muon shielding options that are considered for the ILC.
-\\After the Final-Focus system, the beams are then finally brought into collision with a crossing angle of \SI{14}{mrad} at the IP.\cite[p. 9-10]{TDR1}
+\\After the Final-Focus system, the beams are then finally brought into collision with a crossing angle of \SI{14}{\milli\radian} at the IP.\cite[p. 9-10]{TDR1}
 With so-called crab cavities, the bunches are rotated horizontally so that effective head-on collisions are possible.
 This is illustrated in Figure~\ref{fig:Crab_crossing}.
-The crab cavities are also supderconducting RF cavities but have only a gradient of \SI{5}{\mega\volt\per\meter}.
-They are located \SI{13.4}{\meter} up- and downstream of the IP.~\cite[p. 154]{TDR32}
+The crab cavities are also superconducting RF cavities, but designed for a RF frequency of \SI{3.9}{\giga\hertz} and an accelerating gradient of \SI{5}{\mega\volt\per\meter}.~\cite[p. 154]{TDR32}
+The RF phase is modeled in such a way that only the head and the tail of the beam bunch experience acceleration, but in opposite directions.
+The voltage needed to rotate a bunch with energy $E_{bunch}$ can be calculated as follows~\cite{Crab_cavities}:
+\begin{equation}
+ V_{crab}=\frac{cE_{bunch}\theta_C}{2\omega R}
+\end{equation}
+$\theta_C$ is the crossing angle as before, $\omega$ is the RF frequency of the crab cavity, and $R$ is the ratio of the bunch displacement at the IP to its divergence, i.e. the ratio of the spatial shift at the IP to the increase in the beam size.
+With all other quantities fixed, only $R$ can be chosen to be high in order to reduce the required voltage.
+Therefore, the crab cavities are positioned at locations where this ratio $R$ between the spatial shift and the beam size increase is calculated to be large.
+For the ILC, it was calculated that the crab cavities should be located \SI{13.4}{\meter} up- and downstream of the IP.~\cite[p. 154]{TDR32}
 \begin{figure}
 \centering
 \includegraphics[width=0.5\textwidth]{Figures/Crab_crossing.png}
 \caption[Schematic of a beam crossing with crab cavities]{Schematic of a beam crossing with crab cavities. In a crossing with crossing angle $\theta_C$, head-on collisions are only possible with crab cavities that rotate the beam in the horizontal plane.}
 \label{fig:Crab_crossing}
 \end{figure}
+
 Table~\ref{tab:ILC_parameters} shows the machine parameters for the baseline design at \SI{250}{\GeV} center-of-mass energy, and for the energy and the luminosity upgrade stages.
 %\multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Baseline 500}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Lumi Upgrade}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{TeV Upgrade}} & {\centering\textbf{LHC 25ns}} \\ 
 \begin{table}[h]
@@ -109,7 +118,8 @@ It is striking that the beam sizes in the horizontal and vertical plane are symm
 This is a design choice, reducing the effect of beamstrahlung whilst enhancing the luminosity.
 As shown in Equation~\ref{eq:pair_number} in Chapter~\ref{BeamBeam:pairs}, the number of background particles from beamstrahlung is inversely proportional to the sum of the beam sizes, $\sigma_x+\sigma_y$.
 At the same time, the luminosity is inversely proportional to the product of the beam sizes, $\sigma_x\cdot\sigma_y$, as shown in Equation~\ref{eq:luminosity} in Chapter~\ref{AccPhysics:Linear-Circular}.
-By choosing the beam sizes to be $\sigma_x\gg\sigma_y$, the product is small leading to large luminosities, while the sum is large leading to a diminished background rate.\\
+By choosing the beam sizes to be $\sigma_x\gg\sigma_y$, the product is small leading to large luminosities, while the sum is large leading to a diminished background rate.
+
 The Interaction Region (IR) houses the two detectors for the ILC, the Silicon Detector (SiD) and the International Large Detector (ILD), which are in a so-called ``push-pull'' system.
 The detectors and the push-pull system are explained in more detail in Section~\ref{ILC:detectors}.\\
 Finally, after collision the spent beams are guided through the extraction line (EXT) towards the main beam dumps, where they are dumped.
@@ -121,9 +131,9 @@ In Chapter~\ref{BeamDumps} about the simulation of the main beam dumps done for 
 \subsection{Staging}
 As mentioned above, it was decided in 2017 to reduce the center-of-mass energy of the first ILC stage to \SI{250}{\GeV}.~\cite{ICFA_Statement}
 Regarding the ILC layout, several options are under discussion which are shown in Figure~\ref{fig:Staging}.
-These options would yield a cost reduction of up to 40\,\% by reducing the length of the tunnel (options A, B and C), or by additionally reducing the number of RF cavities (options A', B' and C').
+These options would yield a cost reduction of up to 34\,\%, resulting in about 66\,\% of the initial costs for the \SI{500}{\GeV} machine by reducing the length of the tunnel (options A, B and C), or by additionally reducing the number of RF cavities (options A', B' and C').~\cite{Cost_reduction}
 Overall, option A' foresees the shortest possible tunnel for a the \SI{250}{\GeV} and the smallest number of cavities, and therefore results in the highest cost reduction.
-On the other hand, the options with a longer tunnel would give a more positive sign to the ILC community that an energy upgrade is planned for the future.
+On the other hand, the options with a longer tunnel would give a more positive sign to the ILC community that an energy upgrade is foreseen for the future.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.7\textwidth]{Figures/Staging.png}
