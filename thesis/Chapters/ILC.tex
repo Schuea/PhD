@@ -129,11 +129,16 @@ This leads to high irradiation of the beam dump surrounding and dangerous condit
 In Chapter~\ref{BeamDumps} about the simulation of the main beam dumps done for this thesis, more details are given for the current beam dump designs.
 
 \subsection{Staging}
-As mentioned above, it was decided in 2017 to reduce the center-of-mass energy of the first ILC stage to \SI{250}{\GeV}.~\cite{ICFA_Statement}
+As mentioned above, it was decided in 2017 to reduce the center-of-mass energy of the first ILC stage to \SI{250}{\GeV}, in order to reduce the total costs of the ILC project.~\cite{ICFA_Statement}
+The total costs for realizing the ILC includes next to the manpower not only the costs for the construction of the so-called conventional facilities, such as the underground tunnels and the surface buildings, but also the production and assembling of the accelerator and detector components.
+When breaking the total costs down into the subsystems, then the conventional facilities together with the production of the RF systems for the accelerator make up almost 75\,\% of the total costs.~\cite[p. 20f]{TDR1}
+These estimations are based on cost inquiries with several industrial companies, as well as on experiences collected at former accelerator projects, such as the European XFEL which uses the same design for the RF cavities as planned for the ILC.\\
 Regarding the ILC layout, several options are under discussion which are shown in Figure~\ref{fig:Staging}.
 These options would yield a cost reduction of up to 34\,\%, resulting in about 66\,\% of the initial costs for the \SI{500}{\GeV} machine by reducing the length of the tunnel (options A, B and C), or by additionally reducing the number of RF cavities (options A', B' and C').~\cite{Cost_reduction}
 Overall, option A' foresees the shortest possible tunnel for a the \SI{250}{\GeV} and the smallest number of cavities, and therefore results in the highest cost reduction.
-On the other hand, the options with a longer tunnel would give a more positive sign to the ILC community that an energy upgrade is foreseen for the future.
+As explained before, the costs for the tunnel and the accelerating structures represent indeed the largest fraction of the total costs, and will be reduced by the staging options.
+However, the other parts of the accelerator and the surface buildings will not change by the staging scenarios but form basic costs because of which the maximum cost reduction that can be achieved lies at only 34\,\%.
+Therefore, it has to be considered whether the cost cutback from option A' outweighs the positive sign a longer tunnel would give to the ILC community that an energy upgrade is foreseen for the future.\\
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.7\textwidth]{Figures/Staging.png}
@@ -145,7 +150,7 @@ Option B and C would foresee longer tunnels that would facilitate a later energy
 Options A', B' and C' correspond to options A, B and C regarding the tunnel length, but they assume RF cavities with a gradient of \SI{35}{\mega\volt\per\meter} instead of \SI{31.5}{\mega\volt\per\meter} in order to reduce the number of cavities needed.~\cite[p. 19]{Staging}}
 \label{fig:Staging}
 \end{figure}
-\\Figure~\ref{fig:ILC_runningtime} shows two possible running scenarios for the staged ILC.
+Figure~\ref{fig:ILC_runningtime} shows two possible running scenarios for the staged ILC.
 In both cases the ILC will have energy and luminosity upgrades, so that it will reach the same integrated luminosity over a different amount of time.
 On the left hand side, the plot shows an expected operation time of 15 years for the ILC250 with a luminosity upgrade at the midway-point.
 After an energy upgrade by extending the main linac, the operation at \SI{500}{\GeV} and a short run at \SI{350}{\GeV} for dedicated measurements of the Top quark qualities would be possible.
@@ -165,8 +170,9 @@ Out of originally more than ten potential ILC sites in Japan, the Kitakami mount
 This decision was made in August 2013 after a detailed study of all site specific factors, like the geological conditions, the infrastructure, and the impact on the environment and the economy.
 Measurements of the Kitakami mountains have shown that it consists mostly of granite rock with the best qualities for the ILC, regarding vibration and rock stress.
 As can be seen in Figure~\ref{fig:ILC_Site}, the closest city with about 120,000 citizens would be Ichinoseki.
-Morioka and Sendai are the biggest cities around the candidate site, with Tokyo being about \SI{430}{\kilo\meter} away.
-Although being in the north of Japan, the travel time from Tokyo is only about three hours, and the proximity to the coast line allows the transportation of construction, machine and detector parts by ship.
+Morioka and Sendai are the biggest cities close to the candidate site, with Tokyo being about \SI{430}{\kilo\meter} away.
+Although being in the north of Japan, the travel time from Tokyo is only about three hours by Shinkansen, Japan's high-speed bullet train, and the proximity to the coast line allows the transportation of construction, machine and detector parts by ship.
+Additionally, there are local airports in both, Morioka and Sendai, presenting further options for traveling and the transportation of construction materials.
 \begin{figure}
 \centering
 \includegraphics[width=0.5\textwidth]{Figures/ILC-site.jpg}
@@ -178,7 +184,7 @@ Although being in the north of Japan, the travel time from Tokyo is only about t
 \section{Physics motivation}
 \label{ILC:physicsmotivation}
 After having shown that the ILC as a linear lepton collider is designed to be a state-of-the-art precision machine, this section will present its physics goals.
-With the LHC as the so-called ``discovery machine'', the ILC will be a complementary collider being aimed for much needed precision than for searching for new particles at high energies.
+With the LHC as the so-called ``discovery machine'', the ILC will be a complementary collider being aimed rather for much needed precision than for searching for new particles at high energies.
 The ILC is often called the future Higgs factory which will measure the qualities of the Higgs boson with much higher precision than it had been done so far.
 Additionally, the different stages of the ILC will also measure the Top quark qualities, and will have access to Beyond Standard Model (BSM) physics.
  
@@ -204,7 +210,7 @@ At the LHC, underlying and pileup events populate the detector.}
 \end{figure}
 
 \paragraph{All events alike}
-Because the elementary coupling e of photons is the same for all quarks and leptons, the \electron \positron annihilation produces pairs of all species, from the Standard Model and Beyond Standard Model, at similar rates.
+Because the elementary coupling of Z bosons and photons is the same for all quarks and leptons, the \electron \positron annihilation produces pairs of all species, from the Standard Model and Beyond Standard Model, at similar rates.
 Besides that, the ILC will record all events without triggers.
 That means that no event will be rejected, and complete events will be stored for later analysis.
 This is only possible because the total number of detector hits from background events is small.
@@ -267,7 +273,6 @@ This leads to differences in the relative Higgs boson coupling precisions of a f
 The plot shows the relative precisions for the Higgs couplings calculated from the \textbf{model dependent} fits to simulated data from the HL-LHC, and from these fits combined with \textbf{model independent} fits to simulated data from the ILC.}
 \label{fig:Higgs_couplings}
 \end{figure}
-%TODO : Check if there is a more up-to-date picture
 
 \newpage
 \section{The experiments}
@@ -275,9 +280,9 @@ The plot shows the relative precisions for the Higgs couplings calculated from t
 In order to preserve the competitive spirit and the ability to cross-check results, the ILC has two detectors despite the fact that it is a linear and not a circular collider.
 The so-called push-pull system makes that possible by allowing the detectors to switch position after a certain amount of data-taking time.
 The whole detector together with the last quadrupole magnet of the accelerator Final-Focus system will be pulled out of the beam line, and the other one takes its place.
-The whole process is designed to take only several hours up to 1-2 days, but involves some challenges especially for the magnets, the cryogenics, and the detector and machine alignment.\cite[p. 28-29]{TDR1}
+The whole process is designed to take only several hours up to 1-2 days, but involves some challenges especially for the magnets, the cryogenics, and the detector and machine alignment.~\cite[p. 28-29]{TDR1}
 The two detectors, the Silicon Detector (SiD) and the International Large Detector (ILD), will be explained in detail in the following.
-The focus will lie on SiD, since some of the background studies presented in this thesis were done in the context of the SiD detector only.
+The focus will lie on SiD, since all the background studies presented in this thesis were done in the context of the SiD detector only.
 
 \subsection{The Silicon Detector}
 The SiD is designed to be a robust, compact detector.
@@ -288,7 +293,7 @@ The vertex detector will be the inner most subdetector with the measurements of 
 Still, with its five layers for the barrel and the endcaps it will be able to do very precise measurements.
 The requirements for the vertex detector performance are very demanding:
 The spatial resolution has to be less than \SI{3}{\micro\meter}, which allows not only very precise tracking, but also the verification of the primary vertex of an event, as well as of the secondary vertex of a Bottom quark (b-tagging) and even of a Charm quark (c-tagging).
-Ladder is very challenging due to the short flight distance of the Charm quark of only a few microns before it hadronizes.
+Latter is very challenging due to the short flight distance of the Charm quark of only a few microns before it hadronizes.
 Additionally, a very small material budget of about 0.1\,X$_0$ is foreseen for the vertex detector, since particles shall not perform particle showers in this subdetector.~\cite{SiD_Update}
 The final decision on the sensor technology is not made yet, which allows the detector to have the most recent state-of-the-art technology.
 \paragraph{Tracking detector}
@@ -304,7 +309,7 @@ The ECAL with its 30 layers is designed to be a granular imaging calorimeter, me
 \paragraph{Hadronic calorimeter}
 The same will be true for the highly segmented hadronic calorimeter (HCAL).
 With all subdetectors mentioned so far being inside the \SI{5}{\tesla} solenoid field of the SiD solenoid magnet, particle tracking is therefore possible not only in the tracking subdetectors, but even in the calorimeters.
-The 40 active layers of the HCAL will contain scintillators measuring particle showers that are developing in the steel layers in between.\todo{RPC or scintillator?}
+The 40 active layers of the HCAL will contain scintillators measuring particle showers that are developing in the steel layers in between.
 \paragraph{Muon system}
 The muon chamber, which is the only subdetector outside the solenoid magnet, will use long scintillator strips based on the HCAL sensor technology.
 Its purpose is not only to identify muons being produced in the beam collisions, but also to record the tail of hadronic showers that have started in the HCAL.
