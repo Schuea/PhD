@@ -42,51 +42,57 @@ The shadows indicate possible interactions between the fermions and gauge bosons
 \end{figure}
 
 \paragraph{Fermions}
-The fermions are further categorized as leptons and quarks, as well as in three generations, which can be seen in Figure~\ref{fig:SM}.
-As leptons, the SM lists the electron and its heavier brothers, the muon and the tau.
-All fermions have a specific set of quantum numbers, so that by giving the electric charge and the lepton number all leptons can be identified precisely (see Table~\ref{tab:Fermions}).
+Fermions are particles with a spin quantum number of $s = 1/2$. 
+The spin is the particle's rotation about its central axis, and has a direction and a specific amplitude.
+The amplitude can be calculated as $\frac{h}{2\pi}\sqrt{s(s+1)}$, with $h$ being the Planck constant.~\cite[p. 121]{Griffiths}
+All fermions have a specific set of quantum numbers, so that by giving the electric charge, the spin, and the flavor,  all fermions can be identified precisely.
+Table~\ref{tab:Fermions} lists all Standard Model fermions with their quantum numbers.
 
 \begin{table}
-\caption[Quantum numbers of the Standard Model fermions]{Quantum numbers of the Standard Model fermions. The table lists the values for the electric charge, and the spin for all fermions, as well as the lepton number of the leptons and their antiparticles.~\cite[cf. p. 49]{Griffiths}}
+\caption[Quantum numbers of the Standard Model fermions]{Quantum numbers of the Standard Model fermions. The table lists the values for the electric charge $q$, and the spin $s$ for all fermions, as well as the lepton number $L$ of the leptons and the quark flavor of the quarks. Their respective antiparticles are highlighted by the shaded background.~\cite[cf. p. 49]{Griffiths}}
 \label{tab:Fermions}
 \centering
-\begin{tabularx}{0.65\textwidth}{c|c|rrr|@{\hskip 0.5in}|c|rr}
+\begin{tabularx}{\textwidth}{c|c|rrrrr|@{\hskip 0.03in}|c|rrrrrrrr}
 \hline\hline
-& Leptons & $Q$ & $S$ & $L$ & Quarks & $Q$ & $S$\\
+& Leptons & $q$ & $s$ & $L_e$ & $L_{\mu}$ & $L_{\tau}$ & Quarks & $q$ & $s$ & $U$ & $D$ & $C$ & $S$ & $T$ & $B$\\
 \hline
-& e\textsuperscript{--} & --1 & 1/2 & +1 & u & +2/3 & 1/2\\
+& e\textsuperscript{--} & --1 & 1/2 & +1 & 0 & 0 & u & +2/3 & 1/2 & +1 & 0 & 0 & 0 & 0 & 0\\
 \rowcolor{Gray}
-\cellcolor{white}& e\textsuperscript{+} & +1 & 1/2 & --1 & $\bar{\rm{u}}$ & --2/3 & 1/2\\
-& $\upnu$\textsubscript{e} & 0 & 1/2 & +1 & d & --1/3 & 1/2\\
+\cellcolor{white}& e\textsuperscript{+} & +1 & 1/2 & --1 & 0 & 0 & $\bar{\rm{u}}$ & --2/3 & 1/2 & --1 & 0 & 0 & 0 & 0 & 0\\
+& $\upnu$\textsubscript{e} & 0 & 1/2 & +1 & 0 & 0 & d & --1/3 & 1/2 & 0 & --1 & 0 & 0 & 0 & 0\\
 \rowcolor{Gray}
-\multirow{-4}{*}{\rotatebox[origin=c]{90}{\parbox[c]{1.9cm}{\cellcolor{white}\centering First generation}}} &$\bar\upnu$\textsubscript{e} & 0 & 1/2 & --1 & $\bar{\rm{d}}$ & +1/3 & 1/2\\
+\multirow{-4}{*}{\rotatebox[origin=c]{90}{\parbox[c]{1.9cm}{\cellcolor{white}\centering First generation}}} &$\bar\upnu$\textsubscript{e} & 0 & 1/2 & --1 & 0 & 0 & $\bar{\rm{d}}$ & +1/3 & 1/2 & 0 & +1 & 0 & 0 & 0 & 0\\
 \hline
-& $\upmu$\textsuperscript{--} & --1 & 1/2 & +1 & c & +2/3 & 1/2\\
+& $\upmu$\textsuperscript{--} & --1 & 1/2 & 0 & +1 & 0 & c & +2/3 & 1/2 & 0 & 0 & +1 & 0 & 0 & 0\\
 \rowcolor{Gray}
-\cellcolor{white}&$\upmu$\textsuperscript{+} & +1 & 1/2 & --1 & $\bar{\rm{c}}$ & --2/3 & 1/2\\
-& $\upnu$\textsubscript{$\upmu$} & 0 & 1/2 & +1 & s & --1/3 & 1/2\\
+\cellcolor{white}&$\upmu$\textsuperscript{+} & +1 & 1/2 & 0 & --1 & 0 & $\bar{\rm{c}}$ & --2/3 & 1/2 & 0 & 0 & --1 & 0 & 0 & 0\\
+& $\upnu$\textsubscript{$\upmu$} & 0 & 1/2 & 0 & +1 & 0 & s & --1/3 & 1/2 & 0 & 0 & 0 & --1 & 0 & 0\\
 \rowcolor{Gray}
-\multirow{-4}{*}{\rotatebox[origin=c]{90}{\parbox[c]{1.9cm}{\cellcolor{white}\centering Second generation}}}& $\bar\upnu$\textsubscript{$\upmu$} & 0 & 1/2 & --1  & $\bar{\rm{s}}$ & +1/3 & 1/2\\
+\multirow{-4}{*}{\rotatebox[origin=c]{90}{\parbox[c]{1.9cm}{\cellcolor{white}\centering Second generation}}}& $\bar\upnu$\textsubscript{$\upmu$} & 0 & 1/2 & 0 & --1 & 0  & $\bar{\rm{s}}$ & +1/3 & 1/2 & 0 & 0 & 0 & +1 & 0 & 0\\
 \hline
-& $\uptau$\textsuperscript{--} & --1 & 1/2 & +1 & t & +2/3 & 1/2\\
+& $\uptau$\textsuperscript{--} & --1 & 1/2 & 0 & 0 & +1 & t & +2/3 & 1/2 & 0 & 0 & 0 & 0 & +1 & 0\\
 \rowcolor{Gray}
-\cellcolor{white}& $\uptau$\textsuperscript{+} & +1 & 1/2 & --1 & $\bar{\rm{t}}$ & --2/3 & 1/2\\
-& $\upnu$\textsubscript{$\uptau$} & 0 & 1/2 & +1 & b & --1/3 & 1/2\\
+\cellcolor{white}& $\uptau$\textsuperscript{+} & +1 & 1/2 & 0 & 0 & --1 & $\bar{\rm{t}}$ & --2/3 & 1/2 & 0 & 0 & 0 & 0 & --1 & 0\\
+& $\upnu$\textsubscript{$\uptau$} & 0 & 1/2 & 0 & 0 & +1 & b & --1/3 & 1/2 & 0 & 0 & 0 & 0 & 0 & --1\\
 \rowcolor{Gray}
-\multirow{-4}{*}{\rotatebox[origin=c]{90}{\parbox[c]{1.9cm}{\cellcolor{white}\centering Third generation}}}& $\bar\upnu$\textsubscript{$\uptau$} & 0 & 1/2 & --1 & $\bar{\rm{b}}$ & +1/3 & 1/2\\
+\multirow{-4}{*}{\rotatebox[origin=c]{90}{\parbox[c]{1.9cm}{\cellcolor{white}\centering Third generation}}}& $\bar\upnu$\textsubscript{$\uptau$} & 0 & 1/2 & 0 & 0 & --1 & $\bar{\rm{b}}$ & +1/3 & 1/2 & 0 & 0 & 0 & 0 & 0 & +1\\
 \hline\hline
 \end{tabularx}
 \end{table}
 
-In their respective generation, each of them has a neutrino, hence there is the electron-neutrino, muon-neutrino, and tau-neutrino, which are electrically neutral particles.
-Their lepton number is +1 as well.
-Since the SM does in general not include antiparticles, there are not only six leptons but twelve.
-The only difference between particles and antiparticles is the sign of their internal quantum numbers, so that the electron's antiparticle is the positron, which has the same mass and spin as the electron, but has a positive charge of +1, and a negative lepton number of -1.
+Fermions are further categorized as \textit{leptons} and \textit{quarks}, as well as in three generations, which can be seen in Figure~\ref{fig:SM}.
+Among the leptons, there are the electron and its heavier brothers, the muon and the tau.
+In their respective generation, each of them has a neutrino, hence there are the electron-neutrino, muon-neutrino, and tau-neutrino, which are electrically neutral particles.\\
+Since the SM does in general not remark the corresponding antiparticles, there are actually not only six leptons but twelve.
+The only difference between particles and antiparticles is the sign of their internal quantum numbers:
+The electron's antiparticle is the positron, which has the same mass and spin as the electron, but has a positive charge of +1, and a negative lepton number of -1.
 The antiparticles of the muon ($\upmu$\textsuperscript{-}) and the tau ($\uptau$\textsuperscript{-}) hence are $\upmu$\textsuperscript{+} and $\uptau$\textsuperscript{+}, respectively.
-As neutrinos on the other hand have no electrical charge, they  can only be distinguished from their respective antineutrino by their lepton number and their helicity. 
-
-quarks consists of one up- and one down-type quark, with every generation increasing in mass.
-
+As neutrinos on the other hand have no electrical charge, they can only be distinguished from their respective antineutrino by their lepton number.\\
+Every generation of quarks consists of one up- and one down-type quark, where the up-type quarks have an electric charge of 2/3, whilst down-type quarks have a charge of --1/3.
+However, they do not only carry the electric charge, but also the so-called color charge.
+Every quark has one of three colors (red, green, and blue), every antiquark has one of three anti-colors (anti-red, anti-green, and anti-blue).
+Thus, there are overall 36 different quarks and antiquarks.
+%The masses of the quarks increases towards higher generations.
 
 \section{Production modes}
 \label{Production_modes}
