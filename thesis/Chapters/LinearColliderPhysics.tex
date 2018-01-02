@@ -2,14 +2,15 @@
 \label{LinearColliderPhysics}
 
 \begin{chapterabstract}
-Since the invention of the first particle accelerators in the late 1920s, many different forms of accelerators were discovered and developed over the years. 
+Since the invention of the first particle accelerators in the late 1920s, many different forms of accelerators were invented and developed over the years. 
 Even though they may differ in shape and form, they all rely on the same principles. 
-After a brief introduction of these principles of accelerator physics, there will be a description of the two classes of particle accelerators which are mainly used for high-energy physics nowadays: linear and circular colliders. 
-By looking at their advantages and disadvantages, the differences between them will be elaborated.
+After a brief introduction of these principles of accelerator physics, there will be a description of the two classes of particle accelerators that are mainly used for high-energy physics nowadays: linear and circular colliders. 
+By looking at their advantages and disadvantages, the differences between them will be compared.
 \end{chapterabstract}
 \newline
 
 After Ernest Rutherford had demonstrated the nuclear reactions of nitrogen with alpha particles from radioactive decays in 1919, he recognized the need for other more controlled sources of accelerated particles.
+\todo{Collider: Add Rutherford reference}
 In the following years, physicists endeavored to develop necessary devices, and found that the key principle in particle acceleration lies in electrostatics.~\cite[p. 3f]{Livingston}
 
 \section{Principles of particle acceleration}
@@ -19,16 +20,17 @@ In a time independent electric field $\vec{E}$ with potential $U$, the particle 
 \begin{equation}
  \Delta E = q \int \vec{E}d\vec{r} = qU
 \end{equation}
-The particle's charge expressed in the elementary charge e is simply multiplied by the electric potential in Volts to calculate the gain or loss of the particle's kinetic energy. 
+The particle's charge, expressed in the elementary charge e, is simply multiplied by the electric potential in Volts to calculate the gain or loss of the particle's kinetic energy. 
 Out of convenience, the unit for energy in particle physics is therefore eV.\\
 By this logic a particle is accelerated to higher energies by applying higher and higher electrostatic fields. 
-Exactly this was done in the beginning of particle accelerators by increasing the voltage applied to a capacitor and shooting the charged particle through. 
+This was done in the beginning of particle accelerators by increasing the voltage applied to a capacitor and shooting the charged particle through the field. 
 Unfortunately, there are limits to the amount of voltage that can be applied before an electric breakdown.
-The solution seems simple by putting several capacitors in a row.
+The solution seems simple: putting several capacitors in a row.
 But again, this can not be done with electrostatic capacitors since the field gradient between two different capacitors is directed in the opposite direction.
 A particle traveling from one capacitor to the next would then lose kinetic energy again in the gap between two capacitors.
-A solution is quickly found by using time dependent electric fields, which change the orientation of their field periodically.\\
+A solution was quickly found by using time dependent electric fields, which change the orientation of their field periodically.\\
 In simple terms, the key principles of a linear collider are thereby already explained.
+\todo{Collider: This sentence is somehow weird and unnecessary, consider removing or rewording it}
 Better accelerating structures such as drift chambers and later on superconducting radio frequency (RF) cavities were developed over the years.
 The first linear accelerator using normal conducting drift chambers of increasing lengths was built and demonstrated by Rolf Wider\o e in 1928.~\cite[p. 6]{Wilson}
 A schematic drawing of such a structure is shown in Figure~\ref{fig:Wideroe_Linac}.
@@ -40,17 +42,20 @@ Since the particle gains energy by passing through a gap, the chambers need to h
 \caption[Schematic layout of a Wider\o e linac]{Schematic layout of a linear accelerator with drift chambers of increasing lengths after the design by Rolf Wider\o e.~\cite[p. 40]{Hinterberger}}
 \label{fig:Wideroe_Linac}
 \end{figure}
-\\Nowadays, particle accelerators all over the world mainly use RF cavities instead of drift tubes.
-High-power RF cavitites are made of superconducting material, since its electric resistance is minimal.
+\\
+Nowadays, particle accelerators all over the world mainly use RF cavities instead of drift tubes.
+High-power RF cavities are made of superconducting material, since its electric resistance is minimal.
+\todo{Collider: Is the electric resistance not zero?}
 Unlike before, the acceleration takes place inside the cavities, and all cavity cells are of the same length and shape.
 Their characteristic shape has the effect that the electromagnetic (EM) wave inside the cavity is resonant.
-Figure~\ref{fig:Tesla_Cavity} shows a 9-cell niobium cavity developed at Deutsches Elektronen-Synchrotron (DESY) in Hamburg besides other facilities.
+Figure~\ref{fig:Tesla_Cavity} shows a 9-cell niobium cavity developed at Deutsches Elektronen-Synchrotron (DESY) in Hamburg.
 Its shape is called ``TESLA-style'', and its accelerating gradient exceeds \SI{35}{\mega\volt\per\meter} whilst it can be tuned to a RF frequency of \SI{1.3}{\giga\hertz} .~\cite[p. 15f]{TDR31}
+\todo{Collider: I don't think you explained what an RF frequency is, although you are quoting one on this line}
 \begin{figure}
 \begin{subfigure}[b]{0.49\textwidth}
 \centering
  \includegraphics[width=\textwidth]{Figures/Tesla_Cavity.jpg}
-\caption[Tesla-style 9-cell cavity]{Picture of a so-called TESLA-style 9-cell niobium cavity.~\cite[p. 15]{TDR31}}
+\caption[Tesla-style 9-cell cavity]{Picture of a TESLA-style 9-cell niobium cavity.~\cite[p. 15]{TDR31}}
 \label{fig:Tesla_Cavity}
 \end{subfigure}\hfill
 \begin{subfigure}[b]{0.49\textwidth}
@@ -82,12 +87,12 @@ Particles with a smaller momentum ($\Delta$p/p $<$ 0) will arrive later than the
 
 Rolf Wider\o e did not only build the first linear accelerator, he even more importantly invented the very first accelerating structures using electromagnetic fields.
 In a magnetic field, the charged particles are deflected on a radial path, which therefore allows the accelerator to be much smaller than before.~\cite[cf. p. 8]{Wilson}
-Exactly that idea was needed to advance from purely linear to circular in particle accelerators.
+This idea was needed in order to advance from purely linear to circular particle accelerators.
 
 \section{Transversal beam dynamics}
 \label{AccPhysics:Magnets}
 
-Circular acceleration does also have certain challenges.
+Circular acceleration has certain challenges.
 From the equilibrium of the Lorentz and the centripetal force follows:
 \begin{align}
 q(\vec{v}\times \vec{B}) &= \frac{m\vec{v}^2}{r}\\
@@ -97,9 +102,9 @@ qvB\vec{e_r} &= \frac{mv^2}{r}\vec{e_r} \nonumber \\
 \end{align}
 Since the momentum $p$ of the charged particle rises over time, the radius $r$ of its circular path increases if the magnetic field $B$ is constant.
 The accelerator hence has to be built accordingly taking the increase in the radius into account, or needs to use magnets with variable field strengths.
-Latter is done in synchrotron machines, a type of circular accelerator combining the principles of all particle accelerators mentioned above: acceleration in RF cavities, variation of the RF frequency, and variable magnetic field strengths.
+The latter is done in synchrotron machines, a type of circular accelerator combining the principles of all particle accelerators mentioned above: acceleration in RF cavities, variation of the RF frequency, and variable magnetic field strengths.
 In this way, the particles are traveling along a stationary orbit, passing through the same magnets and cavities over and over again until the desired beam energy is reached.
-To insure the stability of the orbit, not only bending dipole magnets can be found but also quadrupole magnets for focusing the particles, and sextupole and octupole magnets which then correct orbit fluctuations.
+To insure the stability of the orbit, not only can bending dipole magnets be found, but also quadrupole magnets for focusing the particles, and sextupole and octupole magnets which then correct orbital fluctuations.
 The need for higher order correction magnets can be derived from the expansion of the magnetic field around the ideal path of the particle (x = 0):
 \begin{alignat}{5}
  B_y(x) &= B_{y0} &&+ \frac{\partial B_y}{\partial x}x &&+ \frac{1}{2!}\frac{\partial^2 B_y}{\partial x^2}x^2 &&+ \frac{1}{3!}\frac{\partial^3 B_y}{\partial x^3}x^3 &+ ...\\
@@ -108,7 +113,7 @@ The need for higher order correction magnets can be derived from the expansion o
   &= \frac{1}{r} &&+ kx &&+ \frac{1}{2!}mx^2 &&+ \frac{1}{3!}ox^3 &+ ... \label{eq:field_components}\\
   &\rightarrow \textnormal{dipole} &&+ \textnormal{quadrupole} &&+ \textnormal{sextupole} &&+ \textnormal{octupole} &+ ...\nonumber
 \end{alignat}
-Equation~\ref{eq:field_components} shows directly the connection between the radius and the magnetic field in the dipole component (compare with Equation~\ref{eq:MagField_Radius}).
+Equation~\ref{eq:field_components} shows the connection between the radius and the magnetic field in the dipole component (compare with Equation~\ref{eq:MagField_Radius}).
 In the quadrupole, sextupole and octupole components, a factor for the magnet strength is introduced.
 According to the Maxwell equation $\vec{\nabla}\cdot\vec{B} = \frac{\partial B_y}{\partial x} -\frac{\partial B_x}{\partial y} = 0$, the Lorentz force on a particle in a quadrupole magnet, has therefore to be written as (cf. \cite[p. 372]{VacuumElectronics}):
 \begin{multicols}{2}
@@ -137,13 +142,14 @@ The beam pipe is centered in the middle between the pole shoes.
 A positively charged particle inside the beam pipe would be focused in the y-direction and defocused in x.~\cite[p. 88]{Hinterberger}}
 \label{fig:Quadrupole}
 \end{figure}
-\\Due to the fact that there are focusing and defocusing quadrupoles, so-called FODO structures are commonly used in particle colliders.
+\\
+Due to the fact that there are focusing and defocusing quadrupoles, so-called FODO structures are commonly used in particle colliders.
 FODO is an alternating structure made out of focusing quadrupole magnets (``F'') and defocusing ones (``D''), with drift paths in between (see Figure~\ref{fig:FODO}).
 After several of these structures, which act like optical lenses, the particle beam is focused in both directions, horizontally and vertically.
 \begin{figure}
 \centering
 \includegraphics[width=0.5\textwidth]{Figures/FODO.png}
-\caption[Schematic of FODO structure]{Schematic of a FODO structure in the horizontal and vertical plane. The particles are focused and defocused by the quadrupoles that act as lenses. The overall beam envelope is compressed after a certain number of focusing and defocussing quadrupoles.~\cite[p. 65]{Hinterberger}}
+\caption[Schematic of FODO structure]{Schematic of a FODO structure in the horizontal and vertical plane. The particles are focused and defocused by the quadrupoles that act as lenses. The overall beam envelope is compressed after a certain number of focusing and defocusing quadrupoles.~\cite[p. 65]{Hinterberger}}
 \label{fig:FODO}
 \end{figure}
 Due to the restoring force, particles that were deflected by the focusing magnets start to perform betatron oscillations around the ideal particle path.
@@ -152,11 +158,12 @@ It can be expressed by the two beam parameters $\beta$ and $\epsilon$ which will
 The beta function $\beta$ describes the spatial dependency of the amplitude and the wave length of the betatron oscillations.
 It is a periodic function, dependent on the focusing strengths and the order of the magnets in the beam line.
 At any given point along the beam line, the $\beta$ value can be given in its units of length.
-Of particular interest is its value at the interaction point (IP), the point of the beam collisions, where it is then  named $\beta^*$ .
-The smaller the beta function is, the narrower is the beam.\\
+Of particular interest is its value at the interaction point (IP), the point of the beam collisions, where it is then named $\beta^*$ .
+The smaller the beta function, the narrower the beam.\\
 Like the beta function, the transverse emittance $\epsilon$ is defined in the horizontal and vertical plane.
 $\epsilon$ is a direct measure of the convergence of the beam with respect to its spread in space and in momentum.
 A small emittance therefore means that the beam particles are confined to a small space, whilst they are all of the same momentum.
+\todo{Collider: You mean whilst all having momentum that are very similar to each other, not exactly the same}
 It also has the units of length, and is often given as the normalized emittance $\epsilon^* = \epsilon\gamma$, with the relativistic Lorentz factor $\gamma=\frac{1}{\sqrt{1-v^2/c^2}}$.\\
 Together, the spatial amplitude of the betatron oscillations can be written as $\sqrt{\epsilon\beta}$.
 Since the amplitude of these oscillations counts towards the size of the beam, it can then be written as $\sigma_{betatron} = \sqrt{\epsilon\beta}$.
@@ -171,8 +178,10 @@ The variables $\alpha$ and $\gamma$ are defined here as: $\alpha = -\frac12\beta
 \caption[Phase space ellipse]{Phase space ellipse~\cite[based on p. 158]{Wiedemann}}
 \label{fig:PhaseSpaceEllipse}
 \end{figure}
-\\The actual transverse size of the beam is not yet fully defined by the spatial amplitude of the betatron oscillations.~\cite[cf. p. 108ff]{Conte}
+\\
+The actual transverse size of the beam is not yet fully defined by the spatial amplitude of the betatron oscillations.~\cite[cf. p. 108ff]{Conte}
 Also the deviation from the ideal particle trajectory due to the momentum spread has to be taken into account, which is defined by the dispersion function $\eta$.
+\todo{Collider: Is the above sentence the explanation of the one above it? If so remove the word 'Also'}
 Like $\epsilon$ and $\beta$, it is dependent on the position along the beam line, and can be defined as $\eta = \frac{dx}{d\delta}$, with the fractional deviation from the ideal particle momentum $x'_0$: $\delta = \Delta x'/x'_0$.
 With this knowledge, the overall beam size can now be calculated:
 \begin{align}
@@ -209,21 +218,24 @@ $f$ is the revolution frequency, the number of revolutions a bunch makes per sec
 $n_{b}$ is the number of bunches, and $\sigma_{x,y}$ is the beam bunch size in the horizontal and the vertical plane.
 Table~\ref{tab:ILC_parameters} in Chapter~\ref{ILC} lists these parameters and their values for the LHC in comparison to the International Linear Collider (ILC).
 In order to translate the luminosity into an event rate, the luminosity value has to be divided by the cross-section $\sigma_p$ of the physics process that is of interest.
-Since the LHC detectors do only measure events from inelastic scattering, the LHC event rate can be calculated by taking only the cross-section for inelastic proton-proton scattering into account, which is measured to be \SI{78}{\milli\barn}~\cite{inelXSection}. Barn (``b'') is the unit of cross-sections in particle physics, and is equivalent to \SI{e-28}{\meter\squared}.
+Since the LHC detectors only measure events from inelastic scattering, the LHC event rate can be calculated by taking only the cross-section for inelastic proton-proton scattering into account, which is measured to be \SI{78}{\milli\barn}~\cite{inelXSection}.
+Barn (``b'') is the unit of cross-sections in particle physics, and is equivalent to \SI{e-28}{\meter\squared}.
 \begin{align}
  \dot{N}&=\mathcal{L}\cdot\sigma_{inelastic}\\
  &=10^{34} \textrm{cm}^{-2}s^{-1} \cdot 78\textrm{\,mb}\\
  &=7.8\times 10^8 s^{-1}
 \end{align}
 %https://www.lhc-closer.es/taking_a_closer_look_at_lhc/0.cross_section
-Per second about 780 million events are occurring at the LHC, because of which it is a so-called ``discovery machine''.
+Every second about 780 million events are occurring at the LHC, because of which it is a so-called ``discovery machine''.
+\todo{Collider: Is it really to do with the rate of events, that the LHC is a discover machine? I thought it was the higher CoM energy}
 With its high luminosity and high collision energy, the possible physics processes from the hadron collisions cover wide energy ranges.  
 New particles, first seen for example as resonance peaks in the measured mass spectra, can be discovered easier due to the large phase space.
+\todo{Collider: Easer than what?}
 This was the case in 2012 for instance, when the LHC found a peak at an energy of \SI{126}{\GeV}, shortly after recognized as the very first measurement of a Higgs boson.~\cite{Higgs}\\
 %The reason why large synchrotron rings need pre-accelerators is that the range for changing the magnet's field strength is limited.
 Why these so-called ``discovery machines'' are hadron and not lepton colliders, and why they are circular and not linear, is to be explained with the physical qualities of the colliding particles.
 Hadrons are by definition composite particles, the actual colliding particles in a collision are therefore their partons, the constituents of the hadrons.
-Which energy the single partons have, follows a certain probability function, leading to the fact that the collision energy in hadron colliders can cover a large range.
+The energy that the single partons have follows a certain probability function, leading to the fact that the collision energy in hadron colliders can cover a large range.
 This so-called deep inelastic scattering is explained in more detail in Chapter~\ref{StandardModel}.\\
 In contrast to that, a collision of leptons as elementary particles is the interaction of exactly these leptons at exactly their given energy.
 This is one of the reasons why lepton colliders are called ``precision machines''.
@@ -231,27 +243,31 @@ Being able to set the collision energy precisely means that the events occurring
 The decision whether to build a lepton or a hadron collider therefore depends mainly on the physics goal.
 The next question to be answered is which design the collider should have, linear or circular.
 Again, both alternatives have clear advantages and disadvantages.
-One advantage of circular accelerators was already mentioned before, namely the possibility to go to high energies by simply letting the beams perform more revolutions and hence gain more and more energy from every turn.
+One advantage of circular accelerators was already mentioned, namely the possibility to go to high energies by simply letting the beams perform more revolutions and hence gain more and more energy from every turn.
 This is not possible in linear colliders, since the beams are not used after collision but dumped.
 The full collision energy has to be gained in a single go.
-The only way to increase the collision energy of a linear collider is to make the accelerating line longer. So, why do linear colliders exist at all?\\
+The only way to increase the collision energy of a linear collider is to make the accelerating line longer.
+So, why do linear colliders exist at all?\\
 The answer lies in the synchrotron radiation, radiation in the form of photons being emitted by deflecting charged particles.
-Every deflection in a magnetic field yields an energy loss in form of this synchrotron light, and the more magnets an accelerator has, the more energy loss the beam suffers from.
+Every deflection in a magnetic field yields an energy loss in the form of this synchrotron light, and the more magnets an accelerator has, the more energy loss the beam suffers from.
+\todo{Collider: What if we have no dipole magnets but lots of quadrupole and sextupole magnets?}
 The synchrotron radiation power is defined as~\cite[p. 33]{Wille}:
 \begin{equation}
  P_S = \frac{e^2c}{6\pi\epsilon_0}\frac{1}{(m_0c^2)^4}\frac{E^4}{R^2}
 \end{equation}
-This directly leads to the energy loss per turn in a circular collider of radius R, for which one turn takes the time interval $T$:
+This directly leads to the energy loss per turn in a circular collider of radius $R$, for which one turn takes the time interval $T$:
 \begin{align}
  \Delta E &= P_S\cdot T\\
  &= P_S\frac{2\pi R}{c}\\
  &=\frac{e^2}{3\epsilon_0(m_0c^2)^4}\frac{E^4}{R} \label{eq:Eloss_synchrotron_radiation}
 \end{align}
 In order to counteract the loss, the beam has to be accelerated by at least $\Delta E$ for every turn.
-Equation~\ref{eq:Eloss_synchrotron_radiation} also implies that a circular accelerator with high beam energies either has to have accelerating cavities with extremely high gradients, or that its radius has be so large that it can compensate the factor $E^4$.
-Having a closer look at the equation, it now becomes clear why the LHC for example is a hadron collider:
+Equation~\ref{eq:Eloss_synchrotron_radiation} also implies that a circular accelerator with high beam energies either has to have accelerating cavities with extremely high gradients, or that its radius has be so large that it can compensate for the factor $E^4$.
+Having a closer look at the equation, it now becomes clear why the LHC is a hadron collider:
 Due to the factor $m_0^{-4}$, the synchrotron radiation is much lower for particles with higher masses.
 When comparing the LHC (with a radius of \SI{2804}{\meter}) one time with \SI{6.5}{\GeV} beams of protons and another time with electrons, then it can be calculated directly that an ``Electron-LHC'' would lose about 1.14\,$\cdot\,10^{13}$ times as much energy from synchrotron radiation than the existing LHC, simply because of the electron-proton mass ratio:
+\todo{Collider: Does the ratio of the energy loss depend on the radius? If not, why include the radius in this sentence?}
+\todo{Collider: I think the radius of the LHC is a little larger than that}
 \begin{align*}
  \frac{\Delta E_e}{\Delta E_p} &= \frac{7.49\cdot10^{10} \textnormal{MeV}}{6.59\cdot10^{-3} \textnormal{MeV}}\\
  &=1.14\cdot10^{13}\\
@@ -262,7 +278,7 @@ Concluding, a circular hadron collider lends itself to be a particle accelerator
 \paragraph{A question of money}
 Also the cost for the accelerator might be a deciding factor when considering the design for a future collider.
 For the overall expected cost, there is a rough rule of thumb formulated by Burton Richter in 1979.~\cite[p. 87ff]{Richter}
-Based on cost estimates of previous accelerators, the cost of circular accelerators tends to grow quadratically with the center-of-mass energy that is aimed for, whilst it grows linearly with the energy for linear colliders.
+Based on cost estimates of previous accelerators, the cost of circular accelerators tends to grow quadratically with the nominal center-of-mass energy, whilst it grows linearly with the energy for linear colliders.
 Strictly speaking, the proportional cost growth for linear colliders is true considering only the accelerating structures, since the achievable energy is increasing linearly with the length of the accelerator.
 But there is more to a linear collider than just the accelerating structure: damping rings, focusing systems and beam dumps are only a few examples of what a linear collider layout contains as well.
 These elements, which add inevitable basic costs, are explained in more detail in Chapter~\ref{ILC:layout}.
