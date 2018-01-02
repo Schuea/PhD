@@ -3,7 +3,9 @@
 \begin{chapterabstract}
 For answering the fundamental questions of mankind, it is necessary to understand the world in great detail.
 In order to confirm theories in particle physics, or to disproof them, it is often important to be able to measure the qualities of particles or their interactions to the tenth decimal place or better.
+  \todo{ILC: I know this is a pain, but can you find an example of when we need to know something to the tenth decimal place and add a reference?}
 For measurements being done in high-energy particle colliders, such precisions can only be reached in linear lepton colliders, as has already been shown in Chapter~\ref{LinearColliderPhysics}.
+  \todo{ILC: I'm not sure I saw something in the linear collider chapter that showed me the actual precision achieved by linear colliders}
 The following sections will present a new design for such a collider of the precision frontier: the International Linear Collider (ILC). 
 Its proposed layout, the possible construction sites, the detectors, and finally the physics motivation for such a capable accelerator will be explained.
 \end{chapterabstract}
@@ -27,7 +29,7 @@ Figure~\ref{fig:ILC_Layout} shows the schematic layout of the ILC.
 \label{fig:ILC_Layout}
 \end{figure}
 The electrons are produced by a GaAs photocathode in a DC electron gun.~\cite[p. 13]{TDR32}
-By shining a circularly polarized laser on the electron beam, one reaches a beam polarization of at least 80\,\%, i.e. more than 80\,\% of all electrons will be left-handed\footnote{For a left-handed particle, its spin and its momentum are antiparallel, pointing in opposite directions.}:
+By shining a circularly polarized laser on the electron beam, one reaches a beam polarization of at least \SI{80}{\percent}, i.e. more than \SI{80}{\percent} of all electrons will be left-handed\footnote{For a left-handed particle, its spin and its momentum are antiparallel, pointing in opposite directions.}:
 \begin{equation}
  P_e = \frac{N_L-N_R}{N_L+N_R} > 0.8
 \end{equation}
@@ -36,20 +38,22 @@ In an undulator, several dipole magnets are placed in a line in such a way that 
 For the creation of the positrons, the actual electron beam is used, which is guided through the  \SI{231}{\meter} long helical undulator after being pre-accelerated.
 Using an undulator with a helical magnetic field causes the electrons to be deflected on a helical trajectory, and to emit synchrotron radiation photons that are circularly polarized\footnote{For circularly polarized light, the field vector of its electromagnetic wave rotates around the direction of propagation.}.
 The high-energy photons are then converted in the \SI{7}{\milli\meter} thick titanium-alloy conversion target, where \positron \electron pairs are produced due to pair production.
-As the pair production from circularly polarized photons yield longitudinally polarized \positron \electron pairs~\cite{Polarization}, the beam of the captured positrons will have a polarization of 30\,\%.~\cite[p. 14]{TDR32}
+As the pair production from circularly polarized photons yield longitudinally polarized \positron \electron pairs~\cite{Polarization}, the beam of the captured positrons will have a polarization of \SI{30}{\percent}.~\cite[p. 14]{TDR32}
 The whole process leads to a positron yield of 1.5 positrons per original beam electron passing through the undulator.~\cite{Ushakov}
+\todo{ILC: Do I understand correctly, that you actually produce more positrons than electrons?}
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{Figures/Undulator_edited.png}
 \caption[Schematic layout of an undulator]{Schematic of an electron beam traveling through an undulator with dipole magnets in alternating order.~\cite[based on p. 41]{Wille}}
 \label{fig:Undulator}
 \end{figure}
-\\The polarized positrons then continue along the positron line which is from that point on equivalent to the electron line.
+\\
+The polarized positrons then continue along the positron line that is, from that point on, equivalent to the electron line.
 Since the electrons and positrons have a large emittance when they originate from their sources, their momentum and beam size have to be condensed.
 This is done in the damping rings (DR), which have a circumference of \SI{3.2}{\kilo\meter}.~\cite[p. 14]{TDR32}
 As discussed several times before, the beams will emit synchrotron radiation when they are deflected in a magnetic field.
-Exactly this is desired in the damping rings in order to ``cool'' the beams, i.e. to reduce their momentum due to the emission of light.
-In a second step the beams are then accelerated again which increases their momentum in the desired direction.
+This is desired in the damping rings in order to ``cool'' the beams, i.e. to reduce their momentum due to the emission of light.
+In a second step, the beams are then accelerated again which increases their momentum in the desired direction.
 The result is a high quality beam with small beam emittance.\\
 After passing the damping rings, the electron and positron beams are compressed into bunches by a two-stage compressor system.
 Here, the bunch length is reduced from several millimeters to \SI{300}{\micro\meter}.
@@ -59,12 +63,14 @@ Subsequent to that, the bunches are injected into the main linear accelerator st
 The main linacs have a length of \SI{5}{\kilo\meter}, and use superconducting RF cavities which are shown in Figure~\ref{fig:Tesla_Cavity} in Chapter~\ref{AccPhysics:Principles}. 
 For the machine upgrade to \SI{500}{\GeV}, the linacs can be extended in length.
 Since these cavities are already in use for the European XFEL (X-Ray Free-Electron Laser) at Deutsches Elektronen-Synchrotron (DESY) in Hamburg, their high performance has been demonstrated.
+\todo{ILC: Add a reference to XFEL}
 It has been shown that they have an average accelerating gradient of \SI{31.5}{MV/m}, and that they can be operated with a frequency of \SI{1.3}{\giga\hertz}.~\cite{Walker}\\
 The Beam Delivery System (BDS), which has an overall length of about \SI{4.4}{\kilo\meter}, transports the bunches from the linacs to the Interaction Point (IP).
 In the BDS, the beams are focused to nanometer size by the Final-Focus (FF) system.
 The Final-Focus system is a crucial part of the ILC program.
 Only with nanometer-sized beams, the ILC can reach luminosities comparable to or beyond the Large Hadron Collider (LHC) at CERN, since the total production cross-section for \positron \electron colliders is several orders of magnitude smaller than for proton-proton colliders, such as the LHC, at their respective collision energies (see Figure~\ref{fig:Cross_sections}).
-To demonstrate the feasibility of nanometer-scale beams, a test facility was build that is a small scale prototype of the FF system for the ILC: the Accelerator Test Facility (ATF2), which will be presented in more detail in Section~\ref{ATF2}.
+\todo{ILC: Related to the todo in the LinearCollider chapter, if the luminosity determines the discovery ability of the machine, then surely we should already have the ILC instead of the LHC?}
+To demonstrate the feasibility of nanometer-scale beams, a test facility was built that is a small scale prototype of the FF system for the ILC: the Accelerator Test Facility (ATF2), which will be presented in more detail in Section~\ref{ATF2}.
 The BDS system does not only contain the quadrupoles and sextupoles in the FF system, but also various feedback diagnostics and beam-halo collimators for removing the halo of particles around the beam core in order to reduce the beam background at the IP. 
 Additionally, shielding systems are installed at various locations along the BDS line, again in order to keep the background level at the IP as low as possible.
 Chapter~\ref{BDS_Muons} will talk about muon shielding options that are considered for the ILC.
@@ -78,7 +84,7 @@ The voltage needed to rotate a bunch with energy $E_{bunch}$ can be calculated a
  V_{crab}=\frac{cE_{bunch}\theta_C}{2\omega R}
 \end{equation}
 $\theta_C$ is the crossing angle as before, $\omega$ is the RF frequency of the crab cavity, and $R$ is the ratio of the bunch displacement at the IP to its divergence, i.e. the ratio of the spatial shift at the IP to the increase in the beam size.
-With all other quantities fixed, only $R$ can be chosen to be high in order to reduce the required voltage.
+With all other quantities fixed, only $R$ can be increased in order to reduce the required voltage.
 Therefore, the crab cavities are positioned at locations where this ratio $R$ between the spatial shift and the beam size increase is calculated to be large.
 For the ILC, it was calculated that the crab cavities should be located \SI{13.4}{\meter} up- and downstream of the IP.~\cite[p. 154]{TDR32}
 \begin{figure}
@@ -127,17 +133,20 @@ The current designs for the main beam dumps are based on a water tank, using hig
 Since the water tanks are designed to be sufficient for all energy and luminosity stages, they are supposed to withhold a particle beam with a beam power of \SI{14}{\mega\watt} for the \SI{1}{\TeV} operation.~\cite[p. 18]{TDR32}
 This leads to high irradiation of the beam dump surrounding and dangerous conditions for maintenance staff.
 In Chapter~\ref{BeamDumps} about the simulation of the main beam dumps done for this thesis, more details are given for the current beam dump designs.
+\todo{ILC: I think you are missing a word or two in this sentence}
 
 \subsection{Staging}
 As mentioned above, it was decided in 2017 to reduce the center-of-mass energy of the first ILC stage to \SI{250}{\GeV}, in order to reduce the total costs of the ILC project.~\cite{ICFA_Statement}
 The total costs for realizing the ILC includes next to the manpower not only the costs for the construction of the so-called conventional facilities, such as the underground tunnels and the surface buildings, but also the production and assembling of the accelerator and detector components.
+\todo{ILC: This needs rewording, ask me}
 When breaking the total costs down into the subsystems, then the conventional facilities together with the production of the RF systems for the accelerator make up almost 75\,\% of the total costs.~\cite[p. 20f]{TDR1}
 These estimations are based on cost inquiries with several industrial companies, as well as on experiences collected at former accelerator projects, such as the European XFEL which uses the same design for the RF cavities as planned for the ILC.\\
 Regarding the ILC layout, several options are under discussion which are shown in Figure~\ref{fig:Staging}.
 These options would yield a cost reduction of up to 34\,\%, resulting in about 66\,\% of the initial costs for the \SI{500}{\GeV} machine by reducing the length of the tunnel (options A, B and C), or by additionally reducing the number of RF cavities (options A', B' and C').~\cite{Cost_reduction}
 Overall, option A' foresees the shortest possible tunnel for a the \SI{250}{\GeV} and the smallest number of cavities, and therefore results in the highest cost reduction.
+\todo{ILC: The above sentence needs rewording}
 As explained before, the costs for the tunnel and the accelerating structures represent indeed the largest fraction of the total costs, and will be reduced by the staging options.
-However, the other parts of the accelerator and the surface buildings will not change by the staging scenarios but form basic costs because of which the maximum cost reduction that can be achieved lies at only 34\,\%.
+However, the other parts of the accelerator and the surface buildings will not change by the staging scenarios but form basic costs because of which the maximum cost reduction that can be achieved is only 34\,\%.
 Therefore, it has to be considered whether the cost cutback from option A' outweighs the positive sign a longer tunnel would give to the ILC community that an energy upgrade is foreseen for the future.\\
 \begin{figure}[h]
 \centering
@@ -169,16 +178,17 @@ That shortens the operation time of the ILC250 stage to 11 years, and the overal
 Out of originally more than ten potential ILC sites in Japan, the Kitakami mountains in the Tohuku Prefecture was chosen to be the preferred site for the ILC.~\cite{Site}
 This decision was made in August 2013 after a detailed study of all site specific factors, like the geological conditions, the infrastructure, and the impact on the environment and the economy.
 Measurements of the Kitakami mountains have shown that it consists mostly of granite rock with the best qualities for the ILC, regarding vibration and rock stress.
-As can be seen in Figure~\ref{fig:ILC_Site}, the closest city with about 120,000 citizens would be Ichinoseki.
+As can be seen in Figure~\ref{fig:ILC_Site}, the closest city (with about 120,000 citizens) would be Ichinoseki.
 Morioka and Sendai are the biggest cities close to the candidate site, with Tokyo being about \SI{430}{\kilo\meter} away.
 Although being in the north of Japan, the travel time from Tokyo is only about three hours by Shinkansen, Japan's high-speed bullet train, and the proximity to the coast line allows the transportation of construction, machine and detector parts by ship.
 Additionally, there are local airports in both, Morioka and Sendai, presenting further options for traveling and the transportation of construction materials.
 \begin{figure}
 \centering
 \includegraphics[width=0.5\textwidth]{Figures/ILC-site.jpg}
-\caption[Possible site for the ILC]{The possible site for the ILC are the Kitakami mountains in the Tohuku Prefecture.\cite{Kitakami}}
+\caption[Possible site for the ILC]{The possible site for the ILC is the Kitakami mountains in the Tohuku Prefecture.\cite{Kitakami}}
 \label{fig:ILC_Site}
 \end{figure}
+\todo{ILC: Figure caption: Is it still just a possible site?}
 
 
 \section{Physics motivation}
@@ -186,7 +196,7 @@ Additionally, there are local airports in both, Morioka and Sendai, presenting f
 After having shown that the ILC as a linear lepton collider is designed to be a state-of-the-art precision machine, this section will present its physics goals.
 With the LHC as the so-called ``discovery machine'', the ILC will be a complementary collider being aimed rather for much needed precision than for searching for new particles at high energies.
 The ILC is often called the future Higgs factory which will measure the qualities of the Higgs boson with much higher precision than it had been done so far.
-Additionally, the different stages of the ILC will also measure the Top quark qualities, and will have access to Beyond Standard Model (BSM) physics.
+Additionally, the different stages of the ILC will also measure the top quark qualities, and will have access to Beyond Standard Model (BSM) physics.
  
 \subsection{The way to go}
 To reach the precision the ILC promises, it must achieve four different objectives.
@@ -197,7 +207,9 @@ Due to leptons in the initial state, there will be one event per colliding lepto
 Leptons are elementary and not composite particles like the proton, therefore there are no underlying events which arise from other partons of the composite particle.
 The energy range of the final state particles is restricted, since the initial energy of the colliding beams can be set precisely and only point-like particles collide.
 Only possible at lepton colliders is hence that the desired events can be pre-selected by setting the center-of-mass energy to the mass of the particle of interest.\\
+\todo{ILC: Above sentence needs rewording}
 Also beam polarization contributes to the small background levels, since the polarization can be set in such a way that weak interactions are either enhanced or suppressed.
+\todo{ILC: Explain why the weak interactions are enhanced or suppressed by beam polarization}
 Therefore, the polarization can enhance the signal whilst suppressing the background.\\
 Figure~\ref{fig:Cleanliness} shows two event displays of a Higgs event at the LHC and the ILC in comparison.
 \begin{figure}[H]
@@ -211,31 +223,36 @@ At the LHC, underlying and pileup events populate the detector.}
 
 \paragraph{All events alike}
 Because the elementary coupling of Z bosons and photons is the same for all quarks and leptons, the \electron \positron annihilation produces pairs of all species, from the Standard Model and Beyond Standard Model, at similar rates.
-Besides that, the ILC will record all events without triggers.
-That means that no event will be rejected, and complete events will be stored for later analysis.
+In addition, the ILC will record all events without triggers.
+This means that no event will be rejected, and complete events will be stored for later analysis.
 This is only possible because the total number of detector hits from background events is small.
 Small background levels imply therefore small detector occupancies.
 
 \paragraph{Small uncertainties}
-The initial state of all events is precisely known, not only that point-like particles undergo the interactions, also the energies involved in the initial states are set.
+The initial state of all events is precisely known, both in terms of the particles undergoing the interactions and also the energies involved in the initial states.
 Additionally, there are only events with couplings to electroweak interactions.\\
+\todo{ILC: What events are there that don't couple to electroweak interactions?}
 PDF uncertainties and systematic uncertainties due to QCD corrections are omitted.
+\todo{ILC: This is a big deal, as it is one of the major source of uncertainty for the LHC (I think)}
 
 \paragraph{Complete knowledge}
 Because of the clean events and the possibility to record and store all taken data, events can be reconstructed in completeness without theoretical assumptions.
+\todo{ILC: What kind of theoretical assumptions do we have to make at the LHC?}
 The quark and lepton momenta can therefore be determined by kinematic fits.
+\todo{ILC: I don't understand what the above sentence means}
 Studies of the spin-dependence of the production and decay processes are also possible.\\
 Due to the high energy resolution and the fact that the initial particle energies are precisely known, particles with small mass differences are distinguishable, i.e. peaks in mass spectra that are close together are more likely to be separable.
 That means that new particle might indeed be found at the ILC.\\
 Additionally, the nanometer-sized beam of the ILC allows c-tagging, which improves many physics studies.
 The charm quark (c) hadronizes a small distance away from the primary IP, which is a perfect way to identify that a charm quark was involved in the event.
-Since the distance between the primary and the so-called seconday vertex can only be measured by a vertex detector with micrometer resolution, c-tagging is in general very difficult, but will be possible at the ILC.
+\todo{ILC: Is this different to b tagging? If so how? How can we know if the small distance secondary vertex belongs to a b quark or a c quark?}
+Since the distance between the primary and the so-called secondary vertex can only be measured by a vertex detector with micrometer resolution, c-tagging is in general very difficult, but will be possible at the ILC.
 
 \subsection{ILC as a Higgs factory}
 The ILC250 stage will be a so-called Higgs factory, tuned to the Higgs mass of \SI{125}{\GeV}.
-Due to the large luminosity and the capability for precision measurements as has been shown in the section above, the individual Higgs boson qualities can be measured to a percent accuracy in a completly model independent way.
+Due to the large luminosity and the capability for precision measurements, as has been shown in the section above, the individual Higgs boson qualities can be measured to a percent accuracy in a completely model independent way.
 These Higgs boson parameters include the Higgs mass, its couplings to Standard Model particles, as well as its global decay width.
-In contrast, the LHC experiments are not able to access the global decay width and the Higgs couplings in a model independent way as at the ILC.
+In contrast, the LHC experiments are not able to access the global decay width and the Higgs couplings in a model independent way.
 Global fits to all Higgs signals together with theoretical assumptions of its decay width are the only way to gain the Higgs couplings.
 \\After a brief overview of the Higgs production modes and the determination of the Higgs boson parameters at the ILC, it will be shown that the precisions achievable at the LHC can not reach the ILC performance.
 
@@ -244,6 +261,7 @@ There are three main production modes for Higgs bosons at an \positron\electron 
 As can be seen in Figure~\ref{fig:HiggsProduction}, the largest contribution to the overall production cross section is the Higgsstrahlung process, where a radiative Higgs boson is produced in association with a Z boson ($e^+e^-\rightarrow Zh$).
 In vector boson fusion (VBF) processes, like the WW fusion and the ZZ fusion, the fusion of two bosons produces a Higgs boson and a pair of leptons.
 For the WW fusion, an electron-neutrino and its anti-neutrino are produced ($e^+e^-\rightarrow \nu\bar{\nu} h$), whilst for the ZZ fusion it is an electron and a positron ($e^+e^-\rightarrow e^+e^-h$).
+\todo{ILC: The above 'equations' for WW and ZZ fusion don't seem to include WW and ZZ boson production}
 The production cross sections for these processes as a function of the center-of-mass energy behave quite differently:
 The dominant process at energies between 200 and \SI{450}{\GeV} is the Higgsstrahlung process, replaced by the WW fusion process above \SI{450}{\GeV}.
 For this energy range, the ZZ fusion cross section contributes the least, with less than \SI{10}{fb}.
@@ -259,12 +277,14 @@ The three main processes are ZZ fusion, WW fusion, and Higgsstrahlung.}
 
 \subsubsection{The Higgs measurements}
 To know the Higgs couplings to Standard Model (SM) particles as precise as possible is one of the most important goals for the ILC.
-Many theories about particles beyond the SM predict deviations from the SM couplings of the 1\,\% level.
+\todo{ILC: Consider using the acronym package so that you don't have to worry about writing Standard Model (SM) in every chapter}
+Many theories about particles beyond the SM predict deviations from the SM couplings at the \SI{1}{\percent} level.
 Therefore, only with the highest precisions a new particle might be discovered outside our current knowledge.\\
+\todo{I think it is possible to find a new particle at lower precision too, but certain particles could only be discovered at the 1 percent level}
 Since a decay width of a specific process is proportional to the decay branching ratio, which is again proportional to the coupling strength squared, the precision on the coupling measurement is directly dependent on how accurate the full process can be measured and recorded.~\cite{PhysicsCase}
 Due to large background levels and therefore high detector occupancies in hadron colliders, specific processes are not easily distinguishable from background events.
 This is the reason why LHC experiments can not measure the full Higgs cross section without \textit{model dependent} assumptions.
-As on the contrary, the reconstruction of complete events at the ILC with its low background occupancies is achieved without theoretical assumptions, a \textit{model independent} determination of the Higgs qualities is possible.\\
+In contrast, the reconstruction of complete events at the ILC with its low background occupancies is achieved without theoretical assumptions, a \textit{model independent} determination of the Higgs boson qualities is possible.\\
 This leads to differences in the relative Higgs boson coupling precisions of a factor of up to 10 between High-Luminosity LHC (HL-LHC) and ILC results, as can be seen in Figure~\ref{fig:Higgs_couplings}.
 \begin{figure}[h]
 \centering
@@ -277,28 +297,31 @@ The plot shows the relative precisions for the Higgs couplings calculated from t
 \newpage
 \section{The experiments}
 \label{ILC:detectors}
-In order to preserve the competitive spirit and the ability to cross-check results, the ILC has two detectors despite the fact that it is a linear and not a circular collider.
+In order to preserve competitive spirit and the ability to cross-check results, the ILC has two detectors despite the fact that it is a linear and not a circular collider.
 The so-called push-pull system makes that possible by allowing the detectors to switch position after a certain amount of data-taking time.
-The whole detector together with the last quadrupole magnet of the accelerator Final-Focus system will be pulled out of the beam line, and the other one takes its place.
-The whole process is designed to take only several hours up to 1-2 days, but involves some challenges especially for the magnets, the cryogenics, and the detector and machine alignment.~\cite[p. 28-29]{TDR1}
-The two detectors, the Silicon Detector (SiD) and the International Large Detector (ILD), will be explained in detail in the following.
-The focus will lie on SiD, since all the background studies presented in this thesis were done in the context of the SiD detector only.
+The whole detector together with the last quadrupole magnet of the accelerator Final-Focus system will be pulled out of the beam line, and the other detector takes its place.
+The whole process is designed to take from several hours up to 1-2 days, but involves some challenges especially for the magnets, the cryogenics, and the detector and machine alignment.~\cite[p. 28-29]{TDR1}
+The two detectors, the Silicon Detector (SiD) and the International Large Detector (ILD), will be explained in detail in the following sections.
+The focus will lie on SiD, since all the background studies presented in this thesis were done in the context of the SiD detector.
 
 \subsection{The Silicon Detector}
 The SiD is designed to be a robust, compact detector.
 Its vertex and tracker system, as well as the electromagnetic calorimeter (ECAL) are purely based on silicon sensors.
-The silicon design in comparison to other designs for the vertex and tracking detectors is more robust regarding the beam background and timing.~\cite[cf. p. 57ff]{TDR4}
+The silicon design, in comparison to other designs for the vertex and tracking detectors, is more robust regarding the beam background and timing.~\cite[cf. p. 57ff]{TDR4}
 \paragraph{Vertex detector}
 The vertex detector will be the inner most subdetector with the measurements of a Coke can.
+\todo{ILC: If you are going to say Coke, best say Coca Cola.}
+\todo{ILC: Don't say Coca Cola, you don't want to be an advertisement for them, be really American about it and say 'soda can'}
 Still, with its five layers for the barrel and the endcaps it will be able to do very precise measurements.
 The requirements for the vertex detector performance are very demanding:
 The spatial resolution has to be less than \SI{3}{\micro\meter}, which allows not only very precise tracking, but also the verification of the primary vertex of an event, as well as of the secondary vertex of a Bottom quark (b-tagging) and even of a Charm quark (c-tagging).
-Latter is very challenging due to the short flight distance of the Charm quark of only a few microns before it hadronizes.
-Additionally, a very small material budget of about 0.1\,X$_0$ is foreseen for the vertex detector, since particles shall not perform particle showers in this subdetector.~\cite{SiD_Update}
+\todo{ILC: Quarks are lower case}
+The latter is very challenging due to the short flight distance of the Charm quark of only a few microns before it hadronizes.
+Additionally, a very small material budget of about 0.1\,X$_0$ is foreseen for the vertex detector, since particles should not perform particle showers in this subdetector.~\cite{SiD_Update}
 The final decision on the sensor technology is not made yet, which allows the detector to have the most recent state-of-the-art technology.
 \paragraph{Tracking detector}
-Outside vertex detector is the Silicon Tracker.
-For its five barrel layers and four endcap layers, silicon strip sensors are planed that will use so-called KPiX ASIC readout chips.
+Outside the vertex detector is the Silicon Tracker.
+For its five barrel layers and four endcap layers, silicon strip sensors are planned that will use so-called KPiX ASIC readout chips.
 These KPiX chips have a buffer depth of four in the current design, which means that up to four hits per sensor can be stored on the chip's buffer.
 Any further hit can not be recorded and is lost.
 That makes thorough simulations of the expected backgrounds reaching the detector very important.
@@ -315,21 +338,25 @@ The muon chamber, which is the only subdetector outside the solenoid magnet, wil
 Its purpose is not only to identify muons being produced in the beam collisions, but also to record the tail of hadronic showers that have started in the HCAL.
 \paragraph{Forward system}
 Finally, the forward systems of SiD make the detector hermetic, i.e. the detector is a closed system which can catch particles under every possible solid angle.
+\todo{ILC: Change every possible to almost all. Unless the detector goes through the beam pipe}
 The forward region covers a polar angle $\theta > $ \SI{3}{\milli\radian}.
 Boosted particles with high momentum along the beam direction that go under an angle $\theta < $ \SI{3}{\milli\radian} will therefore indeed escape the detector.
 These losses are not avoidable since detector components cannot be built inside the beam pipe and the detector is not designed for physics that require measurements of these small-angle particles.
 Therefore the detector is still called hermetic.
+\todo{ILC: The detector is hermetic because it covers all angles in phi, and a large area in eta}
 The forward system consists of the Luminosity Calorimeter (LumiCal) and the Beam Calorimeter (BeamCal).
 Next to providing hermeticity, the LumiCal will measure the luminosity integrated over time, whilst the BeamCal will give an indication of the instantaneous luminosity by measuring the \positron \electron pair background from beam-beam interactions, which is explained in Section~\ref{BeamBeam:pairs}.
+\todo{ILC: What do you mean 'Next to providing hermeticity?}
 Since the pair background is directly dependent on the beam qualities, the BeamCal measurements will indicate variations in the beam parameters.
 Like the ECAL, both, the LumiCal and the BeamCal, are sampling calorimeters using tungsten layers for the particle shower development and semiconductors for the sensitive layers.
 As the forward region is highly affected by high-energy particles that are typically boosted in the forward direction, the sensors have to be specifically designed to withstand radiation damage.
-The damage results from large energy depositions from the boosted particles as well as from different background, such as the pair background as mentioned before.
-With this flux of particles hitting the forward system, the BeamCal is expected to have an occupancy of 100\,\%, i.e. all of the BeamCal pixels are expected to be hit by particles.
+The damage results from large energy depositions from the boosted particles as well as from different backgrounds, such as the pair background as mentioned before.
+With this flux of particles hitting the forward system, the BeamCal is expected to have an occupancy of \SI{100}{\percent}, i.e. all of the BeamCal pixels are expected to be hit by particles.
 This large occupancy needs to be accounted for in the readout technology.~\cite[p. 133ff]{TDR4}
 \paragraph{Pacman}
 Part of the detector, but not part of the sensitive subdetectors, is ``Pacman''.
 Pacman is a detector specific shielding against machine background that reaches the detector and would increase the detector occupancy.
+\todo{ILC: What is machine background?}
 It is placed on either side of the detector, and has an outer radius of about \SI{2.8}{\meter}, hence it covers the full radius of all subdetectors inside the solenoid magnet.
 The inner layer of Pacman is made of iron, the outer layer of borated concrete which is specially designed to stop neutrons.
 The thickness is about \SI{3.4}{\meter}.~\cite{SiD_Geo}
@@ -344,10 +371,11 @@ Figure~\ref{fig:SiD} shows visualization of the SiD detector and its subdetector
 \includegraphics[width=0.7\textwidth]{Figures/SiD_new.jpg}
 \caption[Visualization of the SiD detector]{The SiD detector consists of the vertex and tracking detectors (red), the electromagnetic calorimeter (ECAL) (green), the hadronic calorimeter (HCAL) (purple) and the muon system (gray).
 All subdetectors except the muon system are inside the solenoid magnet.
-Outside the muon endcaps is the detector specific background shielding, called ``Pacman'' with an inner (light gray) and an outer layer (beige).~\cite{SiD_Geo}}
+Outside the muon endcaps is the detector specific background shielding, called ``Pacman'' with an inner (light gray) and an outer (beige) layer.~\cite{SiD_Geo}}
 \label{fig:SiD}
 \end{figure}
-\\Overall, the SiD detector is optimized for Particle Flow Algorithms (PFA).
+\\
+Overall, the SiD detector is optimized for Particle Flow Algorithms (PFA)
 PFA is a reconstruction method that reconstructs each particle of the final state individually and uses the different subdetectors for a specific purpose.
 Therefore, charged particles are reconstructed from tracks in the tracker device, the ECAL is used for photons, and the ECAL and HCAL together for other neutral particles.~\cite{PFA}
 Table~\ref{tab:KeyParametersSiD} lists the key parameters and measurements of the SiD subdetector systems.\\
@@ -372,7 +400,7 @@ Vertex detector & Silicon pixels & 7.3 & 83.4 & 16.6 \\
 Tracker & Silicon strips & 77.0 & 164.3 & 125.5 \\
 ECAL & Silicon pixel-W & 165.7 & 180.0 & 125.0 \\
 HCAL & RPC-steel & 180.5 & 302.8 & 140.2 \\
-Myon System & Scintillator/steel & 303.3 & 567.3 & 604.2 \\
+Muon System & Scintillator/steel & 303.3 & 567.3 & 604.2 \\
 LumiCal & Silicon-W & 155.7 & 169.55 &  20.0 \\
 BeamCal & Semiconductor-W & 326.5 & 344 & 14.0 \\
 \hline\hline
@@ -380,8 +408,9 @@ BeamCal & Semiconductor-W & 326.5 & 344 & 14.0 \\
 \end{table}
 \paragraph{SiD detector variants}
 Since the publication of the Technical Design Report about the design details of the ILC accelerator, the detectors, the facilities etc., there have been official changes to the design.
-The changes regarding the overall accelerator and facility design are suggested as Change Requests (CR), and are reviewed and approved by a Technical Change and Management Board.~\cite{TCMB} \todo{Is that the right reference to the TCMB?}
-Some of the Change Requests effect the detector designs directly, such as the change of L*, the distance between the interaction point (IP) and the last quadrupole magnet (QD0) of the Final-Focus system.
+The changes regarding the overall accelerator and facility design are suggested as Change Requests (CR), and are reviewed and approved by a Technical Change and Management Board.~\cite{TCMB} 
+\todo{Is that the right reference to the TCMB?}
+Some of the Change Requests affect the detector designs directly, such as the change of L*, the distance between the interaction point (IP) and the last quadrupole magnet (QD0) of the Final-Focus system.
 But there are also changes to the detector concepts, that are made internally by the detector groups.\\
 There are major SiD detector design variants that are subject of discussions and simulation studies:
 \begin{itemize}
@@ -390,6 +419,7 @@ There are major SiD detector design variants that are subject of discussions and
  Therefore both detectors have their own QD0 magnets, which are part of the push-pull system.
  The official Change Request CR-002~\cite{CR-002} decided on a common L* for both detector concepts.
  Before, the distance (L*) between the IP and QD0 was different for SiD and ILD, as L* is dependent on the size of the detector.
+    \todo{ILC: Do you mean distance or difference?}
  Since the diverging L* values mean different beam operation depending on which detector was in use, CR-002 dictated a change of the detector designs in such a way that L* is the same for both detectors, in order to facilitate the beam operation.
  For SiD, the dictated change of L* from 3.5 to \SI{4.1}{\meter} implied in practice that the BeamCal had to be repositioned, since it is attached to the QD0 support structure. 
  The BeamCal moved from a former distance to the IP of 2.95 to \SI{3.265}{\meter}.~\cite{SiDBkgNote}
@@ -421,7 +451,7 @@ There are major SiD detector design variants that are subject of discussions and
  \end{figure}
 
  \item \underline{Anti-DiD Field}\\
- The BeamCal is expected to have an occupancy of 100\,\% due to boosted particles as well as background particles such as the \positron\electron pairs from beam-beam interactions, as explained before.
+ The BeamCal is expected to have an occupancy of \SI{100}{\percent} due to boosted particles as well as background particles such as the \positron\electron pairs from beam-beam interactions, as explained before.
  In order to suppress hits from these \positron\electron pairs, it was proposed to include an additional magnet in the detector design, the so-called anti-DiD (Detector Integrated Dipole) magnet.~\cite{antiDiD}
  The dipole windings of the anti-DiD are directly mounted around the SiD solenoid magnet.
  Its magnetic field has a value of \SI{600}{\gauss}, and causes locally the deflection of the pair background in the region of the BeamCal.~\cite[p. 118]{TDR4}
@@ -433,8 +463,8 @@ There are major SiD detector design variants that are subject of discussions and
 \newpage
 \subsection{The International Large Detector}
 Like the SiD detector, ILD is a multi-purpose particle detector that is optimized for PFA.
-Its vertex detector is also based on silicon sensors, whereas the tracker is a combination of both, a silicon strip and pixel detector and a time projection chamber (TPC).
-Also similar to SiD, the calorimeters are within the solenoid magnet, which is only surrounded by the muon system.
+Its vertex detector is also based on silicon sensors, whereas the tracker is a combination of both a silicon strip and pixel detector and a time projection chamber (TPC).
+Also similar to SiD, the calorimeters are within the solenoid magnet, which is surrounded only by the muon system.
 The magnetic field of the superconducting solenoid magnet is \SI{3.5}{T}.
 Because of having a big gaseous volume, the full detector is bigger than SiD, namely \SI{16}{m} in height and \SI{14}{m} in length.
 Figure~\ref{fig:ILD} shows all the subdetectors mentioned above in two schematics of the ILD detector.
@@ -444,4 +474,4 @@ Figure~\ref{fig:ILD} shows all the subdetectors mentioned above in two schematic
 \caption[Schematic drawing of the ILD detector]{The ILD detector consists of the vertex detector (pink), the time projection chamber (TPC) (yellow), the electromagnetic calorimeter (ECAL) (blue), the hadronic calorimeter (HCAL) (green) and the muon system (gray). All subdetectors except the muon system are inside the solenoid magnet.\cite[p. 34]{TDR1}}
 \label{fig:ILD}
 \end{figure}
-%TODO : Check if I have to update the picture of the ILD detector
+\todo{ILC: Check if I have to update the picture of the ILD detector}
