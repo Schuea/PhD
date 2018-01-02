@@ -9,18 +9,18 @@ By looking at their advantages and disadvantages, the differences between them w
 \end{chapterabstract}
 \newline
 
-After Ernest Rutherford had demonstrated the nuclear reactions of nitrogen with alpha particles from radioactive decays in 1919, he recognized the need for other more controlled sources of accelerated particles.
-\todo{Collider: Add Rutherford reference}
+After Ernest Rutherford had demonstrated the nuclear reactions of nitrogen with alpha particles from radioactive decays in 1919, he recognized the need for other more controlled sources of accelerated particles.~\cite{Rutherford}
 In the following years, physicists endeavored to develop necessary devices, and found that the key principle in particle acceleration lies in electrostatics.~\cite[p. 3f]{Livingston}
 
 \section{Principles of particle acceleration}
 \label{AccPhysics:Principles}
 Charged particles are accelerated inside an electric field. 
 In a time independent electric field $\vec{E}$ with potential $U$, the particle with charge $q$ experiences a change in its kinetic energy by passing through this electric field.
+\todo{Reference needed?}
 \begin{equation}
  \Delta E = q \int \vec{E}d\vec{r} = qU
 \end{equation}
-The particle's charge, expressed in the elementary charge e, is simply multiplied by the electric potential in Volts to calculate the gain or loss of the particle's kinetic energy. 
+The particle's charge, expressed in the elementary charge $e$, is simply multiplied by the electric potential in Volts to calculate the gain or loss of the particle's kinetic energy. 
 Out of convenience, the unit for energy in particle physics is therefore eV.\\
 By this logic a particle is accelerated to higher energies by applying higher and higher electrostatic fields. 
 This was done in the beginning of particle accelerators by increasing the voltage applied to a capacitor and shooting the charged particle through the field. 
@@ -28,29 +28,29 @@ Unfortunately, there are limits to the amount of voltage that can be applied bef
 The solution seems simple: putting several capacitors in a row.
 But again, this can not be done with electrostatic capacitors since the field gradient between two different capacitors is directed in the opposite direction.
 A particle traveling from one capacitor to the next would then lose kinetic energy again in the gap between two capacitors.
-A solution was quickly found by using time dependent electric fields, which change the orientation of their field periodically.\\
-In simple terms, the key principles of a linear collider are thereby already explained.
-\todo{Collider: This sentence is somehow weird and unnecessary, consider removing or rewording it}
-Better accelerating structures such as drift chambers and later on superconducting radio frequency (RF) cavities were developed over the years.
-The first linear accelerator using normal conducting drift chambers of increasing lengths was built and demonstrated by Rolf Wider\o e in 1928.~\cite[p. 6]{Wilson}
+A solution was quickly found by using time dependent electric fields, which change their field  orientation periodically.\\
+In simple terms, these are the key principles of linear particle accelerator.
+Better accelerating structures such as drift tubes and later on superconducting radio frequency (RF) cavities were developed over the years.
+The first linear accelerator using normal conducting drift tubes of increasing lengths was built and demonstrated by Rolf Wider\o e in 1928.~\cite[p. 6]{Wilson}
 A schematic drawing of such a structure is shown in Figure~\ref{fig:Wideroe_Linac}.
-RF fields are applied to the drift chambers such that the particles are accelerated in between the chambers when passing through the gaps.
-Since the particle gains energy by passing through a gap, the chambers need to have increasing lengths in order to guarantee the particle being accelerated by the same phase of the RF field.
+RF fields are applied to the drift tubes such that the particles are accelerated when passing through the gaps in between the tubes.
+Due to the increase in the particles' energy, the tubes need to have increasing lengths in order to guarantee the particles being accelerated by the same phase of the RF field.
 \begin{figure}
 \centering
 \includegraphics[width=0.5\textwidth]{Figures/Wideroe_Linac.png}
-\caption[Schematic layout of a Wider\o e linac]{Schematic layout of a linear accelerator with drift chambers of increasing lengths after the design by Rolf Wider\o e.~\cite[p. 40]{Hinterberger}}
+\caption[Schematic layout of a Wider\o e linac]{Schematic layout of a linear accelerator with drift tubes of increasing lengths after the design by Rolf Wider\o e.~\cite[p. 40]{Hinterberger}}
 \label{fig:Wideroe_Linac}
 \end{figure}
 \\
 Nowadays, particle accelerators all over the world mainly use RF cavities instead of drift tubes.
 High-power RF cavities are made of superconducting material, since its electric resistance is minimal.
-\todo{Collider: Is the electric resistance not zero?}
 Unlike before, the acceleration takes place inside the cavities, and all cavity cells are of the same length and shape.
-Their characteristic shape has the effect that the electromagnetic (EM) wave inside the cavity is resonant.
+Their characteristic shape has the effect that the electromagnetic (EM) wave inside the cavity is resonant with a high quality factor.
+The quality factor describes how large the damping of the EM wave is.
+The larger the quality factor, the smaller the damping effect.
+\todo{Add a reference about the quality factor}
 Figure~\ref{fig:Tesla_Cavity} shows a 9-cell niobium cavity developed at Deutsches Elektronen-Synchrotron (DESY) in Hamburg.
 Its shape is called ``TESLA-style'', and its accelerating gradient exceeds \SI{35}{\mega\volt\per\meter} whilst it can be tuned to a RF frequency of \SI{1.3}{\giga\hertz} .~\cite[p. 15f]{TDR31}
-\todo{Collider: I don't think you explained what an RF frequency is, although you are quoting one on this line}
 \begin{figure}
 \begin{subfigure}[b]{0.49\textwidth}
 \centering
@@ -68,19 +68,34 @@ Its shape is called ``TESLA-style'', and its accelerating gradient exceeds \SI{3
 \label{fig:Cavities}
 \end{figure}
 The RF field direction inside a cell is oscillating with the RF frequency, and neighboring cavity cells show opposite field directions (see Figure~\ref{fig:Cavity}).
-The frequency is then tuned such that the beam always experiences an accelerating RF phase. 
+The frequency is then tuned such that the beam always experiences an accelerating RF phase.
+In comparison to the drift tubes explained above, the matching of the particles to the wanted accelerating RF phase is therefore done here by time dependent frequencies, whilst for the drift tube structures it is done purely by the change in the geometry of the tubes.
+\todo{Let Phill check the English}
+\\
 Due to the nature of these accelerating structures, the beam has to be bunched in order to provide acceleration to all beam particles.
 This bunching happens naturally:
-With the particle momentum having a Gaussian distribution, slow particles, i.e. particles with smaller than the ideal momentum, arrive at the accelerating cavity later than the ideal particle, and faster particles earlier respectively.
-Therefore particles will be accelerated by different phases of the RF field, as can be seen in Figure~\ref{fig:RFPhase}.
-Particles arriving later will experience a higher phase and will be accelerated more, particles arriving too early will experience a smaller phase and therefore will be accelerated less.
+For relativistic particles traveling at the speed of light, their orbit along the accelerator depends on the difference of their momentum $\Delta p$ to the ideal momentum $p$.
+Particles with a smaller momentum travel on an orbit that is smaller than the ideal orbit.
+This is due to the fact that the radius of the particle's path in an external magnetic field depends on the momentum of the particle, which is shown in more detail later on in Equation~\ref{eq:MagField_Radius}.
+These particles on a smaller orbit will arrive at the next accelerating cavity earlier than the ideal particles, and will therefore experience a larger field which accelerates the particles to higher energies.
+Respectively, particles that have energies larger than the ideal particles are deflected onto a larger orbit and will therefore arrive late at the RF cavity, where they then gain less energy. 
+Hence, particles are accelerated by different phases of the RF field, as can be seen in Figure~\ref{fig:RFPhase}.
+Particles arriving later will be accelerated less, particles arriving too early will be accelerated more.
 The particles oscillate about the ideal stable phase, and therefore form beam bunches.
 This oscillation is called ``synchrotron oscillation''.
 \begin{figure}
+\begin{subfigure}[b]{0.4\textwidth}
 \centering
-\includegraphics[width=0.4\textwidth]{Figures/RFphase.png}
-\caption[Phase focusing]{RF voltage as a function of the RF phase. In the ideal case, the particles arrive at the RF phase $\psi_s$. 
-Particles with a smaller momentum ($\Delta$p/p $<$ 0) will arrive later than the ideal particles, and will therefore be accelerated more, particles with larger momentum will be accelerated less respectively.}
+ \includegraphics[width=\textwidth]{Figures/PhaseFocusing.png}
+\end{subfigure}\hfill
+\begin{subfigure}[b]{0.49\textwidth}
+\centering
+ \includegraphics[width=0.9\textwidth]{Figures/RFphase.png}
+\end{subfigure}
+\caption[Phase focusing]{Charged particles with the ideal momentum ($\Delta p/p = 0$) travel on the ideal orbit of the accelerator, and arrive at the next accelerating RF structure at the RF phase $\psi_s$. 
+Particles with a smaller momentum ($\Delta p/p < 0$) travel on a shorter orbit, and will arrive earlier than the ideal particles.
+These particles will therefore be accelerated more, whilst particles with larger momentum will be accelerated less respectively.
+Illustrations based on~\cite{Anke}}
 \label{fig:RFPhase}
 \end{figure}
 %To still guarantee the particle to be accelerated by the same RF phase, the RF frequency is varied over the length of the linear collider.
