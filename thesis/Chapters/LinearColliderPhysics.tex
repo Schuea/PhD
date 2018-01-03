@@ -16,14 +16,13 @@ In the following years, physicists endeavored to develop necessary devices, and 
 \label{AccPhysics:Principles}
 Charged particles are accelerated inside an electric field. 
 In a time independent electric field $\vec{E}$ with potential $U$, the particle with charge $q$ experiences a change in its kinetic energy by passing through this electric field.
-\todo{Reference needed?}
 \begin{equation}
  \Delta E = q \int \vec{E}d\vec{r} = qU
 \end{equation}
 The particle's charge, expressed in the elementary charge $e$, is simply multiplied by the electric potential in Volts to calculate the gain or loss of the particle's kinetic energy. 
 Out of convenience, the unit for energy in particle physics is therefore eV.\\
 By this logic a particle is accelerated to higher energies by applying higher and higher electrostatic fields. 
-This was done in the beginning of particle accelerators by increasing the voltage applied to a capacitor and shooting the charged particle through the field. 
+This was done in the beginning of particle accelerators by increasing the voltage applied to a capacitor and passing the charged particle through the field. 
 Unfortunately, there are limits to the amount of voltage that can be applied before an electric breakdown.
 The solution seems simple: putting several capacitors in a row.
 But again, this can not be done with electrostatic capacitors since the field gradient between two different capacitors is directed in the opposite direction.
@@ -46,11 +45,10 @@ Nowadays, particle accelerators all over the world mainly use RF cavities instea
 High-power RF cavities are made of superconducting material, since its electric resistance is minimal.
 Unlike before, the acceleration takes place inside the cavities, and all cavity cells are of the same length and shape.
 Their characteristic shape has the effect that the electromagnetic (EM) wave inside the cavity is resonant with a high quality factor.
-The quality factor describes how large the damping of the EM wave is.
+The quality factor describes how large the damping of the EM wave is, as it is the ratio of the stored energy over the dissipated energy.~\cite[p. 148]{Wilson}
 The larger the quality factor, the smaller the damping effect.
-\todo{Add a reference about the quality factor}
 Figure~\ref{fig:Tesla_Cavity} shows a 9-cell niobium cavity developed at Deutsches Elektronen-Synchrotron (DESY) in Hamburg.
-Its shape is called ``TESLA-style'', and its accelerating gradient exceeds \SI{35}{\mega\volt\per\meter} whilst it can be tuned to a RF frequency of \SI{1.3}{\giga\hertz} .~\cite[p. 15f]{TDR31}
+Its shape is called ``TESLA-style'', and its accelerating gradient exceeds \SI{35}{\mega\volt\per\meter} whilst it can be tuned to an RF frequency of \SI{1.3}{\giga\hertz} .~\cite[p. 15f]{TDR31}
 \begin{figure}
 \begin{subfigure}[b]{0.49\textwidth}
 \centering
@@ -64,18 +62,17 @@ Its shape is called ``TESLA-style'', and its accelerating gradient exceeds \SI{3
 \caption[Electric field in a cell cavity]{Schematic drawing of the electric field lines inside a cell cavity.~\cite[p. 47]{Desy_SummerStudent_Lecture}}
 \label{fig:Cavity}
 \end{subfigure}
-\caption[RF cavities]{The multi-cell RF cavities have a characteristic shape which is modeled in such a way that the electromagnetic (EM) RF field inside the cavities become resonant. Figure (a) shows a 9-cell cavity with the ``TESLA'' shape. Figure (b) illustrates the field vectors of the EM field in the single cells of the cavity.}
+\caption[RF cavities]{The multi-cell RF cavities have a characteristic shape which is modeled in such a way that the electromagnetic (EM) RF field inside the cavities resonates. Figure (a) shows a 9-cell cavity with the ``TESLA'' shape. Figure (b) illustrates the field vectors of the EM field in the single cells of the cavity.}
 \label{fig:Cavities}
 \end{figure}
 The RF field direction inside a cell is oscillating with the RF frequency, and neighboring cavity cells show opposite field directions (see Figure~\ref{fig:Cavity}).
 The frequency is then tuned such that the beam always experiences an accelerating RF phase.
 In comparison to the drift tubes explained above, the matching of the particles to the wanted accelerating RF phase is therefore done here by time dependent frequencies, whilst for the drift tube structures it is done purely by the change in the geometry of the tubes.
-\todo{Let Phill check the English}
 \\
 The development of the linear accelerating structures remains a significant factor for our modern particle accelerators.
 Nevertheless, also the advance in the research efforts for other accelerator designs has an essential impact:
 The drift tube linac (short for linear accelerator) was not the only accelerator concept developed by Rolf Wider\o e, he even more importantly invented the very first accelerating structures using electromagnetic fields.
-In a magnetic field, the charged particles are deflected on a radial path, which therefore allows the accelerator to be much smaller than before.~\cite[cf. p. 8]{Wilson}
+By using a magnetic field, the charged particles are deflected on a radial path, which therefore allows the accelerator to be much smaller than before.~\cite[cf. p. 8]{Wilson}
 This idea was needed in order to advance from purely linear to circular particle accelerators.
 
 
@@ -94,8 +91,7 @@ Since the momentum $p$ of the charged particle rises over time during the accele
 The accelerator hence has to be built accordingly taking the increase in the radius into account, or needs to use magnets with variable field strengths.
 The latter is done in synchrotron machines, a type of circular accelerator combining the principles of all particle accelerators mentioned above: acceleration in RF cavities, variation of the RF frequency, and variable magnetic field strengths.
 In this way, the particles are traveling along a stationary orbit, passing through the same magnets and cavities over and over again until the desired beam energy is reached.
-To insure the stability of the orbit, not only bending dipole magnets are needed, but also quadrupole magnets for focusing the beam, and sextupole and octupole magnets which then correct orbital fluctuations.
-\todo{Let Phill check the English here again}
+To insure the stability of the orbit, not only are bending dipole magnets needed, but also quadrupole magnets for focusing the beam, and sextupole and octupole magnets which then correct orbital fluctuations.
 The need for higher order correction magnets can be derived from the expansion of the magnetic field around the ideal path of the particle (x = 0):
 \begin{alignat}{5}
  B_y(x) &= B_{y0} &&+ \frac{\partial B_y}{\partial x}x &&+ \frac{1}{2!}\frac{\partial^2 B_y}{\partial x^2}x^2 &&+ \frac{1}{3!}\frac{\partial^3 B_y}{\partial x^3}x^3 &+ ...\\
@@ -169,7 +165,6 @@ In order to minimize the beam size at the IP, the beta function is tailored such
 Like the beta function, the transverse emittance $\epsilon$ is defined in the horizontal and vertical plane.
 $\epsilon$ is a direct measure of the convergence of the beam with respect to its spread in space and in momentum.
 A small emittance therefore means that the beam particles are confined to a small space, with a narrow momentum distribution.
-\todo{Does that sound okay?}
 It also has the units of length, and is often given as the normalized emittance $\epsilon^* = \epsilon\gamma$, with the relativistic Lorentz factor $\gamma=\frac{1}{\sqrt{1-v^2/c^2}}$.\\
 Together, the spatial amplitude of the betatron oscillations can be written as $\sqrt{\epsilon\beta}$.
 Since the amplitude of these oscillations counts towards the size of the beam, it can then be written as $\sigma_{betatron} = \sqrt{\epsilon\beta}$.
@@ -258,7 +253,7 @@ The luminosity of a particle collider is proportional to the rate of collisions 
  \label{eq:luminosity}
 \end{align}
 $N_{1,2}$ is the number of particles per bunch, which is usually the same for both beams, so that $N_1\approx N_2$.
-$f$ is the revolution frequency, the number of revolutions a bunch makes per second.
+$f$ is the revolution frequency, i.e. the number of revolutions a bunch makes per second.
 $n_{b}$ is the number of bunches, and $\sigma_{x,y}$ is the beam size in the horizontal and the vertical plane.
 Table~\ref{tab:ILC_parameters} in Chapter~\ref{ILC} lists these parameters and their values for the LHC in comparison to the International Linear Collider (ILC).
 In order to translate the luminosity into an event rate, the luminosity value has to be divided by the cross-section $\sigma_p$ of the physics process that is of interest.
@@ -273,7 +268,7 @@ Barn (``b'') is the unit of cross-sections in particle physics, and is equivalen
 Every second about 780 million events are occurring at the LHC.
 With its high luminosity and high collision energy, the possible physics processes from the hadron collisions cover wide energy ranges, because of which it is a so-called ``discovery machine''.
 New particles, first seen for example as resonance peaks in the measured mass spectra, can be discovered easier than at accelerators with smaller collision energy due to the large phase space.
-This was the case in 2012 for instance, when the LHC experiments found a peak at an energy of \SI{126}{\GeV}, shortly after recognized as the very first measurement of a Higgs boson.~\cite{Higgs}\\
+This was the case in 2012 for instance, when the LHC experiments found a peak at an invariant mass of \SI{126}{\GeV}, shortly after recognized as the very first measurement of a Higgs boson.~\cite{Higgs}\\
 %The reason why large synchrotron rings need pre-accelerators is that the range for changing the magnet's field strength is limited.
 Why these so-called ``discovery machines'' are hadron and not lepton colliders, and why they are circular and not linear, is to be explained with the physical qualities of the colliding particles.
 Hadrons are by definition composite particles, the actual colliding particles in a collision are therefore their partons, the constituents of the hadrons.
@@ -313,10 +308,18 @@ When comparing the LHC one time with \SI{6.5}{\TeV} beams of protons and another
  &= \frac{7.75\cdot10^{11} \textnormal{MeV}^4}{6.82\cdot10^{-2} \textnormal{MeV}^4}\\
  &=1.14\cdot10^{13}
 \end{align*}
+Constant beam energy loss is not the only way in which synchrotron radiation affects the operation of the accelerator.
+The synchrotron radiation also causes damage to the particle detectors as well as to the diagnostic devices along the accelerator ring.
+The only way to prevent the sensitive devices from the radiation damage is to use shielding materials and to build up shielding walls where needed.
+%Additionally, due to the influence of the synchrotron radiation on the beam energy, the uncertainties on the physics measurements of the detector experiments increase because the measurements rely on the knowledge of the beam energy.
+Additionally, the constant beam energy loss increases the uncertainties on the physics measurements, as the measurements rely on a precise knowledge of the beam energy.
+\\
+Overall, synchrotron radiation is a critical issue for circular accelerators, and is always aimed to be minimized by using beam particles with high masses and by building accelerator rings with large radii.
+
 Concluding, a circular hadron collider lends itself to be a particle accelerator in the high-energy frontier, whereas a linear lepton collider is destined to be a collider in the precision frontier.
 \\
 Nevertheless, there have also been circular lepton colliders in the past, such as the Large Electron-Positron Collider (LEP) at CERN before the LHC was built into the same tunnel.
-LEP was in use from 1989 until 2000, and accelerated electrons and positrons to a center-of-mass energy of up to \SI{209}{\GeV}.\todo{Reference to LEP}
+LEP was in use from 1989 until 2000, and accelerated electrons and positrons to a center-of-mass energy of up to \SI{209}{\GeV}.~\cite{LEP}
 At such energies, the loss due to synchrotron radiation is still tolerable, and important precision measurements of the W and Z boson were done.
 
 \paragraph{A question of money}
