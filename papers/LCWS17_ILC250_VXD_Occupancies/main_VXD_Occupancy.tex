@@ -1,0 +1,141 @@
+\pdfoutput=1 % for arXiv to use pdflatex
+\documentclass[12pt]{article}
+
+%% The graphicx package provides the includegraphics command.
+\usepackage{graphicx}
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amsmath}
+\usepackage{amssymb}
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers after \end{frontmatter}.
+\usepackage{lineno}
+\usepackage{url}
+\usepackage{xspace,multicol}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{color, colortbl}
+%\usepackage{units}
+\usepackage{ragged2e}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{authblk}
+\usepackage{heppennames}
+%\usepackage{feynmp}
+\usepackage{libertine}
+% \usepackage[libertine]{newtxmath}
+%\usepackage{textgreek}
+\DeclareGraphicsRule{*}{mps}{*}{}
+
+\newcommand{\guineapig}{GuineaPig\xspace}
+\newcommand{\sid}{SiD\xspace}
+\newcommand{\electron}{e\textsuperscript{-}\xspace}
+\newcommand{\positron}{e\textsuperscript{+}\xspace}
+\newcommand{\micron}{\ensuremath{\murm\mathrm{m}\xspace}}
+
+\newcommand{\murm}{%
+  \ifmmode
+    \mathchoice
+        {\hbox{\normalsize\textmu}}
+        {\hbox{\normalsize\textmu}}
+        {\hbox{\scriptsize\textmu}}
+        {\hbox{\tiny\textmu}}%
+  \else
+    \textmu
+  \fi
+}
+
+
+\usepackage{fixltx2e}
+\definecolor{Gray}{gray}{0.9}
+\DeclareSIUnit\gauss{G}
+
+
+\begin{document}
+
+%% Title, authors and addresses
+
+\title{Impact of the new ILC250 Parameter Sets\\on the \sid Vertex Detector Occupancy arising from \positron\electron Pair Background\vspace*{0.3cm}\\{\normalsize Talk presented at the\\\large International Workshop on Future Linear Colliders (LCWS2017), Strasbourg, France, 23-27 October 2017. C17-10-23.2.}}
+
+\author[1,2]{Anne Sch\"utz}
+
+\affil[1]{\normalsize Karlsruhe Institute of Technology (KIT), Department of Physics, Institute of Experimental Nuclear Physics (IEKP), Wolfgang-Gaede-Str. 1, 76131 Karlsruhe}
+\affil[2]{\normalsize Deutsches Elektronen-Synchrotron (DESY), Notkestr. 85, 22607 Hamburg}
+
+\maketitle
+
+%%
+%% Start line numbering here if you want
+%%
+%\linenumbers
+
+\begin{abstract}
+%% Text of abstract
+Since the decision to reduce the center-of-mass energy for the first stage of the International Linear Collider (ILC) to \SI{250}{\GeV}, numerous efforts are ongoing to evaluate the possible physics program and the change in the detector background.
+It was found that changing the beam parameters would increase the luminosity and therefore strengthen the physics outcome.
+On the downside, the new beam parameters lead to an increase in the detector background arising from beam-beam interactions.
+\\
+The simulation study, which is topic to this note, focuses on the impact the increased background levels have on the SiD vertex detector performance.
+The results suggest that the vertex detector occupancies can be accommodated in the design of the SiD detector without any loss in performance.
+\end{abstract}
+
+
+%% main text
+\section{Introduction}
+\label{sec:introduction}
+In November 2017, the panel of the International Committee for Future Accelerators (ICFA) made an official statement that the first stage of the International Linear Collider (ILC) will have a  reduced center-of-mass energy of \SI{250}{\GeV} instead of \SI{500}{\GeV}, with the goal to reduce the total costs of the ILC project~\cite{ICFA_Statement}.
+In order to increase the luminosity of this ILC250 stage, new beam parameters were suggested at the Americas Workshop on Linear Colliders (AWLC2017) at SLAC in June 2017~\cite{AWLC_Yokoya, AWLC_Jeans}.
+The changes to the parameter sets were officially approved as the Change Request CR-0016 by the Technical Change and Management Board (TCMB) in September 2017~\cite{CR-0016}.\\
+The changes include the reduction of the horizontal beam emittance, which causes a rise in the luminosity.
+The luminosity is topic to the first section of this note.
+The reduced beam emittance on the other hand also leads to a larger electron positron pair background from increased beam-beam interactions, and to an effect on the spatial distribution of these pairs.
+The magnetic solenoid field of the SiD detector forces the pair background particles onto helix tracks which extend to the inner layers of the detector.\\
+This note presents a study of the density of these particles for four different parameter sets of the ILC250 stage.
+Additionally, the thereby caused occupancy of the SiD vertex detector was analyzed in order to see the effect of the increased background on the detector.  
+The performance of the vertex detector plays a crucial role for the precision of physics studies.
+Therefore, the aim is to keep the overall ratio of so-called dead cells below a per mill level.
+By definition, a detector pixel cell is called ``dead'' when no further hits can be stored in its available buffers.\\
+The plots in the sections regarding the background density and the arising detector occupancy display the envelopes of the pair helix tracks, as well as the vertex detector occupancy for the new ILC250 parameter set in comparison to other possible beam parameters.
+Adapting the naming scheme of the change request CR-0016, the beam parameter schemes are as listed in Table~\ref{tab:Parameters}.
+The new official beam parameters are given by set (A), for which the horizontal beam emittance  $\epsilon_x$ is reduced by half compared to the original parameters given in the Technical Design Report (TDR)~\cite[p. 11]{TDR1}.
+\begin{table}[h]
+\caption{\textit{The new official beam parameter set is set (A)~\cite{CR-0016}.
+The other sets, set (B) and (C), are further possible sets that were under discussion.
+The table only lists the parameters that are to be changed with respect to the original ILC250 parameters (set (TDR)) given in the Technical Design Report (TDR)~\cite[p. 11]{TDR1}.\\
+For all new sets, the horizontal emittance $\epsilon_x$ is reduced. 
+Additionally, the horizontal and vertical beta functions at the IP, $\beta^*_x$ and $\beta^*_y$, are reduced for sets (B) and (C).}}
+\label{tab:Parameters}
+\centering
+\begin{tabularx}{0.52\textwidth}{llll}
+\hline\hline
+\textbf{Set}  & \textbf{$\epsilon_x$ [\murm m]} & \textbf{$\beta^*_x$ [mm]} & \textbf{$\beta^*_y$ [mm]}\\
+\hline
+\cline{1-4}
+\hline
+ TDR & 10 & 13.0 & 0.41\\
+ \rowcolor{Gray}
+ (A) & 5 & 13.0 & 0.41\\
+ (B) & 5 & 9.19 & 0.41\\
+ (C) & 5 & 9.19 & 0.58\\
+\hline\hline
+\end{tabularx}
+\end{table}
+
+\input{Luminosity}
+\input{Envelopes}
+\input{Occupancies}
+\input{Conclusions}
+
+
+\section*{Acknowledgments}
+The author would like to thank the SiD Optimization group, as well as Daniel Jeans (KEK) for useful discussions and helpful input to the presented studies.
+
+%\include{Appendix}
+
+%% References with bibTeX database:
+
+\bibliographystyle{unsrt}
+%\bibliographystyle{model1-num-names} %Doesn't work well if you also cite webpages (Confluence page)
+\bibliography{bibliography.bib}
+
+\end{document}
