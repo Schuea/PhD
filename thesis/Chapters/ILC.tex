@@ -269,7 +269,7 @@ In contrast, the reconstruction of complete events at the ILC with its low backg
 This leads to differences in the relative Higgs boson coupling precisions of a factor of up to 10 between High-Luminosity LHC (HL-LHC) and ILC results, as can be seen in Figure~\ref{fig:Higgs_couplings}.
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.5\textwidth]{Figures/Higgs_couplings.png}
+\includegraphics[width=0.6\textwidth]{Figures/Higgs_couplings.png}
 \caption[Higgs coupling precisions]{Comparison of the precision reached at the ILC and at the High-Luminosity LHC (HL-LHC) for couplings g(hXX) of the Higgs boson (h) to SM particles (X).~\cite[p. 17]{PhysicsCase}\\
 The plot shows the relative precisions for the Higgs couplings calculated from the \textbf{model dependent} fits to simulated data from the HL-LHC, and from these fits combined with \textbf{model independent} fits to simulated data from the ILC.}
 \label{fig:Higgs_couplings}
@@ -339,7 +339,7 @@ Its use can be seen in the simulation of the machine backgrounds in Chapters~\re
 \paragraph{The overall SiD concept}
 Being designed to be compact, the measurements for the full detector are \SI{14}{m} in height and \SI{11}{m} in length.
 To compensate the small radius, the magnetic field of the superconducting solenoid magnet is \SI{5}{T}, so that SiD is still hermetic and contains the full particle showers.
-Figure~\ref{fig:SiD} shows visualization of the SiD detector and its subdetectors.
+Figure~\ref{fig:SiD} shows a visualization of the SiD detector and its subdetectors.
 \begin{figure}
 \centering
 \includegraphics[width=0.7\textwidth]{Figures/SiD_new.jpg}
@@ -349,7 +349,7 @@ Outside the muon endcaps is the detector specific background shielding, called `
 \label{fig:SiD}
 \end{figure}
 \\
-Overall, the SiD detector is optimized for Particle Flow Algorithms (PFA)
+Overall, the SiD detector is optimized for Particle Flow Algorithms (PFA).
 PFA is a reconstruction method that reconstructs each particle of the final state individually and uses the different subdetectors for a specific purpose.
 Therefore, charged particles are reconstructed from tracks in the tracker device, the ECAL is used for photons, and the ECAL and HCAL together for other neutral particles.~\cite{PFA}
 Table~\ref{tab:KeyParametersSiD} lists the key parameters and measurements of the SiD subdetector systems.\\
@@ -381,47 +381,47 @@ BeamCal & Semiconductor-W & 326.5 & 344 & 14.0 \\
 \end{tabularx}
 \end{table}
 \paragraph{SiD detector variants}
-Since the publication of the Technical Design Report about the design details of the ILC accelerator, the detectors, the facilities etc., there have been official changes to the design.
-The changes regarding the overall accelerator and facility design are suggested as Change Requests (CR), and are reviewed and approved by a Technical Change and Management Board.~\cite{TCMB} 
+Since the publication of the Technical Design Report about the design details of the ILC accelerator, the detectors, and the facilities, there have been official changes to the design.
+The changes regarding the overall accelerator and facility design are suggested as Change Requests (CR), and are reviewed and approved by a Technical Change and Management Board~\cite{TCMB}. 
 Some of the Change Requests affect the detector designs directly, such as the change of L*, the distance between the interaction point (IP) and the last quadrupole magnet (QD0) of the Final-Focus system.
 But there are also changes to the detector concepts, that are made internally by the detector groups.\\
 There are major SiD detector design variants that are subject of discussions and simulation studies:
 \begin{itemize}
  \item \underline{Change of L*}\\
- As the focal length of the last quadrupole of the Final-Focus system, which focuses the beam onto the IP, is smaller than the detector length, both detector concepts are part of the detectors themselves.
- Therefore both detectors have their own QD0 magnets, which are part of the push-pull system.
+ As the focal length of the last quadrupole magnet (QD0) of the Final-Focus system, which focuses the beam onto the IP, is smaller than the detector length, both detector concepts have their own QD0 magnets.
+ These magnets are part of the detector's push-pull system.
  The official Change Request CR-002~\cite{CR-002} decided on a common L* for both detector concepts.
  Before, the distance (L*) between the IP and QD0 was different for SiD and ILD, as L* is dependent on the size of the detector.
- Since the diverging L* values mean different beam operation depending on which detector was in use, CR-002 dictated a change of the detector designs in such a way that L* is the same for both detectors, in order to facilitate the beam operation.
+ Since the diverging L* values mean different beam operation conditions, CR-002 dictated a change of the detector designs in such a way that L* is the same for both detectors, in order to facilitate the beam operation.
  For SiD, the dictated change of L* from 3.5 to \SI{4.1}{\meter} implied in practice that the BeamCal had to be repositioned, since it is attached to the QD0 support structure. 
  The BeamCal moved from a former distance to the IP of 2.95 to \SI{3.265}{\meter}.~\cite{SiDBkgNote}
  \item \underline{Design variants of the inner region of the BeamCal}\\
  The BeamCal surrounds the ingoing and outgoing beam pipe.
  For the inner region around the beam pipes, there are three different design variants that include a different amount of instrumentation, as shown in Figure~\ref{fig:BeamCal}.
  By cutting out the area between the beam pipes, the sensitive material is removed from the inner region with the highest density of background flux.
- Doing so will reduce the overall BeamCal radiation damage, but also lessens the potential for measuring physics events.
+ Doing so will reduce the overall BeamCal radiation damage, but also lessens the potential for measuring physics events in that region.
  \begin{figure}
  \centering
   \begin{subfigure}[b]{0.3\textwidth}
    \centering
-    \includegraphics[width=\textwidth]{Figures/beamcal_plug.png}
+    \includegraphics[width=0.6\textwidth]{Figures/beamcal_plug.png}
    \caption{Instrumented inner region}
   \end{subfigure}
   \begin{subfigure}[b]{0.3\textwidth}
    \centering
-    \includegraphics[width=\textwidth]{Figures/beamcal_wedge.png}
+    \includegraphics[width=0.6\textwidth]{Figures/beamcal_wedge.png}
    \caption{Wedge cutout}
    \end{subfigure}
     \begin{subfigure}[b]{0.3\textwidth}
    \centering
-    \includegraphics[width=\textwidth]{Figures/beamcal_circle.png}
+    \includegraphics[width=0.6\textwidth]{Figures/beamcal_circle.png}
    \caption{Circle cutout}
    \end{subfigure}
    \caption[Design variants of the SiD BeamCal]{Three different design variants of the inner region of the SiD BeamCal.
    From (a) to (c), the instrumentation of the inner region decreases with an increasing fraction of material cut out.}
    \label{fig:BeamCal}
  \end{figure}
-
+\newpage
  \item \underline{Anti-DiD Field}\\
  The BeamCal is expected to have an occupancy of \SI{100}{\percent} due to boosted particles as well as background particles such as the \positron\electron pairs from beam-beam interactions, as explained before.
  In order to suppress hits from these \positron\electron pairs, it was proposed to include an additional magnet in the detector design, the so-called anti-DiD (Detector Integrated Dipole) magnet.~\cite{antiDiD}
@@ -430,19 +430,16 @@ There are major SiD detector design variants that are subject of discussions and
  The pairs are swept into the outgoing beam pipe, which reduces the BeamCal occupancy.
 \end{itemize}
 
-
-
-\newpage
 \subsection{The International Large Detector} 
-Like the SiD detector, ILD is a multi-purpose particle detector that is optimized for PFA.
-Its vertex detector is also based on silicon sensors, whereas the tracker is a combination of both a silicon strip and pixel detector and a time projection chamber (TPC).
-Also similar to SiD, the calorimeters are within the solenoid magnet, which is surrounded only by the muon system.
-The magnetic field of the superconducting solenoid magnet is \SI{3.5}{T}.
-Because of having a big gaseous volume, the full detector is bigger than SiD, namely \SI{16}{m} in height and \SI{14}{m} in length.
-Figure~\ref{fig:ILD} shows all the subdetectors mentioned above in two schematics of the ILD detector.
-\begin{figure}[H]
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.7\textwidth]{Figures/ILD.png}
 \caption[Schematic drawing of the ILD detector]{The ILD detector consists of the vertex detector (pink), the time projection chamber (TPC) (yellow), the electromagnetic calorimeter (ECAL) (blue), the hadronic calorimeter (HCAL) (green) and the muon system (gray). All subdetectors except the muon system are inside the solenoid magnet.\cite[p. 34]{TDR1}}
 \label{fig:ILD}
 \end{figure}
+Like the SiD detector, ILD is a multi-purpose particle detector that is optimized for PFA.
+Its vertex detector is also based on silicon sensors, whereas the tracker is a combination of both, a silicon strip and pixel detector, and a time projection chamber (TPC).
+Also similar to SiD, the calorimeters are within the solenoid magnet, which is surrounded only by the muon system.
+The magnetic field of the superconducting solenoid magnet is \SI{3.5}{T}.
+Because of having a big gaseous volume, the full detector is bigger than SiD, namely \SI{16}{m} in height and \SI{14}{m} in length.
+Figure~\ref{fig:ILD} shows all the subdetectors mentioned above in two schematics of the ILD detector.
