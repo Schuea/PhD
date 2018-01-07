@@ -1,9 +1,9 @@
 \section{SiD vertex detector occupancies}
 The occupancy of the SiD vertex detector is calculated by counting the hits from the pair background per pixel for a full bunch train (1312 bunch crossings).
 The sensor buffers are read out after every train, and therefore have to be suitable for the expected detector occupancy.
-For the study of the occupancy, the pair background events were taken from GuineaPig, as described in the section before, and used as input for a full Geant4 detector simulation with SLIC~\cite{SLIC}.
+For the study of the occupancy, the pair background events were taken from GuineaPig, as described in the Section \ref{sec:Envelopes}, and used as input for a full Geant4 detector simulation with SLIC~\cite{SLIC}.
 The crossing angle was applied in this simulation step.\\
-Regarding the SiD detector geometry, a pixel size of 20x\SI{20}{\micro\meter} was assumed for the vertex detector.
+Regarding the SiD detector geometry, a pixel size of \SI{20x20}{\micro\meter} was assumed for the vertex detector.
 The SiD vertex detector is a high-resolution pixel detector with the following requirements:
 \begin{itemize}
  \item Spatial resolution: $<$ \SI{4}{\micro\meter}
@@ -51,10 +51,10 @@ It reduces the pair background occupancy by sweeping the pair background particl
 The following plots show occupancy studies using the current SiD geometry.\\
 On the left hand side of Figure~\ref{fig:All_layers_Occupancy}, the normalized occupancy for the full vertex detector is shown.
 From that, the ratio of dead cells was calculated (right).
-A cell is "dead" when the number of hits in this cell has reached the cell's buffer depth.
+A cell is ``dead'' when the number of hits in this cell has reached the cell's buffer depth.
 Therefore, the number of dead cells is plotted as a function of the assumed buffer depth for the vertex detector cells.
 For all layers combined, the new parameter scheme (A) leads to a fraction of dead cells that is 2-3 times higher than for the TDR set.
-Again, for the other schemes (B) and (C), the fraction is even higher.
+Again, for the schemes (B) and (C), the fraction is even higher.
 \begin{figure}[!h]
 \centering
 \begin{subfigure}[t]{0.45\textwidth}
@@ -116,4 +116,4 @@ The plot on the left hand side shows the normalized occupancy for all layers com
 The lowest occupancy is reached for the SiD design with the old L$^*$ and anti-DiD.\\
 However, the current SiD design (new L$^*$ with anti-DiD) shows occupancy levels that are only marginally worse.
 Assuming a buffer depth of four, just above 10$^{-5}$ of all cells in layer 0 would have full buffers, filled with exactly 4 hits.
-With the rule of thomb that the vertex detector occupancy for backgrounds should be below 10$^{-4}$, the occupancies for all studies shown in this note are well below this boundary.
+With the rule of thumb that the vertex detector occupancy for backgrounds should be below 10$^{-4}$, the occupancies for all studies shown in this note are well below this boundary.
