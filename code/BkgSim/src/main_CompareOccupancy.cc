@@ -183,10 +183,10 @@ void Plot_everything(std::vector< std::string > inputfilenames, std::string laye
 
 void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::string histoname, std::string x_title, std::string y_title){
   TLegend* legend;
-  if(inputfilenames.size()<3) legend = new TLegend(0.5,0.7,0.98,0.85);
-  else                         legend = new TLegend(0.5,0.7,0.98,0.9);
+  if(inputfilenames.size()<3) legend = new TLegend(0.3,0.6267,0.8,0.86);
+  else                         legend = new TLegend(0.3,0.6267,0.8,0.86);
   legend->SetFillColor(kWhite);
-
+  legend->SetMargin(0.1);
   
   std::vector< TH1F* > histos;
 	for(size_t no_files = 0; no_files < inputfilenames.size(); ++ no_files){
