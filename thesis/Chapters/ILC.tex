@@ -19,6 +19,7 @@ Due to the fact that linear colliders can be extended in length, the beam energi
 Therefore, the ILC has the possibility to upgrade the machine to higher energies later on.
 
 \subsection{The layout}
+\label{ILC:layout:details}
 Figure~\ref{fig:ILC_Layout} shows the schematic layout of the ILC.
 \begin{figure}
 \centering
@@ -26,8 +27,8 @@ Figure~\ref{fig:ILC_Layout} shows the schematic layout of the ILC.
 \caption[Schematic layout of the ILC]{Schematic layout of the ILC~\cite[based on p. 9]{TDR1}}
 \label{fig:ILC_Layout}
 \end{figure}
-The electrons are produced by a GaAs photocathode in a DC electron gun.~\cite[p. 13]{TDR32}
-By shining a circularly polarized laser on the electron beam, one reaches a beam polarization of at least \SI{80}{\percent}, i.e. more than \SI{80}{\percent} of all electrons will be left-handed\footnote{For a left-handed particle, its spin and its momentum are antiparallel, pointing in opposite directions.}:
+The electrons are produced by a GaAs photocathode in a DC electron gun~\cite[p. 13]{TDR32}.
+By shining a circularly polarized laser on the electron beam, one reaches a beam polarization of at least \SI{80}{\percent}, i.e. more than \SI{80}{\percent} of all electrons will be left-handed\footnote{For a left-handed particle, its spin and its momentum are antiparallel, pointing in opposite directions.}~\cite[p. 81]{TDR32}:
 \begin{equation}
  P_e = \frac{N_L-N_R}{N_L+N_R} > 0.8
 \end{equation}
@@ -36,31 +37,40 @@ In an undulator, several dipole magnets are placed in a line in such a way that 
 For the creation of the positrons, the actual electron beam is used, which is guided through the  \SI{231}{\meter} long helical undulator after being pre-accelerated.
 Using an undulator with a helical magnetic field causes the electrons to be deflected on a helical trajectory, and to emit synchrotron radiation photons that are circularly polarized\footnote{For circularly polarized light, the field vector of its electromagnetic wave rotates around the direction of propagation.}.
 The high-energy photons are then converted in the \SI{7}{\milli\meter} thick titanium-alloy conversion target, where \positron \electron pairs are produced due to pair production.
-As the pair production from circularly polarized photons yield longitudinally polarized \positron \electron pairs~\cite{Polarization}, the beam of the captured positrons will have a polarization of \SI{30}{\percent}.~\cite[p. 14]{TDR32}
-The whole process leads to a positron yield of 1.5 positrons per original beam electron passing through the undulator.~\cite{Ushakov}
+As the pair production from circularly polarized photons yield longitudinally polarized \positron \electron pairs~\cite{Polarization}, the beam of the captured positrons will have a polarization of \SI{30}{\percent}~\cite[p. 14]{TDR32}.
+The whole process leads to a positron yield of 1.5 positrons per original beam electron passing through the undulator~\cite{Ushakov}.
 \begin{figure}
 \centering
 \includegraphics[width=0.7\textwidth]{Figures/Undulator_edited.png}
-\caption[Schematic layout of an undulator]{Schematic of an electron beam traveling through an undulator with dipole magnets in alternating order.~\cite[based on p. 41]{Wille}}
+\caption[Schematic layout of an undulator]{Schematic of an electron beam traveling through an undulator with dipole magnets in alternating order~\cite[based on p. 41]{Wille}.}
 \label{fig:Undulator}
 \end{figure}
 \\
 The polarized positrons then continue along the positron line which is, from that point on, equivalent to the electron line.
-Since the electrons and positrons have a large emittance when they originate from their sources, their momentum and beam size have to be condensed.
-This is done in the damping rings (DR), which have a circumference of \SI{3.2}{\kilo\meter}.~\cite[p. 14]{TDR32}
+The beam lines contain several sub-systems that prepare the beams for the main acceleration and the final collision.
+One of the first sub-systems is the inital bunching and pre-acceleration of the beam with normal conducting RF cavities.
+This is done by the method of ``velocity bunching'', as explained in Section~\ref{AccPhysics:Bunching}.
+Being pre-accelerated to only \SI{76}{\MeV} in this step, the now bunched beams are accelerated to \SI{5}{\GeV} by a  superconducting booster linac~\cite[p. 81f]{TDR32}.
+Since the electrons and positrons have still a large emittance from when they originated from their sources, their momentum and beam size have to be condensed.
+\todo{Check the English of the sentences above}
+This is done in the damping rings (DR), which have a circumference of \SI{3.2}{\kilo\meter}~\cite[p. 14]{TDR32}.
 As discussed several times before, the beams will emit synchrotron radiation when they are deflected in a magnetic field.
 This is desired in the damping rings in order to ``cool'' the beams, i.e. to reduce their momentum due to the emission of photons.
 In a second step, the beams are then accelerated again which increases their momentum in the desired direction.
 The result is a high quality beam with small beam emittance.\\
-After passing the damping rings, the electron and positron beams are compressed into bunches by a two-stage compressor system.
+After passing the damping rings, the electron and positron beams are compressed in bunch length by a two-stage compressor system, using ``magnetic compression''.
 Here, the bunch length is reduced from several millimeters to \SI{300}{\micro\meter}.
-In both compressor systems, RF cavities are used together with undulators, which compact the beam momentum.
-The usage of two separate systems allows more flexibility in the operation, e.g. to reduce the beam length below \SI{300}{\micro\meter}.~\cite[p. 124]{TDR32}\\
+In both compressor systems, RF cavities are used together with undulators, which compact the beam momentum by exploiting the momentum spread within the beam bunch.
+As discussed in Section~\ref{AccPhysics:Bunching}, the bunch tail experiences an accelerating phase in the RF cavity, whilst the bunch head experiences a decelerating phase.
+The low-momentum particles of the bunch head will therefore be deflected more in the undulator, the high-momentum particles of the tail are deflected less, respectively.
+At the end of the compressor system, the particles of the bunch tail and head are gotten closer, leading to a shortened beam bunch. 
+\todo{Check the English of the sentences above}
+The usage of two separate systems allows more flexibility in the operation, e.g. to reduce the beam length below \SI{300}{\micro\meter}~\cite[p. 124]{TDR32}.\\
 Subsequent to that, the bunches are injected into the main linear accelerator structures (main linacs).
 The main linacs have a length of \SI{5}{\kilo\meter}, and use superconducting RF cavities which are shown in Figure~\ref{fig:Tesla_Cavity} in Chapter~\ref{AccPhysics:Principles}. 
 For the machine upgrade to \SI{500}{\GeV}, the linacs can be extended in length.
-Since cavities of the same design are already in use for the European XFEL (X-Ray Free-Electron Laser) at Deutsches Elektronen-Synchrotron (DESY) in Hamburg, their high performance has been demonstrated.~\cite{XFEL}
-It has been shown that they have an average accelerating gradient of \SI{31.5}{MV/m}, and that they can be operated with a frequency of \SI{1.3}{\giga\hertz}.~\cite{Walker}\\
+Since cavities of the same design are already in use for the European XFEL (X-Ray Free-Electron Laser) at Deutsches Elektronen-Synchrotron (DESY) in Hamburg, their high performance has been demonstrated~\cite{XFEL}.
+It has been shown that they have an average accelerating gradient of \SI{31.5}{MV/m}, and that they can be operated with a frequency of \SI{1.3}{\giga\hertz}~\cite{Walker}.\\
 The Beam Delivery System (BDS), which has an overall length of about \SI{4.4}{\kilo\meter}, transports the bunches from the linacs to the Interaction Point (IP).
 In the BDS, the beams are focused to nanometer size by the Final-Focus (FF) system, which is a crucial part of the ILC program.
 Only with nanometer-sized beams, the ILC can reach luminosities comparable to or beyond the Large Hadron Collider (LHC) at CERN, since the total production cross-section for \positron \electron colliders is several orders of magnitude smaller than for proton-proton colliders, such as the LHC, at their respective collision energies (see Figure~\ref{fig:Cross_sections}).
@@ -71,7 +81,7 @@ Chapter~\ref{BDS_Muons} will talk about muon shielding options that are consider
 \\After the Final-Focus system, the beams are then finally brought into collision with a crossing angle of \SI{14}{\milli\radian} at the IP.\cite[p. 9-10]{TDR1}
 With so-called crab cavities, the bunches are rotated horizontally so that effective head-on collisions are possible.
 This is illustrated in Figure~\ref{fig:Crab_crossing}.
-The crab cavities are also superconducting RF cavities, but designed for a RF frequency of \SI{3.9}{\giga\hertz} and an accelerating gradient of \SI{5}{\mega\volt\per\meter}.~\cite[p. 154]{TDR32}
+The crab cavities are also superconducting RF cavities, but designed for a RF frequency of \SI{3.9}{\giga\hertz} and an accelerating gradient of \SI{5}{\mega\volt\per\meter}~\cite[p. 154]{TDR32}.
 The RF phase is modeled in such a way that only the head and the tail of the beam bunch experience acceleration, but in opposite directions.
 The voltage needed to rotate a bunch with energy $E_{bunch}$ can be calculated as follows~\cite{Crab_cavities}:
 \begin{equation}
@@ -80,7 +90,7 @@ The voltage needed to rotate a bunch with energy $E_{bunch}$ can be calculated a
 $\theta_C$ is the crossing angle as before, $\omega$ is the RF frequency of the crab cavity, and $R$ is the ratio of the bunch displacement at the IP to its divergence, i.e. the ratio of the spatial shift at the IP to the increase in the beam size.
 With all other quantities fixed, only $R$ can be increased in order to reduce the required voltage.
 Therefore, the crab cavities are positioned at locations where this ratio $R$ between the spatial shift and the beam size increase is calculated to be large.
-For the ILC, it was calculated that the crab cavities should be located \SI{13.4}{\meter} up- and downstream of the IP.~\cite[p. 154]{TDR32}
+For the ILC, it was calculated that the crab cavities should be located \SI{13.4}{\meter} up- and downstream of the IP~\cite[p. 154]{TDR32}.
 \begin{figure}
 \centering
 \includegraphics[width=0.5\textwidth]{Figures/Crab_crossing.png}
@@ -91,7 +101,7 @@ For the ILC, it was calculated that the crab cavities should be located \SI{13.4
 Table~\ref{tab:ILC_parameters} shows the machine parameters for the baseline design at \SI{250}{\GeV} center-of-mass energy, and for the energy and the luminosity upgrade stages.
 %\multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Baseline 500}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Lumi Upgrade}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{TeV Upgrade}} & {\centering\textbf{LHC 25ns}} \\ 
 \begin{table}[h]
-\caption{Beam parameters for different phases in the ILC operation scenario (ILC250, ILC500, Luminosity Upgrade, TeV Upgrade)~\cites[p. 11]{TDR1}{CR-0016} in comparison to LHC Run 2 beam parameters~\cites[p. 3ff]{LHC_TDR}{LHC_Parameters}}.
+\caption{Beam parameters for different phases in the ILC operation scenario (ILC250, ILC500, Luminosity Upgrade, TeV Upgrade)~\cites[p. 11]{TDR1}{CR-0016} in comparison to LHC Run 2 beam parameters~\cites[p. 3ff]{LHC_TDR}{LHC_Parameters}.}
 \label{tab:ILC_parameters}
 \centering
 \begin{tabularx}{0.99\textwidth}{lll|rrrrg}
@@ -124,18 +134,18 @@ The Interaction Region (IR) houses the two detectors for the ILC, the Silicon De
 The detectors and the push-pull system are explained in more detail in Section~\ref{ILC:detectors}.\\
 Finally, after collision the spent beams are guided through the extraction line (EXT) towards the main beam dumps, where they are dumped.
 The current designs for the main beam dumps are based on a water tank, using high-pressure water with velocity flow systems.
-Since the water tanks are designed to be sufficient for all energy and luminosity stages, they are supposed to withhold a particle beam with a beam power of \SI{14}{\mega\watt} for the \SI{1}{\TeV} operation.~\cite[p. 18]{TDR32}
+Since the water tanks are designed to be sufficient for all energy and luminosity stages, they are supposed to withhold a particle beam with a beam power of \SI{14}{\mega\watt} for the \SI{1}{\TeV} operation~\cite[p. 18]{TDR32}.
 This leads to high irradiation of the beam dump surrounding and dangerous conditions for maintenance staff.
 In Chapter~\ref{BeamDumps}, which talks about the simulation of the main beam dumps done for this thesis, more details are given for the current beam dump designs.
 
 \subsection{Staging}
-As mentioned above, it was decided in 2017 to reduce the center-of-mass energy of the first ILC stage to \SI{250}{\GeV}, in order to reduce the total costs of the ILC project.~\cite{ICFA_Statement}
+As mentioned above, it was decided in 2017 to reduce the center-of-mass energy of the first ILC stage to \SI{250}{\GeV}, in order to reduce the total costs of the ILC project~\cite{ICFA_Statement}.
 The total costs for realizing the ILC includes the manpower, the costs for the construction of the so-called conventional facilities, such as the underground tunnels and the surface buildings, and the costs for the production and assembling of the accelerator and detector components.
-When breaking the total costs down into the subsystems, then the conventional facilities together with the production of the RF systems for the accelerator make up almost \SI{75}{\percent} of the total costs.~\cite[p. 20f]{TDR1}
+When breaking the total costs down into the subsystems, then the conventional facilities together with the production of the RF systems for the accelerator make up almost \SI{75}{\percent} of the total costs~\cite[p. 20f]{TDR1}.
 These estimations are based on cost inquiries with several industrial companies, as well as on experiences collected at former accelerator projects, such as the European XFEL which uses the same design for the RF cavities as planned for the ILC.\\
 Regarding the ILC layout, several options are under discussion which are shown in Figure~\ref{fig:Staging}.
 These options would yield a cost reduction of up to \SI{34}{\percent}, resulting in about \SI{66}{\percent} of the initial costs for the \SI{500}{\GeV} machine by reducing the length of the tunnel (options A, B, and C), or by additionally reducing the number of RF cavities (options A', B' and C').
-In options A', B', and C', the RF cavities are planned to have a larger accelerating gradient so that a smaller number of cavities would still lead to the same beam energy as for options A, B, and C.~\cite{Cost_reduction}
+In options A', B', and C', the RF cavities are planned to have a larger accelerating gradient so that a smaller number of cavities would still lead to the same beam energy as for options A, B, and C~\cite{Cost_reduction}.
 Overall, option A' foresees the shortest possible tunnel for \SI{250}{\GeV} and the smallest number of cavities, and therefore results in the highest cost reduction.
 As explained before, the costs for the tunnel and the accelerating structures represent indeed the largest fraction of the total costs, and will be reduced by the staging options.
 However, the other parts of the accelerator and the surface buildings will not change by the staging scenarios but form basic costs because of which the maximum cost reduction cannot exceed \SI{34}{\percent}.
@@ -149,7 +159,7 @@ The original layout has foreseen a tunnel fitting linacs for \SI{250}{\GeV} beam
 For the new stage, the linacs are reduced in length.
 The discussions about the layout involves also the length of the tunnel.
 Option B and C would foresee longer tunnels that would facilitate a later energy upgrade to 350 or \SI{500}{\GeV}.\\
-Options A', B' and C' correspond to options A, B and C regarding the tunnel length, but they assume RF cavities with a gradient of \SI{35}{\mega\volt\per\meter} instead of \SI{31.5}{\mega\volt\per\meter} in order to reduce the number of cavities needed.~\cite[p. 19]{Staging}}
+Options A', B' and C' correspond to options A, B and C regarding the tunnel length, but they assume RF cavities with a gradient of \SI{35}{\mega\volt\per\meter} instead of \SI{31.5}{\mega\volt\per\meter} in order to reduce the number of cavities needed~\cite[p. 19]{Staging}.}
 \label{fig:Staging}
 \end{figure}
 Figure~\ref{fig:ILC_runningtime} shows two possible running scenarios for the staged ILC.
@@ -158,17 +168,17 @@ On the left hand side, the plot shows an expected operation time of 15 years for
 After an energy upgrade by extending the main linac, the operation at \SI{500}{\GeV} and a short run at \SI{350}{\GeV} for dedicated measurements of the top quark qualities would be possible.
 The overall operation time would stretch out to 26 years.\\
 For the second scenario on the right hand side of Figure~\ref{fig:ILC_runningtime}, it was assumed that the beam parameters are changed in such a way that the beam is more strongly focused at the IP and therefore that the instantaneous luminosity is enhanced.
-That shortens the operation time of the ILC250 stage to 11 years, and the overall run time to 22 years.~\cite[p. 7]{PhysicsCase}
+That shortens the operation time of the ILC250 stage to 11 years, and the overall run time to 22 years~\cite[p. 7]{PhysicsCase}.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{Figures/ILC_runningtime.png}
-\caption[ILC run plan]{Two possible ILC run plans for the staged ILC.~\cite[p. 8]{PhysicsCase}}
+\caption[ILC run plan]{Two possible ILC run plans for the staged ILC~\cite[p. 8]{PhysicsCase}.}
 \label{fig:ILC_runningtime}
 \end{figure}
 \newpage
 \section{Possible site}
 \label{ILC:site}
-Out of originally more than ten potential ILC sites in Japan, the Kitakami mountains in the Tohuku Prefecture was chosen to be the preferred site for the ILC.~\cite{Site}
+Out of originally more than ten potential ILC sites in Japan, the Kitakami mountains in the Tohuku Prefecture was chosen to be the preferred site for the ILC~\cite{Site}.
 This decision was made in August 2013 after a detailed study of all site specific factors, like the geological conditions, the infrastructure, and the impact on the environment and the economy.
 Measurements of the Kitakami mountains have shown that it consists mostly of granite rock with the best qualities for the ILC, regarding vibration and rock stress.
 As can be seen in Figure~\ref{fig:ILC_Site}, the closest city (with about 120,000 citizens) would be Ichinoseki.
@@ -253,7 +263,7 @@ This is true despite the lower luminosity at \SI{250}{\GeV}, due to the larger c
 \begin{figure}
 \centering
 \includegraphics[width=0.5\textwidth]{Figures/HiggsProductionCrossSection.png}
-\caption[Cross section for the Higgs production modes at ILC]{Cross sections for the Higgs production modes at the ILC.~\cite[p. 13]{PhysicsCase}
+\caption[Cross section for the Higgs production modes at ILC]{Cross sections for the Higgs production modes at the ILC~\cite[p. 13]{PhysicsCase}.
 The three main processes are ZZ fusion, WW fusion, and Higgsstrahlung.}
 \label{fig:HiggsProduction}
 \end{figure}
@@ -262,7 +272,7 @@ The three main processes are ZZ fusion, WW fusion, and Higgsstrahlung.}
 To know the Higgs couplings to Standard Model (SM) particles as precise as possible is one of the most important goals for the ILC.
 Many theories about particles beyond the SM predict deviations from the SM couplings at the \SI{1}{\percent} level.
 Therefore, if these theories prove to be true, only with the highest precisions a new particle might be discovered outside our current knowledge.\\
-Since a decay width of a specific process is proportional to the decay branching ratio, which is again proportional to the coupling strength squared, the precision on the coupling measurement is directly dependent on how accurate the full process can be measured and recorded.~\cite{PhysicsCase}
+Since a decay width of a specific process is proportional to the decay branching ratio, which is again proportional to the coupling strength squared, the precision on the coupling measurement is directly dependent on how accurate the full process can be measured and recorded~\cite{PhysicsCase}.
 \todo{Show equations}
 Due to large background levels and therefore high detector occupancies in hadron colliders, specific processes are not easily distinguishable from background events.
 This is the reason why LHC experiments can not measure the full Higgs cross section without \textit{model dependent} assumptions.
@@ -271,7 +281,7 @@ This leads to differences in the relative Higgs boson coupling precisions of a f
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.6\textwidth]{Figures/Higgs_couplings.png}
-\caption[Higgs coupling precisions]{Comparison of the precision reached at the ILC and at the High-Luminosity LHC (HL-LHC) for couplings g(hXX) of the Higgs boson (h) to SM particles (X).~\cite[p. 17]{PhysicsCase}\\
+\caption[Higgs coupling precisions]{Comparison of the precision reached at the ILC and at the High-Luminosity LHC (HL-LHC) for couplings g(hXX) of the Higgs boson (h) to SM particles (X)~\cite[p. 17]{PhysicsCase}.\\
 The plot shows the relative precisions for the Higgs couplings calculated from the \textbf{model dependent} fits to simulated data from the HL-LHC, and from these fits combined with \textbf{model independent} fits to simulated data from the ILC.}
 \label{fig:Higgs_couplings}
 \end{figure}
@@ -284,14 +294,14 @@ The plot shows the relative precisions for the Higgs couplings calculated from t
 In order to preserve competitive spirit and the ability to cross-check results, the ILC has two detectors despite the fact that it is a linear and not a circular collider.
 The so-called push-pull system makes that possible by allowing the detectors to switch position after a certain amount of data-taking time.
 The whole detector together with the last quadrupole magnet of the accelerator Final-Focus system will be pulled out of the beam line, and the other detector takes its place.
-The whole process is designed to take from several hours up to 1-2 days, but involves some challenges especially for the magnets, the cryogenics, and the detector and machine alignment.~\cite[p. 28-29]{TDR1}
+The whole process is designed to take from several hours up to 1-2 days, but involves some challenges especially for the magnets, the cryogenics, and the detector and machine alignment~\cite[p. 28-29]{TDR1}.
 The two detectors, the Silicon Detector (SiD) and the International Large Detector (ILD), will be explained in detail in the following sections.
 The focus will lie on SiD, since all the background studies presented in this thesis were done in the context of the SiD detector.
 
 \subsection{The Silicon Detector}
 The SiD is designed to be a robust, compact detector.
 Its vertex and tracker system, as well as the electromagnetic calorimeter (ECAL) are purely based on silicon sensors.
-The silicon design, in comparison to other designs for the vertex and tracking detectors, is more robust regarding the beam background and timing.~\cite[cf. p. 57ff]{TDR4}
+The silicon design, in comparison to other designs for the vertex and tracking detectors, is more robust regarding the beam background and timing~\cite[cf. p. 57ff]{TDR4}.
 \todo{Put more pics}
 \paragraph{Vertex detector}
 The vertex detector will be the inner most subdetector with the measurements of a soda can.
@@ -299,7 +309,7 @@ Still, with its five layers for the barrel and the endcaps it will be able to do
 The requirements for the vertex detector performance are very demanding:
 The spatial resolution has to be less than \SI{3}{\micro\meter}, which allows not only very precise tracking, but also the verification of the primary vertex of an event, as well as of the secondary vertex of a bottom quark (b-tagging) and even of a charm quark (c-tagging).
 The latter is very challenging due to the short flight distance of the charm quark of only a few microns before it hadronizes.
-Additionally, a very small material budget of about 0.1\,X$_0$ is foreseen for the vertex detector, since particles should not perform particle showers in this subdetector.~\cite{SiD_Update}
+Additionally, a very small material budget of about 0.1\,X$_0$ is foreseen for the vertex detector, since particles should not perform particle showers in this subdetector~\cite{SiD_Update}.
 The final decision on the sensor technology is not made yet, which allows the detector to have the most recent state-of-the-art technology.
 \paragraph{Tracking detector}
 Outside the vertex detector is the Silicon Tracker.
@@ -330,14 +340,14 @@ Like the ECAL, both, the LumiCal and the BeamCal, are sampling calorimeters usin
 As the forward region is highly affected by high-energy particles that are typically boosted in the forward direction, the sensors have to be specifically designed to withstand radiation damage.
 The damage results from large energy depositions from the boosted particles as well as from different backgrounds, such as the pair background as mentioned before.
 With this flux of particles hitting the forward system, the BeamCal is expected to have an occupancy of \SI{100}{\percent}, i.e. all of the BeamCal pixels are expected to be hit by particles.
-This large occupancy needs to be accounted for in the readout technology.~\cite[p. 133ff]{TDR4}
+This large occupancy needs to be accounted for in the readout technology~\cite[p. 133ff]{TDR4}.
 \paragraph{Pacman}
 Part of the detector, but not part of the sensitive subdetectors, is ``Pacman''.
 Pacman is a detector specific shielding against machine background that reaches the detector and would increase the detector occupancy.
 All particles that are produced from the beam interacting with accelerator machine parts, and that reach the detectors, are called machine background.
 It is placed on either side of the detector, and has an outer radius of about \SI{2.8}{\meter}, hence it covers the full radius of all subdetectors inside the solenoid magnet.
 The inner layer of Pacman is made of iron, the outer layer of borated concrete which is specially designed to stop neutrons.
-The thickness is about \SI{3.4}{\meter}.~\cite{SiD_Geo}
+The thickness is about \SI{3.4}{\meter}~\cite{SiD_Geo}.
 Its use can be seen in the simulation of the machine backgrounds in Chapters~\ref{BDS_Muons:SiD} and \ref{BeamDumps:SiDocc}.
 
 \paragraph{The overall SiD concept}
@@ -349,16 +359,16 @@ Figure~\ref{fig:SiD} shows a visualization of the SiD detector and its subdetect
 \includegraphics[width=0.7\textwidth]{Figures/SiD_new.jpg}
 \caption[Visualization of the SiD detector]{The SiD detector consists of the vertex and tracking detectors (red), the electromagnetic calorimeter (ECAL) (green), the hadronic calorimeter (HCAL) (purple) and the muon system (gray).
 All subdetectors except the muon system are inside the solenoid magnet.
-Outside the muon endcaps is the detector specific background shielding, called ``Pacman'' with an inner (light gray) and an outer (beige) layer.~\cite{SiD_Geo}}
+Outside the muon endcaps is the detector specific background shielding, called ``Pacman'' with an inner (light gray) and an outer (beige) layer~\cite{SiD_Geo}.}
 \label{fig:SiD}
 \end{figure}
 \\
 Overall, the SiD detector is optimized for Particle Flow Algorithms (PFA).
 PFA is a reconstruction method that reconstructs each particle of the final state individually and uses the different subdetectors for a specific purpose.
-Therefore, charged particles are reconstructed from tracks in the tracker device, the ECAL is used for photons, and the ECAL and HCAL together for other neutral particles.~\cite{PFA}
+Therefore, charged particles are reconstructed from tracks in the tracker device, the ECAL is used for photons, and the ECAL and HCAL together for other neutral particles~\cite{PFA}.
 Table~\ref{tab:KeyParametersSiD} lists the key parameters and measurements of the SiD subdetector systems.\\
 \begin{table}
-\caption[Key parameters of the baseline SiD design]{Key parameters of the baseline SiD design. All dimensions are given in cm.~\cite{SiDBkgNote}}
+\caption[Key parameters of the baseline SiD design]{Key parameters of the baseline SiD design. All dimensions are given in cm~\cite{SiDBkgNote}.}
 \label{tab:KeyParametersSiD}
 \centering
 \begin{tabularx}{0.81\textwidth}{l|llll}
@@ -398,7 +408,7 @@ There are major SiD detector design variants that are subject of discussions and
  Before, the distance (L*) between the IP and QD0 was different for SiD and ILD, as L* is dependent on the size of the detector.
  Since the diverging L* values mean different beam operation conditions, CR-002 dictated a change of the detector designs in such a way that L* is the same for both detectors, in order to facilitate the beam operation.
  For SiD, the dictated change of L* from 3.5 to \SI{4.1}{\meter} implied in practice that the BeamCal had to be repositioned, since it is attached to the QD0 support structure. 
- The BeamCal moved from a former distance to the IP of 2.95 to \SI{3.265}{\meter}.~\cite{SiDBkgNote}
+ The BeamCal moved from a former distance to the IP of 2.95 to \SI{3.265}{\meter}~\cite{SiDBkgNote}.
  \item \underline{Design variants of the inner region of the BeamCal}\\
  The BeamCal surrounds the ingoing and outgoing beam pipe.
  For the inner region around the beam pipes, there are three different design variants that include a different amount of instrumentation, as shown in Figure~\ref{fig:BeamCal}.
@@ -428,9 +438,9 @@ There are major SiD detector design variants that are subject of discussions and
 \newpage
  \item \underline{Anti-DiD Field}\\
  The BeamCal is expected to have an occupancy of \SI{100}{\percent} due to boosted particles as well as background particles such as the \positron\electron pairs from beam-beam interactions, as explained before.
- In order to suppress hits from these \positron\electron pairs, it was proposed to include an additional magnet in the detector design, the so-called anti-DiD (Detector Integrated Dipole) magnet.~\cite{antiDiD}
+ In order to suppress hits from these \positron\electron pairs, it was proposed to include an additional magnet in the detector design, the so-called anti-DiD (Detector Integrated Dipole) magnet~\cite{antiDiD}.
  The dipole windings of the anti-DiD are directly mounted around the SiD solenoid magnet.
- Its magnetic field has a value of \SI{600}{\gauss}, and causes locally the deflection of the pair background in the region of the BeamCal.~\cite[p. 118]{TDR4}
+ Its magnetic field has a value of \SI{600}{\gauss}, and causes locally the deflection of the pair background in the region of the BeamCal~\cite[p. 118]{TDR4}.
  The pairs are swept into the outgoing beam pipe, which reduces the BeamCal occupancy.
 \end{itemize}
 
