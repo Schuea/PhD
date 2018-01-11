@@ -1,3 +1,4 @@
+
 \section{SiD vertex detector occupancies}
 The occupancy of the SiD vertex detector is calculated by counting the hits from the pair background per pixel for a full bunch train (1312 bunch crossings).
 The sensor buffers are read out after every train, and therefore have to be suitable for the expected detector occupancy.
@@ -12,8 +13,6 @@ The SiD vertex detector is a high-resolution pixel detector with the following r
 \end{itemize}
 Table~\ref{tab:KeyParametersSiD} lists further key parameters and measurements of the vertex detector, for which a visualization is shown in Figure~\ref{fig:SiD}.
 \begin{table}[h]
-\caption{\textit{Key design parameters of the baseline SiD vertex detector (VXD). All dimensions are given in cm.}}
-\label{tab:KeyParametersSiD}
 \centering
 \begin{tabularx}{\textwidth}{l|llll}
 \hline\hline
@@ -26,9 +25,11 @@ VXD barrel & Silicon pixels & 1.4 & 6.0 & $\pm 6.25$ \\
 VXD endcap & Silicon pixels & 7.3 & 83.4 & 16.6 \\
 \hline\hline
 \end{tabularx}
+\caption{\textit{Key design parameters of the baseline SiD vertex detector (VXD). All dimensions are given in cm.}}
+\label{tab:KeyParametersSiD}
 \end{table}
 
-\begin{figure}[!h]
+\begin{figure}
 \centering
 \begin{subfigure}[t]{0.45\textwidth}
 \centering
@@ -38,13 +39,13 @@ VXD endcap & Silicon pixels & 7.3 & 83.4 & 16.6 \\
 \hspace*{0.3cm}
 \begin{subfigure}[t]{0.45\textwidth}
 \centering
-\includegraphics[width=1.05\textwidth]{figures/SiDVertexDetector.png}
+\includegraphics[width=\textwidth]{figures/SiDVertexDetector.png}
 \caption{\textit{Visualization of the SiD vertex detector}}
 \end{subfigure}
 \caption{\textit{Visualizations of the current design models of the SiD detector (a), and the SiD vertex detector (b).}}
 \label{fig:SiD}
 \end{figure}
-
+\newpage
 \subsection{Occupancy studies for the current SiD design}
 The current SiD design with an L$^*$ of \SI{4.1}{\meter} (the distance between the interaction point and the last quadrupole magnet of the Final-Focus system) foresees an anti-DiD magnet with a magnetic field strength of \SI{600}{\gauss}.
 It reduces the pair background occupancy by sweeping the pair background particles through the outgoing beam pipe.
@@ -55,7 +56,9 @@ A cell is ``dead'' when the number of hits in this cell has reached the cell's b
 Therefore, the number of dead cells is plotted as a function of the assumed buffer depth for the vertex detector cells.
 For all layers combined, the new parameter scheme (A) leads to a fraction of dead cells that is 2-3 times higher than for the TDR set.
 Again, for the schemes (B) and (C), the fraction is even higher.
-\begin{figure}[!h]
+\\In general, the occupancy in layer 0 is higher than in the other layers, as it is the layer closest to the interaction point.
+Here, the occupancy for the new sets is significantly increased with respect to the TDR scheme (see Figure~\ref{fig:Layer0_Occupancy}). 
+\begin{figure}[h]
 \centering
 \begin{subfigure}[t]{0.45\textwidth}
 \centering
@@ -71,9 +74,7 @@ Again, for the schemes (B) and (C), the fraction is even higher.
 \caption{\textit{Pair background occupancy in the SiD vertex detector for all vertex detector layers combined, after a full bunch train (1312 bunch crossings).}}
 \label{fig:All_layers_Occupancy}
 \end{figure}
-\\In general, the occupancy in layer 0 is higher than in the other layers, as it is the layer closest to the interaction point.
-Here, the occupancy for the new sets is significantly increased with respect to the TDR scheme (see Figure~\ref{fig:Layer0_Occupancy}). 
-\begin{figure}[!h]
+\begin{figure}[h!]
 \centering
 \begin{subfigure}[t]{0.45\textwidth}
 \centering
@@ -115,5 +116,5 @@ The plot on the left hand side shows the normalized occupancy for all layers com
 \\Figure~\ref{fig:SiD_comparison} shows that the SiD design does not have a big impact on the vertex detector occupancy from the pair background. 
 The lowest occupancy is reached for the SiD design with the old L$^*$ and anti-DiD.\\
 However, the current SiD design (new L$^*$ with anti-DiD) shows occupancy levels that are only marginally worse.
-Assuming a buffer depth of four, just above 10$^{-5}$ of all cells in layer 0 would have full buffers, filled with exactly 4 hits.
+Assuming a buffer depth of four, just above 10$^{-5}$ of all cells in layer 0 would have full buffers, filled with exactly four hits.
 With the rule of thumb that the vertex detector occupancy for backgrounds should be below 10$^{-4}$, the occupancies for all studies shown in this note are well below this boundary.
