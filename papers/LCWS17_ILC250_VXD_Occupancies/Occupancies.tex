@@ -2,12 +2,12 @@
 \section{SiD vertex detector occupancies}
 The occupancy of the SiD vertex detector is calculated by counting the hits from the pair background per pixel for a full bunch train (1312 bunch crossings).
 The sensor buffers are read out after every train, and therefore have to be suitable for the expected detector occupancy.
-For the study of the occupancy, the pair background events were taken from GuineaPig, as described in the Section \ref{sec:Envelopes}, and used as input for a full Geant4 detector simulation with SLIC~\cite{SLIC}.
+For the study of the occupancy, the pair background events were taken from GuineaPig, as described in Section \ref{sec:Envelopes}, and used as input for a full Geant4~\cite{geant_ref,geant_ref2} detector simulation with SLIC~\cite{SLIC}.
 The crossing angle was applied in this simulation step.\\
 Regarding the SiD detector geometry, a pixel size of \SI{20x20}{\micro\meter} was assumed for the vertex detector.
 The SiD vertex detector is a high-resolution pixel detector with the following requirements:
 \begin{itemize}
- \item Spatial resolution: $<$ \SI{4}{\micro\meter}
+ \item Spatial hit resolution: $<$ \SI{4}{\micro\meter}
  \item Momentum resolution: $\sim$ 2-\SI{5e-5}{\GeV}
  \item $\sim$ \SI{0.1}{\percent} X\textsubscript{0} per layer
 \end{itemize}
@@ -79,7 +79,7 @@ Here, the occupancy for the new sets is significantly increased with respect to 
 \begin{subfigure}[t]{0.45\textwidth}
 \centering
 \includegraphics[width=1.05\textwidth]{figures/Occupancy_Comparison_Layer_0_numcells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD_LEG.png}
-\caption{\textit{Layer 0: Normalized Occumancy}}
+\caption{\textit{Layer 0: Normalized Occupancy}}
 \end{subfigure}
 \hspace*{0.3cm}
 \begin{subfigure}[t]{0.45\textwidth}
@@ -88,7 +88,7 @@ Here, the occupancy for the new sets is significantly increased with respect to 
 \caption{\textit{Layer 0: Ratio of dead cells}}
 \end{subfigure}
 \caption{\textit{Pair background occupancy in the SiD vertex detector layer 0, after a full bunch train (1312 bunch crossings).
-The plots on the left hand side show the normalized occupancy, the ratio of dead cells is shown on the right side.}}
+The plot on the left hand side shows the normalized occupancy, the ratio of dead cells is shown on the right side.}}
 \label{fig:Layer0_Occupancy}
 \end{figure}
 
