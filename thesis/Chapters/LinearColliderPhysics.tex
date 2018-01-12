@@ -195,18 +195,20 @@ With this knowledge, the overall beam size can be calculated by using the distri
 \label{AccPhysics:Bunching}
 
 Next to the transversal beam dynamics, there are also effects in the longitudinal direction, concerning the movement of the particles along the beam trajectory.
-As mentioned above, both modern collider concepts, linear colliders as well as synchrotrons, take usage of the RF cavities in order to accelerate the particles.
+As mentioned above, both modern collider concepts, linear colliders as well as synchrotrons, use  RF cavities in order to accelerate the particles.
 Due to the nature of these accelerating structures, there is a certain phase of the RF frequency that can accelerate the particles in an optimal way.
 In order to provide this ideal acceleration to all beam particles, the beam has to be bunched.\\
-In circular accelerators, this bunching happens naturally:
-For relativistic particles traveling at the speed of light, their orbit along the accelerator depends on the difference of their momentum $\Delta p$ to the ideal momentum $p$.
+In circular accelerators, this bunching happens naturally due to the choice of the RF frequency and the timing of the beam arriving at the accelerating cavities.
+The RF frequency is chosen such that the particles (with the ideal momentum $p$) arrive at the cavity at the synchronous phase $\psi_s$, which is off the crest of the RF wave.
+For relativistic particles traveling at the speed of light, their orbit along the accelerator however depends on the difference of their momentum $\Delta p$ to the ideal momentum $p$.
 Particles with a smaller momentum travel on an orbit that is smaller than the ideal orbit.
 This is due to the fact that the radius of the particle's path in an external magnetic field depends on the momentum of the particle, which is shown in Equation~\ref{eq:MagField_Radius}.
-These particles on a smaller orbit will arrive at the next accelerating cavity earlier than the ideal particles, and will therefore experience a larger field which accelerates the particles to higher energies.
-Respectively, particles that have energies larger than the ideal particles are deflected onto a larger orbit and will therefore arrive late at the RF cavity, where they then gain less energy. 
+These particles on a smaller orbit will arrive at the next accelerating cavity earlier than the ideal particles (which arrive at the synchronous phase $\psi_s$), and will therefore experience a larger field which accelerates the particles to higher energies.
+Particles that have energies larger than the ideal particles are deflected onto a larger orbit and will therefore arrive late at the RF cavity, where they then gain less energy. 
 Hence, particles are accelerated by different phases of the RF field, as can be seen in Figure~\ref{fig:RFPhase}.
 Particles arriving later will be accelerated less, particles arriving too early will be accelerated more.
-The particles oscillate about the ideal stable phase, and therefore form bunches.
+The synchronous phase is therefore chosen to be off the acceleration-peak of the wave.
+The particles oscillate about thid ideal stable phase, and therefore form bunches.
 This effect is called ``phase focusing''.
 \begin{figure}
 \begin{subfigure}[b]{0.4\textwidth}
@@ -217,7 +219,7 @@ This effect is called ``phase focusing''.
 \centering
  \includegraphics[width=0.9\textwidth]{Figures/RFphase.png}
 \end{subfigure}
-\caption[Phase focusing]{Relativistic charged particles with the ideal momentum ($\Delta p/p = 0$) travel on the ideal orbit of the accelerator, and arrive at the next accelerating RF structure at the RF phase $\psi_s$. 
+\caption[Phase focusing]{Relativistic charged particles with the ideal momentum ($\Delta p/p = 0$) travel on the ideal orbit of the accelerator, and arrive at the next accelerating RF structure at the RF phase $\psi_s$, the so-called ``synchronous phase''. 
 Particles with a smaller momentum ($\Delta p/p < 0$) travel on a shorter orbit, and will arrive earlier than the ideal particles.
 These particles will therefore be accelerated more, whilst particles with larger momentum will be accelerated less respectively.
 Illustrations based on~\cite{Anke}.}
@@ -228,7 +230,7 @@ The initial bunching is done directly after the particle source, which is the ve
 As the particles at this stage are still non-relativistic, one of the possible methods that can be used is ``velocity bunching''.
 For this, the continuous stream of particles are passed through a set of RF cavities, where the velocity spread induced by the RF frequency causes bunches to form.
 Particles arriving at the cavity at a phase with negative voltage will be decelerated, whilst particles arriving at a phase with positive voltage will be accelerated (see Figure~\ref{fig:Velocity_bunching}).
-Over a set of several cavities, bunches with a length of the order of millimeter will have formed.
+Over a set of several cavities, bunches will have formed.
 \begin{figure}
 \centering
 \includegraphics[width=0.4\textwidth]{Figures/Velocity_bunching.png}
@@ -240,7 +242,7 @@ There are several methods used by bunch compressors, which all in principle are 
 One of the methods uses the same idea as explained above for circular accelerators.
 It is illustrated in Figure~\ref{fig:Magnetic_compression}.
 By sending the bunches through a chicane with bending magnets, the particles' orbit though the chicane depends on their relativistic momentum.
-Before the chicane, the still elongated bunches are passed through an RF cavity, and the bunch heads experience a decelerating RF phase, whilst the tails experience an accelerating phase.
+Before the chicane, the still elongated bunches are passed through an RF cavity such that the bunch heads experience a decelerating RF phase, whilst the tails experience an accelerating phase.
 In the chicane, the high-momentum particles of the tail are deflected less, and will travel on a shorter orbit than the low-momentum particles.
 At the end of the chicane, the difference between the time of arrival of the head and the tail particles is smaller, the bunches have been compressed longitudinally.
 Another method of ``magnetic compression'' is explained in Section~\ref{ILC:layout:details}.
