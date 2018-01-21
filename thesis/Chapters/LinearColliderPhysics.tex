@@ -4,8 +4,9 @@
 \begin{chapterabstract}
 Since the invention of the first particle accelerators in the late 1920s, many different forms of accelerators were invented and developed over the years. 
 Even though they may differ in shape and form, they all rely on the same principles. 
-After a brief introduction of these principles of accelerator physics, there will be a description of the two classes of particle accelerators that are mainly used for high-energy physics nowadays: linear and circular colliders. 
+After a brief introduction of these principles of accelerator physics, there will be a description of the two classes of particle accelerators that are mainly used for high-energy physics nowadays: linear and circular accelerators. 
 By looking at their advantages and disadvantages, the differences between them will be compared.
+\todo{Does this last sentence sound odd?}
 \end{chapterabstract}
 \newline
 
@@ -21,7 +22,7 @@ In a time independent electric field $\vec{E}$ with potential $U$, the particle 
 \end{equation}
 The particle's charge, expressed in the elementary charge $e$, is simply multiplied by the electric potential in Volts to calculate the gain or loss of the particle's kinetic energy. 
 Out of convenience, the unit for energy in particle physics is therefore eV.\\
-By this logic a particle is accelerated to higher energies by applying higher and higher electrostatic fields. 
+By this\todo{or: ``Following this''?} logic a particle is accelerated to higher energies by applying higher and higher electrostatic fields. 
 This was done in the beginning of particle accelerators by increasing the voltage applied to a capacitor and passing the charged particle through the field. 
 Unfortunately, there are limits to the amount of voltage that can be applied before an electric breakdown.
 The solution seems simple: putting several capacitors in a row.
@@ -45,7 +46,7 @@ Nowadays, particle accelerators all over the world mainly use RF cavities instea
 High-power RF cavities are made of superconducting material, since its electric resistance is minimal.
 Unlike before, the acceleration takes place inside the cavities, and all cavity cells are of the same length and shape.
 Their characteristic shape has the effect that the electromagnetic (EM) wave inside the cavity is resonant with a high quality factor.
-The quality factor describes how large the damping of the EM wave is, as it is the ratio of the stored energy over the dissipated energy~\cite[p. 148]{Wilson}.
+The quality factor $Q$ describes how large the damping of the EM wave is, as it is the ratio of the stored energy over the dissipated energy~\cite[p. 148]{Wilson}.
 The larger the quality factor, the smaller the damping effect.
 Figure~\ref{fig:Tesla_Cavity} shows a 9-cell niobium cavity developed at Deutsches Elektronen-Synchrotron (DESY) in Hamburg.
 Its shape is called ``TESLA-style'', and its accelerating gradient exceeds \SI{35}{\mega\volt\per\meter} whilst it can be tuned to an RF frequency of \SI{1.3}{\giga\hertz}~\cite[p. 15f]{TDR31}.
@@ -69,7 +70,7 @@ The RF field direction inside a cell is oscillating with the RF frequency, and n
 The frequency is then tuned such that the beam always experiences an accelerating RF phase.
 In comparison to the drift tubes explained above, the matching of the particles to the wanted accelerating RF phase is therefore done here by time dependent frequencies, whilst for the drift tube structures it is done purely by the change in the geometry of the tubes.
 \\
-The development of the linear accelerating structures remains a significant factor for our modern particle accelerators.
+The development of the linear accelerating structures remains a significant factor for modern particle accelerators.
 Nevertheless, also the advance in the research efforts for other accelerator designs has an essential impact:
 The drift tube linac (short for linear accelerator) was not the only accelerator concept developed by Rolf Wider\o e, he even more importantly invented the very first accelerating structures using electromagnetic fields.
 By using a magnetic field, the charged particles are deflected on a radial path, which therefore allows the accelerator to be much smaller than before~\cite[cf. p. 8]{Wilson}.
@@ -159,7 +160,7 @@ It can be expressed by the two beam parameters $\beta$ and $\epsilon$ which will
 The beta function $\beta$ describes the spatial dependency of the amplitude and the wave length of the betatron oscillations.
 It is a periodic function, dependent on the focusing strengths and the location of the magnets along the beam path.
 At any given point along the path, the $\beta$ value can be given in units of length.
-Of particular interest is its value at the interaction point (IP), the point of the beam collisions, where it is then named $\beta^*$.
+Of particular interest is its value at the interaction point (IP), the point of the beam collisions, where it is then called $\beta^*$.
 In order to minimize the beam size at the IP, the beta function is tailored such that it has a local minimum at this point.  
 \\
 Like the beta function, the transverse emittance $\epsilon$ is defined in the horizontal and vertical plane.
@@ -195,7 +196,7 @@ With this knowledge, the overall beam size can be calculated by using the distri
 \label{AccPhysics:Bunching}
 
 Next to the transversal beam dynamics, there are also effects in the longitudinal direction, concerning the movement of the particles along the beam trajectory.
-As mentioned above, both modern collider concepts, linear colliders as well as synchrotrons, use  RF cavities in order to accelerate the particles.
+As mentioned above, both modern accelerator concepts, linear accelerators as well as synchrotrons, use  RF cavities in order to accelerate the particles.
 Due to the nature of these accelerating structures, there is a certain phase of the RF frequency that can accelerate the particles in an optimal way.
 In order to provide this ideal acceleration to all beam particles, the beam has to be bunched.\\
 In circular accelerators, this bunching happens naturally due to the choice of the RF frequency and the timing of the beam arriving at the accelerating cavities.
@@ -261,7 +262,7 @@ Illustration based on~\cite[p. 75]{Bunching}.}
 \label{AccPhysics:Linear-Circular}
 These transversal and longitudinal beam dynamics, described in the sections above, are of course valid for circular as well as linear accelerators.
 In both machines, the acceleration with RF cavities, for instance, is accompanied by beam deflections and corrections with the help of magnets.
-Naturally, the beam line of a circular collider contains on average more bending magnets than a linear collider.\\
+Naturally, the beam line of a circular accelerator contains on average more bending magnets than a linear accelerator.\\
 Currently, the world's largest circular particle collider is the Large Hadron Collider (LHC) at CERN in Switzerland, a synchrotron with a circumference of about \SI{27}{\kilo\meter}.
 The collision energy of the two colliding proton beams is \SI{13}{\TeV} in the current run, and its nominal peak luminosity \lumi is \SI{e34}{\centi\meter^{-2}\second^{-1}}~\cite[p. 3]{LHC_Paper}.\\
 The collision energy $\sqrt{s}$, or often called center-of-mass energy $E_{cm}$, between two relativistic beams with 4-vectors $p_1$ and $p_2$ is calculated as follows:
@@ -311,7 +312,7 @@ Being able to set the collision energy precisely means that the possible signal 
 The decision whether to build a lepton or a hadron collider therefore depends mainly on the physics goal.
 \\
 The next question to be answered is which design the collider should have, linear or circular.
-Again, both alternatives have clear advantages and disadvantages.
+Again, both alternatives have advantages and disadvantages.
 One advantage of circular accelerators was already mentioned, namely the possibility to go to high energies by letting the beams perform more revolutions and hence gain more and more energy from every turn.
 This is not possible in linear colliders, since the beams are not reused but dumped after every collision.
 The full collision energy has to be gained in a single go.
@@ -323,7 +324,7 @@ The synchrotron radiation power is defined as~\cite[p. 33]{Wille}:
 \begin{equation}
  P_S = \frac{e^2c}{6\pi\epsilon_0}\frac{1}{(m_0c^2)^4}\frac{E^4}{R^2}
 \end{equation}
-This directly leads to the energy loss per turn in a circular collider of radius $R$, for which one turn takes the time interval $T$:
+This directly leads to the energy loss per turn in a circular accelerator of radius $R$, for which one turn takes the time interval $T$:
 \begin{align}
  \Delta E &= P_S\cdot T\\
  &= P_S\frac{2\pi R}{c}\\
@@ -351,7 +352,8 @@ Concluding, a circular hadron collider lends itself to be a particle accelerator
 \\
 Nevertheless, there have also been circular lepton colliders in the past, such as the Large Electron-Positron Collider (LEP) at CERN before the LHC was built into the same tunnel.
 LEP was in use from 1989 until 2000, and accelerated electrons and positrons to a center-of-mass energy of up to \SI{209}{\GeV}~\cite{LEP}.
-At such energies, the loss due to synchrotron radiation is still tolerable, and important precision measurements of the W and Z boson were done.
+At such energies, the loss due to synchrotron radiation can be calculated as above, and is with \SI{3.79}{\GeV} per beam still tolerable.
+Although being a circular collider, it was therefore possible to collide leptons and to do important precision measurements of the W and Z boson.\todo{Re-word that sentence}
 
 \paragraph{A question of money}
 In the end, the deciding factor when considering the design for a future collider is not only the physics goal, but also the cost for the accelerator.
