@@ -91,9 +91,11 @@ qvB\vec{e_r} &= \frac{mv^2}{r}\vec{e_r} \nonumber \\
 Since the momentum $p$ of the charged particle rises over time during the acceleration, the radius $r$ of its circular path increases if the magnetic field $B$ is constant.
 The accelerator hence has to be built accordingly taking the increase in the radius into account, or needs to use magnets with variable field strengths.
 The latter is done in synchrotron machines, a type of circular accelerator combining the principles of all particle accelerators mentioned above: acceleration in RF cavities, variation of the RF frequency, and variable magnetic field strengths.
-In this way, the particles are traveling along a stationary orbit, passing through the same magnets and cavities over and over again until the desired beam energy is reached.
-To insure the stability of the orbit, not only are bending dipole magnets needed, but also quadrupole magnets for focusing the beam, and sextupole and octupole magnets which then correct orbital fluctuations.
-The need for higher order correction magnets can be derived from the expansion of the magnetic field around the ideal path of the particle (x = 0):
+In this way, the particles are traveling along a stationary orbit, passing through the same bending dipole magnets and cavities over and over again until the desired beam energy is reached.\\
+To insure the stability of the orbit, additional quadrupole magnets focus the beam horizontally and vertically onto the ideal particle orbit.
+However, as the focal length of these quadrupole magnets depends on the particle momentum, off-momentum particles due to the natural spread in the particle energy cause the quadrupoles to introduce so-called chromatic aberrations.
+Therefore, also sextupole and octupole magnets are needed, which then correct orbital fluctuations.
+The need for higher order correction magnets can also be derived from the expansion of the magnetic field around the ideal path of the particle (x = 0):\todo{Check the English in the few sentences above!}
 \begin{alignat}{5}
  B_y(x) &= B_{y0} &&+ \frac{\partial B_y}{\partial x}x &&+ \frac{1}{2!}\frac{\partial^2 B_y}{\partial x^2}x^2 &&+ \frac{1}{3!}\frac{\partial^3 B_y}{\partial x^3}x^3 &+ ...\\
  \intertext{When multiplying with $\frac{q}{p}$:}
@@ -119,7 +121,7 @@ According to the Maxwell equation $\vec{\nabla}\cdot\vec{B} = \frac{\partial B_y
 \end{align}
 \end{multicols}
 From the opposite signs in Equations~\ref{eq:Quad_Lorentz_x} and \ref{eq:Quad_Lorentz_y}, it becomes clear that quadrupoles can only focus in one direction, whilst they defocus in the other.
-A schematic cross-section of a quadrupole magnet is shown in Figure~\ref{fig:Quadrupole}, in which a positively charged particle would be focused in the y-direction and defocused in the x-direction.
+A schematic cross-section of a quadrupole magnet is shown in Figure~\ref{fig:Quadrupole}, in which a positively charged particle would be focused in the y-direction and defocused in the x-direction.\todo{Fig. 3.3b):``Into the page'' correct?} 
 The magnetic field lines point from the magnetic north pole to the south pole, and get denser towards the edges of the beam pipe.
 The further a beam particle is away from the center, the stronger is the magnetic field it experiences, and the more it is deflected towards (or away from) the center.
 \begin{figure}
@@ -136,7 +138,7 @@ The beam pipe is centered in the middle between the pole shoes~\cite[p. 88]{Hint
 \caption[Magnetic field in an ideal quadrupole magnet]{Magnetic field lines inside an ideal quadrupole magnet~\cite{QuadrupoleField}.
 The field lines are directed from the north to the south poles, and become denser towards the edges.
 At any given point, the direction of the magnetic field (B) and the resulting Lorentz force (F) can be determined.
-A beam of positively charged particles in the center would be focused in the y-direction and defocused in x.}
+A beam of positively charged particles going into the page in the center would be focused in the y-direction and defocused in x.}
 \label{fig:Quadrupole:field_lines}
 \end{subfigure}
 \caption[Schematic drawings of a quadrupole magnet]{Schematic drawings of the cross-section of an ideal quadrupole magnet (a), and of the magnetic field lines in the center of such a quadrupole magnet (b).}
@@ -144,7 +146,7 @@ A beam of positively charged particles in the center would be focused in the y-d
 \end{figure}
 \\
 Due to the fact that there are focusing and defocusing quadrupoles, so-called FODO structures are commonly used in particle accelerators.
-FODO is an alternating structure made out of focusing quadrupole magnets (``F'') and defocusing ones (``D''), with drift paths (``O'') in between (see Figure~\ref{fig:FODO}).
+FODO is an alternating structure made out of focusing quadrupole magnets (``F'') and defocusing ones (``D''), with drift paths (``O'') in between (see Figure~\ref{fig:FODO}). \todo{Fig. 3.4: Better word for compressed here?}
 The naming only refers to one of the planes (either horizontally or vertically), since a quadrupole focuses horizontally whilst it defocuses vertically or vice versa.
 Theoretically, a ``FODO'' cell in x is therefore a ``DOFO'' cell in y.
 Hence, several of these structures, which act like optical lenses, are needed to focus the particle beam in both directions, horizontally and vertically.
@@ -160,25 +162,28 @@ It can be expressed by the two beam parameters $\beta$ and $\epsilon$ which will
 The beta function $\beta$ describes the spatial dependency of the amplitude and the wave length of the betatron oscillations.
 It is a periodic function, dependent on the focusing strengths and the location of the magnets along the beam path.
 At any given point along the path, the $\beta$ value can be given in units of length.
-Of particular interest is its value at the interaction point (IP), the point of the beam collisions, where it is then called $\beta^*$.
+Of particular interest is its value at the interaction point (IP), the point of the beam collisions, where it is then called $\beta^*$.\todo{How is beta star defined exactly?}
 In order to minimize the beam size at the IP, the beta function is tailored such that it has a local minimum at this point.  
 \\
 Like the beta function, the transverse emittance $\epsilon$ is defined in the horizontal and vertical plane.
-$\epsilon$ is a direct measure of the convergence of the beam with respect to its spread in space and in momentum.
+In simple terms, $\epsilon$ is a direct measure of the convergence of the beam with respect to its spread in space and in momentum.
 A small emittance therefore means that the beam particles are confined to a small space, with a narrow momentum distribution.
 It also has the units of length, and is often given as the normalized emittance $\epsilon^* = \epsilon\gamma$, with the relativistic Lorentz factor $\gamma=\frac{1}{\sqrt{1-v^2/c^2}}$.\\
 Together, the spatial amplitude of the betatron oscillations can be written as $\sqrt{\epsilon\beta}$.
 Since the amplitude of these oscillations counts towards the size of the beam, it can then be written as $\sigma_{betatron} = \sqrt{\epsilon\beta}$.
-The amplitude is also shown as the maximum extent in x in the so-called phase space ellipse, shown in Figure~\ref{fig:PhaseSpaceEllipse}.
-The phase space consists of x and x' (where x can stand for the x and y-direction), meaning the position and the momentum of the particles.
+The amplitude is also shown as the maximum extent in x in the so-called phase-space ellipse, shown in Figure~\ref{fig:PhaseSpaceEllipse}.
+The phase-space consists of x and x' (where x can stand for the x and y-direction), meaning the position and the momentum of the particles.
 x' represents more precisely the change in position along the particle trajectory $s$, so that x'$=\frac{d\rm{x}}{ds}$.
-The ellipse drawn in the phase space is the region in which the motion of the particles is stable, it illustrates the qualities of the particle beam.
-Since the particle's spread in position and momentum varies along the beam line, the shape of the ellipse changes constantly, but the area of the ellipse stays the same.
-The variables $\alpha$ and $\gamma$ are defined here as: $\alpha = -\frac12\beta'$ and $\gamma = \frac{1+\alpha^2}{\beta}$~\cite[cf. p. 283ff]{Wangler}
+The beam emittance $\epsilon$ can be defined in terms of the phase-space ellipse more accurately than it was done above.
+$\epsilon$ is hence defined as the area (divided by $\pi$) of the phase-space ellipse.\\
+The ellipse drawn in the phase-space illustrates the qualities of the particle beam.
+Since the particle's spread in position and momentum varies along the beam line, the shape of the ellipse changes constantly, but the area of the ellipse stays the same for energy-conserving systems.
+The normalized emittance, $\epsilon\gamma$, (with $\gamma$ being here the relativistic Lorentz factor) is the quantity which is adiabatically invariant under energy change, and is commonly given as one of the typical beam parameters of a particle accelerator.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{Figures/PhaseSpaceEllipse_w_AxisTitles.png}
-\caption[Phase space ellipse]{Phase space ellipse~\cite[based on p. 158]{Wiedemann}}
+\caption[Phase space ellipse]{Phase space ellipse~\cite[based on p. 158]{Wiedemann}
+\\The variables $\alpha$ and $\gamma$ are defined here as: $\alpha = -\frac12\beta'$ and $\gamma = \frac{1+\alpha^2}{\beta}$~\cite[cf. p. 283ff]{Wangler}}
 \label{fig:PhaseSpaceEllipse}
 \end{figure}
 \\
@@ -186,10 +191,10 @@ The actual transverse size of the beam is not yet fully defined by the spatial a
 The deviation from the ideal particle trajectory due to the momentum spread has to be taken into account, which is defined by the dispersion function $\eta$.
 Like $\epsilon$ and $\beta$, it is dependent on the position along the beam trajectory, and can be defined as $\eta = \frac{dx}{d\delta}$, with the fractional deviation from the ideal particle momentum $p_0$: $\delta = \Delta p/p_0$.
 \\
-With this knowledge, the overall beam size can be calculated by using the distribution spread of the particle momentum for all particles ($\sigma_p$):
+With this knowledge, the overall beam size can be calculated by using the distribution spread of the particle momentum for all particles:
 \begin{align}
  \sigma&=\sqrt{\sigma^2_{betatron}+\sigma^2_{dispersion}}\\
- &=\sqrt{\epsilon\cdot\beta+\left(\eta\frac{\sigma_p}{p_0}\right)^2}
+ &=\sqrt{\epsilon\cdot\beta+\left(\eta\frac{\Delta p}{p_0}\right)^2}
 \end{align}
 
 \section{Longitudinal beam dynamics}
@@ -285,7 +290,7 @@ The luminosity of a particle collider is proportional to the rate of collisions 
  \label{eq:luminosity}
 \end{align}
 $N_{1,2}$ is the number of particles per bunch, which is usually the same for both beams, so that $N_1\approx N_2$.
-$f$ is the revolution frequency, i.e. the number of revolutions a bunch makes per second.
+$f$ is the collision frequency, i.e. the number of collisions of bunches per second.
 $n_{b}$ is the number of bunches, and $\sigma_{x,y}$ is the beam size in the horizontal and the vertical plane.
 Table~\ref{tab:ILC_parameters} in Chapter~\ref{ILC} lists these parameters and their values for the LHC in comparison to the International Linear Collider (ILC).
 In order to translate the luminosity into an event rate, the luminosity value has to be divided by the cross-section $\sigma_p$ of the physics process that is of interest.
@@ -299,7 +304,7 @@ Barn (``b'') is the unit of cross-sections in particle physics, and is equivalen
 %https://www.lhc-closer.es/taking_a_closer_look_at_lhc/0.cross_section
 Every second about 780 million events are occurring at the LHC.
 With its high luminosity and high collision energy, the possible physics processes from the hadron collisions cover wide energy ranges, because of which it is a so-called ``discovery machine''.
-New particles, first seen for example as resonance peaks in the measured mass spectra, can be discovered easier than at accelerators with smaller collision energy due to the large phase space.
+New particles, first seen for example as resonance peaks in the measured mass spectra, can be discovered easier than at accelerators with smaller collision energy due to the large phase-space.
 This was the case in 2012 for instance, when the LHC experiments found a peak at an invariant mass of \SI{126}{\GeV}, shortly after recognized as the very first measurement of a Higgs boson~\cite{Higgs}.\\
 %The reason why large synchrotron rings need pre-accelerators is that the range for changing the magnet's field strength is limited.
 Why these so-called ``discovery machines'' are hadron and not lepton colliders, and why they are circular and not linear, is to be explained with the physical qualities of the colliding particles.
@@ -352,7 +357,7 @@ Concluding, a circular hadron collider lends itself to be a particle accelerator
 \\
 Nevertheless, there have also been circular lepton colliders in the past, such as the Large Electron-Positron Collider (LEP) at CERN before the LHC was built into the same tunnel.
 LEP was in use from 1989 until 2000, and accelerated electrons and positrons to a center-of-mass energy of up to \SI{209}{\GeV}~\cite{LEP}.
-At such energies, the loss due to synchrotron radiation can be calculated as above, and is with \SI{3.79}{\GeV} (or \todo{convert GeV to MWh}) per beam still tolerable.
+At such energies, the loss due to synchrotron radiation can be calculated as above, and is with \SI{3.79}{\GeV} per turn still tolerable.
 Although being a circular collider, it was therefore possible to collide leptons and to do important precision measurements of the W and Z boson.\todo{Re-word that sentence}
 
 \paragraph{A question of money}
