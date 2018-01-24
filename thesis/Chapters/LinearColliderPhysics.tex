@@ -152,7 +152,7 @@ Hence, several of these structures, which act like optical lenses, are needed to
 \begin{figure}
 \centering
 \includegraphics[width=0.5\textwidth]{Figures/FODO.png}
-\caption[Schematic of FODO structure]{Schematic of FODO structures in the horizontal and vertical plane. The particles are focused and defocused by the quadrupoles that act as lenses. The overall beam envelope is compressed after a certain number of focusing and defocusing quadrupoles~\cite[p. 65]{Hinterberger}.}
+\caption[Schematic of FODO structure]{Schematic of FODO structures in the horizontal and vertical plane. The particles are focused and defocused by the quadrupoles that act as lenses.~\cite[p. 65]{Hinterberger}.}
 \label{fig:FODO}
 \end{figure}
 Due to the restoring force, particles that were deflected by the focusing magnets start to perform betatron oscillations around the ideal particle trajectory.
@@ -177,7 +177,7 @@ The beam emittance $\epsilon$ can be defined in terms of the phase-space ellipse
 $\epsilon$ is hence defined as the area (divided by $\pi$) of the phase-space ellipse.\\
 The ellipse drawn in the phase-space illustrates the qualities of the particle beam.
 Since the particle's spread in position and momentum varies along the beam line, the shape of the ellipse changes constantly, but the area of the ellipse stays the same for energy-conserving systems.
-The normalized emittance, $\epsilon\gamma$ (with $\gamma$ being here the relativistic Lorentz factor), is the quantity which is adiabatically invariant under energy change, and is commonly given as one of the typical beam parameters of a particle accelerator.
+The normalized emittance $\epsilon\gamma$, which was explained above, is the quantity which is adiabatically invariant under energy change.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{Figures/PhaseSpaceEllipse_w_AxisTitles.png}
@@ -190,7 +190,7 @@ The actual transverse size of the beam is not yet fully defined by the spatial a
 The deviation from the ideal particle trajectory due to the momentum spread has to be taken into account, which is defined by the dispersion function $\eta$.
 Like $\epsilon$ and $\beta$, it is dependent on the position along the beam trajectory, and can be defined as $\eta = \frac{dx}{d\delta}$, with the fractional deviation from the ideal particle momentum $p_0$: $\delta = \Delta p/p_0$.
 \\
-With this knowledge, the overall beam size can be calculated by using the distribution spread of the particle momentum for all particles:
+With this knowledge, the overall beam size can be calculated by using the betatron oscillation amplitude as well as the spread in the particle momentum distribution for all particles:
 \begin{align}
  \sigma&=\sqrt{\sigma^2_{betatron}+\sigma^2_{dispersion}}\\
  &=\sqrt{\epsilon\cdot\beta+\left(\eta\frac{\Delta p}{p_0}\right)^2}
@@ -205,15 +205,17 @@ Due to the nature of these accelerating structures, there is a certain phase of 
 In order to provide this ideal acceleration to all beam particles, the beam has to be bunched.\\
 In circular accelerators, this bunching happens naturally due to the choice of the RF frequency and the timing of the beam arriving at the accelerating cavities.
 The RF frequency is chosen such that the particles (with the ideal momentum $p$) arrive at the cavity at the synchronous phase $\psi_s$, which is off the crest of the RF wave.
-For relativistic particles traveling at the speed of light, their orbit along the accelerator however depends on the difference of their momentum $\Delta p$ to the ideal momentum $p$.
+Depending on the system,  $\psi_s$ is then appointed to be either on the rising or the falling edge of the accelerating RF wave, or at the zero crossing.
+In a circular accelerator, such as a storing ring, the particles are to be constantly accelerated and bunched at the same time.
+$\psi_s$ is therefore off-crest on the falling edge of the RF wave.\todo{Check the wording in above paragraph.}
+For relativistic particles traveling at the speed of light, their orbit along the storage ring depends on the difference of their momentum $\Delta p$ to the ideal momentum $p$.
 Particles with a smaller momentum travel on an orbit that is smaller than the ideal orbit.
 This is due to the fact that the radius of the particle's path in an external magnetic field depends on the momentum of the particle, which is shown in Equation~\ref{eq:MagField_Radius}.
 These particles on a smaller orbit will arrive at the next accelerating cavity earlier than the ideal particles (which arrive at the synchronous phase $\psi_s$), and will therefore experience a larger field which accelerates the particles to higher energies.
 Particles that have energies larger than the ideal particles are deflected onto a larger orbit and will therefore arrive late at the RF cavity, where they then gain less energy. 
 Hence, particles are accelerated by different phases of the RF field, as can be seen in Figure~\ref{fig:RFPhase}.
 Particles arriving later will be accelerated less, particles arriving too early will be accelerated more.
-The synchronous phase is therefore chosen to be off the acceleration-peak of the wave.
-The particles oscillate about this ideal stable phase, and therefore form bunches.
+The particles oscillate about this ideal stable phase $\psi_s$, and therefore form bunches.
 This effect is called ``phase focusing''.
 \begin{figure}
 \begin{subfigure}[b]{0.4\textwidth}
@@ -248,6 +250,7 @@ One of the methods uses the same idea as explained above for circular accelerato
 It is illustrated in Figure~\ref{fig:Magnetic_compression}.
 By sending the bunches through a chicane with bending magnets, the particles' orbit though the chicane depends on their relativistic momentum.
 Before the chicane, the still elongated bunches are passed through an RF cavity such that the bunch heads experience a decelerating RF phase, whilst the tails experience an accelerating phase.
+The synchronous phase $\psi_s$ is hence designed to be at the zero crossing of the RF wave.
 In the chicane, the high-momentum particles of the tail are deflected less, and will travel on a shorter orbit than the low-momentum particles.
 At the end of the chicane, the difference between the time of arrival of the head and the tail particles is smaller, the bunches have been compressed longitudinally.
 Another method of ``magnetic compression'' is explained in Section~\ref{ILC:layout:details}.
