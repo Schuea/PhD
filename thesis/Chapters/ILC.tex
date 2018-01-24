@@ -5,21 +5,27 @@ For answering the fundamental questions of mankind, it is necessary to understan
 In order to confirm theories in particle physics, or to disproof them, it is often important to be able to measure the qualities of particles or their interactions to several decimal places.
 For measurements being done in high-energy particle colliders, such precisions can only be reached in linear lepton colliders.
 The following sections will present a new design for such a collider of the precision frontier: the International Linear Collider (ILC). 
-Its proposed layout, the possible construction sites, the detectors, and finally the physics motivation for such a capable accelerator will be explained.
+Its proposed layout, the possible construction sites, the detectors, and the physics motivation for such a capable accelerator will be explained.
 \end{chapterabstract}
 \newline
 
-The International Linear Collider (ILC) is a proposed linear \positron\electron collider with state of the art technologies for the detectors and the machine, so that high precision measurements will be possible.
+The International Linear Collider (ILC) is a proposed linear \positron\electron collider with a center-of-mass energy of \SI{250}{\GeV}, extendable to 350-\SI{500}{\GeV} and possibly \SI{1}{\TeV}.
+Its high luminosity and its state of the art technologies for the detectors and the machine will make the ILC an unprecedented precision machine, complementary to the currently existing high-energy physics accelerators, such as the Large Hadron Collider (LHC) at CERN.
+The designs of the collider and the detector concepts are a result of over twenty years of research done at science laboratories all over the world.
+The ILC project is therefore an international project, as its name already suggests.
 
-\section{The idea behind the layout}
+\section{The ILC layout}
 \label{ILC:layout}
 The ILC was originally designed to collide electron and positron beams with a center-of-mass energy of \SI{500}{\GeV} in the first stage of operation.
+The layout, as well as research results and physics motivations of this \SI{500}{\GeV} machine were summarized in great detail in the Technical Design Report (TDR) in 2013~\cite{TDR}.
 Because of political developments and the request in 2017 to reduce the initial construction cost, the first stage collision energy was reduced to \SI{250}{\GeV}.
-Due to the fact that linear colliders can be extended in length, the beam energies can linearly be increased.
-Therefore, the ILC has the possibility to upgrade the machine to higher energies later on.
+As it is in the nature of linear accelerators that the beam energy is linearly proportional to the accelerator length, the basic layout of the ILC as stated in the TDR is still the same for the new so-called ILC250.
+However, the changes that were made to the layout are given in this section, together with an overview of the generation, preparation and collision of the particle beams in this linear collider concept.
+%This is also the reason why the ILC has the possibility to upgrade the machine to higher energies later on.
 
-\subsection{The layout}
+\subsection{From beam generation to collision}
 \label{ILC:layout:details}
+\paragraph{Beam sources}
 Figure~\ref{fig:ILC_Layout} shows the schematic layout of the ILC.
 \begin{figure}
 \centering
@@ -39,10 +45,10 @@ This is done using ``velocity bunching'', as explained in Section~\ref{AccPhysic
 Being pre-accelerated to only \SI{76}{\MeV} in this step, the now `bunched' electron beams are accelerated to \SI{5}{\GeV} by a  superconducting booster linac~\cite[p. 81f]{TDR32}.\\
 The positron source consists of an undulator and a conversion target.
 In an undulator, dipole magnets are placed in a line in such a way that their polarity alternates periodically (see Figure~\ref{fig:Undulator}).
-For the creation of the positrons, the electron beam is used, which is guided through the \SI{231}{\meter} long helical undulator after being accelerated to the final beam energy of \SI{125}{\GeV}.
+For the creation of the positrons, the electron beam is used, which is guided through a \SI{231}{\meter} long helical undulator after being accelerated to the final beam energy of \SI{125}{\GeV}.
 Using an undulator with a helical magnetic field causes the electrons to be deflected on a helical trajectory, and to emit synchrotron radiation photons that are circularly polarized\footnote{For circularly polarized light, the field vector of its electromagnetic wave rotates around the direction of propagation.}.
 The high-energy photons are then converted in the \SI{7}{\milli\meter} thick titanium-alloy conversion target, where \positron \electron pairs are produced due to pair production.
-As the pair production from circularly polarized photons yields longitudinally polarized \positron \electron pairs~\cite{Polarization}, the beam of the captured positrons will have a polarization of \SI{30}{\percent}~\cite[p. 14]{TDR32}.
+As the pair production from circularly polarized photons yields longitudinally polarized \positron \electron pairs~\cite{Polarization}, the beam of the captured positrons will have a polarization of at least \SI{30}{\percent}~\cite[p. 14]{TDR32}.
 The whole process leads to an effective positron yield of 1.5 positrons per original beam electron passing through the undulator~\cite{Ushakov}.
 Due to the fact that the positrons were produced by using an already bunched electron beam, the positron beam is bunched as well. 
 \begin{figure}
@@ -51,8 +57,7 @@ Due to the fact that the positrons were produced by using an already bunched ele
 \caption[Schematic layout of an undulator]{Schematic of an electron beam traveling through an undulator with dipole magnets in alternating order~\cite[based on p. 41]{Wille}.}
 \label{fig:Undulator}
 \end{figure}
-\\
-%The polarized positrons then continue along the positron line which is, from that point on, equivalent to the electron line.
+\paragraph{Damping rings}
 Since the electrons and positrons still have a large emittance from when they originated from their sources, their momentum and beam sizes have to be condensed.
 This is done in the damping rings (DR), which have a circumference of \SI{3.2}{\kilo\meter}~\cite[p. 14]{TDR32}.
 As discussed several times before, the beams will emit synchrotron radiation when they are deflected in a magnetic field.
@@ -69,20 +74,24 @@ As shown in Section~\ref{AccPhysics:Bunching}, the orbit of charged particles in
 In the bends, off-momentum particles travel on an orbit with a different radius than particles with the ideal momentum.
 Entering the straight sections from inaccurate \todo{Better word for ``not ideal''?} orbits causes orbit distortions and aberrations in the straight sections, which again cause a rise in the beam emittance.
 Due to the design choice of having a pulse repetition rate of \SI{5}{\hertz}, the beams are stored for \SI{200}{\milli\second} in the damping rings, performing about \num{18000} turns.
-After this amount of turns, an equilibrium emittance is reached, and the high quality beam with small beam emittance is extracted and continues along the beam lines. \todo{Re-wording!}\\
+After this amount of turns, an equilibrium emittance is reached, and the high quality beam with small beam emittance is extracted and continues along the beam lines. \todo{Re-wording!}
+\paragraph{Bunch compressors}
 After passing the damping rings, the electron and positron beams are compressed in bunch length by a two-stage compressor system, using ``magnetic compression''.
 Here, the bunch length is reduced from several millimeters to \SI{300}{\micro\meter}.
 In both compressor systems, RF cavities are used together with wigglers, which compact the beam momentum by exploiting the momentum spread within the beam bunch.
 As discussed in Section~\ref{AccPhysics:Bunching}, the RF frequency and the timing is chosen such that the bunch tail experiences an accelerating phase in the RF cavity, whilst the bunch head experiences a decelerating phase.
 The low-momentum particles of the bunch head will therefore be deflected more in the wiggler, the high-momentum particles of the tail are deflected less, respectively.
 At the end of the compressor system, the particles of the bunch tail and head will have gotten closer, leading to a shortened beam bunch. 
-The usage of two separate systems relaxes the requirements a single system would need to fulfill,  and allows more flexibility in the operation, e.g. to reduce the beam length below \SI{300}{\micro\meter}~\cite[p. 124]{TDR32}.\\
-Subsequent to that, the bunches are injected into the main linear accelerator structures (main linacs).
+The usage of two separate systems relaxes the requirements a single system would need to fulfill,  and allows more flexibility in the operation, e.g. to reduce the beam length below \SI{300}{\micro\meter}~\cite[p. 124]{TDR32}.
+\paragraph{Main linacs}
+Subsequent to bunch compressors, the bunches are injected into the main linear accelerator structures (main linacs).
 The two main linacs are designed to accelerate the beams to the final beam energy of \SI{125}{\GeV}, leading to a center-of-mass energy of \SI{250}{\GeV}.
 They have a length of \SI{5}{\kilo\meter} each, and use \SI{1.3}{\giga\hertz} superconducting RF cavities with an average accelerating gradient of \SI{31.5}{\mega\volt\per\meter}~\cite{Walker}.
+\todo{Show plot of cavity gradient}
 A picture of one of these cavities is shown in Figure~\ref{fig:Tesla_Cavity}. 
 Since cavities of the same design are already in use for the European XFEL (X-Ray Free-Electron Laser) at Deutsches Elektronen-Synchrotron (DESY) in Hamburg, their high performance has been demonstrated~\cite{XFEL}.
-For the machine upgrade to a center-of-mass energy of \SI{500}{\GeV}, the linacs can be extended in length.\\
+For the machine upgrade to a center-of-mass energy of \SI{500}{\GeV}, the linacs can be extended in length.
+\paragraph{Beam Delivery System}
 The Beam Delivery System (BDS), which has an overall length of about \SI{4.4}{\kilo\meter}, transports the bunches from the linacs to the Interaction Point (IP).
 In the BDS, the beams are focused to nanometer size by the Final-Focus (FF) system, which is a crucial part of the ILC program.
 Only with nanometer-sized bunches, the ILC can reach luminosities comparable to or beyond the Large Hadron Collider (LHC) at CERN, since the total production cross-section for \positron \electron colliders is several orders of magnitude smaller than for proton-proton colliders, such as the LHC, at their respective collision energies (see Figure~\ref{fig:Cross_sections}).
@@ -90,7 +99,8 @@ To demonstrate the feasibility of nanometer-scale beams, a test facility was bui
 The BDS system does not only contain the FF system, but also various feedback diagnostics and beam-halo collimators for removing the halo of particles around the beam core in order to reduce the beam background at the IP. 
 Additionally, shielding systems are installed at various locations along the BDS line, again in order to keep the background level at the IP as low as possible.
 Chapter~\ref{BDS_Muons} will talk about muon shielding options that are considered for the ILC.
-\\After the Final-Focus system, the beams are then finally brought into collision with a crossing angle of \SI{14}{\milli\radian} at the IP.\cite[p. 9-10]{TDR1}
+\paragraph{Beam collision}
+After the Final-Focus system, the beams are then finally brought into collision with a crossing angle of \SI{14}{\milli\radian} at the IP.\cite[p. 9-10]{TDR1}
 With so-called crab cavities, the bunches are rotated horizontally so that effective head-on collisions are possible.
 This is illustrated in Figure~\ref{fig:Crab_crossing}.
 The crab cavities are also superconducting RF cavities, but designed for a RF frequency of \SI{3.9}{\giga\hertz} and an accelerating gradient of \SI{5}{\mega\volt\per\meter}~\cite[p. 154]{TDR32}.
@@ -109,8 +119,8 @@ For the ILC, it was calculated that the crab cavities should be located \SI{13.4
 \caption[Schematic of a beam crossing with crab cavities]{Schematic of a beam crossing with crab cavities. In a crossing with crossing angle $\theta_C$, head-on collisions are only possible with crab cavities that rotate the beam in the horizontal plane.}
 \label{fig:Crab_crossing}
 \end{figure}
-
-Table~\ref{tab:ILC_parameters} shows the machine parameters for the baseline design at \SI{250}{\GeV} center-of-mass energy, and for the energy and the luminosity upgrade stages.
+\paragraph{Beam parameters}
+Table~\ref{tab:ILC_parameters} shows the beam parameters for the baseline design at \SI{250}{\GeV} center-of-mass energy, and for the energy and the luminosity upgrade stages.
 %\multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Baseline 500}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Lumi Upgrade}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{TeV Upgrade}} & {\centering\textbf{LHC 25ns}} \\ 
 \begin{table}[h]
 \caption{Beam parameters for different phases in the ILC operation scenario (ILC250, ILC500, Luminosity Upgrade, TeV Upgrade)~\cites[p. 11]{TDR1}{CR-0016} in comparison to LHC Run 2 beam parameters~\cites[p. 3ff]{LHC_TDR}{LHC_Parameters}.}
@@ -142,7 +152,7 @@ This is a design choice, reducing the effect of beamstrahlung whilst enhancing t
 As shown in Equation~\ref{eq:pair_number} in Section~\ref{BeamBeam:pairs}, the number of background particles from beamstrahlung is inversely proportional to the sum of the beam sizes, $\sigma_x+\sigma_y$.
 At the same time, the luminosity is inversely proportional to the product of the beam sizes, $\sigma_x\cdot\sigma_y$, as shown in Equation~\ref{eq:luminosity} in Chapter~\ref{AccPhysics:Linear-Circular}.
 By choosing the beam sizes to be $\sigma_x\gg\sigma_y$, the product is small leading to large luminosities, while the sum is large leading to a diminished background rate.
-
+\paragraph{Interaction region and beam dumps}
 The Interaction Region (IR) houses the two detectors for the ILC, the Silicon Detector (SiD) and the International Large Detector (ILD), which are in a so-called ``push-pull'' system.
 The detectors and the push-pull system are explained in more detail in Section~\ref{ILC:detectors}.\\
 Finally, after collision the spent beams are guided through the extraction line (EXT) towards the main beam dumps, where they are dumped.
@@ -152,19 +162,22 @@ This leads to high irradiation of the beam dump surrounding and dangerous condit
 In Chapter~\ref{BeamDumps}, which talks about the simulation of the main beam dumps done for this thesis, more details are given for the current beam dump designs.
 
 \subsection{Staging}
-As mentioned above, it was decided in 2017 to reduce the center-of-mass energy of the first ILC stage to \SI{250}{\GeV}, in order to reduce the total costs of the ILC project~\cite{ICFA_Statement}.
+As mentioned above, the panel of the International Committee for Future Accelerators (ICFA) officially decided in 2017 to reduce the center-of-mass energy of the first ILC stage to \SI{250}{\GeV}, in order to reduce the total costs of the ILC project.
+ICFA's official statement declares that the ``[...] International Linear Collider (ILC) operating at 250 GeV center-of-mass energy will provide excellent science from precision studies of the Higgs boson.
+Therefore, ICFA considers the ILC a key science project complementary to the LHC and its upgrade.
+ICFA welcomes the efforts by the Linear Collider Collaboration on cost reductions for the ILC [...]''~\cite{ICFA_Statement}.\\
 The total costs for realizing the ILC includes the manpower, the costs for the construction of the so-called conventional facilities, such as the underground tunnels and the surface buildings, and the costs for the production and assembling of the accelerator and detector components.
 When breaking the total costs down into the subsystems, then the conventional facilities together with the production of the RF systems for the accelerator make up almost \SI{75}{\percent} of the total costs~\cite[p. 20f]{TDR1}.
-These estimations are based on cost inquiries with several industrial companies, as well as on experiences collected at former accelerator projects, such as the European XFEL which uses the same design for the RF cavities as planned for the ILC.\\
+These estimations are based on cost inquiries with several industrial companies, as well as on experiences collected at other accelerator projects, such as the European XFEL which uses the same design for the RF cavities as planned for the ILC.\\
 Regarding the ILC layout, several options are under discussion which are shown in Figure~\ref{fig:Staging}.
-These options would yield a cost reduction of up to \SI{34}{\percent}, resulting in about \SI{66}{\percent} of the initial costs for the \SI{500}{\GeV} machine by reducing the length of the tunnel (options A, B, and C), or by additionally reducing the number of RF cavities (options A', B' and C').
-In options A', B', and C', the RF cavities are planned to have a larger accelerating gradient so that a smaller number of cavities would still lead to the same beam energy as for options A, B, and C~\cite{Cost_reduction}.
-Overall, option A' foresees the shortest possible tunnel for \SI{250}{\GeV} and the smallest number of cavities, and therefore results in the highest cost reduction.
+These options would yield a cost reduction of up to \SI{34}{\percent}~\cite{Cost_reduction}, resulting in about \SI{66}{\percent} of the initial costs for the \SI{500}{\GeV} machine by reducing the length of the tunnel (options A, B, and C), or by additionally reducing the number of RF cavities (options A', B' and C').
+In options A', B', and C', the RF cavities are planned to have a larger accelerating gradient so that a smaller number of cavities would still lead to the same beam energy as for options A, B, and C.
+Overall, option A' foresees the shortest possible tunnel for \SI{250}{\GeV} and the smallest number of cavities, and therefore results in the highest cost reduction.\\
 As explained before, the costs for the tunnel and the accelerating structures represent indeed the largest fraction of the total costs, and will be reduced by the staging options.
 However, the other parts of the accelerator and the surface buildings will not change by the staging scenarios but form basic costs because of which the maximum cost reduction cannot exceed \SI{34}{\percent}.
 Therefore, it has to be considered whether the cost cutback of option A' outweighs all other options with a tunnel length suitable for an energy upgrade.
 Latter would give a positive sign to the ILC community that an energy upgrade is definitely foreseen for the future.
-\begin{figure}[H]
+\begin{figure}
 \centering
 \includegraphics[width=0.7\textwidth]{Figures/Staging.png}
 \caption[Different layouts for the ILC250 stage]{Different layouts for the ILC250 stage.
@@ -175,20 +188,22 @@ Option B and C would foresee longer tunnels that would facilitate a later energy
 Options A', B' and C' correspond to options A, B and C regarding the tunnel length, but they assume RF cavities with a gradient of \SI{35}{\mega\volt\per\meter} instead of \SI{31.5}{\mega\volt\per\meter} in order to reduce the number of cavities needed~\cite[p. 19]{Staging}.}
 \label{fig:Staging}
 \end{figure}
-Figure~\ref{fig:ILC_runningtime} shows two possible running scenarios for the staged ILC.
-In both cases, the ILC will have energy and luminosity upgrades, so that it will reach the same integrated luminosity over a different amount of time.
-On the left hand side, the plot shows an expected operation time of 15 years for the ILC250 with a luminosity upgrade at the midway-point.
-After an energy upgrade by extending the main linac, the operation at \SI{500}{\GeV} and a short run at \SI{350}{\GeV} for dedicated measurements of the top quark qualities would be possible.
-The overall operation time would stretch out to 26 years.\\
-For the second scenario on the right hand side of Figure~\ref{fig:ILC_runningtime}, it was assumed that the beam parameters are changed in such a way that the beam is more strongly focused at the IP and therefore that the instantaneous luminosity is enhanced.
-That shortens the operation time of the ILC250 stage to 11 years, and the overall run time to 22 years~\cite[p. 7]{PhysicsCase}.
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.8\textwidth]{Figures/ILC_runningtime.png}
+\includegraphics[width=0.98\textwidth]{Figures/ILC_runningtime.png}
 \caption[ILC run plan]{Two possible ILC run plans for the staged ILC~\cite[p. 8]{PhysicsCase}.}
 \label{fig:ILC_runningtime}
 \end{figure}
-\newpage
+\\Figure~\ref{fig:ILC_runningtime} shows two possible running scenarios for the staged ILC.
+In both cases, the ILC will have energy and luminosity upgrades, so that it will reach the same integrated luminosity over a different amount of time.
+On the left hand side, the plot shows an expected operation time of 15 years for the ILC250 with a luminosity upgrade at the midway-point.
+As shown in Equation~\ref{eq:luminosity}, the luminosity of a particle collider is directly proportional to the number of bunches colliding in every beam pulse.
+Hence, by increasing the number of bunches by a factor of two, the luminosity for the luminosity upgrade stage is doubled.
+After an energy upgrade by extending the main linacs, the operation at \SI{500}{\GeV} and a short run at \SI{350}{\GeV} for dedicated measurements of the top quark qualities would be possible.
+The overall operation time would stretch out to 26 years.\\
+For the second scenario on the right hand side of Figure~\ref{fig:ILC_runningtime}, it was assumed that the beam parameters are changed in such a way that the beam is more strongly focused at the IP and therefore that the instantaneous luminosity is enhanced.
+That shortens the operation time of the ILC250 stage to 11 years, and the overall run time to 22 years~\cite[p. 7]{PhysicsCase}.
+
 \section{Possible site}
 \label{ILC:site}
 Out of originally more than ten potential ILC sites in Japan, the Kitakami mountains in the Tohuku Prefecture was chosen to be the preferred site for the ILC~\cite{Site}.
@@ -198,10 +213,10 @@ As can be seen in Figure~\ref{fig:ILC_Site}, the closest city (with about 120,00
 Morioka and Sendai are the biggest cities close to the candidate site, with Tokyo being about \SI{430}{\kilo\meter} away.
 Although being in the north of Japan, the travel time from Tokyo is only about three hours by Shinkansen, Japan's high-speed bullet train, and the proximity to the coast line allows the transportation of construction, machine, and detector parts by ship.
 Additionally, there are local airports in both, Morioka and Sendai, presenting further options for traveling and the transportation of construction materials.
-\begin{figure}
+\begin{figure}[h]
 \centering
-\includegraphics[width=0.5\textwidth]{Figures/ILC-site.jpg}
-\caption[Possible site for the ILC]{The possible site for the ILC is the Kitakami mountains in the Tohuku Prefecture.\cite{Kitakami}}
+\includegraphics[width=0.52\textwidth]{Figures/ILC-site.png}
+\caption[Possible site for the ILC]{The possible site for the ILC is the Kitakami mountains in the Tohuku prefecture.\cite{Kitakami}}
 \label{fig:ILC_Site}
 \end{figure}
 
