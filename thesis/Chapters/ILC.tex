@@ -53,13 +53,14 @@ The whole process leads to an effective positron yield of 1.5 positrons per orig
 Due to the fact that the positrons were produced by using an already bunched electron beam, the positron beam is bunched as well. 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{Figures/Undulator_edited.png}
+\includegraphics[width=0.45\textwidth]{Figures/Undulator_edited.png}
 \caption[Schematic layout of an undulator]{Schematic of an electron beam traveling through an undulator with dipole magnets in alternating order~\cite[based on p. 41]{Wille}.}
 \label{fig:Undulator}
 \end{figure}
 \paragraph{Damping rings}
 Since the electrons and positrons still have a large emittance from when they originated from their sources, their momentum and beam sizes have to be condensed.
 This is done in the damping rings (DR), which have a circumference of \SI{3.2}{\kilo\meter}~\cite[p. 14]{TDR32}.
+A layout of the ILC damping rings is shown in Figure~\ref{fig:DR}.
 As discussed several times before, the beams will emit synchrotron radiation when they are deflected in a magnetic field.
 This is desired in the damping rings in order to ``cool'' the beams, i.e. to reduce their momenta due to the emission of photons.
 The emission of synchrotron radiation happens in the curved sections of the damping rings, but also in the straight sections by the use of wigglers.
@@ -69,12 +70,22 @@ Since the synchrotron radiation photons are emitted tangentially to the beam par
 the particle's momentum in forward direction is reduced.
 By accelerating the beams in RF cavities in the straight sections, the beam momentum in z-direction is increased.
 Overall, the momentum in the desired direction rises, whilst the momentum spread shrinks.
-However, this is not the only effect of damping rings.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.4\textwidth]{Figures/DR.png}
+\caption[Damping ring layout]{Schematic layout of the ILC damping rings.
+Next to the injection and extraction system, there are wigglers and RF cavities for the emittance reduction, as well as a chicane for circumference adjustments, and a so-called phase trombone for accommodating changes in the RF phase~\cite[p. 15]{TDR32}.}
+\label{fig:DR}
+\end{figure}
+\\However, this is not the only effect of damping rings.
 As shown in Section~\ref{AccPhysics:Bunching}, the orbit of charged particles in an external magnetic field depends on their momenta.
 In the bends, off-momentum particles travel on an orbit with a different radius than particles with the ideal momentum.
-Entering the straight sections from inaccurate \todo{Better word for ``not ideal''?} orbits causes orbit distortions and aberrations in the straight sections, which again cause a rise in the beam emittance.
-Due to the design choice of having a pulse repetition rate of \SI{5}{\hertz}, the beams are stored for \SI{200}{\milli\second} in the damping rings, performing about \num{18000} turns.
+Entering the straight sections from inaccurate \todo{Better word for ``inaccurate, not ideal''?} orbits causes orbit distortions and aberrations in the straight sections, which again cause a rise in the beam emittance.
+To counteract this effect, a chicane is needed for adjusting the circumference.
+An additional phase trombone system, which consists of sets of alternating quadrupoles, regulates the orbit aberrations due to changes in the RF phase.
+Because of the design choice of having a pulse repetition rate of \SI{5}{\hertz}, the beams are stored for \SI{200}{\milli\second} in the damping rings, performing about \num{18000} turns.
 After this amount of turns, an equilibrium emittance is reached, and the high quality beam with small beam emittance is extracted and continues along the beam lines. \todo{Re-wording!}
+
 \paragraph{Bunch compressors}
 After passing the damping rings, the electron and positron beams are compressed in bunch length by a two-stage compressor system, using ``magnetic compression''.
 Here, the bunch length is reduced from several millimeters to \SI{300}{\micro\meter}.
@@ -83,22 +94,43 @@ As discussed in Section~\ref{AccPhysics:Bunching}, the RF frequency and the timi
 The low-momentum particles of the bunch head will therefore be deflected more in the wiggler, the high-momentum particles of the tail are deflected less, respectively.
 At the end of the compressor system, the particles of the bunch tail and head will have gotten closer, leading to a shortened beam bunch. 
 The usage of two separate systems relaxes the requirements a single system would need to fulfill,  and allows more flexibility in the operation, e.g. to reduce the beam length below \SI{300}{\micro\meter}~\cite[p. 124]{TDR32}.
+
 \paragraph{Main linacs}
 Subsequent to bunch compressors, the bunches are injected into the main linear accelerator structures (main linacs).
 The two main linacs are designed to accelerate the beams to the final beam energy of \SI{125}{\GeV}, leading to a center-of-mass energy of \SI{250}{\GeV}.
 They have a length of \SI{5}{\kilo\meter} each, and use \SI{1.3}{\giga\hertz} superconducting RF cavities with an average accelerating gradient of \SI{31.5}{\mega\volt\per\meter}~\cite{Walker}.
-\todo{Show plot of cavity gradient}
 A picture of one of these cavities is shown in Figure~\ref{fig:Tesla_Cavity}. 
 Since cavities of the same design are already in use for the European XFEL (X-Ray Free-Electron Laser) at Deutsches Elektronen-Synchrotron (DESY) in Hamburg, their high performance has been demonstrated~\cite{XFEL}.
-For the machine upgrade to a center-of-mass energy of \SI{500}{\GeV}, the linacs can be extended in length.
+The gradient distribution of the cavities used at the European XFEL is shown in Figure~\ref{fig:XFEL_cav}.
+The average of the maximum gradient reachable is with about \SI{35}{\mega\volt\per\meter} even higher than the ILC requirements.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.4\textwidth]{Figures/Cavity_Gradient.png}
+\caption[XFEL cavity gradient]{Maximum and usable gradient distribution of the final European XFEL cavities.
+The yield is defined as the fraction of cavities which have a gradient higher than the specified value on the x-axis~\cite[p. 18]{XFEL_Cavities}.}
+\label{fig:XFEL_cav}
+\end{figure}
+
 \paragraph{Beam Delivery System}
 The Beam Delivery System (BDS), which has an overall length of about \SI{4.4}{\kilo\meter}, transports the bunches from the linacs to the Interaction Point (IP).
 In the BDS, the beams are focused to nanometer size by the Final-Focus (FF) system, which is a crucial part of the ILC program.
 Only with nanometer-sized bunches, the ILC can reach luminosities comparable to or beyond the Large Hadron Collider (LHC) at CERN, since the total production cross-section for \positron \electron colliders is several orders of magnitude smaller than for proton-proton colliders, such as the LHC, at their respective collision energies (see Figure~\ref{fig:Cross_sections}).
 To demonstrate the feasibility of nanometer-scale beams, a test facility was built that is a small scale prototype of the FF system for the ILC: the Accelerator Test Facility (ATF2), which will be presented in more detail in Section~\ref{ATF2}.
 The BDS system does not only contain the FF system, but also various feedback diagnostics and beam-halo collimators for removing the halo of particles around the beam core in order to reduce the beam background at the IP. 
+The sub-system layout for the sophisticated \todo{Is that appropriate here?} BDS is shown in Figure~\ref{fig:BDS}.
 Additionally, shielding systems are installed at various locations along the BDS line, again in order to keep the background level at the IP as low as possible.
 Chapter~\ref{BDS_Muons} will talk about muon shielding options that are considered for the ILC.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{Figures/BDS.png}
+\caption[Layout of the Beam Delivery System]{Schematic layout of the Beam Delivery System (BDS) for the electron beam line.
+After the main linac, the BDS for the electron beam line reaches from about Z = -2.2\,km to the Interaction Point (IP) at Z = 0.
+The vertical colored lines along the beam line represent the magnets and other devices of the various sub-systems.
+Next to diagnostic devices, such as the polarimeter and the energy spectrometer, there are collimation systems to focus and to prepare the beam for the collision at the IP.
+The primary dump at Z = 250\,m is the electron beam dump, which will be explained below~\cite[p. 135]{TDR32}.}
+\label{fig:BDS}
+\end{figure}
+
 \paragraph{Beam collision}
 After the Final-Focus system, the beams are then finally brought into collision with a crossing angle of \SI{14}{\milli\radian} at the IP.\cite[p. 9-10]{TDR1}
 With so-called crab cavities, the bunches are rotated horizontally so that effective head-on collisions are possible.
@@ -115,7 +147,7 @@ Therefore, the crab cavities are positioned at locations where this ratio $R$ be
 For the ILC, it was calculated that the crab cavities should be located \SI{13.4}{\meter} up- and downstream of the IP~\cite[p. 154]{TDR32}.
 \begin{figure}
 \centering
-\includegraphics[width=0.5\textwidth]{Figures/Crab_crossing.png}
+\includegraphics[width=0.4\textwidth]{Figures/Crab_crossing.png}
 \caption[Schematic of a beam crossing with crab cavities]{Schematic of a beam crossing with crab cavities. In a crossing with crossing angle $\theta_C$, head-on collisions are only possible with crab cavities that rotate the beam in the horizontal plane.}
 \label{fig:Crab_crossing}
 \end{figure}
@@ -179,7 +211,7 @@ Therefore, it has to be considered whether the cost cutback of option A' outweig
 Latter would give a positive sign to the ILC community that an energy upgrade is definitely foreseen for the future.
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{Figures/Staging.png}
+\includegraphics[width=0.9\textwidth]{Figures/Staging.png}
 \caption[Different layouts for the ILC250 stage]{Different layouts for the ILC250 stage.
 The original layout has foreseen a tunnel fitting linacs for \SI{250}{\GeV} beam acceleration, which would lead to a center-of-mass energy of \SI{500}{\GeV}.
 For the new stage, the linacs are reduced in length.
@@ -204,8 +236,15 @@ The overall operation time would stretch out to 26 years.\\
 For the second scenario on the right hand side of Figure~\ref{fig:ILC_runningtime}, it was assumed that the beam parameters are changed in such a way that the beam is more strongly focused at the IP and therefore that the instantaneous luminosity is enhanced.
 That shortens the operation time of the ILC250 stage to 11 years, and the overall run time to 22 years~\cite[p. 7]{PhysicsCase}.
 
-\section{Possible site}
+
 \label{ILC:site}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{Figures/ILC-site.png}
+\caption[Possible site for the ILC]{The possible site for the ILC is the Kitakami mountains in the Tohuku prefecture.\cite{Kitakami}}
+\label{fig:ILC_Site}
+\end{figure}
+\section{Possible site}
 Out of originally more than ten potential ILC sites in Japan, the Kitakami mountains in the Tohuku Prefecture was chosen to be the preferred site for the ILC~\cite{Site}.
 This decision was made in August 2013 after a detailed study of all site specific factors, like the geological conditions, the infrastructure, and the impact on the environment and the economy.
 Measurements of the Kitakami mountains have shown that it consists mostly of granite rock with the best qualities for the ILC, regarding vibration and rock stress.
@@ -213,12 +252,7 @@ As can be seen in Figure~\ref{fig:ILC_Site}, the closest city (with about 120,00
 Morioka and Sendai are the biggest cities close to the candidate site, with Tokyo being about \SI{430}{\kilo\meter} away.
 Although being in the north of Japan, the travel time from Tokyo is only about three hours by Shinkansen, Japan's high-speed bullet train, and the proximity to the coast line allows the transportation of construction, machine, and detector parts by ship.
 Additionally, there are local airports in both, Morioka and Sendai, presenting further options for traveling and the transportation of construction materials.
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.52\textwidth]{Figures/ILC-site.png}
-\caption[Possible site for the ILC]{The possible site for the ILC is the Kitakami mountains in the Tohuku prefecture.\cite{Kitakami}}
-\label{fig:ILC_Site}
-\end{figure}
+
 
 \section{Physics motivation}
 \label{ILC:physicsmotivation}
@@ -226,26 +260,30 @@ After having shown that the ILC as a linear lepton collider is designed to be a 
 With the LHC as the so-called ``discovery machine'', the ILC will be a complementary collider being aimed rather for much needed precision than for searching for new particles at high energies.
 The ILC is often called the future Higgs factory which will measure the qualities of the Higgs boson with much higher precision than it had been done so far.
 Additionally, the different stages of the ILC will also measure the top quark qualities, and will have access to Beyond Standard Model (BSM) physics.
+Since the first ILC stage will run at a center-of-mass energy of \SI{250}{\GeV}, this section will focus more on the measurements of the Higgs boson than of the top quark and the BSM physics.
  
 \subsection{The way to go}
 To reach the precision the ILC promises, it must achieve four different objectives.
 These objectives are all linked so that one cannot be achieved without the others.
+In the following, these four objectives of the ILC are explained in comparison to the LHC.
 
 \paragraph{Minimal background}
 Due to leptons in the initial state, there will be one event per colliding lepton pair.
 Leptons are elementary and not composite particles like the proton, therefore there are no underlying events which arise from other partons of the composite particle.
 The energy range of the final state particles is restricted, since the initial energy of the colliding beams can be set precisely and only point-like particles collide.
-Something only possible at lepton colliders is that the desired events can hence be pre-selected by setting the center-of-mass energy to the mass of the particle of interest.\\
+Something only possible at lepton colliders is that the desired events can hence be pre-selected by setting the center-of-mass energy and running threshold scans at the mass of the particle of interest.\\
 Also beam polarization contributes to the small background levels, since the polarization can be set in such a way that weak interactions are either enhanced or suppressed.
 As the weak interaction acts only on left-handed fermions, the polarization (or handedness) of the beam particles has an effect on the processes that can occur.
-Therefore, depending on the physics process of interest, the polarization can enhance the signal whilst suppressing the background.\\
-Figure~\ref{fig:Cleanliness} shows two event displays of a Higgs event at the LHC and the ILC in comparison.
+Therefore, depending on the physics process of interest, the polarization can enhance the signal whilst suppressing the background. \todo{More details}
+\\Figure~\ref{fig:Cleanliness} shows two event displays of a Higgs event at the LHC and the ILC in comparison.
+Due to the nature of composite particles, event displays at the LHC are dominated by underlying events and pileup events.
+At the ILC, the event displays are clean, and the tracks from the final state particles of the physics event can be distinguished easily.
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{Figures/Cleanliness.png}
-\caption[Clean environment at the ILC]{Comparison of the event displays of a Higgs event at the  LHC and at the ILC.\cite[p. 4]{ILCPhysics_Thomson}
-The comparison shows that at the ILC the hits recorded are exclusively from the final state particles of the physics interaction.
-At the LHC, underlying and pileup events populate the detector.}
+\includegraphics[width=0.6\textwidth]{Figures/Cleanliness.png}
+\caption[Clean environment at the ILC]{Comparison of the event displays of a Higgs event at the  LHC and at the ILC~\cite[based on p. 4]{ILCPhysics_Thomson}.
+At the LHC, underlying events and pileup events populate the detector, whilst at the ILC the hits are mainly from the final state particles of the physics interaction of interest.
+}
 \label{fig:Cleanliness}
 \end{figure}
 
@@ -266,13 +304,13 @@ Because of the clean events and the possibility to record and store all taken da
 The quark and lepton momenta can therefore be determined by kinematic fits.
 Studies of the spin-dependence of the production and decay processes are also possible.\\
 Due to the high energy resolution and the fact that the initial particle energies are precisely known, particles with small mass differences are distinguishable, i.e. peaks in mass spectra that are close together are more likely to be separable.
-That means that new particle might indeed be found at the ILC.\\
+That means that new particles might indeed be found at the ILC.\\
 Additionally, the nanometer-sized beam of the ILC allows c-tagging, which improves many physics studies.
 The charm quark (c) hadronizes a small distance away from the primary IP, which is a perfect way to identify that a charm quark was involved in the event.
 Since the distance between the primary and the so-called secondary vertex can only be measured by a vertex detector with micrometer resolution, c-tagging is in general very difficult, but will be possible at the ILC.
 
 \subsection{ILC as a Higgs factory}
-The ILC250 stage will be a so-called Higgs factory, tuned to the Higgs mass of \SI{125}{\GeV}.
+The ILC250 stage will be a so-called Higgs factory, tuned to \SI{125}{\GeV}, where the cross-section for Higgs production is at its maximum.
 Due to the large luminosity and the capability for precision measurements, as has been shown in the section above, the individual Higgs boson qualities can be measured to a percent accuracy in a completely model independent way.
 These Higgs boson parameters include the Higgs mass, its couplings to Standard Model particles, as well as its global decay width.
 In contrast, for the LHC experiments, global fits to all Higgs signals together with theoretical assumptions of its decay width is the only way to gain the Higgs couplings.
