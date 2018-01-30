@@ -319,11 +319,11 @@ However, it will be possible at the ILC, because the detector concepts foresee s
 %charm hadron lifetime: 80microns, bottom hadron lifetime: 400microns
 
 \subsection{ILC as a Higgs factory}
-The ILC250 stage will be a so-called Higgs factory, tuned to \SI{125}{\GeV}, where the cross-section for Higgs production is at its maximum.
+The ILC250 stage will be a so-called Higgs factory, tuned to a center-of-mass energy of \SI{250}{\GeV}, where the cross section $\sigma$ for Higgs production is at its maximum in this energy range.
 Due to the large luminosity and the capability for precision measurements, as has been shown in the section above, the individual Higgs boson qualities can be measured to a percent accuracy in a completely model independent way.
-These Higgs boson parameters include the Higgs mass, its couplings to Standard Model particles, as well as its global decay width.
+These Higgs boson properties include the Higgs mass, its couplings to Standard Model particles, as well as its total decay width.
 In contrast, for the LHC experiments, global fits to all Higgs signals together with theoretical assumptions of its decay width is the only way to gain the Higgs couplings.
-\\After a brief overview of the Higgs production modes and the determination of the Higgs boson parameters at the ILC, it will be shown that the precisions achievable at the LHC cannot reach the ILC performance.
+\\After a brief overview of the Higgs production modes and the determination of the Higgs properties at the ILC, it will be shown that the precisions achievable at the LHC cannot reach the ILC performance.
 
 \subsubsection{The Higgs production modes at an \positron\electron collider}
 There are three main production modes for Higgs bosons at an \positron\electron collider, such as the ILC.
@@ -335,7 +335,7 @@ The dominant process at energies between 200 and \SI{450}{\GeV} is the Higgsstra
 The ZZ fusion cross section contributes the least, with less than \SI{10}{fb}.
 It is suppressed, since the couplings of the neutral current are smaller than the charged current couplings.\\
 As the Higgsstrahlung process peaks at \SI{250}{\GeV}, the ILC250 stage will mainly use this production mode for the precision measurements of the Higgs boson qualities.
-At \SI{250}{\GeV}, the ILC will provide an even more precise measurement of the Higgsstrahlung cross section and hence of the branching ratios (BR) of the various decay modes of the Higgs boson than at a center-of-mass energy of \SI{500}{\GeV}~\cite[p. 14]{PhysicsCase}.
+At \SI{250}{\GeV}, the ILC will provide an even more precise measurement of the Higgsstrahlung cross section and hence of the branching ratios of the various decay modes of the Higgs boson than at a center-of-mass energy of \SI{500}{\GeV}~\cite[p. 14]{PhysicsCase}.
 This is true despite the lower luminosity at \SI{250}{\GeV}, due to the larger cross section and the smaller background occupancy of the detectors (see Chapter~\ref{PairBkg:occupancy}).
 \begin{figure}
 \centering
@@ -351,7 +351,7 @@ Many theories about particles beyond the SM predict deviations from the SM coupl
 Therefore, if these theories prove to be true, only with the highest precisions a new particle might be discovered outside our current knowledge, and a different model beyond the Standard Model has to be acknowledged.\todo{Too harsh?}
 \\As shown in the section above, the Higgsstrahlung production mode presents a prominent way to measure the Higgs boson properties.
 Due to the accurate knowledge of the initial state particles (the colliding electron and positron) and their energies, the unambiguous reconstruction of the Z boson recoiling against the Higgs boson makes the identification of the Higgs possible without the need to reconstruct its decay particles.
-This so-called recoil method to identify the Higgs independently of its decay channels therefore allows a \textit{model independent} way to determine the Higgs mass, total decay width, the branching ratios, and therefore the Higgs couplings. 
+This so-called recoil method to identify the Higgs independently of its decay channels therefore allows a model independent way to determine the Higgs mass, its total decay width, the branching ratios, and the Higgs couplings. 
 The high precision of the Higgs measurements will furthermore be a result of the high luminosity of the ILC and of the peak cross section of the Higgsstrahlung mode.
 
 \paragraph{Higgs mass}
@@ -360,32 +360,53 @@ To gain the recoil mass of the Higgs boson, the difference in the four-momenta b
  m_{recoil}^2=(P_{ini}-(P_{f+}+P_{f-}))^2
 \end{equation}
 $P_{ini}$ is the sum of the four-momenta of the initial state particles, $P_{f+}$ and $P_{f-}$ are the measured four-momenta of the fermionic decay products of the Z boson.\\
-Higgsstrahlung events with the Z boson decaying into two leptons, especially muons, are the cleanest events, reaching the highest precisions of the Higgs mass measurements.
-The clean and accurate reconstruction of the muons is possible due to the high-resolution tracking detectors and the muon-veto system of the detector concepts.
+Higgsstrahlung events with the Z boson decaying into two leptons, especially muons, are the cleanest events, reaching the highest precisions of the Higgs measurements due to the high-resolution tracking detectors and the muon-veto system of the detector concepts.
+By counting such events, the full Higgsstrahlung cross section $\sigma(e^+e^-\rightarrow Zh)$ can be determined to a \SI{1}{\percent} precision~\cite[p. 12]{PhysicsCase}.
 
-\paragraph{Higgs couplings}
-Since $h\rightarrow WW^*$ has a large branch ratio for the known Higgs mass of \SI{125}{\GeV} (see Figure~\ref{fig:HiggsBR}), this process can be measured with high precision, and is therefore used for the calculation of the total Higgs decay width.
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.5\textwidth]{Figures/Higgs_BR.png}
-\caption[Higgs decay branching ratios]{Branching ratios of the Standard Model Higgs decay channels, as a function of the Higgs mass~\cite[p. 15]{TDR2}.}
-\label{fig:HiggsBR}
-\end{figure}
-The branching ratio is calculated by dividing the measured rate of the event of interest by the Higgsstrahlung cross section.
 
 \paragraph{Higgs decay width}
 The total decay width $\Gamma_{h,tot}$ can be measured through~\cite[p. 14]{PhysicsCase}:
 \begin{equation}
  \Gamma_{h,tot}=\frac{\Gamma(h\rightarrow XX)}{BR(h\rightarrow XX)}
 \end{equation}
-where $\Gamma(h\rightarrow XX)$ is the partial decay width, specific for the Higgs decay to any SM particle X, and $BR(h\rightarrow XX)$ is the corresponding branching ratio.
-
+where $\Gamma(h\rightarrow XX)$ is the partial decay width, specific for the Higgs decay to any SM particle X, and $BR(h\rightarrow XX)$ is the corresponding branching ratio.\\
+The branching ratios are calculated by first measuring the rates of the occurring decay channels.
+A branching ratio of a certain decay channel is then determined by dividing the measured event rate by the production cross section, since event rates are given as $\sigma\cdot BR$.
+Due to the high precision measurement of the Higgsstrahlung cross section, as discussed in the paragraph above, the branching ratios can be calculated equally precisely.
+Figure~\ref{fig:HiggsBR} shows the branching ratios of the Higgs boson as a function of the Higgs mass.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{Figures/Higgs_BR.png}
+\caption[Higgs decay branching ratios]{Branching ratios of the Standard Model Higgs decay channels, as a function of the Higgs mass~\cite[p. 15]{TDR2}.}
+\label{fig:HiggsBR}
+\end{figure}
+%Since $h\rightarrow WW^*$ has a large branch ratio for the known Higgs mass of \SI{125}{\GeV}, this process can be measured with high precision, and is therefore used for the calculation of the total Higgs decay width.
+\\The partial decay width of a given decay is measured as the resonance width in the mass spectrum of the decay particles.
+However, the decay width $\Gamma(h\rightarrow ZZ^*)$ can be gained through the relation~\cite[p. 14]{PhysicsCase}:
+\begin{equation}
+ \Gamma(h\rightarrow ZZ^*)\propto g^2_{hZZ} \propto \sigma(e^+e^-\rightarrow Zh)
+\end{equation}
+with the Higgsstrahlung production cross section, and the Higgs coupling $g_{hZZ}$ to the Z boson. \todo{How is the partial decay width calculated through this equation exactly?}
+\\Finally, by combining the branching ratio with the partial decay width, the total Higgs width is determined in a model independent way without theoretical assumptions, since both, the branching ratio and the partial width, were measured independently of the Higgs decay channels.
 
 \paragraph{Higgs couplings}
-Since a decay width of a specific process is proportional to the decay branching ratio, which is again proportional to the coupling strength squared, the precision on the coupling measurement is directly dependent on how accurate the full process can be measured and recorded~\cite{PhysicsCase}.
-Due to large background levels and therefore high detector occupancies in hadron colliders, specific processes are not easily distinguishable from background events.
-This is the reason why LHC experiments can not measure the full Higgs cross section without \textit{model dependent} assumptions.
-In contrast, the reconstruction of complete events at the ILC with its low background occupancies is achieved without theoretical assumptions, a \textit{model independent} determination of the Higgs boson qualities is possible.\\
+The coupling of the Higgs boson to any Standard Model particle X is given as $g_{hXX}$, and expresses the strength of the interaction between the Higgs and particle X.
+This coupling constant is involved in both, the Higgs production and its decay, and is hence a dependency of the production cross sections as well as of the decay branching ratios.\\
+The dependence between the coupling constant and the cross section for the Higgsstrahlung for instance is given as~\cite[p. 4]{PhysicsCase_Junping}:
+\begin{equation}
+ \sigma(e^+e^-\rightarrow Zh)=F_1\cdot g^2_{hZZ}
+\end{equation}
+where $F_1$ is a parameter that can be calculated unambiguously from the Feynman diagram for this process.
+$g_{hZZ}$ can therefore be determined with high precision, comparable to the precision of the Higgsstrahlung cross section determination itself.\\
+All other couplings however are gained via the partial decay width $\Gamma$, which is calculated through the total Higgs width and the various branching ratios:
+\begin{equation}
+ g^2_{hXX}\propto\Gamma(h\rightarrow XX)=\Gamma_{h,tot}\cdot BR(h\rightarrow XX)
+\end{equation}
+The precision on the couplings is directly dependent on how accurately the full process can be measured and recorded.
+As explained above, the reconstruction of complete events at the ILC with its low background occupancies enables a \textit{model independent} determination of the Higgs boson qualities.
+The recoil method to gain the full Higgsstrahlung cross section allows the calculation of the Higgs branching ratios and the total decay width without theoretical assumptions.
+In contrast to that, due to large background levels and therefore high detector occupancies in hadron colliders, specific processes are not easily distinguishable from background events.
+This is the reason why LHC experiments can not measure the full Higgs cross section without \textit{model dependent} assumptions, which is the key to a model independent determination Higgs properties.\\
 This leads to differences in the relative Higgs boson coupling precisions of a factor of up to 10 between High-Luminosity LHC (HL-LHC) and ILC results, as can be seen in Figure~\ref{fig:Higgs_couplings}.
 \begin{figure}[h]
 \centering
@@ -395,9 +416,8 @@ The plot shows the relative precisions for the Higgs couplings calculated from t
 \label{fig:Higgs_couplings}
 \end{figure}
 
-\todo{Add short information on other physics program points, e.g. top}
+\subsection{Physics at later ILC stages}
 
-\newpage
 \section{The experiments}
 \label{ILC:detectors}
 In order to preserve competitive spirit and the ability to cross-check results, the ILC has two detectors despite the fact that it is a linear and not a circular collider.
