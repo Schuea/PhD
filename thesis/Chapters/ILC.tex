@@ -408,15 +408,55 @@ The recoil method to gain the full Higgsstrahlung cross section allows the calcu
 In contrast to that, due to large background levels and therefore high detector occupancies in hadron colliders, specific processes are not easily distinguishable from background events.
 This is the reason why LHC experiments can not measure the full Higgs cross section without \textit{model dependent} assumptions, which is the key to a model independent determination Higgs properties.\\
 This leads to differences in the relative Higgs boson coupling precisions of a factor of up to 10 between High-Luminosity LHC (HL-LHC) and ILC results, as can be seen in Figure~\ref{fig:Higgs_couplings}.
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.6\textwidth]{Figures/Higgs_couplings.png}
-\caption[Higgs coupling precisions]{Comparison of the precision reached at the ILC and at the High-Luminosity LHC (HL-LHC) for couplings g(hXX) of the Higgs boson (h) to SM particles (X)~\cite[p. 17]{PhysicsCase}.\\
-The plot shows the relative precisions for the Higgs couplings calculated from the \textbf{model dependent} fits to simulated data from the HL-LHC, and from these fits combined with \textbf{model independent} fits to simulated data from the ILC.}
-\label{fig:Higgs_couplings}
-\end{figure}
+ \todo{I thought the model dependent fit would give worse precisions for the ILC data?}
+ \todo{Is $\kappa_\mu$ and $\kappa_\gamma$ precision only so much worse because of rare process?}
+The ILC250 will deliver Higgs coupling precisions to a percent level.
+As discussed above, the coupling to the Z boson can be measured with such high accuracy that even in the initial ILC250 run a precision of about \SI{0.75}{\percent} can be reached~\cite[p. 6]{HiggsCouplings_Junping}.
+After an upgrade to a center-of-mass energy of \SI{500}{\GeV}, the precisions for all couplings will drop by at least a factor of two.
+When comparing the coupling precisions achieved through model dependent fits of the High-Luminosity LHC (HL-LHC) to precisions achieved at the ILC (see Figure~\ref{fig:Higgs_couplings} (b)), the differences between the two machines become clear.
+Nevertheless, a synergy of the data collected at both machines is beneficial for the Higgs coupling to photons for instance.
+The combined knowledge reduces the precision from a few percent to a below \SI{1}{\percent} precision.
+%\begin{figure}[h]
+%\centering
+%\includegraphics[width=0.6\textwidth]{Figures/Higgs_couplings.png}
+%\caption[Higgs coupling precisions]{Comparison of the precision reached at the ILC and at the High-Luminosity LHC (HL-LHC) for couplings g(hXX) of the Higgs boson (h) to SM particles (X)~\cite[p. 17]{PhysicsCase}.\\
+%The plot shows the relative precisions for the Higgs couplings calculated from the \textbf{model dependent} fits to simulated data from the HL-LHC, and from these fits combined with \textbf{model independent} fits to simulated data from the ILC.}
+%\label{fig:Higgs_couplings}
+%\end{figure}
+ \begin{figure}[h]
+ \centering
+  \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/Higgs_couplings_modelindependent.png}
+   \caption{Model independent analysis}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/Higgs_couplings_modeldependent.png}
+   \caption{Model dependent analysis}
+   \end{subfigure}
+   \caption[Higgs coupling precisions]{Comparison of the precision reached at the ILC and at the High-Luminosity LHC (HL-LHC) for couplings g(hXX) of the Higgs boson (h) to SM particles (X), here named as $\kappa_X$~\cite{HiggsCouplings_Junping}.\\
+   Plot (a) shows the relative precisions for the Higgs couplings calculated from \textbf{model independent} fits to simulated data from the ILC with different center-of-mass energies.
+   Plot (b) shows the Higgs coupling precisions calculated from \textbf{model dependent} fits to simulated data from the HL-LHC in comparison to simulated data from the ILC.}
+   \label{fig:Higgs_couplings}
+ \end{figure}
 
 \subsection{Physics at later ILC stages}
+After having shown the physics goals of the ILC250 stage, there are further equally prominent goals to be achieved at higher center-of-mass energies.
+Precision measurements of the top quark, further Higgs measurements, and BSM searches will be accessible at later ILC stages at \SI{350}{\GeV}, \SI{500}{\GeV}, and possibly \SI{1}{\TeV}.
+\\The ILC350 will enable a threshold scan of $t\bar{t}$ production in order to measure the top quark mass and its total decay width to unprecedented accuracy.
+The Higgs coupling to the top can be derived from precision cross section measurements of these processes.
+Since the top quark is the heaviest known elementary particle, it is expected to have the strongest coupling in the Higgs sector.
+Therefore, its mass and its coupling to the Higgs boson are important quantities in many particle physics theories, and will be measured in a model independent manner as described in the section above.
+\\At a center-of-mass energy of \SI{500}{\GeV}, further improvements in the precision measurements of the Higgs boson properties can be achieved.
+As has been shown in Figure~\ref{fig:Higgs_couplings}, the Higgs coupling precisions will be reduced by a factor of two.
+Only with such precisions, deviations from Standard Model predictions can be discovered, which has implications for new physics beyond the Standard Model.
+Additionally, measuring the Higgs self-coupling in multi-Higgs production processes is another goal of the ILC500.
+The double Higgs production can be measured in the ZHH channel, which relies on high detector performances to reduce the background.
+\\In all stages, the discovery potential in precision measurements is considerably improved.
+This includes searches for dark matter, supersymmetry (SUSY), and further beyond the Standard Model theories.
+An overview of the physics motivation for higher ILC stages can be found in~\cite{PhysicsCase}.
 
 \section{The experiments}
 \label{ILC:detectors}
