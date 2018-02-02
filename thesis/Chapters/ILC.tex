@@ -2,16 +2,17 @@
 \label{ILC}
 \begin{chapterabstract}
 For answering the fundamental questions of mankind, it is necessary to understand the world in great detail.
-In order to confirm theories in particle physics, or to disproof them, it is often important to be able to measure the qualities of particles or their interactions to several decimal places.
+In order to confirm theories in particle physics, or to disprove them, it is often important to be able to measure the qualities of particles or their interactions to several decimal places.
 For measurements being done in high-energy particle colliders, such precisions can only be reached in linear lepton colliders.
-The following sections will present a new design for such a collider of the precision frontier: the International Linear Collider (ILC). 
+The following sections will present a new design for such a collider on the precision frontier: the International Linear Collider (ILC). 
 Its proposed layout, the possible construction sites, the detectors, and the physics motivation for such a capable accelerator will be explained.
 \end{chapterabstract}
 \newline
 
-The International Linear Collider (ILC) is a proposed linear \positron\electron collider with a center-of-mass energy of \SI{250}{\GeV}, extendable to 350-\SI{500}{\GeV} and possibly \SI{1}{\TeV}.
+The International Linear Collider (ILC) is a proposed linear \positron\electron collider with a center-of-mass energy of \SI{250}{\GeV}, extendable to 350-\SI{500}{\GeV} and possibly even \SI{1}{\TeV}.
 Its high luminosity and its state of the art technologies for the detectors and the machine will make the ILC an unprecedented precision machine, complementary to the currently existing high-energy physics accelerators, such as the Large Hadron Collider (LHC) at CERN.
 The designs of the collider and the detector concepts are a result of over twenty years of research done at science laboratories all over the world.
+\todo{How many countries involved? How many universities and labs?}
 The ILC project is therefore an international project, as its name already suggests.
 
 \section{The ILC layout}
@@ -34,10 +35,11 @@ Figure~\ref{fig:ILC_Layout} shows the schematic layout of the ILC.
 \label{fig:ILC_Layout}
 \end{figure}
 The electrons are produced by a GaAs photocathode in a DC electron gun~\cite[p. 13]{TDR32}.
-By shining a circularly polarized laser on the electron beam, one reaches a beam polarization of at least \SI{80}{\percent}, i.e. more than \SI{80}{\percent} of all electrons will be left-handed\footnote{For a left-handed particle, its spin and its momentum are antiparallel, pointing in opposite directions.}~\cite[p. 81]{TDR32}:
+By shining a circularly polarized laser on the electron beam, a beam polarization of at least \SI{80}{\percent} is achived, i.e. more than \SI{80}{\percent} of all electrons will be left-handed\footnote{For a left-handed particle, its spin and its momentum are antiparallel, pointing in opposite directions.}~\cite[p. 81]{TDR32}:
 \begin{equation}
  P_e = \frac{N_L-N_R}{N_L+N_R} > 0.8
 \end{equation}
+\todo{You should reference this equation somewhere}
 The electrons from the electron source are captured and continue along the electron beam line.
 The beam lines contain several sub-systems that prepare the beams for the main acceleration and the final collision.
 One of the first sub-systems of the electron beam line is the initial bunching and pre-acceleration of the beam with normal-conducting RF cavities.
@@ -60,15 +62,15 @@ Due to the fact that the positrons were produced by using an already bunched ele
 \paragraph{Damping rings}
 Since the electrons and positrons still have a large emittance from when they originated from their sources, their momentum and beam sizes have to be condensed.
 This is done in the damping rings (DR), which have a circumference of \SI{3.2}{\kilo\meter}~\cite[p. 14]{TDR32}.
+\todo{Think about when you are using abbreviations. Here you shorten damping rings to DR, but then you never use DR anywhere in this chapter}
 A layout of the ILC damping rings is shown in Figure~\ref{fig:DR}.
 As discussed several times before, the beams will emit synchrotron radiation when they are deflected in a magnetic field.
 This is desired in the damping rings in order to ``cool'' the beams, i.e. to reduce their momenta due to the emission of photons.
 The emission of synchrotron radiation happens in the curved sections of the damping rings, but also in the straight sections by the use of wigglers.
-Wigglers are similar to undulators, but use less magnet pairs and a higher magnetic field than in an undulator.
+Wigglers are similar to undulators, but use less magnet pairs and a higher magnetic fields.
 Charged particles are therefore deflected more in wigglers.
-Since the synchrotron radiation photons are emitted tangentially to the beam particle's path,
-the particle's momentum in forward direction is reduced.
-By accelerating the beams in RF cavities in the straight sections, the beam momentum in z-direction is increased.
+Since the synchrotron radiation photons are emitted tangentially to the beam particle's path, the particle's momentum in forward direction is reduced.
+By accelerating the beams in RF cavities in the straight sections, the beam momentum in the z-direction is increased.
 Overall, the momentum in the desired direction rises, whilst the momentum spread shrinks.
 \begin{figure}[h]
 \centering
@@ -78,31 +80,35 @@ Next to the injection and extraction system, there are wigglers and RF cavities 
 \label{fig:DR}
 \end{figure}
 \\However, this is not the only effect of damping rings.
+\todo{This 'however' doesn't seem to flow from the previous sentence}
 As shown in Section~\ref{AccPhysics:Bunching}, the orbit of charged particles in an external magnetic field depends on their momenta.
 In the bends, off-momentum particles travel on an orbit with a different radius than particles with the ideal momentum.
-Entering the straight sections from inaccurate \todo{Better word for ``inaccurate, not ideal''?} orbits causes orbit distortions and aberrations in the straight sections, which again cause a rise in the beam emittance.
+Entering the straight sections from inaccurate orbits causes orbit distortions and aberrations in the straight sections, which again causes a rise in the beam emittance.
+\todo{Better word for ``inaccurate, not ideal''?} \todo{How about suboptimal?}
 To counteract this effect, a chicane is needed for adjusting the circumference.
+\todo{Do you explain in a previous chapter what a chicane is?}
 An additional phase trombone system, which consists of sets of alternating quadrupoles, regulates the orbit aberrations due to changes in the RF phase.
 Because of the design choice of having a pulse repetition rate of \SI{5}{\hertz}, the beams are stored for \SI{200}{\milli\second} in the damping rings, performing about \num{18000} turns.
-After this amount of turns, an equilibrium emittance is reached, and the high quality beam with small beam emittance is extracted and continues along the beam lines. \todo{Re-wording!}
+After this amount of turns, an equilibrium emittance is reached, and the high quality beam with small beam emittance is extracted and continues along the beam lines.
+\todo{Re-wording!} \todo{Why? This looks fine to me}
 
 \paragraph{Bunch compressors}
 After passing the damping rings, the electron and positron beams are compressed in bunch length by a two-stage compressor system, using ``magnetic compression''.
 Here, the bunch length is reduced from several millimeters to \SI{300}{\micro\meter}.
 In both compressor systems, RF cavities are used together with wigglers, which compact the beam momentum by exploiting the momentum spread within the beam bunch.
 As discussed in Section~\ref{AccPhysics:Bunching}, the RF frequency and the timing is chosen such that the bunch tail experiences an accelerating phase in the RF cavity, whilst the bunch head experiences a decelerating phase.
-The low-momentum particles of the bunch head will therefore be deflected more in the wiggler, the high-momentum particles of the tail are deflected less, respectively.
+The low-momentum particles of the bunch head will therefore be deflected more in the wiggler, whilst the high-momentum particles of the tail are deflected less.
 At the end of the compressor system, the particles of the bunch tail and head will have gotten closer, leading to a shortened beam bunch. 
-The usage of two separate systems relaxes the requirements a single system would need to fulfill,  and allows more flexibility in the operation, e.g. to reduce the beam length below \SI{300}{\micro\meter}~\cite[p. 124]{TDR32}.
+The usage of two separate systems relaxes the requirements a single system would need to fulfill, and allows more flexibility in the operation, e.g. to reduce the beam length below \SI{300}{\micro\meter}~\cite[p. 124]{TDR32}.
 
 \paragraph{Main linacs}
 Subsequent to bunch compressors, the bunches are injected into the main linear accelerator structures (main linacs).
 The two main linacs are designed to accelerate the beams to the final beam energy of \SI{125}{\GeV}, leading to a center-of-mass energy of \SI{250}{\GeV}.
 They have a length of \SI{5}{\kilo\meter} each, and use \SI{1.3}{\giga\hertz} superconducting RF cavities with an average accelerating gradient of \SI{31.5}{\mega\volt\per\meter}~\cite{Walker}.
 A picture of one of these cavities is shown in Figure~\ref{fig:Tesla_Cavity}. 
-Since cavities of the same design are already in use for the European XFEL (X-Ray Free-Electron Laser) at Deutsches Elektronen-Synchrotron (DESY) in Hamburg, their high performance has been demonstrated~\cite{XFEL}.
+Since cavities of the same design are already in use for the European XFEL (X-Ray Free-Electron Laser) at Deutsches Elektronen-Synchrotron (DESY) in Hamburg, their high performance has already been demonstrated~\cite{XFEL}.
 The gradient distribution of the cavities used at the European XFEL is shown in Figure~\ref{fig:XFEL_cav}.
-The average of the maximum gradient reachable is with about \SI{35}{\mega\volt\per\meter} even higher than the ILC requirements.
+The average of the maximum gradient reachable is with about \SI{35}{\mega\volt\per\meter}, which is higher than the ILC requirements.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.4\textwidth]{Figures/Cavity_Gradient.png}
@@ -110,6 +116,8 @@ The average of the maximum gradient reachable is with about \SI{35}{\mega\volt\p
 The yield is defined as the fraction of cavities which have a gradient higher than the specified value on the x-axis~\cite[p. 18]{XFEL_Cavities}.}
 \label{fig:XFEL_cav}
 \end{figure}
+\todo{What is the difference between the histogram and the lines in this plot?}
+\todo{Why is their a difference between maximum and usable?}
 
 \paragraph{Beam Delivery System}
 The Beam Delivery System (BDS), which has an overall length of about \SI{4.4}{\kilo\meter}, transports the bunches from the linacs to the Interaction Point (IP).
