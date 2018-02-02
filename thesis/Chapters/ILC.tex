@@ -122,10 +122,10 @@ The yield is defined as the fraction of cavities which have a gradient higher th
 \paragraph{Beam Delivery System}
 The Beam Delivery System (BDS), which has an overall length of about \SI{4.4}{\kilo\meter}, transports the bunches from the linacs to the Interaction Point (IP).
 In the BDS, the beams are focused to nanometer size by the Final-Focus (FF) system, which is a crucial part of the ILC program.
-Only with nanometer-sized bunches, the ILC can reach luminosities comparable to or beyond the Large Hadron Collider (LHC) at CERN, since the total production cross-section for \positron \electron colliders is several orders of magnitude smaller than for proton-proton colliders, such as the LHC, at their respective collision energies (see Figure~\ref{fig:Cross_sections}).
+Only with nanometer-sized bunches can the ILC can reach luminosities comparable to or beyond the Large Hadron Collider (LHC) at CERN, since the total production cross-section for \positron \electron colliders is several orders of magnitude smaller than for proton-proton colliders, such as the LHC, at their respective collision energies (see Figure~\ref{fig:Cross_sections}).
 To demonstrate the feasibility of nanometer-scale beams, a test facility was built that is a small scale prototype of the FF system for the ILC: the Accelerator Test Facility (ATF2), which will be presented in more detail in Section~\ref{ATF2}.
-The BDS system does not only contain the FF system, but also various feedback diagnostics and beam-halo collimators for removing the halo of particles around the beam core in order to reduce the beam background at the IP. 
-The sub-system layout for the sophisticated \todo{Is that appropriate here?} BDS is shown in Figure~\ref{fig:BDS}.
+The BDS system not only contains the FF system, but also various feedback diagnostics and beam-halo collimators for removing the halo of particles around the beam core in order to reduce the beam background at the IP. 
+The sub-system layout for the sophisticated \todo{Is that appropriate here?} \todo{Yes it is fine} BDS is shown in Figure~\ref{fig:BDS}.
 Additionally, shielding systems are installed at various locations along the BDS line, again in order to keep the background level at the IP as low as possible.
 Chapter~\ref{BDS_Muons} will talk about muon shielding options that are considered for the ILC.
 \begin{figure}[h]
@@ -138,6 +138,7 @@ Next to diagnostic devices, such as the polarimeter and the energy spectrometer,
 The primary dump at Z = 250\,m is the electron beam dump, which will be explained below~\cite[p. 135]{TDR32}.}
 \label{fig:BDS}
 \end{figure}
+\todo{Never say something like "Will be explained above/below" in a figure, you don't know if it is going to move unexpectedly at the end of your thesis}
 
 \paragraph{Beam collision}
 After the Final-Focus system, the beams are then finally brought into collision with a crossing angle of \SI{14}{\milli\radian} at the IP.\cite[p. 9-10]{TDR1}
@@ -186,16 +187,18 @@ L &{\small Luminosity}&{\small(\si{\per\centi\metre\squared\per\second})} & 1.35
 \end{tabularx}
 \end{table}
 For all ILC running scenarios, the beam sizes are several orders of magnitude smaller than for the LHC Run 2, which is the reason for the comparable luminosities as mentioned above.
-Although the number of bunches per pulse and the bunch population are smaller, the LHC luminosity can be exceeded.
+Despite the number of bunches per pulse and the bunch population being smaller, the LHC luminosity can be exceeded.
 It is striking that the beam sizes in the horizontal and vertical plane are symmetric for the LHC, whereas they are different for the ILC.
 This is a design choice, reducing the effect of beamstrahlung whilst enhancing the luminosity.
 As shown in Equation~\ref{eq:pair_number} in Section~\ref{BeamBeam:pairs}, the number of background particles from beamstrahlung is inversely proportional to the sum of the beam sizes, $\sigma_x+\sigma_y$.
+\todo{I would remove the in Section XXX bit, because the section is part of the equation number anyway}
 At the same time, the luminosity is inversely proportional to the product of the beam sizes, $\sigma_x\cdot\sigma_y$, as shown in Equation~\ref{eq:luminosity} in Chapter~\ref{AccPhysics:Linear-Circular}.
 By choosing the beam sizes to be $\sigma_x\gg\sigma_y$, the product is small leading to large luminosities, while the sum is large leading to a diminished background rate.
 \paragraph{Interaction region and beam dumps}
-The Interaction Region (IR) houses the two detectors for the ILC, the Silicon Detector (SiD) and the International Large Detector (ILD), which are in a so-called ``push-pull'' system.
+The Interaction Region (IR) houses the two detectors for the ILC: the Silicon Detector (SiD) and the International Large Detector (ILD), which are in a so-called ``push-pull'' system.
 The detectors and the push-pull system are explained in more detail in Section~\ref{ILC:detectors}.\\
 Finally, after collision the spent beams are guided through the extraction line (EXT) towards the main beam dumps, where they are dumped.
+\todo{Again, you never use the EXT abbreviation}
 The current designs for the main beam dumps are based on a water tank, using high-pressure water with velocity flow systems.
 Since the water tanks are designed to be sufficient for all energy and luminosity stages, they are supposed to withhold a particle beam with a beam power of \SI{14}{\mega\watt} for the \SI{1}{\TeV} operation~\cite[p. 18]{TDR32}.
 This leads to high irradiation of the beam dump surrounding and dangerous conditions for maintenance staff.
@@ -217,6 +220,7 @@ As explained before, the costs for the tunnel and the accelerating structures re
 However, the other parts of the accelerator and the surface buildings will not change by the staging scenarios but form basic costs because of which the maximum cost reduction cannot exceed \SI{34}{\percent}.
 Therefore, it has to be considered whether the cost cutback of option A' outweighs all other options with a tunnel length suitable for an energy upgrade.
 Latter would give a positive sign to the ILC community that an energy upgrade is definitely foreseen for the future.
+\todo{This sentence needs rewording, latter here doesn't seem to correspond to anything}
 \begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{Figures/Staging.png}
@@ -242,7 +246,8 @@ Hence, by increasing the number of bunches by a factor of two, the luminosity fo
 After an energy upgrade by extending the main linacs, the operation at \SI{500}{\GeV} and a short run at \SI{350}{\GeV} for dedicated measurements of the top quark qualities would be possible.
 The overall operation time would stretch out to 26 years.\\
 For the second scenario on the right hand side of Figure~\ref{fig:ILC_runningtime}, it was assumed that the beam parameters are changed in such a way that the beam is more strongly focused at the IP and therefore that the instantaneous luminosity is enhanced.
-That shortens the operation time of the ILC250 stage to 11 years, and the overall run time to 22 years~\cite[p. 7]{PhysicsCase}.
+This shortens the operation time of the ILC250 stage to 11 years, and the overall run time to 22 years~\cite[p. 7]{PhysicsCase}.
+\todo{Why would this shorten the operation time?}
 
 
 \label{ILC:site}
@@ -253,9 +258,9 @@ That shortens the operation time of the ILC250 stage to 11 years, and the overal
 \label{fig:ILC_Site}
 \end{figure}
 \section{Possible site}
-Out of originally more than ten potential ILC sites in Japan, the Kitakami mountains in the Tohuku Prefecture was chosen to be the preferred site for the ILC~\cite{Site}.
+Out of originally more than ten potential ILC sites in Japan, the Kitakami mountains in the Tohuku Prefecture were chosen as the preferred site for the ILC~\cite{Site}.
 This decision was made in August 2013 after a detailed study of all site specific factors, like the geological conditions, the infrastructure, and the impact on the environment and the economy.
-Measurements of the Kitakami mountains have shown that it consists mostly of granite rock with the best qualities for the ILC, regarding vibration and rock stress.
+Measurements of the Kitakami mountains have shown that it consists mostly of granite rock with the best qualities for the ILC, with respect to vibration and rock stress.
 As can be seen in Figure~\ref{fig:ILC_Site}, the closest city (with about 120,000 citizens) would be Ichinoseki.
 Morioka and Sendai are the biggest cities close to the candidate site, with Tokyo being about \SI{430}{\kilo\meter} away.
 Although being in the north of Japan, the travel time from Tokyo is only about three hours by Shinkansen, Japan's high-speed bullet train, and the proximity to the coast line allows the transportation of construction, machine, and detector parts by ship.
@@ -265,22 +270,22 @@ Additionally, there are local airports in both, Morioka and Sendai, presenting f
 \section{Physics motivation}
 \label{ILC:physicsmotivation}
 After having shown that the ILC as a linear lepton collider is designed to be a state-of-the-art precision machine, this section will present its physics goals.
-With the LHC as the so-called ``discovery machine'', the ILC will be a complementary collider being aimed rather for much needed precision than for searching for new particles at high energies.
-The ILC is often called the future Higgs factory which will measure the qualities of the Higgs boson with much higher precision than it had been done so far.
+With the LHC as the so-called ``discovery machine'', the ILC will be a complementary collider aiming rather for much needed precision than for searching for new particles at high energies.
+The ILC is often called the future Higgs factory which will measure the qualities of the Higgs boson with much higher precision than has been done so far.
 Additionally, the different stages of the ILC will also measure the top quark qualities, and will have access to Beyond Standard Model (BSM) physics.
 Since the first ILC stage will run at a center-of-mass energy of \SI{250}{\GeV}, this section will focus more on the measurements of the Higgs boson than of the top quark and the BSM physics.
  
 \subsection{The way to go}
 To reach the precision the ILC promises, it must achieve four different objectives.
 These objectives are all linked so that one cannot be achieved without the others.
-In the following, these four objectives of the ILC are explained in comparison to the LHC.
+In the following section, these four objectives of the ILC are explained in comparison to the LHC.
 
 \paragraph{Minimal background}
 Due to leptons in the initial state, there will be one event per colliding lepton pair.
 Leptons are elementary and not composite particles like the proton, therefore there are no underlying events which arise from other partons of the composite particle.
 The energy range of the final state particles is restricted, since the initial energy of the colliding beams can be set precisely and only point-like particles collide.
-Something only possible at lepton colliders is that the desired events can hence be pre-selected by setting the center-of-mass energy and running threshold scans at the mass of the particle of interest.\\
-Also beam polarization contributes to the small background levels, since the polarization can be set in such a way that weak interactions are either enhanced or suppressed.
+Something only possible at lepton colliders is that the desired events can be pre-selected by setting the center-of-mass energy and running threshold scans at the mass of the particle of interest.\\
+Also, beam polarization contributes to the small background levels, since the polarization can be set in such a way that weak interactions are either enhanced or suppressed.
 As the weak interaction acts only on left-handed fermions, the polarization (or handedness) of the beam particles has an effect on the processes that can occur.
 This effect can be seen directly by looking at the two possible production modes at an \positron\electron collider (see also Chapter~\ref{Production_modes}):
 direct \positron\electron annihilation, and \positron\electron scattering.
@@ -306,7 +311,7 @@ Because the elementary coupling of Z bosons and photons is the same for all quar
 In addition, the ILC will record all events without triggers.
 This means that no event will be rejected, and complete events will be stored for later analysis.
 This is only possible because the total number of detector hits from background events is small.
-Small background levels imply therefore small detector occupancies.
+Small background levels therefore imply small detector occupancies.
 
 \paragraph{Small uncertainties}
 The initial state of all events is precisely known, both in terms of the particles undergoing the interactions and also the energies involved in the initial states.
@@ -327,7 +332,7 @@ However, it will be possible at the ILC, because the detector concepts foresee s
 %charm hadron lifetime: 80microns, bottom hadron lifetime: 400microns
 
 \subsection{ILC as a Higgs factory}
-The ILC250 stage will be a so-called Higgs factory, tuned to a center-of-mass energy of \SI{250}{\GeV}, where the cross section $\sigma$ for Higgs production is at its maximum in this energy range.
+The ILC250 stage will be a so-called Higgs factory, tuned to a center-of-mass energy of \SI{250}{\GeV}, where the cross section $\sigma$ for Higgs production is at its maximum.
 Due to the large luminosity and the capability for precision measurements, as has been shown in the section above, the individual Higgs boson qualities can be measured to a percent accuracy in a completely model independent way.
 These Higgs boson properties include the Higgs mass, its couplings to Standard Model particles, as well as its total decay width.
 In contrast, for the LHC experiments, global fits to all Higgs signals together with theoretical assumptions of its decay width is the only way to gain the Higgs couplings.
@@ -356,9 +361,11 @@ The three main processes are ZZ fusion, WW fusion, and Higgsstrahlung.}
 \subsubsection{The Higgs measurements}
 To know the Higgs couplings to Standard Model (SM) particles as precise as possible is one of the most important goals for the ILC.
 Many theories about particles beyond the SM predict deviations from the SM couplings at the \SI{1}{\percent} level.
-Therefore, if these theories prove to be true, only with the highest precisions a new particle might be discovered outside our current knowledge, and a different model beyond the Standard Model has to be acknowledged.\todo{Too harsh?}
+Therefore, if these theories prove to be true, only with the highest precisions could a new particle be discovered, and a different model beyond the Standard Model be acknowledged.
+\todo{Too harsh?} \todo{Maybe, it wouldn't be the 'only' way, but it would be a very strong indirect measurement}
 \\As shown in the section above, the Higgsstrahlung production mode presents a prominent way to measure the Higgs boson properties.
 Due to the accurate knowledge of the initial state particles (the colliding electron and positron) and their energies, the unambiguous reconstruction of the Z boson recoiling against the Higgs boson makes the identification of the Higgs possible without the need to reconstruct its decay particles.
+\todo{Ahh I see, I never understood that before, but that makes sense. Very well explained!}
 This so-called recoil method to identify the Higgs independently of its decay channels therefore allows a model independent way to determine the Higgs mass, its total decay width, the branching ratios, and the Higgs couplings. 
 The high precision of the Higgs measurements will furthermore be a result of the high luminosity of the ILC and of the peak cross section of the Higgsstrahlung mode.
 
@@ -395,12 +402,12 @@ However, the decay width $\Gamma(h\rightarrow ZZ^*)$ can be gained through the r
  \Gamma(h\rightarrow ZZ^*)\propto g^2_{hZZ} \propto \sigma(e^+e^-\rightarrow Zh)
 \end{equation}
 with the Higgsstrahlung production cross section, and the Higgs coupling $g_{hZZ}$ to the Z boson. \todo{How is the partial decay width calculated through this equation exactly?}
-\\Finally, by combining the branching ratio with the partial decay width, the total Higgs width is determined in a model independent way without theoretical assumptions, since both, the branching ratio and the partial width, were measured independently of the Higgs decay channels.
+\\Finally, by combining the branching ratio with the partial decay width, the total Higgs width is determined in a model independent way without theoretical assumptions, since both the branching ratio and the partial width were measured independently of the Higgs decay channels.
 
 \paragraph{Higgs couplings}
 The coupling of the Higgs boson to any Standard Model particle X is given as $g_{hXX}$, and expresses the strength of the interaction between the Higgs and particle X.
-This coupling constant is involved in both, the Higgs production and its decay, and is hence a dependency of the production cross sections as well as of the decay branching ratios.\\
-The dependence between the coupling constant and the cross section for the Higgsstrahlung for instance is given as~\cite[p. 4]{PhysicsCase_Junping}:
+This coupling constant is involved in both the Higgs production and its decay, and is hence a dependency of the production cross sections as well as of the decay branching ratios.\\
+The dependence between the coupling constant and the cross section for the Higgsstrahlung, for instance, is given as~\cite[p. 4]{PhysicsCase_Junping}:
 \begin{equation}
  \sigma(e^+e^-\rightarrow Zh)=F_1\cdot g^2_{hZZ}
 \end{equation}
@@ -419,11 +426,14 @@ This leads to differences in the relative Higgs boson coupling precisions of a f
  \todo{I thought the model dependent fit would give worse precisions for the ILC data?}
  \todo{Is $\kappa_\mu$ and $\kappa_\gamma$ precision only so much worse because of rare process?}
 The ILC250 will deliver Higgs coupling precisions to a percent level.
-As discussed above, the coupling to the Z boson can be measured with such high accuracy that even in the initial ILC250 run a precision of about \SI{0.75}{\percent} can be reached~\cite[p. 6]{HiggsCouplings_Junping}.
+As discussed above, the coupling to the Z boson can be measured with such high accuracy that even in the initial ILC250 run a precision of about \SI{0.75}{\percent} can be achieved~\cite[p. 6]{HiggsCouplings_Junping}.
 After an upgrade to a center-of-mass energy of \SI{500}{\GeV}, the precisions for all couplings will drop by at least a factor of two.
+\todo{Be careful when using words like 'drop' when talking about something like precision. Higher precision means smaller precision numbers, does drop here mean better or worse precision?}
 When comparing the coupling precisions achieved through model dependent fits of the High-Luminosity LHC (HL-LHC) to precisions achieved at the ILC (see Figure~\ref{fig:Higgs_couplings} (b)), the differences between the two machines become clear.
+\todo{Why not label the subfigure?}
 Nevertheless, a synergy of the data collected at both machines is beneficial for the Higgs coupling to photons for instance.
-The combined knowledge reduces the precision from a few percent to a below \SI{1}{\percent} precision.
+The combined knowledge reduces the precision from a few percent to below \SI{1}{\percent} precision.
+\todo{Again, reduces here means improves, right?}
 %\begin{figure}[h]
 %\centering
 %\includegraphics[width=0.6\textwidth]{Figures/Higgs_couplings.png}
@@ -459,7 +469,7 @@ Since the top quark is the heaviest known elementary particle, it is expected to
 Therefore, its mass and its coupling to the Higgs boson are important quantities in many particle physics theories, and will be measured in a model independent manner as described in the section above.
 \\At a center-of-mass energy of \SI{500}{\GeV}, further improvements in the precision measurements of the Higgs boson properties can be achieved.
 As has been shown in Figure~\ref{fig:Higgs_couplings}, the Higgs coupling precisions will be reduced by a factor of two.
-Only with such precisions, deviations from Standard Model predictions can be discovered, which has implications for new physics beyond the Standard Model.
+Only with such precisions, can deviations from Standard Model predictions be discovered, which has implications for new physics beyond the Standard Model.
 Additionally, measuring the Higgs self-coupling in multi-Higgs production processes is another goal of the ILC500.
 The double Higgs production can be measured in the ZHH channel, which relies on high detector performances to reduce the background.
 \\In all stages, the discovery potential in precision measurements is considerably improved.
@@ -471,11 +481,12 @@ An overview of the physics motivation for higher ILC stages can be found in~\cit
 Previous sections have shown that the physics goals of the ILC are based on precision measurements that heavily rely on an outstanding detector performance in order to achieve the promised goals.
 The performance requirements are accordingly strict, and the detectors are designed to fulfill them for the full energy range of operation.
 Only to mention a few, exceptional energy and spatial resolution of the subdetector systems, vertex recognition and reliable flavor tagging, such a b- and c-tagging as mentioned above, have to be guaranteed. \todo{Re-wording?}
+\todo{This sentence needs rewording}
 Additionally, the detector designs have to address the background arising from beam-beam interactions and the accelerator itself, which is explained in Chapter~\ref{Backgrounds}.
 Especially the forward detector systems have to be radiation hard to avoid radiation damage.
 All these requirements are fulfilled in the design of the two ILC experiments.
 \\In order to preserve competitive spirit and the ability to cross-check results, the ILC has two detectors despite the fact that it is a linear and not a circular collider.
-The so-called push-pull system makes that possible by allowing the detectors to switch position after a certain amount of data-taking time.
+The so-called push-pull system makes this possible by allowing the detectors to switch position after a certain amount of data-taking time.
 The whole detector together with the last quadrupole magnet of the accelerator Final-Focus system will be pulled out of the beam line, and the other detector takes its place.
 The whole process is designed to take from several hours up to 1-2 days, but involves some challenges especially for the magnets, the cryogenics, and the detector and machine alignment~\cite[p. 28-29]{TDR1}.
 The two detectors, the Silicon Detector (SiD) and the International Large Detector (ILD), will be explained in detail in the following sections.
@@ -534,13 +545,14 @@ BeamCal & Semiconductor-W & 326.5 & 344 & 14.0 \\
 \newpage
 \paragraph{Vertex detector}
 The vertex detector, shown in Figure~\ref{fig:SiD_VXD}, will be the inner most subdetector with the measurements of a soda can.
-Still, with its five layers for the barrel and the endcaps it will be able to do very precise measurements.
+Still, with its five layers for the barrel and the endcaps, it will be able to do very precise measurements.
 The requirements for the vertex detector performance are very demanding:
 The spatial resolution has to be less than \SI{3}{\micro\meter}, which allows not only very precise tracking, but also the verification of the primary vertex of an event, as well as of the secondary vertex of a bottom quark (b-tagging) and even of a charm quark (c-tagging).
 The latter is very challenging due to the short flight distance of the charm quark of only a few microns before it hadronizes.
 Additionally, a very small material budget of about 0.1\,X$_0$ is foreseen for the vertex detector, since particles should not perform particle showers in this subdetector~\cite{SiD_Update}.
 The final decision on the sensor technology is not made yet, which allows the detector to have the most recent state-of-the-art technology.
-The currently foreseen technology candidates are various designs silicon diode pixels, such as Monolithic Active Pixels (MAPS), Chronopix, Vertically Integrated (``3D'') chips, as well as High Voltage CMOS sensors. \todo{Find a reference to point to these technologies}
+The currently foreseen technology candidates are various designs based on silicon diode pixels, such as Monolithic Active Pixels (MAPS), Chronopix, Vertically Integrated (``3D'') chips, as well as High Voltage CMOS sensors. 
+\todo{Find a reference to point to these technologies}
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.4\textwidth]{Figures/SiD_VXD_3D.png}
@@ -584,10 +596,10 @@ Its purpose is not only to identify muons being produced in the beam collisions,
 \paragraph{Forward system}
 Finally, the forward systems of SiD make the detector hermetic, i.e. the detector is a closed system which can catch particles under almost all solid angles.
 The forward region covers a polar angle $\theta > $ \SI{3}{\milli\radian}.
-Boosted particles with high momentum along the beam direction that go under an angle $\theta < $ \SI{3}{\milli\radian} will therefore indeed escape the detector.
-These losses are not avoidable since detector components cannot be built inside the beam pipe and the detector is not designed for physics that require measurements of these small-angle particles.
+Boosted particles with high momentum along the beam direction that go under an angle $\theta < $ \SI{3}{\milli\radian} will therefore escape the detector.
+These losses are unavoidable since detector components cannot be built inside the beam pipe and the detector is not designed for physics that require measurements of these small-angle particles.
 The forward system consists of the Luminosity Calorimeter (LumiCal) and the Beam Calorimeter (BeamCal).
-Apart form making SiD hermetic, the LumiCal will measure the luminosity integrated over time, whilst the BeamCal will give an indication of the instantaneous luminosity by measuring the \positron \electron pair background from beam-beam interactions, which is explained in Section~\ref{BeamBeam:pairs}.
+Apart from making SiD hermetic, the LumiCal will measure the luminosity integrated over time, whilst the BeamCal will give an indication of the instantaneous luminosity by measuring the \positron \electron pair background from beam-beam interactions, which is explained in Section~\ref{BeamBeam:pairs}.
 Since the pair background is directly dependent on the beam qualities, the BeamCal measurements will indicate variations in the beam parameters.
 Like the ECAL, both, the LumiCal and the BeamCal, are sampling calorimeters using tungsten layers for the particle shower development and semiconductors for the sensitive layers.
 As the forward region is highly affected by high-energy particles that are typically boosted in the forward direction, the sensors have to be specifically designed to withstand radiation damage.
@@ -607,6 +619,7 @@ Part of the detector, but not part of the sensitive subdetectors, is ``Pacman''.
 Pacman is a detector specific shielding against machine background that reaches the detector and would increase the detector occupancy.
 All particles that are produced from the beam interacting with accelerator machine parts, and that reach the detectors, are called machine background.
 It is placed on either side of the detector, and has an outer radius of about \SI{2.8}{\meter}, hence it covers the full radius of all subdetectors inside the solenoid magnet.
+\todo{What is 'It'?}
 The inner layer of Pacman is made of iron, the outer layer of borated concrete which is specially designed to stop neutrons.
 The thickness is about \SI{3.4}{\meter}~\cite{SiD_Geo}.
 Its use can be seen in the simulation of the machine backgrounds in Chapters~\ref{BDS_Muons:SiD} and \ref{BeamDumps:SiDocc}.
