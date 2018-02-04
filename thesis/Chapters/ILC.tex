@@ -38,7 +38,6 @@ By shining a circularly polarized laser on the electron beam, a beam polarizatio
 \begin{equation}
  P_e = \frac{N_L-N_R}{N_L+N_R} > 0.8
 \end{equation}
-\todo{You should reference this equation somewhere}
 The electrons from the electron source are captured and continue along the electron beam line.
 The beam lines contain several sub-systems that prepare the beams for the main acceleration and the final collision.
 One of the first sub-systems of the electron beam line is the initial bunching and pre-acceleration of the beam with normal-conducting RF cavities.
@@ -60,8 +59,7 @@ Due to the fact that the positrons were produced by using an already bunched ele
 \end{figure}
 \paragraph{Damping rings}
 Since the electrons and positrons still have a large emittance from when they originated from their sources, their momentum and beam sizes have to be condensed.
-This is done in the damping rings (DR), which have a circumference of \SI{3.2}{\kilo\meter}~\cite[p. 14]{TDR32}.
-\todo{Think about when you are using abbreviations. Here you shorten damping rings to DR, but then you never use DR anywhere in this chapter}
+This is done in the damping rings, which have a circumference of \SI{3.2}{\kilo\meter}~\cite[p. 14]{TDR32}.
 A layout of the ILC damping rings is shown in Figure~\ref{fig:DR}.
 As discussed several times before, the beams will emit synchrotron radiation when they are deflected in a magnetic field.
 This is desired in the damping rings in order to ``cool'' the beams, i.e. to reduce their momenta due to the emission of photons.
@@ -78,18 +76,14 @@ Overall, the momentum in the desired direction rises, whilst the momentum spread
 Next to the injection and extraction system, there are wigglers and RF cavities for the emittance reduction, as well as a chicane for circumference adjustments, and a so-called phase trombone for accommodating changes in the RF phase~\cite[p. 15]{TDR32}.}
 \label{fig:DR}
 \end{figure}
-\\However, this is not the only effect of damping rings.
-\todo{This 'however' doesn't seem to flow from the previous sentence}
+\\This is, however, not the only effect of damping rings.
 As shown in Section~\ref{AccPhysics:Bunching}, the orbit of charged particles in an external magnetic field depends on their momenta.
 In the bends, off-momentum particles travel on an orbit with a different radius than particles with the ideal momentum.
-Entering the straight sections from inaccurate orbits causes orbit distortions and aberrations in the straight sections, which again causes a rise in the beam emittance.
-\todo{Better word for ``inaccurate, not ideal''?} \todo{How about suboptimal?}
-To counteract this effect, a chicane is needed for adjusting the circumference.
-\todo{Do you explain in a previous chapter what a chicane is?}
+Entering the straight sections from suboptimal orbits causes orbit distortions and aberrations in the straight sections, which again causes a rise in the beam emittance.
+To counteract this effect, a chicane (see Chapter~\ref{AccPhysics:Bunching}) is needed for adjusting the circumference.
 An additional phase trombone system, which consists of sets of alternating quadrupoles, regulates the orbit aberrations due to changes in the RF phase.
 Because of the design choice of having a pulse repetition rate of \SI{5}{\hertz}, the beams are stored for \SI{200}{\milli\second} in the damping rings, performing about \num{18000} turns.
 After this amount of turns, an equilibrium emittance is reached, and the high quality beam with small beam emittance is extracted and continues along the beam lines.
-\todo{Re-wording!} \todo{Why? This looks fine to me}
 
 \paragraph{Bunch compressors}
 After passing the damping rings, the electron and positron beams are compressed in bunch length by a two-stage compressor system, using ``magnetic compression''.
@@ -100,6 +94,15 @@ The low-momentum particles of the bunch head will therefore be deflected more in
 At the end of the compressor system, the particles of the bunch tail and head will have gotten closer, leading to a shortened beam bunch. 
 The usage of two separate systems relaxes the requirements a single system would need to fulfill, and allows more flexibility in the operation, e.g. to reduce the beam length below \SI{300}{\micro\meter}~\cite[p. 124]{TDR32}.
 
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.4\textwidth]{Figures/Cavity_Gradient.png}
+\caption[XFEL cavity gradient]{Maximum and usable gradient distribution of the final European XFEL cavities.
+The number of cavities showing a certain gradient is displayed as the bar chart.
+The so-called usable gradient is the effective gradient a cavity reaches under strict requirements, such as achieving the operational specification for the quality factor.
+The yield, which is shown as the line graphs, is defined as the fraction of cavities which have a gradient higher than the specified value on the x-axis~\cite[p. 18]{XFEL_Cavities}.}
+\label{fig:XFEL_cav}
+\end{figure}
 \paragraph{Main linacs}
 Subsequent to bunch compressors, the bunches are injected into the main linear accelerator structures (main linacs).
 The two main linacs are designed to accelerate the beams to the final beam energy of \SI{125}{\GeV}, leading to a center-of-mass energy of \SI{250}{\GeV}.
@@ -107,37 +110,27 @@ They have a length of \SI{5}{\kilo\meter} each, and use \SI{1.3}{\giga\hertz} su
 A picture of one of these cavities is shown in Figure~\ref{fig:Tesla_Cavity}. 
 Since cavities of the same design are already in use for the European XFEL (X-Ray Free-Electron Laser) at Deutsches Elektronen-Synchrotron (DESY) in Hamburg, their high performance has already been demonstrated~\cite{XFEL}.
 The gradient distribution of the cavities used at the European XFEL is shown in Figure~\ref{fig:XFEL_cav}.
-The average of the maximum gradient reachable is with about \SI{35}{\mega\volt\per\meter}, which is higher than the ILC requirements.
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.4\textwidth]{Figures/Cavity_Gradient.png}
-\caption[XFEL cavity gradient]{Maximum and usable gradient distribution of the final European XFEL cavities.
-The yield is defined as the fraction of cavities which have a gradient higher than the specified value on the x-axis~\cite[p. 18]{XFEL_Cavities}.}
-\label{fig:XFEL_cav}
-\end{figure}
-\todo{What is the difference between the histogram and the lines in this plot?}
-\todo{Why is their a difference between maximum and usable?}
+The average of the maximum gradient reachable is about \SI{35}{\mega\volt\per\meter}, which is higher than the ILC requirements.
 
-\paragraph{Beam Delivery System}
-The Beam Delivery System (BDS), which has an overall length of about \SI{4.4}{\kilo\meter}, transports the bunches from the linacs to the Interaction Point (IP).
-In the BDS, the beams are focused to nanometer size by the Final-Focus (FF) system, which is a crucial part of the ILC program.
-Only with nanometer-sized bunches can the ILC can reach luminosities comparable to or beyond the Large Hadron Collider (LHC) at CERN, since the total production cross-section for \positron \electron colliders is several orders of magnitude smaller than for proton-proton colliders, such as the LHC, at their respective collision energies (see Figure~\ref{fig:Cross_sections}).
-To demonstrate the feasibility of nanometer-scale beams, a test facility was built that is a small scale prototype of the FF system for the ILC: the Accelerator Test Facility (ATF2), which will be presented in more detail in Section~\ref{ATF2}.
-The BDS system not only contains the FF system, but also various feedback diagnostics and beam-halo collimators for removing the halo of particles around the beam core in order to reduce the beam background at the IP. 
-The sub-system layout for the sophisticated \todo{Is that appropriate here?} \todo{Yes it is fine} BDS is shown in Figure~\ref{fig:BDS}.
-Additionally, shielding systems are installed at various locations along the BDS line, again in order to keep the background level at the IP as low as possible.
-Chapter~\ref{BDS_Muons} will talk about muon shielding options that are considered for the ILC.
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{Figures/BDS.png}
 \caption[Layout of the Beam Delivery System]{Schematic layout of the Beam Delivery System (BDS) for the electron beam line.
 After the main linac, the BDS for the electron beam line reaches from about Z = -2.2\,km to the Interaction Point (IP) at Z = 0.
 The vertical colored lines along the beam line represent the magnets and other devices of the various sub-systems.
 Next to diagnostic devices, such as the polarimeter and the energy spectrometer, there are collimation systems to focus and to prepare the beam for the collision at the IP.
-The primary dump at Z = 250\,m is the electron beam dump, which will be explained below~\cite[p. 135]{TDR32}.}
+The primary dump at Z = 250\,m is the electron beam dump~\cite[p. 135]{TDR32}.}
 \label{fig:BDS}
 \end{figure}
-\todo{Never say something like "Will be explained above/below" in a figure, you don't know if it is going to move unexpectedly at the end of your thesis}
+\paragraph{Beam Delivery System}
+The Beam Delivery System (BDS), which has an overall length of about \SI{4.4}{\kilo\meter}, transports the bunches from the linacs to the Interaction Point (IP).
+In the BDS, the beams are focused to nanometer size by the Final-Focus (FF) system, which is a crucial part of the ILC program.
+Only with nanometer-sized bunches can the ILC can reach luminosities comparable to or beyond the Large Hadron Collider (LHC) at CERN, since the total production cross-section for \positron \electron colliders is several orders of magnitude smaller than for proton-proton colliders, such as the LHC, at their respective collision energies (see Figure~\ref{fig:Cross_sections}).
+To demonstrate the feasibility of nanometer-scale beams, a test facility was built that is a small scale prototype of the FF system for the ILC: the Accelerator Test Facility (ATF2), which will be presented in more detail in Section~\ref{ATF2}.
+The BDS system not only contains the FF system, but also various feedback diagnostics and beam-halo collimators for removing the halo of particles around the beam core in order to reduce the beam background at the IP. 
+The sub-system layout for the sophisticated BDS is shown in Figure~\ref{fig:BDS}.
+Additionally, shielding systems are installed at various locations along the BDS line, again in order to keep the background level at the IP as low as possible.
+Chapter~\ref{BDS_Muons} will talk about muon shielding options that are considered for the ILC.
 
 \paragraph{Beam collision}
 After the Final-Focus system, the beams are then finally brought into collision with a crossing angle of \SI{14}{\milli\radian} at the IP.\cite[p. 9-10]{TDR1}
@@ -159,6 +152,7 @@ For the ILC, it was calculated that the crab cavities should be located \SI{13.4
 \caption[Schematic of a beam crossing with crab cavities]{Schematic of a beam crossing with crab cavities. In a crossing with crossing angle $\theta_C$, head-on collisions are only possible with crab cavities that rotate the beam in the horizontal plane.}
 \label{fig:Crab_crossing}
 \end{figure}
+
 \paragraph{Beam parameters}
 Table~\ref{tab:ILC_parameters} shows the beam parameters for the baseline design at \SI{250}{\GeV} center-of-mass energy, and for the energy and the luminosity upgrade stages.
 %\multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Baseline 500}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Lumi Upgrade}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{TeV Upgrade}} & {\centering\textbf{LHC 25ns}} \\ 
@@ -189,15 +183,14 @@ For all ILC running scenarios, the beam sizes are several orders of magnitude sm
 Despite the number of bunches per pulse and the bunch population being smaller, the LHC luminosity can be exceeded.
 It is striking that the beam sizes in the horizontal and vertical plane are symmetric for the LHC, whereas they are different for the ILC.
 This is a design choice, reducing the effect of beamstrahlung whilst enhancing the luminosity.
-As shown in Equation~\ref{eq:pair_number} in Section~\ref{BeamBeam:pairs}, the number of background particles from beamstrahlung is inversely proportional to the sum of the beam sizes, $\sigma_x+\sigma_y$.
-\todo{I would remove the in Section XXX bit, because the section is part of the equation number anyway}
+As shown in Equation~\ref{eq:pair_number}, the number of background particles from beamstrahlung is inversely proportional to the sum of the beam sizes, $\sigma_x+\sigma_y$.
 At the same time, the luminosity is inversely proportional to the product of the beam sizes, $\sigma_x\cdot\sigma_y$, as shown in Equation~\ref{eq:luminosity} in Chapter~\ref{AccPhysics:Linear-Circular}.
 By choosing the beam sizes to be $\sigma_x\gg\sigma_y$, the product is small leading to large luminosities, while the sum is large leading to a diminished background rate.
+
 \paragraph{Interaction region and beam dumps}
 The Interaction Region (IR) houses the two detectors for the ILC: the Silicon Detector (SiD) and the International Large Detector (ILD), which are in a so-called ``push-pull'' system.
 The detectors and the push-pull system are explained in more detail in Section~\ref{ILC:detectors}.\\
-Finally, after collision the spent beams are guided through the extraction line (EXT) towards the main beam dumps, where they are dumped.
-\todo{Again, you never use the EXT abbreviation}
+Finally, after collision the spent beams are guided through the extraction line towards the main beam dumps, where they are dumped.
 The current designs for the main beam dumps are based on a water tank, using high-pressure water with velocity flow systems.
 Since the water tanks are designed to be sufficient for all energy and luminosity stages, they are supposed to withhold a particle beam with a beam power of \SI{14}{\mega\watt} for the \SI{1}{\TeV} operation~\cite[p. 18]{TDR32}.
 This leads to high irradiation of the beam dump surrounding and dangerous conditions for maintenance staff.
@@ -218,8 +211,7 @@ Overall, option A' foresees the shortest possible tunnel for \SI{250}{\GeV} and 
 As explained before, the costs for the tunnel and the accelerating structures represent indeed the largest fraction of the total costs, and will be reduced by the staging options.
 However, the other parts of the accelerator and the surface buildings will not change by the staging scenarios but form basic costs because of which the maximum cost reduction cannot exceed \SI{34}{\percent}.
 Therefore, it has to be considered whether the cost cutback of option A' outweighs all other options with a tunnel length suitable for an energy upgrade.
-Latter would give a positive sign to the ILC community that an energy upgrade is definitely foreseen for the future.
-\todo{This sentence needs rewording, latter here doesn't seem to correspond to anything}
+An extended tunnel would give a positive sign to the ILC community that an energy upgrade is definitely foreseen for the future.
 \begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{Figures/Staging.png}
@@ -245,9 +237,7 @@ Hence, by increasing the number of bunches by a factor of two, the luminosity fo
 After an energy upgrade by extending the main linacs, the operation at \SI{500}{\GeV} and a short run at \SI{350}{\GeV} for dedicated measurements of the top quark qualities would be possible.
 The overall operation time would stretch out to 26 years.\\
 For the second scenario on the right hand side of Figure~\ref{fig:ILC_runningtime}, it was assumed that the beam parameters are changed in such a way that the beam is more strongly focused at the IP and therefore that the instantaneous luminosity is enhanced.
-This shortens the operation time of the ILC250 stage to 11 years, and the overall run time to 22 years~\cite[p. 7]{PhysicsCase}.
-\todo{Why would this shorten the operation time?}
-
+This shortens the operation time of the ILC250 stage to 11 years, and the overall run time to 22 years, whilst still achieving the same integrated luminosity~\cite[p. 7]{PhysicsCase}.
 
 \label{ILC:site}
 \begin{figure}[h]
@@ -264,7 +254,6 @@ As can be seen in Figure~\ref{fig:ILC_Site}, the closest city (with about 120,00
 Morioka and Sendai are the biggest cities close to the candidate site, with Tokyo being about \SI{430}{\kilo\meter} away.
 Although being in the north of Japan, the travel time from Tokyo is only about three hours by Shinkansen, Japan's high-speed bullet train, and the proximity to the coast line allows the transportation of construction, machine, and detector parts by ship.
 Additionally, there are local airports in both, Morioka and Sendai, presenting further options for traveling and the transportation of construction materials.
-
 
 \section{Physics motivation}
 \label{ILC:physicsmotivation}
@@ -326,7 +315,7 @@ That means that new particles might indeed be found at the ILC.\\
 Additionally, c-tagging will be a possible tool for physics analyses, and will improve many physics studies at the ILC.
 The life time of a charm quark (c) before it hadronizes is around \SI{80}{\micro\meter}, which is a perfect way to identify that a charm quark was involved in the event.
 Since the distance between the primary and the secondary vertex can only be measured by a vertex detector with micrometer resolution, c-tagging is in general very difficult.
-However, it will be possible at the ILC, because the detector concepts foresee such a resolution, and the nanometer-sized beam allows the inner vertex detector radius to be very close to the interaction point. \todo{Does this make sense?}
+However, it will be possible at the ILC, because the detector concepts foresee such a resolution, and the nanometer-sized beam allows the inner vertex detector radius to be very close to the interaction point.
 %only approximately \SI{10}{\milli\meter}. 
 %charm hadron lifetime: 80microns, bottom hadron lifetime: 400microns
 
@@ -351,7 +340,7 @@ At \SI{250}{\GeV}, the ILC will provide an even more precise measurement of the 
 This is true despite the lower luminosity at \SI{250}{\GeV}, due to the larger cross section and the smaller background occupancy of the detectors (see Chapter~\ref{PairBkg:occupancy}).
 \begin{figure}
 \centering
-\includegraphics[width=0.5\textwidth]{Figures/HiggsProductionCrossSection.png}
+\includegraphics[width=0.47\textwidth]{Figures/HiggsProductionCrossSection.png}
 \caption[Cross section for the Higgs production modes at ILC]{Cross sections for the Higgs production modes at the ILC, with beam polarization of 80\,\% for the electron and 30\,\% the positron beam~\cite[p. 13]{PhysicsCase}.
 The three main processes are ZZ fusion, WW fusion, and Higgsstrahlung.}
 \label{fig:HiggsProduction}
@@ -361,15 +350,13 @@ The three main processes are ZZ fusion, WW fusion, and Higgsstrahlung.}
 To know the Higgs couplings to Standard Model (SM) particles as precise as possible is one of the most important goals for the ILC.
 Many theories about particles beyond the SM predict deviations from the SM couplings at the \SI{1}{\percent} level.
 Therefore, if these theories prove to be true, only with the highest precisions could a new particle be discovered, and a different model beyond the Standard Model be acknowledged.
-\todo{Too harsh?} \todo{Maybe, it wouldn't be the 'only' way, but it would be a very strong indirect measurement}
 \\As shown in the section above, the Higgsstrahlung production mode presents a prominent way to measure the Higgs boson properties.
 Due to the accurate knowledge of the initial state particles (the colliding electron and positron) and their energies, the unambiguous reconstruction of the Z boson recoiling against the Higgs boson makes the identification of the Higgs possible without the need to reconstruct its decay particles.
-\todo{Ahh I see, I never understood that before, but that makes sense. Very well explained!}
 This so-called recoil method to identify the Higgs independently of its decay channels therefore allows a model independent way to determine the Higgs mass, its total decay width, the branching ratios, and the Higgs couplings. 
 The high precision of the Higgs measurements will furthermore be a result of the high luminosity of the ILC and of the peak cross section of the Higgsstrahlung mode.
 
 \paragraph{Higgs mass}
-To gain the recoil mass of the Higgs boson, the difference in the four-momenta between the Z boson decay particles and the initial state particles has to be calculated:
+To gain the recoil mass of the Higgs boson, the difference in the four-momenta between the Z boson decay particles and the initial state particles has to be calculated~\cite[p. 7]{ILCPhysics}:
 \begin{equation}
  m_{recoil}^2=(P_{ini}-(P_{f+}+P_{f-}))^2
 \end{equation}
@@ -421,18 +408,15 @@ As explained above, the reconstruction of complete events at the ILC with its lo
 The recoil method to gain the full Higgsstrahlung cross section allows the calculation of the Higgs branching ratios and the total decay width without theoretical assumptions.
 In contrast to that, due to large background levels and therefore high detector occupancies in hadron colliders, specific processes are not easily distinguishable from background events.
 This is the reason why LHC experiments can not measure the full Higgs cross section without \textit{model dependent} assumptions, which is the key to a model independent determination Higgs properties.\\
-This leads to differences in the relative Higgs boson coupling precisions of a factor of up to 10 between High-Luminosity LHC (HL-LHC) and ILC results, as can be seen in Figure~\ref{fig:Higgs_couplings}.
- \todo{I thought the model dependent fit would give worse precisions for the ILC data?}
+  \todo{I thought the model dependent fit would give worse precisions for the ILC data?}
  \todo{Is $\kappa_\mu$ and $\kappa_\gamma$ precision only so much worse because of rare process?}
+This leads to differences in the relative Higgs boson coupling precisions of a factor of up to 10 between High-Luminosity LHC (HL-LHC) and ILC results, as can be seen in Figure~\ref{fig:Higgs_couplings}.
 The ILC250 will deliver Higgs coupling precisions to a percent level.
 As discussed above, the coupling to the Z boson can be measured with such high accuracy that even in the initial ILC250 run a precision of about \SI{0.75}{\percent} can be achieved~\cite[p. 6]{HiggsCouplings_Junping}.
-After an upgrade to a center-of-mass energy of \SI{500}{\GeV}, the precisions for all couplings will drop by at least a factor of two.
-\todo{Be careful when using words like 'drop' when talking about something like precision. Higher precision means smaller precision numbers, does drop here mean better or worse precision?}
-When comparing the coupling precisions achieved through model dependent fits of the High-Luminosity LHC (HL-LHC) to precisions achieved at the ILC (see Figure~\ref{fig:Higgs_couplings} (b)), the differences between the two machines become clear.
-\todo{Why not label the subfigure?}
+After an upgrade to a center-of-mass energy of \SI{500}{\GeV}, the precisions for all couplings will improve by at least a factor of two.
+When comparing the coupling precisions achieved through model dependent fits of the High-Luminosity LHC (HL-LHC) to precisions achieved at the ILC (see Figure~\ref{fig:Higgs_couplings_b}), the differences between the two machines become clear.
 Nevertheless, a synergy of the data collected at both machines is beneficial for the Higgs coupling to photons for instance.
-The combined knowledge reduces the precision from a few percent to below \SI{1}{\percent} precision.
-\todo{Again, reduces here means improves, right?}
+The combined knowledge reduces the relative precision from a few percent to below \SI{1}{\percent} precision.
 %\begin{figure}[h]
 %\centering
 %\includegraphics[width=0.6\textwidth]{Figures/Higgs_couplings.png}
@@ -446,19 +430,21 @@ The combined knowledge reduces the precision from a few percent to below \SI{1}{
    \centering
     \includegraphics[width=\textwidth]{Figures/Higgs_couplings_modelindependent.png}
    \caption{Model independent analysis}
+   \label{fig:Higgs_couplings_a}
    \end{subfigure}
    \hfill
     \begin{subfigure}[b]{0.49\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/Higgs_couplings_modeldependent.png}
    \caption{Model dependent analysis}
+   \label{fig:Higgs_couplings_b}
    \end{subfigure}
    \caption[Higgs coupling precisions]{Comparison of the precision reached at the ILC and at the High-Luminosity LHC (HL-LHC) for couplings g(hXX) of the Higgs boson (h) to SM particles (X), here named as $\kappa_X$~\cite{HiggsCouplings_Junping}.\\
    Plot (a) shows the relative precisions for the Higgs couplings calculated from \textbf{model independent} fits to simulated data from the ILC with different center-of-mass energies.
    Plot (b) shows the Higgs coupling precisions calculated from \textbf{model dependent} fits to simulated data from the HL-LHC in comparison to simulated data from the ILC.}
    \label{fig:Higgs_couplings}
  \end{figure}
-
+ 
 \subsection{Physics at later ILC stages}
 After having shown the physics goals of the ILC250 stage, there are further equally prominent goals to be achieved at higher center-of-mass energies.
 Precision measurements of the top quark, further Higgs measurements, and BSM searches will be accessible at later ILC stages at \SI{350}{\GeV}, \SI{500}{\GeV}, and possibly \SI{1}{\TeV}.
@@ -479,8 +465,7 @@ An overview of the physics motivation for higher ILC stages can be found in~\cit
 \label{ILC:detectors}
 Previous sections have shown that the physics goals of the ILC are based on precision measurements that heavily rely on an outstanding detector performance in order to achieve the promised goals.
 The performance requirements are accordingly strict, and the detectors are designed to fulfill them for the full energy range of operation.
-Only to mention a few, exceptional energy and spatial resolution of the subdetector systems, vertex recognition and reliable flavor tagging, such a b- and c-tagging as mentioned above, have to be guaranteed. \todo{Re-wording?}
-\todo{This sentence needs rewording}
+Some of the requirements are: exceptional energy and spatial resolution, vertex recognition, and reliable flavor tagging.
 Additionally, the detector designs have to address the background arising from beam-beam interactions and the accelerator itself, which is explained in Chapter~\ref{Backgrounds}.
 Especially the forward detector systems have to be radiation hard to avoid radiation damage.
 All these requirements are fulfilled in the design of the two ILC experiments.
@@ -506,7 +491,7 @@ Additionally, Figure~\ref{fig:SiD} shows a visualization of the SiD detector and
 A more detailed description can be found in~\cite{TDR4}.
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.7\textwidth]{Figures/SiD_new.jpg}
+\includegraphics[width=0.8\textwidth]{Figures/SiD_new.jpg}
 \caption[Visualization of the SiD detector]{The SiD detector consists of the vertex and tracking detectors (red), the electromagnetic calorimeter (ECAL) (green), the hadronic calorimeter (HCAL) (purple) and the muon system (gray).
 All subdetectors except the muon system are inside the solenoid magnet.
 Outside the muon endcaps is the detector specific background shielding, called ``Pacman'' with an inner (light gray) and an outer (beige) layer~\cite{SiD_Geo}.}
@@ -617,8 +602,7 @@ All dimensions are given in mm.}
 Part of the detector, but not part of the sensitive subdetectors, is ``Pacman''.
 Pacman is a detector specific shielding against machine background that reaches the detector and would increase the detector occupancy.
 All particles that are produced from the beam interacting with accelerator machine parts, and that reach the detectors, are called machine background.
-It is placed on either side of the detector, and has an outer radius of about \SI{2.8}{\meter}, hence it covers the full radius of all subdetectors inside the solenoid magnet.
-\todo{What is 'It'?}
+The Pacman shielding is placed on either side of the detector, and has an outer radius of about \SI{2.8}{\meter}, hence it covers the full radius of all subdetectors inside the solenoid magnet.
 The inner layer of Pacman is made of iron, the outer layer of borated concrete which is specially designed to stop neutrons.
 The thickness is about \SI{3.4}{\meter}~\cite{SiD_Geo}.
 Its use can be seen in the simulation of the machine backgrounds in Chapters~\ref{BDS_Muons:SiD} and \ref{BeamDumps:SiDocc}.
