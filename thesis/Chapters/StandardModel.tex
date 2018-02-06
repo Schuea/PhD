@@ -35,7 +35,7 @@ The SM differs between two classes of the fundamental particles:
 the particles that make up all matter are called \textit{fermions}, whilst the force mediators, through which the fermions can interact, are called \textit{gauge bosons}.
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.6\textwidth]{Figures/Standard_Model_of_Elementary_Particles.png}
+\includegraphics[width=0.53\textwidth]{Figures/Standard_Model_of_Elementary_Particles.png}
 \caption[Standard Model]{The Standard Model describes all elementary particles, the twelve fermions in their three generations and the four gauge bosons, as well as the Higgs boson.
 The shadows indicate possible interactions between the fermions and gauge bosons.~\cite{SM}}
 \label{fig:SM}
@@ -102,11 +102,16 @@ A particle with a quark of a specific color and an antiquark of the correspondin
 A baryon, which is a particle with three quarks, can only be color-neutral when it carries three quarks with three different colors (or anti-colors), so red--green--blue or anti-red--anti-green--anti-blue.
 Any other combination is not possible.
 Finally, the penta-quarks are bound states from five quarks, where three of them form a color triplet like a baryon, and the remaining two form a color-anticolor pair like a meson.\\
-In everyday nature, the only observable hadrons are the protons and neutrons.
+In everyday nature, the only observable hadrons are the protons and neutrons due to their constituents.
 They are baryons, hence are built from three quarks:
 protons contain two up-quarks and one down-quark, giving the proton its positive electric charge of +1.
 Neutrons on the other hand are formed by one up-quark and two down-quarks, resulting in an electrically neutral particle. 
-Together, they construct the nuclei of every atom of every element.
+As the up-quark is the lightest quark, it is stable and does not decay.
+All other quarks decay after certain lifetimes into another quark with smaller mass.
+That is the reason why all hadrons that are produced artificially in a high-energy particle collider are unstable.
+Since the down-quark is the second lightest quark, it can decay into the up-quark, giving reason to the spontaneous decay of free neutrons into protons when one of the down-quark decays.
+The proton is the lightest existing hadron, and does therefore not decay further.
+Together, the protons and neutrons construct the nuclei of every atom of every element.
 %The masses of the quarks increases towards higher generations.
 
 \paragraph{Bosons}
@@ -136,7 +141,7 @@ Gravitational & \num{e-42} & Gravitons\\
 The mediating particles are gauge bosons, which are particles with a spin of +1.\\
 \begin{minipage}{0.55\textwidth}
 The \textit{photon} is a massless, electrically neutral particle mediating the electromagnetic (EM) force between electrically charged particles only.
-Since the EM interaction does not change the flavor of the particle, the photon therefore couples to all charged SM particles and their antiparticles, so that the charge is conserved in this interaction.
+Since the EM interaction, which is pictured in Figure~\ref{fig:Feynman:EM}, does not change the flavor of the particle, the photon therefore couples to all charged SM particles and their antiparticles, so that the electric charge is conserved in this interaction.
 %Although its reach is in principle not limited by its mass, the effective range of the electromagnetic force is dependent on its potential, which scales with $1/r$. \todo{Potential of electroweak interaction}
 \end{minipage} \hfill
 \begin{minipage}{0.4\textwidth}
@@ -150,8 +155,13 @@ Since the EM interaction does not change the flavor of the particle, the photon 
 
 \begin{minipage}{0.55\textwidth}
 \textit{Gluons} are massless particles as well.
-They carry the strong force, and are like the quarks also color-charged.
-Therefore they cannot occur in isolation.
+They carry the strong force, and are like the quarks also color-charged, because of which they cannot occur in isolation.
+Due to their color-charge, gluons only couple to quarks or to themselves.
+The latter is called gluon self-coupling.\\
+The gluons mediating the strong force bind the quarks together in all hadrons.
+Since the proton is the only stable hadron, it used for high-energy particle physics experiments to probe the proton and investigate its constituents.
+This probing is called deep inelastic scattering, where an electron for instance is brought into collision with a proton.
+By doing so, one quark of the proton is split off, and then hadronizes due to the color confinement.
 \end{minipage} \hfill
 \begin{minipage}{0.4\textwidth}
 \centering
@@ -168,9 +178,9 @@ All fermions can interact via the weak force, also the neutrinos which cannot in
 Weak interactions differ between particles of certain handedness, and can therefore only be undertaken by left-handed particles and right-handed antiparticles.
 Due to the electric charge of the W$^\pm$ boson, its exchange involves a transfer of electric charge, and is therefore called ``charged current''.
 The exchange of the neutral Z boson on the other hand is called ``neutral current''.\\
-Similar to the electromagnetic interaction via a photon, the electric charge has to be conserved in the neutral current interaction as well.
-Therefore, the flavor of the fermions involved in this interaction does not change, since only particle--antiparticle pairs are taking part.
-Interaction involving a W boson on the other hand can either be between a lepton and a neutrino, or between an up- and a down-type quark. 
+Similar to the electromagnetic interaction via a photon, the electric charge has to be conserved in the neutral current interaction as well, which is shown in Figure~\ref{fig:Feynman:weak} (a).
+Therefore, the flavor of the fermions involved in this first-order interaction does not change, since only particle--antiparticle pairs are taking part.
+Interactions involving a W boson on the other hand can either be between a lepton and a neutrino (Figure~\ref{fig:Feynman:weak} (b)), or between an up- and a down-type quark (Figure~\ref{fig:Feynman:weak} (c)). 
 In both cases, the flavor of the particles can change, so that interactions between all generations are possible.
 \end{minipage} \hfill
 \begin{minipage}{0.4\textwidth}
@@ -197,8 +207,6 @@ In both cases, the flavor of the particles can change, so that interactions betw
 In contrast to the gauge bosons, the \textit{Higgs boson} does not have a spin of +1, but a spin of 0.
 It is therefore a scalar boson.
 The Higgs is the mediator of the Higgs field which is responsible for giving the mass to massive particles.
-
-\todo{Explain deep inelastic scattering}
 
 \section{Production modes}
 \label{Production_modes}
