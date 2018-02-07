@@ -29,7 +29,7 @@ This showed that the end has not been reached yet, that protons and neutrons are
 Their partons, the so-called quarks, are part of the current theory of all elementary particles and the fundamental forces they interact with, the Standard Model.
 \section{The Standard Model}
 \label{StandardModel}
-The Standard Model (SM) was developed and formulated around the 1960s and 1970s, when the theories of quantum electrodynamics (QED) and of quantum chromodynamics (QCD) were combined into one mathematical model that explains how the elementary particles interact with each other via the fundamental forces of the universe.~\cite[p. 3]{Griffiths}
+The Standard Model (SM) was developed and formulated around the 1960s and 1970s, when the theories of the electromagnetic and the strong interaction, namely quantum electrodynamics (QED) \todo{Reference QED, QCD} and quantum chromodynamics (QCD), were combined into one mathematical model that explains how the elementary particles interact with each other via the fundamental forces of the universe.~\cite[p. 3]{Griffiths}
 Since then, high-energy particle physics experiments could verify the SM predictions so that it has proven itself to be currently the best theoretical model of all subatomic particles we know of.\\
 The SM differs between two classes of the fundamental particles: 
 the particles that make up all matter are called \textit{fermions}, whilst the force mediators, through which the fermions can interact, are called \textit{gauge bosons}.
@@ -142,6 +142,7 @@ The mediating particles are gauge bosons, which are particles with a spin of +1.
 \begin{minipage}{0.55\textwidth}
 The \textit{photon} is a massless, electrically neutral particle mediating the electromagnetic (EM) force between electrically charged particles only.
 Since the EM interaction, which is pictured in Figure~\ref{fig:Feynman:EM}, does not change the flavor of the particle, the photon therefore couples to all charged SM particles and their antiparticles, so that the electric charge is conserved in this interaction.
+%The mathematically formulated theory of all interactions involving the electromagnetic force in the context of particle physics is given in the theory of quantum electrodynamics (QED). \todo{Reference QED}
 %Although its reach is in principle not limited by its mass, the effective range of the electromagnetic force is dependent on its potential, which scales with $1/r$. \todo{Potential of electroweak interaction}
 \end{minipage} \hfill
 \begin{minipage}{0.4\textwidth}
@@ -231,6 +232,12 @@ At the LHC, proton beams are brought into collision, which interact mainly via g
 \end{figure}
 
 \section{Backgrounds}
+In a lepton collider, the beam particles are elementary and their energies are well defined, which has a big impact also on the possible background sources for the particle detectors.
+Other than in hadron colliders, the backgrounds are not dominated by the QCD background and by underlying events.
+As explained above, the actual collision happens between constituents of the two colliding hadrons.
+The remaining constituents, however, do not disappear but hadronize and leave their traces in the detector as well.
+Since this is not the case in lepton collisions, the events are in comparison very clean.
+Nonetheless, there are still different background sources, which will be explained in detail in the following.
 \label{Backgrounds}
 \subsection{High cross-section backgrounds from beam-beam interactions}
 \label{BeamBeam}
@@ -250,7 +257,7 @@ where N is the number of particles per bunch. The average number of photons is p
 \end{equation}
 %Therefore, in ILC chapter about beam parameters: Hence flat beams with $\sigma_x\gg\sigma_y$ are used. The product of the horizontal and vertical beam sizes is small leading to high luminosity while the sum of them is large, reducing the beamstrahlung effect.
 
-\begin{figure}
+\begin{figure}[h]
 \begin{subfigure}[b]{0.33\textwidth}
 \includegraphics[width=\textwidth]{Figures/Bethe-Heitler.pdf}
 \caption{Bethe-Heitler}
