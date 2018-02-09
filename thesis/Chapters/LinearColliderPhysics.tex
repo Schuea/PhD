@@ -120,14 +120,14 @@ According to the Maxwell equation $\vec{\nabla}\cdot\vec{B} = \frac{\partial B_y
 \end{align}
 \end{multicols}
 From the opposite signs in Equations~\ref{eq:Quad_Lorentz_x} and \ref{eq:Quad_Lorentz_y}, it becomes clear that quadrupoles can only focus in one direction, whilst they defocus in the other.
-A schematic cross-section of a quadrupole magnet is shown in Figure~\ref{fig:Quadrupole}, in which a positively charged particle would be focused in the y-direction and defocused in the x-direction. 
+A schematic cross section of a quadrupole magnet is shown in Figure~\ref{fig:Quadrupole}, in which a positively charged particle would be focused in the y-direction and defocused in the x-direction. 
 The magnetic field lines point from the magnetic north pole to the south pole, and get denser towards the edges of the beam pipe.
 The further a beam particle is away from the center, the stronger is the magnetic field it experiences, and the more it is deflected towards (or away from) the center.
 \begin{figure}
 \begin{subfigure}[t]{0.49\textwidth}
 \centering
  \includegraphics[width=0.9\textwidth]{Figures/Quadrupole.png}
-\caption[Cross-section of a quadrupole magnet]{Schematic cross-section of a quadrupole magnet with the four magnetic north and south poles.
+\caption[Cross-section of a quadrupole magnet]{Schematic cross section of a quadrupole magnet with the four magnetic north and south poles.
 The beam pipe is centered in the middle between the pole shoes~\cite[p. 88]{Hinterberger}.}
 \label{fig:Quadrupole:cross_section}
 \end{subfigure}\hfill
@@ -140,7 +140,7 @@ At any given point, the direction of the magnetic field (B) and the resulting Lo
 A beam of positively charged particles going into the page in the center would be focused in the y-direction and defocused in x.}
 \label{fig:Quadrupole:field_lines}
 \end{subfigure}
-\caption[Schematic drawings of a quadrupole magnet]{Schematic drawings of the cross-section of an ideal quadrupole magnet (a), and of the magnetic field lines in the center of such a quadrupole magnet (b).}
+\caption[Schematic drawings of a quadrupole magnet]{Schematic drawings of the cross section of an ideal quadrupole magnet (a), and of the magnetic field lines in the center of such a quadrupole magnet (b).}
 \label{fig:Quadrupole}
 \end{figure}
 \\
@@ -271,17 +271,8 @@ These transversal and longitudinal beam dynamics, described in the sections abov
 In both machines, the acceleration with RF cavities, for instance, is accompanied by beam deflections and corrections with the help of magnets.
 Naturally, the beam line of a circular accelerator contains on average more bending magnets than a linear accelerator.\\
 Currently, the world's largest circular particle collider is the Large Hadron Collider (LHC) at CERN in Switzerland, a synchrotron with a circumference of about \SI{27}{\kilo\meter}.
-The collision energy of the two colliding proton beams is \SI{13}{\TeV} in the current run, and its nominal peak luminosity \lumi is \SI{e34}{\centi\meter^{-2}\second^{-1}}~\cite[p. 3]{LHC_Paper}.\\
-The collision energy $\sqrt{s}$, or often called center-of-mass energy $E_{cm}$, between two relativistic beams with 4-vectors $p_1$ and $p_2$ is calculated as follows:
-\begin{align*}
- s &= (p_1+p_2)^2\\
- &=p_1^2+2p_1p_2+p_2^2\\
- &=m_1^2+2(E_1E_2-\vec{p_1}\vec{p_2})+m_2^2\\
-\intertext{In a particle collider, where the beam particles have the same mass $m$ and beam energy $E$, but opposite momentum ($\vec{p_1}=-\vec{p_2}$), it follows:}
-&\approx2m^2+2E^2+2|\vec{p}|^2\\
-&\approx4E^2
-\end{align*}
-When using $E^2-p^2c^2=m^2c^4$ with $E^2\approx p^2 \gg m^2$, the collision energy in a particle collider can therefore be approximated as $\sqrt{s}=2E$.
+The collision energy of the two colliding proton beams is \SI{13}{\TeV} in the current run, and its nominal peak luminosity \lumi is \SI{e34}{\centi\meter^{-2}\second^{-1}}~\cite[p. 3]{LHC_Paper}.
+The collision energy $\sqrt{s}$, or often called center-of-mass energy $E_{cm}$, between two relativistic beams is calculated as shown in Section~\ref{Production_modes}.
 
 
 The luminosity of a particle collider is proportional to the rate of collisions that can occur, and it is defined as:
@@ -295,9 +286,8 @@ $N_{1,2}$ is the number of particles per bunch, which is usually the same for bo
 $f$ is the collision frequency, i.e. the number of collisions of bunches per second.
 $n_{b}$ is the number of bunches, and $\sigma_{x,y}$ is the beam size in the horizontal and the vertical plane.
 Table~\ref{tab:ILC_parameters} in Chapter~\ref{ILC} lists these parameters and their values for the LHC in comparison to the International Linear Collider (ILC).
-In order to translate the luminosity into an event rate, the luminosity value has to be divided by the cross-section $\sigma_p$ of the physics process that is of interest.
-Since the LHC detectors only measure events from inelastic scattering, the LHC event rate can be calculated by taking only the cross-section for inelastic proton-proton scattering into account, which is measured to be \SI{78}{\milli\barn}~\cite{inelXSection}.
-Barn (``b'') is the unit of cross-sections in particle physics, and is equivalent to \SI{e-28}{\meter\squared}.
+In order to translate the luminosity into an event rate, the luminosity value has to be divided by the cross section $\sigma_p$ of the physics process that is of interest.
+Since the LHC detectors only measure events from inelastic scattering, the LHC event rate can be calculated by taking only the cross section for inelastic proton-proton scattering into account, which is measured to be \SI{78}{\milli\barn}~\cite{inelXSection}.
 \begin{align}
  \dot{N}&=\mathcal{L}\cdot\sigma_{inelastic}\\
  &=10^{34} \textrm{cm}^{-2}s^{-1} \cdot 78\textrm{\,mb}\\
@@ -307,7 +297,7 @@ Barn (``b'') is the unit of cross-sections in particle physics, and is equivalen
 Every second about 780 million events are occurring at the LHC.
 With its high luminosity and high collision energy, the possible physics processes from the hadron collisions cover wide energy ranges, because of which it is a so-called ``discovery machine''.
 New particles, first seen for example as resonance peaks in the measured mass spectra, can be discovered easier than at accelerators with smaller collision energy due to the large phase-space.
-This was the case in 2012 for instance, when the LHC experiments found a peak at an invariant mass of \SI{126}{\GeV}, shortly after recognized as the very first measurement of a Higgs boson~\cite{Higgs}.\\
+This was the case in 2012 for instance, when the LHC experiments found a peak at an invariant mass of \SI{126}{\GeV}, shortly after recognized as the very first measurement of a Higgs boson~\cite{Higgs,Higgs2}.\\
 %The reason why large synchrotron rings need pre-accelerators is that the range for changing the magnet's field strength is limited.
 Why these so-called ``discovery machines'' are hadron and not lepton colliders, and why they are circular and not linear, is to be explained with the physical qualities of the colliding particles.
 Hadrons are by definition composite particles, the actual colliding particles in a collision are therefore their partons, the constituents of the hadrons.
