@@ -29,7 +29,7 @@ This showed that the end has not been reached yet, that protons and neutrons are
 Their partons, the so-called quarks, are part of the current theory of all elementary particles and the fundamental forces they interact with, the Standard Model.
 \section{The Standard Model}
 \label{StandardModel}
-The Standard Model (SM) was developed and formulated around the 1960s and 1970s, when the theories of the electromagnetic and the strong interaction, namely quantum electrodynamics (QED) \todo{Reference QED, QCD} and quantum chromodynamics (QCD), were combined into one mathematical model that explains how the elementary particles interact with each other via the fundamental forces of the universe.~\cite[p. 3]{Griffiths}
+The Standard Model (SM) was developed and formulated around the 1960s and 1970s, when the theories of the electromagnetic and the strong interaction, namely quantum electrodynamics (QED)~\cite{QED,QED2,QED3} and quantum chromodynamics (QCD)~\cite{QCD,QCD2}, were combined into one mathematical model that explains how the elementary particles interact with each other via the fundamental forces of the universe.~\cite[p. 3]{Griffiths}
 Since then, high-energy particle physics experiments could verify the SM predictions so that it has proven itself to be currently the best theoretical model of all subatomic particles we know of.\\
 The SM differs between two classes of the fundamental particles: 
 the particles that make up all matter are called \textit{fermions}, whilst the force mediators, through which the fermions can interact, are called \textit{gauge bosons}.
@@ -142,7 +142,7 @@ The mediating particles are gauge bosons, which are particles with a spin of +1.
 \begin{minipage}{0.55\textwidth}
 The \textit{photon} is a massless, electrically neutral particle mediating the electromagnetic (EM) force between electrically charged particles only.
 Since the EM interaction, which is pictured in Figure~\ref{fig:Feynman:EM}, does not change the flavor of the particle, the photon therefore couples to all charged SM particles and their antiparticles, so that the electric charge is conserved in this interaction.
-%The mathematically formulated theory of all interactions involving the electromagnetic force in the context of particle physics is given in the theory of quantum electrodynamics (QED). \todo{Reference QED}
+%The mathematically formulated theory of all interactions involving the electromagnetic force in the context of particle physics is given in the theory of quantum electrodynamics (QED).
 %Although its reach is in principle not limited by its mass, the effective range of the electromagnetic force is dependent on its potential, which scales with $1/r$. \todo{Potential of electroweak interaction}
 \end{minipage} \hfill
 \begin{minipage}{0.4\textwidth}
@@ -163,7 +163,7 @@ The gluons mediating the strong force bind the quarks together in all hadrons.
 Since the proton is the only stable hadron, it used for high-energy particle physics experiments to probe the proton and investigate its constituents.
 This probing is called ``deep inelastic scattering'', where an electron for instance is brought into collision with a proton.
 The electron penetrates the proton and scatters on one parton.
-By observing such processes, the distribution of the partons inside the proton can be determined, and summarized as the ``parton distribution functions''. \todo{Reference PDFs}
+By observing such processes, the distribution of the partons inside the proton can be determined, and summarized as the ``parton distribution functions''.
 Free partons, such as the remaining constituents of the proton, hadronize due to the color confinement, and form clusters of hadrons, so-called ``jets''.
 
 \end{minipage} \hfill
@@ -213,39 +213,58 @@ It is therefore a scalar boson.
 The Higgs $h$ couples to all SM particles $X$ with a certain coupling strength $g_{hXX}$.
 Since the coupling strength is proportional to the mass of the particle, it determines how heavy the elementary particles are.
 As the Higgs boson is a massive particle itself, it also couples to itself.
-The so-called Higgs self-coupling, as well as all couplings to other SM particles are not well measured yet, since the Higgs discovery is the Standard Model's most recent addition~\cite{Higgs}.
+The so-called Higgs self-coupling, as well as all couplings to other SM particles are not well measured yet, since the Higgs discovery is the Standard Model's most recent addition~\cite{Higgs,Higgs2}.
 The precise measurements of all Higgs boson properties is an important physics goal of all (future) high-energy particle physics experiments, such as the International Linear Collider. 
 
 \section{Production modes}
 \label{Production_modes}
 The production modes in high-energy lepton colliders are quite different from the production modes at hadron colliders, such as the Large Hadron Collider (LHC) for instance.
-Since at the LHC two proton beams are brought into collision, the dominant processes that occur are mainly via the strong interaction.
-The QCD processes, such as the ``JET'' production processes, have therefore an event rate that is several orders of magnitude higher than Higgs boson production processes for example, as shown in Figure~\ref{fig:Cross_sections} (b).
-\\The production modes at $e^+e^-$ colliders on the other hand are all through weak and electromagnetic interactions.
+Since at the LHC two proton beams are brought into collision, the dominant processes that occur are via the strong interaction.
+The QCD processes, such as the jet production processes, have therefore an event rate that is up to seven orders of magnitude higher than Higgs boson production processes for example, as shown in Figure~\ref{fig:Cross_sections} (b).
+As these QCD jet production processes are often not the main focus of physics analyses, they then count as physics background.
+With a background rate larger than the main focus process (the signal event) by several orders of magnitude, the so-called signal-to-noise ratio can be very small, which makes the analysis of the taken physics data challenging.
+\\The production modes at $e^+e^-$ colliders on the other hand are all through weak and electromagnetic interactions, since leptons can not interact via the strong force.
+QCD jet production does therefore not occur at a lepton collider.
+Figure~\ref{fig:Cross_sections} (a) shows that the rates of possible production modes, such as the production of quark--antiquark pairs or of bosons, are all within a range of only four orders of magnitude for a collision energy of \SI{250}{\GeV} for instance.
+\\The collision energy $\sqrt{s}$, or often called center-of-mass energy $E_{cm}$, between two relativistic beams with 4-vectors $p_1$ and $p_2$ is calculated as follows:
+\begin{align*}
+ s &= (p_1+p_2)^2\\
+ &=p_1^2+2p_1p_2+p_2^2\\
+ &=m_1^2+2(E_1E_2-\vec{p_1}\vec{p_2})+m_2^2\\
+\intertext{In a particle collider, where the beam particles have the same mass $m$ and beam energy $E$, but opposite momentum ($\vec{p_1}=-\vec{p_2}$), it follows:}
+&\approx2m^2+2E^2+2|\vec{p}|^2\\
+&\approx4E^2
+\end{align*}
+When using $E^2-p^2c^2=m^2c^4$ with $E^2\approx p^2 \gg m^2$, the collision energy in a particle collider can therefore be approximated as $\sqrt{s}=2E$.
 
+Figure~\ref{fig:Cross_sections} does not only show the event rate on the right hand y-axis, but also the cross section on the left hand y-axis.
+The cross section $\sigma$ for the occurring interaction can be thought of as an effective cross-sectional area of the target particles.
+It is therefore the fraction of the number of interactions (per unit time) over the number of incident particles (per unit time per unit area).
+The unit of cross sections in particle physics is barn (``b''), which is equivalent to \SI{e-28}{\meter\squared}.
 
 \todo{Why is e+e- cross section falling, and pp cross section rising?}
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.4\textwidth}
 \includegraphics[width=0.98\textwidth]{Figures/ILC_cross_section.png}
-\caption{\positron \electron cross-section~\cite{ILC_cross}}
+\caption{\positron \electron cross section~\cite{ILC_cross}}
 \end{subfigure}
 \begin{subfigure}[b]{0.4\textwidth}
 \includegraphics[width=\textwidth]{Figures/LHC_cross_section.png}
-\caption{pp cross-section~\cite{LHC_cross}}
+\caption{pp cross section~\cite{LHC_cross}}
 \end{subfigure}
 \caption[Cross sections for ILC and LHC]{Cross section at \positron \electron and pp colliders as a function of the collision energy. }%https://arxiv.org/pdf/hep-ph/0410364.pdf
 \label{fig:Cross_sections}
 \end{figure}
 
 \section{Backgrounds}
-In a lepton collider, the beam particles are elementary and their energies are well defined, which has a big impact also on the possible background sources for the particle detectors.
-Other than in hadron colliders, the backgrounds are not dominated by the QCD background and by underlying events.
-As explained above, the actual collision happens between constituents of the two colliding hadrons.
+As discussed in the section above, there are no QCD processes at lepton colliders.
+Instead, the beam particles are elementary and their energies are well defined, which has a big impact not only on the possible physics processes but also on the background sources for the particle detectors.
+At hadron colliders, the backgrounds are dominated by the QCD background and by underlying events, since the actual collision happens between constituents of the two colliding hadrons.
 The remaining constituents, however, do not disappear but hadronize and leave their traces in the detector as well.
 Since this is not the case in lepton collisions, the events are in comparison very clean.
-Nonetheless, there are still different background sources, which will be explained in detail in the following.
+Nonetheless, there are still different background sources, from beam-beam interactions and from interactions of the beam particles with the accelerator itself.
+The background processes will now be explained in detail in the following.
 \label{Backgrounds}
 \subsection{High cross-section backgrounds from beam-beam interactions}
 \label{BeamBeam}
