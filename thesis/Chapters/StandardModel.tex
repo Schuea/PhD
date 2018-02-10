@@ -258,6 +258,7 @@ The unit of cross sections in particle physics is barn (``b''), which is equival
 \end{figure}
 
 \section{Backgrounds}
+\label{Backgrounds}
 As discussed in the section above, there are no QCD processes at lepton colliders.
 Instead, the beam particles are elementary and their energies are well defined, which has a big impact not only on the possible physics processes but also on the background sources for the particle detectors.
 At hadron colliders, the backgrounds are dominated by the QCD background and by underlying events, since the actual collision happens between constituents of the two colliding hadrons.
@@ -265,25 +266,41 @@ The remaining constituents, however, do not disappear but hadronize and leave th
 Since this is not the case in lepton collisions, the events are in comparison very clean.
 Nonetheless, there are still different background sources, from beam-beam interactions and from interactions of the beam particles with the accelerator itself.
 The background processes will now be explained in detail in the following.
-\label{Backgrounds}
-\subsection{High cross-section backgrounds from beam-beam interactions}
+
+\subsection{High cross section backgrounds from beam-beam interactions}
 \label{BeamBeam}
-\subsubsection{Pair background}
-\label{BeamBeam:pairs}
-\todo{Re-write this paragraph}
-%Found here: http://www.sciencedirect.com/science/article/pii/S0168900216310919
-For a Gaussian beam, the average energy $E_{\gamma}$ of photons from the deflection of the colliding particles is proportional to [5]:
+A significant background source for the particle detectors arises from the electromagnetic fields created by the highly focused beam bunches.
+Before collision, the particle beams are focused down to a small beam size, which enhances the electromagnetic field around the bunches.
+This causes the beam particles to emit photons in forward direction, the so-called beamstrahlung.
+\\For a lepton beam with N beam particles per bunch and with the beam dimensions $\sigma_{x,y,z}$, one can calculate the average energy $E_{\gamma}$ of the beamstrahlung photons~\cite{Beamstrahlung_CLIC}: \todo{Check page number}
 \begin{equation}
  E_{\gamma} \propto \frac{N}{(\sigma_x+\sigma_y)\sigma_z}
  \label{eq:pair_energy}
 \end{equation}
-where N is the number of particles per bunch. The average number of photons is proportional to:
+The average number $n_{\gamma}$ of beamstrahlung photons that are emitted is proportional to:
 \begin{equation}
  n_{\gamma} \propto \frac{N}{(\sigma_x+\sigma_y)}
  \label{eq:pair_number}
 \end{equation}
+The number of photons is therefore dependent on the beam size and the number of particles per beam bunch.
 %Therefore, in ILC chapter about beam parameters: Hence flat beams with $\sigma_x\gg\sigma_y$ are used. The product of the horizontal and vertical beam sizes is small leading to high luminosity while the sum of them is large, reducing the beamstrahlung effect.
+\\Beamstrahlung represents the main background source at lepton colliders.
+However, it is also cause to the creation of other particle types that can in the detectors be misinterpreted as part of the signal events.
 
+\subsubsection{Pair background}
+\label{BeamBeam:pairs}
+Due to the high density of beamstrahlung photons at the collision point, particle interactions between photons from opposite beam bunches, or between photons and the actual beam particles can occur, which is illustrated in Figure~\ref{fig:Pair_production}.
+Such interactions are then called beam-beam interactions, since they arise from interactions between the two colliding beams.
+\begin{figure}
+\centering
+\includegraphics[width=0.4\textwidth]{Figures/PairBackground.png}
+\caption{Creation of a secondary $e^+e^-$ pair through the collision of beamstrahlung photons arising from the electromagnetic field of the colliding beam bunches~\cite[]{Vogel}.}
+\label{fig:Pair_production} 
+\end{figure}
+\\One possible outcome is the production of an electron-positron pair through three different physics processes, which are depicted in Figure~\ref{fig:Feynman:pair_production}.
+In all three cases a ``secondary'' $e^+e^-$ pair is produced, either through the interaction between a beamstrahlung photon and a virtual photon emitted by a primary beam particle (Figure~\ref{fig:Feynman:pair_production} (a)),
+or through the interaction of two beamstrahlung photons (Figure~\ref{fig:Feynman:pair_production} (b)),
+or lastly through the interaction of two virtual photons being emitted from particles of the two opposite beams (Figure~\ref{fig:Feynman:pair_production} (c)).
 \begin{figure}[h]
 \begin{subfigure}[b]{0.33\textwidth}
 \includegraphics[width=\textwidth]{Figures/Bethe-Heitler.pdf}
@@ -297,14 +314,22 @@ where N is the number of particles per bunch. The average number of photons is p
 \includegraphics[width=\textwidth]{Figures/Landau-Lifshitz.pdf}
 \caption{Landau-Lifschitz}
 \end{subfigure}
-\caption[LO Feynman diagrams of the production of the background pairs.]{The LO Feynman diagrams of the production processes of the background pairs: Bethe-Heitler, Breit-Wheeler and Landau-Lifschitz.}
+\caption[Feynman diagrams of the production of the background pairs.]{The first-order Feynman diagrams of the production processes of background pairs at an $e^+e^-$ collider: Bethe-Heitler, Breit-Wheeler and Landau-Lifschitz.}
 \label{fig:Feynman:pair_production}
 \end{figure}
 
-\subsubsection{Bhabha scattering and $\gamma\gamma\rightarrow$hadrons}
-\label{BeamBeam:bhabha_gammagamma}
+The produced $e^+e^-$ pairs are low $p_T$ particles, which means that they have a small momentum in the transverse beam direction.
+The reason for that is the fact that the beamstrahlung photons are already boosted in forward direction, i.e. in the beam direction.
+The momentum of the secondary electrons and positrons has then also a large contribution in forward direction, and only small contributions in the transverse plane.
+Further characterizations can be found in Chapter~\ref{PairBkg} about the Monte Carlo simulation of this so-called pair background.
 
-\begin{figure}
+\subsubsection{Bhabha scattering and $\gamma\gamma\rightarrow$ hadrons}
+\label{BeamBeam:bhabha_gammagamma}
+Further background particles are produced by processes with much smaller cross sections than for the pair background in the section above.
+At the International Linear Collider for example, about 1-\num{2e5} electrons and positrons from the pair background are expected per bunch collision, whilst only around one event per bunch collision is expected for the productions of hadrons from beamstrahlung photons, and even less than one for the so-called Bhabha scattering~\cite{SiDBkgNote}. \todo{Update these numbers for 250GeV}
+Figure~\ref{fig:Feynman:bhabha_gammagamma} shows the Feynman diagrams for Bhabha scattering and the $\gamma\gamma\rightarrow$ hadrons process.
+Although both of these processes produce particle with low transverse momentum as well, the interaction products leave traces in the detectors, which overlay with signal physics events.
+\begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.35\textwidth}
 \includegraphics[width=\textwidth]{Figures/bhabha_scattering.pdf}
@@ -315,9 +340,27 @@ where N is the number of particles per bunch. The average number of photons is p
 \includegraphics[width=\textwidth]{Figures/gammagamma_hadrons.pdf}
 \caption{$\gamma\gamma\rightarrow$hadrons}
 \end{subfigure}
-\caption[LO Feynman diagrams of bhabha scattering and the $\gamma\gamma\rightarrow$hadrons process.]{The LO Feynman diagrams of the bhabha scattering and the $\gamma\gamma\rightarrow$hadrons process.}
+\caption[Feynman diagrams of bhabha scattering and the $\gamma\gamma\rightarrow$hadrons process.]{The first order Feynman diagrams of the bhabha scattering and the $\gamma\gamma\rightarrow$hadrons process.}
 \label{fig:Feynman:bhabha_gammagamma}
 \end{figure}
 
 \subsection{Machine backgrounds}
 \label{MachineBackgrounds}
+
+Next to the backgrounds induced from beam-beam interactions, there are also secondary particles which are created from beam interactions with the accelerator machine.
+Especially those created in the proximity to the collision region can reach the particle detectors, and cause background levels that need to be investigated.
+Besides synchrotron radiation photons, which are emitted by the deflection of charged particle beams in a magnetic field (see also Section~\ref{AccPhysics:Linear-Circular}), and the beamstrahlung mentioned above, the most prominent machine backgrounds are the following:
+\begin{itemize}
+ \item Muons emitted from beam interactions with the accelerator machine components:
+ \\Due to beam orbit disruptions, the beam halo particles of the beam bunches hit components of the accelerator machine, and interact with the material.
+ This leads to the emission of secondary particles, such as muons, which are boosted in the beam direction.
+ When these muons are created in the final accelerator sub-systems close to the collision region, the muons reach the particle detectors and penetrate them almost perfectly horizontally due to their momentum.
+ \item After the beam collision, the spent beams are passed to the beam dumps:
+ \\By dumping the beam into the beam dumps, which often consist of water tanks, low momentum neutrons are produced which are directed backwards towards the collision region.
+ This causes a high-radiation environment in the beam dump hall, which limits the possible duration of stay for maintenance personnel.
+ On the other hand, those neutrons reaching the detectors, do not only leave tracks in the detector, but also cause radiation damage to the detector material.
+\end{itemize}
+All these background sources combined represent a significant background for particle detectors, and define their performance requirements.
+Detailed simulations of the sources and the effect of the background particles on the detector performance is a crucial task for the research and development phase for detectors and machine,
+and are therefore focus of this thesis.
+Further details of the background creation and characterization are given in the respective chapters.
