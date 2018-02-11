@@ -91,9 +91,9 @@ C
       COMMON/CTOROID/LTOROID(20),ITOROID_TYPE(20),ITOROID_BEGIN(20),
      1 ITOROID_LENGTH(20),TOROIDX(20),TOROID_POLARITY(20),NTOR
       LOGICAL LTOROID
-      CHARACTER*20 FILE/'   010518p_06rl.f '/
-      OPEN(UNIT=6,FILE='/u/lc/keller/mucarlo/mu2/mucarlo.output')
-      OPEN(UNIT=95,FILE='/u/lc/keller/mucarlo/mu2/mucarlo.out95')
+      CHARACTER*20 FILE/'   011418p_06rl.f '/
+      OPEN(UNIT=6,FILE='p_06rl_5spoilers_mucarlo.output')
+      OPEN(UNIT=95,FILE='p_06rl_5spoilers_mucarlo.out95')
       PRINT 1111, TYMINI
  1111 FORMAT(T3,' TYMINI=',G15.5,' SEC (START OF MAIN PROGRAM)',/)
 C
@@ -797,7 +797,7 @@ C  THE FINAL FOCUS BEGINS 2500 METERS FROM THE IP                !LK
 C ZERO THE SURVIVING MUON COUNTERS. PL=PLUS, MI=MINUS, T=TOTAL,
 C D=DETECTOR
       EBEAM=  E(ISOURCE)
-      NEVENT= 20000000*F(ISOURCE )
+      NEVENT= 100000000*F(ISOURCE )
       MUPLT=0
       MUPLD=0
       MUMIT=0

@@ -88,9 +88,9 @@ C
       COMMON/CTOROID/LTOROID(20),ITOROID_TYPE(20),ITOROID_BEGIN(20),
      1 ITOROID_LENGTH(20),TOROIDX(20),TOROID_POLARITY(20),NTOR
       LOGICAL LTOROID
-      CHARACTER*20 FILE/'   010518e.f '/
-      OPEN(UNIT=6,FILE='011418emucarlo.output')
-      OPEN(UNIT=95,FILE='011418emucarlo.out95')
+      CHARACTER*20 FILE/'   011418e.f '/
+      OPEN(UNIT=6,FILE='e_5spoilers_wall_mucarlo.output')
+      OPEN(UNIT=95,FILE='e_5spoilers_wall_mucarlo.out95')
       PRINT 1111, TYMINI
  1111 FORMAT(T3,' TYMINI=',G15.5,' SEC (START OF MAIN PROGRAM)',/)
 C
@@ -353,10 +353,10 @@ C SOUTH SIDE
         LTOROID(1) = .FALSE.
         LTOROID(2) = .FALSE.
 C  SPOILERS 3,4 ARE AT Z=344 M IN IR1
-C        LTOROID(3) = .TRUE.
-C        LTOROID(4) = .TRUE.
-        LTOROID(3) = .FALSE.
-        LTOROID(4) = .FALSE.
+        LTOROID(3) = .TRUE.
+        LTOROID(4) = .TRUE.
+C        LTOROID(3) = .FALSE.
+C        LTOROID(4) = .FALSE.
         LTOROID(5) = .FALSE.
         LTOROID(6) = .FALSE.
         LTOROID(7) = .FALSE.
@@ -794,7 +794,7 @@ C  THE FINAL FOCUS BEGINS 2500 METERS FROM THE IP                !LK
 C ZERO THE SURVIVING MUON COUNTERS. PL=PLUS, MI=MINUS, T=TOTAL,
 C D=DETECTOR
       EBEAM=  E(ISOURCE)
-      NEVENT=20000000*F(ISOURCE)
+      NEVENT=100000000*F(ISOURCE)
       MUPLT=0
       MUPLD=0
       MUMIT=0
