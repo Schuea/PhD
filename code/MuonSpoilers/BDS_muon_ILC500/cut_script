@@ -1,0 +1,47 @@
+grep " 852"  e+_4vect_5sp+wall.txt > p_5spoilers_wall_ABE.txt
+grep " 1047" e+_4vect_5sp+wall.txt > p_5spoilers_wall_PC7.txt
+grep " 1208" e+_4vect_5sp+wall.txt > p_5spoilers_wall_PC6.txt
+grep " 1237" e+_4vect_5sp+wall.txt > p_5spoilers_wall_AB5.txt
+grep " 1242" e+_4vect_5sp+wall.txt > p_5spoilers_wall_PC5A.txt
+grep " 1276" e+_4vect_5sp+wall.txt > p_5spoilers_wall_PC5.txt
+grep " 1387" e+_4vect_5sp+wall.txt > p_5spoilers_wall_PC2.txt
+grep " 1420" e+_4vect_5sp+wall.txt > p_5spoilers_wall_AB3.txt
+grep " 1452" e+_4vect_5sp+wall.txt > p_5spoilers_wall_PC1.txt
+grep " 1332" e+_4vect_5sp+wall.txt > p_5spoilers_wall_SP4.txt
+grep " 1508" e+_4vect_5sp+wall.txt > p_5spoilers_wall_SP2.txt
+
+grep " 852"  e+_4vect_5spoilers.txt > p_5spoilers_ABE.txt
+grep " 1047" e+_4vect_5spoilers.txt > p_5spoilers_PC7.txt
+grep " 1208" e+_4vect_5spoilers.txt > p_5spoilers_PC6.txt
+grep " 1237" e+_4vect_5spoilers.txt > p_5spoilers_AB5.txt
+grep " 1242" e+_4vect_5spoilers.txt > p_5spoilers_PC5A.txt
+grep " 1276" e+_4vect_5spoilers.txt > p_5spoilers_PC5.txt
+grep " 1387" e+_4vect_5spoilers.txt > p_5spoilers_PC2.txt
+grep " 1420" e+_4vect_5spoilers.txt > p_5spoilers_AB3.txt
+grep " 1452" e+_4vect_5spoilers.txt > p_5spoilers_PC1.txt
+grep " 1332" e+_4vect_5spoilers.txt > p_5spoilers_SP4.txt
+grep " 1508" e+_4vect_5spoilers.txt > p_5spoilers_SP2.txt
+
+grep " 852"  e-_4vect_5sp+wall.txt > e_5spoilers_wall_ABE.txt
+grep " 1047" e-_4vect_5sp+wall.txt > e_5spoilers_wall_PC7.txt
+grep " 1208" e-_4vect_5sp+wall.txt > e_5spoilers_wall_PC6.txt
+grep " 1237" e-_4vect_5sp+wall.txt > e_5spoilers_wall_AB5.txt
+grep " 1242" e-_4vect_5sp+wall.txt > e_5spoilers_wall_PC5A.txt
+grep " 1276" e-_4vect_5sp+wall.txt > e_5spoilers_wall_PC5.txt
+grep " 1387" e-_4vect_5sp+wall.txt > e_5spoilers_wall_PC2.txt
+grep " 1420" e-_4vect_5sp+wall.txt > e_5spoilers_wall_AB3.txt
+grep " 1452" e-_4vect_5sp+wall.txt > e_5spoilers_wall_PC1.txt
+grep " 1332" e-_4vect_5sp+wall.txt > e_5spoilers_wall_SP4.txt
+grep " 1508" e-_4vect_5sp+wall.txt > e_5spoilers_wall_SP2.txt
+
+grep " 852"  e-_4vect_5spoilers.txt > e_5spoilers_ABE.txt
+grep " 1047" e-_4vect_5spoilers.txt > e_5spoilers_PC7.txt
+grep " 1208" e-_4vect_5spoilers.txt > e_5spoilers_PC6.txt
+grep " 1237" e-_4vect_5spoilers.txt > e_5spoilers_AB5.txt
+grep " 1242" e-_4vect_5spoilers.txt > e_5spoilers_PC5A.txt
+grep " 1276" e-_4vect_5spoilers.txt > e_5spoilers_PC5.txt
+grep " 1387" e-_4vect_5spoilers.txt > e_5spoilers_PC2.txt
+grep " 1420" e-_4vect_5spoilers.txt > e_5spoilers_AB3.txt
+grep " 1452" e-_4vect_5spoilers.txt > e_5spoilers_PC1.txt
+grep " 1332" e-_4vect_5spoilers.txt > e_5spoilers_SP4.txt
+grep " 1508" e-_4vect_5spoilers.txt > e_5spoilers_SP2.txt
