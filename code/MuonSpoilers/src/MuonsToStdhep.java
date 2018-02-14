@@ -186,7 +186,7 @@ public class MuonsToStdhep {
 					int size = lists.get(file).size();
 					int j = randomGenerator.nextInt(size);//gives a random integer in the interval [0;size[
 					lists.get(file).remove(j);
-				}
+				}//The lists contain in the end numbers of those particles that are to be taken
 			new_nmax += poisson_n;
 			}
 			System.out.println("New nmax = " + new_nmax);
@@ -278,12 +278,15 @@ public class MuonsToStdhep {
 				String line;
 				int _m = 0; //Number of particles
 				while ((line = muons.get(file).readLine()) != null) {	
-					if (!lists.get(file).isEmpty()){//if the list is empty, then all the particles should be used
+					if (!lists.get(file).isEmpty()){
 						//System.out.println("Checking if item "+_m+" exists: " +lists.get(file).contains(_m));
 						if(!lists.get(file).contains(_m)){
 							_m++;
 							continue;//if it is not empty, forget about the ones that are not in the list
 						}
+					}
+					else{//if the list is empty, skip this file
+						break;
 					}
 						
 					int j = 0;
@@ -293,6 +296,11 @@ public class MuonsToStdhep {
 					while (st.hasMoreElements()) {
 						values[j++] = Double.valueOf(st.nextToken()).doubleValue();
 					}
+					//for(int v = 0; v < values.length; v++){
+					//	System.out.println( values[v] );
+					//}
+					//System.exit(1);
+					
 					//Initialise a MCParticle with these values:
 					Particle p = new Particle(values);
 					p.initialise();
