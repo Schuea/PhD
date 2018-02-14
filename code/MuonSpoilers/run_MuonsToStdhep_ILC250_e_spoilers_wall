@@ -1,0 +1,27 @@
+java -cp "bin:lib/*" MuonsToStdhepLCIO -o ILC250_e_spoilers_wall.stdhep -i \
+BDS_muon_ILC250/e_5spoilers_wall_SP2.txt \
+BDS_muon_ILC250/e_5spoilers_wall_PC1.txt \
+BDS_muon_ILC250/e_5spoilers_wall_AB3.txt \
+BDS_muon_ILC250/e_5spoilers_wall_PC2.txt \
+BDS_muon_ILC250/e_5spoilers_wall_SP4.txt \ 
+BDS_muon_ILC250/e_5spoilers_wall_PC5.txt \
+BDS_muon_ILC250/e_5spoilers_wall_PC5A.txt \
+BDS_muon_ILC250/e_5spoilers_wall_AB5.txt \
+BDS_muon_ILC250/e_5spoilers_wall_PC6.txt \
+BDS_muon_ILC250/e_5spoilers_wall_PC7.txt \
+BDS_muon_ILC250/e_5spoilers_wall_ABE.txt \
+-r 1 \
+-n 1312 \
+-d 1 \
+-weights \
+0.00059455 \
+0.00000474 \
+0.00000384 \
+0.00000342 \
+0.00033700 \
+0.00000234 \
+0.00055333 \
+0.00000060 \
+0.00000044 \
+0.00840000 \
+0.00258824
