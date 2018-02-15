@@ -201,7 +201,7 @@ public class MuonsToStdhep {
 			 * the choice is given to create several output files with each a new set of nmax particles
 			 */
 			//Call function to convert into stdhep:
-			ToStdhep(output_name, muons, number_of_particles, nmax, lists);
+			ToStdhep(output_name, muons, number_of_particles, new_nmax, lists);
 			for(int file = 0; file < inputfiles.size(); file++){
 				muons_files.get(file).close();
 			}
