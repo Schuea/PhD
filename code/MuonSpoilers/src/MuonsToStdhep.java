@@ -175,19 +175,19 @@ public class MuonsToStdhep {
 				for(int i = 0; i < number_of_particles.get(file);++i){
 					lists.get(file).add(i);
 				}
-				int poisson_n = Poisson( (int)(nmax*weights.get(file)) );
+				int random_n = (int)( (randomGenerator.nextGaussian()*0.08 + 1)* nmax*weights.get(file) );
 				if(file==0) System.out.println("Number of muons per file:");
-				System.out.println(poisson_n);
-				if(number_of_particles.get(file) - poisson_n < 0 ){
+				//System.out.println(nmax +"*" + weights.get(file) + " = " + random_n);
+				if(number_of_particles.get(file) - random_n < 0 ){
 					System.out.println("Not enough muons in file: " + inputfiles.get(file).getName());
 					System.exit(1);
 				}
-				for(int i = 0; i < (number_of_particles.get(file) - poisson_n); ++i){
+				for(int i = 0; i < (number_of_particles.get(file) - random_n); ++i){
 					int size = lists.get(file).size();
 					int j = randomGenerator.nextInt(size);//gives a random integer in the interval [0;size[
 					lists.get(file).remove(j);
 				}//The lists contain in the end numbers of those particles that are to be taken
-			new_nmax += poisson_n;
+			new_nmax += random_n;
 			}
 			System.out.println("New nmax = " + new_nmax);
 		}
@@ -394,7 +394,7 @@ public class MuonsToStdhep {
 		System.out.println("\nMuonsToStdhep: \n"
 			+ "Application to convert muons.txt files to stdhep format.\n"
 			+ "With giving an integer number, the number of particles that are to be converted can be defined.\n"
-			+ "By setting the flag -d to true (-d true), the particle selection can be randomized, and the total number of particles can be poisson distributed around the given max. number.\n"
+			+ "By setting the flag -d to true (-d true), the particle selection can be randomized, and the total number of particles can be Gaussian distributed around the given max. number.\n"
 			+ "Passing a run number as an argument will allow to distinguish single simulation files after merging.\n"
 			+ "If no run number will be passed the default value 1 will be set as the run number for this file.");
 		System.out.println("\nUSAGE: \n"
@@ -406,25 +406,25 @@ public class MuonsToStdhep {
 		System.out.printf("%-25s%s%n","-h / --help:","Usage");
 		System.out.printf("%-25s%s%n","-r:","<run number>");
 		System.out.printf("%-25s%s%n","-n:","<maximum number of particles that are to be converted>");
-		System.out.printf("%-25s%s%n","-d:","<true/false> Boolean to say if the maximum number of particles should be poisson distributed -> random selection of particles");
+		System.out.printf("%-25s%s%n","-d:","<true/false> Boolean to say if the maximum number of particles should be Gaussian distributed -> random selection of particles");
 		System.out.printf("%-25s%s%n","-weights:","<doubles> Weights of different muon inputfiles");
 		System.out.println("\n For example: \n"
 			+ ">> java -cp bin:lib/* MuonsToStdhep -i muons1.txt muons2.txt -o muons.stdhep -r 2 -n 3000 -weights 0.02 0.23");
 		System.exit(0);
 	}//end Usage()
 
-	private static int Poisson(int mean){
-		double L = Math.exp(-mean);
-		double p = 1.0;
-		int k = 0;
+	//private static int Poisson(int mean){
+	//	double L = Math.exp(-mean);
+	//	double p = 1.0;
+	//	int k = 0;
 
-		do {
-			k++;
-			p *= Math.random();
-		} while (p > L);
+	//	do {
+	//		k++;
+	//		p *= Math.random();
+	//	} while (p > L);
 
-		return k - 1;
-	}
+	//	return k - 1;
+	//}
 
 }//end MuonsToSthepLCIO class
 
