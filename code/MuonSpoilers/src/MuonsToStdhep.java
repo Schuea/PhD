@@ -382,11 +382,11 @@ public class MuonsToStdhep {
 	}
 
 	private static void Start() {
-		System.out.print(String.format("%65s", " ").replace(' ', '*'));
-		System.out.printf("%n%-4s%18s%13s%18s%4s%n","****"," ","MuonsToStdhep"," ","****");
-		System.out.printf("%-4s%40s%4s%n","****"," Converting muons.txt files to Stdhep ","****");
-		System.out.printf("%-4s%14s%21s%14s%4s%n","****"," ","Author:  Anne Schuetz"," ","****");
-		System.out.print(String.format("%65s", " ").replace(' ', '*'));
+		System.out.print(String.format("%46s", " ").replace(' ', '*'));
+		System.out.printf("%n%-4s%12s%13s%13s%4s%n","****"," ","MuonsToStdhep"," ","****");
+		System.out.printf("%-4s%38s%4s%n","****"," Converting muons.txt files to Stdhep ","****");
+		System.out.printf("%-4s%8s%21s%9s%4s%n","****"," ","Author:  Anne Schuetz"," ","****");
+		System.out.print(String.format("%46s", " ").replace(' ', '*'));
 		System.out.println("\n");
 	}
 	
