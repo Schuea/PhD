@@ -177,7 +177,7 @@ public class MuonsToStdhep {
 				}
 				int random_n = (int)( (randomGenerator.nextGaussian()*0.08 + 1)* nmax*weights.get(file) );
 				if(file==0) System.out.println("Number of muons per file:");
-				//System.out.println(nmax +"*" + weights.get(file) + " = " + random_n);
+				System.out.println(random_n);
 				if(number_of_particles.get(file) - random_n < 0 ){
 					System.out.println("Not enough muons in file: " + inputfiles.get(file).getName());
 					System.exit(1);
