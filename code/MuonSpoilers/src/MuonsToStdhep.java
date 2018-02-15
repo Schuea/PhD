@@ -73,7 +73,9 @@ public class MuonsToStdhep {
 		}
 		//CountLines: counts lines in file, will exit the program if the file is empty:
 		//Check if input file with given name exists:
+		boolean empty_file = false;
 		List< File > inputfiles = new ArrayList< File >(); 
+		List< Integer > empty_inputfiles_indices = new ArrayList< Integer >(); 
 		for(int file = 0; file < input_filenames.size(); file++){
 			File new_file =  new File(input_filenames.get(file));
     			//System.out.println(input_filenames.get(file));
@@ -82,8 +84,11 @@ public class MuonsToStdhep {
 				System.exit(1);
 			}
 			BufferedReader br = new BufferedReader(new FileReader( input_filenames.get(file) ));     
-			if (br.readLine() == null) {
+			if (br.readLine() == null) {//File is empty
     				System.out.println(input_filenames.get(file) + " is empty");
+				empty_file = true;
+    				//System.out.println("Pushing " + file + " into empty_inputfiles_indices array.");
+				empty_inputfiles_indices.add(file);
 				continue;
 			}
 			else{
@@ -156,8 +161,13 @@ public class MuonsToStdhep {
 					&& !args[i+j].equals("-d")
 					&& !args[i+j].equals("-i")
  					){
-					weights.add( Double.parseDouble(args[i+j]) );
     					//System.out.println(weights.get( weights.size()-1 ));
+					if(empty_file && empty_inputfiles_indices.contains(j-1)){//if there was an empty inputfile, ignore the corresponging weight
+    						//System.out.println("Weight " + Double.parseDouble(args[i+j]) + " is being ignored.");
+						j++;
+						continue;
+					}
+					weights.add( Double.parseDouble(args[i+j]) );
 					if(j == input_filenames.size()) break;
 					j++;
 				}
@@ -175,7 +185,7 @@ public class MuonsToStdhep {
 				for(int i = 0; i < number_of_particles.get(file);++i){
 					lists.get(file).add(i);
 				}
-				int random_n = (int)( (randomGenerator.nextGaussian()*0.08 + 1)* nmax*weights.get(file) );
+				int random_n = (int)( (randomGenerator.nextGaussian()*0.08 + 1.0)* (double)(nmax)*weights.get(file) );
 				if(file==0) System.out.println("Number of muons per file:");
 				System.out.println(random_n);
 				if(number_of_particles.get(file) - random_n < 0 ){
