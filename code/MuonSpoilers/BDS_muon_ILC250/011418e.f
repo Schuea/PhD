@@ -89,8 +89,8 @@ C
      1 ITOROID_LENGTH(20),TOROIDX(20),TOROID_POLARITY(20),NTOR
       LOGICAL LTOROID
       CHARACTER*20 FILE/'   011418e.f '/
-      OPEN(UNIT=6,FILE='e_5spoilers_wall_PC5.output')
-      OPEN(UNIT=95,FILE='e_5spoilers_wall_PC5.out95')
+      OPEN(UNIT=6,FILE='e_5spoilers_mucarlo_1e9.output')
+      OPEN(UNIT=95,FILE='e_5spoilers_mucarlo_1e9.out95')
       PRINT 1111, TYMINI
  1111 FORMAT(T3,' TYMINI=',G15.5,' SEC (START OF MAIN PROGRAM)',/)
 C
@@ -110,8 +110,8 @@ C
 C     DEFINE THE VARIABLES
 C     PMIN SHOULD ALWAYS BE GREATER THAN OR EQUAL TO 1.0
 C     SOURCES RANGE FROM 9 TO 17
-      ISOURCE_START = 14
-      ISOURCE_STOP =  14
+      ISOURCE_START = 9
+      ISOURCE_STOP =  17
       PMIN=   1.0
 C     MOVED NEXT TWO STATEMENTS TO LINE 796 FOR MULTIPLE SOURCE RUNS      
 C     EBEAM=  E(ISOURCE_START)
@@ -353,10 +353,10 @@ C SOUTH SIDE
         LTOROID(1) = .FALSE.
         LTOROID(2) = .FALSE.
 C  SPOILERS 3,4 ARE AT Z=344 M IN IR1
-        LTOROID(3) = .TRUE.
-        LTOROID(4) = .TRUE.
-C        LTOROID(3) = .FALSE.
-C        LTOROID(4) = .FALSE.
+C       LTOROID(3) = .TRUE.
+C       LTOROID(4) = .TRUE.
+        LTOROID(3) = .FALSE.
+        LTOROID(4) = .FALSE.
         LTOROID(5) = .FALSE.
         LTOROID(6) = .FALSE.
         LTOROID(7) = .FALSE.
