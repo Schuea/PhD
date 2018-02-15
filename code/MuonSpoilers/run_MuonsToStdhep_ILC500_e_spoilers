@@ -1,0 +1,27 @@
+java -cp bin:lib/* MuonsToStdhep -o ILC500_e_spoilers_11trains.stdhep -i \
+BDS_muon_ILC500/e_5spoilers_SP2.txt \
+BDS_muon_ILC500/e_5spoilers_PC1.txt \
+BDS_muon_ILC500/e_5spoilers_AB3.txt \
+BDS_muon_ILC500/e_5spoilers_PC2.txt \
+BDS_muon_ILC500/e_5spoilers_SP4.txt \
+BDS_muon_ILC500/e_5spoilers_PC5.txt \
+BDS_muon_ILC500/e_5spoilers_PC5A.txt \
+BDS_muon_ILC500/e_5spoilers_AB5.txt \
+BDS_muon_ILC500/e_5spoilers_PC6.txt \
+BDS_muon_ILC500/e_5spoilers_PC7.txt \
+BDS_muon_ILC500/e_5spoilers_ABE.txt \
+-r 1 \
+-n 14432 \
+-d true \
+-weights \
+0.37478510 \
+0.20519481 \
+0.13714286 \
+0.17360406 \
+0.10135338 \
+0.03140940 \
+0.16767677 \
+0.05555556 \
+0.06800618 \
+0.47191011 \
+0.21568627
