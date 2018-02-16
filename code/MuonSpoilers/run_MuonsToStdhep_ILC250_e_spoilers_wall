@@ -1,17 +1,17 @@
-java -cp "bin:lib/*" MuonsToStdhep -o ILC250_e_spoilers_wall.stdhep -i \
-BDS_muon_ILC250/e_5spoilers_wall_SP2.txt \
-BDS_muon_ILC250/e_5spoilers_wall_PC1.txt \
-BDS_muon_ILC250/e_5spoilers_wall_AB3.txt \
-BDS_muon_ILC250/e_5spoilers_wall_PC2.txt \
-BDS_muon_ILC250/e_5spoilers_wall_SP4.txt \
-BDS_muon_ILC250/e_5spoilers_wall_PC5.txt \
-BDS_muon_ILC250/e_5spoilers_wall_PC5A.txt \
-BDS_muon_ILC250/e_5spoilers_wall_AB5.txt \
-BDS_muon_ILC250/e_5spoilers_wall_PC6.txt \
-BDS_muon_ILC250/e_5spoilers_wall_PC7.txt \
-BDS_muon_ILC250/e_5spoilers_wall_ABE.txt \
+java -cp "bin:lib/*" MuonsToStdhep -o ILC250_e_spoilers_wall_100trains.stdhep -i \
+BDS_muon_ILC250/e_5spoilers_wall_SP2_1e9.txt \
+BDS_muon_ILC250/e_5spoilers_wall_PC1_1e9.txt \
+BDS_muon_ILC250/e_5spoilers_wall_AB3_1e9.txt \
+BDS_muon_ILC250/e_5spoilers_wall_PC2_1e9.txt \
+BDS_muon_ILC250/e_5spoilers_wall_SP4_1e9.txt \
+BDS_muon_ILC250/e_5spoilers_wall_PC5_1e9.txt \
+BDS_muon_ILC250/e_5spoilers_wall_PC5A_1e9.txt \
+BDS_muon_ILC250/e_5spoilers_wall_AB5_1e9.txt \
+BDS_muon_ILC250/e_5spoilers_wall_PC6_1e9.txt \
+BDS_muon_ILC250/e_5spoilers_wall_PC7_1e9.txt \
+BDS_muon_ILC250/e_5spoilers_wall_ABE_1e9.txt \
 -r 1 \
--n 1312 \
+-n 131200 \
 -d true \
 -weights \
 0.00059455 \
