@@ -257,17 +257,17 @@ int main(int const argc, char const * const * const argv) {
 
   //Find out the maximum number of hits per cell and the total number of hits overall
   std::vector< long long int > tot_num_hits_per_layer;
-  int tot_no_hits = 0;
+  long long int tot_no_hits = 0;
   int max_no_hits = -999;
 
   for (size_t vecpos = 0; vecpos < cellhits.Get_HitCount().size(); ++vecpos) {
     if (cellhits.Get_HitCount().at(vecpos) > max_no_hits){
       max_no_hits = cellhits.Get_HitCount().at(vecpos);
     }
-    tot_no_hits += cellhits.Get_HitCount().at(vecpos);
+    //tot_no_hits += cellhits.Get_HitCount().at(vecpos);
   }
 
-  int xrange = max_no_hits + max_no_hits/10;
+  int xrange = max_no_hits + 2 + max_no_hits/10;
   int max_num_layers = det.getNumberOfLayers();
 
   //Make the histograms
@@ -293,44 +293,53 @@ int main(int const argc, char const * const * const argv) {
     histos_deadcells.push_back(  temp4);
   }
   //Filling the primary histograms with the entries from the cellhits: fill with number of hits per cell
-  for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
-    tot_num_hits_per_layer.push_back(0);
-  }
   for (size_t vecpos = 0; vecpos < cellhits.Get_HitCount().size(); ++vecpos) {
     if(cellhits.Get_HitCount().at(vecpos) > 0){
       int current_layer = cellhits.Get_Layer().at(vecpos);
       if (Silicon){
         histos.at(current_layer - 1 )->Fill( cellhits.Get_HitCount().at(vecpos),weight );//-1 for Silicon detectors only, because layer count starts from 1
-        tot_num_hits_per_layer.at(current_layer - 1 ) += cellhits.Get_HitCount().at(vecpos);
       }
       else if (Calo) {
         histos.at(current_layer)->  Fill( cellhits.Get_HitCount().at(vecpos),weight );
-        tot_num_hits_per_layer.at(current_layer) += cellhits.Get_HitCount().at(vecpos);
       }
       All_Layers_histo->Fill( cellhits.Get_HitCount().at(vecpos),weight );
     }
   }
-  //Filling numcells plots: fill with bin contents from occupancy plots in 'histos', then normalize it by first bin when drawing
+  std::cout << __LINE__ << std::endl;
+  //Find total number of cells, and total number of hit cells
   long long int tot_num_cells = 0;
   long long int tot_num_hitcells = 0;
   std::vector< long long int > tot_num_hitcells_per_layer;
   for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
     tot_num_cells += det.getNumberOfCells().at(number_layer);
-    for (int bin = 2; bin < histos.at(number_layer)->GetNbinsX(); ++bin) {
-      tot_num_hitcells += histos.at(number_layer)->GetBinContent(bin);//how many cells per occupancy in total -> how many cells got hit per layer
-      histos_numcells.at(number_layer)->SetBinContent(bin, histos.at(number_layer)->GetBinContent(bin) );
+    long long int temp = 0;
+    long long int temp2 = 0;
+    for (int bin = 1; bin < histos.at(number_layer)->GetNbinsX(); ++bin) {
+      temp  += histos.at(number_layer)->GetBinContent(bin);//how many cells per occupancy in total -> how many cells got hit per layer
+      temp2 += bin*histos.at(number_layer)->GetBinContent(bin);//how many hits in total
     }
-    histos.at( number_layer )->SetBinContent(1, det.getNumberOfCells().at(number_layer) - tot_num_hitcells );//Set first bin to number of cells that didn't get hit
-    histos_numcells.at( number_layer )->SetBinContent(1, det.getNumberOfCells().at(number_layer) - tot_num_hitcells);
-    tot_num_hitcells_per_layer.push_back(tot_num_hitcells);//store number of cells that got hit per layer in this vector
-    tot_num_hitcells = 0;
+    tot_num_hitcells_per_layer.push_back(temp);//store number of cells that got hit per layer in this vector
+    tot_num_hitcells += temp;
+    tot_num_hits_per_layer.push_back(temp2);
+    tot_no_hits += temp2;
   }
-  for (int bin = 2; bin < All_Layers_histo->GetNbinsX(); ++bin) {
-    tot_num_hitcells += All_Layers_histo->GetBinContent(bin);//how many cells git hit in total
-    All_Layers_histo_numcells->SetBinContent(bin, All_Layers_histo->GetBinContent(bin));
+  std::cout << __LINE__ << std::endl;
+  for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
+    for (int null_hits = 0; null_hits < det.getNumberOfCells().at(number_layer) - tot_num_hitcells_per_layer.at(number_layer); ++null_hits){
+      histos.at(number_layer)->Fill( 0 );//Fill in bin '0' the number of cells without hits
+    }
   }
-  All_Layers_histo->SetBinContent(1, tot_num_cells - tot_num_hitcells);//Set first bin to number of cells that didn't get hit
-  All_Layers_histo_numcells->SetBinContent(1, tot_num_cells - tot_num_hitcells);
+  std::cout << "tot_num_cells - tot_num_hitcells: " << tot_num_cells - tot_num_hitcells<< std::endl;
+  for (int null_hits = 0; null_hits < tot_num_cells - tot_num_hitcells; ++null_hits){
+      All_Layers_histo->Fill( 0 );//Fill in bin '0' the number of cells without hits
+  }
+  std::cout << __LINE__ << std::endl;
+  //Filling numcells plots: fill with bin contents from occupancy plots in 'histos', then normalize it by first bin when drawing
+  for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
+    histos_numcells.at(number_layer) = (TH1D*) histos.at(number_layer)->Clone();
+  }
+  All_Layers_histo_numcells = (TH1D*) All_Layers_histo->Clone();
+  std::cout << __LINE__ << std::endl;
 
   //Filling bufferdepth plots:
   for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
@@ -345,6 +354,7 @@ int main(int const argc, char const * const * const argv) {
       histos_deadcells.at(number_layer)->SetBinContent(i+1, deadcells);
     }
   }
+  std::cout << __LINE__ << std::endl;
   for (int i = 0; i <= max_no_hits; ++i){//For each bufferdepth
     long long int tot = 0;
     long long int deadcells = 0;
@@ -369,6 +379,8 @@ int main(int const argc, char const * const * const argv) {
   for(int layer_no = 0; layer_no < tot_num_hits_per_layer.size(); ++layer_no){
     std::cout << layer_no << ": " << tot_num_hits_per_layer.at(layer_no) << std::endl;
   }
+  std::cout << "Maximum number of hits per cells for subdetector " << subdetectorname << std::endl;
+  std::cout << max_no_hits << std::endl;
   std::cout << "Total number of cells that are hit for subdetector " << subdetectorname << std::endl;
   std::cout << tot_num_hitcells << std::endl;
   std::cout << "For layer: " << std::endl;
@@ -383,6 +395,9 @@ int main(int const argc, char const * const * const argv) {
 
   std::stringstream output;
   output << "output/occupancy_" << subdetectorname << "_" << outputfile_name;
+  for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
+    histos.at(number_layer)->GetXaxis()->SetRangeUser(1,max_no_hits+2);
+  }
   Print_multiple_plots_from_same_vec (histos, canvas, false, std::vector< long long int >() , 2, true,  output.str());
 
   std::stringstream output2;
@@ -397,7 +412,7 @@ int main(int const argc, char const * const * const argv) {
   output4 << "output/occupancy_deadcells_" << subdetectorname << "_" << outputfile_name;
   Print_multiple_plots_from_same_vec (histos_deadcells, canvas, true, det.getNumberOfCells(), 1, false, output4.str());
 
-
+  All_Layers_histo->GetXaxis()->SetRangeUser(1,max_no_hits+2);
   Draw_single_plots( All_Layers_histo,canvas, false, 0.0, 2, true); 
   std::stringstream All_output;
   All_output << "output/occupancy_all_layers_" << subdetectorname << "_" << outputfile_name;
