@@ -30,6 +30,11 @@ std::vector< float > CellHits::Get_HitPosition(char xyz) const {
 	else if (xyz == 'x') return HitPosition_x;
 	else if (xyz == 'y') return HitPosition_y;
 	else if (xyz == 'z') return HitPosition_z;
+	else
+	{
+		std::cout << "Something weird happening with x y and z" << std::endl;
+		exit(1);
+	}
 }
 std::vector<int> CellHits::Get_Layer() const {
 	return Layer;
@@ -49,6 +54,7 @@ int CellHits::Get_NumberHitsPerLayer(int LayerNumber) {
 void CellHits::Check_CellID(uint64_t const id, float const x, float const y, float const z, Subdetector const & subdetector) {
 	bool cell_exists(false);
 	int vector_element(-1);
+        //std::cout << id << ", " << x << ", " << y << ", " << z << std::endl;
 	for (size_t i = 0; i < CellID.size(); ++i) {
 		if (CellID.at(i) == id) {
 			cell_exists = true;
