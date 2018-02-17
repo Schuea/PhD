@@ -211,7 +211,7 @@ int main(int const argc, char const * const * const argv) {
         HitPosition_y = F_HitPosition_y;
         HitPosition_z = F_HitPosition_z;
       }
-      if (endcap && HitPosition_z < 0) continue;//Only compute one of the endcaps
+      //if (endcap && HitPosition_z < 0) continue;//Only compute one of the endcaps
       
       //Make a combined cell ID
       uint32_t HitCellID1 = 0;
@@ -236,7 +236,8 @@ int main(int const argc, char const * const * const argv) {
   }
 
   std::string subdetectorname = det.getName();
-	TFile* Outputfile = new TFile(("output/Occupancy_"+subdetectorname+"_"+outputfile_name+".root").c_str(),"RECREATE");
+  TFile* Outputfile = new TFile(("output/Occupancy_"+subdetectorname+"_"+outputfile_name+".root").c_str(),"RECREATE");
+  
   //Make histogram vectors for storing the histograms
   std::vector < std::string > all_name;
   all_name.emplace_back( "All_layers" );
@@ -256,8 +257,8 @@ int main(int const argc, char const * const * const argv) {
 
   //Find out the maximum number of hits per cell and the total number of hits overall
   std::vector< long long int > tot_num_hits_per_layer;
-  int tot_no_hits;
-  int max_no_hits = 0;
+  int tot_no_hits = 0;
+  int max_no_hits = -999;
 
   for (size_t vecpos = 0; vecpos < cellhits.Get_HitCount().size(); ++vecpos) {
     if (cellhits.Get_HitCount().at(vecpos) > max_no_hits){
@@ -265,6 +266,7 @@ int main(int const argc, char const * const * const argv) {
     }
     tot_no_hits += cellhits.Get_HitCount().at(vecpos);
   }
+
   int xrange = max_no_hits + max_no_hits/10;
   int max_num_layers = det.getNumberOfLayers();
 
