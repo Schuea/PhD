@@ -116,16 +116,16 @@ int main(int const argc, char const * const * const argv) {
 	  exit(1);
   }
 
-	//Make histogram for storing the information
-	//std::vector< TH2D* > Hits_Time_rtime_2D_;
-	float timemax = 100.0; //ns (one bunch spacing is 554 ns)
-	float timemin = 0.;
-	int timerange = (int)(timemax - timemin);
+  //Make histogram for storing the information
+  TFile* Outputfile = new TFile(("output/Hittime_"+outputfile_name+".root").c_str(),"RECREATE");
 
-	std::vector<TH1D*> Hits_Time_;
-	std::string const histo_name_All = "HitTime_All";
-	std::string const histo_title_All = "Hit time for all subdetectors;Hit time [ns];Number of hits";
+  float timemax = 70.0; 
+  float timemin = 0.;
+  int timerange = (int)(timemax - timemin);
+  std::string const histo_name_All = "HitTime_All";
+  std::string const histo_title_All = "Hit time for all subdetectors;Hit time [ns];Number of hits";
   TH1D *Hits_Time_All = new TH1D(histo_name_All.c_str(), histo_title_All.c_str(), timerange, timemin, timemax);
+  std::vector<TH1D*> Hits_Time_;
 
   for (size_t subdetector_iterator = 0; subdetector_iterator < argument_subdetectors->size(); ++subdetector_iterator) {
     Subdetector det( argument_subdetectors->at(subdetector_iterator) );
@@ -161,7 +161,8 @@ int main(int const argc, char const * const * const argv) {
       exit(-1);
     }
 
-	  std::string const histo_name = det.getName();
+    Outputfile->cd();
+    std::string const histo_name = det.getName();
 	  std::string const histo_title = "Hit time;Hit time [ns];Number of hits";
     TH1D *temp = new TH1D(histo_name.c_str(), histo_title.c_str(), timerange, timemin, timemax);
     Hits_Time_.push_back( temp );
@@ -206,10 +207,17 @@ int main(int const argc, char const * const * const argv) {
 	canvas1->cd();
 	canvas1->SetLogy();
 	gStyle->SetOptStat(0);
-  TLegend* leg = new TLegend(0.6,0.5,0.9,0.9);
-  leg->SetMargin(0.1);
+  TLegend* leg = new TLegend(0.6,0.45,0.9,0.9);
+  leg->SetMargin(0.2);
   for (size_t subdetector_iterator = 0; subdetector_iterator < argument_subdetectors->size(); ++subdetector_iterator) {
+    Hits_Time_.at(subdetector_iterator)->SetMarkerStyle(20+subdetector_iterator);
+    //Hits_Time_.at(subdetector_iterator)->SetLineColor(kCyan-7+subdetector_iterator);
+    Hits_Time_.at(subdetector_iterator)->SetMarkerColor(subdetector_iterator+1);
     Hits_Time_.at(subdetector_iterator)->SetLineColor(subdetector_iterator+1);
+    if (subdetector_iterator + 1 >= 10 ) {
+      Hits_Time_.at(subdetector_iterator)->SetMarkerColor(subdetector_iterator+21);
+      Hits_Time_.at(subdetector_iterator)->SetLineColor(subdetector_iterator+21);
+    }
     Hits_Time_.at(subdetector_iterator)->Sumw2(1);
     if(subdetector_iterator == 0){
       Hits_Time_.at(0)->Draw("e,hist");
@@ -234,26 +242,29 @@ int main(int const argc, char const * const * const argv) {
       //st_vec->at(subdetector_iterator)->SetY2NDC(st_vec->at(subdetector_iterator-1)->GetY1NDC()); //new x end position
       //st_vec->at(subdetector_iterator)->SetY1NDC(st_vec->at(subdetector_iterator)->GetY2NDC()-boxsize); //new x start position
     }
-      leg->AddEntry(Hits_Time_.at(subdetector_iterator),Hits_Time_.at(subdetector_iterator)->GetName(),"l");
+      leg->AddEntry(Hits_Time_.at(subdetector_iterator),Hits_Time_.at(subdetector_iterator)->GetName(),"lep");
   }
   leg->Draw();
 	canvas1->Print(("output/hittime_"+outputfile_name+"_superimposed.pdf").c_str());
 	canvas1->Print(("output/hittime_"+outputfile_name+"_superimposed.cxx").c_str());
 
-  TLegend* leg2 = new TLegend(0.7,0.8,0.9,0.9);
+  TLegend* leg2 = new TLegend(0.6,0.75,0.9,0.9);
   leg2->SetMargin(0.1);
 	gStyle->SetOptStat(0);
   Hits_Time_All->Sumw2(1);
   Hits_Time_All->SetLineColor(kPink-1);
-  Hits_Time_All->Draw("e,hist");
+  Hits_Time_All->Draw("hist,e");
   leg2->SetHeader("Hit time","C"); // option "C" allows to center the header
   std::ostringstream entries;
-  entries << "    Entries ";
+  entries << " Entries ";
   entries << (int)(Hits_Time_All->GetEntries()*weight);
   leg2->AddEntry(Hits_Time_All, entries.str().c_str(),"");
+  leg2->SetTextSize(0.05);
   leg2->Draw();
 	canvas1->Print(("output/hittime_"+outputfile_name+"_All.pdf").c_str());
 	canvas1->Print(("output/hittime_"+outputfile_name+"_All.cxx").c_str());
+	
+  Outputfile->Write();
 	return 0;
 }
 
