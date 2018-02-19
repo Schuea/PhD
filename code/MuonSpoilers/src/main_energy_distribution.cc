@@ -92,7 +92,10 @@ int main(int const argc, char const * const * const argv) {
   }
 
   //Make histogram for storing the information
-  float energymax = atof( inputfilenames->at(0).substr(3,3).c_str() )/2.0 + 10.0; 
+  TFile* Outputfile = new TFile(("output/Energy_"+outputfile_name+".root").c_str(),"RECREATE");
+  
+  float energymax = 500./2. + 10.0; 
+  //float energymax = atof( inputfilenames->at(0).substr(3,3).c_str() )/2.0 + 10.0; 
   float energymin = 0.;
   int energyrange = (int)((energymax - energymin)/3.0);
 
@@ -146,6 +149,8 @@ int main(int const argc, char const * const * const argv) {
   leg2->Draw();
   canvas1->Print(("output/energy_"+outputfile_name+"_All.pdf").c_str());
   canvas1->Print(("output/energy_"+outputfile_name+"_All.cxx").c_str());
+  
+  Outputfile->Write();
   return 0;
 }
 
