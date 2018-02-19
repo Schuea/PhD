@@ -1,5 +1,21 @@
-{				
-				int n = 12;
+#include "TCanvas.h"
+#include "TH1.h"
+#include "TStyle.h"
+#include "TLegend.h"
+
+#include <string>
+#include <sstream>
+#include <vector>
+
+#include "Subdetector_class_new.h"
+#include "UsefulFunctions.h"
+#include "GeneralFunctions_SiDBkgSim_new.h"
+#include "Style.h"
+
+int main() {
+	      UsePhDStyle();
+				
+        int n = 12;
 				const char *detectors[12] = {"EcalBarrel","EcalEndcap","HcalBarrel","HcalEndcap","MuonBarrel","MuonEndcap","LumiCal","BeamCal","SiVertexBarrel","SiVertexEndcap","SiTrackerBarrel","SiTrackerEndcap"};
 
         //ILC500: 5spoilers
@@ -30,6 +46,7 @@
         TH1F *h2 = new TH1F("Hits2","Number of hits in SiD per train - 5 spoilers vs. 5 spoilers+wall",n,0,n);
 				h2->GetYaxis()->SetTitle("Number of hits");
 				h2->SetLineColor(kPink-1);
+				h2->SetLineWidth(1);
 				h2->SetMarkerColor(kPink-1);
 				h2->SetMarkerStyle(20);
 				h2->SetFillColor(10);
@@ -77,6 +94,7 @@
         TH1F *h4 = new TH1F("Hits4","Number of hits in SiD per train - 5 spoilers vs. 5 spoilers+wall",n,0,n);
 				h4->GetYaxis()->SetTitle("Number of hits");
 				h4->SetLineColor(kCyan+3);
+				h4->SetLineWidth(1);
 				h4->SetMarkerColor(kCyan+3);
 				h4->SetMarkerStyle(20);
 				h4->SetFillColor(10);
@@ -152,7 +170,9 @@
         leg->AddEntry(h4_,"ILC250, 5 spoilers + wall","f");
         leg->Draw();
 
-				canvas->Print("Hits_in_SiD_subdetectors_MuonSpoilerStudy.pdf");
-				canvas->Print("Hits_in_SiD_subdetectors_MuonSpoilerStudy.cxx");
+				canvas->Print("output/Hits_in_SiD_subdetectors_MuonSpoilerStudy.pdf");
+				canvas->Print("output/Hits_in_SiD_subdetectors_MuonSpoilerStudy.cxx");
+    
+        return 0;
 }
 
