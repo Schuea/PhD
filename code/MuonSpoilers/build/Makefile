@@ -10,7 +10,7 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include -g -Wall -Wextra -pthread -O2 -std=c++
 CXXFLAGS +=  $(shell root-config --glibs)
 
 # Executables produced by this Makefile
-RUN = ../NewOccupancyPlotter ../EnergyPlotter ../CompareEnergy ../HitTimePlotter ../HitsPerSubdetectorPlotter
+RUN = ../NewOccupancyPlotter ../EnergyPlotter ../CompareEnergy ../HitTimePlotter ../CompareHitTime ../HitsPerSubdetectorPlotter
 #RUN = ../NewOccupancyPlotter ../NewOccupancyPlotter_Phi ../CompareOccupancies
 
 # All tests produced by this Makefile.  Remember to add new tests you
@@ -20,6 +20,7 @@ TESTS = #Test
 # Useful variables
 MAIN_OCCUPANCY_NEW = ../objects/main_occupancy_new.o
 MAIN_HITTIME = ../objects/main_hittime_distribution.o
+MAIN_COMPAREHITTIME = ../objects/main_CompareHitTime.o
 MAIN_ENERGY = ../objects/main_energy_distribution.o
 MAIN_COMPAREENERGY = ../objects/main_CompareEnergy.o
 MAIN_HITS = ../objects/Hits_per_Subdetector_MuonSpoilerStudy.o
@@ -89,6 +90,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 ../HitTimePlotter : $(MAIN_HITTIME) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
+../CompareHitTime : $(MAIN_COMPAREHITTIME) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
 ../EnergyPlotter : $(MAIN_ENERGY) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
@@ -108,6 +112,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_hittime_distribution.o : ../src/main_hittime_distribution.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/main_CompareHitTime.o : ../src/main_CompareHitTime.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_energy_distribution.o : ../src/main_energy_distribution.cc
