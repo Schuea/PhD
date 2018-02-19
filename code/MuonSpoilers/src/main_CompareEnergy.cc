@@ -72,8 +72,7 @@ void Plot_everything(std::vector< std::string > inputfilenames, std::string hist
   gStyle->SetOptStat(0);
 
   TLegend* legend;
-  if(inputfilenames.size()<3) legend = new TLegend(0.3,0.6267,0.8,0.86);
-  else                         legend = new TLegend(0.3,0.6267,0.8,0.86);
+  legend = new TLegend(0.5,0.7,0.9,0.9);
   legend->SetFillColor(kWhite);
   legend->SetMargin(0.2);
   
@@ -106,7 +105,7 @@ void Plot_everything(std::vector< std::string > inputfilenames, std::string hist
       histos.at(no_histo)->GetXaxis()->SetTitle( x_title.c_str() );
       histos.at(no_histo)->GetYaxis()->SetTitle( y_title.c_str() );
       //histos.at(no_histo)->Draw("hist,p");
-      histos.at(no_histo)->Draw();
+      histos.at(no_histo)->Draw("e");
     }
     else{
       if(no_histo == 1){
@@ -128,9 +127,9 @@ void Plot_everything(std::vector< std::string > inputfilenames, std::string hist
         name = "ILC250, 5 spoilers + wall";
       }
       //histos.at(no_histo)->Draw("hist,p,SAMES");
-      histos.at(no_histo)->Draw("SAMES");
+      histos.at(no_histo)->Draw("e,SAMES");
     }
-    legend->AddEntry(histos.at(no_histo),name.c_str(),"p");
+    legend->AddEntry(histos.at(no_histo),name.c_str(),"lep");
   }
   legend->Draw();
   canvas->Update();
