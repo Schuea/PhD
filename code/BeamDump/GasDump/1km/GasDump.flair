@@ -5,7 +5,7 @@ Title: GasDump
 Input: GasDump.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Plot
+Page: Run
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -15,9 +15,9 @@ F77dline: False
 Run: <default>
 	Prev:     0
 	Last:     5
-	Status:   3
-	Pid:      0
-	StartRun: 1507064168
+	Status:   2
+	Pid:      17261
+	StartRun: 1519118065
 
 	# USRxxx data file: GasDump_21.bnn
 	Data: \I_\U.\e
@@ -43,10 +43,98 @@ Run: <default>
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
 
+	# USRxxx data file: GasDump_24.bnn
+	Data: \I_\U.\e
+		Unit: 24
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: GasDump_25.bnn
+	Data: \I_\U.\e
+		Unit: 25
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: GasDump_26.bnn
+	Data: \I_\U.\e
+		Unit: 26
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: GasDump_27.bnn
+	Data: \I_\U.\e
+		Unit: 27
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: GasDump_28.bnn
+	Data: \I_\U.\e
+		Unit: 28
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
 	# USRxxx data file: GasDump_34.bnn
 	Data: \I_\U.\e
 		Unit: 34
 		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: GasDump_62.rnc
+	Data: \I_\U.\e
+		Unit: 62
+		Type: r
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: GasDump_63.rnc
+	Data: \I_\U.\e
+		Unit: 63
+		Type: r
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: GasDump_64.rnc
+	Data: \I_\U.\e
+		Unit: 64
+		Type: r
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: GasDump_65.rnc
+	Data: \I_\U.\e
+		Unit: 65
+		Type: r
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: GasDump_66.rnc
+	Data: \I_\U.\e
+		Unit: 66
+		Type: r
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: GasDump_67.rnc
+	Data: \I_\U.\e
+		Unit: 67
+		Type: r
 		Rule: +,\I\d\d\d_fort\.\U
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
@@ -168,7 +256,7 @@ Plot: Red
 	cbtics: 0
 	coord: U-V
 	cpd: 0
-	extends: 409.891 215.981
+	extends: 409.891 221.146
 	grid: 0
 	index: 0
 	labels: 1
@@ -194,10 +282,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 1484 783.46
+	extends: 1484 1113
 	labels: 1
 	layer: Media
-	origin: -199.752 0 -50923.8
+	origin: 57.4953 0 49558.7
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -210,10 +298,10 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 1122.28 589.197
+	extends: 1122.28 841.71
 	labels: 1
 	layer: Media
-	origin: 0 0 0
+	origin: 0 -682.426 -50563
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -232,7 +320,7 @@ Plot: Magenta
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 925.359 486.75
+	extends: 925.359 694.019
 	grid: 0
 	index: 0
 	labels: 1
