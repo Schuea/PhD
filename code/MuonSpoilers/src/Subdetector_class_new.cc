@@ -88,7 +88,7 @@ Subdetector::Subdetector(string const subdetector_config_file){
         }
         if(string(value) == "circle-barrel"){//SiVertex+TrackerBarrel
           _rLayer.push_back( getRMax().at(Layer) );
-          _area.push_back( 2*M_PI*getRMin().at(Layer)*2*getLength().at(Layer) );
+          _area.push_back( 2*M_PI*getRMin().at(Layer)*getLength().at(Layer) );
           _numberOfCells.push_back( (long long int)(getArea().back()/getCellSizeArea()) );
         }
         if(string(value) == "circle-endcap"){//LumiCal,BeamCal,SiVertex+TrackerEndcap
