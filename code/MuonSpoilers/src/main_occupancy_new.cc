@@ -240,15 +240,15 @@ int main(int const argc, char const * const * const argv) {
   
   //Make histogram vectors for storing the histograms
   std::vector < std::string > all_name;
-  all_name.emplace_back( "All_layers" );
-  all_name.emplace_back( "All_layers_wrt_#cells" );
-  all_name.emplace_back( "All_layers_losthits" );
-  all_name.emplace_back( "All_layers_deadcells" );
+  all_name.push_back( "All_layers" );
+  all_name.push_back( "All_layers_wrt_#cells" );
+  all_name.push_back( "All_layers_losthits" );
+  all_name.push_back( "All_layers_deadcells" );
   std::vector < std::string > title;
-  title.emplace_back( "Occupancy for " + subdetectorname + ";Number of hits per cell;Number of cells" );
-  title.emplace_back( "Occupancy for " + subdetectorname + " wrt to tot # cells;Number of hits per cell;Number of cells" );
-  title.emplace_back( "Number of hits lost for a given buffer depth for " + subdetectorname + ";Assumend buffer depth;Number of hits lost" );
-  title.emplace_back( "Number of dead cells for a given buffer depth for " + subdetectorname + ";Assumend buffer depth;Number of dead cells" );
+  title.push_back( "Occupancy for " + subdetectorname + ";Number of hits per cell;Number of cells" );
+  title.push_back( "Occupancy for " + subdetectorname + " wrt to tot # cells;Number of hits per cell;Number of cells" );
+  title.push_back( "Number of hits lost for a given buffer depth for " + subdetectorname + ";Assumend buffer depth;Number of hits lost" );
+  title.push_back( "Number of dead cells for a given buffer depth for " + subdetectorname + ";Assumend buffer depth;Number of dead cells" );
 
   std::vector< TH1D* > histos;
   std::vector< TH1D* > histos_numcells;
@@ -272,19 +272,24 @@ int main(int const argc, char const * const * const argv) {
 
   //Make the histograms
   TH1D* All_Layers_histo             = new TH1D(all_name.at(0).c_str(), title.at(0).c_str(), xrange, 0, xrange);
-  TH1D* All_Layers_histo_numcells    = new TH1D(all_name.at(1).c_str(), title.at(1).c_str(), xrange, 0, xrange);
+  TH1D* All_Layers_histo_numcells    = NULL;
+  //TH1D* All_Layers_histo_numcells    = new TH1D(all_name.at(1).c_str(), title.at(1).c_str(), xrange, 0, xrange);
   TH1D* All_Layers_histo_bufferdepth = new TH1D(all_name.at(2).c_str(), title.at(2).c_str(), xrange, 0, xrange);
   TH1D* All_Layers_histo_deadcells   = new TH1D(all_name.at(3).c_str(), title.at(3).c_str(), xrange, 0, xrange);
 
   for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
-    std::stringstream layername, layername2, layername3, layername4;
+    std::stringstream layername;
+    //std::stringstream layername2;
+    std::stringstream layername3;
+    std::stringstream layername4;
     layername << "Layer_" << number_layer;
-    layername2 << "Layer_" << number_layer << "_numcells";
+    //layername2 << "Layer_" << number_layer << "_numcells";
     layername3 << "Layer_" << number_layer << "_losthits";
     layername4 << "Layer_" << number_layer << "_deadcells";
 
     TH1D* temp1 = new TH1D(layername.str().c_str(), title.at(0).c_str(), xrange, 0, xrange);
-    TH1D* temp2 = new TH1D(layername2.str().c_str(), title.at(1).c_str(), xrange, 0, xrange);
+    TH1D* temp2 = NULL;
+    //TH1D* temp2 = new TH1D(layername2.str().c_str(), title.at(1).c_str(), xrange, 0, xrange);
     TH1D* temp3 = new TH1D(layername3.str().c_str(), title.at(2).c_str(), xrange, 0, xrange);
     TH1D* temp4 = new TH1D(layername4.str().c_str(), title.at(3).c_str(), xrange, 0, xrange);
     histos.push_back(            temp1);
@@ -332,9 +337,13 @@ int main(int const argc, char const * const * const argv) {
   }
   //Filling numcells plots: fill with bin contents from occupancy plots in 'histos', then normalize it by first bin when drawing
   for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
-    histos_numcells.at(number_layer) = (TH1D*) histos.at(number_layer)->Clone();
+    std::stringstream layername2;
+    layername2 << "Layer_" << number_layer << "_numcells";
+    histos_numcells.at(number_layer) = (TH1D*) histos.at(number_layer)->Clone( layername2.str().c_str() );
+    histos_numcells.at(number_layer)->SetTitle( title.at(1).c_str() );
   }
-  All_Layers_histo_numcells = (TH1D*) All_Layers_histo->Clone();
+  All_Layers_histo_numcells = (TH1D*) All_Layers_histo->Clone( all_name.at(1).c_str() );
+  All_Layers_histo_numcells->SetTitle( title.at(1).c_str() );
 
   //Filling bufferdepth plots:
   for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
