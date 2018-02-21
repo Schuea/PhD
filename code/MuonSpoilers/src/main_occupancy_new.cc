@@ -305,7 +305,6 @@ int main(int const argc, char const * const * const argv) {
       All_Layers_histo->Fill( cellhits.Get_HitCount().at(vecpos),weight );
     }
   }
-  std::cout << __LINE__ << std::endl;
   //Find total number of cells, and total number of hit cells
   long long int tot_num_cells = 0;
   long long int tot_num_hitcells = 0;
@@ -323,23 +322,19 @@ int main(int const argc, char const * const * const argv) {
     tot_num_hits_per_layer.push_back(temp2);
     tot_no_hits += temp2;
   }
-  std::cout << __LINE__ << std::endl;
   for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
     for (int null_hits = 0; null_hits < det.getNumberOfCells().at(number_layer) - tot_num_hitcells_per_layer.at(number_layer); ++null_hits){
       histos.at(number_layer)->Fill( 0 );//Fill in bin '0' the number of cells without hits
     }
   }
-  std::cout << "tot_num_cells - tot_num_hitcells: " << tot_num_cells - tot_num_hitcells<< std::endl;
   for (int null_hits = 0; null_hits < tot_num_cells - tot_num_hitcells; ++null_hits){
       All_Layers_histo->Fill( 0 );//Fill in bin '0' the number of cells without hits
   }
-  std::cout << __LINE__ << std::endl;
   //Filling numcells plots: fill with bin contents from occupancy plots in 'histos', then normalize it by first bin when drawing
   for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
     histos_numcells.at(number_layer) = (TH1D*) histos.at(number_layer)->Clone();
   }
   All_Layers_histo_numcells = (TH1D*) All_Layers_histo->Clone();
-  std::cout << __LINE__ << std::endl;
 
   //Filling bufferdepth plots:
   for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
@@ -354,7 +349,6 @@ int main(int const argc, char const * const * const argv) {
       histos_deadcells.at(number_layer)->SetBinContent(i+1, deadcells);
     }
   }
-  std::cout << __LINE__ << std::endl;
   for (int i = 0; i <= max_no_hits; ++i){//For each bufferdepth
     long long int tot = 0;
     long long int deadcells = 0;
