@@ -1,5 +1,5 @@
 #define ACTIV_STUDY 
-#undef ACTIV_STUDY 
+*#undef ACTIV_STUDY 
 TITLE
 GasDump
 GLOBAL                                          1.
@@ -9,40 +9,26 @@ DEFAULTS                                                              PRECISIO
 !@scale=1.0
 BEAM           -500. -1.000875       0.0-.56940603-.05138681        1.ELECTRON
 * Define the beam position
-!@what.3=-510.00*m
 BEAMPOS          0.0       0.0   -51000.       0.0       0.0
 #if ACTIV_STUDY 
-!@what.1=0.8967*ms
-!@what.2=4*2450*1.74E10
+* 0.8967ms, 4*2450*1.74E10
 IRRPROFI    8.967E-4 1.7052E14
 * 1min, 1h, 1d, 1month, 1y
-!@what.3=60*60*24
-!@what.4=60*60*24*30
-!@what.5=60*60*24*365
 DCYTIMES         60.     3600.    86400.  2592000. 31536000.
 RADDECAY          1.                                  100010
 #endif  
 GEOBEGIN                                                              COMBNAME
     0    0          GasDump
-!@what.5=-520*m
-!@what.6=520*m
 RPP Airbox     -200. 200. -200. 200. -52000. 52000.
-!@what.5=-520.01*m
-!@what.6=520.01*m
 RPP BlackBox   -201. 201. -201. 201. -52001. 52001.
 ZCC InTank     0.0 .01017619145298 75.
 ZCC OutTank    0.0 .01017619145298 130.
-!@what.1=-500.6000*m
 XYP EndPla1    -50060.
-!@what.1=-500.0000*m
 XYP EndPla2    -50000.
-!@what.1=500.0000*m
 XYP EndPla3    50000.
-!@what.1=505.0000*m
 XYP EndPla4    50500.
 ZCC InBeaPi    0.0 0.0 15.
 ZCC OutBeaPi   0.0 0.0 17.
-!@what.1=-500.6010*m
 XYP WindowPl   -50060.1
 END
 BeaPipe      5 +Airbox +EndPla1 +OutBeaPi -InBeaPi
@@ -85,22 +71,14 @@ ASSIGNMA      COPPER      Tank
 ASSIGNMA    NITROGEN       Gas
 ASSIGNMA         AIR       Air
 ASSIGNMA    BLCKHOLE  Blackbod
-PHOTONUC          1.                        VACUUM     WATER        1.
+PHOTONUC          1.                        VACUUM  @LASTMAT        1.
 PHYSICS           3.                                                  EVAPORAT
 PHYSICS           1.                                                  COALESCE
-!@what.1=1.0*TeV
-!@what.2=1.0*TeV
-!@what.3=1.0*TeV
-!@what.4=1.0*TeV
-!@what.5=1.0*TeV
-!@what.6=1.0*TeV
 PHYSICS        1000.     1000.     1000.     1000.     1000.     1000.PEATHRES
-LAM-BIAS         0.0     -0.02     WATER    PHOTON
-LAM-BIAS         0.0     -0.02  Ti-6Al4V    PHOTON
+LAM-BIAS         0.0     -0.02  NITROGEN    PHOTON
+LAM-BIAS         0.0     -0.02    COPPER    PHOTON
 SCORE        NEUTRON    ENERGY    TRITON   DOSE-EQ
 AUXSCORE      USRBIN  ALL-PART              DoseEq                    AMB74
-!@what.6=519.00*m
-!@what.9=-519.00*m
 USRBIN           10.   DOSE-EQ      -23.      190.      190.    51900.DoseEq
 USRBIN         -190.     -190.   -51900.      100.      100.      150. &
 #if ACTIV_STUDY 
@@ -110,31 +88,21 @@ DCYSCORE          3.                       DoseEq3                    USRBIN
 DCYSCORE          4.                       DoseEq4                    USRBIN
 DCYSCORE          5.                       DoseEq5                    USRBIN
 AUXSCORE      USRBIN  ALL-PART             DoseEq1                    AMB74
-!@what.6=519.00*m
-!@what.9=-519.00*m
 USRBIN           10.   DOSE-EQ      -24.      190.      190.    51900.DoseEq1
 USRBIN         -190.     -190.   -51900.      100.      100.      250. &
 AUXSCORE      USRBIN  ALL-PART             DoseEq2                    AMB74
-!@what.6=519.00*m
-!@what.9=-519.00*m
 USRBIN           10.   DOSE-EQ      -25.      190.      190.    51900.DoseEq2
 USRBIN         -190.     -190.   -51900.      100.      100.      250. &
 AUXSCORE      USRBIN  ALL-PART             DoseEq3                    AMB74
-!@what.6=519.00*m
-!@what.9=-519.00*m
 USRBIN           10.   DOSE-EQ      -26.      190.      190.    51900.DoseEq3
 USRBIN         -190.     -190.   -51900.      100.      100.      250. &
 AUXSCORE      USRBIN  ALL-PART             DoseEq4                    AMB74
-!@what.6=519.00*m
-!@what.9=-519.00*m
 USRBIN           10.   DOSE-EQ      -27.      190.      190.    51900.DoseEq4
 USRBIN         -190.     -190.   -51900.      100.      100.      250. &
 AUXSCORE      USRBIN  ALL-PART             DoseEq5                    AMB74
-!@what.6=519.00*m
-!@what.9=-519.00*m
 USRBIN           10.   DOSE-EQ      -28.      190.      190.    51900.DoseEq5
 USRBIN         -190.     -190.   -51900.      100.      100.      250. &
-DCYSCORE          1.                    Resnuclei2                    RESNUCLE
+DCYSCORE          1.                                                  RESNUCLE
 DCYSCORE          2.                    Resnuclei3                    RESNUCLE
 DCYSCORE          3.                    Resnuclei4                    RESNUCLE
 DCYSCORE          4.                    Resnuclei5                    RESNUCLE
@@ -146,26 +114,17 @@ RESNUCLE          3.      -65.                      @ALLREGS          Resnuclei4
 RESNUCLE          3.      -66.                      @ALLREGS          Resnuclei5
 RESNUCLE          3.      -67.                      @ALLREGS          Resnuclei6
 #else  
-!@what.6=519.00*m
-!@what.9=-519.00*m
 USRBIN           10.    ENERGY      -21.      190.      190.    51900.Energy
 USRBIN         -190.     -190.   -51900.      100.      100.      250. &
-!@what.6=519.00*m
-!@what.9=-519.00*m
 USRBIN           10.   NEUTRON      -22.      190.      190.    51900.Neutron
 USRBIN         -190.     -190.   -51900.      100.      100.      250. &
-!@what.6=519.00*m
-!@what.9=-519.00*m
 USRBIN           10.    TRITON      -34.      190.      190.    51900.Triton
 USRBIN         -190.     -190.   -51900.      100.      100.      250. &
 #endif  
 DISCARD        MUONS
 #if ACTIV_STUDY 
-!@what.2=100.0*keV
-EMFCUT        -0.001     1.E-4            NITROGEN  NITROGEN        1.PROD-CUT
-!@what.2=100.0*keV
-EMFCUT        -0.001     1.E-4              COPPER    COPPER        1.PROD-CUT
-!@what.2=100.0*keV
+EMFCUT        -0.001     1.E-4    1.E-05  NITROGEN  NITROGEN        1.PROD-CUT
+EMFCUT        -0.001     1.E-4    1.E-05    COPPER    COPPER        1.PROD-CUT
 EMFCUT        -0.001     1.E-4             BeaPipe      Tank        1.
 #else  
 EMFCUT        -0.002     0.002            NITROGEN  NITROGEN        1.PROD-CUT
