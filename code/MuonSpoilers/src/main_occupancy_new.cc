@@ -211,7 +211,7 @@ int main(int const argc, char const * const * const argv) {
         HitPosition_y = F_HitPosition_y;
         HitPosition_z = F_HitPosition_z;
       }
-      //if (endcap && HitPosition_z < 0) continue;//Only compute one of the endcaps
+      if (endcap && HitPosition_z < 0) continue;//Only compute one of the endcaps
       
       //Make a combined cell ID
       uint32_t HitCellID1 = 0;
@@ -228,7 +228,7 @@ int main(int const argc, char const * const * const argv) {
         std::cerr << "This subdetector shape was not recognized!" << std::endl; 
         exit(-1);
       }
-      uint64_t const combined_cell_id = (uint64_t(HitCellID1) << 32) | HitCellID0;
+      uint64_t const combined_cell_id = (uint64_t(HitCellID1) << 32) | uint32_t(HitCellID0);
       //Use the CellHits class for storing the hit cells and their hitcounts
       cellhits.Check_CellID(combined_cell_id, HitPosition_x, HitPosition_y, HitPosition_z, det);
     }
@@ -401,7 +401,8 @@ int main(int const argc, char const * const * const argv) {
   for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
     histos.at(number_layer)->GetXaxis()->SetRangeUser(1,max_no_hits+2);
   }
-  Print_multiple_plots_from_same_vec (histos, canvas, false, std::vector< long long int >() , 2, true,  output.str());
+  //void Print_multiple_plots_from_same_vec (std::vector< TH1D* > histos, TCanvas* canvas, bool normalize, std::vector< long long int > normalization_factor, int integral_startbin, bool integral_numhits, std::string output){
+  Print_multiple_plots_from_same_vec (histos, canvas, false, std::vector< long long int >() , 1, true,  output.str());
 
   std::stringstream output2;
   output2 << "output/occupancy_numcells_" << subdetectorname << "_" << outputfile_name;
@@ -415,8 +416,9 @@ int main(int const argc, char const * const * const argv) {
   output4 << "output/occupancy_deadcells_" << subdetectorname << "_" << outputfile_name;
   Print_multiple_plots_from_same_vec (histos_deadcells, canvas, true, det.getNumberOfCells(), 1, false, output4.str());
 
+  //void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, double normalization_factor, int integral_startbin, bool integral_numhits){
   All_Layers_histo->GetXaxis()->SetRangeUser(1,max_no_hits+2);
-  Draw_single_plots( All_Layers_histo,canvas, false, 0.0, 2, true); 
+  Draw_single_plots( All_Layers_histo,canvas, false, 0.0, 1, true);//integrate the histo content in order to get the total number of hits 
   std::stringstream All_output;
   All_output << "output/occupancy_all_layers_" << subdetectorname << "_" << outputfile_name;
   canvas->Print((All_output.str() + ".pdf").c_str());
@@ -488,7 +490,7 @@ void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, double no
     histo->SetMinimum( pow(10,-12) );
   }
   histo->SetLineColor(2);
-  histo->Draw("hist");
+  histo->Draw("hist,e");
   canvas->Update();
 
   TPaveText *text1 = new TPaveText(0.75,0.8,0.95,0.9,"brNDC");
@@ -610,7 +612,7 @@ void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool nor
       text2->AddText(title2.str().c_str());
       text2->AddLine(0,0.5,1,0.5);
       std::stringstream entries2;
-      entries2 << "Entries = " << tot;//-1 because of entries in first bin count 1 because of setbincontent
+      entries2 << "Entries = " << tot;
       text2->AddText(entries2.str().c_str());
       text2->Draw();
       i++;
