@@ -5,7 +5,7 @@ Title: GasDump
 Input: GasDump.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Run
+Page: Input
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -15,25 +15,9 @@ F77dline: False
 Run: <default>
 	Prev:     0
 	Last:     5
-	Status:   2
-	Pid:      17261
+	Status:   3
+	Pid:      0
 	StartRun: 1519118065
-
-	# USRxxx data file: GasDump_21.bnn
-	Data: \I_\U.\e
-		Unit: 21
-		Type: b
-		Rule: +,\I\d\d\d_fort\.\U
-		Rule: +,\I\d\d\d_ftn\.\U
-	End
-
-	# USRxxx data file: GasDump_22.bnn
-	Data: \I_\U.\e
-		Unit: 22
-		Type: b
-		Rule: +,\I\d\d\d_fort\.\U
-		Rule: +,\I\d\d\d_ftn\.\U
-	End
 
 	# USRxxx data file: GasDump_23.bnn
 	Data: \I_\U.\e
@@ -78,14 +62,6 @@ Run: <default>
 	# USRxxx data file: GasDump_28.bnn
 	Data: \I_\U.\e
 		Unit: 28
-		Type: b
-		Rule: +,\I\d\d\d_fort\.\U
-		Rule: +,\I\d\d\d_ftn\.\U
-	End
-
-	# USRxxx data file: GasDump_34.bnn
-	Data: \I_\U.\e
-		Unit: 34
 		Type: b
 		Rule: +,\I\d\d\d_fort\.\U
 		Rule: +,\I\d\d\d_ftn\.\U
@@ -282,7 +258,7 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 1484 1113
+	extends: 1484 801.658
 	labels: 1
 	layer: Media
 	origin: 57.4953 0 49558.7
@@ -298,7 +274,7 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 1122.28 841.71
+	extends: 1122.28 604.088
 	labels: 1
 	layer: Media
 	origin: 0 -682.426 -50563
@@ -320,7 +296,7 @@ Plot: Magenta
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 925.359 694.019
+	extends: 925.359 498.717
 	grid: 0
 	index: 0
 	labels: 1
@@ -442,7 +418,8 @@ Plot: Dose_equivalent
 	cbcolors: 30
 	cblabel: mSv per bunch
 	cblog: True
-	cbmin: 1e-6
+	cbmax: 1e3
+	cbmin: 1e-5
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 1
@@ -454,10 +431,10 @@ Plot: Dose_equivalent
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 12755662.549181102
+	int: 176485216.56581756
 	lw.0: 0
-	max: 11086.1172
-	min: 5.33861995E-18
+	max: 99.4986801
+	min: 4.34205926E-12
 	norm: 1.74e10*1e-9
 	proj: Y
 	ps.0: 0
@@ -469,6 +446,8 @@ Plot: Dose_equivalent
 	x2tics: 0
 	xlabel: z [cm]
 	xlog: False
+	xmax: 51000
+	xmin: 40000
 	xrebin: 1
 	y2log: False
 	y2tics: 0
@@ -635,7 +614,7 @@ Plot: Dose_equivalent_1month
 	bymax: 3.8
 	bymin: -3.8
 	cbcolors: 30
-	cblabel: Sv/s
+	cblabel: mSv/s
 	cblog: True
 	cbmax: 1e3
 	cbmin: 1e-5
@@ -650,11 +629,11 @@ Plot: Dose_equivalent_1month
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 1276572896828737.0
+	int: 369826.41192424699
 	lw.0: 0
-	max: 9.81023785E+11
-	min: 6.12801747E-13
-	norm: 1e-12
+	max: 6.06193924
+	min: 6.66617836E-25
+	norm: 1.74e10*1e-9
 	proj: Y
 	ps.0: 0
 	pt.0: 0
@@ -665,6 +644,8 @@ Plot: Dose_equivalent_1month
 	x2tics: 0
 	xlabel: z [cm]
 	xlog: False
+	xmax: 51000
+	xmin: 40000
 	xrebin: 1
 	y2log: False
 	y2tics: 0
@@ -684,7 +665,7 @@ Plot: Dose_equivalent_1year
 	bymax: 3.8
 	bymin: -3.8
 	cbcolors: 30
-	cblabel: Sv/s
+	cblabel: mSv/s
 	cblog: True
 	cbmax: 1e3
 	cbmin: 1e-5
@@ -699,11 +680,11 @@ Plot: Dose_equivalent_1year
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 85080079733782.391
+	int: 22108.234230728442
 	lw.0: 0
-	max: 2.31220879E+10
-	min: 1.00852627E-12
-	norm: 1e-12
+	max: 0.349071711
+	min: 3.58451585E-26
+	norm: 1.74e10*1e-9
 	proj: Y
 	ps.0: 0
 	pt.0: 0
@@ -714,6 +695,8 @@ Plot: Dose_equivalent_1year
 	x2tics: 0
 	xlabel: z [cm]
 	xlog: False
+	xmax: 51000
+	xmin: 40000
 	xrebin: 1
 	y2log: False
 	y2tics: 0
