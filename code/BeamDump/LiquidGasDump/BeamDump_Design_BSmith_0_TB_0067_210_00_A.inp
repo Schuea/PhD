@@ -951,72 +951,72 @@ EMFCUT        -0.002     0.002              Inlet1  WinInlWa        1.
 PHYSICS           3.                                                  EVAPORAT
 PHYSICS           1.                                                  COALESCE
 PHYSICS        1000.     1000.     1000.     1000.     1000.     1000.PEATHRES
-SCORE        NEUTRON    ENERGY    TRITON   DOSE-EQ
-AUXSCORE      USRBIN  ALL-PART              DoseEq                    AMB74
-USRBIN           10.   DOSE-EQ      -23.      315.      600.      725.DoseEq
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
-#if ACTIV_STUDY 
-DCYSCORE          1.                       DoseEq1                    USRBIN
-DCYSCORE          2.                       DoseEq2                    USRBIN
-DCYSCORE          3.                       DoseEq3                    USRBIN
-DCYSCORE          4.                       DoseEq4                    USRBIN
-DCYSCORE          5.                       DoseEq5                    USRBIN
-AUXSCORE      USRBIN  ALL-PART             DoseEq1                    AMB74
-AUXSCORE      USRBIN  ALL-PART             DoseEq2                    AMB74
-AUXSCORE      USRBIN  ALL-PART             DoseEq3                    AMB74
-AUXSCORE      USRBIN  ALL-PART             DoseEq4                    AMB74
-AUXSCORE      USRBIN  ALL-PART             DoseEq5                    AMB74
-USRBIN           10.   DOSE-EQ      -24.      315.      600.      725.DoseEq1
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
-USRBIN           10.   DOSE-EQ      -25.      315.      600.      725.DoseEq2
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
-USRBIN           10.   DOSE-EQ      -26.      315.      600.      725.DoseEq3
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
-USRBIN           10.   DOSE-EQ      -27.      315.      600.      725.DoseEq4
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
-USRBIN           10.   DOSE-EQ      -28.      315.      600.      725.DoseEq5
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
-RESNUCLE          3.      -62.                      @ALLREGS          Resnuclei
-DCYSCORE          1.                    Resnuclei2                    RESNUCLE
-DCYSCORE          2.                    Resnuclei3                    RESNUCLE
-DCYSCORE          3.                    Resnuclei4                    RESNUCLE
-DCYSCORE          4.                    Resnuclei5                    RESNUCLE
-DCYSCORE          5.                    Resnuclei6                    RESNUCLE
-RESNUCLE          3.      -63.                      @ALLREGS          Resnuclei2
-RESNUCLE          3.      -64.                      @ALLREGS          Resnuclei3
-RESNUCLE          3.      -65.                      @ALLREGS          Resnuclei4
-RESNUCLE          3.      -66.                      @ALLREGS          Resnuclei5
-RESNUCLE          3.      -67.                      @ALLREGS          Resnuclei6
-RESNUCLE          3.      -94.                        Window     113.4ResnuWin
-DCYSCORE          1.                     ResnuWin2                    RESNUCLE
-DCYSCORE          2.                     ResnuWin3                    RESNUCLE
-DCYSCORE          3.                     ResnuWin4                    RESNUCLE
-DCYSCORE          4.                     ResnuWin5                    RESNUCLE
-DCYSCORE          5.                     ResnuWin6                    RESNUCLE
-RESNUCLE          3.      -95.                        Window     113.4ResnuWin2
-RESNUCLE          3.      -96.                        Window     113.4ResnuWin3
-RESNUCLE          3.      -97.                        Window     113.4ResnuWin4
-RESNUCLE          3.      -98.                        Window     113.4ResnuWin5
-RESNUCLE          3.      -99.                        Window     113.4ResnuWin6
-#else  
 USRBIN           10.    ENERGY      -21.      315.      600.      725.Energy
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN         -825.     -200.    -1175.      150.      150.      200. &
+SCORE        NEUTRON    ENERGY    TRITON   DOSE-EQ
+*AUXSCORE      USRBIN  ALL-PART              DoseEq                    AMB74
+*USRBIN           10.   DOSE-EQ      -23.      315.      600.      725.DoseEq
+*USRBIN         -825.     -200.    -1175.      150.      150.      200. &
+#if ACTIV_STUDY 
+*DCYSCORE          1.                       DoseEq1                    USRBIN
+*DCYSCORE          2.                       DoseEq2                    USRBIN
+*DCYSCORE          3.                       DoseEq3                    USRBIN
+*DCYSCORE          4.                       DoseEq4                    USRBIN
+*DCYSCORE          5.                       DoseEq5                    USRBIN
+*AUXSCORE      USRBIN  ALL-PART             DoseEq1                    AMB74
+*AUXSCORE      USRBIN  ALL-PART             DoseEq2                    AMB74
+*AUXSCORE      USRBIN  ALL-PART             DoseEq3                    AMB74
+*AUXSCORE      USRBIN  ALL-PART             DoseEq4                    AMB74
+*AUXSCORE      USRBIN  ALL-PART             DoseEq5                    AMB74
+*USRBIN           10.   DOSE-EQ      -24.      315.      600.      725.DoseEq1
+*USRBIN         -825.     -200.    -1175.      150.      150.      200. &
+*USRBIN           10.   DOSE-EQ      -25.      315.      600.      725.DoseEq2
+*USRBIN         -825.     -200.    -1175.      150.      150.      200. &
+*USRBIN           10.   DOSE-EQ      -26.      315.      600.      725.DoseEq3
+*USRBIN         -825.     -200.    -1175.      150.      150.      200. &
+*USRBIN           10.   DOSE-EQ      -27.      315.      600.      725.DoseEq4
+*USRBIN         -825.     -200.    -1175.      150.      150.      200. &
+*USRBIN           10.   DOSE-EQ      -28.      315.      600.      725.DoseEq5
+*USRBIN         -825.     -200.    -1175.      150.      150.      200. &
+*RESNUCLE          3.      -62.                      @ALLREGS          Resnuclei
+*DCYSCORE          1.                    Resnuclei2                    RESNUCLE
+*DCYSCORE          2.                    Resnuclei3                    RESNUCLE
+*DCYSCORE          3.                    Resnuclei4                    RESNUCLE
+*DCYSCORE          4.                    Resnuclei5                    RESNUCLE
+*DCYSCORE          5.                    Resnuclei6                    RESNUCLE
+*RESNUCLE          3.      -63.                      @ALLREGS          Resnuclei2
+*RESNUCLE          3.      -64.                      @ALLREGS          Resnuclei3
+*RESNUCLE          3.      -65.                      @ALLREGS          Resnuclei4
+*RESNUCLE          3.      -66.                      @ALLREGS          Resnuclei5
+*RESNUCLE          3.      -67.                      @ALLREGS          Resnuclei6
+*RESNUCLE          3.      -94.                        Window     113.4ResnuWin
+*DCYSCORE          1.                     ResnuWin2                    RESNUCLE
+*DCYSCORE          2.                     ResnuWin3                    RESNUCLE
+*DCYSCORE          3.                     ResnuWin4                    RESNUCLE
+*DCYSCORE          4.                     ResnuWin5                    RESNUCLE
+*DCYSCORE          5.                     ResnuWin6                    RESNUCLE
+*RESNUCLE          3.      -95.                        Window     113.4ResnuWin2
+*RESNUCLE          3.      -96.                        Window     113.4ResnuWin3
+*RESNUCLE          3.      -97.                        Window     113.4ResnuWin4
+*RESNUCLE          3.      -98.                        Window     113.4ResnuWin5
+*RESNUCLE          3.      -99.                        Window     113.4ResnuWin6
+#else  
 USRBIN           10.   NEUTRON      -22.      315.      600.      725.Neutrons
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 USRBIN           10.   DOSE-EM      -29.      315.      600.      725.DoseEM
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 USRBIN           10.      DOSE      -30.      315.      600.      725.Dose
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 USRBIN           10.    PROTON      -31.      315.      600.      725.Protons
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 USRBIN           10.  ELECTRON      -32.      315.      600.      725.Electrons
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 USRBIN           10.    PHOTON      -33.      315.      600.      725.Photons
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 USRBIN           10.    TRITON      -34.      315.      600.      725.Triton
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 USRBIN           10.  POSITRON      -35.      315.      600.      725.Positron
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 USRYIELD       2401.   NEUTRON      -40.   TankWa1  TankEnd1          Neutrall
 USRYIELD          1.       0.0      100.       90.       0.0        3. &
 USRYIELD       2401.   NEUTRON      -41.   TankWa1  TankEnd1          Neutr1
