@@ -51,7 +51,7 @@ int CellHits::Get_NumberHitsPerLayer(int LayerNumber) {
 	return Calculate_NumberHitsPerLayer(LayerNumber);
 }
 
-void CellHits::Check_CellID(uint64_t const id, float const x, float const y, float const z, Subdetector const & subdetector) {
+int CellHits::Check_CellID(uint64_t const id, float const x, float const y, float const z, Subdetector const & subdetector) {
 	bool cell_exists(false);
 	int vector_element(-1);
         //std::cout << id << ", " << x << ", " << y << ", " << z << std::endl;
@@ -64,6 +64,7 @@ void CellHits::Check_CellID(uint64_t const id, float const x, float const y, flo
 	}
 	if (cell_exists) {
 		HitCount.at(vector_element) += 1;
+    return vector_element;
 	} else {
 		CellID.push_back(id);
 		HitCount.push_back(1);
@@ -71,6 +72,7 @@ void CellHits::Check_CellID(uint64_t const id, float const x, float const y, flo
 		HitPosition_y.push_back(y);
 		HitPosition_z.push_back(z);
 		Layer.push_back(CalculateLayer(id, subdetector));
+    return CellID.size()-1;
 	}
 }
 

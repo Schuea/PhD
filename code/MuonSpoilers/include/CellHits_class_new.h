@@ -33,7 +33,7 @@ public:
 	int Get_NumberHitsPerLayer(int LayerNumber);
 
 	int Calculate_NumberHitsPerLayer(int LayerNumber);
-	void Check_CellID(uint64_t const id, float const x, float const y, float const z, Subdetector const & subdetector);
+	int Check_CellID(uint64_t const id, float const x, float const y, float const z, Subdetector const & subdetector);
 
 protected:
 	Subdetector* SubDetector;
