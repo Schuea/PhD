@@ -75,11 +75,11 @@ int main(int const argc, char const * const * const argv){
   Subdetector det( subdetector );
 
   Plot_everything( inputfilenames, "All_layers", outputfilename);
-  for(int layer = 0; layer < det.getNumberOfLayers(); ++layer){
-    std::ostringstream num;
-    num << "Layer_" << layer;
-    Plot_everything( inputfilenames, num.str(), outputfilename);
-  }
+  //for(int layer = 0; layer < det.getNumberOfLayers(); ++layer){
+  //  std::ostringstream num;
+  //  num << "Layer_" << layer;
+  //  Plot_everything( inputfilenames, num.str(), outputfilename);
+  //}
 	
   return 0;
 }
@@ -123,8 +123,8 @@ void Plot_everything(std::vector< std::string > inputfilenames, std::string laye
 
 void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::string histoname, std::string x_title, std::string y_title){
   TLegend* legend;
-  if(inputfilenames.size()<3) legend = new TLegend(0.3,0.6267,0.8,0.86);
-  else                         legend = new TLegend(0.3,0.6267,0.8,0.86);
+  if(inputfilenames.size()<3) legend = new TLegend(0.5,0.7,0.9,0.9);
+  else                         legend = new TLegend(0.5,0.6267,0.9,0.9);
   legend->SetFillColor(kWhite);
   legend->SetMargin(0.1);
   
@@ -146,7 +146,12 @@ void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::stri
   std::string name;
   for(size_t no_histo = 0; no_histo < histos.size(); ++ no_histo){
     name = " ";
-    histos.at(no_histo)->SetMinimum( std::pow(10.0,-9.0) );
+    std::size_t found = histoname.find("cells");
+    if(found != std::string::npos){//substring was found
+      histos.at(no_histo)->SetMinimum( std::pow(10.0,-12.0) );
+    }else{
+      histos.at(no_histo)->SetMinimum( std::pow(10.0,-6.0) );
+    }
     histos.at(no_histo)->SetMaximum( max );
     histos.at(no_histo)->SetLineWidth(2);
     histos.at(no_histo)->SetMarkerSize(0.7);

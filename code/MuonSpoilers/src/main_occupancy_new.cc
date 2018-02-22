@@ -274,8 +274,8 @@ int main(int const argc, char const * const * const argv) {
   TH1D* All_Layers_histo             = new TH1D(all_name.at(0).c_str(), title.at(0).c_str(), xrange, 0, xrange);
   TH1D* All_Layers_histo_numcells    = NULL;
   //TH1D* All_Layers_histo_numcells    = new TH1D(all_name.at(1).c_str(), title.at(1).c_str(), xrange, 0, xrange);
-  TH1D* All_Layers_histo_bufferdepth = new TH1D(all_name.at(2).c_str(), title.at(2).c_str(), xrange, 0, xrange);
-  TH1D* All_Layers_histo_deadcells   = new TH1D(all_name.at(3).c_str(), title.at(3).c_str(), xrange, 0, xrange);
+  TH1D* All_Layers_histo_bufferdepth = new TH1D(all_name.at(2).c_str(), title.at(2).c_str(), xrange-1, 1, xrange);
+  TH1D* All_Layers_histo_deadcells   = new TH1D(all_name.at(3).c_str(), title.at(3).c_str(), xrange-1, 1, xrange);
 
   for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
     std::stringstream layername;
@@ -290,8 +290,8 @@ int main(int const argc, char const * const * const argv) {
     TH1D* temp1 = new TH1D(layername.str().c_str(), title.at(0).c_str(), xrange, 0, xrange);
     TH1D* temp2 = NULL;
     //TH1D* temp2 = new TH1D(layername2.str().c_str(), title.at(1).c_str(), xrange, 0, xrange);
-    TH1D* temp3 = new TH1D(layername3.str().c_str(), title.at(2).c_str(), xrange, 0, xrange);
-    TH1D* temp4 = new TH1D(layername4.str().c_str(), title.at(3).c_str(), xrange, 0, xrange);
+    TH1D* temp3 = new TH1D(layername3.str().c_str(), title.at(2).c_str(), xrange-1, 1, xrange);
+    TH1D* temp4 = new TH1D(layername4.str().c_str(), title.at(3).c_str(), xrange-1, 1, xrange);
     histos.push_back(            temp1);
     histos_numcells.push_back(   temp2);
     histos_bufferdepth.push_back(temp3);
@@ -307,7 +307,7 @@ int main(int const argc, char const * const * const argv) {
       else if (Calo) {
         histos.at(current_layer)->  Fill( cellhits.Get_HitCount().at(vecpos),weight );
       }
-      All_Layers_histo->Fill( cellhits.Get_HitCount().at(vecpos),weight );
+      All_Layers_histo->Fill( cellhits.Get_HitCount().at(vecpos),weight );//Now only cells with hitnumbers >= 1 are filled
     }
   }
   //Find total number of cells, and total number of hit cells
@@ -347,26 +347,26 @@ int main(int const argc, char const * const * const argv) {
 
   //Filling bufferdepth plots:
   for (int number_layer = 0; number_layer < max_num_layers; ++number_layer) {
-    for (int i = 0; i <= max_no_hits; ++i){//For each bufferdepth up to max number of hits per cell that were counted
-      long long int tot = 0;
-      long long int deadcells = 0;
+    for (int i = 1; i <= max_no_hits; ++i){//For each bufferdepth up to max number of hits per cell that were counted
+      double tot = 0.0;
+      double deadcells = 0.0;
       for (int bin = i+1; bin < histos.at(number_layer)->GetNbinsX(); ++bin) {//go through the histo from bufferdepth value onwards
-        tot += histos.at(number_layer)->GetBinContent(bin) * ( histos.at(number_layer)->GetBinLowEdge(bin) - i );//how many hits would be lost with given bufferdepth: Sum the number of hits in each of these bins minus the bufferdepth value !
-        deadcells += histos.at(number_layer)->GetBinContent(bin+1);
+        tot += histos.at(number_layer)->GetBinContent(bin+1) * (double( histos.at(number_layer)->GetBinLowEdge(bin+1) - i ));//how many hits would be lost with given bufferdepth: Sum the number of hits in each of these bins minus the bufferdepth value !
+        deadcells += histos.at(number_layer)->GetBinContent(bin);
       }
-      histos_bufferdepth.at(number_layer)->SetBinContent(i+1, tot);
-      histos_deadcells.at(number_layer)->SetBinContent(i+1, deadcells);
+      histos_bufferdepth.at(number_layer)->SetBinContent(i, tot);
+      histos_deadcells.at(number_layer)->SetBinContent(i, deadcells);
     }
   }
-  for (int i = 0; i <= max_no_hits; ++i){//For each bufferdepth
-    long long int tot = 0;
-    long long int deadcells = 0;
+  for (int i = 1; i <= max_no_hits; ++i){//For each bufferdepth
+    double tot = 0.0;
+    double deadcells = 0.0;
     for (int bin = i+1; bin < All_Layers_histo->GetNbinsX(); ++bin) {//go through the histo from bufferdepth value onwards
-      tot += All_Layers_histo->GetBinContent(bin) * ( All_Layers_histo->GetBinLowEdge(bin) - i );//Sum the total number of hits in each of these bins minus the bufferdepth value !
-      deadcells += All_Layers_histo->GetBinContent(bin+1);
+      tot += All_Layers_histo->GetBinContent(bin+1) * ( All_Layers_histo->GetBinLowEdge(bin+1) - i );//Sum the total number of hits in each of these bins minus the bufferdepth value !
+      deadcells += All_Layers_histo->GetBinContent(bin);
     }
-    All_Layers_histo_bufferdepth->SetBinContent(i+1, tot);
-    All_Layers_histo_deadcells->SetBinContent(i+1, deadcells);
+    All_Layers_histo_bufferdepth->SetBinContent(i, tot);
+    All_Layers_histo_deadcells->SetBinContent(i, deadcells);
   }
 
   std::cout << "---------------" << std::endl;
@@ -424,7 +424,7 @@ int main(int const argc, char const * const * const argv) {
   canvas->Print((All_output.str() + ".pdf").c_str());
   canvas->Print((All_output.str() + ".cxx").c_str());
 
-  Draw_single_plots ( All_Layers_histo_numcells,canvas, tot_num_cells, 0.0, 2, true); 
+  Draw_single_plots ( All_Layers_histo_numcells,canvas, true, tot_num_cells, 2, true); 
   std::stringstream All_numcells_output1;
   All_numcells_output1 << "output/occupancy_numcells_all_layers_" << subdetectorname << "_" << outputfile_name;
   canvas->Print((All_numcells_output1.str() + ".pdf").c_str());
@@ -483,11 +483,11 @@ void Draw_single_plots ( TH1D* histo, TCanvas* canvas, bool normalize, double no
   
   histo->SetStats(0);
   histo->Sumw2(1);
-  histo->SetMinimum(0.1);
+  histo->SetMinimum(0.001);
   if(normalize == true){
     if(normalization_factor == 0.0) histo->Scale(1.0/histo->GetBinContent(1));
     else histo->Scale(1.0/normalization_factor);
-    histo->SetMinimum( pow(10,-12) );
+    histo->SetMinimum( pow(10,-11) );
   }
   histo->SetLineColor(2);
   histo->Draw("hist,e");
@@ -534,11 +534,11 @@ void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool nor
       if(normalize == true){
         if( normalization_factor.empty() ) histos.at(number_histo)->Scale(1.0/histos.at(number_histo)->GetBinContent(1));
         else histos.at(number_histo)->Scale( 1.0/normalization_factor.at(number_histo) );
-        histos.at(number_histo)->SetMinimum( pow(10,-12) );
+        histos.at(number_histo)->SetMinimum( pow(10,-11) );
       }
       else{
         histos.at(number_histo)->SetMaximum(max);
-        histos.at(number_histo)->SetMinimum(0.1);
+        histos.at(number_histo)->SetMinimum(0.001);
       }
       histos.at(number_histo)->SetLineColor(color);
       histos.at(number_histo)->SetMarkerColor(color);
@@ -575,11 +575,11 @@ void Draw_multiple_plots (std::vector< TH1D* > histos, TCanvas* canvas, bool nor
       if(normalize == true){
         if( normalization_factor.empty() ) histos.at(number_histo)->Scale(1.0/histos.at(number_histo)->GetBinContent(1));
         else histos.at(number_histo)->Scale( 1.0/normalization_factor.at(number_histo) );
-        histos.at(number_histo)->SetMinimum( pow(10,-12) );
+        histos.at(number_histo)->SetMinimum( pow(10,-11) );
       }
       else{
         histos.at(number_histo)->SetMaximum(max);
-        histos.at(number_histo)->SetMinimum(0.1);
+        histos.at(number_histo)->SetMinimum(0.001);
       }
       color++;
       marker++;
