@@ -956,7 +956,7 @@ USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 SCORE        NEUTRON    ENERGY    TRITON   DOSE-EQ
 *AUXSCORE      USRBIN  ALL-PART              DoseEq                    AMB74
 *USRBIN           10.   DOSE-EQ      -23.      315.      600.      725.DoseEq
-*USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+*USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 #if ACTIV_STUDY 
 *DCYSCORE          1.                       DoseEq1                    USRBIN
 *DCYSCORE          2.                       DoseEq2                    USRBIN
@@ -969,15 +969,15 @@ SCORE        NEUTRON    ENERGY    TRITON   DOSE-EQ
 *AUXSCORE      USRBIN  ALL-PART             DoseEq4                    AMB74
 *AUXSCORE      USRBIN  ALL-PART             DoseEq5                    AMB74
 *USRBIN           10.   DOSE-EQ      -24.      315.      600.      725.DoseEq1
-*USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+*USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 *USRBIN           10.   DOSE-EQ      -25.      315.      600.      725.DoseEq2
-*USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+*USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 *USRBIN           10.   DOSE-EQ      -26.      315.      600.      725.DoseEq3
-*USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+*USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 *USRBIN           10.   DOSE-EQ      -27.      315.      600.      725.DoseEq4
-*USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+*USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 *USRBIN           10.   DOSE-EQ      -28.      315.      600.      725.DoseEq5
-*USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+*USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 *RESNUCLE          3.      -62.                      @ALLREGS          Resnuclei
 *DCYSCORE          1.                    Resnuclei2                    RESNUCLE
 *DCYSCORE          2.                    Resnuclei3                    RESNUCLE
@@ -1002,21 +1002,21 @@ SCORE        NEUTRON    ENERGY    TRITON   DOSE-EQ
 *RESNUCLE          3.      -99.                        Window     113.4ResnuWin6
 #else  
 USRBIN           10.   NEUTRON      -22.      315.      600.      725.Neutrons
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 USRBIN           10.   DOSE-EM      -29.      315.      600.      725.DoseEM
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 USRBIN           10.      DOSE      -30.      315.      600.      725.Dose
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 USRBIN           10.    PROTON      -31.      315.      600.      725.Protons
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 USRBIN           10.  ELECTRON      -32.      315.      600.      725.Electrons
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 USRBIN           10.    PHOTON      -33.      315.      600.      725.Photons
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 USRBIN           10.    TRITON      -34.      315.      600.      725.Triton
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 USRBIN           10.  POSITRON      -35.      315.      600.      725.Positron
-USRBIN         -825.     -200.    -1175.      100.      100.      150. &
+USRBIN         -825.     -200.    -1175.      150.      150.      200. &
 USRYIELD       2401.   NEUTRON      -40.   TankWa1  TankEnd1          Neutrall
 USRYIELD          1.       0.0      100.       90.       0.0        3. &
 USRYIELD       2401.   NEUTRON      -41.   TankWa1  TankEnd1          Neutr1

@@ -82,7 +82,7 @@ USRBIN         -190.     -190.   -51900.      100.      100.      500. &
 SCORE        NEUTRON    ENERGY    TRITON   DOSE-EQ
 *AUXSCORE      USRBIN  ALL-PART              DoseEq                    AMB74
 *USRBIN           10.   DOSE-EQ      -23.      190.      190.    51900.DoseEq
-*USRBIN         -190.     -190.   -51900.      100.      100.      150. &
+*USRBIN         -190.     -190.   -51900.      100.      100.      500. &
 #if ACTIV_STUDY 
 *DCYSCORE          1.                       DoseEq1                    USRBIN
 *DCYSCORE          2.                       DoseEq2                    USRBIN
@@ -91,19 +91,19 @@ SCORE        NEUTRON    ENERGY    TRITON   DOSE-EQ
 *DCYSCORE          5.                       DoseEq5                    USRBIN
 *AUXSCORE      USRBIN  ALL-PART             DoseEq1                    AMB74
 *USRBIN           10.   DOSE-EQ      -24.      190.      190.    51900.DoseEq1
-*USRBIN         -190.     -190.   -51900.      100.      100.      250. &
+*USRBIN         -190.     -190.   -51900.      100.      100.      500. &
 *AUXSCORE      USRBIN  ALL-PART             DoseEq2                    AMB74
 *USRBIN           10.   DOSE-EQ      -25.      190.      190.    51900.DoseEq2
-*USRBIN         -190.     -190.   -51900.      100.      100.      250. &
+*USRBIN         -190.     -190.   -51900.      100.      100.      500. &
 *AUXSCORE      USRBIN  ALL-PART             DoseEq3                    AMB74
 *USRBIN           10.   DOSE-EQ      -26.      190.      190.    51900.DoseEq3
-*USRBIN         -190.     -190.   -51900.      100.      100.      250. &
+*USRBIN         -190.     -190.   -51900.      100.      100.      500. &
 *AUXSCORE      USRBIN  ALL-PART             DoseEq4                    AMB74
 *USRBIN           10.   DOSE-EQ      -27.      190.      190.    51900.DoseEq4
-*USRBIN         -190.     -190.   -51900.      100.      100.      250. &
+*USRBIN         -190.     -190.   -51900.      100.      100.      500. &
 *AUXSCORE      USRBIN  ALL-PART             DoseEq5                    AMB74
 *USRBIN           10.   DOSE-EQ      -28.      190.      190.    51900.DoseEq5
-*USRBIN         -190.     -190.   -51900.      100.      100.      250. &
+*USRBIN         -190.     -190.   -51900.      100.      100.      500. &
 *DCYSCORE          1.                                                  RESNUCLE
 *DCYSCORE          2.                    Resnuclei3                    RESNUCLE
 *DCYSCORE          3.                    Resnuclei4                    RESNUCLE
@@ -117,9 +117,9 @@ SCORE        NEUTRON    ENERGY    TRITON   DOSE-EQ
 *RESNUCLE          3.      -67.                      @ALLREGS          Resnuclei6
 #else  
 USRBIN           10.   NEUTRON      -22.      190.      190.    51900.Neutron
-USRBIN         -190.     -190.   -51900.      100.      100.      250. &
+USRBIN         -190.     -190.   -51900.      100.      100.      500. &
 USRBIN           10.    TRITON      -34.      190.      190.    51900.Triton
-USRBIN         -190.     -190.   -51900.      100.      100.      250. &
+USRBIN         -190.     -190.   -51900.      100.      100.      500. &
 #endif  
 DISCARD        MUONS
 #if ACTIV_STUDY 
