@@ -10,8 +10,7 @@ Particle physics extends back to the ancient Greek times, when the idea was deve
 Atoms are, in fact, not indivisible at all.
 When the electron was experimentally discovered in 1897 by J.J. Thomson, it was proposed that these particles must be a component of every atom.~\cite[p. 13ff]{Griffiths}
 This sparked the interest of many physicists in the early \nth{20} century to perform experiments probing atoms.
-One of them was Ernest Rutherford, who fired alpha particles\footnote{An alpha particle is the nuclei of a Helium atom. Ernest Rutherford obtained them from decays of uranium and other radioactive elements.} through a thin gold foil, and thereby found that atoms are mostly empty with a positively charged nucleus that is only a fraction of the size of the atom itself.
-\todo{It would be cool if you could find a reference to the Gold Foil experiment}
+One of them was Ernest Rutherford, who fired alpha particles\footnote{An alpha particle is the nuclei of a Helium atom. Ernest Rutherford obtained them from decays of uranium and other radioactive elements.} through a thin gold foil, and thereby found that atoms are mostly empty with a positively charged nucleus that is only a fraction of the size of the atom itself~\cite{GoldFoil}.
 This discovery was a crucial step towards the modern atomic model.\\
 Closer to our current understanding of the atomic model is the Bohr model, developed by Niels Bohr in 1914.~\cite[p. 15]{Griffiths}
 It asserts that electrons orbit the positively charged nucleus on stable shells with distinct radii.
@@ -24,31 +23,29 @@ He thereby discovered the proton, and explained that the positive charge of the 
 In 1932, it was found that atoms can not only consist of electrons and protons.~\cite[p. 15]{Griffiths}
 The mass measurements of various isotopes showed that their masses differ by concrete amounts.
 The explanation was that the nucleus must consists of protons and particles with a similar mass but a neutral charge, the neutrons.
-\todo{You can reference Chadwick here for discovering the neutron if you want}
 Isotopes are therefore atoms of the same element with the same number of electrons and protons, but with a different amount of neutrons.\\
 Over the years, the development of particle accelerators that can accelerate particles to higher and higher energies allowed to probe even the constituents of the atom.
 This showed that the end has not been reached yet, that protons and neutrons are not elementary but composite particles.
 Their partons, the so-called quarks, are part of the current theory of all elementary particles and the fundamental forces they interact with, the Standard Model.
+
 \section{The Standard Model}
 \label{StandardModel}
 The Standard Model (SM) was developed and formulated around the 1960s and 1970s, when the theories of the electromagnetic and the strong interaction, namely quantum electrodynamics (QED)~\cite{QED,QED2,QED3} and quantum chromodynamics (QCD)~\cite{QCD,QCD2}, were combined into one mathematical model that explains how the elementary particles interact with each other via the fundamental forces of the universe.~\cite[p. 3]{Griffiths}
-Since then, high-energy particle physics experiments could verify the SM predictions so well, that it has proven itself to currently be the best theoretical model of all subatomic particles physics that we know of.\\
-The SM differs between two classes of the fundamental particles: 
+Since then, high-energy particle physics experiments could verify the SM predictions so well, that it has proven itself to currently be the best theoretical model of all subatomic particles that we know of.
+The most recent measurements of the masses and other SM properties of the particles are summarized by the Particle Data Group (PDG) in the ``Review of Particle Physics'' in yearly editions~\cite{PDG}.
+\\The SM differs between two classes of the fundamental particles: 
 the particles that make up all matter are called \textit{fermions}, whilst the force mediators, through which the fermions can interact, are called \textit{gauge bosons}.
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.53\textwidth]{Figures/Standard_Model_of_Elementary_Particles.png}
+\includegraphics[width=0.55\textwidth]{Figures/Standard_Model_of_Elementary_Particles.png}
 \caption[Standard Model]{The Standard Model describes all elementary particles, the twelve fermions in their three generations and the four gauge bosons, as well as the Higgs boson.
 The shadows indicate possible interactions between the fermions and gauge bosons.~\cite{SM}}
 \label{fig:SM}
 \end{figure}
-\todo{The shadows are very difficult to see. If you want you can use the picture from my thesis}
 
 \paragraph{Fermions}
 Fermions are particles with a spin quantum number of $s = 1/2$. 
-The spin is the particle's rotation about its central axis, and has a direction and a specific amplitude.
-\todo{The particles don't actually have a spin, there is no central axis for something that is point like. It is just a quantum number that behaves similar to how spin behaves on large objects}
-The amplitude can be calculated as $\frac{h}{2\pi}\sqrt{s(s+1)}$, with $h$ being the Planck constant.~\cite[p. 121]{Griffiths}
+The spin has a direction, and a specific amplitude, which can be calculated as $\frac{h}{2\pi}\sqrt{s(s+1)}$, with $h$ being the Planck constant.~\cite[p. 121]{Griffiths}
 All fermions have a specific set of quantum numbers, so that by giving the electric charge, the spin, and the flavor, all fermions can be identified precisely.
 Table~\ref{tab:Fermions} lists all Standard Model fermions with their quantum numbers.
 \begin{table}
@@ -59,56 +56,53 @@ Table~\ref{tab:Fermions} lists all Standard Model fermions with their quantum nu
 \hline\hline
 & Leptons & $q$ & $s$ & $L_e$ & $L_{\mu}$ & $L_{\tau}$ & Quarks & $q$ & $s$ & $U$ & $D$ & $C$ & $S$ & $T$ & $B$\\
 \hline
-& e\textsuperscript{--} & --1 & 1/2 & +1 & 0 & 0 & u & +2/3 & 1/2 & +1 & 0 & 0 & 0 & 0 & 0\\
+& e\textsuperscript{\textendash} & -\,1 & 1/2 & +1 & 0 & 0 & u & +2/3 & 1/2 & +1 & 0 & 0 & 0 & 0 & 0\\
 \rowcolor{Gray}
-\cellcolor{white}& e\textsuperscript{+} & +1 & 1/2 & --1 & 0 & 0 & $\bar{\rm{u}}$ & --2/3 & 1/2 & --1 & 0 & 0 & 0 & 0 & 0\\
-& $\upnu$\textsubscript{e} & 0 & 1/2 & +1 & 0 & 0 & d & --1/3 & 1/2 & 0 & --1 & 0 & 0 & 0 & 0\\
+\cellcolor{white}& e\textsuperscript{+} & +1 & 1/2 & -\,1 & 0 & 0 & $\bar{\rm{u}}$ & \textendash2/3 & 1/2 & -\,1 & 0 & 0 & 0 & 0 & 0\\
+& $\upnu$\textsubscript{e} & 0 & 1/2 & +1 & 0 & 0 & d & -\,1/3 & 1/2 & 0 & -\,1 & 0 & 0 & 0 & 0\\
 \rowcolor{Gray}
-\multirow{-4}{*}{\rotatebox[origin=c]{90}{\parbox[c]{1.9cm}{\cellcolor{white}\centering First generation}}} &$\bar\upnu$\textsubscript{e} & 0 & 1/2 & --1 & 0 & 0 & $\bar{\rm{d}}$ & +1/3 & 1/2 & 0 & +1 & 0 & 0 & 0 & 0\\
+\multirow{-4}{*}{\rotatebox[origin=c]{90}{\parbox[c]{1.9cm}{\cellcolor{white}\centering First generation}}} &$\bar\upnu$\textsubscript{e} & 0 & 1/2 & -\,1 & 0 & 0 & $\bar{\rm{d}}$ & +1/3 & 1/2 & 0 & +1 & 0 & 0 & 0 & 0\\
 \hline
-& $\upmu$\textsuperscript{--} & --1 & 1/2 & 0 & +1 & 0 & c & +2/3 & 1/2 & 0 & 0 & +1 & 0 & 0 & 0\\
+& $\upmu$\textsuperscript{\textendash} & -\,1 & 1/2 & 0 & +1 & 0 & c & +2/3 & 1/2 & 0 & 0 & +1 & 0 & 0 & 0\\
 \rowcolor{Gray}
-\cellcolor{white}&$\upmu$\textsuperscript{+} & +1 & 1/2 & 0 & --1 & 0 & $\bar{\rm{c}}$ & --2/3 & 1/2 & 0 & 0 & --1 & 0 & 0 & 0\\
-& $\upnu$\textsubscript{$\upmu$} & 0 & 1/2 & 0 & +1 & 0 & s & --1/3 & 1/2 & 0 & 0 & 0 & --1 & 0 & 0\\
+\cellcolor{white}&$\upmu$\textsuperscript{+} & +1 & 1/2 & 0 & -\,1 & 0 & $\bar{\rm{c}}$ & \textendash2/3 & 1/2 & 0 & 0 & -\,1 & 0 & 0 & 0\\
+& $\upnu$\textsubscript{$\upmu$} & 0 & 1/2 & 0 & +1 & 0 & s & -\,1/3 & 1/2 & 0 & 0 & 0 & -\,1 & 0 & 0\\
 \rowcolor{Gray}
-\multirow{-4}{*}{\rotatebox[origin=c]{90}{\parbox[c]{1.9cm}{\cellcolor{white}\centering Second generation}}}& $\bar\upnu$\textsubscript{$\upmu$} & 0 & 1/2 & 0 & --1 & 0  & $\bar{\rm{s}}$ & +1/3 & 1/2 & 0 & 0 & 0 & +1 & 0 & 0\\
+\multirow{-4}{*}{\rotatebox[origin=c]{90}{\parbox[c]{1.9cm}{\cellcolor{white}\centering Second generation}}}& $\bar\upnu$\textsubscript{$\upmu$} & 0 & 1/2 & 0 & -\,1 & 0  & $\bar{\rm{s}}$ & +1/3 & 1/2 & 0 & 0 & 0 & +1 & 0 & 0\\
 \hline
-& $\uptau$\textsuperscript{--} & --1 & 1/2 & 0 & 0 & +1 & t & +2/3 & 1/2 & 0 & 0 & 0 & 0 & +1 & 0\\
+& $\uptau$\textsuperscript{\textendash} & -\,1 & 1/2 & 0 & 0 & +1 & t & +2/3 & 1/2 & 0 & 0 & 0 & 0 & +1 & 0\\
 \rowcolor{Gray}
-\cellcolor{white}& $\uptau$\textsuperscript{+} & +1 & 1/2 & 0 & 0 & --1 & $\bar{\rm{t}}$ & --2/3 & 1/2 & 0 & 0 & 0 & 0 & --1 & 0\\
-& $\upnu$\textsubscript{$\uptau$} & 0 & 1/2 & 0 & 0 & +1 & b & --1/3 & 1/2 & 0 & 0 & 0 & 0 & 0 & --1\\
+\cellcolor{white}& $\uptau$\textsuperscript{+} & +1 & 1/2 & 0 & 0 & -\,1 & $\bar{\rm{t}}$ & \textendash2/3 & 1/2 & 0 & 0 & 0 & 0 & -\,1 & 0\\
+& $\upnu$\textsubscript{$\uptau$} & 0 & 1/2 & 0 & 0 & +1 & b & -\,1/3 & 1/2 & 0 & 0 & 0 & 0 & 0 & -\,1\\
 \rowcolor{Gray}
-\multirow{-4}{*}{\rotatebox[origin=c]{90}{\parbox[c]{1.9cm}{\cellcolor{white}\centering Third generation}}}& $\bar\upnu$\textsubscript{$\uptau$} & 0 & 1/2 & 0 & 0 & --1 & $\bar{\rm{b}}$ & +1/3 & 1/2 & 0 & 0 & 0 & 0 & 0 & +1\\
+\multirow{-4}{*}{\rotatebox[origin=c]{90}{\parbox[c]{1.9cm}{\cellcolor{white}\centering Third generation}}}& $\bar\upnu$\textsubscript{$\uptau$} & 0 & 1/2 & 0 & 0 & -\,1 & $\bar{\rm{b}}$ & +1/3 & 1/2 & 0 & 0 & 0 & 0 & 0 & +1\\
 \hline\hline
 \end{tabularx}
 \end{table}
-\todo{Fix the incorrect plus and minus for quarks}
-\todo{Remove the double minus to make it visible in all PDF viewers}
 Fermions are further categorized as \textit{leptons} and \textit{quarks}, as well as in three generations, which can be seen in Figure~\ref{fig:SM}.
 Among the leptons are the electron and its heavier brothers, the muon and the tau.
-In their respective generation, each of them has a neutrino, respectively named the electron-neutrino, muon-neutrino, and tau-neutrino, and they are electrically neutral particles.\\
-Since the SM does in general not remark the corresponding antiparticles, there are actually not only six leptons but twelve.
-\todo{I would reword this into maybe 2 or 3 sentences, referring to the fat that every particle has an antiparticle, that all of their quantum numbers are opposite, they are excluded from discussion because they don't add anythihng in terms of physics...}
-The only difference between particles and antiparticles is the sign of their internal quantum numbers:
-The electron's antiparticle is the positron, which has the same mass and spin as the electron, but has a positive charge of +1, and a negative lepton number $L_e$ of -1.
+In their respective generation, each of them has a neutrino, respectively named the electron-neutrino, muon-neutrino, and tau-neutrino.
+They are electrically neutral particles.\\
+Additionally, every particle has an antiparticle, so there are actually not only six leptons but twelve.
+The SM does in general not remark the antiparticles, because the physics of particles and antiparticles is the same.
+The only difference between them is the sign of their internal quantum numbers:
+The electron's antiparticle is the positron, which has the same mass and spin as the electron, but has a positive charge of +1, and a negative lepton number $L_e$ of -\,1.
 The antiparticles of the muon ($\upmu$\textsuperscript{-}) and the tau ($\uptau$\textsuperscript{-}) hence are $\upmu$\textsuperscript{+} and $\uptau$\textsuperscript{+}, respectively.
 As neutrinos on the other hand have no electric charge, they can only be distinguished from their respective antineutrino by their lepton number and their helicity.
 The helicity describes the state of the particle's spin direction in comparison to the particle's momentum.
 When the spin direction and the momentum are parallel, the particle is called right-handed.
 It is called left-handed, when they are antiparallel.
 In the SM, neutrinos are always left-handed, whilst antineutrinos are right-handed.\\
-Every generation of quarks consists of one up- and one down-type quark, where the up-type quarks have an electric charge of 2/3, whilst down-type quarks have a charge of --1/3.
-\todo{remove the --}
+Every generation of quarks consists of one up- and one down-type quark, where the up-type quarks have an electric charge of 2/3, whilst down-type quarks have a charge of -\,1/3.
 However, they do not only carry the electric charge, but also the so-called color charge.
 Every quark has one of three colors (red, green, and blue), every antiquark has one of three anti-colors (anti-red, anti-green, and anti-blue).
 Thus, there are overall 36 different quarks and antiquarks.
 Due to the law of confinement, there can only be color-neutral particles.
-\todo{What does color neutral mean?}
 Quarks are therefore not free, but hadronize and form a bound state together with other quarks.
 These bound quark states, called hadrons, consist of either two, three, or five quarks.
 A particle with a quark of a specific color and an antiquark of the corresponding anti-color is called a meson.
-A baryon, which is a particle with three quarks, can only be color-neutral when it carries three quarks with three different colors (or anti-colors), so red--green--blue or anti-red--anti-green--anti-blue, any other combination is not possible.
-\todo{ remove the --}
+Together, the color and anti-color of the quarks make the meson color-neutral.
+A baryon, which is a particle with three quarks, can only be color-neutral when it carries three quarks with three different colors (or anti-colors), so red\textendash green\textendash blue or anti-red\textendash anti-green\textendash anti-blue, any other combination is not possible.
 Finally, the penta-quarks are bound states of five quarks, where three of them form a color triplet like a baryon, and the remaining two form a color-anticolor pair like a meson.\\
 In everyday nature, the only observable hadrons are the protons and neutrons due to their constituents.
 They are baryons, hence are built from three quarks:
@@ -118,8 +112,7 @@ As the up-quark is the lightest quark, it is stable and does not decay.
 All other quarks decay after certain lifetimes into another quark with smaller mass.
 That is the reason why all hadrons that are produced artificially in a high-energy particle collider are unstable.
 Since the down-quark is the second lightest quark, it can decay into the up-quark, giving reason to the spontaneous decay of free neutrons into protons when one of the down-quark decays.
-The proton is the lightest existing hadron, and does not decay further.
-\todo{Why can I proton not decay to something like a lighter meson?}
+The proton is the lightest existing baryon, and can not decay further according to the Standard Model, since its quantum numbers have to be conserved.
 Together, the protons and neutrons construct the nuclei of every atom of every element.
 %The masses of the quarks increases towards higher generations.
 
@@ -130,7 +123,7 @@ Gravity is the only fundamental force that is not represented by the SM.
 On the scale of particle physics, it is by far the weakest force, as can be seen from Table~\ref{tab:Forces}.
 \begin{table}
 \caption[Fundamental forces]{The fundamental forces and their mediators.~\cite[cf. p. 59]{Griffiths}
-The strength of a force is dependent on various external factors.
+The strength of a force is dependent on various external factors, such as its source and its distance to the observer.
 Therefore, the listed values are a rough guideline of the orders of magnitude of difference between the effective strengths of the forces.}
 \label{tab:Forces}
 \centering
@@ -173,8 +166,6 @@ This probing is called ``deep inelastic scattering'', where an electron for inst
 The electron penetrates the proton and scatters on one parton.
 By observing such processes, the distribution of the partons inside the proton can be determined, and summarized as the ``parton distribution functions''.
 Free partons, such as the remaining constituents of the proton, hadronize due to the color confinement, and form clusters of hadrons, so-called ``jets''.
-  \todo{You like to say so-called a lot}
-
 \end{minipage} \hfill
 \begin{minipage}{0.4\textwidth}
 \centering
@@ -192,8 +183,7 @@ Weak interactions differ between particles of certain handedness, and can theref
 Due to the electric charge of the W$^\pm$ boson, its exchange involves a transfer of electric charge, and is therefore called ``charged current''.
 The exchange of the neutral Z boson on the other hand is called ``neutral current''.\\
 Similar to the electromagnetic interaction via a photon, the electric charge has to be conserved in the neutral current interaction as well, which is shown in Figure~\ref{fig:Feynman:weak} (a).
-Therefore, the flavor of the fermions involved in this first-order interaction does not change, since only particle--antiparticle pairs are taking part.
-  \todo{Double minus again}
+Therefore, the flavor of the fermions involved in this first-order interaction does not change, since only particle\textendash antiparticle pairs are taking part.
 Interactions involving a W boson on the other hand can either be between a lepton and a neutrino (Figure~\ref{fig:Feynman:weak} (b)), or between an up- and a down-type quark (Figure~\ref{fig:Feynman:weak} (c)). 
 In both cases, the flavor of the particles can change, so that interactions between all generations are possible.
 \end{minipage} \hfill
@@ -223,7 +213,7 @@ It is therefore a scalar boson.
 The Higgs $h$ couples to all SM particles $X$ with a certain coupling strength $g_{hXX}$.
 Since the coupling strength is proportional to the mass of the particle, it determines how heavy the elementary particles are.
 As the Higgs boson is a massive particle itself, it also couples to itself.
-The so-called Higgs self-coupling, as well as all couplings to other SM particles are not well measured yet, since the Higgs discovery is the Standard Model's most recent addition~\cite{Higgs,Higgs2}.
+The Higgs self-coupling, as well as all couplings to other SM particles are not well measured yet, since the Higgs discovery is the Standard Model's most recent addition~\cite{Higgs,Higgs2}.
 The precise measurements of all Higgs boson properties is an important physics goal of all (future) high-energy particle physics experiments, such as the International Linear Collider. 
 
 \section{Production modes}
@@ -232,11 +222,10 @@ The production modes in high-energy lepton colliders are quite different from th
 Since at the LHC two proton beams are brought into collision, the dominant processes that occur are via the strong interaction.
 The QCD processes, such as the jet production processes, therefore have an event rate that is up to seven orders of magnitude higher than Higgs boson production processes, as shown in Figure~\ref{fig:Cross_sections} (b).
 As these QCD jet production processes are often not the main focus of physics analyses, they then count as physics background.
-With a background rate larger than the main focus process (the signal event) by several orders of magnitude, the so-called signal-to-noise ratio can be very small, which makes the analysis of the collision data challenging.
+With a background rate larger than the main focus process (the signal event) by several orders of magnitude, the signal-to-noise ratio can be very small, which makes the analysis of the collision data challenging.
 \\The production modes at $e^+e^-$ colliders on the other hand are all through weak and electromagnetic interactions, since leptons can not interact via the strong force.
 QCD jet production therefore does not occur at a lepton collider.
-Figure~\ref{fig:Cross_sections} (a) shows that the rates of possible production modes, such as the production of quark--antiquark pairs or of bosons, are all within a range of only four orders of magnitude for a collision energy of \SI{250}{\GeV}.
-\todo{Double minus}
+Figure~\ref{fig:Cross_sections} (a) shows that the rates of possible production modes, such as the production of quark\textendash antiquark pairs or of bosons, are all within a range of only four orders of magnitude for a collision energy of \SI{250}{\GeV}.
 \\The collision energy $\sqrt{s}$, or often called center-of-mass energy $E_{cm}$, between two relativistic beams with 4-vectors $p_1$ and $p_2$ is calculated as follows:
 \begin{align*}
  s &= (p_1+p_2)^2\\
@@ -283,7 +272,6 @@ The background processes will now be explained in detail in the following.
 A significant background source for the particle detectors arises from the electromagnetic fields created by the highly focused beam bunches.
 Before collision, the particle beams are focused down to a small beam size, which enhances the electromagnetic field around the bunches.
 This causes the beam particles to emit photons in the forward direction, the so-called beamstrahlung.
-\todo{I just counted, you say so-called 48 times in your thesis so far}
 \\For a lepton beam with N beam particles per bunch and with the beam dimensions $\sigma_{x,y,z}$, one can calculate the average energy $E_{\gamma}$ of the beamstrahlung photons~\cite{Beamstrahlung_CLIC}: \todo{Check page number}
 \begin{equation}
  E_{\gamma} \propto \frac{N}{(\sigma_x+\sigma_y)\sigma_z}
@@ -306,7 +294,7 @@ Such interactions are then called beam-beam interactions, since they arise from 
 \begin{figure}
 \centering
 \includegraphics[width=0.4\textwidth]{Figures/PairBackground.png}
-\caption{Creation of a secondary $e^+e^-$ pair through the collision of beamstrahlung photons arising from the electromagnetic field of the colliding beam bunches~\cite[]{Vogel}.}
+\caption{Creation of a secondary $e^+e^-$ pair through the collision of beamstrahlung photons arising from the electromagnetic field of the colliding beam bunches~\cite[p. 29]{Vogel}.}
 \label{fig:Pair_production} 
 \end{figure}
 \\One possible outcome is the production of an electron-positron pair through three different physics processes, which are depicted in Figure~\ref{fig:Feynman:pair_production}.
