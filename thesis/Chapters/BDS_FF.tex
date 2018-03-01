@@ -75,32 +75,28 @@ The overall goal is to give a recommendation based on the study of the detector 
 \subsection{MUCARLO}
 \label{BDS_Muons:MUCARLO}
 The interactions between the ILC beam and the machine components in the BDS were simulated in a Monte Carlo tool, called \mucarlo~\cite{Mucarlo,MuonBkg_05TeV,MuonBkg_1TeV}.
-Since the presented study is done for two different ILC stages, at 250 and at \SI{500}{\GeV}, the beam parameters of the respective stage are used accordingly.
-The geometry lattice of the ILC Beam Delivery System serves as the input geometry to the \mucarlo code, through which the muons are tracked.
+Since the presented study is done for two different ILC stages, at 250 and at \SI{500}{\GeV}, the beam parameters of the respective stage were used accordingly.
+The geometry lattice of the ILC Beam Delivery System serves as the input geometry to the \mucarlo code, through which the muons are tracked with the help of the tracking algorithm \turtle~\cite{Turtle}.
 Figure~\ref{fig:BDS_Muons:tracks} shows the muon tracks in the electron-line of the BDS.
 The muons are created at certain locations along the beam line, are deflected by the magnetic field of beam line components, and loose kinetic energy through scattering in the material of the components the muons hit.
-The number of muons created is proportional to the collimator surface that is hit with respect to the beam size.
 In the end, only those muons are stored that reach the IP (at z = \SI{0}{\meter}).
 Accordingly, Figure~\ref{fig:BDS_Muons:tracks} only shows those muons.
-By looking closely, there is only one thin red muon track line, which belongs to a negatively charged muon.
+There is only one red muon track line, which belongs to a negatively charged muon.
 The spoiler polarities are set to defocus muons with the same charge as the beam charge.
 Therefore, mainly positively charged muons from the electron beam line will reach the IP.
 For the positron beam line, the muons reaching the IP are mainly negatively charged, respectively.
-\\The main sources of muons were identified in the BDS to be 12 different collimators:
+\\The main sources of muons were identified in the BDS to be 12 different distinct collimators.
+The following list names these collimators and their position from the IP~\cite{Lewis}:
 \begin{itemize}
- \item SP2 1508
-PC1 1452
-AB3 1420
-PC2 1387
-SP4 1332
-PC5 1276
-PC5A 1242
-AB5 1237
-PC6 1208
-PC7 1047
-ABE 852
-
+ \item Primary collimator spoilers (radiation length: 0.6 X\textsubscript{0}):\\
+  SP2 (\SI{1508}{\meter}), SP4 (\SI{1332}{\meter})
+ \item Protection collimators against synchrotron radiation (radiation length: 20 X\textsubscript{0}):\\
+  PC1 (\SI{1452}{\meter}), PC2 (\SI{1387}{\meter}), PC5 (\SI{1276}{\meter}), PC5A (\SI{1242}{\meter}), PC6 (\SI{1208}{\meter}), PC7 (\SI{1047}{\meter})
+ \item Absorbers (radiation length: 20 X\textsubscript{0}):\\ \todo{20 or 30rl?}
+  AB3 (\SI{1420}{\meter}), AB5 (\SI{1237}{\meter}), ABE (\SI{852}{\meter})
 \end{itemize}
+The number of muons created is proportional to the fraction of the collimator surface that is hit with respect to the beam size.
+The general design of these collimators can be found in \cite{BDS_coll_design}.
 
 \begin{figure}
 \centering
