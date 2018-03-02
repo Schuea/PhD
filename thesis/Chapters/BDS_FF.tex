@@ -14,7 +14,10 @@
 After the beam acceleration in the main linacs of the ILC, the Beam Delivery System (BDS) is the part of the accelerator that prepares the beams for collision.
 As described in Chapter~\ref{ILC:layout:details}, it contains numerous subsystems and components for beam collimation and focusing. 
 Depending on the aperture of the collimators, certain fractions of the beam halo hit the collimator material, which has the desired effect of collimating the beam, but also the undesired effect of producing background particles.
-The beam halo surrounds the beam core, and is defined to contain ??. \todo{Beam halo definition}
+For defining the beam halo, which surrounds the beam core, the beam core itself has to be defined first in terms of $\sigma_x$ and $\sigma_y$ (the RMS beam size values given in Table~\ref{tab:ILC_parameters}).
+In this study, the core is defined as an ellipse with a horizontal size of $\pm 5\sigma_x$ and a vertical size of $\pm 36\sigma_y$ at the beginning of the BDS.
+The beam halo is the elliptical ring around the beam core, covering 5-13$\sigma_x$ and 36-93$\sigma_y$.
+The beam particles in the core follow a $\frac{1}{r}$ distribution, and the beam power of the halo is normalized to \SI{0.1}{\percent} of the nominal beam power~\cite{Glens_muon_talk}.
 From interactions between the beam halo and the material of the collimators along the beam line, muons are produced predominantly via the Bethe-Heitler process (see Figure~\ref{fig:BDS_Muons:Muon_production} (a)).
 Beamstrahlung photons interact with the nuclei of the machine component material, and pair-produce muons.
 A small production contribution on a few percent level comes additionally from direct annihilation of positrons with atomic electrons~\cite{MuonBkg_1TeV}.
