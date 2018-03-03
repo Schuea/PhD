@@ -175,7 +175,7 @@ Concentrating on Figure~\ref{fig:BDS_Muons:wired4} (c) first, the muons leave cl
 After leaving the BDS tunnel, the muons, which are boosted in forward direction, enter SiD through the outermost subdetector, and penetrate the full detector.
 Since the muons are coming from both the electron and the positron beam line, this happens simultaneously from both sides.
 \\The difference in the spatial distribution in the xy-plane between Figure~\ref{fig:BDS_Muons:wired4} (a) and (b) is explained by the geometry of the tunnel, and position of the detector with respect to the tunnel exit.
-In sub-figure (a), the rectangular shape in the hit distribution is the imprint of the tunnel.
+In subfigure (a), the rectangular shape in the hit distribution is the imprint of the tunnel.
 The boosted muons exit the tunnel and directly hit the detector.
 The asymmetry of the imprint though results from the position of the detector.
 The beam pipe and therefore the central axis through the detectors are not in the center of the BDS tunnel.
@@ -184,10 +184,10 @@ The top-bottom asymmetry is due to the fact that the detector cavern is below gr
 \\Adding the magnetized wall as an additional muon shielding causes the muons to scatter.
 The clear tunnel imprint is no longer visible in Figure~\ref{fig:BDS_Muons:wired4} (b).
 Scattering the muons is not the only effect of the magnetized wall.
-As can be seen in Figure~\ref{fig:BDS_Muons:energy}, shifts the muon energy for a respective center-of-mass energy.
+As can be seen in Figure~\ref{fig:BDS_Muons:energy}, the wall shifts the muon energy to lower values for a respective center-of-mass energy.
 In the material of the wall, the muons loose their energy, and low energy muons are stopped completely. \todo{Check out Bethe-Bloch here}
 The peak in the energy distributions at lower energies is therefore reduced for the ``5 spoilers + wall'' scenarios.
-
+Additionally, the number of muons per bunch train can directly be compared for the two ILC stages and the different shielding options.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.6\textwidth]{Figures/BDS_muons/Energy_Comparison_ILC500vsILC250.pdf}
@@ -195,25 +195,33 @@ The peak in the energy distributions at lower energies is therefore reduced for 
 The number of muons are normalized to a full bunch train for all cases.}
 \label{fig:BDS_Muons:energy}
 \end{figure}
-
-\begin{figure}[htbp]
+\\These muons then leave a particular number of hits in the SiD subdetectors by penetrating the full detector.
+For the comparison between the total number of hits in the four different cases, Figure~\ref{fig:BDS_Muons:hits} shows a bar chart of the hits collected in each subdetector.
+The largest number of hits is counted for the endcaps of the muon detector system, which is the subdetector with the largest effective detector area under normal incident of the muons.
+Also, it is the outermost subdetector, likely to be hit my all of the primary muons.
+Accordingly, the vertex detector (as the smallest and innermost detector) is hit the least number of times, and in the same manner also the other subdetectors gain representative number of hits.
+Deducing from the hit distributions, the SiD detector will overall suffer from less hits in the ILC250 stage with respect to the ILC500, but adding the magnetized wall to the shielding will yield even smaller hit counts for both center-of-mass energies.
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.7\textwidth]{Figures/BDS_muons/Hits_in_SiD_subdetectors_MuonSpoilerStudy.pdf}
 \caption[Number of muon hits in the SiD subdetectors]{Total number of hits in the various SiD subdetectors for both shielding scenarios and both ILC stages.
 The number of hits come from muons from a full bunch train.}
 \label{fig:BDS_Muons:hits}
 \end{figure}
-
-\begin{figure}[htbp]
+\\After looking at the total number of hits, which reflects the size and position of the subdetectors in SiD, this fact can even better be derived from the hit time distributions shown in Figure~\ref{fig:BDS_Muons:hittime}.
+The muons emitted from the BDS tunnel arrive first at the endcaps of the muon system, as mentioned above.
+After penetrating all muon endcap layers, the next outermost subdetector is hit and so on, until the muons make their way to the opposite muon endcap.
+The time needed for the muons to penetrate the full detector is hence about \SI{40}{\nano\second} independent of the muon shielding and the center-of-mass energy.
+\begin{figure}[htbp!]
 \centering
-\includegraphics[width=0.6\textwidth]{Figures/BDS_muons/hittime_ILC500_spoilers_superimposed.pdf}
+\includegraphics[width=0.7\textwidth]{Figures/BDS_muons/hittime_ILC500_spoilers_superimposed.pdf}
 \caption[Muon hit time in the SiD subdetectors]{Hit time distribution of the BDS muons in the various SiD subdetectors for ILC500 stage and for the ``5 spoilers'' scenario only.
 The number of hits are normalized to hits from a full bunch train for all cases.}
 \label{fig:BDS_Muons:hittime}
 \end{figure}
 
-
 \subsubsection{SiD occupancy}
+The next step is to look at the occupancy of the detector arising from these muon hits.
 
 \subsection{Conclusion}
 Regarding the wall, even if you determine its not needed for muons but may be needed for personnel protection, it would not need to be 5m thick and not magnetized, i.e. much cheaper.
