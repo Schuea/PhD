@@ -222,6 +222,75 @@ The number of hits are normalized to hits from a full bunch train for all cases.
 
 \subsubsection{SiD occupancy}
 The next step is to look at the occupancy of the detector arising from these muon hits.
+As in Chapter~\ref{PairBkg:occupancy}, the number of hits are counted for every cell in the subdetectors, which can be directly translated into a detector occupancy.
+From occupancy plots, it can be determined how many detector cells get a certain number of hits.
+Knowing that a sensor can only store up to a specific number of hits (the so-called buffer depth), the number of dead cells can then be calculated.
+A cell is defined to be dead when the buffer of its sensor is already completely filled, and no further hits can be stored.
+This is especially important as the detectors for the ILC will read out their buffers only after every bunch train (1312 bunch crossings).
+In order to guarantee that cell buffers are not filled only by background hits, a balance has to be found between a sufficient buffer depth and low background levels dependent on the design of the accelerator and the detectors.
+In SiD, a rough estimate for an acceptable occupancy for background events is that a maximum of \num{e-4} of all cells should have a number of hits reaching the buffer depth. 
+
+In the following the muon occupancy in the HCAL barrel and the tracker endcaps is discussed.
+Figure~\ref{fig:BDS_Muons:HcalBarrel} shows the occupancy and the number of dead cells in the HCAL barrel, normalized to its total number of cells.
+In the current detector design, the HCAL cells have a size of \SI{1}{\centi\meter}\,x\,\SI{1}{\centi\meter}.
+\\As a result, a maximum of three hits per cell is observed, because of which the x-axis range in Figure~\ref{fig:BDS_Muons:HcalBarrel} (b) also reaches to three only.
+Here, the number of dead cells is shown as a function of the assumed buffer depth.
+In theoretical case of a buffer depth of one, up to \num{e-4} of all cells would have a full buffer (with one hit).
+Even if that would be the case, the critical limit for acceptable occupancies of \num{e-4} would just about be reached for the ``5 spoilers'' case in the ILC500, all other cases would have acceptable values.
+Realistically, the HCAL sensor will have a higher buffer depth, namely a buffer depth of four (in the current design) or higher.
+Since none of the cells are hit by more than three muons, the occupancy in the HCAL barrel is very low and far from the critical limit.
+ \begin{figure}
+ \centering
+  \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BDS_muons/Occupancy_Comparison_All_layers_wrt_cells_HcalBarrel.png}
+   \caption{Normalized occupancy}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BDS_muons/Occupancy_Comparison_All_layers_deadcells_HcalBarrel.png}
+   \caption{Normalized number of dead cells}
+   \end{subfigure}
+   \caption[SiD HCAL barrel occupancy from BDS muons]{Subfigure (a) shows the muon occupancy in the SiD HCAL barrel after a full bunch train, whilst subfigure (b) shows the number of dead cells resulting from this occupancy.
+   Both histograms are normalized by the total number of cells in the HCAL barrel.
+   The first bin of subfigure (a) contains the total number of cells, because of which the value of this bin is 1 for all cases.}
+   \label{fig:BDS_Muons:HcalBarrel}
+ \end{figure}
+\\For the SiD tracker endcaps, however, the number of hits per cell reaches a maximum 30 (see Figure~\ref{fig:BDS_Muons:SiTrackerEndcap}).
+As the SiD tracker has a cell size of \SI{50}{\micro\meter}\,x\,\SI{50}{\micro\meter} in the current design, this is at first not to be expected.
+The total number of hits in the tracker is smaller than in the HCAL, and yet the number of hits per cell reaches a much larger value.
+The reason for this is that low energy (order of several hundred MeV) muons spiral in the magnetic field of the detector solenoid magnet, and by doing so hit the active layer of the tracker endcap several times.
+An example of a loop performed by such a muon is depicted in Figure~\ref{fig:BDS_Muons:loop}.
+\\Although the number of hits per cell ranges up to 30, the occupancy is consistently below \num{e-6} for all cases.
+The number of dead cells, shown in Figure~\ref{fig:BDS_Muons:SiTrackerEndcap} (b), is plotted as a function of an assumed buffer depth of up to 30 accordingly.
+Assuming the sensors in the SiD tracker will have a buffer depth of four, about \num{2e-8} of all cells would be dead for the ILC500 with the ``5 spoilers'' shielding only.
+Also in this subdetector, the muon occupancy is below the critical limit for SiD for any buffer depth that might be chosen as the sensor design.
+  \begin{figure}
+ \centering
+  \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BDS_muons/Occupancy_Comparison_All_layers_wrt_cells_SiTrackerEndcap.png}
+   \caption{Normalized occupancy}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BDS_muons/Occupancy_Comparison_All_layers_deadcells_SiTrackerEndcap.png}
+   \caption{Normalized number of dead cells}
+   \end{subfigure}
+   \caption[SiD tracker endcap occupancy from BDS muons]{Subfigure (a) shows the muon occupancy in one of the SiD tracker endcaps after a full bunch train, whilst subfigure (b) shows the number of dead cells resulting from this occupancy.
+   Both histograms are normalized by the total number of cells in the tracker endcap.
+   The first bin of subfigure (a) contains the total number of cells, because of which the value of this bin is 1 for all cases.}
+   \label{fig:BDS_Muons:SiTrackerEndcap}
+ \end{figure}
+ 
+ \begin{figure}[htbp!]
+\centering
+\includegraphics[width=0.5\textwidth]{Figures/BDS_muons/LoopInACell.png}
+\caption[BDS muons looping]{Hit position of muon hits in the SiD tracker endcap layer four.}
+\label{fig:BDS_Muons:loop}
+\end{figure}
 
 \subsection{Conclusion}
 Regarding the wall, even if you determine its not needed for muons but may be needed for personnel protection, it would not need to be 5m thick and not magnetized, i.e. much cheaper.
