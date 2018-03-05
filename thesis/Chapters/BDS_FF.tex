@@ -115,7 +115,7 @@ Adding up all muons from the different sources on the electron and the positron 
 Table~\ref{tab:BDS_Muons_muon_numbers} lists the muon rates per bunch crossing for a center-of-mass energy of 250 and \SI{500}{\GeV}, and for the two different shielding scenarios.
 At \SI{500}{\GeV}, about 130 muons per bunch crossing would reach the detector in the case that no shielding was installed.
 This number is reduced to about 4 muons with the five cylindrical spoilers, and to below 1 muon per bunch crossing with an additional magnetized wall.
-\\For a lower beam energy of \SI{125}{\GeV} (\SI{250}{\GeV} center-of-mass energy), the number of muons that are produced is lower, because of which only ?? muons reach the detector without shielding. \todo{Number of muons w/o shielding}
+\\For a lower beam energy of \SI{125}{\GeV} (\SI{250}{\GeV} center-of-mass energy), the number of muons that are produced is lower, because of which only around 38 muons reach the detector without shielding.
 With the two different shielding scenarios, the muon rate is again reduced significantly to a minimum of about 0.03 per bunch crossing.
 %------------------
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -131,7 +131,7 @@ With the two different shielding scenarios, the muon rate is again reduced signi
 \textbf{Scenario} & \multicolumn{2}{>{\centering}p{6cm}}{\textbf{Muons per bunch crossing in a detector with 6.5\,m radius}}\\
 & ILC500 & ILC250\\
 \hline\\
- No Spoilers & 130 & ??\\
+ No Spoilers & 130 & 38\\
  5 spoilers& 4.3 & 1.3\\
  5 spoilers + wall & 0.6 &  0.03\\
 \hline\hline
@@ -153,8 +153,8 @@ For visualizing the hit distribution in the SiD detector, event displays (see Fi
  \centering
   \begin{subfigure}[b]{0.31\textwidth}
    \centering
-    \includegraphics[width=0.9\textwidth]{Figures/BDS_muons/muons_positron_5spoilers_2961_xyview_croped_inverted.png}
-   \caption{xy-view, 5 spoilers,\\ILC500}
+   \includegraphics[width=\textwidth]{Figures/BDS_muons/Event_display_ILC250_p_spoilers_wall_inverted.png}
+   \caption{3D view, 5 spoilers + wall,\\ILC250}
    \end{subfigure}
    \hfill
    \begin{subfigure}[b]{0.31\textwidth}
@@ -165,20 +165,20 @@ For visualizing the hit distribution in the SiD detector, event displays (see Fi
    \hfill
     \begin{subfigure}[b]{0.31\textwidth}
    \centering
-    \includegraphics[width=\textwidth]{Figures/BDS_muons/Event_display_ILC250_p_spoilers_wall_inverted.png}
-   \caption{3D view, 5 spoilers + wall,\\ILC250}
+    \includegraphics[width=0.9\textwidth]{Figures/BDS_muons/muons_positron_5spoilers_2961_xyview_croped_inverted.png}
+   \caption{xy-view, 5 spoilers,\\ILC500}
    \end{subfigure}
    \caption[Event displays of BDS muons in SiD]{Event displays of the muon hits in SiD for different center-of-mass energies and different shielding scenarios.}
    \label{fig:BDS_Muons:wired4}
  \end{figure}
 \\Apart from the overall number of hits in the different event displays, the spatial distribution of the hits is striking.
-Concentrating on Figure~\ref{fig:BDS_Muons:wired4} (c) first, the muons leave clear horizontal tracks throughout the whole detector.
-After leaving the BDS tunnel, the muons, which are boosted in forward direction, enter SiD through the outermost subdetector, and penetrate the full detector.
+Concentrating on Figure~\ref{fig:BDS_Muons:wired4} (a) first, the muons leave clear horizontal tracks throughout the whole detector.
+After leaving the BDS tunnel, the muons (which are boosted in forward direction) enter SiD through the outermost subdetector, and penetrate the full detector.
 Since the muons are coming from both the electron and the positron beam line, this happens simultaneously from both sides.
-\\The difference in the spatial distribution in the xy-plane between Figure~\ref{fig:BDS_Muons:wired4} (a) and (b) is explained by the geometry of the tunnel, and position of the detector with respect to the tunnel exit.
+\\The difference in the spatial distribution in the xy-plane between Figure~\ref{fig:BDS_Muons:wired4} (b) and (c) is explained by the geometry of the tunnel, and position of the detector with respect to the tunnel exit.
 In subfigure (a), the rectangular shape in the hit distribution is the imprint of the tunnel.
 The boosted muons exit the tunnel and directly hit the detector.
-The asymmetry of the imprint though results from the position of the detector.
+The asymmetry of the imprint results from the position of the detector.
 The beam pipe and therefore the central axis through the detectors are not in the center of the BDS tunnel.
 As can be seen in Figure~\ref{fig:BDS_Muons:tracks}, the beam line curves such that it is closer to one of the tunnel side walls than to the other.
 The top-bottom asymmetry is due to the fact that the detector cavern is below ground level of the tunnel.
@@ -186,7 +186,7 @@ The top-bottom asymmetry is due to the fact that the detector cavern is below gr
 The clear tunnel imprint is no longer visible in Figure~\ref{fig:BDS_Muons:wired4} (b).
 Scattering the muons is not the only effect of the magnetized wall.
 As can be seen in Figure~\ref{fig:BDS_Muons:energy}, the wall shifts the muon energy to lower values for a respective center-of-mass energy.
-In the material of the wall, the muons loose their energy, and low energy muons are stopped completely. \todo{Check out Bethe-Bloch here}
+In the material of the wall, the muons lose their energy, and low energy muons are stopped completely. \todo{Check out Bethe-Bloch here}
 The peak in the energy distributions at lower energies is therefore reduced for the ``5 spoilers + wall'' scenarios.
 Additionally, the number of muons per bunch train can directly be compared for the two ILC stages and the different shielding options.
 \begin{figure}[htbp]
@@ -199,7 +199,7 @@ The number of muons are normalized to a full bunch train for all cases.}
 \\These muons then leave a particular number of hits in the SiD subdetectors by penetrating the full detector.
 For the comparison between the total number of hits in the four different cases, Figure~\ref{fig:BDS_Muons:hits} shows a bar chart of the hits collected in each subdetector.
 The largest number of hits is counted for the endcaps of the muon detector system, which is the subdetector with the largest effective detector area under normal incident of the muons.
-Also, it is the outermost subdetector, likely to be hit my all of the primary muons.
+Also, it is the outermost subdetector, likely to be hit by all of the primary muons.
 Accordingly, the vertex detector (as the smallest and innermost detector) is hit the least number of times, and in the same manner also the other subdetectors gain representative number of hits.
 Deducing from the hit distributions, the SiD detector will overall suffer from less hits in the ILC250 stage with respect to the ILC500, but adding the magnetized wall to the shielding will yield even smaller hit counts for both center-of-mass energies.
 \begin{figure}[h]
@@ -209,10 +209,10 @@ Deducing from the hit distributions, the SiD detector will overall suffer from l
 The number of hits come from muons from a full bunch train.}
 \label{fig:BDS_Muons:hits}
 \end{figure}
-\\After looking at the total number of hits, which reflects the size and position of the subdetectors in SiD, this fact can even better be derived from the hit time distributions shown in Figure~\ref{fig:BDS_Muons:hittime}.
+\\After looking at the total number of hits, which reflects the size and position of the subdetectors in SiD, this fact can be even better derived from the hit time distributions shown in Figure~\ref{fig:BDS_Muons:hittime}.
 The muons emitted from the BDS tunnel arrive first at the endcaps of the muon system, as mentioned above.
 After penetrating all muon endcap layers, the next outermost subdetector is hit and so on, until the muons make their way to the opposite muon endcap.
-The time needed for the muons to penetrate the full detector is hence about \SI{40}{\nano\second} independent of the muon shielding and the center-of-mass energy.
+The time needed for the muons to penetrate the full detector is hence about \SI{40}{\nano\second}, independent of the muon shielding and the center-of-mass energy.
 \begin{figure}[htbp!]
 \centering
 \includegraphics[width=0.7\textwidth]{Figures/BDS_muons/hittime_ILC500_spoilers_superimposed.pdf}
@@ -258,7 +258,7 @@ Since none of the cells are hit by more than three muons, the occupancy in the H
    The first bin of subfigure (a) contains the total number of cells, because of which the value of this bin is 1 for all cases.}
    \label{fig:BDS_Muons:HcalBarrel}
  \end{figure}
-\\For the SiD tracker endcaps, however, the number of hits per cell reaches a maximum 30 (see Figure~\ref{fig:BDS_Muons:SiTrackerEndcap}).
+\\For the SiD tracker endcaps, however, the number of hits per cell reaches a maximum of 30 (see Figure~\ref{fig:BDS_Muons:SiTrackerEndcap}).
 As the SiD tracker has a cell size of \SI{50}{\micro\meter}\,x\,\SI{50}{\micro\meter} in the current design, this is at first not to be expected.
 The total number of hits in the tracker is smaller than in the HCAL, and yet the number of hits per cell reaches a much larger value.
 The reason for this is that low energy (of the order of several hundred MeV) muons spiral in the magnetic field of the detector solenoid magnet, and by doing so hit the active layer of the tracker endcap several times.
@@ -304,7 +304,8 @@ The comparison of the occupancy in these two cases revealed that the magnetized 
 Nevertheless, the occupancy level is in both cases far from the critical limit of \num{e-4}, which is especially important in the tracking systems of the SiD detector.
 For these subdetectors, a minimal background occupancy is crucial to guarantee a high performance in the track reconstruction of physics events.
 For a center-of-mass energy of \SI{250}{\GeV} in the first ILC stage, the SiD tracker endcap occupancy for an assumed buffer depth of four is about \num{4e-9} for the minimal shielding option without the wall.
-Although in the next ILC stage at a center-of-mass energy of \SI{500}{\GeV}, the sheer number of muons reaching the detector is larger by at least a factor of three, also here the occupancy does not exceed \num{e-7}.
+Since in the next ILC stage at a center-of-mass energy of \SI{500}{\GeV}, the number of muons reaching the detector is larger by a factor of three, also the occupancy for the same buffer depth is increased by about a factor of three for the ``5 spoilers'' case.
+However, it still does not exceed \num{e-7}.
 \\Overall, the magnetized wall does not seem to be necessary in order to limit the muon occupancy in SiD, for both studied center-of-mass energies.
 However, the wall serves as a tertiary containment device against muons and other machine background particles.
 The decision might be to keep the wall anyway for the protection of personnel and maintenance staff, depending on the law restrictions.
