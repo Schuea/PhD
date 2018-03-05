@@ -2,26 +2,26 @@
 
 \begin{chapterabstract}
  Particles produced in beam interactions with the accelerator components present another source of background for particle detectors.
- With thorough simulations and measurements,  the characteristics of this machine background can be understood, and its effect on the detector performances evaluated.
+ With thorough simulations and measurements,  the characteristics of the machine background can be understood, and its effect on the detector performances evaluated.
  \\In the first part of this chapter, shielding options against muons that are created in the Beam Delivery System of the International Linear Collider are discussed.
- The simulation of the muon production was done with \mucarlo, before their occupancy in the detector was investigated in a full detector simulation.
- \\The second part describes measurements of the machine background done at the ATF2 test bench facility.
- These data are then compared to a simulation of ATF2 with the accelerator simulation framework \bdsim.
+ The simulation of the muon production was done with \mucarlo, before the occupancy in the Silicon Detector was investigated in a full detector simulation.
+ \\The second part of this chapter describes measurements of the machine background done at the Accelerator Test Facility 2.
+ These measurements are then compared to a simulation of ATF2 with the accelerator simulation framework \bdsim.
 \end{chapterabstract}
 
 \section{Muon background from the Beam Delivery System}
 \label{BDS_Muons}
 After the beam acceleration in the main linacs of the ILC, the Beam Delivery System (BDS) is the part of the accelerator that prepares the beams for collision.
-As described in Chapter~\ref{ILC:layout:details}, it contains numerous subsystems and components for beam collimation and focusing. 
-Depending on the aperture of the collimators, certain fractions of the beam halo hit the collimator material, which has the desired effect of collimating the beam, but also the undesired effect of producing background particles.
+As described in Section~\ref{ILC:layout:details}, it contains numerous subsystems and components for beam collimation and focusing. 
+Depending on the aperture of the collimators, some fraction of the beam halo hits the collimator material, which has the desired effect of collimating the beam, but also the undesired effect of producing background particles.
 \\For defining the beam halo, which surrounds the beam core, the beam core itself has to be defined first in terms of $\sigma_x$ and $\sigma_y$ (the RMS beam size values given in Table~\ref{tab:ILC_parameters}).
 In this study, the core is defined as an ellipse with a horizontal size of $\pm 5\sigma_x$ and a vertical size of $\pm 36\sigma_y$ at the beginning of the BDS.
 The beam halo is the elliptical ring around the beam core, covering 5-13$\sigma_x$ and 36-93$\sigma_y$.
-The beam particles in the core follow a $\frac{1}{r}$ distribution, and the beam power of the halo is normalized to \SI{0.1}{\percent} of the nominal beam power~\cite{Glens_muon_talk}.
+The beam particle intensity in the core follows a $\frac{1}{r}$ distribution, and the beam power of the halo is normalized to \SI{0.1}{\percent} of the nominal beam power~\cite{Glens_muon_talk}.
 \\From interactions between the beam halo and the material of the collimators along the beam line, muons are produced predominantly via the Bethe-Heitler process (see Figure~\ref{fig:BDS_Muons:Muon_production} (a)).
 Beamstrahlung photons interact with the nuclei of the machine component material, and pair-produce muons.
-A small production contribution on a few percent level comes additionally from direct annihilation of positrons with atomic electrons~\cite{MuonBkg_1TeV}.
-The feynman diagram for the annihilation process is shown in Figure~\ref{fig:BDS_Muons:Muon_production} (b).
+A production contribution on a few percent level comes additionally from direct annihilation of positrons with atomic electrons~\cite{MuonBkg_1TeV}.
+The Feynman diagram for the annihilation process is shown in Figure~\ref{fig:BDS_Muons:Muon_production} (b).
 The muons are boosted in the beam direction, and are traveling towards the interaction region.\\
 \begin{wrapfigure}{r}{0.4\textwidth}
     \centering
@@ -49,13 +49,13 @@ The shielding scenarios that are under discussion foresee a combination of the t
  As indicated by the muon tracks through the spoiler, the magnetic field of the cylindrical spoilers is such that either positively or negatively charged muons are deflected away from the beam path into the tunnel walls.
  \item ``5 spoiler + wall'':\\
  In the second scenario, the same five spoilers are located at the same positions as before.
- But additionally, a magnetized shielding wall is placed about \SI{400}{\meter} from the interaction point.
+ But an additional magnetized shielding wall is placed about \SI{400}{\meter} from the interaction point.
  \\The wall is about \SI{5}{\meter} wide and long, and fills out the complete tunnel height.
  Its magnetic field strength is about \SI{16}{\kilo\gauss}~\cite{MuonShielding,Lewis}.
  Figure~\ref{fig:BDS_Muons:shielding_options} (b) shows an illustration of the wall inside the BDS tunnel.
 \end{itemize}
 The motivation for the study presented in this section is to investigate the effect of the muons on the SiD detector.
-The overall goal is to give a recommendation based on the study of the detector performance, whether the magnetized wall is needed to keep the detector occupancy below the critical limit of \num{e-4} (as discussed in previous chapters).
+The overall goal is to give a recommendation, based on the study of the detector performance, on the necessity of the magnetized in order to keep the detector occupancy below the critical limit of \num{e-4} (as discussed in previous chapters).
 Arguments against the wall were brought forward regarding costs and safety issues due to its size in the BDS tunnel.
  \begin{figure}
  \centering
@@ -79,18 +79,18 @@ Arguments against the wall were brought forward regarding costs and safety issue
 
 \subsection{\mucarlo}
 \label{BDS_Muons:MUCARLO}
-The interactions between the ILC beam and the machine components in the BDS were simulated with a Monte Carlo tool, called \mucarlo~\cite{Mucarlo,MuonBkg_05TeV,MuonBkg_1TeV}.
-Since the presented study is done for two different ILC stages, at 250 and at \SI{500}{\GeV}, the beam parameters of the respective stage were used accordingly.
+The interactions between the ILC beam and the machine components in the BDS were simulated with a Monte Carlo tool called \mucarlo~\cite{Mucarlo,MuonBkg_05TeV,MuonBkg_1TeV}.
+Since the presented study is done for two different ILC stages, at \SI{250}{\GeV} and at \SI{500}{\GeV}, the beam parameters of the respective stage were used accordingly.
 The geometry lattice of the ILC Beam Delivery System serves as the input geometry to the \mucarlo code, through which the muons are tracked with the help of the tracking algorithm \turtle~\cite{Turtle}.
 Figure~\ref{fig:BDS_Muons:tracks} shows the muon tracks in the electron-line of the BDS.
-The muons are created at certain locations along the beam line, are deflected by the magnetic field of beam line components, and loose kinetic energy through scattering in the material of the components the muons hit.
-In the end, only those muons are stored that reach the IP (at z = \SI{0}{\meter}).
+The muons are created at certain locations along the beam line, are deflected by the magnetic field of beam line components, and lose kinetic energy through scattering in the material of the components the muons hit.
+In the end, only those muons that reach the IP (at z = \SI{0}{\meter}) are stored.
 Accordingly, Figure~\ref{fig:BDS_Muons:tracks} only shows those muons.
 In this plot, there is only one red muon track line, which belongs to a negatively charged muon.
 The spoiler polarities are set to defocus muons with the same charge as the beam charge.
 Therefore, mainly positively charged muons from the electron beam line will reach the IP.
-For the positron beam line, the muons reaching the IP are mainly negatively charged, respectively.
-\\The main sources of muons were identified in the BDS to be 11 different distinct collimators.
+For the positron beam line, the muons reaching the IP are mainly negatively charged.
+\\The main sources of muons were identified in the BDS to be 11 distinct collimators.
 The following list names these collimators and their position from the IP~\cite{Lewis}:
 \begin{itemize}
  \item Primary collimator spoilers (radiation length: 0.6 X\textsubscript{0}):\\
@@ -142,10 +142,10 @@ These numbers can therefore be used as input to a full detector simulation.
 
 \subsection{Effect of muons on the SiD performance}
 \label{BDS_Muons:SiD}
-Since the SiD detector reads out the hits after every bunch train (1312 bunch crossings) only, the detector occupancy for the muons has to be studied for a muon rate per train.
+Since the SiD detector only reads out the hits after every bunch train (1312 bunch crossings), the detector occupancy for the muons has to be studied for a muon rate per train.
 As in the previous chapter, the full detector simulation was done using \slic.
 The geometry input file that was used contained the most recent sidloi3 geometry of the SiD detector, including the new L* position, the anti-DiD field, as well as the Pacman geometry.
-For details on these detector characteristics, please refer to Chapter~\ref{ILC:SiD}.
+For details on these detector characteristics, please refer to Section~\ref{ILC:SiD}.
 
 \subsubsection{Muon hit distribution}
 For visualizing the hit distribution in the SiD detector, event displays (see Figure~\ref{fig:BDS_Muons:wired4}) were made using WIRED4~\cite{Wired4}.
