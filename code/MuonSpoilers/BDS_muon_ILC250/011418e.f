@@ -89,8 +89,8 @@ C
      1 ITOROID_LENGTH(20),TOROIDX(20),TOROID_POLARITY(20),NTOR
       LOGICAL LTOROID
       CHARACTER*20 FILE/'   011418e.f '/
-      OPEN(UNIT=6,FILE='e_5spoilers_mucarlo_1e9.output')
-      OPEN(UNIT=95,FILE='e_5spoilers_mucarlo_1e9.out95')
+      OPEN(UNIT=6,FILE='e_no_spoilers_mucarlo_2e8.output')
+      OPEN(UNIT=95,FILE='e_no_spoilers_mucarlo_2e8.out95')
       PRINT 1111, TYMINI
  1111 FORMAT(T3,' TYMINI=',G15.5,' SEC (START OF MAIN PROGRAM)',/)
 C
@@ -353,8 +353,8 @@ C SOUTH SIDE
         LTOROID(1) = .FALSE.
         LTOROID(2) = .FALSE.
 C  SPOILERS 3,4 ARE AT Z=344 M IN IR1
-C       LTOROID(3) = .TRUE.
-C       LTOROID(4) = .TRUE.
+C        LTOROID(3) = .TRUE.
+C        LTOROID(4) = .TRUE.
         LTOROID(3) = .FALSE.
         LTOROID(4) = .FALSE.
         LTOROID(5) = .FALSE.
@@ -363,16 +363,16 @@ C       LTOROID(4) = .TRUE.
         LTOROID(8) = .FALSE.
         LTOROID(9) = .FALSE.
         LTOROID(10) = .FALSE.
-C       LTOROID(11) = .FALSE.
-        LTOROID(11) = .TRUE.
-C        LTOROID(12) = .FALSE.
-        LTOROID(12) = .TRUE.
-C        LTOROID(13) = .FALSE.
-        LTOROID(13) = .TRUE.
-C        LTOROID(14) = .FALSE.
-        LTOROID(14) = .TRUE.
-C        LTOROID(15) = .FALSE.
-        LTOROID(15) = .TRUE.
+        LTOROID(11) = .FALSE.
+C        LTOROID(11) = .TRUE.
+        LTOROID(12) = .FALSE.
+C        LTOROID(12) = .TRUE.
+        LTOROID(13) = .FALSE.
+C        LTOROID(13) = .TRUE.
+        LTOROID(14) = .FALSE.
+C        LTOROID(14) = .TRUE.
+        LTOROID(15) = .FALSE.
+C        LTOROID(15) = .TRUE.
         LTOROID(16) = .FALSE.
         LTOROID(17) = .FALSE.
         LTOROID(18) = .FALSE.
@@ -794,7 +794,7 @@ C  THE FINAL FOCUS BEGINS 2500 METERS FROM THE IP                !LK
 C ZERO THE SURVIVING MUON COUNTERS. PL=PLUS, MI=MINUS, T=TOTAL,
 C D=DETECTOR
       EBEAM=  E(ISOURCE)
-      NEVENT=1000000000*F(ISOURCE)
+      NEVENT=200000000*F(ISOURCE)
       MUPLT=0
       MUPLD=0
       MUMIT=0
