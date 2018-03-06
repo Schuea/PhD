@@ -3,7 +3,7 @@
 \begin{chapterabstract}
 For answering the fundamental questions of mankind, it is necessary to understand the world in great detail.
 In order to confirm theories in particle physics, or to disprove them, it is often important to be able to measure the qualities of particles or their interactions to several decimal places.
-For measurements being done in high-energy particle colliders, such precisions can only be reached in linear lepton colliders.
+For measurements in high-energy particle colliders, such precisions can only be reached in linear lepton colliders.
 The following sections will present a new design for such a collider on the precision frontier: the International Linear Collider (ILC). 
 Its proposed layout, the possible construction sites, the detectors, and the physics motivation for such a capable accelerator will be explained.
 \end{chapterabstract}
@@ -11,7 +11,7 @@ Its proposed layout, the possible construction sites, the detectors, and the phy
 
 The International Linear Collider (ILC) is a proposed linear \positron\electron collider with a center-of-mass energy of \SI{250}{\GeV}, extendable to 350-\SI{500}{\GeV} and possibly even \SI{1}{\TeV}.
 Its high luminosity and its state of the art technologies for the detectors and the machine will make the ILC an unprecedented precision machine, complementary to the currently existing high-energy physics accelerators, such as the Large Hadron Collider (LHC) at CERN.
-The designs of the collider and the detector concepts are a result of over twenty years of research done at over 300 science laboratories and universities all over the world~\cite{TDR1}.
+The designs of the collider and the detector concepts are a result of over twenty years of research at over 300 science laboratories and universities all over the world~\cite{TDR1}.
 The ILC project is therefore an international project, as its name already suggests.
 
 \section{The ILC layout}
@@ -34,7 +34,7 @@ Figure~\ref{fig:ILC_Layout} shows the schematic layout of the ILC.
 \label{fig:ILC_Layout}
 \end{figure}
 The electrons are produced by a GaAs photocathode in a DC electron gun~\cite[p. 13]{TDR32}.
-By shining a circularly polarized laser on the electron beam, a beam polarization of at least \SI{80}{\percent} is achived, i.e. more than \SI{80}{\percent} of all electrons will be left-handed\footnote{For a left-handed particle, its spin and its momentum are antiparallel, pointing in opposite directions.}~\cite[p. 81]{TDR32}:
+By shining a circularly polarized laser on the electron beam, a beam polarization of at least \SI{80}{\percent} is achived, i.e. more than \SI{80}{\percent} of all electrons have the same hadedness\footnote{For a left-handed particle, its spin and its momentum are antiparallel, pointing in opposite directions, and vice versa for a right-handed particle.}~\cite[p. 81]{TDR32}:
 \begin{equation}
  P_e = \frac{N_L-N_R}{N_L+N_R} > 0.8
 \end{equation}
@@ -42,8 +42,8 @@ The electrons from the electron source are captured and continue along the elect
 The beam lines contain several sub-systems that prepare the beams for the main acceleration and the final collision.
 One of the first sub-systems of the electron beam line is the initial bunching and pre-acceleration of the beam with normal-conducting RF cavities.
 This is done using ``velocity bunching'', as explained in Section~\ref{AccPhysics:Bunching}.
-Being pre-accelerated to only \SI{76}{\MeV} in this step, the now `bunched' electron beams are accelerated to \SI{5}{\GeV} by a  superconducting booster linac~\cite[p. 81f]{TDR32}.\\
-The positron source consists of an undulator and a conversion target.
+Being pre-accelerated to \SI{76}{\MeV} in this step, the now `bunched' electron beams are accelerated to \SI{5}{\GeV} by a  superconducting booster linac~\cite[p. 81f]{TDR32}.\\
+The positron source consists of an undulator and a conversion target~\cite[p. 90f]{TDR32}.
 In an undulator, dipole magnets are placed in a line in such a way that their polarity alternates periodically (see Figure~\ref{fig:Undulator}).
 For the creation of the positrons, the electron beam is used, which is guided through a \SI{231}{\meter} long helical undulator after being accelerated to the final beam energy of \SI{125}{\GeV}.
 Using an undulator with a helical magnetic field causes the electrons to be deflected on a helical trajectory, and to emit synchrotron radiation photons that are circularly polarized\footnote{For circularly polarized light, the field vector of its electromagnetic wave rotates around the direction of propagation.}.
@@ -61,12 +61,12 @@ Due to the fact that the positrons were produced by using an already bunched ele
 Since the electrons and positrons still have a large emittance from when they originated from their sources, their momentum and beam sizes have to be condensed.
 This is done in the damping rings, which have a circumference of \SI{3.2}{\kilo\meter}~\cite[p. 14]{TDR32}.
 A layout of the ILC damping rings is shown in Figure~\ref{fig:DR}.
-As discussed several times before, the beams will emit synchrotron radiation when they are deflected in a magnetic field.
+As discussed before, the beams will emit synchrotron radiation when they are deflected in a magnetic field.
 This is desired in the damping rings in order to ``cool'' the beams, i.e. to reduce their momenta due to the emission of photons.
 The emission of synchrotron radiation happens in the curved sections of the damping rings, but also in the straight sections by the use of wigglers.
-Wigglers are similar to undulators, but use less magnet pairs and a higher magnetic fields.
+Wigglers are similar to undulators, but use fewer magnet pairs and higher magnetic fields.
 Charged particles are therefore deflected more in wigglers.
-Since the synchrotron radiation photons are emitted tangentially to the beam particle's path, the particle's momentum in forward direction is reduced.
+Since the synchrotron radiation photons are emitted tangentially to the beam particle's path, the particle's momentum in the forward direction is reduced.
 By accelerating the beams in RF cavities in the straight sections, the beam momentum in the z-direction is increased.
 Overall, the momentum in the desired direction rises, whilst the momentum spread shrinks.
 \begin{figure}[h]
@@ -111,6 +111,9 @@ A picture of one of these cavities is shown in Figure~\ref{fig:Tesla_Cavity}.
 Since cavities of the same design are already in use for the European XFEL (X-Ray Free-Electron Laser) at Deutsches Elektronen-Synchrotron (DESY) in Hamburg, their high performance has already been demonstrated~\cite{XFEL}.
 The gradient distribution of the cavities used at the European XFEL is shown in Figure~\ref{fig:XFEL_cav}.
 The average of the maximum gradient reachable is about \SI{35}{\mega\volt\per\meter}, which is higher than the ILC requirements.
+This is especially remarkable, as the cavity specifications for the European XFEL are lower than for the ILC.
+Another key point is that the production of the cavities is an industrialized process.
+The high gradients are therefore not demonstrated only in a laboratory environment, but are achieved in a less supervised procedure. \todo{English check}
 
 \begin{figure}[h!]
 \centering
@@ -258,14 +261,15 @@ Additionally, there are local airports in both, Morioka and Sendai, presenting f
 \section{Physics motivation}
 \label{ILC:physicsmotivation}
 After having shown that the ILC as a linear lepton collider is designed to be a state-of-the-art precision machine, this section will present its physics goals.
-With the LHC as the so-called ``discovery machine'', the ILC will be a complementary collider aiming rather for much needed precision than for searching for new particles at high energies.
-The ILC is often called the future Higgs factory which will measure the qualities of the Higgs boson with much higher precision than has been done so far.
+With the LHC as a machine at the energy frontier, the ILC will be a complementary collider aiming rather for much needed precision than for searching for new particles at high energies.
+The ILC therefore intends to find new particles and new physics through highest precision measurements.
+It is often called the future Higgs factory which will measure the qualities of the Higgs boson with much higher precision than has been done so far.
 Additionally, the different stages of the ILC will also measure the top quark qualities, and will have access to Beyond Standard Model (BSM) physics.
 Since the first ILC stage will run at a center-of-mass energy of \SI{250}{\GeV}, this section will focus more on the measurements of the Higgs boson than of the top quark and the BSM physics.
  
 \subsection{The way to go}
 To reach the precision the ILC promises, it must achieve four different objectives.
-These objectives are all linked so that one cannot be achieved without the others.
+These objectives are all linked so that one is dependent on the others.
 In the following section, these four objectives of the ILC are explained in comparison to the LHC.
 
 \paragraph{Minimal background}
