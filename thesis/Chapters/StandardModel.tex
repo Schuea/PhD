@@ -35,9 +35,9 @@ Since then, high-energy particle physics experiments could verify the SM predict
 The most recent measurements of the masses and other SM properties of the particles are summarized by the Particle Data Group (PDG) in the ``Review of Particle Physics'' in yearly editions~\cite{PDG}.
 \\The SM differs between two classes of the fundamental particles: 
 the particles that make up all matter are called \textit{fermions}, whilst the force mediators, through which the fermions can interact, are called \textit{gauge bosons}.
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=0.55\textwidth]{Figures/Standard_Model_of_Elementary_Particles.png}
+\includegraphics[width=0.5\textwidth]{Figures/Standard_Model_of_Elementary_Particles.png}
 \caption[Standard Model]{The Standard Model describes all elementary particles, the twelve fermions in their three generations and the four gauge bosons, as well as the Higgs boson.
 The shadows indicate possible interactions between the fermions and gauge bosons.~\cite{SM}}
 \label{fig:SM}
@@ -115,13 +115,7 @@ Since the down-quark is the second lightest quark, it can decay into the up-quar
 The proton is the lightest existing baryon, and can not decay further according to the Standard Model, since its quantum numbers have to be conserved.
 Together, the protons and neutrons construct the nuclei of every atom of every element.
 %The masses of the quarks increases towards higher generations.
-
-\paragraph{Bosons}
-The \textit{gauge bosons} described in the SM are the force mediators of the fundamental forces of nature:
-the electromagnetic, the weak, and the strong force.
-Gravity is the only fundamental force that is not represented by the SM.
-On the scale of particle physics, it is by far the weakest force, as can be seen from Table~\ref{tab:Forces}.
-\begin{table}
+\begin{table}[htbp]
 \caption[Fundamental forces]{The fundamental forces and their mediators.~\cite[cf. p. 59]{Griffiths}
 The strength of a force is dependent on various external factors, such as its source and its distance to the observer.
 Therefore, the listed values are a rough guideline of the orders of magnitude of difference between the effective strengths of the forces.}
@@ -138,6 +132,12 @@ Gravitational & \num{e-42} & Gravitons\\
 \hline\hline
 \end{tabularx}
 \end{table}
+\newpage
+\paragraph{Bosons}
+The \textit{gauge bosons} described in the SM are the force mediators of the fundamental forces of nature:
+the electromagnetic, the weak, and the strong force.
+Gravity is the only fundamental force that is not represented by the SM.
+On the scale of particle physics, it is by far the weakest force, as can be seen from Table~\ref{tab:Forces}.
 \\The fermions explained in the paragraph above are subject to these fundamental forces, and can interact with each other by exchanging the force mediators.
 The mediating particles are gauge bosons, which are particles with a spin of +1.\\
 \begin{minipage}{0.55\textwidth}
@@ -164,8 +164,10 @@ The gluons mediating the strong force bind the quarks together in all hadrons.
 Since the proton is the only stable hadron, it used for high-energy particle physics experiments to probe the proton and investigate its constituents.
 This probing is called ``deep inelastic scattering'', where an electron for instance is brought into collision with a proton.
 The electron penetrates the proton and scatters on one parton.
-By observing such processes, the distribution of the partons inside the proton can be determined, and summarized as the ``parton distribution functions''.
-Free partons, such as the remaining constituents of the proton, hadronize due to the color confinement, and form clusters of hadrons, so-called ``jets''.
+By observing such processes, the distribution of the partons inside the proton can be determined, and summarized as the ``parton distribution functions'' (PDF).
+Free partons, such as the remaining constituents of the proton, hadronize due to the color confinement, and form clusters of hadrons.
+In the detector these clusters produce particle showers, which are called ``jets''.
+A jet typically consists of about \SI{65}{\percent} charged hadrons, \SI{26}{\percent} photons and neutral pions, and \SI{9}{\percent} neutral hadrons~\cite[p. 2]{PFA}.
 \end{minipage} \hfill
 \begin{minipage}{0.4\textwidth}
 \centering
@@ -326,7 +328,7 @@ Further characterizations can be found in Chapter~\ref{PairBkg} about the Monte 
 \subsubsection{Bhabha scattering and $\gamma\gamma\rightarrow$ hadrons}
 \label{BeamBeam:bhabha_gammagamma}
 Further background particles are produced by processes with much smaller cross sections than for the pair background in the section above.
-At the International Linear Collider for example, about 1-\num{2e5} electrons and positrons from the pair background are expected per bunch collision, whilst only around one event per bunch collision is expected for the productions of hadrons from beamstrahlung photons, and even less than one for the so-called Bhabha scattering~\cite{SiDBkgNote}. \todo{Update these numbers for 250GeV}
+At the International Linear Collider for example, about 1-\num{2e5} electrons and positrons from the pair background are expected per bunch collision, whilst only around one event per bunch collision is expected for the productions of hadrons from beamstrahlung photons, and even less than one for the so-called Bhabha scattering~\cite{SiDBkgNote}. %\todo{Update these numbers for 250GeV}
 Figure~\ref{fig:Feynman:bhabha_gammagamma} shows the Feynman diagrams for Bhabha scattering and the $\gamma\gamma\rightarrow$ hadrons process.
 Although both of these processes produce particles with low transverse momentum as well, the interaction products leave traces in the detectors, which overlay with signal physics events.
 \begin{figure}[h!]
