@@ -117,7 +117,7 @@ Adding up all muons from the different sources on the electron and the positron 
 Table~\ref{tab:BDS_Muons_muon_numbers} lists the muon rates per bunch crossing for a center-of-mass energy of 250 and \SI{500}{\GeV}, and for the two different shielding scenarios.
 At \SI{500}{\GeV}, about 130 muons per bunch crossing would reach the detector in the case that no shielding was installed.
 This number is reduced to about 4 muons with the five cylindrical spoilers, and to below 1 muon per bunch crossing with an additional magnetized wall.
-\\For a lower beam energy of \SI{125}{\GeV} (\SI{250}{\GeV} center-of-mass energy), the number of muons that are produced is lower, because of which only around 38 muons reach the detector without shielding.
+For a lower beam energy of \SI{125}{\GeV} (\SI{250}{\GeV} center-of-mass energy), the number of muons that are produced is lower, because of which only around 38 muons reach the detector without shielding.
 With the two different shielding scenarios, the muon rate is again reduced significantly to a minimum of about 0.03 per bunch crossing.
 %------------------
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -140,7 +140,9 @@ With the two different shielding scenarios, the muon rate is again reduced signi
 \end{tabularx}
 \end{table}
 \\The output of \mucarlo is a text file containing the 4-vectors of the muons \SI{10}{\meter} from the IP.
-These numbers can therefore be used as input to a full detector simulation. \todo{Add reference to Glen's cross check}
+These 4-vectors can therefore be used as input to a full detector simulation. 
+\\An additional study was done using a \geant simulation of the BDS tunnel in order to cross check the \mucarlo results and to thereby verify the \mucarlo simulation.
+The outcome of that study was that both simulations are in good agreement~\cite{Glens_muon_talk}.
 
 \subsection{Effect of muons on the SiD performance}
 \label{BDS_Muons:SiD}
@@ -148,6 +150,7 @@ Since the SiD detector only reads out the hits after every bunch train (1312 bun
 As in the previous chapter, the full detector simulation was done using \slic.
 The geometry input file that was used contained the most recent sidloi3 geometry of the SiD detector, including the new L* position, the anti-DiD field, as well as the Pacman geometry.
 For details on these detector characteristics, please refer to Section~\ref{ILC:SiD}.
+After a file-format conversion, the \mucarlo output files containing the 4-vectors of the muons for the different shielding scenarios and center-of-mass energies served as the particle source input to \slic.
 
 \subsubsection{Muon hit distribution}
 For visualizing the hit distribution in the SiD detector, event displays (see Figure~\ref{fig:BDS_Muons:wired4}) were made using WIRED4~\cite{Wired4}.
@@ -312,7 +315,7 @@ However, it still does not exceed \num{e-7}.
 However, the wall serves as a tertiary containment device against muons and other machine background particles.
 The decision might be to keep the wall anyway for the protection of personnel and maintenance staff, depending on the law restrictions.
 A solution to lessen the price for the wall would be to change its design such that its thickness is reduced and it is not magnetized.
-The wall would then still serve as additional shielding but does not deflect charged particles. \todo{Maybe PACMAN magnetized or with different materials}
+The wall would then still serve as additional shielding but does not deflect charged particles. \\An idea for future studies of the muon shielding would be to also adjust the detector specific Pacman design with respect to different materials and the possibility of magnetizing the Pacman volume.
 
 %---------------------------------------------------
 \section{Background from beam halo collimators in the final-focus system}
