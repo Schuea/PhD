@@ -16,10 +16,10 @@ F77dline: False
 # Run information
 Run: <default>
 	Prev:     0
-	Last:     3
-	Status:   3
-	Pid:      0
-	StartRun: 1501667979
+	Last:     5
+	Status:   5
+	Pid:      10229
+	StartRun: 1520784912
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_21.bnn
 	Data: \I_\U.\e
@@ -719,16 +719,6 @@ Material: Phosphor
 End
 
 # Material
-Material: Ti-6Al4V
-	alpha: 0
-	color: #407030
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
 Material: Molybdenum
 	alpha: 0
 	color: #D03050
@@ -742,6 +732,16 @@ End
 Material: Vanadium
 	alpha: 0
 	color: #807070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: BorConc
+	alpha: 0
+	color: #4050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -769,9 +769,9 @@ Material: B2O3
 End
 
 # Material
-Material: Cs
+Material: Eu
 	alpha: 0
-	color: #901070
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -869,9 +869,9 @@ Material: CaO
 End
 
 # Material
-Material: BorConc
+Material: Ti-6Al4V
 	alpha: 0
-	color: #4050D0
+	color: #407030
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -879,9 +879,9 @@ Material: BorConc
 End
 
 # Material
-Material: Eu
+Material: Cs
 	alpha: 0
-	color: #703070
+	color: #901070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -1016,7 +1016,7 @@ Plot: Green
 	cbtics: 0
 	coord: Z-X
 	cpd: 0
-	extends: 66.7482 83.3851
+	extends: 66.7482 50.0611
 	grid: 0
 	index: 0
 	labels: 1
@@ -1042,7 +1042,7 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: X-Y
-	extends: 488.466 608.749
+	extends: 488.466 366.349
 	labels: 1
 	layer: Media
 	origin: 43.762 -61.4855 228
@@ -1064,7 +1064,7 @@ Plot: Magenta
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 422.494 526.532
+	extends: 422.494 316.871
 	grid: 0
 	index: 0
 	labels: 1
