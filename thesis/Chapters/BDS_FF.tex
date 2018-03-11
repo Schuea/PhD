@@ -14,7 +14,7 @@
 After the beam acceleration in the main linacs of the ILC, the Beam Delivery System (BDS) is the part of the accelerator that prepares the beams for collision.
 As described in Section~\ref{ILC:layout:details}, it contains numerous subsystems and components for beam collimation and focusing. 
 Depending on the aperture of the collimators, some fraction of the beam halo hits the collimator material, which has the desired effect of collimating the beam, but also the undesired effect of producing background particles.
-\\For defining the beam halo, which surrounds the beam core, the beam core itself has to be defined first in terms of $\sigma_x$ and $\sigma_y$ (the RMS beam size values given in Table~\ref{tab:ILC_parameters}).
+\\For defining the beam halo, which surrounds the beam core, the beam core itself has to be defined first in terms of $\sigma_x$ and $\sigma_y$, which are the RMS beam size values at the beginning of the first collimator location in the BDS: $\sigma_x = $ \SI{146}{\micro\meter} and $\sigma_y = $ \SI{9}{\micro\meter}~\cite{Lewis}.
 In this study, the core is defined as an ellipse with a horizontal size of $\pm 5\sigma_x$ and a vertical size of $\pm 36\sigma_y$ at the beginning of the BDS.
 The beam halo is the elliptical ring around the beam core, covering 5-13$\sigma_x$ and 36-93$\sigma_y$.
 The beam particle intensity in the core follows a $\frac{1}{r}$ distribution, and the beam power of the halo is normalized to \SI{0.1}{\percent} of the nominal beam power~\cite{Glens_muon_talk}.
@@ -81,7 +81,7 @@ Arguments against the wall were brought forward regarding costs and safety issue
 \label{BDS_Muons:MUCARLO}
 The interactions between the ILC beam and the machine components in the BDS were simulated with a Monte Carlo tool called \mucarlo~\cite{Mucarlo,MuonBkg_05TeV,MuonBkg_1TeV}.
 Since the presented study is done for two different ILC stages, at \SI{250}{\GeV} and at \SI{500}{\GeV}, the beam parameters of the respective stage were used accordingly.
-The geometry lattice of the ILC Beam Delivery System serves as the input geometry to the \mucarlo code, through which the muons are tracked with the help of the tracking algorithm \turtle~\cite{Turtle}.
+The geometry lattice of the ILC Beam Delivery System serves as the input geometry to the \mucarlo code, through which the muons are tracked.
 Figure~\ref{fig:BDS_Muons:tracks} shows the muon tracks in the electron-line of the BDS.
 The muons are created at certain locations along the beam line, are deflected by the magnetic field of beam line components, and lose kinetic energy through scattering in the material of the components the muons hit.
 In the end, only those muons that reach the IP (at z = \SI{0}{\meter}) are stored.
@@ -97,18 +97,20 @@ The following list names these collimators and their position from the IP~\cite{
  It describes the gap between one of the collimator jaws and an arbitrarily chosen plane (usually the beam center plane).
  Both of the jaws have the same distance from this plane.}: \SI{930}{\micro\meter} in x, \SI{400}{\micro\meter} in y):\\
   SP2 (\SI{1508}{\meter}), SP4 (\SI{1332}{\meter})
- \item Protection collimators against synchrotron radiation (radiation length: 20 X\textsubscript{0}, half-gap: \SI{0.7}{\centi\meter}):\\
+ \item Protection collimators (radiation length: 30 X\textsubscript{0}, inner radius: \SI{0.7}{\centi\meter}):\\
   PC1 (\SI{1452}{\meter}), PC2 (\SI{1387}{\meter}), PC5 (\SI{1276}{\meter}), PC5A (\SI{1242}{\meter}), PC6 (\SI{1208}{\meter}), PC7 (\SI{1047}{\meter})
  \item Absorbers (radiation length: 30 X\textsubscript{0}, half-gap: \SI{0.7}{\centi\meter}):\\
   AB3 (\SI{1420}{\meter}), AB5 (\SI{1237}{\meter}), ABE (\SI{852}{\meter})
 \end{itemize}
-The number of muons created is proportional to the fraction of the collimator surface that is hit with respect to the beam size.
+The protection collimators and absorbers serve the purpose of protecting the magnets of the BDS from particle showers (arising from the beam halo collimation) and from mis-steered primary beams.
+The number of muons created is proportional to the fraction of the collimator surface that is hit with respect to the beam size, which was determined with the help of the Monte Carlo ray-tracing computer program \turtle~\cite{Turtle}.
 The general design of these collimators can be found in \cite{BDS_coll_design}.
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{Figures/BDS_muons/BDS_Tunnel_Spoilers+Wall_edited.png}
 \caption[Muon tracks in the Beam Delivery Systems]{Visualization of the muon tracks in the ILC Beam Delivery System (BDS)~\cite{Lewis}.
 The picture shows the xz-plane of the BDS tunnel with the beam line components (spoilers and collimators), which serve as muon sources.
+In this particular example, the muons origin from the primary collimator spoiler SP4.
 The locations of the muon shielding components (the magnetized spoilers and wall) are also indicated.
 The green/red thin lines represent the tracks of the muons.}
 \label{fig:BDS_Muons:tracks}
@@ -191,7 +193,8 @@ The top-bottom asymmetry is due to the fact that the detector cavern is below gr
 The clear tunnel imprint is no longer visible in Figure~\ref{fig:BDS_Muons:wired4} (b).
 Scattering the muons is not the only effect of the magnetized wall.
 As can be seen in Figure~\ref{fig:BDS_Muons:energy}, the wall shifts the muon energy to lower values for a respective center-of-mass energy.
-In the material of the wall, the muons lose their energy, and low energy muons are stopped completely. %\todo{Check out Bethe-Bloch here}
+The muons are deflected away from the forward directions due to the magnetization of the wall, but also lose their energy in the material of the wall.
+Low energy muons are either stopped completely, or deflected such that they cannot reach the detector. %\todo{Check out Bethe-Bloch here}
 The peak in the energy distributions at lower energies is therefore reduced for the ``5 spoilers + wall'' scenarios.
 Additionally, the number of muons per bunch train can directly be compared for the two ILC stages and the different shielding options.
 \begin{figure}[htbp]
