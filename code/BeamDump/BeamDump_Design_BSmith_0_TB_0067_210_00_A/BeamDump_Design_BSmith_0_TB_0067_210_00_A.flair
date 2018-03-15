@@ -984,7 +984,7 @@ Plot: Red
 	cbtics: 0
 	coord: U-V
 	cpd: 0
-	extends: 339.71 179.001
+	extends: 339.71 183.281
 	grid: 0
 	index: 0
 	labels: 1
@@ -1016,7 +1016,7 @@ Plot: Green
 	cbtics: 0
 	coord: Z-X
 	cpd: 0
-	extends: 66.7482 50.0611
+	extends: 66.7482 83.3851
 	grid: 0
 	index: 0
 	labels: 1
@@ -1042,7 +1042,7 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: X-Y
-	extends: 488.466 366.349
+	extends: 488.466 608.749
 	labels: 1
 	layer: Media
 	origin: 43.762 -61.4855 228
@@ -1064,7 +1064,7 @@ Plot: Magenta
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 422.494 316.871
+	extends: 422.494 526.532
 	grid: 0
 	index: 0
 	labels: 1
