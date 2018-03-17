@@ -37,31 +37,48 @@ On the other hand, the immediate irradiation of the beam dump surrounding leads 
 \label{BeamDumps:fluka}
 The simulation study of the ILC main beam dumps for this thesis was done using the Monte Carlo simulation tool \fluka~\cite{FLUKA,FLUKA2}.
 \fluka calculates the particle transport and interactions with matter of the user-defined geometry.
-With the graphical interface \flair~\cite{FLAIR}, which was specifically developed for \fluka, complex geometries can be constructed with the help of technical drawings that can be imported as templates into the \flair-geoviewer plug-in.
+With the graphical interface \flair~\cite{FLAIR}, which was specifically developed for \fluka, complex geometries can be constructed with the help of technical drawings that can be imported as templates into the \flair-geoviewer plug-in (see Figure~\ref{fig:BeamDumps:geoviewer}).
 It allows interactive geometry viewing and editing, as well as debugging and three dimensional visualization.
-\begin{figure}[htbp]
+\\\fluka's capabilities cover furthermore the calculation of particle densities and energy densities, the activation of material, and the residual dose rates when considering variable cooling times.
+These functionalities were used for the study of the ILC beam dump designs presented in the following sections.
+\begin{figure}[hbp]
 \centering
 \includegraphics[width=0.5\textwidth]{Figures/BeamDump/Design2_geometry_drawing_xz.png}
 \caption[Preview of the geometry construction in \flair]{Preview of the construction of the ILC beam dump using a technical drawing as a template imported into the \flair-geoviewer plug-in.}
 \label{fig:BeamDumps:geoviewer}
 \end{figure}
 
-\section{Beam dump design}
-\label{BeamDumps:design}
-The design for the beam dump simulated for this thesis is based on the TDR design as well as on the technical design drawings done by B. Smith~\cite{Smith_drawings}.
-Figure~\ref{fig:BeamDumps:geometry} shows the visualization of the beam dumps modelled within \fluka. It is a simplified version derived from the design drawings, only containing a simple water tank in the middle of the shielding in the beam dump tomb. The infrastructure, like cables, water pipes etc., is not included in the simulation geometry.
-
-\begin{figure}
+\section{ILC main beam dump designs}
+\label{BeamDumps:designs}
+The designs for the main beam dump in this study are based on the technical design drawings done by Benjamin Smith~\cite{Smith_drawings}.
+The drawings include plans for the surface building, the beam dump hall with the shielding walls around the water tank, and two different designs for the main beam dumps.
+The design based on the drawing with the identification number 0-TB-0067-210-00-A shall henceforth be called ``Design 1'', the second design based on drawing 0-TB-0067-300-00-A shall be called ``Design 2''.
+Figure~\ref{fig:BeamDumps:geometry} shows a visualization of the beam dump hall modeled within \fluka. 
+It is a simplified version, only containing a simple water tank in the middle of the shielding in the beam dump tomb. 
+The infrastructure, such as cables and water pipes, is not included in the simulation geometry.
+\\As mentioned in the section above, technical design drawings can be imported into \flair, and directly used as templates for the construction of the geometry.
+This was done for the two beam dump designs, which will be explained in detail in the following.
+\begin{figure}[hbp]
 \begin{center}
 \resizebox{.9\textwidth}{!}{%
 \includegraphics[height=0.35\textheight]{Figures/BeamDump/Front_view_BeamDump_Tomb.png}%
 \quad
 \includegraphics[height=0.35\textheight]{Figures/BeamDump/Bird_view_BeamDump_Tomb.png}%
 }
-\caption[Geometry of the simulated beam dumps.]{The beam dumps modelled within \fluka and visualized with \flair. On the left hand side, the front view on the beam dump is shown, i.e. the beam direction is going into the paper plane, whereas the right hand side shows the top view. The actual dump is represented by the water tank in the middle of the different shielding walls. A \fluka specific feature is the need of having a black body void around the geometry. This void is the limit of the tracking region and stops all particles reaching this edge.}
+\caption[Geometry visualization of the ILC main beam dump hall]{The beam dump hall was modeled within \fluka and visualized with \flair.
+The left hand picture is the front view, the beam direction is going into the page.
+The right hand figure shows the top view, in which the water tank is shown in the middle of the different shielding walls. 
+A \fluka specific feature is the need of having a black body void around the geometry. 
+This void is the boarder of the tracking region, and stops all particles reaching this edge.}
 \label{fig:BeamDumps:geometry}
 \end{center}
 \end{figure}
+
+\subsection{Design 1}
+\label{BeamDumps:design:design1}
+
+\subsection{Design 2}
+\label{BeamDumps:design:design2}
 
 \section{Simulation studies of the beam dump surrounding}
 \label{BeamDumps:sim_surrounding}
