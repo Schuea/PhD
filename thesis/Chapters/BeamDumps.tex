@@ -35,12 +35,16 @@ On the other hand, the immediate irradiation of the beam dump surrounding leads 
 
 \section{\fluka and \flair}
 \label{BeamDumps:fluka}
-The simulation study of the ILC main beam dumps was done for this thesis using the Monte Carlo simulation tool \fluka~\cite{FLUKA,FLUKA2}.
- 
-After providing the simulation settings and the geometry in a text file as input source, \fluka uses certain algorithms to simulate and track the particles through the geometry.
-%TODO: FLUKA algorithms
-The graphical interface developed for \fluka is called \flair~\cite{FLAIR}. 
-Its plug-in flair-geoviewer allows interactive geometry viewing and editing, as well as debugging and three dimensional visualization.
+The simulation study of the ILC main beam dumps for this thesis was done using the Monte Carlo simulation tool \fluka~\cite{FLUKA,FLUKA2}.
+\fluka calculates the particle transport and interactions with matter of the user-defined geometry.
+With the graphical interface \flair~\cite{FLAIR}, which was specifically developed for \fluka, complex geometries can be constructed with the help of technical drawings that can be imported as templates into the \flair-geoviewer plug-in.
+It allows interactive geometry viewing and editing, as well as debugging and three dimensional visualization.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.5\textwidth]{Figures/BeamDump/Design2_geometry_drawing_xz.png}
+\caption[Preview of the geometry construction in \flair]{Preview of the construction of the ILC beam dump using a technical drawing as a template imported into the \flair-geoviewer plug-in.}
+\label{fig:BeamDumps:geoviewer}
+\end{figure}
 
 \section{Beam dump design}
 \label{BeamDumps:design}
