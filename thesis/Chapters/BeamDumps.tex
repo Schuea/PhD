@@ -53,11 +53,15 @@ These functionalities were used for the study of the ILC beam dump designs prese
 The designs for the main beam dump in this study are based on the technical design drawings done by Benjamin Smith~\cite{Smith_drawings}.
 The drawings include plans for the surface building, the beam dump hall with the shielding walls around the water tank, and two different designs for the main beam dumps.
 The design based on the drawing with the identification number 0-TB-0067-210-00-A shall henceforth be called ``Design 1'', the second design based on drawing 0-TB-0067-300-00-A shall be called ``Design 2''.
-Figure~\ref{fig:BeamDumps:geometry} shows a visualization of the beam dump hall modeled within \fluka. 
-It is a simplified version, only containing a simple water tank in the middle of the shielding in the beam dump tomb. 
+Figure~\ref{fig:BeamDumps:geometry} shows a visualization of the beam dump hall modeled within \flair. 
+The innermost shielding wall around the beam dump vessel is made of iron, and has a thickness of \SI{50}{\centi\meter}.
+The middle layer of shielding consists of \SI{1.5}{\meter} thick boronated concrete, surrounded by a layer of normal concrete, which has a thickness of \SI{2}{\meter}.
+Boronated concrete is concrete enriched with boron for the specific purpose of radiation shielding.
+The composition of both concrete types, boronated and normal concrete, was adapted from concrete mixtures used in Japanese research centers, as described in~\cite{concrete}. 
 The infrastructure, such as cables and water pipes, is not included in the simulation geometry.
 \\As mentioned in the section above, technical design drawings can be imported into \flair, and directly used as templates for the construction of the geometry.
 This was done for the two beam dump designs, which will be explained in detail in the following.
+
 \begin{figure}[hbp]
 \begin{center}
 \resizebox{.9\textwidth}{!}{%
@@ -65,7 +69,8 @@ This was done for the two beam dump designs, which will be explained in detail i
 \quad
 \includegraphics[height=0.35\textheight]{Figures/BeamDump/Bird_view_BeamDump_Tomb.png}%
 }
-\caption[Geometry visualization of the ILC main beam dump hall]{The beam dump hall was modeled within \fluka and visualized with \flair.
+\caption[Geometry visualization of the ILC main beam dump hall]{Simplified version of the beam dump hall for the purpose of visualization, containing only a simple water tank in the middle of the shielding walls. 
+The geometry was modeled within \flair according to the technical drawings of the ILC beam dump facility.
 The left hand picture is the front view, the beam direction is going into the page.
 The right hand figure shows the top view, in which the water tank is shown in the middle of the different shielding walls. 
 A \fluka specific feature is the need of having a black body void around the geometry. 
@@ -79,12 +84,57 @@ This void is the boarder of the tracking region, and stops all particles reachin
 As both beam dump designs are based on a water tank system, their basic layout is very similar.
 For both, the water vessel out of 316L stainless steel has a diameter of \SI{1.5}{\meter} and a length of \SI{6.5}{\meter}.
 The water is pressurized to \SI{10}{\bar}.
-\\The window between the vessel and the beam pipe has a diameter of \SI{30}{\centi\meter} and a thickness of \SI{1}{\milli\meter}.
+The window between the vessel and the beam pipe has a diameter of \SI{30}{\centi\meter} and a thickness of \SI{1}{\milli\meter}.
 For its material, the titanium alloy Ti-6Al-4V is foreseen.
-\\Overall, the water volume represents a radiation length of \SI{27}{\xzero}.
+\\As can be seen from Figure~\ref{fig:BeamDumps:design1}, the vessel contains an inner vortex system.
+The turbulence of the water allows the arising heat from the beam power to dissipate.
+\\Overall, the water volume represents a radiation length of \SI{18}{\xzero}.
+Additional \SI{9}{\xzero} are placed in the end of the vessel in form of water cooled copper plates.
+
+\begin{figure}[h]
+ \centering
+  \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/TB-0067-210-00-A_yz_view.png}
+   \caption{Technical drawing, yz view}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Design1_geometry_3Dinside.png}
+   \caption{\fluka model, 3D view}
+   \end{subfigure}
+   \caption[ILC main beam dump design 1]{Figure (a) shows the yz view of the beam dump Design 1 from the technical drawing.
+   The \fluka model constructed within \flair is shown in Figure (b).}
+   \label{fig:BeamDumps:design1}
+ \end{figure}
 
 \subsection{Design 2}
 \label{BeamDumps:design:design2}
+The basic layout explained above for Design 1 was also adopted for Design 2, so that the measurements of the vessel and the window are the same for both designs.
+The main difference is the addition of a high pressure water section in the middle of the vessel  for Design 2.
+Figure~\ref{fig:BeamDumps:design2} shows the 3D model of Design 2, implemented within \flair, with the high presser water section in the middle. 
+The titanium tubes of this system have a diameter of \SI{4}{\centi\meter}, through which high pressure water is pumped.
+\\The vortex system shows also a different design approach.
+More tubes are connecting the vortex tubes with the outside pumps.
+The copper plates, however, are also in this design placed in the end of the vessel for additional radiation length.
+
+\begin{figure}[h]
+ \centering
+  \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Design2_geometry_3Dinside3.png}
+   \caption{\fluka model, yz view}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Design2_geometry_3Dinside1.png}
+   \caption{\fluka model, 3D view}
+   \end{subfigure}
+   \caption[ILC main beam dump design 2]{Figure (a) shows the yz view of the \fluka model of the beam dump Design 2, the 3D view is shown in Figure (b).}
+   \label{fig:BeamDumps:design2}
+ \end{figure}
 
 \section{Simulation studies of the beam dump surrounding}
 \label{BeamDumps:sim_surrounding}
