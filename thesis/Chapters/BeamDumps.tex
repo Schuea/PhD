@@ -139,9 +139,9 @@ The copper plates, however, are also in this design placed in the end of the ves
 \section{Simulation studies of the beam dump surrounding}
 \label{BeamDumps:sim_surrounding}
 For the \fluka simulation of the ILC beam being dumped into the water tanks of \designone and \designtwo as explained above, the running scheme of the ILC1000B~\cite[p. 11]{TDR1} stage was chosen.
-The beam bunches, which are considered un-collided and un-disrupted for this simulation study, have a bunch population of \num{1.74e10}, and a beam energy of \SI{500}{\GeV}.
+The beam bunches, which are considered un-collided and un-disrupted for this simulation study, have a bunch population of \num{1.74e10} electrons, and a beam energy of \SI{500}{\GeV}.
 One beam pulse has \num{2450} bunches and a duration of \SI{896.7}{\micro\second}.
-At the location of the main beam dump, the bunches have a size of $\sigma_x = $\SI{2.4}{\milli\meter} and $\sigma_y = $\SI{0.22}{\milli\meter}.
+At the location of the main beam dump, the bunches have a size of $\sigma_x = $\,\SI{2.4}{\milli\meter} and $\sigma_y = $\,\SI{0.22}{\milli\meter}.
 \\In the \fluka model, the origin of the world coordinate system is set to the center axis of the beam pipe in x and y, and to the middle of the water vessel in z.
 The beam bunches are therefore starting at a negative z-position of \SI{-10}{\meter} along the beam pipe center axis.
 This becomes clear in Figure~\ref{fig:BeamDumps:Energy}, which shows the first \fluka result, the deposited energy per bunch.
@@ -149,33 +149,50 @@ The following sections present then furthermore the expected dose rate and the p
 
 \subsection{Energy deposition}
 \label{BeamDumps:sim_surrounding:Energy}
-In \fluka, various physics quantities can be measured in so-called scoring cards as spatial densities or as double differential distributions.
+In \fluka, various physics quantities can be measured as spatial densities or as double differential distributions in so-called scoring cards.
 The measured data can then be plotted with \flair.
 \\In this subsection, the measured energy deposition per volume is presented in the beam dump surrounding.
-Figure~\ref{fig:BeamDumps:Energy} shows the results in the xz plane of the geometry.
+Figure~\ref{fig:BeamDumps:Energy} (a) and (b) show the results in the xz plane of the geometry.
 For such two dimensional plots, \flair gives the option to superimpose the outlines of the geometry model in the correct plane.
 In this way, the spatial distribution of the scored physics quantity can directly be associated with the material allocation of the geometry.
+The comparison between Figure (a) and (b) shows that the energy deposited in \designone is well contained within the iron shielding wall.
+Closest to the vessel, energies of up to about \SI{e6}{\GeV\per\centi\meter\cubed} are deposited in the iron.
+For \designtwo however, the spread in the energy deposition reaches beyond the first shielding walls.
+The reason for that is the larger material density in \designtwo in form of the high pressure water section in the middle the vessel, which leads to enhanced particle showering.
 \begin{figure}[h]
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/BeamDump/Energy_deposition_xz_Design1.pdf}
-   \caption{\designone}
+   \caption{\designone, xz plane}
    \end{subfigure}
    \hfill
     \begin{subfigure}[b]{0.49\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/BeamDump/Energy_deposition_xz_Design2.pdf}
+   \caption{\designtwo, xz plane}
+   \end{subfigure}\\ \vspace*{0.3cm}
+     \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[height=0.25\textheight]{Figures/BeamDump/Energy_deposition_1DMax_z_Design1.png}
+   \caption{\designone, }
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[height=0.25\textheight]{Figures/BeamDump/Energy_deposition_1DMax_z_Design2.png}
    \caption{\designtwo}
    \end{subfigure}
-   \caption[Energy deposition in the ILC main beam dump]{\fluka result of the energy deposition of one beam bunch in the ILC beam dump \designone (a) and \designtwo (b).
+   \caption[Energy deposition in the ILC main beam dump]{\fluka result of the energy deposition density of one beam bunch in the ILC beam dump \designone (a) and \designtwo (b).
    The view is in the xz plane of the beam dump surrounding including the shielding walls.
-   The color scale shows the deposited energy in \si{\GeV\per\centi\meter\cubed} per bunch.}
+   The color scale shows the deposited energy in \si{\GeV\per\centi\meter\cubed} per bunch.
+   \\Figures (c) and (d) show the maximum values of the energy deposition as a projection on the z axis.}
    \label{fig:BeamDumps:Energy}
- \end{figure}
+\end{figure}
+\\Subfigures (c) and (d) show the projection of maximum values of the deposited energy onto the z axis.
+
  
 \begin{itemize}
- \item Energy deposition for both designs - done
  \item Dose rate for both designs - done 
  \item Particle fluxes for both designs - done 
  \item Neutron spatial distributions - almost done
