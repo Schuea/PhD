@@ -52,7 +52,7 @@ These functionalities were used for the study of the ILC beam dump designs prese
 \label{BeamDumps:designs}
 The designs for the main beam dump in this study are based on the technical design drawings done by Benjamin Smith~\cite{Smith_drawings}.
 The drawings include plans for the surface building, the beam dump hall with the shielding walls around the water tank, and two different designs for the main beam dumps.
-The design based on the drawing with the identification number 0-TB-0067-210-00-A shall henceforth be called ``\design1'', the second design based on drawing 0-TB-0067-300-00-A shall be called ``\design2''.
+The design based on the drawing with the identification number 0-TB-0067-210-00-A shall henceforth be called ``\designone'', the second design based on drawing 0-TB-0067-300-00-A shall be called ``\designtwo''.
 Figure~\ref{fig:BeamDumps:geometry} shows a visualization of the beam dump hall modeled within \flair. 
 The innermost shielding wall around the beam dump vessel is made of iron, and has a thickness of \SI{50}{\centi\meter}.
 The middle layer of shielding consists of \SI{1.5}{\meter} thick boronated concrete, surrounded by a layer of normal concrete, which has a thickness of \SI{2}{\meter}.
@@ -79,7 +79,7 @@ This void is the boarder of the tracking region, and stops all particles reachin
 \end{center}
 \end{figure}
 
-\subsection{\design1}
+\subsection{\designone}
 \label{BeamDumps:design:design1}
 As both beam dump designs are based on a water tank system, their basic layout is very similar.
 For both, the water vessel out of 316L stainless steel has a diameter of \SI{1.5}{\meter} and a length of \SI{6.5}{\meter}.
@@ -104,16 +104,16 @@ Additional \SI{9}{\xzero} are placed in the end of the vessel in form of water c
     \includegraphics[width=\textwidth]{Figures/BeamDump/Design1_geometry_3Dinside.png}
    \caption{\fluka model, 3D view}
    \end{subfigure}
-   \caption[ILC main beam dump design 1]{Figure (a) shows the yz view of the beam dump \design1 from the technical drawing.
+   \caption[ILC main beam dump design 1]{Figure (a) shows the yz view of the beam dump \designone from the technical drawing.
    The \fluka model constructed within \flair is shown in Figure (b).}
    \label{fig:BeamDumps:design1}
  \end{figure}
 
-\subsection{\design2}
+\subsection{\designtwo}
 \label{BeamDumps:design:design2}
-The basic layout explained above for \design1 was also adopted for \design2, so that the measurements of the vessel and the window are the same for both designs.
-The main difference is the addition of a high pressure water section in the middle of the vessel  for \design2.
-Figure~\ref{fig:BeamDumps:design2} shows the 3D model of \design2 implemented within \flair, with the high presser water section in the middle. 
+The basic layout explained above for \designone was also adopted for \designtwo, so that the measurements of the vessel and the window are the same for both designs.
+The main difference is the addition of a high pressure water section in the middle of the vessel  for \designtwo.
+Figure~\ref{fig:BeamDumps:design2} shows the 3D model of \designtwo implemented within \flair, with the high presser water section in the middle. 
 The titanium tubes of this system have a diameter of \SI{4}{\centi\meter}, through which high pressure water is pumped.
 \\The vortex system shows also a different design approach.
 More tubes are connecting the vortex system with the outside pumps.
@@ -132,13 +132,13 @@ The copper plates, however, are also in this design placed in the end of the ves
     \includegraphics[width=\textwidth]{Figures/BeamDump/Design2_geometry_3Dinside1.png}
    \caption{\fluka model, 3D view}
    \end{subfigure}
-   \caption[ILC main beam dump design 2]{Figure (a) shows the yz view of the \fluka model of the beam dump \design2, the 3D view is shown in Figure (b).}
+   \caption[ILC main beam dump design 2]{Figure (a) shows the yz view of the \fluka model of the beam dump \designtwo, the 3D view is shown in Figure (b).}
    \label{fig:BeamDumps:design2}
  \end{figure}
 
 \section{Simulation studies of the beam dump surrounding}
 \label{BeamDumps:sim_surrounding}
-For the \fluka simulation of the ILC beam being dumped into the water tanks of \design1 and \design2 as explained above, the running scheme of the ILC1000B~\cite[p. 11]{TDR1} stage was chosen.
+For the \fluka simulation of the ILC beam being dumped into the water tanks of \designone and \designtwo as explained above, the running scheme of the ILC1000B~\cite[p. 11]{TDR1} stage was chosen.
 The beam bunches, which are considered un-collided and un-disrupted for this simulation study, have a bunch population of \num{1.74e10}, and a beam energy of \SI{500}{\GeV}.
 One beam pulse has \num{2450} bunches and a duration of \SI{896.7}{\micro\second}.
 At the location of the main beam dump, the bunches have a size of $\sigma_x = $\SI{2.4}{\milli\meter} and $\sigma_y = $\SI{0.22}{\milli\meter}.
@@ -160,15 +160,15 @@ In this way, the spatial distribution of the scored physics quantity can directl
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/BeamDump/Energy_deposition_xz_Design1.pdf}
-   \caption{\design1}
+   \caption{\designone}
    \end{subfigure}
    \hfill
     \begin{subfigure}[b]{0.49\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/BeamDump/Energy_deposition_xz_Design2.pdf}
-   \caption{\design2}
+   \caption{\designtwo}
    \end{subfigure}
-   \caption[Energy deposition in the ILC main beam dump]{\fluka result of the energy deposition of one beam bunch in the ILC beam dump \design1 (a) and \design2 (b).
+   \caption[Energy deposition in the ILC main beam dump]{\fluka result of the energy deposition of one beam bunch in the ILC beam dump \designone (a) and \designtwo (b).
    The view is in the xz plane of the beam dump surrounding including the shielding walls.
    The color scale shows the deposited energy in \si{\GeV\per\centi\meter\cubed} per bunch.}
    \label{fig:BeamDumps:Energy}
