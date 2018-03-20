@@ -247,7 +247,7 @@ Over the duration of one year the dose is decreasing by at least two orders of m
 Nevertheless, the maximum dose rate after one year is about \SI{0.1}{\milli\sievert\per\second} for \designone, and \SI{10}{\milli\sievert\per\second} for \designtwo.
 For a given legal dose limit of \SI{50}{\milli\sievert} per year for workers whose work involves radiation activities, maintenance personnel would be allowed to work on the beam dump vessel for a very restricted time only.
 \\The residual nuclei, which are the cause for the high dose rates, are shown in Figure~\ref{fig:BeamDumps:ResidualNuclei}.
-The main contributors are \textsuperscript{3}H (tritium), \textsuperscript{49}V, \textsuperscript{54)Mn, \textsuperscript{55}Fe, and \textsuperscript{56}Co, \textsuperscript{57}Co, \textsuperscript{58}Co, and \textsuperscript{60}Co, with a half-life between $\sim$1 and 13 years.
+The main contributors are \textsuperscript{3}H (tritium), \textsuperscript{49}V, \textsuperscript{54}Mn, \textsuperscript{55}Fe, \textsuperscript{56}Co, \textsuperscript{57}Co, \textsuperscript{58}Co, and \textsuperscript{60}Co, with a half-life between $\sim$1 and 13 years.
 
 \begin{figure}[h]
  \centering
@@ -334,10 +334,51 @@ The main contributors are \textsuperscript{3}H (tritium), \textsuperscript{49}V,
 \centering
 \includegraphics[width=0.6\textwidth]{Figures/BeamDump/Corrected_residualnuclei_plots/ResidualNuclei_Design2_5_correct_scale.pdf}
 \caption[Residual nuclei in the ILC main beam dump after one year]{Chart of residual nuclei in the beam dump vessel and its surrounding after a cooling time of one year.
-The axes show the number of protons (Z) and the number of neutrons (N) in the nuclei, from which the according element can be derived.
-The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cubed} of the given nuclei.}
+The axes show the number of protons (Z) and the number of neutrons (N) of the nuclei, from which the according element can be derived.
+The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cubed} of the respective nuclei.}
 \label{fig:BeamDumps:ResidualNuclei}
 \end{figure}
+ 
+\subsection{Particle fluxes}
+\label{BeamDumps:sim_surrounding:Particle}  
+ 
+\begin{figure}[h]
+ \centering
+  \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Electron_flux_xz_Design1.png}
+   \caption{\designone}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Electron_flux_xz_Design2.png}
+   \caption{\designtwo}
+   \end{subfigure}
+   \caption[Electron flux in the ILC main beam dump]{\fluka result of the electron flux from one beam bunch in the ILC beam dump \designone (a) and \designtwo (b) and their surrounding.
+   The view is in the xz plane of the beam dump.
+   The color scale shows the dose in #\si{\per\centi\meter\cubed} per bunch.}
+   \label{fig:BeamDumps:Electrons}
+\end{figure} 
+
+\begin{figure}[h]
+ \centering
+  \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Neutron_flux_xz_Design1.png}
+   \caption{\designone}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Neutron_flux_xz_Design2.png}
+   \caption{\designtwo}
+   \end{subfigure}
+   \caption[Neutron flux in the ILC main beam dump]{\fluka result of the neutron flux from one beam bunch in the ILC beam dump \designone (a) and \designtwo (b) and their surrounding.
+   The view is in the xz plane of the beam dump.
+   The color scale shows the dose in #\si{\per\centi\meter\cubed} per bunch.}
+   \label{fig:BeamDumps:Neutrons}
+\end{figure} 
  
 \begin{itemize}
  \item Particle fluxes for both designs - done 
