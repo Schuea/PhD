@@ -341,6 +341,13 @@ The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cu
  
 \subsection{Particle fluxes}
 \label{BeamDumps:sim_surrounding:Particle}  
+ The densities of particles in the geometry can also be scored with \fluka, which is then given as the number of particles per \si{\centi\meter\cubed}.
+ As an example, Figure~\ref{fig:BeamDumps:Electrons} shows the density distribution of electrons in the xz plane for the two ILC beam dump designs.
+ Since the primary beam also consists of electrons, the beam path is also visible coming from negative z along the beam pipe.
+ Inside the water vessel, the beam is stopped and dissipated, and particle showers start forming. The electrons are boosted in the beam direction, because of which electrons outside the beam dump are mainly observed around and behind the vessel. 
+ \\This looks quite different for the neutron density distributions (Figure~\ref{fig:BeamDumps:Neutrons}).
+ The neutrons are originating from interactions between the primary beam particles and the water.
+ \todo{Add kind of interactions}
  
 \begin{figure}[h]
  \centering
@@ -357,7 +364,7 @@ The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cu
    \end{subfigure}
    \caption[Electron flux in the ILC main beam dump]{\fluka result of the electron flux from one beam bunch in the ILC beam dump \designone (a) and \designtwo (b) and their surrounding.
    The view is in the xz plane of the beam dump.
-   The color scale shows the dose in #\si{\per\centi\meter\cubed} per bunch.}
+   The color scale shows the dose in number of particles per \si{\centi\meter\cubed} per bunch.}
    \label{fig:BeamDumps:Electrons}
 \end{figure} 
 
@@ -376,7 +383,7 @@ The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cu
    \end{subfigure}
    \caption[Neutron flux in the ILC main beam dump]{\fluka result of the neutron flux from one beam bunch in the ILC beam dump \designone (a) and \designtwo (b) and their surrounding.
    The view is in the xz plane of the beam dump.
-   The color scale shows the dose in #\si{\per\centi\meter\cubed} per bunch.}
+   The color scale shows the dose in number of particles per \si{\centi\meter\cubed} per bunch.}
    \label{fig:BeamDumps:Neutrons}
 \end{figure} 
  
