@@ -242,7 +242,12 @@ It was assumed that there has been full beam operation for one month, after whic
 Considering the cooling times of one minute, one hour, one day, one month, and one year after the moment of the beam operation stop, the remaining dose rate decreases over time.
 Figure~\ref{fig:BeamDumps:DoseRate} shows the spatial distribution of the dose rate for \designone and \designtwo for the cooling times mentioned above.
 The comparison of the dose rate as a function of the cooling time for the two designs is then given in Figure~\ref{fig:BeamDumps:DoseRate_Comparison}.
-\\The dose rate
+\\Even after one minute of cooling time the area in which a dose is measurable is reduced to the beam dump vessel and the direct surrounding.
+Over the duration of one year the dose is decreasing by at least two orders of magnitude.
+Nevertheless, the maximum dose rate after one year is about \SI{0.1}{\milli\sievert\per\second} for \designone, and \SI{10}{\milli\sievert\per\second} for \designtwo.
+For a given legal dose limit of \SI{50}{\milli\sievert} per year for workers whose work involves radiation activities, maintenance personnel would be allowed to work on the beam dump vessel for a very restricted time only.
+\\The residual nuclei, which are the cause for the high dose rates, are shown in Figure~\ref{fig:BeamDumps:ResidualNuclei}.
+The main contributors are \textsuperscript{3}H (tritium), \textsuperscript{49}V, \textsuperscript{54)Mn, \textsuperscript{55}Fe, and \textsuperscript{56}Co, \textsuperscript{57}Co, \textsuperscript{58}Co, and \textsuperscript{60}Co, with a half-life between $\sim$1 and 13 years.
 
 \begin{figure}[h]
  \centering
@@ -323,6 +328,15 @@ The comparison of the dose rate as a function of the cooling time for the two de
 \includegraphics[width=0.7\textwidth]{Figures/BeamDump/DoseEQ_Time_Comparison.png}
 \caption[Dose rate comparison of the ILC main beam dump designs]{Comparison of the maximum dose rate over the cooling time for the two ILC main beam dump designs \designone and \designtwo.}
 \label{fig:BeamDumps:DoseRate_Comparison}
+\end{figure}
+
+\begin{figure}[hbp]
+\centering
+\includegraphics[width=0.6\textwidth]{Figures/BeamDump/Corrected_residualnuclei_plots/ResidualNuclei_Design2_5_correct_scale.pdf}
+\caption[Residual nuclei in the ILC main beam dump after one year]{Chart of residual nuclei in the beam dump vessel and its surrounding after a cooling time of one year.
+The axes show the number of protons (Z) and the number of neutrons (N) in the nuclei, from which the according element can be derived.
+The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cubed} of the given nuclei.}
+\label{fig:BeamDumps:ResidualNuclei}
 \end{figure}
  
 \begin{itemize}
