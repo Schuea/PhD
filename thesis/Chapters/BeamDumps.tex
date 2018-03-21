@@ -249,7 +249,23 @@ For a given legal dose limit of \SI{50}{\milli\sievert} per year for workers who
 \\The residual nuclei, which are the cause for the high dose rates, are shown in Figure~\ref{fig:BeamDumps:ResidualNuclei}.
 The main contributors are \textsuperscript{3}H (tritium), \textsuperscript{49}V, \textsuperscript{54}Mn, \textsuperscript{55}Fe, \textsuperscript{56}Co, \textsuperscript{57}Co, \textsuperscript{58}Co, and \textsuperscript{60}Co, with a half-life between $\sim$1 and 13 years.
 
-\begin{figure}[h]
+\begin{figure}[hbp]
+\centering
+\includegraphics[width=0.65\textwidth]{Figures/BeamDump/DoseEQ_Time_Comparison.png}
+\caption[Dose rate comparison of the ILC main beam dump designs]{Comparison of the maximum dose rate over the cooling time for the two ILC main beam dump designs \designone and \designtwo.}
+\label{fig:BeamDumps:DoseRate_Comparison}
+\end{figure}
+
+\begin{figure}[hbp]
+\centering
+\includegraphics[width=0.6\textwidth]{Figures/BeamDump/Corrected_residualnuclei_plots/ResidualNuclei_Design2_5_correct_scale.pdf}
+\caption[Residual nuclei in the ILC main beam dump after one year]{Chart of residual nuclei in the beam dump vessel and its surrounding after a cooling time of one year.
+The axes show the number of protons (Z) and the number of neutrons (N) of the nuclei, from which the according element can be derived.
+The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cubed} of the respective nuclei.}
+\label{fig:BeamDumps:ResidualNuclei}
+\end{figure}
+
+\begin{figure}[!h]
  \centering
   \begin{subfigure}[b]{0.32\textwidth}
    \centering
@@ -322,22 +338,6 @@ The main contributors are \textsuperscript{3}H (tritium), \textsuperscript{49}V,
    The color scale shows the dose rate in \si{\milli\sievert\per\second}.}
    \label{fig:BeamDumps:DoseRate}
 \end{figure}
-
-\begin{figure}[hbp]
-\centering
-\includegraphics[width=0.7\textwidth]{Figures/BeamDump/DoseEQ_Time_Comparison.png}
-\caption[Dose rate comparison of the ILC main beam dump designs]{Comparison of the maximum dose rate over the cooling time for the two ILC main beam dump designs \designone and \designtwo.}
-\label{fig:BeamDumps:DoseRate_Comparison}
-\end{figure}
-
-\begin{figure}[hbp]
-\centering
-\includegraphics[width=0.6\textwidth]{Figures/BeamDump/Corrected_residualnuclei_plots/ResidualNuclei_Design2_5_correct_scale.pdf}
-\caption[Residual nuclei in the ILC main beam dump after one year]{Chart of residual nuclei in the beam dump vessel and its surrounding after a cooling time of one year.
-The axes show the number of protons (Z) and the number of neutrons (N) of the nuclei, from which the according element can be derived.
-The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cubed} of the respective nuclei.}
-\label{fig:BeamDumps:ResidualNuclei}
-\end{figure}
  
 \subsection{Particle fluxes}
 \label{BeamDumps:sim_surrounding:Particle}  
@@ -346,8 +346,10 @@ The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cu
  Since the primary beam also consists of electrons, the beam path is also visible coming from negative z along the beam pipe.
  Inside the water vessel, the beam is stopped and dissipated, and particle showers start forming. The electrons are boosted in the beam direction, because of which electrons outside the beam dump are mainly observed around and behind the vessel. 
  \\This looks quite different for the neutron density distributions (Figure~\ref{fig:BeamDumps:Neutrons}).
- The neutrons are originating from interactions between the primary beam particles and the water.
- \todo{Add kind of interactions}
+ The primary electron beam undergoes the electromagnetic particle showers in the beam dump, which is desired in order to absorb the beam power.
+ The produced secondary particles from the particle showers, however, interact with the beam dump material and the water via ionization and photonuclear processes.
+ The products from these processes are neutrons in connection with the radioactive nuclei discussed in Section~\ref{BeamDumps:sim_surrounding:Dose}.
+ Due to this way of production, the neutrons can be found under every solid angle, hence also in the backward direction. \todo{English?!}
  
 \begin{figure}[h]
  \centering
@@ -386,12 +388,8 @@ The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cu
    The color scale shows the dose in number of particles per \si{\centi\meter\cubed} per bunch.}
    \label{fig:BeamDumps:Neutrons}
 \end{figure} 
- 
-\begin{itemize}
- \item Particle fluxes for both designs - done 
- \item Neutron spatial distributions - almost done
-\end{itemize}
 
+Neutron spatial distributions
 
 \section{Simulation studies of extraction line}
 \label{BeamDumps:sim_EXT}
