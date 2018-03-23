@@ -55,8 +55,8 @@ BCOR5mm]{scrbook}
 
 %\usepackage[rlft]{floatflt} %%% allows text wraping of floating figures 
 \usepackage{float}      %%% define custom float environments
-%\usepackage[plainpages=false,colorlinks]{hyperref} %%% CUSTOMIZATION use this package for the final compilation run for online publication, includes hyperlinks for sections/eqs/etc.
-\usepackage{hyperref} %%% CUSTOMIZATION use this package for the final compilation run for online publication, includes hyperlinks for sections/eqs/etc.
+\usepackage[plainpages=false]{hyperref} %%% CUSTOMIZATION use this package for the final compilation run for online publication, includes hyperlinks for sections/eqs/etc.
+%\usepackage[]{hyperref} %%% CUSTOMIZATION use this package for the final compilation run for online publication, includes hyperlinks for sections/eqs/etc.
 %\usepackage{subfigure}  %%% nice captioning and referencing of subfigures
 \usepackage{subcaption}
 \usepackage{caption}    %%% (load after subfigure package) nicer layout for figure captions
@@ -119,13 +119,16 @@ BCOR5mm]{scrbook}
 \newcommand{\mucarlo}{\textsc{MUCARLO}\xspace}
 \newcommand{\turtle}{\textsc{TURTLE}\xspace}
 \newcommand{\fluka}{\textsc{FLUKA}\xspace}
-\newcommand{\flair}{\textsc{FLAIR}\xspace}
+\newcommand{\flair}{\textit{flair}\xspace}
+\newcommand{\designone}{\mbox{Design 1}\xspace}
+\newcommand{\designtwo}{\mbox{Design 2}\xspace}
 \newcommand{\degree}{\ensuremath{^\circ}}
 \newcommand{\electron}{e$^-$\xspace}
 \newcommand{\positron}{e$^+$\xspace}
 \newcommand{\lumi}{$\mathcal{L}$\xspace}
 
 \DeclareSIUnit\gauss{G}
+\DeclareSIUnit\xzero{X\textsubscript{0}}
 
 %------Definition for column color in table
 \definecolor{Gray}{gray}{0.9}
