@@ -17,6 +17,18 @@ RADDECAY          1.                           0.0    100010
 #endif  
 ROT-DEFI        301.                                             -301.Transl
 ROT-DEFI        302.                                             -210.Transl2
+ROT-DEFI                                                         -420.Transl3
+ROT-DEFI                                                         -630.Transl4
+ROT-DEFI                                                         -840.Transl5
+ROT-DEFI                                                        -1050.Transl6
+ROT-DEFI                                                        -1260.Transl7
+ROT-DEFI                                                        -1470.Transl8
+ROT-DEFI                                                        -1680.Transl9
+ROT-DEFI                                                        -1890.Transl10
+ROT-DEFI                                                        -2100.Transl11
+ROT-DEFI                                                        -2310.Transl12
+ROT-DEFI                                                        -2520.Transl13
+ROT-DEFI                                                        -2730.Transl14
 GEOBEGIN                                                              COMBNAME
     0    0          EXTline
 RPP InEXT      -185. 615. -200. 200. 0.0 30000.
@@ -30,24 +42,46 @@ $start_transform QuadRot
 RPP InQuad     -26.5 26.5 -26.5 26.5 550. 650.
 $end_transform 
 RPP Box1       -55. 55. -55. 55. 851. 951.
-RPP Prototy2   -55. 55. -55. 55. 1700.0 1900.0
-RPP Quad2      -50. 50. -50. 50. 1700.0 1900.0
+RPP Prototy2   -55. 55. -55. 55. 1700. 1900.
+RPP Quad2      -50. 50. -50. 50. 1700. 1900.
 $start_transform QuadRot
-RPP InQuad2    -26.5 26.5 -26.5 26.5 1700.0 1900.0
+RPP InQuad2    -26.5 26.5 -26.5 26.5 1700. 1900.
 $end_transform 
-RPP Box2       -55. 55. -55. 55. 1910.0 2110.0
-RPP Box3       -55. 55. -55. 55. 2120.0 2320.0
-RPP Box4       -55. 55. -55. 55. 2330.0 2530.0
-RPP Box5       -55. 55. -55. 55. 2540.0 2740.0
-RPP Box6       -55. 55. -55. 55. 2750.0 2950.0
-RPP Box7       -55. 55. -55. 55. 2960.0 3160.0
-RPP Box8       -55. 55. -55. 55. 3170.0 3370.0
-RPP Box9       -55. 55. -55. 55. 3380.0 3580.0
-RPP Box10      -55. 55. -55. 55. 3590.0 3790.0
-RPP Box11      -55. 55. -55. 55. 3800.0 4000.0
-RPP Box12      -55. 55. -55. 55. 4010.0 4210.0
-RPP Box13      -55. 55. -55. 55. 4220.0 4420.0
-RPP Box14      -55. 55. -55. 55. 4430.0 4630.0
+RPP Box2       -55. 55. -55. 55. 1910. 2110.
+RPP Box3       -55. 55. -55. 55. 2120. 2320.
+RPP Box4       -55. 55. -55. 55. 2330. 2530.
+RPP Box5       -55. 55. -55. 55. 2540. 2740.
+RPP Box6       -55. 55. -55. 55. 2750. 2950.
+RPP Box7       -55. 55. -55. 55. 2960. 3160.
+RPP Box8       -55. 55. -55. 55. 3170. 3370.
+RPP Box9       -55. 55. -55. 55. 3380. 3580.
+RPP Box10      -55. 55. -55. 55. 3590. 3790.
+RPP Box11      -55. 55. -55. 55. 3800. 4000.
+RPP Box12      -55. 55. -55. 55. 4010. 4210.
+RPP Box13      -55. 55. -55. 55. 4220. 4420.
+RPP Box14      -55. 55. -55. 55. 4430. 4630.
+RPP Box15      -55. 55. -55. 55. 1910. 2110.
+RPP Box16      -55. 55. -55. 55. 1910. 2110.
+RPP Box17      -55. 55. -55. 55. 2120. 2320.
+RPP Box18      -55. 55. -55. 55. 2120. 2320.
+RPP Box19      -55. 55. -55. 55. 2330. 2530.
+RPP Box20      -55. 55. -55. 55. 2330. 2530.
+RPP Box21      -55. 55. -55. 55. 2540. 2740.
+RPP Box22      -55. 55. -55. 55. 2540. 2740.
+RPP Box23      -55. 55. -55. 55. 2750. 2950.
+RPP Box24      -55. 55. -55. 55. 2960. 3160.
+RPP Box25      -55. 55. -55. 55. 2960. 3160.
+RPP Box26      -55. 55. -55. 55. 3170. 3370.
+RPP Box27      -55. 55. -55. 55. 3170. 3370.
+RPP Box28      -55. 55. -55. 55. 3380. 3580.
+RPP Box29      -55. 55. -55. 55. 3380. 3580.
+RPP Box30      -55. 55. -55. 55. 3590. 3790.
+RPP Box31      -55. 55. -55. 55. 3590. 3790.
+RPP Box32      -55. 55. -55. 55. 3800. 4000.
+RPP Box33      -55. 55. -55. 55. 3800. 4000.
+RPP Box34      -55. 55. -55. 55. 4010. 4210.
+RPP Box35      -55. 55. -55. 55. 4010. 4210.
+RPP Box36      -55. 55. -55. 55. 4220. 4420.
 END
 Wall         5 +OutEXT -InEXT
 BlkBody      5 +Blackbox -OutEXT
@@ -69,11 +103,35 @@ QuadAir2     5 +Prototy2 -Quad2
 QuadPip2     5 +OutBeamP +Prototy2 -InBeamPi
 QuadVac2     5 +InBeamPi +Prototy2
 Lattice2     5 +Box2
+Lattice3     5 +Box3
+Lattice4     5 +Box4
+Lattice5     5 +Box5
+Lattice6     5 +Box6
+Lattice7     5 +Box7
+Lattice8     5 +Box8
+Lattice9     5 +Box9
+Lattic10     5 +Box10
+Lattic11     5 +Box11
+Lattic12     5 +Box12
+Lattic13     5 +Box13
+Lattic14     5 +Box14
 END
 LATTICE     Lattice1                            1.        1.          Transl
 LATTICE     Lattice2                            2.        2.          Transl2
-GEOEND          115.      200.      425.     -425.     -200.     -775.DEBUG
-GEOEND          500.      400.      500.                               &
+LATTICE     Lattice3                            3.        3.          Transl3
+LATTICE     Lattice4                            4.        4.          Transl4
+LATTICE     Lattice5                            5.        5.          Transl5
+LATTICE     Lattice6                            6.        6.          Transl6
+LATTICE     Lattice7                            7.        7.          Transl7
+LATTICE     Lattice8                            8.        8.          Transl8
+LATTICE     Lattice9                            9.        9.          Transl9
+LATTICE     Lattic10                           10.       10.          Transl10
+LATTICE     Lattic11                           11.       11.          Transl11
+LATTICE     Lattic12                           12.       12.          Transl12
+LATTICE     Lattic13                           13.       13.          Transl13
+LATTICE     Lattic14                           14.       14.          Transl14
+GEOEND         664.9     249.9   29999.9    -234.9    -249.9       0.1DEBUG
+GEOEND          500.      400.      900.                               &
 MATERIAL         15.                1.82                           0.0Phosphor
 LOW-MAT     Phosphor       15.       31.      296.                    PHOSPHO
 MATERIAL         16.               2.067                           0.0Sulfur
@@ -138,6 +196,18 @@ ASSIGNMA        IRON  QuadIro2
 ASSIGNMA         AIR  QuadAir2
 ASSIGNMA     316L-SS  QuadPip2
 ASSIGNMA      VACUUM  QuadVac2
+ASSIGNMA      VACUUM  Lattice4
+ASSIGNMA      VACUUM  Lattice5
+ASSIGNMA      VACUUM  Lattice6
+ASSIGNMA      VACUUM  Lattice7
+ASSIGNMA      VACUUM  Lattice3
+ASSIGNMA      VACUUM  Lattice9
+ASSIGNMA      VACUUM  Lattic10
+ASSIGNMA      VACUUM  Lattic11
+ASSIGNMA      VACUUM  Lattic12
+ASSIGNMA      VACUUM  Lattic13
+ASSIGNMA      VACUUM  Lattic14
+ASSIGNMA      VACUUM  Lattice8
 ASSIGNMA      VACUUM  Lattice2
 PHOTONUC          1.                        VACUUM       AIR        1.
 PHYSICS           3.                                                  EVAPORAT

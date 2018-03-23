@@ -5,7 +5,7 @@ Title: EXTline
 Input: EXT_line_actual.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Geometry
+Page: Input
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -121,9 +121,9 @@ Material: Cobalt
 End
 
 # Material
-Material: Cs
+Material: Eu
 	alpha: 0
-	color: #901070
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -171,9 +171,9 @@ Material: MnO
 End
 
 # Material
-Material: Eu
+Material: Cs
 	alpha: 0
-	color: #703070
+	color: #901070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -245,7 +245,7 @@ Plot: Red
 	basisv: 0 1 0
 	boundaries: 1
 	coord: U-V
-	extends: 99.2971 53
+	extends: 99.2971 74.4728
 	labels: 1
 	layer: Lattice
 	origin: 0 0 2000
@@ -261,10 +261,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 1244.41 665.25
+	extends: 1244.41 933.308
 	labels: 1
 	layer: Media
-	origin: 70.3374 0 3242.68
+	origin: 78.1639 0 4064.46
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -277,10 +277,10 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 920.822 490.045
+	extends: 920.822 690.616
 	labels: 1
 	layer: Lattice
-	origin: 0 -0.22563 2462.15
+	origin: 0 -26.2457 4214.89
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -293,7 +293,7 @@ Plot: Magenta
 	basisv: 0 1 0
 	boundaries: 1
 	coord: X-Y
-	extends: 99.4336 53
+	extends: 99.4336 74.5752
 	labels: 1
 	layer: Media
 	origin: 17.1921 -10.1579 1800
