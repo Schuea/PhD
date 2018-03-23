@@ -17,9 +17,9 @@ F77dline: False
 Run: <default>
 	Prev:     0
 	Last:     5
-	Status:   3
-	Pid:      0
-	StartRun: 1521058979
+	Status:   2
+	Pid:      4025
+	StartRun: 1521280876
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_50.yie
 	Data: \I_\U.\e
@@ -576,7 +576,7 @@ Plot: Green
 	cbtics: 0
 	coord: Z-X
 	cpd: 0
-	extends: 67.0047 36.196
+	extends: 67.0047 50.2535
 	grid: 0
 	index: 0
 	labels: 1
@@ -602,7 +602,7 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: X-Y
-	extends: 1672.03 900.001
+	extends: 1672.03 1254.02
 	labels: 1
 	layer: Media
 	origin: -142.5 250 -300
@@ -624,7 +624,7 @@ Plot: Magenta
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 5638.4 3038.79
+	extends: 5638.4 4228.8
 	grid: 0
 	index: 0
 	labels: 1
@@ -1838,9 +1838,9 @@ Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_50_plot
 	name.1: 170-175degrees
 	name.2: 175-180 degrees
 	ndetectors: 3
-	norm.0: 1.74e10
-	norm.1: 1.74e10
-	norm.2: 1.74e10
+	norm.0: 1.74e10*0.002*180
+	norm.1: 1.74e10*0.002*5
+	norm.2: 1.74e10*0.002*5
 	ps.0: 1
 	ps.1: 1
 	ps.2: 1
@@ -1862,9 +1862,9 @@ Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_50_plot
 	xnorm.0: 1./MeV
 	xnorm.1: 1./MeV
 	xnorm.2: 1./MeV
-	y.0: 1
-	y.1: 1
-	y.2: 1
+	y.0: 0
+	y.1: 0
+	y.2: 0
 	y2log: False
 	y2tics: 0
 	ylabel: # neutrons
@@ -2097,18 +2097,37 @@ End
 Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_59_plot
 	Format: .eps
 	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
 	det.0: 0
 	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_59_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
 	lc.0: red
 	lw.0: 2
 	name.0: Detector 1
 	ndetectors: 1
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
 	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 59
 	with.0: histerror
 	x.0: 2
-	xlog: 1
+	x2log: False
+	x2tics: 0
+	xlog: True
 	y.0: 0
-	ylog: 1
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
 End
 
 # USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 60"

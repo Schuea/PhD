@@ -7,7 +7,7 @@ Submit: *Default
 Notes:
 Composition of normal and boronated concrete from Paper "Application of neutron shield concrete to neutron scattering instrument TAIKAN in J-PARC" by Koichi Okuno et al.
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Input
+Page: Plot
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -719,16 +719,6 @@ Material: Phosphor
 End
 
 # Material
-Material: Ti-6Al4V
-	alpha: 0
-	color: #407030
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
 Material: Molybdenum
 	alpha: 0
 	color: #D03050
@@ -742,6 +732,16 @@ End
 Material: Vanadium
 	alpha: 0
 	color: #807070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: BorConc
+	alpha: 0
+	color: #4050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -769,9 +769,9 @@ Material: B2O3
 End
 
 # Material
-Material: Cs
+Material: Eu
 	alpha: 0
-	color: #901070
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -869,9 +869,9 @@ Material: CaO
 End
 
 # Material
-Material: BorConc
+Material: Ti-6Al4V
 	alpha: 0
-	color: #4050D0
+	color: #407030
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -879,9 +879,9 @@ Material: BorConc
 End
 
 # Material
-Material: Eu
+Material: Cs
 	alpha: 0
-	color: #703070
+	color: #901070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -2216,14 +2216,14 @@ Plot: Residual_nuclei_1year
 	Type:   RESNUCLE
 	cbcolors: 0
 	cblabel: Bq/cm3
-	cblog: 1
-	cbmax: 1e10
-	cbmin: 1e-35
+	cblog: True
+	cbmax: 1e5
+	cbmin: 1e-9
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 1
 	cpd: 0
-	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_67.rnc
+	datafile: ../../../talks/2017-06_AWLC17/MainBeamDump/BeamDump_Design_BSmith_0_TB_0067_210_00_A/BeamDump_Design_BSmith_0_TB_0067_210_00_A_67.rnc
 	det: 1
 	grid: 0
 	index: 2
@@ -2232,15 +2232,16 @@ Plot: Residual_nuclei_1year
 	ps.0: 0
 	title: Residual nuclei - after 1 year
 	with.0: errorbars
-	x2log: 0
+	x2log: False
 	x2tics: 0
 	xlabel: N [Number of neutrons]
-	xlog: 0
-	y2log: 0
+	xlog: False
+	xmax: 100
+	y2log: False
 	y2tics: 0
 	ylabel: Z [Number of protons]
-	ylog: 0
-	zlog: 0
+	ylog: False
+	zlog: False
 	ztics: 0
 End
 

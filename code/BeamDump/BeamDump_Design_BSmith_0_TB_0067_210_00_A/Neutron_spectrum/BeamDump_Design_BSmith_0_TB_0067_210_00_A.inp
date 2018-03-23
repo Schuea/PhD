@@ -1004,24 +1004,6 @@ RESNUCLE          3.      -97.                        Window     113.4ResnuWin4
 RESNUCLE          3.      -98.                        Window     113.4ResnuWin5
 RESNUCLE          3.      -99.                        Window     113.4ResnuWin6
 #else  
-*USRBIN           10.    ENERGY      -21.      315.      600.      725.Energy
-*USRBIN         -825.     -200.    -1175.      100.      100.      150. &
-*USRBIN           10.   NEUTRON      -22.      315.      600.      725.Neutrons
-*USRBIN         -825.     -200.    -1175.      100.      100.      150. &
-*USRBIN           10.   DOSE-EM      -29.      315.      600.      725.DoseEM
-*USRBIN         -825.     -200.    -1175.      100.      100.      150. &
-*USRBIN           10.      DOSE      -30.      315.      600.      725.Dose
-*USRBIN         -825.     -200.    -1175.      100.      100.      150. &
-*USRBIN           10.    PROTON      -31.      315.      600.      725.Protons
-*USRBIN         -825.     -200.    -1175.      100.      100.      150. &
-*USRBIN           10.  ELECTRON      -32.      315.      600.      725.Electrons
-*USRBIN         -825.     -200.    -1175.      100.      100.      150. &
-*USRBIN           10.    PHOTON      -33.      315.      600.      725.Photons
-*USRBIN         -825.     -200.    -1175.      100.      100.      150. &
-*USRBIN           10.    TRITON      -34.      315.      600.      725.Triton
-*USRBIN         -825.     -200.    -1175.      100.      100.      150. &
-*USRBIN           10.  POSITRON      -35.      315.      600.      725.Positron
-*USRBIN         -825.     -200.    -1175.      100.      100.      150. &
 USRYIELD       2401.   NEUTRON      -50.  ScorePl1    EXTAir          NeutEXTall
 USRYIELD        500.       0.0      250.      180.       0.0        3. &
 USRYIELD       2401.   NEUTRON      -51.  ScorePl1    EXTAir          NeutEXT1
@@ -1050,5 +1032,5 @@ USRYIELD        500.       0.0      250.      180.      175.        3. &
 * Set the random number seed
 RANDOMIZ          1.        1.
 * Set the number of primary histories to be simulated in the run
-START          1000.                                     0.0  9999999.
+START         10000.                                     0.0  9999999.
 STOP
