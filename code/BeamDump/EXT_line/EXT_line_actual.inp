@@ -37,12 +37,26 @@ RPP InQuad2    -26.5 26.5 -26.5 26.5 1700.0 1900.0
 $end_transform 
 RPP Box2       -55. 55. -55. 55. 1910.0 2110.0
 RPP Box3       -55. 55. -55. 55. 2120.0 2320.0
+RPP Box4       -55. 55. -55. 55. 2330.0 2530.0
+RPP Box5       -55. 55. -55. 55. 2540.0 2740.0
+RPP Box6       -55. 55. -55. 55. 2750.0 2950.0
+RPP Box7       -55. 55. -55. 55. 2960.0 3160.0
+RPP Box8       -55. 55. -55. 55. 3170.0 3370.0
+RPP Box9       -55. 55. -55. 55. 3380.0 3580.0
+RPP Box10      -55. 55. -55. 55. 3590.0 3790.0
+RPP Box11      -55. 55. -55. 55. 3800.0 4000.0
+RPP Box12      -55. 55. -55. 55. 4010.0 4210.0
+RPP Box13      -55. 55. -55. 55. 4220.0 4420.0
+RPP Box14      -55. 55. -55. 55. 4430.0 4630.0
 END
 Wall         5 +OutEXT -InEXT
 BlkBody      5 +Blackbox -OutEXT
-Air          5 +InEXT -OutBeamP -Prototy1 -Box1 -Prototy2 -Box2
-BeamPipe     5 +InEXT +OutBeamP -InBeamPi -Prototy1 -Box1 -Prototy2 -Box2
-Vacuum       5 +InEXT +InBeamPi -Prototy1 -Box1 -Prototy2 -Box2
+Air          5 +InEXT -OutBeamP -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8 -Box9 -Box10
+               -Box11 -Box12 -Box13 -Box14
+BeamPipe     5 +InEXT +OutBeamP -InBeamPi -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8
+               -Box9 -Box10 -Box11 -Box12 -Box13 -Box14
+Vacuum       5 +InEXT +InBeamPi -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8 -Box9 -Box10
+               -Box11 -Box12 -Box13 -Box14
 QuadCopp     5 +InQuad -OutBeamP
 QuadIron     5 +Quad -InQuad
 QuadAir      5 +Prototy1 -Quad

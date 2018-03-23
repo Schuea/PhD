@@ -264,7 +264,7 @@ Plot: Green
 	extends: 1244.41 665.25
 	labels: 1
 	layer: Media
-	origin: 70.3374 0 2855.27
+	origin: 70.3374 0 3242.68
 	subtype: Material
 	title: GeoViewer Green plot
 End
