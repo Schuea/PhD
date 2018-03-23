@@ -16,7 +16,7 @@ DCYTIMES         60.     3600.    86400.  2592000. 31536000.
 RADDECAY          1.                           0.0    100010
 #endif  
 ROT-DEFI        301.                                             -301.Transl
-ROT-DEFI        302.                                             -301.Transl2
+ROT-DEFI        302.                                             -210.Transl2
 GEOBEGIN                                                              COMBNAME
     0    0          EXTline
 RPP InEXT      -185. 615. -200. 200. 0.0 3000.
@@ -30,20 +30,33 @@ $start_transform QuadRot
 RPP InQuad     -26.5 26.5 -26.5 26.5 550. 650.
 $end_transform 
 RPP Box1       -55. 55. -55. 55. 851. 951.
+RPP Prototy2   -55. 55. -55. 55. 1700.0 1900.0
+RPP Quad2      -50. 50. -50. 50. 1700.0 1900.0
+$start_transform QuadRot
+RPP InQuad2    -26.5 26.5 -26.5 26.5 1700.0 1900.0
+$end_transform 
+RPP Box2       -55. 55. -55. 55. 1910.0 2110.0
 END
 Wall         5 +OutEXT -InEXT
 BlkBody      5 +Blackbox -OutEXT
-Air          5 +InEXT -OutBeamP -Prototy1 -Box1
-BeamPipe     5 +InEXT +OutBeamP -InBeamPi -Prototy1 -Box1
-Vacuum       5 +InEXT +InBeamPi -Prototy1 -Box1
+Air          5 +InEXT -OutBeamP -Prototy1 -Box1 -Prototy2 -Box2
+BeamPipe     5 +InEXT +OutBeamP -InBeamPi -Prototy1 -Box1 -Prototy2 -Box2
+Vacuum       5 +InEXT +InBeamPi -Prototy1 -Box1 -Prototy2 -Box2
 QuadCopp     5 +InQuad -OutBeamP
 QuadIron     5 +Quad -InQuad
 QuadAir      5 +Prototy1 -Quad
 QuadPipe     5 +OutBeamP +Quad -InBeamPi
 QuadVac      5 +InBeamPi +Quad
 Lattice1     5 +Box1
+QuadCop2     5 +InQuad2 -OutBeamP
+QuadIro2     5 +Quad2 -InQuad2
+QuadAir2     5 +Prototy2 -Quad2
+QuadPip2     5 +OutBeamP +Prototy2 -InBeamPi
+QuadVac2     5 +InBeamPi +Prototy2
+Lattice2     5 +Box2
 END
 LATTICE     Lattice1                            1.        1.          Transl
+LATTICE     Lattice2                            2.        2.          Transl2
 GEOEND          115.      200.      425.     -425.     -200.     -775.DEBUG
 GEOEND          500.      400.      500.                               &
 MATERIAL         15.                1.82                           0.0Phosphor
@@ -105,6 +118,12 @@ ASSIGNMA         AIR   QuadAir
 ASSIGNMA     316L-SS  QuadPipe
 ASSIGNMA      VACUUM   QuadVac
 ASSIGNMA      VACUUM  Lattice1
+ASSIGNMA      COPPER  QuadCop2
+ASSIGNMA        IRON  QuadIro2
+ASSIGNMA         AIR  QuadAir2
+ASSIGNMA     316L-SS  QuadPip2
+ASSIGNMA      VACUUM  QuadVac2
+ASSIGNMA      VACUUM  Lattice2
 PHOTONUC          1.                        VACUUM       AIR        1.
 PHYSICS           3.                                                  EVAPORAT
 PHYSICS           1.                                                  COALESCE
