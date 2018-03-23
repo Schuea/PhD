@@ -261,10 +261,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 288.439 154.197
+	extends: 1244.41 665.25
 	labels: 1
 	layer: Media
-	origin: -11.1606 0 1837.39
+	origin: 70.3374 0 2855.27
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -280,7 +280,7 @@ Plot: Blue
 	extends: 920.822 490.045
 	labels: 1
 	layer: Lattice
-	origin: 0 -23.3546 1375.05
+	origin: 0 -0.22563 2462.15
 	subtype: Material
 	title: GeoViewer Blue plot
 End

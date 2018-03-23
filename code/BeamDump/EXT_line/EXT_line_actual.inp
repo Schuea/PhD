@@ -19,9 +19,9 @@ ROT-DEFI        301.                                             -301.Transl
 ROT-DEFI        302.                                             -210.Transl2
 GEOBEGIN                                                              COMBNAME
     0    0          EXTline
-RPP InEXT      -185. 615. -200. 200. 0.0 3000.
-RPP OutEXT     -235. 665. -250. 250. 0.0 3000.
-RPP Blackbox   -240. 670. -260. 260. -10. 3010.
+RPP InEXT      -185. 615. -200. 200. 0.0 30000.
+RPP OutEXT     -235. 665. -250. 250. 0.0 30000.
+RPP Blackbox   -240. 670. -260. 260. -10. 30010.
 ZCC InBeamPi   0.0 0.0 5.
 ZCC OutBeamP   0.0 0.0 6.
 RPP Prototy1   -55. 55. -55. 55. 550. 650.
@@ -36,6 +36,7 @@ $start_transform QuadRot
 RPP InQuad2    -26.5 26.5 -26.5 26.5 1700.0 1900.0
 $end_transform 
 RPP Box2       -55. 55. -55. 55. 1910.0 2110.0
+RPP Box3       -55. 55. -55. 55. 2120.0 2320.0
 END
 Wall         5 +OutEXT -InEXT
 BlkBody      5 +Blackbox -OutEXT
