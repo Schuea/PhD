@@ -16,6 +16,7 @@ DCYTIMES         60.     3600.    86400.  2592000. 31536000.
 RADDECAY          1.                           0.0    100010
 #endif  
 ROT-DEFI        301.                                             -301.Transl
+ROT-DEFI        302.                                             -301.Transl2
 GEOBEGIN                                                              COMBNAME
     0    0          EXTline
 RPP InEXT      -185. 615. -200. 200. 0.0 3000.
