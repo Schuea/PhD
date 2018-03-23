@@ -82,15 +82,23 @@ RPP Box33      -55. 55. -55. 55. 3800. 4000.
 RPP Box34      -55. 55. -55. 55. 4010. 4210.
 RPP Box35      -55. 55. -55. 55. 4010. 4210.
 RPP Box36      -55. 55. -55. 55. 4220. 4420.
+RPP Prototy3   -85.0 85.0 -55.0 55.0 4700.0 4900.0
+RPP DipIroIn   -55.0 15.0 -20.0 20.0 4720.0 4880.0
+RPP DipIroOu   -85.0 15.0 -50.0 50.0 4720.0 4880.0
+XZP DipGap1    8.5
+XZP DipGap2    -8.5
+YZP DipIroX    -15.0
+RPP DipCop1    -50.0 50.0 8.5 17.5 4700.0 4900.0
+RPP DipCop2    -50.0 50.0 -17.5 -8.5 4700.0 4900.0
 END
 Wall         5 +OutEXT -InEXT
 BlkBody      5 +Blackbox -OutEXT
 Air          5 +InEXT -OutBeamP -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8 -Box9 -Box10
-               -Box11 -Box12 -Box13 -Box14
+               -Box11 -Box12 -Box13 -Box14 -Prototy3
 BeamPipe     5 +InEXT +OutBeamP -InBeamPi -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8
-               -Box9 -Box10 -Box11 -Box12 -Box13 -Box14
+               -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
 Vacuum       5 +InEXT +InBeamPi -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8 -Box9 -Box10
-               -Box11 -Box12 -Box13 -Box14
+               -Box11 -Box12 -Box13 -Box14 -Prototy3
 QuadCopp     5 +InQuad -OutBeamP
 QuadIron     5 +Quad -InQuad
 QuadAir      5 +Prototy1 -Quad
@@ -115,6 +123,19 @@ Lattic11     5 +Box11
 Lattic12     5 +Box12
 Lattic13     5 +Box13
 Lattic14     5 +Box14
+DipIron      5 +DipIroOu -DipIroIn
+               | +DipIroIn -DipGap1 -DipIroX
+               | +DipIroIn +DipGap2 -DipIroX
+DipCopUp     5 +DipCop1 -DipIroOu
+               | +DipIroX +DipCop1
+DipCopDo     5 +DipCop2 -DipIroIn
+               | +DipIroX +DipCop2
+DipPipe      5 +OutBeamP +Prototy3 -InBeamPi
+DipVac       5 +InBeamPi +Prototy3
+DipAir       5 +Prototy3 -DipIroOu -DipCop1 -DipCop2 -OutBeamP
+               | +Prototy3 +DipIroIn +DipIroOu +DipGap1 -DipGap2 -DipCop1 -DipCop2 -OutBeamP
+               | +Prototy3 +DipIroIn +DipIroOu -DipGap1 -DipCop1 +DipIroX
+               | +DipIroIn +DipIroX -DipCop2 +DipGap2
 END
 LATTICE     Lattice1                            1.        1.          Transl
 LATTICE     Lattice2                            2.        2.          Transl2
@@ -208,7 +229,13 @@ ASSIGNMA      VACUUM  Lattic12
 ASSIGNMA      VACUUM  Lattic13
 ASSIGNMA      VACUUM  Lattic14
 ASSIGNMA      VACUUM  Lattice8
+ASSIGNMA      COPPER  DipCopDo
 ASSIGNMA      VACUUM  Lattice2
+ASSIGNMA        IRON   DipIron
+ASSIGNMA      COPPER  DipCopUp
+ASSIGNMA     316L-SS   DipPipe
+ASSIGNMA      VACUUM    DipVac
+ASSIGNMA         AIR    DipAir
 PHOTONUC          1.                        VACUUM       AIR        1.
 PHYSICS           3.                                                  EVAPORAT
 PHYSICS           1.                                                  COALESCE
