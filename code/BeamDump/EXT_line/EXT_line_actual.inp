@@ -111,21 +111,32 @@ RPP Coll       -50.0 50.0 -50.0 50.0 6070.0 6090.0
 RPP DipBox7    -85. 85. -55. 55. 6660.0 6920.0
 RPP DipBox8    -85. 85. -55. 55. 6930.0 7190.0
 RPP DipBox9    -85. 85. -55. 55. 7200.0 7460.0
+RPP Prototy5   -85. 85. -55. 55. 12210.0 12470.0
+RPP DipIroO2   -85. 15. -50. 50. 12240.0 12440.0
+RPP DipIroI2   -55. 15. -22.5 22.5 12240.0 12440.0
+XZP DipGap3    12.0
+XZP DipGap4    -12.0
+RPP DipCop3    -50. 50. 12.0 21.0 12210.0 12470.0
+RPP DipCop4    -50. 50. -21.0 -12.0 12210.0 12470.0
+XYP AirWall2   12000.
 END
 Wall         5 +OutEXT -InEXT
 BlkBody      5 +Blackbox -OutEXT
 Air          5 +InEXT +AirWall1 -OutBeamP -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8
                -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
-               | +InEXT -AirWall1 -OutBeamP -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 -DipBox6 
-               -Prototy4 -DipBox7 -DipBox8 -DipBox9
+               | +InEXT -AirWall1 +AirWall2 -OutBeamP -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 
+               -DipBox6 -Prototy4 -DipBox7 -DipBox8 -DipBox9
+               | +InEXT -AirWall2 -OutBeamP -Prototy5
 BeamPipe     5 +InEXT +OutBeamP -InBeamPi +AirWall1 -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7
                -Box8 -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
-               | +InEXT +OutBeamP -InBeamPi -AirWall1 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 
-               -DipBox6 -Prototy4 -DipBox7 -DipBox8 -DipBox9
+               | +InEXT +OutBeamP -InBeamPi -AirWall1 +AirWall2 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 
+               -DipBox5 -DipBox6 -Prototy4 -DipBox7 -DipBox8 -DipBox9
+               | +InEXT +OutBeamP -InBeamPi -AirWall2 -Prototy5
 Vacuum       5 +InEXT +InBeamPi +AirWall1 -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8
                -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
-               | +InEXT +InBeamPi -AirWall1 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 -DipBox6 
-               -Prototy4 -DipBox7 -DipBox8 -DipBox9
+               | +InEXT +InBeamPi -AirWall1 +AirWall2 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 
+               -DipBox6 -Prototy4 -DipBox7 -DipBox8 -DipBox9
+               | +InEXT +InBeamPi -AirWall2 -Prototy5
 QuadCopp     5 +InQuad -OutBeamP
 QuadIron     5 +Quad -InQuad
 QuadAir      5 +Prototy1 -Quad
@@ -153,10 +164,17 @@ Lattic14     5 +Box14
 DipIron      5 +DipIroOu -DipIroIn
                | +DipIroIn -DipGap1 -DipIroX
                | +DipIroIn +DipGap2 -DipIroX
+DipIron2     5 +DipIroO2 -DipIroI2
+               | +DipIroI2 -DipGap3 -DipIroX
+               | +DipIroI2 +DipGap4 -DipIroX
 DipCopUp     5 +DipCop1 -DipIroOu
                | +DipIroX +DipCop1
+DipCopU2     5 +DipCop3 -DipIroO2
+               | +DipIroX  +DipCop3
 DipCopDo     5 +DipCop2 -DipIroIn
                | +DipIroX +DipCop2
+DipCopD2     5 +DipCop4 -DipIroI2
+               | +DipIroX +DipCop4
 DipPipe      5 +OutBeamP +Prototy3 -InBeamPi
 DipVac       5 +InBeamPi +Prototy3
 DipAir       5 +Prototy3 -DipIroOu -DipCop1 -DipCop2 -OutBeamP
@@ -176,6 +194,12 @@ CollVac      5 +InBeamPi +Prototy4
 DipLat7      5 +DipBox7
 DipLat8      5 +DipBox8
 DipLat9      5 +DipBox9
+DipPipe2     5 +OutBeamP +Prototy5 -InBeamPi
+DipVac2      5 +InBeamPi +Prototy5
+DipAir2      5 +Prototy5 -DipIroO2 -DipCop3 -DipCop4
+               | +DipIroI2 +DipGap3 -DipGap4 -OutBeamP
+               | +DipIroX +DipIroI2 -DipGap3 -DipCop3
+               | +DipIroX +DipIroI2 +DipGap4 -DipCop4
 END
 LATTICE     Lattice1                            1.        1.          Transl
 LATTICE     Lattice2                            2.        2.          Transl2
@@ -298,6 +322,12 @@ ASSIGNMA      VACUUM   CollVac
 ASSIGNMA      VACUUM   DipLat7
 ASSIGNMA      VACUUM   DipLat8
 ASSIGNMA      VACUUM   DipLat9
+ASSIGNMA        IRON  DipIron2
+ASSIGNMA      COPPER  DipCopU2
+ASSIGNMA      COPPER  DipCopD2
+ASSIGNMA     316L-SS  DipPipe2
+ASSIGNMA      VACUUM   DipVac2
+ASSIGNMA         AIR   DipAir2
 PHOTONUC          1.                        VACUUM       AIR        1.
 PHYSICS           3.                                                  EVAPORAT
 PHYSICS           1.                                                  COALESCE
