@@ -6,7 +6,7 @@ GLOBAL                                          1.
 * Set the defaults for precision simulations
 DEFAULTS                                                              PRECISIO
 * Define the beam characteristics
-BEAM          -100.0 -1.000875       0.0      -5.0      -5.0        1.NEUTRON
+BEAM           -100. -1.000875       0.0       -5.       -5.        1.NEUTRON
 * Define the beam position
 BEAMPOS          0.0       0.0    29990.       0.0       0.0          NEGATIVE
 #if ACTIV_STUDY 
@@ -15,7 +15,6 @@ IRRPROFI    8.967E-4 1.7052E14
 DCYTIMES         60.     3600.    86400.  2592000. 31536000.
 RADDECAY          1.                           0.0    100010
 #endif  
-ROT-DEFI                             45.                              QuadRot
 ROT-DEFI        301.                                             -301.Transl
 ROT-DEFI        302.                                             -210.Transl2
 ROT-DEFI          3.                                             -420.Transl3
@@ -46,6 +45,7 @@ ROT-DEFI         27.                                            -5890.DipTran12
 ROT-DEFI         28.                                           -15490.CollTran2
 ROT-DEFI         29.                                           -16520.CollTran3
 ROT-DEFI         30.                                           -23520.CollTran4
+ROT-DEFI                             45.                              QuadRot
 GEOBEGIN                                                              COMBNAME
     0    0          EXTline
 RPP InEXT      -185. 615. -200. 200. 0.0 30000.
@@ -128,32 +128,32 @@ RPP DipCop3    -50. 50. 12. 21. 12210. 12470.
 RPP DipCop4    -50. 50. -21. -12. 12210. 12470.
 XYP AirWall2   12000.
 RPP DipBox10   -85. 85. -55. 55. 14470. 14730.
-RPP DipBox11   -85. 85. -55. 55. 15880.0 16140.0
-RPP CollBox1   -55. 55. -55. 55. 16890.0 16910.0
-RPP DipBox12   -85. 85. -55. 55. 18100.0 18360.0
-RPP CollBox2   -55. 55. -55. 55. 21560.0 21580.0
-RPP CollBox3   -55. 55. -55. 55. 22590.0 22610.0
-RPP CollBox4   -55. 55. -55. 55. 29590.0 29610.0
+RPP DipBox11   -85. 85. -55. 55. 15880. 16140.
+RPP CollBox1   -55. 55. -55. 55. 16890. 16910.
+RPP DipBox12   -85. 85. -55. 55. 18100. 18360.
+RPP CollBox2   -55. 55. -55. 55. 21560. 21580.
+RPP CollBox3   -55. 55. -55. 55. 22590. 22610.
+RPP CollBox4   -55. 55. -55. 55. 29590. 29610.
 END
 Wall         5 +OutEXT -InEXT
 BlkBody      5 +Blackbox -OutEXT
 Air          5 +InEXT +AirWall1 -OutBeamP -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8
                -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
-               | +InEXT -AirWall1 +AirWall2 -OutBeamP -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 
+               | +InEXT -AirWall1 +AirWall2 -OutBeamP -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5
                -DipBox6 -Prototy4 -DipBox7 -DipBox8 -DipBox9
-               | +InEXT -AirWall2 -OutBeamP -Prototy5 -DipBox10 -DipBox11 -CollBox1 -DipBox12 -CollBox2 -CollBox3 
+               | +InEXT -AirWall2 -OutBeamP -Prototy5 -DipBox10 -DipBox11 -CollBox1 -DipBox12 -CollBox2 -CollBox3
                -CollBox4
 BeamPipe     5 +InEXT +OutBeamP -InBeamPi +AirWall1 -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7
                -Box8 -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
-               | +InEXT +OutBeamP -InBeamPi -AirWall1 +AirWall2 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 
+               | +InEXT +OutBeamP -InBeamPi -AirWall1 +AirWall2 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4
                -DipBox5 -DipBox6 -Prototy4 -DipBox7 -DipBox8 -DipBox9
-               | +InEXT +OutBeamP -InBeamPi -AirWall2 -Prototy5 -DipBox10 -DipBox11 -CollBox1 -DipBox12 -CollBox2 
+               | +InEXT +OutBeamP -InBeamPi -AirWall2 -Prototy5 -DipBox10 -DipBox11 -CollBox1 -DipBox12 -CollBox2
                -CollBox3 -CollBox4
 Vacuum       5 +InEXT +InBeamPi +AirWall1 -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8
                -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
-               | +InEXT +InBeamPi -AirWall1 +AirWall2 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 
+               | +InEXT +InBeamPi -AirWall1 +AirWall2 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5
                -DipBox6 -Prototy4 -DipBox7 -DipBox8 -DipBox9
-               | +InEXT +InBeamPi -AirWall2 -Prototy5 -DipBox10 -DipBox11 -CollBox1 -DipBox12 -CollBox2 -CollBox3 
+               | +InEXT +InBeamPi -AirWall2 -Prototy5 -DipBox10 -DipBox11 -CollBox1 -DipBox12 -CollBox2 -CollBox3
                -CollBox4
 QuadCopp     5 +InQuad -OutBeamP
 QuadIron     5 +Quad -InQuad
