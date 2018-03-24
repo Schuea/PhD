@@ -35,6 +35,9 @@ ROT-DEFI         17.                180.                         -810.DipTrans3
 ROT-DEFI         18.                180.                        -1080.DipTrans4
 ROT-DEFI         19.                180.                        -1420.DipTrans5
 ROT-DEFI         20.                180.                        -1690.DipTrans6
+ROT-DEFI         21.                                            -1960.DipTrans7
+ROT-DEFI         22.                                            -2230.DipTrans8
+ROT-DEFI         23.                                            -2500.DipTrans9
 GEOBEGIN                                                              COMBNAME
     0    0          EXTline
 RPP InEXT      -185. 615. -200. 200. 0.0 30000.
@@ -105,21 +108,24 @@ RPP DipBox5    -85. 85. -55. 55. 6120.0 6380.0
 RPP DipBox6    -85. 85. -55. 55. 6390.0 6650.0
 RPP Prototy4   -55.0 55.0 -55.0 55.0 6070.0 6090.0
 RPP Coll       -50.0 50.0 -50.0 50.0 6070.0 6090.0
+RPP DipBox7    -85. 85. -55. 55. 6660.0 6920.0
+RPP DipBox8    -85. 85. -55. 55. 6930.0 7190.0
+RPP DipBox9    -85. 85. -55. 55. 7200.0 7460.0
 END
 Wall         5 +OutEXT -InEXT
 BlkBody      5 +Blackbox -OutEXT
 Air          5 +InEXT +AirWall1 -OutBeamP -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8
                -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
                | +InEXT -AirWall1 -OutBeamP -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 -DipBox6 
-               -Prototy4
+               -Prototy4 -DipBox7 -DipBox8 -DipBox9
 BeamPipe     5 +InEXT +OutBeamP -InBeamPi +AirWall1 -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7
                -Box8 -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
                | +InEXT +OutBeamP -InBeamPi -AirWall1 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 
-               -DipBox6 -Prototy4
+               -DipBox6 -Prototy4 -DipBox7 -DipBox8 -DipBox9
 Vacuum       5 +InEXT +InBeamPi +AirWall1 -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8
                -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
                | +InEXT +InBeamPi -AirWall1 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 -DipBox6 
-               -Prototy4
+               -Prototy4 -DipBox7 -DipBox8 -DipBox9
 QuadCopp     5 +InQuad -OutBeamP
 QuadIron     5 +Quad -InQuad
 QuadAir      5 +Prototy1 -Quad
@@ -167,6 +173,9 @@ CollAir      5 +Prototy4 -Coll
 CollMat      5 +Coll -OutBeamP
 CollPipe     5 +OutBeamP +Prototy4 -InBeamPi
 CollVac      5 +InBeamPi +Prototy4
+DipLat7      5 +DipBox7
+DipLat8      5 +DipBox8
+DipLat9      5 +DipBox9
 END
 LATTICE     Lattice1                            1.        1.          Transl
 LATTICE     Lattice2                            2.        2.          Transl2
@@ -188,6 +197,9 @@ LATTICE      DipLat3                           17.       17.          DipTrans3
 LATTICE      DipLat4                           18.       18.          DipTrans4
 LATTICE      DipLat5                           19.       19.          DipTrans5
 LATTICE      DipLat6                           20.       20.          DipTrans6
+LATTICE      DipLat7                           21.       21.          DipTrans7
+LATTICE      DipLat8                           22.       22.          DipTrans8
+LATTICE      DipLat9                           23.       23.          DipTrans9
 GEOEND         664.9     249.9   29999.9    -234.9    -249.9       0.1DEBUG
 GEOEND          500.      400.      900.                               &
 MATERIAL         15.                1.82                           0.0Phosphor
@@ -283,6 +295,9 @@ ASSIGNMA         AIR   CollAir
 ASSIGNMA     316L-SS   CollMat
 ASSIGNMA     316L-SS  CollPipe
 ASSIGNMA      VACUUM   CollVac
+ASSIGNMA      VACUUM   DipLat7
+ASSIGNMA      VACUUM   DipLat8
+ASSIGNMA      VACUUM   DipLat9
 PHOTONUC          1.                        VACUUM       AIR        1.
 PHYSICS           3.                                                  EVAPORAT
 PHYSICS           1.                                                  COALESCE
