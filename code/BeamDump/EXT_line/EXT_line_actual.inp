@@ -31,6 +31,10 @@ ROT-DEFI         13.                                            -2520.Transl13
 ROT-DEFI         14.                                            -2730.Transl14
 ROT-DEFI         15.                                             -270.DipTrans1
 ROT-DEFI         16.                                             -540.DipTrans2
+ROT-DEFI         17.                180.                         -810.DipTrans3
+ROT-DEFI         18.                180.                        -1080.DipTrans4
+ROT-DEFI         19.                180.                        -1420.DipTrans5
+ROT-DEFI         20.                180.                        -1690.DipTrans6
 GEOBEGIN                                                              COMBNAME
     0    0          EXTline
 RPP InEXT      -185. 615. -200. 200. 0.0 30000.
@@ -84,30 +88,34 @@ RPP Box33      -55. 55. -55. 55. 3800. 4000.
 RPP Box34      -55. 55. -55. 55. 4010. 4210.
 RPP Box35      -55. 55. -55. 55. 4010. 4210.
 RPP Box36      -55. 55. -55. 55. 4220. 4420.
-RPP Prototy3   -85. 85. -55. 55. 4700. 4960.0
-RPP DipIroIn   -55. 15. -20. 20. 4730.0 4930.0
-RPP DipIroOu   -85. 15. -50. 50. 4730.0 4930.0
+RPP Prototy3   -85. 85. -55. 55. 4700. 4960.
+RPP DipIroIn   -55. 15. -20. 20. 4730. 4930.
+RPP DipIroOu   -85. 15. -50. 50. 4730. 4930.
 XZP DipGap1    8.5
 XZP DipGap2    -8.5
 YZP DipIroX    -15.
-RPP DipCop1    -50. 50. 8.5 17.5 4700. 4960.0
-RPP DipCop2    -50. 50. -17.5 -8.5 4700. 4960.0
-RPP DipBox1    -85. 85. -55. 55. 4970.0 5230.0
-XYP AirWall1   4660.0
-RPP DipBox2    -85. 85. -55. 55. 5240.0 5500.0
-RPP DipBox3    -85. 85. -55. 55. 4970.0 5230.0
+RPP DipCop1    -50. 50. 8.5 17.5 4700. 4960.
+RPP DipCop2    -50. 50. -17.5 -8.5 4700. 4960.
+RPP DipBox1    -85. 85. -55. 55. 4970. 5230.
+XYP AirWall1   4660.
+RPP DipBox2    -85. 85. -55. 55. 5240. 5500.
+RPP DipBox3    -85. 85. -55. 55. 5510.0 5770.0
+RPP DipBox4    -85. 85. -55. 55. 5780.0 6040.0
+RPP DipBox5    -85. 85. -55. 55. 6120.0 6380.0
+RPP DipBox6    -85. 85. -55. 55. 6390.0 6650.0
 END
 Wall         5 +OutEXT -InEXT
 BlkBody      5 +Blackbox -OutEXT
 Air          5 +InEXT +AirWall1 -OutBeamP -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8
                -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
-               | +InEXT -AirWall1 -OutBeamP -Prototy3 -DipBox1 -DipBox2
+               | +InEXT -AirWall1 -OutBeamP -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 -DipBox6
 BeamPipe     5 +InEXT +OutBeamP -InBeamPi +AirWall1 -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7
                -Box8 -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
-               | +InEXT +OutBeamP -InBeamPi -AirWall1 -Prototy3 -DipBox1 -DipBox2
+               | +InEXT +OutBeamP -InBeamPi -AirWall1 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 
+               -DipBox6
 Vacuum       5 +InEXT +InBeamPi +AirWall1 -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8
                -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
-               | +InEXT +InBeamPi -AirWall1 -Prototy3 -DipBox1 -DipBox2
+               | +InEXT +InBeamPi -AirWall1 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 -DipBox6
 QuadCopp     5 +InQuad -OutBeamP
 QuadIron     5 +Quad -InQuad
 QuadAir      5 +Prototy1 -Quad
@@ -147,6 +155,10 @@ DipAir       5 +Prototy3 -DipIroOu -DipCop1 -DipCop2 -OutBeamP
                | +DipIroIn +DipIroX -DipCop2 +DipGap2
 DipLat1      5 +DipBox1
 DipLat2      5 +DipBox2
+DipLat3      5 +DipBox3
+DipLat4      5 +DipBox4
+DipLat5      5 +DipBox5
+DipLat6      5 +DipBox6
 END
 LATTICE     Lattice1                            1.        1.          Transl
 LATTICE     Lattice2                            2.        2.          Transl2
@@ -163,7 +175,11 @@ LATTICE     Lattic12                           12.       12.          Transl12
 LATTICE     Lattic13                           13.       13.          Transl13
 LATTICE     Lattic14                           14.       14.          Transl14
 LATTICE      DipLat1                           15.       15.          DipTrans1
-LATTICE      DipLat2                           16.                    DipTrans2
+LATTICE      DipLat2                           16.       16.          DipTrans2
+LATTICE      DipLat3                           17.       17.          DipTrans3
+LATTICE      DipLat4                           18.       18.          DipTrans4
+LATTICE      DipLat5                           19.       19.          DipTrans5
+LATTICE      DipLat6                           20.       20.          DipTrans6
 GEOEND         664.9     249.9   29999.9    -234.9    -249.9       0.1DEBUG
 GEOEND          500.      400.      900.                               &
 MATERIAL         15.                1.82                           0.0Phosphor
@@ -250,7 +266,11 @@ ASSIGNMA     316L-SS   DipPipe
 ASSIGNMA      VACUUM    DipVac
 ASSIGNMA         AIR    DipAir
 ASSIGNMA      VACUUM   DipLat2
+ASSIGNMA      VACUUM   DipLat4
+ASSIGNMA      VACUUM   DipLat3
 ASSIGNMA      VACUUM   DipLat1
+ASSIGNMA      VACUUM   DipLat5
+ASSIGNMA      VACUUM   DipLat6
 PHOTONUC          1.                        VACUUM       AIR        1.
 PHYSICS           3.                                                  EVAPORAT
 PHYSICS           1.                                                  COALESCE
