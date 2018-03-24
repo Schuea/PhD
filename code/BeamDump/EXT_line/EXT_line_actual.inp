@@ -42,6 +42,9 @@ ROT-DEFI         24.                180.                        -2260.DipTran10
 ROT-DEFI         25.                180.                        -3670.DipTran11
 ROT-DEFI         26.                                           -10820.CollTran1
 ROT-DEFI         27.                                            -5890.DipTran12
+ROT-DEFI         28.                                           -15490.CollTran2
+ROT-DEFI         29.                                           -16520.CollTran3
+ROT-DEFI         30.                                           -23520.CollTran4
 GEOBEGIN                                                              COMBNAME
     0    0          EXTline
 RPP InEXT      -185. 615. -200. 200. 0.0 30000.
@@ -127,6 +130,9 @@ RPP DipBox10   -85. 85. -55. 55. 14470. 14730.
 RPP DipBox11   -85. 85. -55. 55. 15880.0 16140.0
 RPP CollBox1   -55. 55. -55. 55. 16890.0 16910.0
 RPP DipBox12   -85. 85. -55. 55. 18100.0 18360.0
+RPP CollBox2   -55. 55. -55. 55. 21560.0 21580.0
+RPP CollBox3   -55. 55. -55. 55. 22590.0 22610.0
+RPP CollBox4   -55. 55. -55. 55. 29590.0 29610.0
 END
 Wall         5 +OutEXT -InEXT
 BlkBody      5 +Blackbox -OutEXT
@@ -134,17 +140,20 @@ Air          5 +InEXT +AirWall1 -OutBeamP -Prototy1 -Box1 -Prototy2 -Box2 -Box3 
                -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
                | +InEXT -AirWall1 +AirWall2 -OutBeamP -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 
                -DipBox6 -Prototy4 -DipBox7 -DipBox8 -DipBox9
-               | +InEXT -AirWall2 -OutBeamP -Prototy5 -DipBox10 -DipBox11 -CollBox1 -DipBox12
+               | +InEXT -AirWall2 -OutBeamP -Prototy5 -DipBox10 -DipBox11 -CollBox1 -DipBox12 -CollBox2 -CollBox3 
+               -CollBox4
 BeamPipe     5 +InEXT +OutBeamP -InBeamPi +AirWall1 -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7
                -Box8 -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
                | +InEXT +OutBeamP -InBeamPi -AirWall1 +AirWall2 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 
                -DipBox5 -DipBox6 -Prototy4 -DipBox7 -DipBox8 -DipBox9
-               | +InEXT +OutBeamP -InBeamPi -AirWall2 -Prototy5 -DipBox10 -DipBox11 -CollBox1 -DipBox12
+               | +InEXT +OutBeamP -InBeamPi -AirWall2 -Prototy5 -DipBox10 -DipBox11 -CollBox1 -DipBox12 -CollBox2 
+               -CollBox3 -CollBox4
 Vacuum       5 +InEXT +InBeamPi +AirWall1 -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8
                -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
                | +InEXT +InBeamPi -AirWall1 +AirWall2 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 
                -DipBox6 -Prototy4 -DipBox7 -DipBox8 -DipBox9
-               | +InEXT +InBeamPi -AirWall2 -Prototy5 -DipBox10 -DipBox11 -CollBox1 -DipBox12
+               | +InEXT +InBeamPi -AirWall2 -Prototy5 -DipBox10 -DipBox11 -CollBox1 -DipBox12 -CollBox2 -CollBox3 
+               -CollBox4
 QuadCopp     5 +InQuad -OutBeamP
 QuadIron     5 +Quad -InQuad
 QuadAir      5 +Prototy1 -Quad
@@ -212,6 +221,9 @@ DipLat10     5 +DipBox10
 DipLat11     5 +DipBox11
 CollLat1     5 +CollBox1
 DipLat12     5 +DipBox12
+CollLat2     5 +CollBox2
+CollLat3     5 +CollBox3
+CollLat4     5 +CollBox4
 END
 LATTICE     Lattice1                            1.        1.          Transl
 LATTICE     Lattice2                            2.        2.          Transl2
@@ -240,6 +252,9 @@ LATTICE     DipLat10                           24.       24.          DipTran10
 LATTICE     DipLat11                           25.       25.          DipTran11
 LATTICE     CollLat1                           26.       26.          CollTran1
 LATTICE     DipLat12                           27.       27.          DipTran12
+LATTICE     CollLat2                           28.       28.          CollTran2
+LATTICE     CollLat3                           29.       29.          CollTran3
+LATTICE     CollLat4                           30.       30.          CollTran4
 GEOEND         664.9     249.9   29999.9    -234.9    -249.9       0.1DEBUG
 GEOEND          500.      400.      900.                               &
 MATERIAL         15.                1.82                           0.0Phosphor
@@ -348,6 +363,9 @@ ASSIGNMA         AIR  DipLat10
 ASSIGNMA      VACUUM  DipLat11
 ASSIGNMA      VACUUM  CollLat1
 ASSIGNMA      VACUUM  DipLat12
+ASSIGNMA      VACUUM  CollLat2
+ASSIGNMA      VACUUM  CollLat3
+ASSIGNMA      VACUUM  CollLat4
 PHOTONUC          1.                        VACUUM       AIR        1.
 PHYSICS           3.                                                  EVAPORAT
 PHYSICS           1.                                                  COALESCE
