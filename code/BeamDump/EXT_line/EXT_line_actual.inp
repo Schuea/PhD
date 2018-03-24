@@ -38,6 +38,7 @@ ROT-DEFI         20.                180.                        -1690.DipTrans6
 ROT-DEFI         21.                                            -1960.DipTrans7
 ROT-DEFI         22.                                            -2230.DipTrans8
 ROT-DEFI         23.                                            -2500.DipTrans9
+ROT-DEFI         24.                180.                        -2260.DipTran10
 GEOBEGIN                                                              COMBNAME
     0    0          EXTline
 RPP InEXT      -185. 615. -200. 200. 0.0 30000.
@@ -119,6 +120,7 @@ XZP DipGap4    -12.0
 RPP DipCop3    -50. 50. 12.0 21.0 12210.0 12470.0
 RPP DipCop4    -50. 50. -21.0 -12.0 12210.0 12470.0
 XYP AirWall2   12000.
+RPP DipBox10   -85. 85. -55. 55. 14470.0 14730.0
 END
 Wall         5 +OutEXT -InEXT
 BlkBody      5 +Blackbox -OutEXT
@@ -126,17 +128,17 @@ Air          5 +InEXT +AirWall1 -OutBeamP -Prototy1 -Box1 -Prototy2 -Box2 -Box3 
                -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
                | +InEXT -AirWall1 +AirWall2 -OutBeamP -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 
                -DipBox6 -Prototy4 -DipBox7 -DipBox8 -DipBox9
-               | +InEXT -AirWall2 -OutBeamP -Prototy5
+               | +InEXT -AirWall2 -OutBeamP -Prototy5 -DipBox10
 BeamPipe     5 +InEXT +OutBeamP -InBeamPi +AirWall1 -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7
                -Box8 -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
                | +InEXT +OutBeamP -InBeamPi -AirWall1 +AirWall2 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 
                -DipBox5 -DipBox6 -Prototy4 -DipBox7 -DipBox8 -DipBox9
-               | +InEXT +OutBeamP -InBeamPi -AirWall2 -Prototy5
+               | +InEXT +OutBeamP -InBeamPi -AirWall2 -Prototy5 -DipBox10
 Vacuum       5 +InEXT +InBeamPi +AirWall1 -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8
                -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
                | +InEXT +InBeamPi -AirWall1 +AirWall2 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 
                -DipBox6 -Prototy4 -DipBox7 -DipBox8 -DipBox9
-               | +InEXT +InBeamPi -AirWall2 -Prototy5
+               | +InEXT +InBeamPi -AirWall2 -Prototy5 -DipBox10
 QuadCopp     5 +InQuad -OutBeamP
 QuadIron     5 +Quad -InQuad
 QuadAir      5 +Prototy1 -Quad
@@ -196,10 +198,11 @@ DipLat8      5 +DipBox8
 DipLat9      5 +DipBox9
 DipPipe2     5 +OutBeamP +Prototy5 -InBeamPi
 DipVac2      5 +InBeamPi +Prototy5
-DipAir2      5 +Prototy5 -DipIroO2 -DipCop3 -DipCop4
+DipAir2      5 +Prototy5 -DipIroO2 -DipCop3 -DipCop4 -OutBeamP
                | +DipIroI2 +DipGap3 -DipGap4 -OutBeamP
                | +DipIroX +DipIroI2 -DipGap3 -DipCop3
                | +DipIroX +DipIroI2 +DipGap4 -DipCop4
+DipLat10     5 +DipBox10
 END
 LATTICE     Lattice1                            1.        1.          Transl
 LATTICE     Lattice2                            2.        2.          Transl2
@@ -224,6 +227,7 @@ LATTICE      DipLat6                           20.       20.          DipTrans6
 LATTICE      DipLat7                           21.       21.          DipTrans7
 LATTICE      DipLat8                           22.       22.          DipTrans8
 LATTICE      DipLat9                           23.       23.          DipTrans9
+LATTICE     DipLat10                           24.       24.          DipTran10
 GEOEND         664.9     249.9   29999.9    -234.9    -249.9       0.1DEBUG
 GEOEND          500.      400.      900.                               &
 MATERIAL         15.                1.82                           0.0Phosphor
@@ -328,6 +332,7 @@ ASSIGNMA      COPPER  DipCopD2
 ASSIGNMA     316L-SS  DipPipe2
 ASSIGNMA      VACUUM   DipVac2
 ASSIGNMA         AIR   DipAir2
+ASSIGNMA         AIR  DipLat10
 PHOTONUC          1.                        VACUUM       AIR        1.
 PHYSICS           3.                                                  EVAPORAT
 PHYSICS           1.                                                  COALESCE
