@@ -5,7 +5,7 @@ Title: EXTline
 Input: EXT_line_actual.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Input
+Page: Geometry
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -248,7 +248,7 @@ Plot: Red
 	extends: 124.594 66.5023
 	labels: 1
 	layer: Lattice
-	origin: 6.36572 0.0238519 5870
+	origin: 8.08478 0.0238519 6470
 	subtype: Material
 	title: GeoViewer Red plot
 End
@@ -261,10 +261,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 970.22 518.671
+	extends: 370.967 198.315
 	labels: 1
 	layer: Lattice
-	origin: -39.7141 24 5784.89
+	origin: 6.05102 24 6032.02
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -277,10 +277,10 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 755.216 401.912
+	extends: 1055.25 561.586
 	labels: 1
 	layer: Lattice
-	origin: 0 19.9905 5668.51
+	origin: 0 -5.07923 6061.89
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -296,7 +296,7 @@ Plot: Magenta
 	extends: 184.071 98.1133
 	labels: 1
 	layer: Media
-	origin: 42.1929 -3.51671 4810
+	origin: 42.1929 -3.51671 6080
 	subtype: Material
 	title: GeoViewer Magenta plot
 End

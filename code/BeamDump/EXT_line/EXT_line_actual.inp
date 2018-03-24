@@ -103,19 +103,23 @@ RPP DipBox3    -85. 85. -55. 55. 5510.0 5770.0
 RPP DipBox4    -85. 85. -55. 55. 5780.0 6040.0
 RPP DipBox5    -85. 85. -55. 55. 6120.0 6380.0
 RPP DipBox6    -85. 85. -55. 55. 6390.0 6650.0
+RPP Prototy4   -55.0 55.0 -55.0 55.0 6070.0 6090.0
+RPP Coll       -50.0 50.0 -50.0 50.0 6070.0 6090.0
 END
 Wall         5 +OutEXT -InEXT
 BlkBody      5 +Blackbox -OutEXT
 Air          5 +InEXT +AirWall1 -OutBeamP -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8
                -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
-               | +InEXT -AirWall1 -OutBeamP -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 -DipBox6
+               | +InEXT -AirWall1 -OutBeamP -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 -DipBox6 
+               -Prototy4
 BeamPipe     5 +InEXT +OutBeamP -InBeamPi +AirWall1 -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7
                -Box8 -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
                | +InEXT +OutBeamP -InBeamPi -AirWall1 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 
-               -DipBox6
+               -DipBox6 -Prototy4
 Vacuum       5 +InEXT +InBeamPi +AirWall1 -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8
                -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
-               | +InEXT +InBeamPi -AirWall1 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 -DipBox6
+               | +InEXT +InBeamPi -AirWall1 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 -DipBox6 
+               -Prototy4
 QuadCopp     5 +InQuad -OutBeamP
 QuadIron     5 +Quad -InQuad
 QuadAir      5 +Prototy1 -Quad
@@ -159,6 +163,10 @@ DipLat3      5 +DipBox3
 DipLat4      5 +DipBox4
 DipLat5      5 +DipBox5
 DipLat6      5 +DipBox6
+CollAir      5 +Prototy4 -Coll
+CollMat      5 +Coll -OutBeamP
+CollPipe     5 +OutBeamP +Prototy4 -InBeamPi
+CollVac      5 +InBeamPi +Prototy4
 END
 LATTICE     Lattice1                            1.        1.          Transl
 LATTICE     Lattice2                            2.        2.          Transl2
@@ -271,6 +279,10 @@ ASSIGNMA      VACUUM   DipLat3
 ASSIGNMA      VACUUM   DipLat1
 ASSIGNMA      VACUUM   DipLat5
 ASSIGNMA      VACUUM   DipLat6
+ASSIGNMA         AIR   CollAir
+ASSIGNMA     316L-SS   CollMat
+ASSIGNMA     316L-SS  CollPipe
+ASSIGNMA      VACUUM   CollVac
 PHOTONUC          1.                        VACUUM       AIR        1.
 PHYSICS           3.                                                  EVAPORAT
 PHYSICS           1.                                                  COALESCE
