@@ -245,10 +245,10 @@ Plot: Red
 	basisv: 0 1 0
 	boundaries: 1
 	coord: U-V
-	extends: 99.2971 53
+	extends: 124.594 93.4455
 	labels: 1
 	layer: Lattice
-	origin: 0 0 2000
+	origin: 3.92921 0.0238519 5019.59
 	subtype: Material
 	title: GeoViewer Red plot
 End
@@ -261,10 +261,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 385.158 205.902
+	extends: 672.747 504.56
 	labels: 1
 	layer: Media
-	origin: 0.43571 10 4803.47
+	origin: -25.3945 1.19742 5018.62
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -277,10 +277,10 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 358.914 191.008
+	extends: 755.216 566.412
 	labels: 1
 	layer: Lattice
-	origin: 0 -6.31297 4796.09
+	origin: 0 41.331 4921.59
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -293,10 +293,10 @@ Plot: Magenta
 	basisv: 0 1 0
 	boundaries: 1
 	coord: X-Y
-	extends: 742.815 395.934
+	extends: 184.071 138.053
 	labels: 1
 	layer: Media
-	origin: -44.8973 -19.1248 4800
+	origin: 42.1929 -3.51671 4900
 	subtype: Material
 	title: GeoViewer Magenta plot
 End

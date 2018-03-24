@@ -17,18 +17,20 @@ RADDECAY          1.                           0.0    100010
 #endif  
 ROT-DEFI        301.                                             -301.Transl
 ROT-DEFI        302.                                             -210.Transl2
-ROT-DEFI                                                         -420.Transl3
-ROT-DEFI                                                         -630.Transl4
-ROT-DEFI                                                         -840.Transl5
-ROT-DEFI                                                        -1050.Transl6
-ROT-DEFI                                                        -1260.Transl7
-ROT-DEFI                                                        -1470.Transl8
-ROT-DEFI                                                        -1680.Transl9
-ROT-DEFI                                                        -1890.Transl10
-ROT-DEFI                                                        -2100.Transl11
-ROT-DEFI                                                        -2310.Transl12
-ROT-DEFI                                                        -2520.Transl13
-ROT-DEFI                                                        -2730.Transl14
+ROT-DEFI          3.                                             -420.Transl3
+ROT-DEFI          4.                                             -630.Transl4
+ROT-DEFI          5.                                             -840.Transl5
+ROT-DEFI          6.                                            -1050.Transl6
+ROT-DEFI          7.                                            -1260.Transl7
+ROT-DEFI          8.                                            -1470.Transl8
+ROT-DEFI          9.                                            -1680.Transl9
+ROT-DEFI         10.                                            -1890.Transl10
+ROT-DEFI         11.                                            -2100.Transl11
+ROT-DEFI         12.                                            -2310.Transl12
+ROT-DEFI         13.                                            -2520.Transl13
+ROT-DEFI         14.                                            -2730.Transl14
+ROT-DEFI         15.                                             -270.DipTrans1
+ROT-DEFI         16.                                             -540.DipTrans2
 GEOBEGIN                                                              COMBNAME
     0    0          EXTline
 RPP InEXT      -185. 615. -200. 200. 0.0 30000.
@@ -82,23 +84,30 @@ RPP Box33      -55. 55. -55. 55. 3800. 4000.
 RPP Box34      -55. 55. -55. 55. 4010. 4210.
 RPP Box35      -55. 55. -55. 55. 4010. 4210.
 RPP Box36      -55. 55. -55. 55. 4220. 4420.
-RPP Prototy3   -85.0 85.0 -55.0 55.0 4700.0 4900.0
-RPP DipIroIn   -55.0 15.0 -20.0 20.0 4720.0 4880.0
-RPP DipIroOu   -85.0 15.0 -50.0 50.0 4720.0 4880.0
+RPP Prototy3   -85. 85. -55. 55. 4700. 4960.0
+RPP DipIroIn   -55. 15. -20. 20. 4730.0 4930.0
+RPP DipIroOu   -85. 15. -50. 50. 4730.0 4930.0
 XZP DipGap1    8.5
 XZP DipGap2    -8.5
-YZP DipIroX    -15.0
-RPP DipCop1    -50.0 50.0 8.5 17.5 4700.0 4900.0
-RPP DipCop2    -50.0 50.0 -17.5 -8.5 4700.0 4900.0
+YZP DipIroX    -15.
+RPP DipCop1    -50. 50. 8.5 17.5 4700. 4960.0
+RPP DipCop2    -50. 50. -17.5 -8.5 4700. 4960.0
+RPP DipBox1    -85. 85. -55. 55. 4970.0 5230.0
+XYP AirWall1   4660.0
+RPP DipBox2    -85. 85. -55. 55. 5240.0 5500.0
+RPP DipBox3    -85. 85. -55. 55. 4970.0 5230.0
 END
 Wall         5 +OutEXT -InEXT
 BlkBody      5 +Blackbox -OutEXT
-Air          5 +InEXT -OutBeamP -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8 -Box9 -Box10
-               -Box11 -Box12 -Box13 -Box14 -Prototy3
-BeamPipe     5 +InEXT +OutBeamP -InBeamPi -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8
+Air          5 +InEXT +AirWall1 -OutBeamP -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8
                -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
-Vacuum       5 +InEXT +InBeamPi -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8 -Box9 -Box10
-               -Box11 -Box12 -Box13 -Box14 -Prototy3
+               | +InEXT -AirWall1 -OutBeamP -Prototy3 -DipBox1 -DipBox2
+BeamPipe     5 +InEXT +OutBeamP -InBeamPi +AirWall1 -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7
+               -Box8 -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
+               | +InEXT +OutBeamP -InBeamPi -AirWall1 -Prototy3 -DipBox1 -DipBox2
+Vacuum       5 +InEXT +InBeamPi +AirWall1 -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8
+               -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
+               | +InEXT +InBeamPi -AirWall1 -Prototy3 -DipBox1 -DipBox2
 QuadCopp     5 +InQuad -OutBeamP
 QuadIron     5 +Quad -InQuad
 QuadAir      5 +Prototy1 -Quad
@@ -136,6 +145,8 @@ DipAir       5 +Prototy3 -DipIroOu -DipCop1 -DipCop2 -OutBeamP
                | +Prototy3 +DipIroIn +DipIroOu +DipGap1 -DipGap2 -DipCop1 -DipCop2 -OutBeamP
                | +Prototy3 +DipIroIn +DipIroOu -DipGap1 -DipCop1 +DipIroX
                | +DipIroIn +DipIroX -DipCop2 +DipGap2
+DipLat1      5 +DipBox1
+DipLat2      5 +DipBox2
 END
 LATTICE     Lattice1                            1.        1.          Transl
 LATTICE     Lattice2                            2.        2.          Transl2
@@ -151,6 +162,8 @@ LATTICE     Lattic11                           11.       11.          Transl11
 LATTICE     Lattic12                           12.       12.          Transl12
 LATTICE     Lattic13                           13.       13.          Transl13
 LATTICE     Lattic14                           14.       14.          Transl14
+LATTICE      DipLat1                           15.       15.          DipTrans1
+LATTICE      DipLat2                           16.                    DipTrans2
 GEOEND         664.9     249.9   29999.9    -234.9    -249.9       0.1DEBUG
 GEOEND          500.      400.      900.                               &
 MATERIAL         15.                1.82                           0.0Phosphor
@@ -236,6 +249,8 @@ ASSIGNMA      COPPER  DipCopUp
 ASSIGNMA     316L-SS   DipPipe
 ASSIGNMA      VACUUM    DipVac
 ASSIGNMA         AIR    DipAir
+ASSIGNMA      VACUUM   DipLat2
+ASSIGNMA      VACUUM   DipLat1
 PHOTONUC          1.                        VACUUM       AIR        1.
 PHYSICS           3.                                                  EVAPORAT
 PHYSICS           1.                                                  COALESCE
