@@ -389,9 +389,9 @@ EMFCUT        -0.002     0.002            QuadCopp  CollLat4        1.
 #endif  
 LAM-BIAS         0.0     -0.02     WATER    PHOTON
 LAM-BIAS         0.0     -0.02   316L-SS    PHOTON
-USRBIN           10.    ENERGY       21.      664.      249.    29990.Energy
+USRBIN           10.    ENERGY      -21.      664.      249.    29990.Energy
 USRBIN         -234.     -249.       10.      300.      200.      500. &
-USRBIN           10.   NEUTRON       21.      664.      249.    29990.Neutron
+USRBIN           10.   NEUTRON      -22.      664.      249.    29990.Neutron
 USRBIN         -234.     -249.       10.      300.      200.      500. &
 * Set the random number seed
 RANDOMIZ          1.        1.
