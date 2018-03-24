@@ -121,9 +121,9 @@ Material: Cobalt
 End
 
 # Material
-Material: Eu
+Material: Cs
 	alpha: 0
-	color: #703070
+	color: #901070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -171,9 +171,9 @@ Material: MnO
 End
 
 # Material
-Material: Cs
+Material: Eu
 	alpha: 0
-	color: #901070
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -245,10 +245,10 @@ Plot: Red
 	basisv: 0 1 0
 	boundaries: 1
 	coord: U-V
-	extends: 885.949 472.877
+	extends: 139.573 74.4973
 	labels: 1
 	layer: Lattice
-	origin: 389.594 -0.0238519 12248.9
+	origin: 8.49015 -0.856734 16899.3
 	subtype: Material
 	title: GeoViewer Red plot
 End
@@ -261,10 +261,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 2211.07 1182.02
+	extends: 2124.64 1135.82
 	labels: 1
 	layer: Lattice
-	origin: -273.957 0 12941.3
+	origin: 73.2748 14 16502.9
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -277,10 +277,10 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 1344.86 715.712
+	extends: 1430.88 761.49
 	labels: 1
 	layer: Lattice
-	origin: 0 -82.3403 13516.6
+	origin: 0 24.6583 17055
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -293,7 +293,7 @@ Plot: Magenta
 	basisv: 0 1 0
 	boundaries: 1
 	coord: X-Y
-	extends: 136.236 72.6162
+	extends: 136.236 72.6164
 	labels: 1
 	layer: Media
 	origin: 9.48921 4.46437 12400
