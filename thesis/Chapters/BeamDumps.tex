@@ -394,6 +394,42 @@ Neutron spatial distributions
 \section{Simulation studies of extraction line}
 \label{BeamDumps:sim_EXT}
 
+The neutrons, which are created in the ILC beam dumps and directed towards the interaction region, are not freely traveling through the extraction line.
+As mentioned before, the extraction line lattice consists of magnets and collimators, which for the neutrons represent shielding obstacles.
+\\The first device of the extraction line lattice is the focusing quadrupole QDEX1, closest to the IP.
+Like the last quadrupole QD0 of the final-focus system, QDEX1 is also an integrated part of the two detector experiments.
+Since the neutrons escaping the extraction line shall be input to a full detector simulation, the \fluka model of the EXT line therefore does not include QDEX1.
+The model rather ends at \SI{9.3}{\meter} from the IP, which will then be the starting point of the escaping neutrons for the following \geant simulation the SiD detector.
+The component of the \fluka model closest to the IP is the cryostat containing QFEX2A, the only other superconducting magnet of the EXT lattice next to QDEX1.
+The cryostat is followed by 13 quadrupole models, which prepare the spent beams for diagnostic measurements and which shall prevent any beam loss. \todo{Add references to TDR and papers}
+The following eight dipole magnets are part of the energy diagnostic section.
+The polarimeter section containing four dipole magnets, measures the polarization level of the beam.
+\\The goal of this \fluka simulation is to obtain the number and the distribution of neutrons reaching the detectors.
+The models of the EXT line components are therefore simplified models aimed at representing the shielding objects with the correct sizes and positions along the line.
+\begin{figure}[h]
+ \centering
+  \begin{subfigure}[b]{\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/EXT_line.png}
+   \caption{Full extraction line}
+   \end{subfigure}\\
+   \begin{subfigure}[b]{0.59\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/EXT_line_1.png}
+   \caption{Zoom of the first magnet section}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.39\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/EXT_line_2.png}
+   \caption{3D view of the dipole magnets}
+   \end{subfigure}
+   \caption[\fluka model of the ILC extraction line]{Pictures of the ILC extraction line, modeled within \flair.
+   The full model is shown in a xz view in Figure (a).
+   Figures (b) and (c) show closeup views of the magnet section in the beginning of the extraction line.}
+   \label{fig:BeamDumps:EXT}
+\end{figure} 
+
 \begin{itemize}
  \item Extraction line lattice - explain components
  \item Simulation of neutrons through EXT - not done yet
