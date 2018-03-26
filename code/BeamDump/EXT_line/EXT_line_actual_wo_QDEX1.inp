@@ -1,0 +1,385 @@
+#define ACTIV_STUDY 
+#undef ACTIV_STUDY 
+TITLE
+EXTline
+GLOBAL                                          1.
+* Set the defaults for precision simulations
+DEFAULTS                                                              PRECISIO
+* Define the beam characteristics
+BEAM           -100. -1.000875       0.0       -5.       -5.        1.NEUTRON
+* Define the beam position
+BEAMPOS          0.0       0.0    29990.       0.0       0.0          NEGATIVE
+#if ACTIV_STUDY 
+IRRPROFI    8.967E-4 1.7052E14
+* 1min, 1h, 1d, 1month, 1y
+DCYTIMES         60.     3600.    86400.  2592000. 31536000.
+RADDECAY          1.                           0.0    100010
+#endif  
+ROT-DEFI        301.                                             -301.Transl
+ROT-DEFI        302.                                             -210.Transl2
+ROT-DEFI          3.                                             -420.Transl3
+ROT-DEFI          4.                                             -630.Transl4
+ROT-DEFI          5.                                             -840.Transl5
+ROT-DEFI          6.                                            -1050.Transl6
+ROT-DEFI          7.                                            -1260.Transl7
+ROT-DEFI          8.                                            -1470.Transl8
+ROT-DEFI          9.                                            -1680.Transl9
+ROT-DEFI         10.                                            -1890.Transl10
+ROT-DEFI         11.                                            -2100.Transl11
+ROT-DEFI         12.                                            -2310.Transl12
+ROT-DEFI         13.                                            -2520.Transl13
+ROT-DEFI         14.                                            -2730.Transl14
+ROT-DEFI         15.                                             -270.DipTrans1
+ROT-DEFI         16.                                             -540.DipTrans2
+ROT-DEFI         17.                180.                         -810.DipTrans3
+ROT-DEFI         18.                180.                        -1080.DipTrans4
+ROT-DEFI         19.                180.                        -1420.DipTrans5
+ROT-DEFI         20.                180.                        -1690.DipTrans6
+ROT-DEFI         21.                                            -1960.DipTrans7
+ROT-DEFI         22.                                            -2230.DipTrans8
+ROT-DEFI         23.                                            -2500.DipTrans9
+ROT-DEFI         24.                180.                        -2260.DipTran10
+ROT-DEFI         25.                180.                        -3670.DipTran11
+ROT-DEFI         26.                                           -10820.CollTran1
+ROT-DEFI         27.                                            -5890.DipTran12
+ROT-DEFI         28.                                           -15490.CollTran2
+ROT-DEFI         29.                                           -16520.CollTran3
+ROT-DEFI         30.                                           -23520.CollTran4
+ROT-DEFI                             45.                              QuadRot
+GEOBEGIN                                                              COMBNAME
+    0    0          EXTline
+RPP InEXT      -185. 615. -200. 200. 930. 30000.
+RPP OutEXT     -235. 665. -250. 250. 930. 30000.
+RPP Blackbox   -240. 670. -260. 260. 920. 30010.
+ZCC InBeamPi   0.0 0.0 5.
+ZCC OutBeamP   0.0 0.0 6.
+$start_transform QuadRot
+$end_transform 
+RPP Prototy2   -55. 55. -55. 55. 1700. 1900.
+RPP Quad2      -50. 50. -50. 50. 1700. 1900.
+$start_transform QuadRot
+RPP InQuad2    -26.5 26.5 -26.5 26.5 1700. 1900.
+$end_transform 
+RPP Box2       -55. 55. -55. 55. 1910. 2110.
+RPP Box3       -55. 55. -55. 55. 2120. 2320.
+RPP Box4       -55. 55. -55. 55. 2330. 2530.
+RPP Box5       -55. 55. -55. 55. 2540. 2740.
+RPP Box6       -55. 55. -55. 55. 2750. 2950.
+RPP Box7       -55. 55. -55. 55. 2960. 3160.
+RPP Box8       -55. 55. -55. 55. 3170. 3370.
+RPP Box9       -55. 55. -55. 55. 3380. 3580.
+RPP Box10      -55. 55. -55. 55. 3590. 3790.
+RPP Box11      -55. 55. -55. 55. 3800. 4000.
+RPP Box12      -55. 55. -55. 55. 4010. 4210.
+RPP Box13      -55. 55. -55. 55. 4220. 4420.
+RPP Box14      -55. 55. -55. 55. 4430. 4630.
+RPP Box15      -55. 55. -55. 55. 1910. 2110.
+RPP Box16      -55. 55. -55. 55. 1910. 2110.
+RPP Box17      -55. 55. -55. 55. 2120. 2320.
+RPP Box18      -55. 55. -55. 55. 2120. 2320.
+RPP Box19      -55. 55. -55. 55. 2330. 2530.
+RPP Box20      -55. 55. -55. 55. 2330. 2530.
+RPP Box21      -55. 55. -55. 55. 2540. 2740.
+RPP Box22      -55. 55. -55. 55. 2540. 2740.
+RPP Box23      -55. 55. -55. 55. 2750. 2950.
+RPP Box24      -55. 55. -55. 55. 2960. 3160.
+RPP Box25      -55. 55. -55. 55. 2960. 3160.
+RPP Box26      -55. 55. -55. 55. 3170. 3370.
+RPP Box27      -55. 55. -55. 55. 3170. 3370.
+RPP Box28      -55. 55. -55. 55. 3380. 3580.
+RPP Box29      -55. 55. -55. 55. 3380. 3580.
+RPP Box30      -55. 55. -55. 55. 3590. 3790.
+RPP Box31      -55. 55. -55. 55. 3590. 3790.
+RPP Box32      -55. 55. -55. 55. 3800. 4000.
+RPP Box33      -55. 55. -55. 55. 3800. 4000.
+RPP Box34      -55. 55. -55. 55. 4010. 4210.
+RPP Box35      -55. 55. -55. 55. 4010. 4210.
+RPP Box36      -55. 55. -55. 55. 4220. 4420.
+RPP Prototy3   -85. 85. -55. 55. 4700. 4960.
+RPP DipIroIn   -55. 15. -20. 20. 4730. 4930.
+RPP DipIroOu   -85. 15. -50. 50. 4730. 4930.
+XZP DipGap1    8.5
+XZP DipGap2    -8.5
+YZP DipIroX    -15.
+RPP DipCop1    -50. 50. 8.5 17.5 4700. 4960.
+RPP DipCop2    -50. 50. -17.5 -8.5 4700. 4960.
+RPP DipBox1    -85. 85. -55. 55. 4970. 5230.
+XYP AirWall1   4660.
+RPP DipBox2    -85. 85. -55. 55. 5240. 5500.
+RPP DipBox3    -85. 85. -55. 55. 5510. 5770.
+RPP DipBox4    -85. 85. -55. 55. 5780. 6040.
+RPP DipBox5    -85. 85. -55. 55. 6120. 6380.
+RPP DipBox6    -85. 85. -55. 55. 6390. 6650.
+RPP Prototy4   -55. 55. -55. 55. 6070. 6090.
+RPP Coll       -50. 50. -50. 50. 6070. 6090.
+RPP DipBox7    -85. 85. -55. 55. 6660. 6920.
+RPP DipBox8    -85. 85. -55. 55. 6930. 7190.
+RPP DipBox9    -85. 85. -55. 55. 7200. 7460.
+RPP Prototy5   -85. 85. -55. 55. 12210. 12470.
+RPP DipIroO2   -85. 15. -50. 50. 12240. 12440.
+RPP DipIroI2   -55. 15. -22.5 22.5 12240. 12440.
+XZP DipGap3    12.
+XZP DipGap4    -12.
+RPP DipCop3    -50. 50. 12. 21. 12210. 12470.
+RPP DipCop4    -50. 50. -21. -12. 12210. 12470.
+XYP AirWall2   12000.
+RPP DipBox10   -85. 85. -55. 55. 14470. 14730.
+RPP DipBox11   -85. 85. -55. 55. 15880. 16140.
+RPP CollBox1   -55. 55. -55. 55. 16890. 16910.
+RPP DipBox12   -85. 85. -55. 55. 18100. 18360.
+RPP CollBox2   -55. 55. -55. 55. 21560. 21580.
+RPP CollBox3   -55. 55. -55. 55. 22590. 22610.
+RPP CollBox4   -55. 55. -55. 55. 29590. 29610.
+RCC Cryostat   0.0 0.0 950.0 0.0 0.0 400.0 50.0
+END
+Wall         5 +OutEXT -InEXT
+BlkBody      5 +Blackbox -OutEXT
+Air          5 +InEXT +AirWall1 -OutBeamP -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8 -Box9 -Box10 -Box11
+               -Box12 -Box13 -Box14 -Prototy3 -Cryostat
+               | +InEXT -AirWall1 +AirWall2 -OutBeamP -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 
+               -DipBox6 -Prototy4 -DipBox7 -DipBox8 -DipBox9
+               | +InEXT -AirWall2 -OutBeamP -Prototy5 -DipBox10 -DipBox11 -CollBox1 -DipBox12 -CollBox2 -CollBox3 
+               -CollBox4
+BeamPipe     5 +InEXT +OutBeamP -InBeamPi +AirWall1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8 -Box9
+               -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
+               | +InEXT +OutBeamP -InBeamPi -AirWall1 +AirWall2 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 
+               -DipBox5 -DipBox6 -Prototy4 -DipBox7 -DipBox8 -DipBox9
+               | +InEXT +OutBeamP -InBeamPi -AirWall2 -Prototy5 -DipBox10 -DipBox11 -CollBox1 -DipBox12 -CollBox2 
+               -CollBox3 -CollBox4
+Vacuum       5 +InEXT +InBeamPi +AirWall1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8 -Box9 -Box10 -Box11
+               -Box12 -Box13 -Box14 -Prototy3
+               | +InEXT +InBeamPi -AirWall1 +AirWall2 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 
+               -DipBox6 -Prototy4 -DipBox7 -DipBox8 -DipBox9
+               | +InEXT +InBeamPi -AirWall2 -Prototy5 -DipBox10 -DipBox11 -CollBox1 -DipBox12 -CollBox2 -CollBox3 
+               -CollBox4
+QuadCop2     5 +InQuad2 -OutBeamP
+QuadIro2     5 +Quad2 -InQuad2
+QuadAir2     5 +Prototy2 -Quad2
+QuadPip2     5 +OutBeamP +Prototy2 -InBeamPi
+QuadVac2     5 +InBeamPi +Prototy2
+Lattice2     5 +Box2
+Lattice3     5 +Box3
+Lattice4     5 +Box4
+Lattice5     5 +Box5
+Lattice6     5 +Box6
+Lattice7     5 +Box7
+Lattice8     5 +Box8
+Lattice9     5 +Box9
+Lattic10     5 +Box10
+Lattic11     5 +Box11
+Lattic12     5 +Box12
+Lattic13     5 +Box13
+Lattic14     5 +Box14
+DipIron      5 +DipIroOu -DipIroIn
+               | +DipIroIn -DipGap1 -DipIroX
+               | +DipIroIn +DipGap2 -DipIroX
+DipIron2     5 +DipIroO2 -DipIroI2
+               | +DipIroI2 -DipGap3 -DipIroX
+               | +DipIroI2 +DipGap4 -DipIroX
+DipCopUp     5 +DipCop1 -DipIroOu
+               | +DipIroX +DipCop1
+DipCopU2     5 +DipCop3 -DipIroO2
+               | +DipIroX  +DipCop3
+DipCopDo     5 +DipCop2 -DipIroIn
+               | +DipIroX +DipCop2
+DipCopD2     5 +DipCop4 -DipIroI2
+               | +DipIroX +DipCop4
+DipPipe      5 +OutBeamP +Prototy3 -InBeamPi
+DipVac       5 +InBeamPi +Prototy3
+DipAir       5 +Prototy3 -DipIroOu -DipCop1 -DipCop2 -OutBeamP
+               | +Prototy3 +DipIroIn +DipIroOu +DipGap1 -DipGap2 -DipCop1 -DipCop2 -OutBeamP
+               | +Prototy3 +DipIroIn +DipIroOu -DipGap1 -DipCop1 +DipIroX
+               | +DipIroIn +DipIroX -DipCop2 +DipGap2
+DipLat1      5 +DipBox1
+DipLat2      5 +DipBox2
+DipLat3      5 +DipBox3
+DipLat4      5 +DipBox4
+DipLat5      5 +DipBox5
+DipLat6      5 +DipBox6
+CollAir      5 +Prototy4 -Coll
+CollMat      5 +Coll -OutBeamP
+CollPipe     5 +OutBeamP +Prototy4 -InBeamPi
+CollVac      5 +InBeamPi +Prototy4
+DipLat7      5 +DipBox7
+DipLat8      5 +DipBox8
+DipLat9      5 +DipBox9
+DipPipe2     5 +OutBeamP +Prototy5 -InBeamPi
+DipVac2      5 +InBeamPi +Prototy5
+DipAir2      5 +Prototy5 -DipIroO2 -DipCop3 -DipCop4 -OutBeamP
+               | +DipIroI2 +DipGap3 -DipGap4 -OutBeamP
+               | +DipIroX +DipIroI2 -DipGap3 -DipCop3
+               | +DipIroX +DipIroI2 +DipGap4 -DipCop4
+DipLat10     5 +DipBox10
+DipLat11     5 +DipBox11
+CollLat1     5 +CollBox1
+DipLat12     5 +DipBox12
+CollLat2     5 +CollBox2
+CollLat3     5 +CollBox3
+CollLat4     5 +CollBox4
+CryoMat      5 +Cryostat -OutBeamP
+END
+LATTICE     Lattice2                            2.        2.          Transl2
+LATTICE     Lattice3                            3.        3.          Transl3
+LATTICE     Lattice4                            4.        4.          Transl4
+LATTICE     Lattice5                            5.        5.          Transl5
+LATTICE     Lattice6                            6.        6.          Transl6
+LATTICE     Lattice7                            7.        7.          Transl7
+LATTICE     Lattice8                            8.        8.          Transl8
+LATTICE     Lattice9                            9.        9.          Transl9
+LATTICE     Lattic10                           10.       10.          Transl10
+LATTICE     Lattic11                           11.       11.          Transl11
+LATTICE     Lattic12                           12.       12.          Transl12
+LATTICE     Lattic13                           13.       13.          Transl13
+LATTICE     Lattic14                           14.       14.          Transl14
+LATTICE      DipLat1                           15.       15.          DipTrans1
+LATTICE      DipLat2                           16.       16.          DipTrans2
+LATTICE      DipLat3                           17.       17.          DipTrans3
+LATTICE      DipLat4                           18.       18.          DipTrans4
+LATTICE      DipLat5                           19.       19.          DipTrans5
+LATTICE      DipLat6                           20.       20.          DipTrans6
+LATTICE      DipLat7                           21.       21.          DipTrans7
+LATTICE      DipLat8                           22.       22.          DipTrans8
+LATTICE      DipLat9                           23.       23.          DipTrans9
+LATTICE     DipLat10                           24.       24.          DipTran10
+LATTICE     DipLat11                           25.       25.          DipTran11
+LATTICE     CollLat1                           26.       26.          CollTran1
+LATTICE     DipLat12                           27.       27.          DipTran12
+LATTICE     CollLat2                           28.       28.          CollTran2
+LATTICE     CollLat3                           29.       29.          CollTran3
+LATTICE     CollLat4                           30.       30.          CollTran4
+GEOEND         664.9     249.9   29999.9    -234.9    -249.9       0.1DEBUG
+GEOEND          500.      400.      900.                               &
+MATERIAL         15.                1.82                           0.0Phosphor
+LOW-MAT     Phosphor       15.       31.      296.                    PHOSPHO
+MATERIAL         16.               2.067                           0.0Sulfur
+LOW-MAT       Sulfur       16.       -2.      296.                    SULFUR
+MATERIAL         23.                6.11                           0.0Vanadium
+LOW-MAT     Vanadium       23.       -2.      296.                    VANADIUM
+MATERIAL         24.                7.18                           0.0Chromium
+LOW-MAT     Chromium       24.       -2.      296.                    CHROMIUM
+MATERIAL         25.                7.44                           0.0Mangan
+LOW-MAT       Mangan       25.       55.      296.                    MANGANES
+MATERIAL         42.               10.28                           0.0Molybden
+LOW-MAT     Molybden       42.       -2.      296.                    MOLYBDEN
+MATERIAL                            7.99                              316L-SS
+COMPOUND       0.035    CARBON        2.    Mangan     14.89    NICKEL316L-SS
+COMPOUND         18.  Chromium        3.  Molybden      0.03    Sulfur316L-SS
+COMPOUND          1.   SILICON     0.045  Phosphor       61.      IRON316L-SS
+MATERIAL                             2.5                              SiO2
+COMPOUND       33.33   SILICON     66.66    OXYGEN                    SiO2
+MATERIAL                            3.58                              MgO
+COMPOUND         50.  MAGNESIU       50.    OXYGEN                    MgO
+MATERIAL                            5.45                              MnO
+COMPOUND         50.    Mangan       50.    OXYGEN                    MnO
+MATERIAL                            3.94                              Al2O3
+COMPOUND         40.  ALUMINUM       60.    OXYGEN                    Al2O3
+MATERIAL                            3.37                              CaO
+COMPOUND         50.   CALCIUM       50.    OXYGEN                    CaO
+MATERIAL         55.               1.873                           0.0Cs
+LOW-MAT           Cs       55.      133.      296.                    CESIUM
+MATERIAL                            2.27                              Na2O
+COMPOUND       66.66    SODIUM     33.33    OXYGEN                    Na2O
+MATERIAL         19.               0.862                           0.0Kalium
+LOW-MAT       Kalium       19.       -2.      296.                    POTASSIU
+MATERIAL                            2.32                              K2O
+COMPOUND       66.66    Kalium     33.33    OXYGEN                    K2O
+MATERIAL                            4.24                              TiO2
+COMPOUND       33.33  TITANIUM     66.66    OXYGEN                    TiO2
+MATERIAL                            5.24                              Fe2O3
+COMPOUND         40.      IRON       60.    OXYGEN                    Fe2O3
+MATERIAL         63.               5.243                           0.0Eu
+LOW-MAT           Eu       63.       -2.      296.                    EUROPIUM
+MATERIAL         27.                8.86                           0.0Cobalt
+LOW-MAT       Cobalt       27.       59.      296.                    COBALT
+MATERIAL                             2.2                              NormConc
+COMPOUND       -57.7      SiO2     -6.04     WATER     -1.31       MgONormConc
+COMPOUND       -0.08       MnO     -10.5     Al2O3     -14.5       CaONormConc
+COMPOUND       -0.01        Cs     -2.29      Na2O     -0.86       K2ONormConc
+COMPOUND       -0.39      TiO2     -3.47     Fe2O3     -0.01        EuNormConc
+COMPOUND       -0.01    Cobalt                                        NormConc
+ASSIGNMA    NormConc      Wall
+ASSIGNMA    BLCKHOLE   BlkBody
+ASSIGNMA         AIR       Air
+ASSIGNMA     316L-SS  BeamPipe
+ASSIGNMA      VACUUM    Vacuum
+ASSIGNMA      COPPER  QuadCop2
+ASSIGNMA        IRON  QuadIro2
+ASSIGNMA         AIR  QuadAir2
+ASSIGNMA     316L-SS  QuadPip2
+ASSIGNMA      VACUUM  QuadVac2
+ASSIGNMA      VACUUM  Lattice4
+ASSIGNMA      VACUUM  Lattice5
+ASSIGNMA      VACUUM  Lattice6
+ASSIGNMA      VACUUM  Lattice7
+ASSIGNMA      VACUUM  Lattice3
+ASSIGNMA      VACUUM  Lattice9
+ASSIGNMA      VACUUM  Lattic10
+ASSIGNMA      VACUUM  Lattic11
+ASSIGNMA      VACUUM  Lattic12
+ASSIGNMA      VACUUM  Lattic13
+ASSIGNMA      VACUUM  Lattic14
+ASSIGNMA      VACUUM  Lattice8
+ASSIGNMA      COPPER  DipCopDo
+ASSIGNMA      VACUUM  Lattice2
+ASSIGNMA        IRON   DipIron
+ASSIGNMA      COPPER  DipCopUp
+ASSIGNMA     316L-SS   DipPipe
+ASSIGNMA      VACUUM    DipVac
+ASSIGNMA         AIR    DipAir
+ASSIGNMA      VACUUM   DipLat2
+ASSIGNMA      VACUUM   DipLat4
+ASSIGNMA      VACUUM   DipLat3
+ASSIGNMA      VACUUM   DipLat1
+ASSIGNMA      VACUUM   DipLat5
+ASSIGNMA      VACUUM   DipLat6
+ASSIGNMA         AIR   CollAir
+ASSIGNMA     316L-SS   CollMat
+ASSIGNMA     316L-SS  CollPipe
+ASSIGNMA      VACUUM   CollVac
+ASSIGNMA      VACUUM   DipLat7
+ASSIGNMA      VACUUM   DipLat8
+ASSIGNMA      VACUUM   DipLat9
+ASSIGNMA        IRON  DipIron2
+ASSIGNMA      COPPER  DipCopU2
+ASSIGNMA      COPPER  DipCopD2
+ASSIGNMA     316L-SS  DipPipe2
+ASSIGNMA      VACUUM   DipVac2
+ASSIGNMA         AIR   DipAir2
+ASSIGNMA         AIR  DipLat10
+ASSIGNMA      VACUUM  DipLat11
+ASSIGNMA      VACUUM  CollLat1
+ASSIGNMA      VACUUM  DipLat12
+ASSIGNMA      VACUUM  CollLat2
+ASSIGNMA      VACUUM  CollLat3
+ASSIGNMA      VACUUM  CollLat4
+ASSIGNMA    ALUMINUM   CryoMat
+PHOTONUC          1.                        VACUUM       AIR        1.
+PHYSICS           3.                                                  EVAPORAT
+PHYSICS           1.                                                  COALESCE
+PHYSICS        1000.     1000.     1000.     1000.     1000.     1000.PEATHRES
+DISCARD        MUONS
+#if ACTIV_STUDY 
+IRRPROFI    8.967E-4 1.7052E14
+* 1min, 1h, 1d, 1month, 1y
+DCYTIMES         60.     3600.    86400.  2592000. 31536000.
+RADDECAY          1.                           0.0    100010
+#endif  
+#if ACTIV_STUDY 
+EMFCUT        -0.001     1.E-4    1.E-05     WATER     WATER        1.PROD-CUT
+EMFCUT        -0.001     1.E-4    1.E-05   316L-SS   316L-SS        1.PROD-CUT
+EMFCUT        -0.001     1.E-4            QuadCopp  CollLat4        1.
+#else  
+EMFCUT        -0.002     0.002    1.E-05     WATER     WATER        1.PROD-CUT
+EMFCUT        -0.002     0.002    1.E-05   316L-SS   316L-SS        1.PROD-CUT
+#endif  
+LAM-BIAS         0.0     -0.02     WATER    PHOTON
+LAM-BIAS         0.0     -0.02   316L-SS    PHOTON
+USRBIN           10.    ENERGY      -21.      664.      249.    29990.Energy
+USRBIN         -234.     -249.       10.      300.      200.      500. &
+USRBIN           10.   NEUTRON      -22.      664.      249.    29990.Neutron
+USRBIN         -234.     -249.       10.      300.      200.      500. &
+* Set the random number seed
+RANDOMIZ          1.        1.
+* Set the number of primary histories to be simulated in the run
+START           500.                                     0.0  9999999.
+STOP
