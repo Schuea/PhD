@@ -309,14 +309,29 @@ Geometry:
 	Frame.bsplit: 0.5
 	Frame.tsplit: 0.5
 	Frame.vsplit: 0.5
+
+	# Layer
+	Layer: 3D
+		3D: True
+		3D._visible: True
+		3D.edgedetect: True
+		Options.errors: False
+		Options.shortcut: F4
+		Options.viewport: False
+		Show: 0
+		Show.lattice: True
+		Show.voxel: True
+		deflights: 1
+		layer: 3D
+	End
 End
 
 # Geometry plot "GeoViewer Red plot"
 Plot: Red
 	Format: .eps
 	Type:   Geometry
-	basisu: 0.999996 0 -0.00286509
-	basisv: 0 1 0
+	basisu: 0.998903 -0.00330385 -0.0467045
+	basisv: -0.000130969 0.997306 -0.07335
 	boundaries: 1
 	cbcolors: 0
 	cblog: False
@@ -325,12 +340,12 @@ Plot: Red
 	cbtics: 0
 	coord: U-V
 	cpd: 0
-	extends: 684.561 365.386
+	extends: 232.551 125.305
 	grid: 0
 	index: 0
 	labels: 1
-	layer: Lattice
-	origin: 267.001 60.5047 1096.94
+	layer: 3D
+	origin: 19.2817 73.6659 6052.82
 	subtype: Material
 	title: GeoViewer Red plot
 	x2log: False
@@ -351,10 +366,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 2910.75 1556.06
+	extends: 542.396 34614.7
 	labels: 1
 	layer: Lattice
-	origin: -303.543 14 2545.09
+	origin: -162.138 14 5916.46
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -367,10 +382,10 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 296.723 157.91
+	extends: 400 212.873
 	labels: 1
 	layer: Lattice
-	origin: 0 -5.80414 1119.38
+	origin: 0 0 1150
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -383,10 +398,10 @@ Plot: Magenta
 	basisv: 0 1 0
 	boundaries: 1
 	coord: X-Y
-	extends: 771.33 411.133
+	extends: 187.611 100
 	labels: 1
 	layer: Media
-	origin: 95.7613 47.7254 1750
+	origin: -95.7613 -47.7254 1850
 	subtype: Material
 	title: GeoViewer Magenta plot
 End
