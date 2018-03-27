@@ -256,7 +256,7 @@ The main contributors are \textsuperscript{3}H (tritium), \textsuperscript{49}V,
 \label{fig:BeamDumps:DoseRate_Comparison}
 \end{figure}
 
-\begin{figure}[hbp]
+\begin{figure}[!hbp]
 \centering
 \includegraphics[width=0.6\textwidth]{Figures/BeamDump/Corrected_residualnuclei_plots/ResidualNuclei_Design2_5_correct_scale.pdf}
 \caption[Residual nuclei in the ILC main beam dump after one year]{Chart of residual nuclei in the beam dump vessel and its surrounding after a cooling time of one year.
@@ -277,7 +277,7 @@ The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cu
  The products from these processes are neutrons in connection with the radioactive nuclei discussed in Section~\ref{BeamDumps:sim_surrounding:Dose}.
  Due to this way of production, the neutrons can be found under every solid angle, hence also in the backward direction. \todo{English?!}
  
-\begin{figure}[h]
+\begin{figure}[!h]
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
@@ -296,7 +296,7 @@ The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cu
    \label{fig:BeamDumps:Electrons}
 \end{figure} 
 
-\begin{figure}[h]
+\begin{figure}[!h]
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
@@ -338,6 +338,7 @@ Figure~\ref{fig:BeamDumps:EXT} shows the \fluka model of the extraction line.
 The tunnel stretches from \SI{9.3}{\meter} from the IP to \SI{300}{\meter}, where the entrance to the beam dump hall is located.
 It has a width of \SI{8}{\meter}.
 \\The design and locations of the lattice components are taken from the most recent ILC lattices~\cite{EXT_lattice,EXT_lattice2}.
+The magnets are simulated without their respective magnetic field maps, since the neutron tracks are not affected by magnetic fields.
 
 \begin{figure}[h]
  \centering
