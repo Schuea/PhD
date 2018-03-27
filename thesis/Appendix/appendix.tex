@@ -1,3 +1,28 @@
+\chapter{Pair background}
+\label{Appendix:Pairs}
+
+\section{GuineaPig event generation}
+\label{Appendix:Pairs:GuineaPig}
+
+The parameters used as input for \guineapig are given in this section.
+For detailed explanations of the \guineapig parameters, refer to the \guineapig manual~\cite{GuineaPigMan}.
+\\The parameters are provided in a file called ``acc.dat''.
+Its content must have a certain format, for which an example showing the nominal parameters used for the ILC500 stage is following:\\
+\texttt{\$ACCELERATOR:: ILC-500GeV\\
+\{energy=250.0; particles=2.0; beta\_x=11.0; beta\_y=0.48;\\
+emitt\_x=10.0; emitt\_y=0.035; sigma\_z=300.0; f\_rep=5.0; n\_b=1312;\\
+charge\_sign=-1; scale\_step=1.0; waist\_y=250;\\
+espread.1=0.00124; espread.2=0.0007; which\_espread=3;\}\\
+\$PARAMETERS:: par\_pairs\\
+\{n\_z=12; n\_t=6; n\_m=80000; cut\_z=3.5*sigma\_z.1; n\_x=256; n\_y=256;\\
+cut\_x=4*sigma\_x.1; cut\_y=4*sigma\_y.1; pair\_ecut=1e-3; pair\_q2=2;\\
+beam\_size=1; grids=7; store\_beam=1; do\_pairs=1; track\_pairs=1;\\
+store\_pairs=1; do\_photons=1; store\_photons=1; do\_hadrons=1;\\
+do\_jets=1; do\_coherent=1; electron\_ratio=1; photon\_ratio=1;\\
+do\_eloss=1; do\_espread=1; rndm\_seed=1; rndm\_load=0; rndm\_save=0;\}
+}
+\\For the ILC250 stage, the parameters are exchanged with according the beam parameter values taken from Table~\ref{tab:ILC_parameters}.
+
 \chapter{Muon background from the Beam Delivery System}
 \label{Appendix:BDS_Muons}
 Figure~\ref{fig:BDS_Muons:occupancies} shows occupancy plots belonging to the study presented in Chapter~\ref{BDS_Muons}.
