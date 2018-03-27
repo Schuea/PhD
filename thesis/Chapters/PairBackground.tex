@@ -26,11 +26,29 @@ The geometry of the simulated world is described in a lcdd file in a human-reada
 The flexible geometry description allows the simulation of particle interactions with individual detector geometries.
 To this end, the geometry description file ``sidloi3'' of the \sid detector, which was used for the simulation studies in this and in the following chapters, is based on the detector design described in Section~\ref{ILC:SiD} and in~\cite[p. 69 ff]{TDR4}.
 
-\section{Background envelopes}
+\section{Pair background envelopes}
 \label{PairBkg:helix}
-\begin{itemize}
- \item Envelopes for ILC250 parameter sets compared with ILC500 TDR - insert plots
-\end{itemize}
+Analyzing the generated pair background events, it becomes apparent that the \positron\electron pairs have a low transverse momentum.
+Figure~\ref{fig:PairBkg:Momentum} shows the distribution of their longitudinal and transverse momentum for the two ILC stages at \SI{250}{\GeV} and \SI{250}{\GeV} center-of-mass energy.
+\todo{Describe the momentum distributions}
+ \begin{figure}[h]
+ \centering
+  \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{placeholder.jpg}
+   \caption{Longitudinal momentum}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{placeholder.jpg}
+   \caption{Transverse momentum}
+   \end{subfigure}
+   \caption[Pair background momentum distributions]{Comparison of the pair background momentum distributions for the ILC at \SI{250}{\GeV} and \SI{250}{\GeV} center-of-mass energy, with the longitudinal momentum shown in Figure (a) and the transverse momentum in Figure (b).}
+   \label{fig:PairBkg:Momentum}
+ \end{figure}
+\\Due to their low transverse momentum, the pairs are deflected on helical tracks in the magnetic field of the detector solenoid magnet.
+An algorithm was written that takes the four-vectors 
 
 \section{Occupancy studies and buffer depth}
 \label{PairBkg:occupancy}
