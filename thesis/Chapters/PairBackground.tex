@@ -48,7 +48,24 @@ Figure~\ref{fig:PairBkg:Momentum} shows the distribution of their longitudinal a
    \label{fig:PairBkg:Momentum}
  \end{figure}
 \\Due to their low transverse momentum, the pairs are deflected on helical tracks in the magnetic field of the detector solenoid magnet.
-An algorithm was written that takes the four-vectors 
+An algorithm was written that calculates the helix tracks of the pair particles using their four-vectors.
+The track positions are computed from the radius of the helix, its center position and its pitch. The following assumptions were made for the algorithm:
+The magnetic field in the proximity of the IP is homogeneous, with a field strength of \SI{5}{\tesla} for the SiD solenoid.
+The particle momenta do not change in the region of interest for this analysis, because of which the helix radius is constant.
+Any particle interaction with other particles or with matter is not taken into account.
+\\Figure~\ref{fig:helix_circle} shows schematically the projection of a helix onto the xy-plane.
+Depending on the particle's charge the orientation of the helix is determined.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.3\textwidth]{Figures/Pairs/Helix_explanation.png}
+    \caption[Schematic projection of the helix on the xy-plane]{
+    This schematic shows the projection of a helix track onto the xy-plane, with the vector of the transverse momentum (P\textsubscript{T}) and the the x- and y-momenta (p\textsubscript{x} and p\textsubscript{y}).
+    Depending on the particle's charge, the direction of the rotation is either clockwise or anticlockwise.
+    The center, the radius, and the orientation of the projected circle is dependent on the transverse momentum of the particle.
+    }
+    \label{fig:helix_circle}
+\end{figure}
+The pair density is then plotted using the algorithm to calculate the position in x and y for a given position in z.
 
 \section{Occupancy studies and buffer depth}
 \label{PairBkg:occupancy}
