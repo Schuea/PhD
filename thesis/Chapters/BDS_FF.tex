@@ -141,8 +141,8 @@ With the two different shielding scenarios, the muon rate is again reduced signi
 \hline\hline
 \end{tabularx}
 \end{table}
-\\The output of \mucarlo is a text file containing the 4-vectors of the muons \SI{10}{\meter} from the IP.
-These 4-vectors can therefore be used as input to a full detector simulation. 
+\\The output of \mucarlo is a text file containing the four-vectors of the muons \SI{10}{\meter} from the IP.
+These four-vectors can therefore be used as input to a full detector simulation. 
 \\An additional study was done using a \geant simulation of the BDS tunnel in order to cross check the \mucarlo results and to thereby verify the \mucarlo simulation.
 The outcome of that study was that both simulations are in good agreement~\cite{Glens_muon_talk}.
 
@@ -152,7 +152,7 @@ Since the SiD detector only reads out the hits after every bunch train (1312 bun
 As in the previous chapter, the full detector simulation was done using \slic.
 The geometry input file that was used contained the most recent sidloi3 geometry of the SiD detector, including the new L* position, the anti-DiD field, as well as the Pacman geometry.
 For details on these detector characteristics, please refer to Section~\ref{ILC:SiD}.
-After a file-format conversion, the \mucarlo output files containing the 4-vectors of the muons for the different shielding scenarios and center-of-mass energies served as the particle source input to \slic.
+After a file-format conversion, the \mucarlo output files containing the four-vectors of the muons for the different shielding scenarios and center-of-mass energies served as the particle source input to \slic.
 
 \subsubsection{Muon hit distribution}
 For visualizing the hit distribution in the SiD detector, event displays (see Figure~\ref{fig:BDS_Muons:wired4}) were made using WIRED4~\cite{Wired4}.
