@@ -7,6 +7,12 @@ DEFAULTS                                                              PRECISIO
 BEAM           -500. -1.000875       0.0-.56940603-.05138681        1.ELECTRON
 * Define the beam position
 BEAMPOS          0.0       0.0     -750.       0.0       0.0
+#if ACTIV_STUDY 
+IRRPROFI    8.967E-4 1.7052E14
+* 1min, 1h, 1d, 1month, 1y
+DCYTIMES         60.     3600.    86400.  2592000. 31536000.
+RADDECAY          1.                           0.0    100010
+#endif  
 GEOBEGIN                                                              COMBNAME
     0    0          0_TB_0067_210_00_A
 ZCC OutTank    -30. 0.0 75.
@@ -967,9 +973,9 @@ USRYIELD       2399.   NEUTRON      -60.  ScorePl1    EXTAir          NeutEX10
 USRYIELD        500.       0.0      250.      175.      170.        3. &
 USRYIELD       2399.   NEUTRON      -61.  ScorePl1    EXTAir          NeutEX11
 USRYIELD        500.       0.0      250.      180.      175.        3. &
-USERDUMP        100.       93.       0.0                              BackNeut
+USERDUMP        100.       93.       0.0                              DumpNeut
 * Set the random number seed
 RANDOMIZ          1.        1.
 * Set the number of primary histories to be simulated in the run
-START         10000.                                     0.0  9999999.
+START           500.                                     0.0  9999999.
 STOP

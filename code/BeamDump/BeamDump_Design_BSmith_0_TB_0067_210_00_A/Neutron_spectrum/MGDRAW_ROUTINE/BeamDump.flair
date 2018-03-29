@@ -1,14 +1,12 @@
 #!/usr/local/flair/flair
 # FLUKA Project file
 Version: 2
-Title: BeamDump_Design_BSmith_0_TB_0067_210_00_A
-Input: BeamDump_Design_BSmith_0_TB_0067_210_00_A.inp
+Title: BeamDump
+Input: BeamDump.inp
 Exec: DumpNeut
 Submit: *Default
-Notes:
-Composition of normal and boronated concrete from Paper "Application of neutron shield concrete to neutron scattering instrument TAIKAN in J-PARC" by Koichi Okuno et al.
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Geometry
+Page: Run
 Source: mgdraw.f
 DefMain: True
 LinkPrg: lfluka
@@ -18,12 +16,13 @@ F77dline: False
 # Run information
 Run: <default>
 	Prev:     0
-	Last:     5
+	Last:     1
 	Status:   3
 	Pid:      0
 	StartRun: 1521280876
+	Family:  BeamDump_aa BeamDump_ab
 
-	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_50.yie
+	# USRxxx data file: BeamDump_50.yie
 	Data: \I_\U.\e
 		Unit: 50
 		Type: y
@@ -31,7 +30,7 @@ Run: <default>
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
 
-	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_51.yie
+	# USRxxx data file: BeamDump_51.yie
 	Data: \I_\U.\e
 		Unit: 51
 		Type: y
@@ -39,7 +38,7 @@ Run: <default>
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
 
-	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_52.yie
+	# USRxxx data file: BeamDump_52.yie
 	Data: \I_\U.\e
 		Unit: 52
 		Type: y
@@ -47,7 +46,7 @@ Run: <default>
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
 
-	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_53.yie
+	# USRxxx data file: BeamDump_53.yie
 	Data: \I_\U.\e
 		Unit: 53
 		Type: y
@@ -55,7 +54,7 @@ Run: <default>
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
 
-	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_54.yie
+	# USRxxx data file: BeamDump_54.yie
 	Data: \I_\U.\e
 		Unit: 54
 		Type: y
@@ -63,7 +62,7 @@ Run: <default>
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
 
-	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_55.yie
+	# USRxxx data file: BeamDump_55.yie
 	Data: \I_\U.\e
 		Unit: 55
 		Type: y
@@ -71,7 +70,7 @@ Run: <default>
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
 
-	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_56.yie
+	# USRxxx data file: BeamDump_56.yie
 	Data: \I_\U.\e
 		Unit: 56
 		Type: y
@@ -79,7 +78,7 @@ Run: <default>
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
 
-	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_57.yie
+	# USRxxx data file: BeamDump_57.yie
 	Data: \I_\U.\e
 		Unit: 57
 		Type: y
@@ -87,7 +86,7 @@ Run: <default>
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
 
-	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_58.yie
+	# USRxxx data file: BeamDump_58.yie
 	Data: \I_\U.\e
 		Unit: 58
 		Type: y
@@ -95,7 +94,7 @@ Run: <default>
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
 
-	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_59.yie
+	# USRxxx data file: BeamDump_59.yie
 	Data: \I_\U.\e
 		Unit: 59
 		Type: y
@@ -103,7 +102,7 @@ Run: <default>
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
 
-	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_60.yie
+	# USRxxx data file: BeamDump_60.yie
 	Data: \I_\U.\e
 		Unit: 60
 		Type: y
@@ -111,7 +110,221 @@ Run: <default>
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
 
-	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_61.yie
+	# USRxxx data file: BeamDump_61.yie
+	Data: \I_\U.\e
+		Unit: 61
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+End
+
+# Run information
+Run: BeamDump_aa
+	Rnd:      2
+	Prev:     0
+	Last:     1
+	Status:   3
+	Pid:      0
+	StartRun: 1522229219
+	Parent:    <default>
+
+	# USRxxx data file: BeamDump_aa_50.yie
+	Data: \I_\U.\e
+		Unit: 50
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_aa_51.yie
+	Data: \I_\U.\e
+		Unit: 51
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_aa_52.yie
+	Data: \I_\U.\e
+		Unit: 52
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_aa_53.yie
+	Data: \I_\U.\e
+		Unit: 53
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_aa_54.yie
+	Data: \I_\U.\e
+		Unit: 54
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_aa_55.yie
+	Data: \I_\U.\e
+		Unit: 55
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_aa_56.yie
+	Data: \I_\U.\e
+		Unit: 56
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_aa_57.yie
+	Data: \I_\U.\e
+		Unit: 57
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_aa_58.yie
+	Data: \I_\U.\e
+		Unit: 58
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_aa_59.yie
+	Data: \I_\U.\e
+		Unit: 59
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_aa_60.yie
+	Data: \I_\U.\e
+		Unit: 60
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_aa_61.yie
+	Data: \I_\U.\e
+		Unit: 61
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+End
+
+# Run information
+Run: BeamDump_ab
+	Rnd:      3
+	Prev:     0
+	Last:     1
+	Status:   3
+	Pid:      0
+	StartRun: 1522229219
+	Parent:    <default>
+
+	# USRxxx data file: BeamDump_ab_50.yie
+	Data: \I_\U.\e
+		Unit: 50
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_ab_51.yie
+	Data: \I_\U.\e
+		Unit: 51
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_ab_52.yie
+	Data: \I_\U.\e
+		Unit: 52
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_ab_53.yie
+	Data: \I_\U.\e
+		Unit: 53
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_ab_54.yie
+	Data: \I_\U.\e
+		Unit: 54
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_ab_55.yie
+	Data: \I_\U.\e
+		Unit: 55
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_ab_56.yie
+	Data: \I_\U.\e
+		Unit: 56
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_ab_57.yie
+	Data: \I_\U.\e
+		Unit: 57
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_ab_58.yie
+	Data: \I_\U.\e
+		Unit: 58
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_ab_59.yie
+	Data: \I_\U.\e
+		Unit: 59
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_ab_60.yie
+	Data: \I_\U.\e
+		Unit: 60
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_ab_61.yie
 	Data: \I_\U.\e
 		Unit: 61
 		Type: y
@@ -578,7 +791,7 @@ Plot: Green
 	cbtics: 0
 	coord: Z-X
 	cpd: 0
-	extends: 67.0047 50.2535
+	extends: 67.0047 36.196
 	grid: 0
 	index: 0
 	labels: 1
@@ -604,7 +817,7 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: X-Y
-	extends: 1672.03 1254.02
+	extends: 1672.03 900.001
 	labels: 1
 	layer: Media
 	origin: -142.5 250 -300
@@ -626,7 +839,7 @@ Plot: Magenta
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 5638.4 4228.8
+	extends: 5638.4 3038.79
 	grid: 0
 	index: 0
 	labels: 1
