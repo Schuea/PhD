@@ -256,87 +256,13 @@ The main contributors are \textsuperscript{3}H (tritium), \textsuperscript{49}V,
 \label{fig:BeamDumps:DoseRate_Comparison}
 \end{figure}
 
-\begin{figure}[hbp]
+\begin{figure}[!hbp]
 \centering
 \includegraphics[width=0.6\textwidth]{Figures/BeamDump/Corrected_residualnuclei_plots/ResidualNuclei_Design2_5_correct_scale.pdf}
 \caption[Residual nuclei in the ILC main beam dump after one year]{Chart of residual nuclei in the beam dump vessel and its surrounding after a cooling time of one year.
 The axes show the number of protons (Z) and the number of neutrons (N) of the nuclei, from which the according element can be derived.
 The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cubed} of the respective nuclei.}
 \label{fig:BeamDumps:ResidualNuclei}
-\end{figure}
-
-\begin{figure}[!h]
- \centering
-  \begin{subfigure}[b]{0.32\textwidth}
-   \centering
-    \includegraphics[width=\textwidth]{Figures/BeamDump/Design1_1.png}
-   \caption{\designone, 1 minute}
-   \end{subfigure}
-   \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
-   \centering
-    \includegraphics[width=\textwidth]{Figures/BeamDump/Design1_2.png}
-   \caption{\designone, 1 hour}
-   \end{subfigure}
-      \hfill
-     \begin{subfigure}[b]{0.32\textwidth}
-   \centering
-    \includegraphics[width=\textwidth]{Figures/BeamDump/Design1_3.png}
-   \caption{\designone, 1 day}
-   \end{subfigure}\\ 
-    \begin{subfigure}[b]{0.32\textwidth}
-   \centering
-    \includegraphics[width=\textwidth]{Figures/BeamDump/Design1_4.png}
-   \caption{\designone, 1 month}
-   \end{subfigure}
-      \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
-   \centering
-    \includegraphics[width=\textwidth]{Figures/BeamDump/Design1_5.png}
-   \caption{\designone, 1 year}
-   \end{subfigure} 
-   \hfill
-   \begin{minipage}{0.32\textwidth}
-   \hfill
-    \end{minipage}
-   \\
-     \begin{subfigure}[b]{0.32\textwidth}
-   \centering
-    \includegraphics[width=\textwidth]{Figures/BeamDump/Design2_1.png}
-   \caption{\designtwo, 1 minute}
-   \end{subfigure}
-   \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
-   \centering
-    \includegraphics[width=\textwidth]{Figures/BeamDump/Design2_2.png}
-   \caption{\designtwo, 1 hour}
-   \end{subfigure}
-      \hfill
-     \begin{subfigure}[b]{0.32\textwidth}
-   \centering
-    \includegraphics[width=\textwidth]{Figures/BeamDump/Design2_3.png}
-   \caption{\designtwo, 1 day}
-   \end{subfigure}\\
-    \begin{subfigure}[b]{0.32\textwidth}
-   \centering
-    \includegraphics[width=\textwidth]{Figures/BeamDump/Design2_4.png}
-   \caption{\designtwo, 1 month}
-   \end{subfigure}
-      \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
-   \centering
-    \includegraphics[width=\textwidth]{Figures/BeamDump/Design2_5.png}
-   \caption{\designtwo, 1 year}
-   \end{subfigure}
-   \hfill
-   \begin{minipage}{0.32\textwidth}
-   \hfill
-    \end{minipage}
-   \caption[Dose rate in the ILC main beam dump after cooling times]{\fluka result of the dose rate in the ILC beam dump \designone (a) and \designtwo (b) and their surrounding after one month of beam operation and certain cooling times.
-   The cooling times are given in the captions of the individual subfigures.
-   The view is in the xz plane of the beam dump surrounding including the shielding walls.
-   The color scale shows the dose rate in \si{\milli\sievert\per\second}.}
-   \label{fig:BeamDumps:DoseRate}
 \end{figure}
  
 \subsection{Particle fluxes}
@@ -351,7 +277,7 @@ The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cu
  The products from these processes are neutrons in connection with the radioactive nuclei discussed in Section~\ref{BeamDumps:sim_surrounding:Dose}.
  Due to this way of production, the neutrons can be found under every solid angle, hence also in the backward direction. \todo{English?!}
  
-\begin{figure}[h]
+\begin{figure}[!h]
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
@@ -370,7 +296,7 @@ The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cu
    \label{fig:BeamDumps:Electrons}
 \end{figure} 
 
-\begin{figure}[h]
+\begin{figure}[!h]
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
@@ -393,6 +319,50 @@ Neutron spatial distributions
 
 \section{Simulation studies of extraction line}
 \label{BeamDumps:sim_EXT}
+
+The neutrons, which are created in the ILC beam dumps and directed towards the interaction region, are not freely traveling through the extraction line.
+As mentioned before, the extraction line lattice consists of magnets and collimators, which for the neutrons represent shielding obstacles.
+\\The first device of the extraction line lattice is the focusing quadrupole QDEX1, closest to the IP.
+Like the last quadrupole QD0 of the final-focus system, QDEX1 is also an integrated part of the two detector experiments.
+Since the neutrons escaping the extraction line shall be input to a full detector simulation, the \fluka model of the EXT line therefore does not include QDEX1.
+The model rather ends at \SI{9.3}{\meter} from the IP, which will then be the starting point of the escaping neutrons for the following \geant simulation of the SiD detector.
+The component of the \fluka model closest to the IP is the cryostat containing QFEX2A, the only other superconducting magnet of the EXT lattice next to QDEX1.
+The cryostat is followed by 13 quadrupole models, which prepare the spent beams for diagnostic measurements and which shall prevent any beam loss~\cites[p. 139 ff]{TDR32}{EXT_design, EXT_design2}.
+The following eight dipole magnets are part of the energy diagnostic section.
+The polarimeter section containing four dipole magnets, measures the polarization level of the beam.
+Finally, the collimators located at various positions along the EXT line are protection collimators, shielding the beam line devices from irradiation.
+\\The goal of this \fluka simulation is to obtain the number and the distribution of neutrons reaching the detectors.
+The models of the EXT line components are therefore simplified models aimed at representing the shielding objects with the correct sizes and positions along the line.
+The beam line infrastructure, like vacuum pumps and valves are not accounted for in the simulation.
+Figure~\ref{fig:BeamDumps:EXT} shows the \fluka model of the extraction line.
+The tunnel stretches from \SI{9.3}{\meter} from the IP to \SI{300}{\meter}, where the entrance to the beam dump hall is located.
+It has a width of \SI{8}{\meter}.
+\\The design and locations of the lattice components are taken from the most recent ILC lattices~\cite{EXT_lattice,EXT_lattice2}.
+The magnets are simulated without their respective magnetic field maps, since the neutron tracks are not affected by magnetic fields.
+
+\begin{figure}[h]
+ \centering
+  \begin{subfigure}[b]{\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/EXT_line.png}
+   \caption{Full extraction line}
+   \end{subfigure}\\
+   \begin{subfigure}[b]{0.63\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/EXT_line_1.png}
+   \caption{Zoom of the first magnet section}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.35\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/EXT_line_2.png}
+   \caption{3D view of the dipole magnets}
+   \end{subfigure}
+   \caption[\fluka model of the ILC extraction line]{Pictures of the ILC extraction line, modeled within \flair.
+   The full model is shown in a xz view in Figure (a).
+   Figures (b) and (c) show closeup views of the magnet section in the beginning of the extraction line.}
+   \label{fig:BeamDumps:EXT}
+\end{figure} 
 
 \begin{itemize}
  \item Extraction line lattice - explain components

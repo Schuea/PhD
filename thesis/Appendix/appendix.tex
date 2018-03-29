@@ -1,3 +1,30 @@
+\chapter{Pair background}
+\label{Appendix:Pairs}
+
+This appendix gives additional details on the simulation study of the pair background induced by beam-beam interactions, described in Chapter~\ref{PairBkg}.
+
+\section{GuineaPig event generation}
+\label{Appendix:Pairs:GuineaPig}
+
+The parameters used as input for \guineapig are given in this section.
+For detailed explanations of the \guineapig parameters, refer to the \guineapig manual~\cite{GuineaPigMan}.
+\\The parameters are provided in a file called ``acc.dat''.
+Its content must have a certain format, for which an example showing the nominal parameters used for the ILC500 stage is following:\vspace*{0.1cm}\\
+\texttt{\$ACCELERATOR:: ILC-500GeV\\
+\{energy=250.0; particles=2.0; beta\_x=11.0; beta\_y=0.48;\\
+emitt\_x=10.0; emitt\_y=0.035; sigma\_z=300.0; f\_rep=5.0; n\_b=1312;\\
+charge\_sign=-1; scale\_step=1.0; waist\_y=250;\\
+espread.1=0.00124; espread.2=0.0007; which\_espread=3;\}\\
+\$PARAMETERS:: par\_pairs\\
+\{n\_z=12; n\_t=6; n\_m=80000; cut\_z=3.5*sigma\_z.1; n\_x=256; n\_y=256;\\
+cut\_x=4*sigma\_x.1; cut\_y=4*sigma\_y.1; pair\_ecut=1e-3; pair\_q2=2;\\
+beam\_size=1; grids=7; store\_beam=1; do\_pairs=1; track\_pairs=1;\\
+store\_pairs=1; do\_photons=1; store\_photons=1; do\_hadrons=1;\\
+do\_jets=1; do\_coherent=1; electron\_ratio=1; photon\_ratio=1;\\
+do\_eloss=1; do\_espread=1; rndm\_seed=1; rndm\_load=0; rndm\_save=0;\}
+}
+\vspace*{0.2cm}\\For the ILC250 stage, the parameters are exchanged with according the beam parameter values taken from Table~\ref{tab:ILC_parameters}.
+
 \chapter{Muon background from the Beam Delivery System}
 \label{Appendix:BDS_Muons}
 Figure~\ref{fig:BDS_Muons:occupancies} shows occupancy plots belonging to the study presented in Chapter~\ref{BDS_Muons}.
@@ -52,3 +79,79 @@ Figure~\ref{fig:BDS_Muons:occupancies} shows occupancy plots belonging to the st
    \caption[Occupancy from BDS muons of various SiD subdetectors]{The plots show the number of dead cells normalized by the total number of cells in the respective SiD subdetector.}
    \label{fig:BDS_Muons:occupancies}
  \end{figure}
+ 
+\chapter{Background from the main beam dumps}
+\label{Appendix:BeamDump}
+\begin{figure}[!h]
+ \centering
+  \begin{subfigure}[b]{0.32\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Design1_1.png}
+   \caption{\designone, 1 minute}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Design1_2.png}
+   \caption{\designone, 1 hour}
+   \end{subfigure}
+      \hfill
+     \begin{subfigure}[b]{0.32\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Design1_3.png}
+   \caption{\designone, 1 day}
+   \end{subfigure}\\ 
+    \begin{subfigure}[b]{0.32\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Design1_4.png}
+   \caption{\designone, 1 month}
+   \end{subfigure}
+      \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Design1_5.png}
+   \caption{\designone, 1 year}
+   \end{subfigure} 
+   \hfill
+   \begin{minipage}{0.32\textwidth}
+   \hfill
+    \end{minipage}
+   \\
+     \begin{subfigure}[b]{0.32\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Design2_1.png}
+   \caption{\designtwo, 1 minute}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Design2_2.png}
+   \caption{\designtwo, 1 hour}
+   \end{subfigure}
+      \hfill
+     \begin{subfigure}[b]{0.32\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Design2_3.png}
+   \caption{\designtwo, 1 day}
+   \end{subfigure}\\
+    \begin{subfigure}[b]{0.32\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Design2_4.png}
+   \caption{\designtwo, 1 month}
+   \end{subfigure}
+      \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Design2_5.png}
+   \caption{\designtwo, 1 year}
+   \end{subfigure}
+   \hfill
+   \begin{minipage}{0.32\textwidth}
+   \hfill
+    \end{minipage}
+   \caption[Dose rate in the ILC main beam dump after cooling times]{\fluka result of the dose rate in the ILC beam dump \designone (a) and \designtwo (b) and their surrounding after one month of beam operation and certain cooling times.
+   The cooling times are given in the captions of the individual subfigures.
+   The view is in the xz plane of the beam dump surrounding including the shielding walls.
+   The color scale shows the dose rate in \si{\milli\sievert\per\second}.}
+   \label{fig:BeamDumps:DoseRate}
+\end{figure}
