@@ -112,7 +112,7 @@
             IJ(NNN)  = I
             XXX(NNN) = X
             YYY(NNN) = Y
-            ZZZ(NNN) = Z
+*            ZZZ(NNN) = Z
 ***ANNES INPUT            
             ZZZ(NNN) = Z + 190.0
 ****
