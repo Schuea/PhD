@@ -76,13 +76,20 @@
 *======================================================================*
 *                                                                      *
       ENTRY BXDRAW ( ICODE, MREG, NEWREG, XSCO, YSCO, ZSCO )
+      IF ( .NOT. LFCOPE ) THEN
+        LFCOPE = .TRUE.
+        OPEN ( UNIT = 93, FILE = "Neut_OUT", STATUS = 'UNKNOWN')
+*        OPEN ( UNIT = 93, FILE = "Neut_OUT", STATUS = 'NEW', FORM =
+*     *     'FORMATTED')
+      END IF 
       CALL GEOR2N ( MREG,MRGNAM,IERR1 )
       CALL GEOR2N ( NEWREG,NRGNAM,IERR2 )
       IF(IERR1.NE.0.OR.IERR2.NE.0) STOP "Error in name conversion"
       IF(MRGNAM.EQ."ScorePl1".AND.NRGNAM.EQ."EXTAir") THEN
          IF(JTRACK.EQ.8) THEN ! select neutron
               IF(ETRACK.GT.AM(JTRACK)) THEN
-                  WRITE(93,*) ETRACK-AM(JTRACK),XSCO,YSCO,ZSCO,CXTRCK,CYTRCK,CZTRCK,WTRACK,KTRACK
+                  WRITE(93,*) ETRACK-AM(JTRACK), XSCO, YSCO, ZSCO,
+     *              CXTRCK, CYTRCK, CZTRCK, WTRACK, KTRACK, ATRACK
               ENDIF
           ENDIF
       ENDIF 
