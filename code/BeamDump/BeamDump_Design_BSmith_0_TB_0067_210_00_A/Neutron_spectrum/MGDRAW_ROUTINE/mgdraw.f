@@ -88,8 +88,8 @@
       IF(MRGNAM.EQ."ScorePl1".AND.NRGNAM.EQ."EXTAir") THEN
          IF(JTRACK.EQ.8) THEN ! select neutron
               IF(ETRACK.GT.AM(JTRACK)) THEN
-                  WRITE(93,*) ETRACK-AM(JTRACK), XSCO, YSCO, ZSCO,
-     *              CXTRCK, CYTRCK, CZTRCK, WTRACK, KTRACK, ATRACK
+                  WRITE(93,*) XSCO, YSCO, ZSCO, CXTRCK, CYTRCK, CZTRCK, 
+     *             ETRACK-AM(JTRACK), ATRACK, WTRACK, JTRACK, KTRACK
               ENDIF
           ENDIF
       ENDIF 
