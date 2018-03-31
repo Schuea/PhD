@@ -5,7 +5,7 @@ Title: EXTline
 Input: EXT_line_actual.inp
 Submit: Nohup
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Input
+Page: Geometry
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -44,7 +44,7 @@ Run: EXT_line_actual_aa
 	Last:     1
 	Status:   3
 	Pid:      0
-	StartRun: 1521915712
+	StartRun: 1522485427
 	Parent:    <default>
 
 	# USRxxx data file: EXT_line_actual_aa_0.bnn
@@ -63,7 +63,7 @@ Run: EXT_line_actual_ab
 	Last:     1
 	Status:   3
 	Pid:      0
-	StartRun: 1521915717
+	StartRun: 1522485427
 	Parent:    <default>
 
 	# USRxxx data file: EXT_line_actual_ab_0.bnn
@@ -82,7 +82,7 @@ Run: EXT_line_actual_ac
 	Last:     1
 	Status:   3
 	Pid:      0
-	StartRun: 1521915719
+	StartRun: 1522485427
 	Parent:    <default>
 
 	# USRxxx data file: EXT_line_actual_ac_0.bnn
@@ -395,7 +395,7 @@ Plot: Red
 	cbtics: 0
 	coord: U-V
 	cpd: 0
-	extends: 526.665 692.309
+	extends: 526.665 283.781
 	grid: 0
 	index: 0
 	labels: 1
@@ -421,10 +421,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 30.4859 16.4266
+	extends: 3450.58 1859.27
 	labels: 1
 	layer: Lattice
-	origin: -12.3295 0 30608.4
+	origin: -73.832 0 -375.402
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -437,10 +437,10 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 607.139 795.646
+	extends: 440.307 236.552
 	labels: 1
 	layer: Lattice
-	origin: 0 -9.75375 30592
+	origin: 0 -151.453 280.673
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -453,7 +453,7 @@ Plot: Magenta
 	basisv: 0 1 0
 	boundaries: 1
 	coord: U-V
-	extends: 771.33 1014.91
+	extends: 771.33 414.391
 	labels: 1
 	layer: Media
 	origin: 95.7613 47.7254 1750
@@ -481,10 +481,10 @@ Plot: EXT_line_actual_21_plot
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 0.53408202057901277
+	int: 1.0904736406036877
 	lw.0: 0
-	max: 9.05170455E-05
-	min: 1.78584301E-19
+	max: 2.59490014E-04
+	min: 2.18727104E-19
 	proj: Y
 	ps.0: 0
 	pt.0: 0
@@ -497,6 +497,7 @@ Plot: EXT_line_actual_21_plot
 	xrebin: 1
 	y2log: False
 	y2tics: 0
+	ylabel: Energy
 	ylog: False
 	yrebin: 1
 	zlog: False
@@ -508,10 +509,42 @@ End
 Plot: EXT_line_actual_22_plot
 	Format: .eps
 	Type:   USRBIN
+	axes: Auto
+	bymax: 2.49
+	bymin: -2.49
 	cbcolors: 30
-	cblog: 1
+	cblog: True
+	cbpalette: FLUKA
+	cbround: 0
 	cbtics: 1
+	cpd: 0
 	datafile: EXT_line_actual_22.bnn
+	det: 1
+	errors: 0
 	geo: -Auto-
+	grid: 0
+	hist: 2D Projection
+	index: 0
+	int: 23149.594250677197
+	lw.0: 0
+	max: 4.52641584E-02
+	min: 4.52313915E-11
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
 	title: USRBIN EXT line actual 22
+	with.0: errorbars
+	x2log: False
+	x2tics: 0
+	xlog: False
+	xrebin: 1
+	y2log: False
+	y2tics: 0
+	ylabel: Neutrons
+	ylog: False
+	yrebin: 1
+	zlog: False
+	zrebin: 1
+	ztics: 0
 End
