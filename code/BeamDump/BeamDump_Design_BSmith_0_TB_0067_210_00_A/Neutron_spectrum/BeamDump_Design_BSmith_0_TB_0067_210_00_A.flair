@@ -281,6 +281,16 @@ Material: Phosphor
 End
 
 # Material
+Material: Ti-6Al4V
+	alpha: 0
+	color: #407030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
 Material: Molybdenum
 	alpha: 0
 	color: #D03050
@@ -294,16 +304,6 @@ End
 Material: Vanadium
 	alpha: 0
 	color: #807070
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: BorConc
-	alpha: 0
-	color: #4050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -331,9 +331,9 @@ Material: B2O3
 End
 
 # Material
-Material: Eu
+Material: Cs
 	alpha: 0
-	color: #703070
+	color: #901070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -431,9 +431,9 @@ Material: CaO
 End
 
 # Material
-Material: Ti-6Al4V
+Material: BorConc
 	alpha: 0
-	color: #407030
+	color: #4050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -441,9 +441,9 @@ Material: Ti-6Al4V
 End
 
 # Material
-Material: Cs
+Material: Eu
 	alpha: 0
-	color: #901070
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -536,22 +536,22 @@ End
 Plot: Red
 	Format: .eps
 	Type:   Geometry
-	basisu: -0.995087 -0.012435 0.0982202
-	basisv: -0.00257333 0.994994 0.0998989
+	basisu: 1 0 0
+	basisv: 0 1 0
 	boundaries: 1
 	cbcolors: 0
 	cblog: False
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 0
-	coord: U-V
+	coord: X-Y
 	cpd: 0
-	extends: 2069.56 1116.58
+	extends: 2069.56 1115.14
 	grid: 0
 	index: 0
 	labels: 1
-	layer: 3D
-	origin: -257.471 136.88 -564.29
+	layer: Media
+	origin: 0 0 0
 	subtype: Material
 	title: GeoViewer Red plot
 	x2log: False
@@ -578,12 +578,12 @@ Plot: Green
 	cbtics: 0
 	coord: Z-X
 	cpd: 0
-	extends: 67.0047 50.2535
+	extends: 1832.81 987.566
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Media
-	origin: -14.5231 0 -1377.63
+	origin: 0 0 0
 	subtype: Material
 	title: GeoViewer Green plot
 	x2log: False
@@ -600,14 +600,14 @@ End
 Plot: Blue
 	Format: .eps
 	Type:   Geometry
-	basisu: 1 0 0
+	basisu: 0 0 1
 	basisv: 0 1 0
 	boundaries: 1
-	coord: X-Y
-	extends: 1672.03 1254.02
+	coord: Z-Y
+	extends: 1672.03 898.286
 	labels: 1
 	layer: Media
-	origin: -142.5 250 -300
+	origin: 0 0 0
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -616,7 +616,7 @@ End
 Plot: Magenta
 	Format: .eps
 	Type:   Geometry
-	basisu: 0 0 1
+	basisu: -1 0 0
 	basisv: 0 1 0
 	boundaries: 1
 	cbcolors: 0
@@ -624,14 +624,14 @@ Plot: Magenta
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 0
-	coord: Z-Y
+	coord: X-Y
 	cpd: 0
-	extends: 5638.4 4228.8
+	extends: 5638.4 3029.19
 	grid: 0
 	index: 0
 	labels: 1
-	layer: Image
-	origin: -20 125.6 -1370.3
+	layer: Media
+	origin: 0 0 0
 	subtype: Material
 	title: GeoViewer Magenta plot
 	x2log: 0

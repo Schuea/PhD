@@ -174,16 +174,16 @@ XYP WindoPl2   -399.11
 XYP WindoPl3   -399.1
 RCC OuWinInl   0.0 -147.5 -380. 0.0 300. 0.0 10.
 RCC InWinInl   0.0 -147.5 -380. 0.0 300. 0.0 9.
-RPP Airbox     -425. 115. -200. 200. -775. 425.
-RPP IronShie   -475. 165. -200. 250. -825. 475.
-RPP BorConcr   -625. 315. -200. 400. -975. 525.
-RPP Concr      -825. 315. -200. 600. -1175. 725.
+RPP Airbox     -425. 115. -200. 200. -774. 425.
+RPP IronShie   -475.0 165.0 -200.0 250.0 -774.0 475.0
+RPP BorConcr   -625. 315. -200. 400. -774. 525.
+RPP Concr      -825. 315. -200. 600. -774. 725.
 RPP Airbox2    -900. 615. -200. 700. -1374. 800.
 RPP Blackbox   -901. 616. -201. 701. -1375. 801.
-XYP ScorPla1   -1371.
+XYP ScorPla1   -774.0
 XZP EXTheigh   200.
 YZP EXTwidth   -185.
-XYP ScorPla2   -1372.
+XYP ScorPla2   -775.0
 END
 Inlet1       5 +OutInl1 -InInl1 -InWatJe
 Inlet2       5 +OutInl2 -InInl2 -InWatJe
