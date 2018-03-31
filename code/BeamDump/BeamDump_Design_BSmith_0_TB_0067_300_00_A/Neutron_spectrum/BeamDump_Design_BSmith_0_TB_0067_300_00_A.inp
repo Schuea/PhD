@@ -404,6 +404,8 @@ RPP Airbox2    -900. 400. -200. 700. -1250. 800.
 RPP Blackbox   -901. 401. -201. 701. -1251. 801.
 XYP ScorPla1   -774.
 XYP ScorPla2   -775.
+XZP EXTheigh   200.
+YZP EXTwidth   -185.
 END
 BeaPipe1     5 +OutBeaPi +WinPla1 -InBeaPi -ScorPla1
 BeaPipe2     5 +InTaEn1 +OutBeaPi -InBeaPi -WinPla2 -OutWinIn
@@ -1001,12 +1003,12 @@ TankWa       5 +InTank +VortEnd1 -InTaEn1
                | +CuPlaP24 +yPlane7 +xPlane8 -CuPlaPl1 -yPlane6 -xPlane1
                | +OutTub1 +xPlane8 -InTub1 -xPlane1
                | +OutTub2 +xPlane8 -InTub2 -xPlane1
-Air          5 +WinPla1 +Airbox -OutBeaPi
+Air          5 +WinPla1 +Airbox -OutBeaPi -ScorPla1
                | +OutTaEn1 +Airbox -OutBeaPi -WinPla2 -OutWinIn
                | +OutWinIn +Airbox -yPiEnPl2
                | +OutWinIn +yPiEnPl1 +Airbox
-               | +OutTaEn2 +Airbox -OutTank -OutTaEn1 -OuInlPi1 -OuInlPi2 -OuInlPi3 -OuInlPi4 -OuInlPi5 -OuInlPi6
-               -OuInlPi7 -OuInlPi8 -OuInlPi9 -OuInlP10 -OuInlP11 -OuInlP12 -OuDrain1 -OuDrain2 -OuDrain3
+               | +OutTaEn2 +Airbox -OutTank -OutTaEn1 -OuInlPi1 -OuInlPi2 -OuInlPi3 -OuInlPi4 -OuInlPi5 -OuInlPi6 
+               -OuInlPi7 -OuInlPi8 -OuInlPi9 -OuInlP10 -OuInlP11 -OuInlP12 -OuDrain1 -OuDrain2 -OuDrain3 
                -OuDrain4 -OuDrain5 -OutTub1 -OutTub2
                | +Airbox -OutTaEn2
                | +OutTub1 +Airbox -yPiEnPl2
@@ -1016,15 +1018,18 @@ Air          5 +WinPla1 +Airbox -OutBeaPi
                | +Airbox +WinPla2 -OutBeaPi -WinPla3
                | +Airbox +WinPla3 -OutTank -WinPla1
 ScorePla     5 +OutTank +WinPla3 -WinPla1
-Air2         5 +Airbox2 -Concr -OutBeaPi
-               | +OutBeaPi +Airbox2 +ScorPla2
+Air2         5 +Airbox2 -OutBeaPi -Concr -ScorPla1
 Blackbod     5 +Blackbox -Airbox2
-IronShie     5 +IronShie -Airbox -OutBeaPi
-BorConcr     5 +BorConcr -IronShie -OutBeaPi
-ConcrShi     5 +Concr -BorConcr -OutBeaPi
-ScorePl1     5 +OutBeaPi +ScorPla1 -ScorPla2
+IronShie     5 +IronShie -Airbox -OutBeaPi -ScorPla1
+BorConcr     5 +BorConcr -IronShie -OutBeaPi -ScorPla1
+ConcrShi     5 +Concr -BorConcr -OutBeaPi -ScorPla1
+ScorePl1     5 +Airbox2 +ScorPla1 -ScorPla2 +EXTheigh -EXTwidth
 TankEnd1     5 +OutTank +InTaEn1 -OutTaEn1 -OutBeaPi
 TankEnd2     5 +OutTank +OutTaEn2 -InTaEn2
+EXTAir       5 +Airbox2 +ScorPla1 -EXTheigh
+               | +Airbox2 +ScorPla2 +EXTheigh -Airbox
+               | +Airbox2 +ScorPla1 +EXTwidth -BorConcr
+               | +Airbox2 +ScorPla1 +EXTwidth
 END
 GEOEND          114.      199.      424.     -424.     -199.     -774.DEBUG
 GEOEND          500.      400.      500.                               &
@@ -1455,6 +1460,7 @@ ASSIGNMA    NormConc  ConcrShi
 ASSIGNMA      VACUUM  ScorePl1
 ASSIGNMA     316L-SS  TankEnd1
 ASSIGNMA     316L-SS  TankEnd2
+ASSIGNMA      VACUUM    EXTAir
 PHOTONUC          1.                        VACUUM       AIR        1.
 LAM-BIAS         0.0     -0.02     WATER    PHOTON
 LAM-BIAS         0.0     -0.02  Ti-6Al4V    PHOTON
