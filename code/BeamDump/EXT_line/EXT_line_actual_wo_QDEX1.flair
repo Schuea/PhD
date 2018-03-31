@@ -3,9 +3,11 @@
 Version: 2
 Title: EXTline
 Input: EXT_line_actual_wo_QDEX1.inp
+Exec: NeutSource.x
 Submit: Nohup
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Input
+Page: Run
+Source: rdsource.f
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -179,6 +181,16 @@ Material: Fe2O3
 End
 
 # Material
+Material: Chlorine
+	alpha: 0
+	color: #9050D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
 Material: K2O
 	alpha: 0
 	color: #C09070
@@ -219,9 +231,9 @@ Material: 316L-SS
 End
 
 # Material
-Material: BorConc
+Material: Phosphor
 	alpha: 0
-	color: #4050D0
+	color: #E05010
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -259,9 +271,9 @@ Material: B2O3
 End
 
 # Material
-Material: Cs
+Material: Eu
 	alpha: 0
-	color: #901070
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -349,9 +361,9 @@ Material: CaO
 End
 
 # Material
-Material: Chlorine
+Material: BorConc
 	alpha: 0
-	color: #9050D0
+	color: #4050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -359,19 +371,9 @@ Material: Chlorine
 End
 
 # Material
-Material: Eu
+Material: Cs
 	alpha: 0
-	color: #703070
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: Phosphor
-	alpha: 0
-	color: #E05010
+	color: #901070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
