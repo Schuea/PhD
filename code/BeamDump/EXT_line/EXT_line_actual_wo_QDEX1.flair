@@ -179,16 +179,6 @@ Material: Fe2O3
 End
 
 # Material
-Material: Chlorine
-	alpha: 0
-	color: #9050D0
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
 Material: K2O
 	alpha: 0
 	color: #C09070
@@ -269,9 +259,9 @@ Material: B2O3
 End
 
 # Material
-Material: Eu
+Material: Cs
 	alpha: 0
-	color: #703070
+	color: #901070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -359,9 +349,9 @@ Material: CaO
 End
 
 # Material
-Material: Phosphor
+Material: Chlorine
 	alpha: 0
-	color: #E05010
+	color: #9050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -369,9 +359,19 @@ Material: Phosphor
 End
 
 # Material
-Material: Cs
+Material: Eu
 	alpha: 0
-	color: #901070
+	color: #703070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Phosphor
+	alpha: 0
+	color: #E05010
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
