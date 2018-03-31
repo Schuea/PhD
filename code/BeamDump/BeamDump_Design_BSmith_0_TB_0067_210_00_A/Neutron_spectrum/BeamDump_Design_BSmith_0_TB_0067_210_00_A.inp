@@ -5,7 +5,7 @@ GLOBAL                                          1.
 DEFAULTS                                                              PRECISIO
 * Define the beam characteristics
 !@scale=1.0
-BEAM          -500.0 -1.000875       0.0-.56940603-.05138681        1.ELECTRON
+BEAM           -500. -1.000875       0.0-.56940603-.05138681        1.ELECTRON
 * Define the beam position
 BEAMPOS          0.0       0.0    -1350.       0.0       0.0
 GEOBEGIN                                                              COMBNAME
@@ -176,15 +176,15 @@ XYP WindoPl3   -399.1
 RCC OuWinInl   0.0 -147.5 -380. 0.0 300. 0.0 10.
 RCC InWinInl   0.0 -147.5 -380. 0.0 300. 0.0 9.
 RPP Airbox     -425. 115. -200. 200. -774. 425.
-RPP IronShie   -475.0 165.0 -200.0 250.0 -774.0 475.0
+RPP IronShie   -475. 165. -200. 250. -774. 475.
 RPP BorConcr   -625. 315. -200. 400. -774. 525.
 RPP Concr      -825. 315. -200. 600. -774. 725.
 RPP Airbox2    -900. 615. -200. 700. -1374. 800.
 RPP Blackbox   -901. 616. -201. 701. -1375. 801.
-XYP ScorPla1   -774.0
+XYP ScorPla1   -774.
 XZP EXTheigh   200.
 YZP EXTwidth   -185.
-XYP ScorPla2   -775.0
+XYP ScorPla2   -775.
 END
 Inlet1       5 +OutInl1 -InInl1 -InWatJe
 Inlet2       5 +OutInl2 -InInl2 -InWatJe
@@ -933,7 +933,6 @@ ASSIGNMA     BorConc  BorConcr
 ASSIGNMA    NormConc  ConcrShi
 ASSIGNMA      VACUUM  ScorePl1
 ASSIGNMA         AIR    EXTAir
-DISCARD        MUONS
 PHOTONUC          1.                        VACUUM       AIR        1.
 LAM-BIAS         0.0     -0.02     WATER    PHOTON
 LAM-BIAS         0.0     -0.02  Ti-6Al4V    PHOTON
