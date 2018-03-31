@@ -4,9 +4,10 @@ GLOBAL                                          1.
 * Set the defaults for precision simulations
 DEFAULTS                                                              PRECISIO
 * Define the beam characteristics
-BEAM           -500. -1.000875       0.0-.56940603-.05138681        1.ELECTRON
+!@scale=1.0
+BEAM          -500.0 -1.000875       0.0-.56940603-.05138681        1.ELECTRON
 * Define the beam position
-BEAMPOS          0.0       0.0     -750.       0.0       0.0
+BEAMPOS          0.0       0.0    -1350.       0.0       0.0
 GEOBEGIN                                                              COMBNAME
     0    0          0_TB_0067_210_00_A
 ZCC OutTank    -30. 0.0 75.
