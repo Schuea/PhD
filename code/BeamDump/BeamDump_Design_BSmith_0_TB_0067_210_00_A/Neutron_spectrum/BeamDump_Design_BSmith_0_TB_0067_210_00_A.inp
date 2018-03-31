@@ -938,7 +938,7 @@ LAM-BIAS         0.0     -0.02     WATER    PHOTON
 LAM-BIAS         0.0     -0.02  Ti-6Al4V    PHOTON
 EMFCUT        -0.002     0.002    1.E-05     WATER     WATER        1.PROD-CUT
 EMFCUT        -0.002     0.002    1.E-05   316L-SS   316L-SS        1.PROD-CUT
-EMFCUT        -0.002     0.002              Inlet1  WinInlWa        1.
+EMFCUT        -0.002     0.002              Inlet1    EXTAir        1.
 PHYSICS           3.                                                  EVAPORAT
 PHYSICS           1.                                                  COALESCE
 PHYSICS        1000.     1000.     1000.     1000.     1000.     1000.PEATHRES

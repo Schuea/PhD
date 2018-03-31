@@ -281,6 +281,16 @@ Material: Phosphor
 End
 
 # Material
+Material: Ti-6Al4V
+	alpha: 0
+	color: #407030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
 Material: Molybdenum
 	alpha: 0
 	color: #D03050
@@ -294,16 +304,6 @@ End
 Material: Vanadium
 	alpha: 0
 	color: #807070
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: BorConc
-	alpha: 0
-	color: #4050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -331,9 +331,9 @@ Material: B2O3
 End
 
 # Material
-Material: Eu
+Material: Cs
 	alpha: 0
-	color: #703070
+	color: #901070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -431,9 +431,9 @@ Material: CaO
 End
 
 # Material
-Material: Ti-6Al4V
+Material: BorConc
 	alpha: 0
-	color: #407030
+	color: #4050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -441,9 +441,9 @@ Material: Ti-6Al4V
 End
 
 # Material
-Material: Cs
+Material: Eu
 	alpha: 0
-	color: #901070
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -546,7 +546,7 @@ Plot: Red
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 2069.56 1115.14
+	extends: 2069.56 1552.17
 	grid: 0
 	index: 0
 	labels: 1
@@ -578,12 +578,12 @@ Plot: Green
 	cbtics: 0
 	coord: Z-X
 	cpd: 0
-	extends: 1832.81 987.566
+	extends: 83.4341 110.119
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Media
-	origin: 0 0 0
+	origin: 2.12394 0 -1357.56
 	subtype: Material
 	title: GeoViewer Green plot
 	x2log: False
@@ -604,10 +604,10 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 379.783 204.035
+	extends: 2182.14 1172.34
 	labels: 1
 	layer: Media
-	origin: 0 -71.5449 -1189.76
+	origin: 0 -15.5705 -1094.66
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -626,7 +626,7 @@ Plot: Magenta
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 5638.4 3029.19
+	extends: 5638.4 4228.8
 	grid: 0
 	index: 0
 	labels: 1
