@@ -44,7 +44,7 @@ Run: EXT_line_actual_wo_QDEX1_aa
 	Last:     1
 	Status:   3
 	Pid:      0
-	StartRun: 1522488206
+	StartRun: 1522488306
 	Parent:    <default>
 
 	# USRxxx data file: EXT_line_actual_wo_QDEX1_aa_21.bnn
@@ -71,7 +71,7 @@ Run: EXT_line_actual_wo_QDEX1_ab
 	Last:     1
 	Status:   3
 	Pid:      0
-	StartRun: 1522488207
+	StartRun: 1522488306
 	Parent:    <default>
 
 	# USRxxx data file: EXT_line_actual_wo_QDEX1_ab_21.bnn
@@ -98,7 +98,7 @@ Run: EXT_line_actual_wo_QDEX1_ac
 	Last:     1
 	Status:   3
 	Pid:      0
-	StartRun: 1522488207
+	StartRun: 1522488306
 	Parent:    <default>
 
 	# USRxxx data file: EXT_line_actual_wo_QDEX1_ac_21.bnn
@@ -491,44 +491,58 @@ Plot: Magenta
 	basisu: -1 0 0
 	basisv: 0 1 0
 	boundaries: 1
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
 	coord: X-Y
+	cpd: 0
 	extends: 744.543 400
+	grid: 0
+	index: 0
 	labels: 1
 	layer: Media
 	origin: 225.761 47.7254 30349
 	subtype: Material
 	title: GeoViewer Magenta plot
+	x2log: False
+	x2tics: 0
+	xlog: False
+	y2log: False
+	y2tics: 0
+	ylog: False
+	zlog: False
+	ztics: 0
 End
 
-# USRBIN plot "USRBIN EXT line actual 21"
-Plot: EXT_line_actual_21_plot
+# USRBIN plot "USRBIN EXT line actual wo QDEX1 21"
+Plot: EXT_line_actual_wo_QDEX1_21_plot
 	Format: .eps
 	Type:   USRBIN
 	axes: Auto
-	bymax: 2.49
-	bymin: -2.49
 	cbcolors: 30
 	cblog: True
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 1
 	cpd: 0
-	datafile: EXT_line_actual_21.bnn
+	datafile: EXT_line_actual_wo_QDEX1_21.bnn
 	det: 1
 	errors: 0
 	geo: -Auto-
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 0.53408202057901277
+	int: 5.6222673007205577
 	lw.0: 0
-	max: 9.05170455E-05
-	min: 1.78584301E-19
+	max: 7.12190695E-06
+	min: 4.74713016E-21
 	proj: Y
 	ps.0: 0
 	pt.0: 0
 	swap: 0
-	title: USRBIN EXT line actual 21
+	title: USRBIN EXT line actual wo QDEX1 21
 	with.0: errorbars
 	x2log: False
 	x2tics: 0
@@ -544,32 +558,33 @@ Plot: EXT_line_actual_21_plot
 	ztics: 0
 End
 
-# USRBIN plot "USRBIN EXT line actual 22"
-Plot: EXT_line_actual_22_plot
+# USRBIN plot "USRBIN EXT line actual wo QDEX1 22"
+Plot: EXT_line_actual_wo_QDEX1_22_plot
 	Format: .eps
 	Type:   USRBIN
 	axes: Auto
-	bymax: 2.49
-	bymin: -2.49
 	cbcolors: 30
 	cblog: True
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 1
 	cpd: 0
-	datafile: EXT_line_actual_22.bnn
+	datafile: EXT_line_actual_wo_QDEX1_22.bnn
 	det: 1
 	errors: 0
 	geo: -Auto-
 	grid: 0
 	hist: 2D Projection
 	index: 0
+	int: 34109.568363641178
 	lw.0: 0
+	max: 2.23673601E-03
+	min: 4.02012706E-13
 	proj: Y
 	ps.0: 0
 	pt.0: 0
 	swap: 0
-	title: USRBIN EXT line actual 22
+	title: USRBIN EXT line actual wo QDEX1 22
 	with.0: errorbars
 	x2log: False
 	x2tics: 0
