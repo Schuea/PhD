@@ -71,6 +71,9 @@ The envelope of all the tracks shows a characteristic bell shape, with the highe
 Since the bell shaped distribution is fully symmetrical in positive and negative z-direction as well as in the xz and yz-plane, the chosen view of the pair background envelopes will in the following always be of the xz-plane in positive z-direction.
 \\In order to compare the envelope shapes for different ILC beam parameters, Figure~\ref{fig:PairBkg:Density} (b) only shows the envelope outlines containing a certain fraction of all tracks.
 In this way, it becomes apparent that for higher center-of-mass energies the width of the envelope increases.
+At \SI{500}{\GeV}, the envelope containing \SI{99.99}{\percent} of all pair helix tracks crosses the beam pipe, extending towards the innermost layer of the SiD vertex detector, which has a radius of \SI{14}{\milli\meter}.
+For lower center-of-mass energies, the envelopes stay within the beam pipe radius.
+The pair background simulation files for this comparison plot were generated with \guineapig as well, using the beam parameters of the three different baseline ILC stages~\cite[p. 11]{TDR1}.
  \begin{figure}[h]
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
@@ -93,6 +96,35 @@ In this way, it becomes apparent that for higher center-of-mass energies the wid
    }
    \label{fig:PairBkg:Density}
  \end{figure}
+ 
+As explained in Section~\ref{ILC:layout:staging}, the first ILC stage will be at \SI{250}{\GeV} instead of the originally anticipated \SI{500}{\GeV}.
+Due to this decision in 2017, efforts have been made to study a possible change in the baseline beam parameters for this stage in order to increase the luminosity from \num{8.2} to \SI{16.2e34}{\per\centi\meter\squared\per\second}~\cite{LCWS17_paper}. 
+To this end, three alternative beam parameter sets have been suggested, which vary from the original baseline parameters in the emittance and the beta function values.
+The values which differ are listed in Table~\ref{tab:ILC250_sets}.
+For all alternative sets, the horizontal emittance $\epsilon_x$ is reduced. 
+Additionally, the horizontal and vertical beta functions at the IP, $\beta^*_x$ and $\beta^*_y$, are changed for sets (B) and (C).
+Since both, the emittance and the beta function, are dependencies of the beam size, they enter indirectly the Equation~\ref{eq:luminosity} for the beam luminosity.
+\\On the other hand however, a reduced horizontal emittance implies also an increase in the beam-beam interactions and in the pair background level.
+For the process of deciding the new official beam parameter set, a study of the impact of this increased pair background on the \sid vertex detector performance was therefore a crucial step.
+In the following, the simulation studies of the pair background for the four parameter schemes listed in Table~\ref{tab:ILC250_sets} are presented.
+\begin{table}[h]
+\caption[New ILC250 beam parameters]{Changes between the baseline and alternative beam parameter sets for the ILC stage at \SI[detect-all]{250}{\GeV}~\cite{LCWS17_paper}.
+The highlighted parameter set (A) was chosen to be the new official scheme for the ILC250.}
+\label{tab:ILC250_sets}
+\centering
+\begin{tabularx}{0.42\textwidth}{c|ccc}
+\hline\hline
+\textbf{Set} & $\epsilon_x$ (\si{\micro\meter}) & $\beta^*_x$ (\si{\milli\meter}) & $\beta^*_y$ (\si{\milli\meter})\\
+\hline
+ Baseline & 10.0 & 13.0 & 0.41\\
+\rowcolor{Gray} (A) & 5.0 & 13.0 & 0.41\\
+ (B) & 5.0 & 9.19 & 0.41\\
+ (C) & 5.0 & 9.19 & 0.58\\
+\hline\hline
+\end{tabularx}
+\end{table}
+
+
 
 
 \section{Occupancy studies and buffer depth}
