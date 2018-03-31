@@ -5,7 +5,7 @@ Title: BeamDump_Design_BSmith_0_TB_0067_300_00_A
 Input: BeamDump_Design_BSmith_0_TB_0067_300_00_A.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Input
+Page: Geometry
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -433,16 +433,6 @@ Material: Fe2O3
 End
 
 # Material
-Material: Chlorine
-	alpha: 0
-	color: #9050D0
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
 Material: K2O
 	alpha: 0
 	color: #C09070
@@ -493,6 +483,16 @@ Material: BorConc
 End
 
 # Material
+Material: Ti-6Al4V
+	alpha: 0
+	color: #407030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
 Material: Vanadium
 	alpha: 0
 	color: #807070
@@ -523,9 +523,9 @@ Material: B2O3
 End
 
 # Material
-Material: Eu
+Material: Cs
 	alpha: 0
-	color: #703070
+	color: #901070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -613,9 +613,9 @@ Material: CaO
 End
 
 # Material
-Material: Ti-6Al4V
+Material: Chlorine
 	alpha: 0
-	color: #407030
+	color: #9050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -623,9 +623,9 @@ Material: Ti-6Al4V
 End
 
 # Material
-Material: Cs
+Material: Eu
 	alpha: 0
-	color: #901070
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -746,7 +746,7 @@ Plot: Red
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 358.318 510.038
+	extends: 358.318 193.072
 	grid: 0
 	index: 0
 	labels: 1
@@ -772,10 +772,10 @@ Plot: Blue
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 248.832 354.193
+	extends: 125.27 67.3006
 	labels: 1
 	layer: Drawing_xz
-	origin: -25.4718 0 135.654
+	origin: 12.444 0 -769.809
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -788,10 +788,10 @@ Plot: Magenta
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 83.3334 118.976
+	extends: 1528.42 821.13
 	labels: 1
 	layer: Drawing_yz
-	origin: -30 -34.1798 282.894
+	origin: -30 287.619 -1045.09
 	subtype: Material
 	title: GeoViewer Magenta plot
 End
@@ -810,12 +810,12 @@ Plot: Green
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 48.2253 68.8518
+	extends: 599.001 322.758
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Drawing_yz
-	origin: 0 41.8047 -305.863
+	origin: 0 -28.3075 -585.897
 	subtype: Material
 	title: GeoViewer Green plot
 	x2log: 0
