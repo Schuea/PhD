@@ -8,7 +8,7 @@ DEFAULTS                                                              PRECISIO
 * Define the beam characteristics
 BEAM           -100. -1.000875       0.0       -5.       -5.        1.NEUTRON
 * Define the beam position
-BEAMPOS          0.0       0.0    29990.       0.0       0.0          NEGATIVE
+BEAMPOS          0.0       0.0    30599.       0.0       0.0          NEGATIVE
 #if ACTIV_STUDY 
 IRRPROFI    8.967E-4 1.7052E14
 * 1min, 1h, 1d, 1month, 1y
@@ -399,7 +399,6 @@ PHOTONUC          1.                        VACUUM       AIR        1.
 PHYSICS           3.                                                  EVAPORAT
 PHYSICS           1.                                                  COALESCE
 PHYSICS        1000.     1000.     1000.     1000.     1000.     1000.PEATHRES
-DISCARD        MUONS
 #if ACTIV_STUDY 
 IRRPROFI    8.967E-4 1.7052E14
 * 1min, 1h, 1d, 1month, 1y
@@ -417,9 +416,9 @@ EMFCUT        -0.002     0.002            QuadCopp  CollLat4        1.
 #endif  
 LAM-BIAS         0.0     -0.02     WATER    PHOTON
 LAM-BIAS         0.0     -0.02   316L-SS    PHOTON
-USRBIN           10.    ENERGY      -21.      664.      249.    29990.Energy
+USRBIN           10.    ENERGY      -21.      664.      249.    30599.Energy
 USRBIN         -234.     -249.       10.      300.      200.      500. &
-USRBIN           10.   NEUTRON      -22.      664.      249.    29990.Neutron
+USRBIN           10.   NEUTRON      -22.      664.      249.    30599.Neutron
 USRBIN         -234.     -249.       10.      300.      200.      500. &
 * Set the random number seed
 RANDOMIZ          1.        1.
