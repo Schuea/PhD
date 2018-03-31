@@ -8,7 +8,7 @@ DEFAULTS                                                              PRECISIO
 * Define the beam characteristics
 BEAM           -100. -1.000875       0.0       -5.       -5.        1.NEUTRON
 * Define the beam position
-BEAMPOS          0.0       0.0    29990.       0.0       0.0          NEGATIVE
+BEAMPOS          0.0       0.0   30599.5       0.0       0.0          NEGATIVE
 #if ACTIV_STUDY 
 IRRPROFI    8.967E-4 1.7052E14
 * 1min, 1h, 1d, 1month, 1y
@@ -48,9 +48,9 @@ ROT-DEFI         30.                                           -23520.CollTran4
 ROT-DEFI                             45.                              QuadRot
 GEOBEGIN                                                              COMBNAME
     0    0          EXTline
-RPP InEXT      -185. 615. -200. 200. 930. 30000.
-RPP OutEXT     -235. 665. -250. 250. 930. 30000.
-RPP Blackbox   -240. 670. -260. 260. 920. 30010.
+RPP InEXT      -185. 615. -200. 200. 930. 30600.
+RPP OutEXT     -235. 665. -250. 250. 930. 30600.
+RPP Blackbox   -240. 670. -260. 260. 920. 30610.
 ZCC InBeamPi   0.0 0.0 5.
 ZCC OutBeamP   0.0 0.0 6.
 $start_transform QuadRot
@@ -130,24 +130,29 @@ RPP DipBox12   -85. 85. -55. 55. 18100. 18360.
 RPP CollBox2   -55. 55. -55. 55. 21560. 21580.
 RPP CollBox3   -55. 55. -55. 55. 22590. 22610.
 RPP CollBox4   -55. 55. -55. 55. 29590. 29610.
-RCC Cryostat   0.0 0.0 950.0 0.0 0.0 400.0 50.0
+RPP IronShi    -185. 315. -200. 200. 30549. 30599.
+RPP BoCoShi    -185. 315. -200. 200. 30449. 30549.
+RPP CoShi      -185. 315. -200. 200. 30249. 30449.
+RCC Cryostat   0.0 0.0 950. 0.0 0.0 400. 50.
+XYP ScorePl    932.0
+XYP ScorePl2   931.0
 END
 Wall         5 +OutEXT -InEXT
 BlkBody      5 +Blackbox -OutEXT
 Air          5 +InEXT +AirWall1 -OutBeamP -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8 -Box9 -Box10 -Box11
-               -Box12 -Box13 -Box14 -Prototy3 -Cryostat
+               -Box12 -Box13 -Box14 -Prototy3 -Cryostat -ScorePl
                | +InEXT -AirWall1 +AirWall2 -OutBeamP -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 
                -DipBox6 -Prototy4 -DipBox7 -DipBox8 -DipBox9
                | +InEXT -AirWall2 -OutBeamP -Prototy5 -DipBox10 -DipBox11 -CollBox1 -DipBox12 -CollBox2 -CollBox3 
-               -CollBox4
+               -CollBox4 -IronShi -BoCoShi -CoShi
 BeamPipe     5 +InEXT +OutBeamP -InBeamPi +AirWall1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8 -Box9
-               -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
+               -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3 -ScorePl
                | +InEXT +OutBeamP -InBeamPi -AirWall1 +AirWall2 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 
                -DipBox5 -DipBox6 -Prototy4 -DipBox7 -DipBox8 -DipBox9
                | +InEXT +OutBeamP -InBeamPi -AirWall2 -Prototy5 -DipBox10 -DipBox11 -CollBox1 -DipBox12 -CollBox2 
                -CollBox3 -CollBox4
 Vacuum       5 +InEXT +InBeamPi +AirWall1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8 -Box9 -Box10 -Box11
-               -Box12 -Box13 -Box14 -Prototy3
+               -Box12 -Box13 -Box14 -Prototy3 -ScorePl
                | +InEXT +InBeamPi -AirWall1 +AirWall2 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 
                -DipBox6 -Prototy4 -DipBox7 -DipBox8 -DipBox9
                | +InEXT +InBeamPi -AirWall2 -Prototy5 -DipBox10 -DipBox11 -CollBox1 -DipBox12 -CollBox2 -CollBox3 
@@ -217,6 +222,11 @@ CollLat2     5 +CollBox2
 CollLat3     5 +CollBox3
 CollLat4     5 +CollBox4
 CryoMat      5 +Cryostat -OutBeamP
+Score        5 +InEXT +ScorePl -ScorePl2
+IR           5 +InEXT +ScorePl2
+IrShiMat     5 +IronShi -OutBeamP
+BoCShiMa     5 +BoCoShi -OutBeamP
+CoShiMa      5 +CoShi -OutBeamP
 END
 LATTICE     Lattice2                            2.        2.          Transl2
 LATTICE     Lattice3                            3.        3.          Transl3
@@ -247,7 +257,7 @@ LATTICE     DipLat12                           27.       27.          DipTran12
 LATTICE     CollLat2                           28.       28.          CollTran2
 LATTICE     CollLat3                           29.       29.          CollTran3
 LATTICE     CollLat4                           30.       30.          CollTran4
-GEOEND         664.9     249.9   29999.9    -234.9    -249.9       0.1DEBUG
+GEOEND         664.9     249.9   30599.9    -234.9    -249.9     930.1DEBUG
 GEOEND          500.      400.      900.                               &
 MATERIAL         15.                1.82                           0.0Phosphor
 LOW-MAT     Phosphor       15.       31.      296.                    PHOSPHO
@@ -297,6 +307,25 @@ COMPOUND       -0.08       MnO     -10.5     Al2O3     -14.5       CaONormConc
 COMPOUND       -0.01        Cs     -2.29      Na2O     -0.86       K2ONormConc
 COMPOUND       -0.39      TiO2     -3.47     Fe2O3     -0.01        EuNormConc
 COMPOUND       -0.01    Cobalt                                        NormConc
+MATERIAL                              6.                              CoO
+COMPOUND         50.    Cobalt       50.    OXYGEN                    CoO
+MATERIAL                              2.                              SO3
+COMPOUND         25.    Sulfur       75.    OXYGEN                    SO3
+MATERIAL         17.            0.003214                           0.0Chlorine
+LOW-MAT     Chlorine       17.       -2.      296.                    CHLORINE
+MATERIAL          5.                2.34                           0.0Boron
+LOW-MAT        Boron        5.       11.      296.                    BORON-11
+MATERIAL                            1.83                              B2O3
+COMPOUND         40.     Boron       60.    OXYGEN                    B2O3
+MATERIAL                            2.39                              P2O5
+COMPOUND       28.57  Phosphor     71.42    OXYGEN                    P2O5
+MATERIAL                             2.2                              BorConc
+COMPOUND       -33.1      SiO2     -14.8     WATER     -29.1       MgOBorConc
+COMPOUND       -0.09       MnO     -1.54     Al2O3      -11.       CaOBorConc
+COMPOUND       -0.01        Cs     -0.05      Na2O     -0.06       K2OBorConc
+COMPOUND       -0.07      TiO2     -6.23     Fe2O3     -0.01        EuBorConc
+COMPOUND       -0.01       CoO    -0.016  Chlorine     -0.11      P2O5BorConc
+COMPOUND       -0.38       SO3     -2.61      B2O3                    BorConc
 ASSIGNMA    NormConc      Wall
 ASSIGNMA    BLCKHOLE   BlkBody
 ASSIGNMA         AIR       Air
@@ -353,6 +382,11 @@ ASSIGNMA      VACUUM  CollLat2
 ASSIGNMA      VACUUM  CollLat3
 ASSIGNMA      VACUUM  CollLat4
 ASSIGNMA    ALUMINUM   CryoMat
+ASSIGNMA      VACUUM     Score
+ASSIGNMA         AIR        IR
+ASSIGNMA        IRON  IrShiMat
+ASSIGNMA    NormConc   CoShiMa
+ASSIGNMA     BorConc  BoCShiMa
 PHOTONUC          1.                        VACUUM       AIR        1.
 PHYSICS           3.                                                  EVAPORAT
 PHYSICS           1.                                                  COALESCE
@@ -367,16 +401,16 @@ RADDECAY          1.                           0.0    100010
 #if ACTIV_STUDY 
 EMFCUT        -0.001     1.E-4    1.E-05     WATER     WATER        1.PROD-CUT
 EMFCUT        -0.001     1.E-4    1.E-05   316L-SS   316L-SS        1.PROD-CUT
-EMFCUT        -0.001     1.E-4            QuadCopp  CollLat4        1.
+EMFCUT        -0.001     1.E-4            QuadCop2  CollLat4        1.
 #else  
 EMFCUT        -0.002     0.002    1.E-05     WATER     WATER        1.PROD-CUT
 EMFCUT        -0.002     0.002    1.E-05   316L-SS   316L-SS        1.PROD-CUT
 #endif  
 LAM-BIAS         0.0     -0.02     WATER    PHOTON
 LAM-BIAS         0.0     -0.02   316L-SS    PHOTON
-USRBIN           10.    ENERGY      -21.      664.      249.    29990.Energy
+USRBIN           10.    ENERGY      -21.      664.      249.    30599.Energy
 USRBIN         -234.     -249.       10.      300.      200.      500. &
-USRBIN           10.   NEUTRON      -22.      664.      249.    29990.Neutron
+USRBIN           10.   NEUTRON      -22.      664.      249.    30599.Neutron
 USRBIN         -234.     -249.       10.      300.      200.      500. &
 * Set the random number seed
 RANDOMIZ          1.        1.

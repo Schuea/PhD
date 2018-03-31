@@ -5,7 +5,7 @@ Title: EXTline
 Input: EXT_line_actual_wo_QDEX1.inp
 Submit: Nohup
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Geometry
+Page: Input
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -18,7 +18,7 @@ Run: <default>
 	Status:   3
 	Pid:      0
 	StartRun: 1521911447
-	Family:  EXT_line_actual_aa EXT_line_actual_ab EXT_line_actual_ac
+	Family:  EXT_line_actual_wo_QDEX1_aa EXT_line_actual_wo_QDEX1_ab EXT_line_actual_wo_QDEX1_ac
 
 	# USRxxx data file: EXT_line_actual_wo_QDEX1_21.bnn
 	Data: \I_\U.\e
@@ -38,18 +38,26 @@ Run: <default>
 End
 
 # Run information
-Run: EXT_line_actual_aa
+Run: EXT_line_actual_wo_QDEX1_aa
 	Rnd:      2
 	Prev:     0
 	Last:     1
 	Status:   3
 	Pid:      0
-	StartRun: 1521915712
+	StartRun: 1522488206
 	Parent:    <default>
 
-	# USRxxx data file: EXT_line_actual_aa_0.bnn
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_aa_21.bnn
 	Data: \I_\U.\e
-		Unit: 0
+		Unit: 21
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_aa_22.bnn
+	Data: \I_\U.\e
+		Unit: 22
 		Type: b
 		Rule: +,\I\d\d\d_fort\.\U
 		Rule: +,\I\d\d\d_ftn\.\U
@@ -57,18 +65,26 @@ Run: EXT_line_actual_aa
 End
 
 # Run information
-Run: EXT_line_actual_ab
+Run: EXT_line_actual_wo_QDEX1_ab
 	Rnd:      3
 	Prev:     0
 	Last:     1
 	Status:   3
 	Pid:      0
-	StartRun: 1521915717
+	StartRun: 1522488207
 	Parent:    <default>
 
-	# USRxxx data file: EXT_line_actual_ab_0.bnn
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ab_21.bnn
 	Data: \I_\U.\e
-		Unit: 0
+		Unit: 21
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ab_22.bnn
+	Data: \I_\U.\e
+		Unit: 22
 		Type: b
 		Rule: +,\I\d\d\d_fort\.\U
 		Rule: +,\I\d\d\d_ftn\.\U
@@ -76,98 +92,36 @@ Run: EXT_line_actual_ab
 End
 
 # Run information
-Run: EXT_line_actual_ac
+Run: EXT_line_actual_wo_QDEX1_ac
 	Rnd:      4
 	Prev:     0
 	Last:     1
 	Status:   3
 	Pid:      0
-	StartRun: 1521915719
+	StartRun: 1522488207
 	Parent:    <default>
 
-	# USRxxx data file: EXT_line_actual_ac_0.bnn
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ac_21.bnn
 	Data: \I_\U.\e
-		Unit: 0
+		Unit: 21
 		Type: b
 		Rule: +,\I\d\d\d_fort\.\U
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
-End
 
-# Material
-Material: Al2O3
-	alpha: 0
-	color: #509070
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: Mangan
-	alpha: 0
-	color: #D0D0B0
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: Molybden
-	alpha: 0
-	color: #109090
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: TiO2
-	alpha: 0
-	color: #B01070
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: Vanadium
-	alpha: 0
-	color: #807070
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: Fe2O3
-	alpha: 0
-	color: #B0B050
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ac_22.bnn
+	Data: \I_\U.\e
+		Unit: 22
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
 End
 
 # Material
 Material: NormConc
 	alpha: 0
 	color: #A0B030
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: SiO2
-	alpha: 0
-	color: #60D0B0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -185,9 +139,9 @@ Material: MgO
 End
 
 # Material
-Material: Cobalt
+Material: Sulfur
 	alpha: 0
-	color: #E09090
+	color: #209010
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -195,9 +149,9 @@ Material: Cobalt
 End
 
 # Material
-Material: Eu
+Material: Al2O3
 	alpha: 0
-	color: #703070
+	color: #509070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -205,9 +159,9 @@ Material: Eu
 End
 
 # Material
-Material: Na2O
+Material: TiO2
 	alpha: 0
-	color: #301070
+	color: #B01070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -215,9 +169,19 @@ Material: Na2O
 End
 
 # Material
-Material: CaO
+Material: Fe2O3
 	alpha: 0
-	color: #105090
+	color: #B0B050
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Chlorine
+	alpha: 0
+	color: #9050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -235,39 +199,9 @@ Material: K2O
 End
 
 # Material
-Material: MnO
+Material: Boron
 	alpha: 0
-	color: #8030D0
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: Cs
-	alpha: 0
-	color: #901070
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: Sulfur
-	alpha: 0
-	color: #209010
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: Chromium
-	alpha: 0
-	color: #B09010
+	color: #201090
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -295,9 +229,169 @@ Material: 316L-SS
 End
 
 # Material
+Material: BorConc
+	alpha: 0
+	color: #4050D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Vanadium
+	alpha: 0
+	color: #807070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: SiO2
+	alpha: 0
+	color: #60D0B0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: B2O3
+	alpha: 0
+	color: #505030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Eu
+	alpha: 0
+	color: #703070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: SO3
+	alpha: 0
+	color: #9010D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: MnO
+	alpha: 0
+	color: #8030D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Mangan
+	alpha: 0
+	color: #D0D0B0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Molybden
+	alpha: 0
+	color: #109090
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: P2O5
+	alpha: 0
+	color: #105010
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Cobalt
+	alpha: 0
+	color: #E09090
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Na2O
+	alpha: 0
+	color: #301070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: CaO
+	alpha: 0
+	color: #105090
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
 Material: Phosphor
 	alpha: 0
 	color: #E05010
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Cs
+	alpha: 0
+	color: #901070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Chromium
+	alpha: 0
+	color: #B09010
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: CoO
+	alpha: 0
+	color: #9070D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -340,12 +434,12 @@ Plot: Red
 	cbtics: 0
 	coord: U-V
 	cpd: 0
-	extends: 232.551 125.305
+	extends: 767.701 413.658
 	grid: 0
 	index: 0
 	labels: 1
 	layer: 3D
-	origin: 19.2817 73.6659 6052.82
+	origin: -1022.39 -1847 30536
 	subtype: Material
 	title: GeoViewer Red plot
 	x2log: False
@@ -366,10 +460,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 542.396 34614.7
+	extends: 6.31937 3.40505
 	labels: 1
 	layer: Lattice
-	origin: -162.138 14 5916.46
+	origin: 2.91774 0 30599.8
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -382,10 +476,10 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 400 212.873
+	extends: 480.766 258.288
 	labels: 1
 	layer: Lattice
-	origin: 0 0 1150
+	origin: 0 65.3645 30742.8
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -398,10 +492,10 @@ Plot: Magenta
 	basisv: 0 1 0
 	boundaries: 1
 	coord: X-Y
-	extends: 187.611 100
+	extends: 744.543 400
 	labels: 1
 	layer: Media
-	origin: -95.7613 -47.7254 1850
+	origin: 225.761 47.7254 30349
 	subtype: Material
 	title: GeoViewer Magenta plot
 End
@@ -442,6 +536,7 @@ Plot: EXT_line_actual_21_plot
 	xrebin: 1
 	y2log: False
 	y2tics: 0
+	ylabel: Energy
 	ylog: False
 	yrebin: 1
 	zlog: False
@@ -453,10 +548,39 @@ End
 Plot: EXT_line_actual_22_plot
 	Format: .eps
 	Type:   USRBIN
+	axes: Auto
+	bymax: 2.49
+	bymin: -2.49
 	cbcolors: 30
-	cblog: 1
+	cblog: True
+	cbpalette: FLUKA
+	cbround: 0
 	cbtics: 1
+	cpd: 0
 	datafile: EXT_line_actual_22.bnn
+	det: 1
+	errors: 0
 	geo: -Auto-
+	grid: 0
+	hist: 2D Projection
+	index: 0
+	lw.0: 0
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
 	title: USRBIN EXT line actual 22
+	with.0: errorbars
+	x2log: False
+	x2tics: 0
+	xlog: False
+	xrebin: 1
+	y2log: False
+	y2tics: 0
+	ylabel: Neutrons
+	ylog: False
+	yrebin: 1
+	zlog: False
+	zrebin: 1
+	ztics: 0
 End
