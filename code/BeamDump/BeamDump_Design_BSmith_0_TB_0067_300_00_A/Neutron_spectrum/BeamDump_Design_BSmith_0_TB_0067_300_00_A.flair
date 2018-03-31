@@ -5,7 +5,7 @@ Title: BeamDump_Design_BSmith_0_TB_0067_300_00_A
 Input: BeamDump_Design_BSmith_0_TB_0067_300_00_A.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Geometry
+Page: Input
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -746,7 +746,7 @@ Plot: Red
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 358.318 193.072
+	extends: 358.318 471.015
 	grid: 0
 	index: 0
 	labels: 1
@@ -772,7 +772,7 @@ Plot: Blue
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 1610.39 865.171
+	extends: 1610.39 2110.39
 	labels: 1
 	layer: Drawing_xz
 	origin: -338.225 0 -482.748
@@ -788,7 +788,7 @@ Plot: Magenta
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 1580.13 848.915
+	extends: 1580.13 2079.12
 	labels: 1
 	layer: Drawing_yz
 	origin: -30 304.707 -268.902
@@ -810,12 +810,12 @@ Plot: Green
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 1115.93 601.295
+	extends: 180.047 237.633
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Drawing_yz
-	origin: 0 203.187 -226.498
+	origin: 0 -16.8322 -1273.2
 	subtype: Material
 	title: GeoViewer Green plot
 	x2log: 0

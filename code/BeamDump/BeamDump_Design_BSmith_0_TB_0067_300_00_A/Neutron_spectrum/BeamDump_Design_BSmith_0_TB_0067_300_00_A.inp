@@ -6,7 +6,7 @@ DEFAULTS                                                              PRECISIO
 * Define the beam characteristics
 BEAM           -500. -1.000875       0.0-.56940603-.05138681        1.ELECTRON
 * Define the beam position
-BEAMPOS          0.0       0.0     -750.       0.0       0.0
+BEAMPOS          0.0       0.0    -1350.       0.0       0.0
 GEOBEGIN                                                              COMBNAME
     0    0          0_TB_0067_300_00_A
 ZCC OutTank    -30. 0.0 75.
@@ -397,11 +397,11 @@ XZP xPlane6    21.5
 XZP xPlane7    27.5
 XZP xPlane8    44.
 RPP Airbox     -425. 115. -200. 200. -775. 425.
-RPP IronShie   -475. 165. -200. 250. -775. 475.
-RPP BorConcr   -625. 315. -200. 400. -775. 525.
-RPP Concr      -825. 315. -200. 600. -775. 725.
-RPP Airbox2    -900. 400. -200. 700. -1250. 800.
-RPP Blackbox   -901. 401. -201. 701. -1251. 801.
+RPP IronShie   -475. 165. -200. 250. -774. 475.
+RPP BorConcr   -625. 315. -200. 400. -774. 525.
+RPP Concr      -825. 315. -200. 600. -774. 725.
+RPP Airbox2    -900. 615. -200. 700. -1374. 800.
+RPP Blackbox   -901. 616. -201. 701. -1375. 801.
 XYP ScorPla1   -774.
 XYP ScorPla2   -775.
 XZP EXTheigh   200.
@@ -1466,10 +1466,36 @@ LAM-BIAS         0.0     -0.02     WATER    PHOTON
 LAM-BIAS         0.0     -0.02  Ti-6Al4V    PHOTON
 EMFCUT        -0.002     0.002    1.E-05     WATER     WATER        1.PROD-CUT
 EMFCUT        -0.002     0.002    1.E-05   316L-SS   316L-SS        1.PROD-CUT
-EMFCUT        -0.002     0.002            BeaPipe1      Air2        1.
+EMFCUT        -0.002     0.002            BeaPipe1    EXTAir        1.
 PHYSICS           3.                                                  EVAPORAT
 PHYSICS           1.                                                  COALESCE
 PHYSICS        1000.     1000.     1000.     1000.     1000.     1000.PEATHRES
+SCORE        NEUTRON    ENERGY    TRITON   DOSE-EQ
+USRYIELD       2399.   NEUTRON      -50.  ScorePl1    EXTAir          NeutEXTall
+USRYIELD        500.       0.0      250.      180.       0.0        3. &
+USRYIELD       2399.   NEUTRON      -51.  ScorePl1    EXTAir          NeutEXT1
+USRYIELD        500.       0.0      250.      100.       90.        3. &
+USRYIELD       2399.   NEUTRON      -52.  ScorePl1    EXTAir          NeutEXT2
+USRYIELD        500.       0.0      250.      110.      100.        3. &
+USRYIELD       2399.   NEUTRON      -53.  ScorePl1    EXTAir          NeutEXT3
+USRYIELD        500.       0.0      250.      120.      110.        3. &
+USRYIELD       2399.   NEUTRON      -54.  ScorePl1    EXTAir          NeutEXT4
+USRYIELD        500.       0.0      250.      130.      120.        3. &
+USRYIELD       2399.   NEUTRON      -55.  ScorePl1    EXTAir          NeutEXT5
+USRYIELD        500.       0.0      250.      140.      130.        3. &
+USRYIELD       2399.   NEUTRON      -56.  ScorePl1    EXTAir          NeutEXT6
+USRYIELD        500.       0.0      250.      150.      140.        3. &
+USRYIELD       2399.   NEUTRON      -57.  ScorePl1    EXTAir          NeutEXT7
+USRYIELD        500.       0.0      250.      160.      150.        3. &
+USRYIELD       2399.   NEUTRON      -58.  ScorePl1    EXTAir          NeutEXT8
+USRYIELD        500.       0.0      250.      165.      160.        3. &
+USRYIELD       2399.   NEUTRON      -59.  ScorePl1    EXTAir          NeutEXT9
+USRYIELD        500.       0.0      250.      170.      165.        3. &
+USRYIELD       2399.   NEUTRON      -60.  ScorePl1    EXTAir          NeutEX10
+USRYIELD        500.       0.0      250.      175.      170.        3. &
+USRYIELD       2399.   NEUTRON      -61.  ScorePl1    EXTAir          NeutEX11
+USRYIELD        500.       0.0      250.      180.      175.        3. &
+USERDUMP        100.                 0.0
 * Set the random number seed
 RANDOMIZ          1.        1.
 * Set the number of primary histories to be simulated in the run
