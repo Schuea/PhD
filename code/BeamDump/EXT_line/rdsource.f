@@ -114,7 +114,7 @@
             YYY(NNN) = Y
 *            ZZZ(NNN) = Z
 ***ANNES INPUT            
-            ZZZ(NNN) = Z + 190.0
+            ZZZ(NNN) = 30599.5
 ****
 
 *  | U = dir[nX], V = dir[nY], W = dir[nZ]
