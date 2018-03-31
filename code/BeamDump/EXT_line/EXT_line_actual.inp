@@ -48,9 +48,9 @@ ROT-DEFI         30.                                           -23520.CollTran4
 ROT-DEFI                             45.                              QuadRot
 GEOBEGIN                                                              COMBNAME
     0    0          EXTline
-RPP InEXT      -185. 615. -200. 200. 0.0 30000.
-RPP OutEXT     -235. 665. -250. 250. 0.0 30000.
-RPP Blackbox   -240. 670. -260. 260. -10. 30010.
+RPP InEXT      -185. 615. -200. 200. 0.0 30600.
+RPP OutEXT     -235. 665. -250. 250. 0.0 30600.
+RPP Blackbox   -240.0 670.0 -260.0 260.0 -10.0 30610.0
 ZCC InBeamPi   0.0 0.0 5.
 ZCC OutBeamP   0.0 0.0 6.
 RPP Prototy1   -55. 55. -55. 55. 550. 650.
@@ -134,15 +134,18 @@ RPP DipBox12   -85. 85. -55. 55. 18100. 18360.
 RPP CollBox2   -55. 55. -55. 55. 21560. 21580.
 RPP CollBox3   -55. 55. -55. 55. 22590. 22610.
 RPP CollBox4   -55. 55. -55. 55. 29590. 29610.
+RPP IronShi    -185.0 315.0 -200.0 200.0 30549.0 30599.0
+RPP BoCoShi    -185.0 315.0 -200.0 200.0 30449.0 30549.0
+RPP CoShi      -185.0 315.0 -200.0 200.0 30249.0 30449.0
 END
 Wall         5 +OutEXT -InEXT
 BlkBody      5 +Blackbox -OutEXT
 Air          5 +InEXT +AirWall1 -OutBeamP -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7 -Box8
                -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
-               | +InEXT -AirWall1 +AirWall2 -OutBeamP -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5
+               | +InEXT -AirWall1 +AirWall2 -OutBeamP -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4 -DipBox5 
                -DipBox6 -Prototy4 -DipBox7 -DipBox8 -DipBox9
-               | +InEXT -AirWall2 -OutBeamP -Prototy5 -DipBox10 -DipBox11 -CollBox1 -DipBox12 -CollBox2 -CollBox3
-               -CollBox4
+               | +InEXT -AirWall2 -OutBeamP -Prototy5 -DipBox10 -DipBox11 -CollBox1 -DipBox12 -CollBox2 -CollBox3 
+               -CollBox4 -IronShi -BoCoShi -CoShi
 BeamPipe     5 +InEXT +OutBeamP -InBeamPi +AirWall1 -Prototy1 -Box1 -Prototy2 -Box2 -Box3 -Box4 -Box5 -Box6 -Box7
                -Box8 -Box9 -Box10 -Box11 -Box12 -Box13 -Box14 -Prototy3
                | +InEXT +OutBeamP -InBeamPi -AirWall1 +AirWall2 -Prototy3 -DipBox1 -DipBox2 -DipBox3 -DipBox4
@@ -225,6 +228,9 @@ DipLat12     5 +DipBox12
 CollLat2     5 +CollBox2
 CollLat3     5 +CollBox3
 CollLat4     5 +CollBox4
+IrShiMat     5 +IronShi -OutBeamP
+BoCShiMa     5 +BoCoShi -OutBeamP
+CoShiMa      5 +CoShi -OutBeamP
 END
 LATTICE     Lattice1                            1.        1.          Transl
 LATTICE     Lattice2                            2.        2.          Transl2
@@ -306,6 +312,25 @@ COMPOUND       -0.08       MnO     -10.5     Al2O3     -14.5       CaONormConc
 COMPOUND       -0.01        Cs     -2.29      Na2O     -0.86       K2ONormConc
 COMPOUND       -0.39      TiO2     -3.47     Fe2O3     -0.01        EuNormConc
 COMPOUND       -0.01    Cobalt                                        NormConc
+MATERIAL                              6.                              CoO
+COMPOUND         50.    Cobalt       50.    OXYGEN                    CoO
+MATERIAL                              2.                              SO3
+COMPOUND         25.    Sulfur       75.    OXYGEN                    SO3
+MATERIAL         17.            0.003214                           0.0Chlorine
+LOW-MAT     Chlorine       17.       -2.      296.                    CHLORINE
+MATERIAL          5.                2.34                           0.0Boron
+LOW-MAT        Boron        5.       11.      296.                    BORON-11
+MATERIAL                            1.83                              B2O3
+COMPOUND         40.     Boron       60.    OXYGEN                    B2O3
+MATERIAL                            2.39                              P2O5
+COMPOUND       28.57  Phosphor     71.42    OXYGEN                    P2O5
+MATERIAL                             2.2                              BorConc
+COMPOUND       -33.1      SiO2     -14.8     WATER     -29.1       MgOBorConc
+COMPOUND       -0.09       MnO     -1.54     Al2O3      -11.       CaOBorConc
+COMPOUND       -0.01        Cs     -0.05      Na2O     -0.06       K2OBorConc
+COMPOUND       -0.07      TiO2     -6.23     Fe2O3     -0.01        EuBorConc
+COMPOUND       -0.01       CoO    -0.016  Chlorine     -0.11      P2O5BorConc
+COMPOUND       -0.38       SO3     -2.61      B2O3                    BorConc
 ASSIGNMA    NormConc      Wall
 ASSIGNMA    BLCKHOLE   BlkBody
 ASSIGNMA         AIR       Air
@@ -367,6 +392,9 @@ ASSIGNMA      VACUUM  DipLat12
 ASSIGNMA      VACUUM  CollLat2
 ASSIGNMA      VACUUM  CollLat3
 ASSIGNMA      VACUUM  CollLat4
+ASSIGNMA        IRON  IrShiMat
+ASSIGNMA     BorConc  BoCShiMa
+ASSIGNMA    NormConc   CoShiMa
 PHOTONUC          1.                        VACUUM       AIR        1.
 PHYSICS           3.                                                  EVAPORAT
 PHYSICS           1.                                                  COALESCE

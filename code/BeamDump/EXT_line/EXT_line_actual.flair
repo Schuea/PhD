@@ -5,7 +5,7 @@ Title: EXTline
 Input: EXT_line_actual.inp
 Submit: Nohup
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Plot
+Page: Geometry
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -95,79 +95,9 @@ Run: EXT_line_actual_ac
 End
 
 # Material
-Material: Al2O3
-	alpha: 0
-	color: #509070
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: Mangan
-	alpha: 0
-	color: #D0D0B0
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: Molybden
-	alpha: 0
-	color: #109090
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: TiO2
-	alpha: 0
-	color: #B01070
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: Vanadium
-	alpha: 0
-	color: #807070
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: Fe2O3
-	alpha: 0
-	color: #B0B050
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
 Material: NormConc
 	alpha: 0
 	color: #A0B030
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: SiO2
-	alpha: 0
-	color: #60D0B0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -185,9 +115,9 @@ Material: MgO
 End
 
 # Material
-Material: Cobalt
+Material: Sulfur
 	alpha: 0
-	color: #E09090
+	color: #209010
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -195,9 +125,9 @@ Material: Cobalt
 End
 
 # Material
-Material: Cs
+Material: Al2O3
 	alpha: 0
-	color: #901070
+	color: #509070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -205,9 +135,9 @@ Material: Cs
 End
 
 # Material
-Material: Na2O
+Material: TiO2
 	alpha: 0
-	color: #301070
+	color: #B01070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -215,9 +145,19 @@ Material: Na2O
 End
 
 # Material
-Material: CaO
+Material: Fe2O3
 	alpha: 0
-	color: #105090
+	color: #B0B050
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Chlorine
+	alpha: 0
+	color: #9050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -235,39 +175,9 @@ Material: K2O
 End
 
 # Material
-Material: MnO
+Material: Boron
 	alpha: 0
-	color: #8030D0
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: Eu
-	alpha: 0
-	color: #703070
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: Sulfur
-	alpha: 0
-	color: #209010
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: Chromium
-	alpha: 0
-	color: #B09010
+	color: #201090
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -295,9 +205,169 @@ Material: 316L-SS
 End
 
 # Material
+Material: BorConc
+	alpha: 0
+	color: #4050D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Vanadium
+	alpha: 0
+	color: #807070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: SiO2
+	alpha: 0
+	color: #60D0B0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: B2O3
+	alpha: 0
+	color: #505030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Cs
+	alpha: 0
+	color: #901070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: SO3
+	alpha: 0
+	color: #9010D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: MnO
+	alpha: 0
+	color: #8030D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Mangan
+	alpha: 0
+	color: #D0D0B0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Molybden
+	alpha: 0
+	color: #109090
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: P2O5
+	alpha: 0
+	color: #105010
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Cobalt
+	alpha: 0
+	color: #E09090
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Na2O
+	alpha: 0
+	color: #301070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: CaO
+	alpha: 0
+	color: #105090
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
 Material: Phosphor
 	alpha: 0
 	color: #E05010
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Eu
+	alpha: 0
+	color: #703070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Chromium
+	alpha: 0
+	color: #B09010
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: CoO
+	alpha: 0
+	color: #9070D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -325,12 +395,12 @@ Plot: Red
 	cbtics: 0
 	coord: U-V
 	cpd: 0
-	extends: 684.561 365.386
+	extends: 526.665 692.309
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Lattice
-	origin: 265.57 60.5047 597.52
+	origin: 203.792 -22.7172 30268.7
 	subtype: Material
 	title: GeoViewer Red plot
 	x2log: False
@@ -351,10 +421,10 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 2910.75 1556.06
+	extends: 691.956 913.27
 	labels: 1
 	layer: Lattice
-	origin: -202.349 14 17136.2
+	origin: -111.552 0 30470.4
 	subtype: Material
 	title: GeoViewer Green plot
 End
@@ -367,10 +437,10 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 18547.9 9870.88
+	extends: 607.139 795.646
 	labels: 1
 	layer: Lattice
-	origin: 0 1194.92 15647.6
+	origin: 0 -9.75375 30592
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -379,11 +449,11 @@ End
 Plot: Magenta
 	Format: .eps
 	Type:   Geometry
-	basisu: -1 0 0
+	basisu: -0.0186323 0 0.999826
 	basisv: 0 1 0
 	boundaries: 1
-	coord: X-Y
-	extends: 771.33 411.133
+	coord: U-V
+	extends: 771.33 1014.91
 	labels: 1
 	layer: Media
 	origin: 95.7613 47.7254 1750
