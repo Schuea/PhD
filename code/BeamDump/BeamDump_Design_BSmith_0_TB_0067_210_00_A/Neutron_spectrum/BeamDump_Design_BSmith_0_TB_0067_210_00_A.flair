@@ -8,7 +8,7 @@ Submit: *Default
 Notes:
 Composition of normal and boronated concrete from Paper "Application of neutron shield concrete to neutron scattering instrument TAIKAN in J-PARC" by Koichi Okuno et al.
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Geometry
+Page: Input
 Source: mgdraw.f
 DefMain: True
 LinkPrg: lfluka

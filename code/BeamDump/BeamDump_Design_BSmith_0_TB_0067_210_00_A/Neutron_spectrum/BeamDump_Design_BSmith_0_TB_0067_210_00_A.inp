@@ -968,7 +968,7 @@ USRYIELD       2399.   NEUTRON      -60.  ScorePl1    EXTAir          NeutEX10
 USRYIELD        500.       0.0      250.      175.      170.        3. &
 USRYIELD       2399.   NEUTRON      -61.  ScorePl1    EXTAir          NeutEX11
 USRYIELD        500.       0.0      250.      180.      175.        3. &
-USERDUMP        100.       93.       0.0                              BackNeut
+USERDUMP        100.                 0.0
 * Set the random number seed
 RANDOMIZ          1.        1.
 * Set the number of primary histories to be simulated in the run
