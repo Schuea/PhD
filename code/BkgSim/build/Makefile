@@ -10,7 +10,7 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include -g -Wall -Wextra -pthread -O2 -std=c++
 CXXFLAGS +=  $(shell root-config --glibs)
 
 # Executables produced by this Makefile
-RUN = ../NewOccupancyPlotter ../NewOccupancyPlotter_Phi ../CompareOccupancies  ../NewFullBufferMapsPlotter ../HelixPlotter ../HelixEnvelopePlotter ../HelixEnvelopeComparison ../CompareEnvelopeProjections
+RUN = ../NewOccupancyPlotter ../NewOccupancyPlotter_Phi ../CompareOccupancies  ../NewFullBufferMapsPlotter ../HelixPlotter ../HelixEnvelopePlotter ../HelixEnvelopeComparison ../CompareEnvelopeProjections ../ComparePT
 
 #RUN = ../NewOccupancyPlotter ../OccupancyPlotter ../ParticleCountPlotter ../FullBufferMapsPlotter ../FullBufferHistoPlotter ../ParticleOriginsTimePlotter ../HittimePlotter ../ggHadrons_HittimePlotter ../ggHadrons_pairs_HittimePlotter ../ggHadrons_pairs_PT_Plotter ../MomentumTimePlotter ../LatePrimariesCalculater ../HelixPlotter ../HelixEnvelopePlotter ../CompareEnvelopeProjections
 
@@ -35,6 +35,7 @@ MAIN_HITMAPSFULLBUFFER_NEW = ../objects/main_hitmaps_fullbuffers_new.o
 #MAIN_PT_GGHADRONS_PAIRS = ../objects/main_compare_PT_gg-hadrons_pairs.o
 #MAIN_MOMENTUMTIME = ../objects/main_momentum_time.o
 #MAIN_CALC_LATE = ../objects/main_calculate_late_arriving_primaries.o
+MAIN_COMPARE_PT = ../objects/main_compare_PT_pairs.o
 MAIN_HELIX = ../objects/main_helix_tracks.o
 MAIN_HELIX_ENVELOPES = ../objects/main_helix_tracks_envelopes.o
 MAIN_HELIX_COMPARISON = ../objects/main_helix_tracks_envelopes_comparison.o
@@ -153,6 +154,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 #../LatePrimariesCalculater : $(MAIN_CALC_LATE) $(OBJECTS)
 #	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
+../ComparePT : $(MAIN_COMPARE_PT) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+
 ../HelixPlotter : $(MAIN_HELIX) $(OBJECTS)
 	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
@@ -215,6 +219,9 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 
 #../objects/main_calculate_late_arriving_primaries.o : ../src/main_calculate_late_arriving_primaries.cc
 #	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+
+../objects/main_compare_PT_pairs.o : ../src/main_compare_PT_pairs.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 ../objects/main_helix_tracks.o : ../src/main_helix_tracks.cc
 	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
