@@ -944,57 +944,57 @@ PHYSICS           3.                                                  EVAPORAT
 PHYSICS           1.                                                  COALESCE
 PHYSICS        1000.     1000.     1000.     1000.     1000.     1000.PEATHRES
 SCORE        NEUTRON    ENERGY    TRITON   DOSE-EQ
-*USRYIELD       2399.   NEUTRON      -50.  ScorePl1    EXTAir          NeutEXTall
-*USRYIELD        500.       0.0      250.      180.       0.0        3. &
-*USRYIELD       2399.   NEUTRON      -51.  ScorePl1    EXTAir          NeutEXT1
-*USRYIELD        500.       0.0      250.      100.       90.        3. &
-*USRYIELD       2399.   NEUTRON      -52.  ScorePl1    EXTAir          NeutEXT2
-*USRYIELD        500.       0.0      250.      110.      100.        3. &
-*USRYIELD       2399.   NEUTRON      -53.  ScorePl1    EXTAir          NeutEXT3
-*USRYIELD        500.       0.0      250.      120.      110.        3. &
-*USRYIELD       2399.   NEUTRON      -54.  ScorePl1    EXTAir          NeutEXT4
-*USRYIELD        500.       0.0      250.      130.      120.        3. &
-*USRYIELD       2399.   NEUTRON      -55.  ScorePl1    EXTAir          NeutEXT5
-*USRYIELD        500.       0.0      250.      140.      130.        3. &
-*USRYIELD       2399.   NEUTRON      -56.  ScorePl1    EXTAir          NeutEXT6
-*USRYIELD        500.       0.0      250.      150.      140.        3. &
-*USRYIELD       2399.   NEUTRON      -57.  ScorePl1    EXTAir          NeutEXT7
-*USRYIELD        500.       0.0      250.      160.      150.        3. &
-*USRYIELD       2399.   NEUTRON      -58.  ScorePl1    EXTAir          NeutEXT8
-*USRYIELD        500.       0.0      250.      165.      160.        3. &
-*USRYIELD       2399.   NEUTRON      -59.  ScorePl1    EXTAir          NeutEXT9
-*USRYIELD        500.       0.0      250.      170.      165.        3. &
-*USRYIELD       2399.   NEUTRON      -60.  ScorePl1    EXTAir          NeutEX10
-*USRYIELD        500.       0.0      250.      175.      170.        3. &
-*USRYIELD       2399.   NEUTRON      -61.  ScorePl1    EXTAir          NeutEX11
-*USRYIELD        500.       0.0      250.      180.      175.        3. &
-*USRYIELD       2399.  WWLOWNEU      -70.  ScorePl1    EXTAir          LoNeuEXall
-*USRYIELD        500.       0.0      250.      180.       0.0        3. &
-*USRYIELD       2399.  WWLOWNEU      -71.  ScorePl1    EXTAir          LoNeuEXT1
-*USRYIELD        500.       0.0      250.      100.       90.        3. &
-*USRYIELD       2399.  WWLOWNEU      -72.  ScorePl1    EXTAir          LoNeuEXT2
-*USRYIELD        500.       0.0      250.      110.      100.        3. &
-*USRYIELD       2399.  WWLOWNEU      -73.  ScorePl1    EXTAir          LoNeuEXT3
-*USRYIELD        500.       0.0      250.      120.      110.        3. &
-*USRYIELD       2399.  WWLOWNEU      -74.  ScorePl1    EXTAir          LoNeuEXT4
-*USRYIELD        500.       0.0      250.      130.      120.        3. &
-*USRYIELD       2399.  WWLOWNEU      -75.  ScorePl1    EXTAir          LoNeuEXT5
-*USRYIELD        500.       0.0      250.      140.      130.        3. &
-*USRYIELD       2399.  WWLOWNEU      -76.  ScorePl1    EXTAir          LoNeuEXT6
-*USRYIELD        500.       0.0      250.      150.      140.        3. &
-*USRYIELD       2399.  WWLOWNEU      -77.  ScorePl1    EXTAir          LoNeuEXT7
-*USRYIELD        500.       0.0      250.      160.      150.        3. &
-*USRYIELD       2399.  WWLOWNEU      -78.  ScorePl1    EXTAir          LoNeuEXT8
-*USRYIELD        500.       0.0      250.      165.      160.        3. &
-*USRYIELD       2399.  WWLOWNEU      -79.  ScorePl1    EXTAir          LoNeuEXT9
-*USRYIELD        500.       0.0      250.      170.      165.        3. &
-*USRYIELD       2399.  WWLOWNEU      -80.  ScorePl1    EXTAir          LoNeuEX10
-*USRYIELD        500.       0.0      250.      175.      170.        3. &
-*USRYIELD       2399.  WWLOWNEU      -81.  ScorePl1    EXTAir          LoNeuEX11
-*USRYIELD        500.       0.0      250.      180.      175.        3. &
-USERDUMP        100.                 0.0
+USRYIELD       2399.   NEUTRON      -50.  ScorePl1    EXTAir          NeutEXTall
+USRYIELD          1.    1.E-14      100.      180.    1.E-14        3. &
+USRYIELD       2399.   NEUTRON      -51.  ScorePl1    EXTAir          NeutEXT1
+USRYIELD          1.    1.E-14      250.      100.       90.        3. &
+USRYIELD       2399.   NEUTRON      -52.  ScorePl1    EXTAir          NeutEXT2
+USRYIELD          1.    1.E-14      250.      110.      100.        3. &
+USRYIELD       2399.   NEUTRON      -53.  ScorePl1    EXTAir          NeutEXT3
+USRYIELD          1.    1.E-14      250.      120.      110.        3. &
+USRYIELD       2399.   NEUTRON      -54.  ScorePl1    EXTAir          NeutEXT4
+USRYIELD          1.    1.E-14      250.      130.      120.        3. &
+USRYIELD       2399.   NEUTRON      -55.  ScorePl1    EXTAir          NeutEXT5
+USRYIELD          1.    1.E-14      250.      140.      130.        3. &
+USRYIELD       2399.   NEUTRON      -56.  ScorePl1    EXTAir          NeutEXT6
+USRYIELD          1.    1.E-14      250.      150.      140.        3. &
+USRYIELD       2399.   NEUTRON      -57.  ScorePl1    EXTAir          NeutEXT7
+USRYIELD          1.    1.E-14      250.      160.      150.        3. &
+USRYIELD       2399.   NEUTRON      -58.  ScorePl1    EXTAir          NeutEXT8
+USRYIELD          1.    1.E-14      250.      165.      160.        3. &
+USRYIELD       2399.   NEUTRON      -59.  ScorePl1    EXTAir          NeutEXT9
+USRYIELD          1.    1.E-14      250.      170.      165.        3. &
+USRYIELD       2399.   NEUTRON      -60.  ScorePl1    EXTAir          NeutEX10
+USRYIELD          1.    1.E-14      250.      175.      170.        3. &
+USRYIELD       2399.   NEUTRON      -61.  ScorePl1    EXTAir          NeutEX11
+USRYIELD          1.    1.E-14      250.      180.      175.        3. &
+USRYIELD       2399.  WWLOWNEU      -70.  ScorePl1    EXTAir          LoNeuEXall
+USRYIELD          1.    1.E-14      250.      180.    1.E-14        3. &
+USRYIELD       2399.  WWLOWNEU      -71.  ScorePl1    EXTAir          LoNeuEXT1
+USRYIELD          1.    1.E-14      250.      100.       90.        3. &
+USRYIELD       2399.  WWLOWNEU      -72.  ScorePl1    EXTAir          LoNeuEXT2
+USRYIELD          1.    1.E-14      250.      110.      100.        3. &
+USRYIELD       2399.  WWLOWNEU      -73.  ScorePl1    EXTAir          LoNeuEXT3
+USRYIELD          1.    1.E-14      250.      120.      110.        3. &
+USRYIELD       2399.  WWLOWNEU      -74.  ScorePl1    EXTAir          LoNeuEXT4
+USRYIELD          1.    1.E-14      250.      130.      120.        3. &
+USRYIELD       2399.  WWLOWNEU      -75.  ScorePl1    EXTAir          LoNeuEXT5
+USRYIELD          1.    1.E-14      250.      140.      130.        3. &
+USRYIELD       2399.  WWLOWNEU      -76.  ScorePl1    EXTAir          LoNeuEXT6
+USRYIELD          1.    1.E-14      250.      150.      140.        3. &
+USRYIELD       2399.  WWLOWNEU      -77.  ScorePl1    EXTAir          LoNeuEXT7
+USRYIELD          1.    1.E-14      250.      160.      150.        3. &
+USRYIELD       2399.  WWLOWNEU      -78.  ScorePl1    EXTAir          LoNeuEXT8
+USRYIELD          1.    1.E-14      250.      165.      160.        3. &
+USRYIELD       2399.  WWLOWNEU      -79.  ScorePl1    EXTAir          LoNeuEXT9
+USRYIELD          1.    1.E-14      250.      170.      165.        3. &
+USRYIELD       2399.  WWLOWNEU      -80.  ScorePl1    EXTAir          LoNeuEX10
+USRYIELD          1.    1.E-14      250.      175.      170.        3. &
+USRYIELD       2399.  WWLOWNEU      -81.  ScorePl1    EXTAir          LoNeuEX11
+USRYIELD          1.    1.E-14      250.      180.      175.        3. &
+*USERDUMP        100.                 0.0
 * Set the random number seed
 RANDOMIZ          1.        1.
 * Set the number of primary histories to be simulated in the run
-START          5000.                                     0.0  9999999.
+START          2000.                                     0.0  9999999.
 STOP
