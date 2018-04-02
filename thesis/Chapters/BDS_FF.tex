@@ -232,17 +232,13 @@ The number of hits are normalized to hits from a full bunch train for all cases.
 \subsubsection{SiD occupancy}
 The next step is to look at the occupancy of the detector arising from these muon hits.
 As in Chapter~\ref{PairBkg:occupancy}, the number of hits are counted for every cell in the subdetectors, which can be directly translated into a detector occupancy.
-From occupancy plots, it can be determined how many detector cells get a certain number of hits.
-Knowing that a sensor can only store up to a specific number of hits (the so-called buffer depth), the number of dead cells can then be calculated.
-A cell is defined to be dead when the buffer of its sensor is already completely filled, and no further hits can be stored.
-This is especially important as the detectors for the ILC will read out their buffers only after every bunch train (1312 bunch crossings).
-In order to guarantee that cell buffers are not filled only by background hits, a balance has to be found between a sufficient buffer depth and low background levels dependent on the design of the accelerator and the detectors.
-In SiD, a rough estimate for an acceptable occupancy for background events is that the sum of all cells with a number of hits greater than or equal to the buffer depth should not exceed \SI{0.01}{\percent} (\num{e-4} of all cells). 
-
-In the following the muon occupancy in the SiD HCAL barrel and the tracker endcaps is discussed.
-Figure~\ref{fig:BDS_Muons:HcalBarrel} shows the occupancy and the number of dead cells in the HCAL barrel, normalized to its total number of cells.
+In the following, the muon occupancy in the SiD HCAL barrel and the tracker endcaps is discussed.
+As explained in the previous chapter, occupancy plots show how many detector cells are hit a certain number of times. 
+By respecting the rule that the sum of all cells with a number of hits greater than or equal to the buffer depth should not exceed \SI{0.01}{\percent} (\num{e-4} of all cells), a statement can be made whether given occupancy levels are acceptable.
+By optimizing the design of the detectors and the accelerator, a balance can be found between a sufficient buffer depth of the detector sensors and low background levels arising from the accelerator.
+\\Figure~\ref{fig:BDS_Muons:HcalBarrel} shows the occupancy and the number of dead cells~\footnote{A cell is defined to be dead when the buffer of its sensor is already completely filled, and no further hits can be stored. Further details can be found in Chapter~\ref{PairBkg:occupancy}.} in the HCAL barrel, normalized to its total number of cells.
 In the current detector design, the HCAL cells have a size of \SI{1}{\centi\meter}\,x\,\SI{1}{\centi\meter}.
-\\As a result, a maximum of three hits per cell is observed, because of which the x-axis range in Figure~\ref{fig:BDS_Muons:HcalBarrel} (b) also reaches to three only.
+As a result, a maximum of three hits per cell is observed, because of which the x-axis range in Figure~\ref{fig:BDS_Muons:HcalBarrel} (b) also reaches to three only.
 Here, the number of dead cells is shown as a function of the assumed buffer depth.
 In the theoretical case of a buffer depth of one, about \num{e-4} of all cells would have a full buffer (with one hit) for the ``5 spoilers'' case in the ILC500.
 Here, the critical limit for acceptable occupancies of \num{e-4} would just about be reached, all other cases would have acceptable values.

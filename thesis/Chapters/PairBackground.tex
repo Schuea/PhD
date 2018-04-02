@@ -132,6 +132,9 @@ Furthermore, the so-called pair edge is clearly visible as the rapid decrease in
 Since the pink vertical lines in the picture represent the beam pipe, the pair edge is well contained within the beam pipe.
 Nevertheless, there are background levels observed outside the beam pipe, extending beyond the vertex detector layers.
 These levels, however, are below 5 particles per x position.
+With the track information across the five layers of the vertex detector, the vertices of particles created in the bunch collision can be reconstructed.
+By populating the innermost layers with background particles, the reconstruction efficiency inevitably declines.
+The occupancy from the pair background therefore has to be studied with respect to its impact on the detector performance.
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{Figures/Pairs/HelixEnvelope_Projection_Comparison_250GeV_parametersets_LEG.png}
@@ -145,12 +148,16 @@ These levels, however, are below 5 particles per x position.
 
 \section{Occupancy studies and buffer depth}
 \label{PairBkg:occupancy}
-Definition of occupancy and dead cells already in BDS muon chapter!
+For the vertex detector occupancy studies, the number of hits of every detector cell is counted and translated into an occupancy.
+In the following occupancy plots, it can be determined how many detector cells get a certain number of hits.
+Knowing that a detector sensor can only store up to a specific number of hits (the so-called buffer depth), the number of dead cells can then be calculated.
+A cell is defined to be dead when the buffer of its sensor is already completely filled, and no further hits can be stored.
+This is especially important as the detectors for the ILC will read out their buffers only after every bunch train (1312 bunch crossings).
+In order to guarantee that cell buffers are not filled only by background hits, a balance has to be found between a sufficient buffer depth and low background levels dependent on the design of the accelerator and the detectors.
+In SiD, a rough estimate for an acceptable occupancy for background events is that the sum of all cells with a number of hits greater than or equal to the buffer depth should not exceed \SI{0.01}{\percent} (\num{e-4} of all cells). 
 \begin{itemize}
- \item sidloi3
  \item Occupancy studies for ILC250 parameter sets compared with ILC500 TDR
  \item Occupancy studies for ILC250 parameter sets for different SiD designs (old L*, w/o antiDiD etc) - insert plots
- \item Occupancy studies for ILC250 parameter sets in dependency of phi and z - insert plots
 \end{itemize}
 
 \subsection{Hit maps of the SiD subdetectors}
