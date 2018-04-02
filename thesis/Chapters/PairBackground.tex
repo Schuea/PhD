@@ -29,19 +29,19 @@ To this end, the geometry description file ``sidloi3'' of the \sid detector, whi
 \section{Pair background envelopes}
 \label{PairBkg:helix}
 Analyzing the generated pair background events, it becomes apparent that the \positron\electron pairs have a low transverse momentum.
-Figure~\ref{fig:PairBkg:Momentum} shows the distribution of their longitudinal and transverse momentum for the two ILC stages at \SI{250}{\GeV} and \SI{250}{\GeV} center-of-mass energy.
-\todo{Describe the momentum distributions}
+Figure~\ref{fig:PairBkg:Momentum} shows the distribution of their longitudinal and transverse momentum for the two ILC stages at \SI{250}{\GeV} and \SI{500}{\GeV} center-of-mass energy.
+The longitunal momentum of the \positron\electron pairs reaches roughly \SI{80}{\percent} of the beam energy, whilst the transverse momentum extends to only \SI{0.8}{\GeV} for the ILC250, and \SI{1.6}{\GeV} for the ILC500.
  \begin{figure}[h]
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
-    \includegraphics[width=\textwidth]{placeholder.jpg}
+    \includegraphics[width=0.95\textwidth]{Figures/Pairs/250_500_pairs_comparison_Pz.png}
    \caption{Longitudinal momentum}
    \end{subfigure}
    \hfill
     \begin{subfigure}[b]{0.49\textwidth}
    \centering
-    \includegraphics[width=\textwidth]{placeholder.jpg}
+    \includegraphics[width=0.96\textwidth]{Figures/Pairs/250_500_pairs_comparison_PT.png}
    \caption{Transverse momentum}
    \end{subfigure}
    \caption[Pair background momentum distributions]{Comparison of the pair background momentum distributions for the ILC at \SI{250}{\GeV} and \SI{250}{\GeV} center-of-mass energy, with the longitudinal momentum shown in Figure (a) and the transverse momentum in Figure (b).}
@@ -67,14 +67,9 @@ Depending on the particle's charge the orientation of the helix is determined.
 \end{figure}
 The pair density is then plotted using the helix track algorithm to calculate the position in x and y for a given position in z.
 For the ILC stage at \SI{500}{\GeV}, the pair background was generated with \guineapig, and its density plotted in Figure~\ref{fig:PairBkg:Density} (a).
-The envelope of all the tracks shows a characteristic bell shape, with the highest density along the z axis.
-Since the bell shaped distribution is fully symmetrical in positive and negative z-direction as well as in the xz and yz-plane, the chosen view of the pair background envelopes will in the following always be of the xz-plane in positive z-direction.
-\\In order to compare the envelope shapes for different ILC beam parameters, Figure~\ref{fig:PairBkg:Density} (b) only shows the envelope outlines containing a certain fraction of all tracks.
-In this way, it becomes apparent that for higher center-of-mass energies the width of the envelope increases.
-At \SI{500}{\GeV}, the envelope containing \SI{99.99}{\percent} of all pair helix tracks crosses the beam pipe, extending towards the innermost layer of the SiD vertex detector, which has a radius of \SI{14}{\milli\meter}.
-For lower center-of-mass energies, the envelopes stay within the beam pipe radius.
-The pair background simulation files for this comparison plot were generated with \guineapig as well, using the beam parameters of the three different baseline ILC stages~\cite[p. 11]{TDR1}.
- \begin{figure}[h]
+The density distribution of all the tracks shows a characteristic bell shape, with the highest density along the z axis.
+Since the bell shaped envelope is fully symmetrical in positive and negative z-direction as well as in the xz and yz-plane, the chosen view of the pair background envelopes will in the following always be of the xz-plane in positive z-direction.
+ \begin{figure}[!h]
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
@@ -96,6 +91,11 @@ The pair background simulation files for this comparison plot were generated wit
    }
    \label{fig:PairBkg:Density}
  \end{figure}
+\\In order to compare the envelope shapes for different ILC beam parameters, Figure~\ref{fig:PairBkg:Density} (b) only shows the envelope outlines containing a certain fraction of all tracks.
+In this way, it becomes apparent that for higher center-of-mass energies the width of the envelope increases due to the higher transversal momenta of the pairs.
+At \SI{500}{\GeV}, the envelope containing \SI{99.99}{\percent} of all pair helix tracks crosses the beam pipe, extending towards the innermost layer of the SiD vertex detector, which has a radius of \SI{14}{\milli\meter}.
+For lower center-of-mass energies, the envelopes stay within the beam pipe radius.
+The pair background simulation files for this comparison plot were generated with \guineapig as well, using the beam parameters of the three different baseline ILC stages~\cite[p. 11]{TDR1}.
  
 As explained in Section~\ref{ILC:layout:staging}, the first ILC stage will be at \SI{250}{\GeV} instead of the originally anticipated \SI{500}{\GeV}.
 Due to this decision in 2017, efforts have been made to study a possible change in the baseline beam parameters for this stage in order to increase the luminosity from \num{8.2} to \SI{16.2e34}{\per\centi\meter\squared\per\second}~\cite{LCWS17_paper}. 
@@ -112,9 +112,9 @@ In the following, the simulation studies of the pair background for the four par
 The highlighted parameter set (A) was chosen to be the new official scheme for the ILC250.}
 \label{tab:ILC250_sets}
 \centering
-\begin{tabularx}{0.42\textwidth}{c|ccc}
+\begin{tabularx}{0.48\textwidth}{c|ccc}
 \hline\hline
-\textbf{Set} & $\epsilon_x$ (\si{\micro\meter}) & $\beta^*_x$ (\si{\milli\meter}) & $\beta^*_y$ (\si{\milli\meter})\\
+\textbf{ILC250 sets} & $\epsilon_x$ (\si{\micro\meter}) & $\beta^*_x$ (\si{\milli\meter}) & $\beta^*_y$ (\si{\milli\meter})\\
 \hline
  Baseline & 10.0 & 13.0 & 0.41\\
 \rowcolor{Gray} (A) & 5.0 & 13.0 & 0.41\\
@@ -123,9 +123,25 @@ The highlighted parameter set (A) was chosen to be the new official scheme for t
 \hline\hline
 \end{tabularx}
 \end{table}
-
-
-
+\\Again for the comparison of the pair background density from different ILC running scenarios, a two-dimensional plot of the track densities is not suitable.
+Instead, Figure~\ref{fig:PairBkg:Density_Projection} shows a projection of the number of pair particles along the x-axis at the position in z, where the background envelopes are the largest compared to the beam pipe radius.
+It therefore holds more information than the previous plots: the envelope width in x at the specified z position, and the number of particles at any given x value, for all beam parameter sets.
+\\First of all, it becomes clear that the number of pair particles does indeed increase for the new beam parameter sets due to the enhanced beam-beam interactions.
+Compared to the baseline set (the TDR set), the number of particles in set (A) is increased by a factor of 2-3, and by a factor of 6-7 in sets (B) and (C).
+Furthermore, the so-called pair edge is clearly visible as the rapid decrease in density at around \SI{9}{\milli\meter} from the center.
+Since the pink vertical lines in the picture represent the beam pipe, the pair edge is well contained within the beam pipe.
+Nevertheless, there are background levels observed outside the beam pipe, extending beyond the vertex detector layers.
+These levels, however, are below 5 particles per x position.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Figures/Pairs/HelixEnvelope_Projection_Comparison_250GeV_parametersets_LEG.png}
+    \caption[Pair background density projection for different ILC250 beam parameter sets]{
+    Comparison of the pair background density projection for the four different ILC250 beam parameter sets listed in Table~\ref{tab:ILC250_sets}.
+    The plot shows the projected number of pairs along the x-axis for z = \SI[detect-all]{62}{\milli\meter}, which is the z position of the first beam pipe kink.
+    The pink vertical lines represent the beam pipe radius at this z position.
+    }
+    \label{fig:PairBkg:Density_Projection}
+\end{figure}
 
 \section{Occupancy studies and buffer depth}
 \label{PairBkg:occupancy}
