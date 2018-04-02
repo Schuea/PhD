@@ -8,7 +8,7 @@ Submit: Nohup
 Notes:
 Composition of normal and boronated concrete from Paper "Application of neutron shield concrete to neutron scattering instrument TAIKAN in J-PARC" by Koichi Okuno et al.
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Plot
+Page: Input
 Source: mgdraw.f
 DefMain: True
 LinkPrg: lfluka
@@ -1127,6 +1127,16 @@ Material: Phosphor
 End
 
 # Material
+Material: Ti-6Al4V
+	alpha: 0
+	color: #407030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
 Material: Molybdenum
 	alpha: 0
 	color: #D03050
@@ -1140,16 +1150,6 @@ End
 Material: Vanadium
 	alpha: 0
 	color: #807070
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: BorConc
-	alpha: 0
-	color: #4050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -1177,9 +1177,9 @@ Material: B2O3
 End
 
 # Material
-Material: Eu
+Material: Cs
 	alpha: 0
-	color: #703070
+	color: #901070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -1277,9 +1277,9 @@ Material: CaO
 End
 
 # Material
-Material: Ti-6Al4V
+Material: BorConc
 	alpha: 0
-	color: #407030
+	color: #4050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -1287,9 +1287,9 @@ Material: Ti-6Al4V
 End
 
 # Material
-Material: Cs
+Material: Eu
 	alpha: 0
-	color: #901070
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
