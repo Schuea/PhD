@@ -967,33 +967,33 @@ USRYIELD       2399.   NEUTRON      -60.  ScorePl1    EXTAir          NeutEX10
 USRYIELD        500.       0.0      250.      175.      170.        3. &
 USRYIELD       2399.   NEUTRON      -61.  ScorePl1    EXTAir          NeutEX11
 USRYIELD        500.       0.0      250.      180.      175.        3. &
-USRYIELD       2399.  LOWENNEU      -70.  ScorePl1    EXTAir          LoNeuEXall
+USRYIELD       2399.       40.      -70.  ScorePl1    EXTAir          LoNeuEXall
 USRYIELD        500.       0.0      250.      180.       0.0        3. &
-USRYIELD       2399.  LOWENNEU      -71.  ScorePl1    EXTAir          LoNeuEXT1
+USRYIELD       2399.       40.      -71.  ScorePl1    EXTAir          LoNeuEXT1
 USRYIELD        500.       0.0      250.      100.       90.        3. &
-USRYIELD       2399.  LOWENNEU      -72.  ScorePl1    EXTAir          LoNeuEXT2
+USRYIELD       2399.       40.      -72.  ScorePl1    EXTAir          LoNeuEXT2
 USRYIELD        500.       0.0      250.      110.      100.        3. &
-USRYIELD       2399.  LOWENNEU      -73.  ScorePl1    EXTAir          LoNeuEXT3
+USRYIELD       2399.       40.      -73.  ScorePl1    EXTAir          LoNeuEXT3
 USRYIELD        500.       0.0      250.      120.      110.        3. &
-USRYIELD       2399.  LOWENNEU      -74.  ScorePl1    EXTAir          LoNeuEXT4
+USRYIELD       2399.       40.      -74.  ScorePl1    EXTAir          LoNeuEXT4
 USRYIELD        500.       0.0      250.      130.      120.        3. &
-USRYIELD       2399.  LOWENNEU      -75.  ScorePl1    EXTAir          LoNeuEXT5
+USRYIELD       2399.       40.      -75.  ScorePl1    EXTAir          LoNeuEXT5
 USRYIELD        500.       0.0      250.      140.      130.        3. &
-USRYIELD       2399.  LOWENNEU      -76.  ScorePl1    EXTAir          LoNeuEXT6
+USRYIELD       2399.       40.      -76.  ScorePl1    EXTAir          LoNeuEXT6
 USRYIELD        500.       0.0      250.      150.      140.        3. &
-USRYIELD       2399.  LOWENNEU      -77.  ScorePl1    EXTAir          LoNeuEXT7
+USRYIELD       2399.       40.      -77.  ScorePl1    EXTAir          LoNeuEXT7
 USRYIELD        500.       0.0      250.      160.      150.        3. &
-USRYIELD       2399.  LOWENNEU      -78.  ScorePl1    EXTAir          LoNeuEXT8
+USRYIELD       2399.       40.      -78.  ScorePl1    EXTAir          LoNeuEXT8
 USRYIELD        500.       0.0      250.      165.      160.        3. &
-USRYIELD       2399.  LOWENNEU      -79.  ScorePl1    EXTAir          LoNeuEXT9
+USRYIELD       2399.       40.      -79.  ScorePl1    EXTAir          LoNeuEXT9
 USRYIELD        500.       0.0      250.      170.      165.        3. &
-USRYIELD       2399.  LOWENNEU      -80.  ScorePl1    EXTAir          LoNeuEX10
+USRYIELD       2399.       40.      -80.  ScorePl1    EXTAir          LoNeuEX10
 USRYIELD        500.       0.0      250.      175.      170.        3. &
-USRYIELD       2399.  LOWENNEU      -81.  ScorePl1    EXTAir          LoNeuEX11
+USRYIELD       2399.       40.      -81.  ScorePl1    EXTAir          LoNeuEX11
 USRYIELD        500.       0.0      250.      180.      175.        3. &
 USERDUMP        100.                 0.0
 * Set the random number seed
 RANDOMIZ          1.        1.
 * Set the number of primary histories to be simulated in the run
-START          3000.                                     0.0  9999999.
+START           500.                                     0.0  9999999.
 STOP
