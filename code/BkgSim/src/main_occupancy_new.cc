@@ -47,11 +47,14 @@ int main(int const argc, char const * const * const argv) {
   bool NUMBER_OF_FILES_set = false;
   bool inputfile_set = false;
   bool subdetector_set = false;
+  bool OLD = false;
 
   for (int i = 1; i < argc; i++) {
     if (argv[i] == std::string("-n")) {
       if (argv[i + 1] != NULL && 
           argv[i + 1] != std::string("-s") && 
+          argv[i + 1] != std::string("-o") && 
+          argv[i + 1] != std::string("-a") && 
           argv[i + 1] != std::string("-i")) {
         NUMBER_OF_FILES = std::stoi(argv[i + 1]);
         std::cout << "Number of input files = " << NUMBER_OF_FILES << std::endl;
@@ -65,6 +68,7 @@ int main(int const argc, char const * const * const argv) {
      if (argv[i] == std::string("-i") && 
         argv[i + 1] != std::string("-n") && 
         argv[i + 1] != std::string("-o") && 
+        argv[i + 1] != std::string("-a") && 
         argv[i + 1] != std::string("-s")) {
       if (argv[i + 1] != NULL) {
         std::string filelist = argv[i + 1];
@@ -91,6 +95,7 @@ int main(int const argc, char const * const * const argv) {
       if (argv[i + 1] != NULL && 
           argv[i + 1] != std::string("-i") && 
           argv[i + 1] != std::string("-n") && 
+          argv[i + 1] != std::string("-a") && 
           argv[i + 1] != std::string("-o")) {
         argument_subdetectors = argv[i + 1];
         subdetector_set = true;
@@ -100,6 +105,7 @@ int main(int const argc, char const * const * const argv) {
     }
     if (argv[i] == std::string("-o")) {
       if (argv[i + 1] != NULL && 
+          argv[i + 1] != std::string("-a") && 
           argv[i + 1] != std::string("-n") && 
           argv[i + 1] != std::string("-i") && 
           argv[i + 1] != std::string("-s")) {
@@ -108,6 +114,16 @@ int main(int const argc, char const * const * const argv) {
         std::cerr << "You didn't give an argument for the outputfile name!" << std::endl;
       }
     }
+    if (argv[i] == std::string("-a")) {
+      if (argv[i + 1] != NULL && 
+          argv[i + 1] != std::string("-o") && 
+          argv[i + 1] != std::string("-n") && 
+          argv[i + 1] != std::string("-i") && 
+          argv[i + 1] != std::string("-s")) {
+        OLD = argv[i + 1];
+      }
+    }
+
   }
   if (!inputfile_set || !subdetector_set || !NUMBER_OF_FILES_set) {
     std::cerr
@@ -166,6 +182,10 @@ int main(int const argc, char const * const * const argv) {
     double HitPosition_z;
 
     tree->SetBranchStatus("*", 0);
+    if (OLD){
+      tree->SetBranchStatus("HitCellID0", 1);
+      tree->SetBranchAddress("HitCellID0", &HitCellID0);
+    }
     tree->SetBranchStatus("HitCellID0", 1);
     tree->SetBranchAddress("HitCellID0", &HitCellID0);
 
@@ -174,6 +194,10 @@ int main(int const argc, char const * const * const argv) {
     tree->SetBranchStatus("HitPosition_z", 1);
 
     if (Silicon){
+      if (OLD){
+        tree->SetBranchStatus("HitParticle_ID", 1);
+        tree->SetBranchAddress("HitParticle_ID", &pdg);
+      }
       tree->SetBranchStatus("HitParticle_PDG", 1);
       tree->SetBranchAddress("HitParticle_PDG", &pdg);
 
