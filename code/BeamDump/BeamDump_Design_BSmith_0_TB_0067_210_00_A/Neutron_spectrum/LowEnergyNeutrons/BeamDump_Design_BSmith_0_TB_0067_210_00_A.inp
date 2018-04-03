@@ -968,6 +968,10 @@ USRYIELD       2399.   NEUTRON      -60.  ScorePl1    EXTAir          NeutEX10
 USRYIELD          1.    1.E-14      100.      175.      170.        3. &
 USRYIELD       2399.   NEUTRON      -61.  ScorePl1    EXTAir          NeutEX11
 USRYIELD          1.    1.E-14      100.      180.      175.        3. &
+USRYIELD       2399.   NEUTRON      -62.  ScorePl1    EXTAir          NeutEX12
+USRYIELD          1.    1.E-14      100.      135.       90.        3. &
+USRYIELD       2399.   NEUTRON      -63.  ScorePl1    EXTAir          NeutEX13
+USRYIELD          1.    1.E-14      100.      180.      135.        3. &
 *USERDUMP        100.                 0.0
 * Set the random number seed
 RANDOMIZ          1.        1.

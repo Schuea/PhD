@@ -16,9 +16,9 @@ F77dline: False
 
 # Run information
 Run: <default>
-	Prev:     1
+	Prev:     0
 	Last:     2
-	Status:   4
+	Status:   2
 	Pid:      0
 	StartRun: 1521280876
 	Family:  BeamDump_Design_BSmith_0_TB_0067_210_00_A_aa BeamDump_Design_BSmith_0_TB_0067_210_00_A_ab BeamDump_Design_BSmith_0_TB_0067_210_00_A_ac BeamDump_Design_BSmith_0_TB_0067_210_00_A_ad BeamDump_Design_BSmith_0_TB_0067_210_00_A_ae BeamDump_Design_BSmith_0_TB_0067_210_00_A_af
@@ -219,11 +219,11 @@ End
 # Run information
 Run: BeamDump_Design_BSmith_0_TB_0067_210_00_A_aa
 	Rnd:      2
-	Prev:     1
+	Prev:     0
 	Last:     2
-	Status:   4
-	Pid:      0
-	StartRun: 1522733968
+	Status:   2
+	Pid:      8656
+	StartRun: 1522734665
 	Parent:    <default>
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_aa_50.yie
@@ -326,11 +326,11 @@ End
 # Run information
 Run: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ab
 	Rnd:      3
-	Prev:     1
+	Prev:     0
 	Last:     2
-	Status:   4
-	Pid:      0
-	StartRun: 1522733969
+	Status:   2
+	Pid:      8660
+	StartRun: 1522734665
 	Parent:    <default>
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ab_50.yie
@@ -433,11 +433,11 @@ End
 # Run information
 Run: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ac
 	Rnd:      4
-	Prev:     1
+	Prev:     0
 	Last:     2
-	Status:   4
-	Pid:      0
-	StartRun: 1522733969
+	Status:   2
+	Pid:      8670
+	StartRun: 1522734665
 	Parent:    <default>
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ac_50.yie
@@ -540,11 +540,11 @@ End
 # Run information
 Run: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ad
 	Rnd:      5
-	Prev:     1
+	Prev:     0
 	Last:     2
-	Status:   4
-	Pid:      0
-	StartRun: 1522733969
+	Status:   2
+	Pid:      8698
+	StartRun: 1522734665
 	Parent:    <default>
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ad_50.yie
@@ -647,11 +647,11 @@ End
 # Run information
 Run: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ae
 	Rnd:      6
-	Prev:     1
+	Prev:     0
 	Last:     2
-	Status:   4
-	Pid:      0
-	StartRun: 1522733969
+	Status:   2
+	Pid:      8732
+	StartRun: 1522734665
 	Parent:    <default>
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ae_50.yie
@@ -754,11 +754,11 @@ End
 # Run information
 Run: BeamDump_Design_BSmith_0_TB_0067_210_00_A_af
 	Rnd:      7
-	Prev:     1
+	Prev:     0
 	Last:     2
-	Status:   4
-	Pid:      0
-	StartRun: 1522733969
+	Status:   2
+	Pid:      8806
+	StartRun: 1522734665
 	Parent:    <default>
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_af_50.yie
@@ -1019,16 +1019,6 @@ Material: Phosphor
 End
 
 # Material
-Material: Ti-6Al4V
-	alpha: 0
-	color: #407030
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
 Material: Molybdenum
 	alpha: 0
 	color: #D03050
@@ -1042,6 +1032,16 @@ End
 Material: Vanadium
 	alpha: 0
 	color: #807070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: BorConc
+	alpha: 0
+	color: #4050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -1069,9 +1069,9 @@ Material: B2O3
 End
 
 # Material
-Material: Cs
+Material: Eu
 	alpha: 0
-	color: #901070
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -1169,9 +1169,9 @@ Material: CaO
 End
 
 # Material
-Material: BorConc
+Material: Ti-6Al4V
 	alpha: 0
-	color: #4050D0
+	color: #407030
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -1179,9 +1179,9 @@ Material: BorConc
 End
 
 # Material
-Material: Eu
+Material: Cs
 	alpha: 0
-	color: #703070
+	color: #901070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
