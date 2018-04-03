@@ -183,11 +183,12 @@ int main(int const argc, char const * const * const argv) {
 
     tree->SetBranchStatus("*", 0);
     if (OLD){
-      tree->SetBranchStatus("HitCellID0", 1);
-      tree->SetBranchAddress("HitCellID0", &HitCellID0);
-    }
+      tree->SetBranchStatus("HitCellID", 1);
+      tree->SetBranchAddress("HitCellID", &HitCellID0);
+    }else{
     tree->SetBranchStatus("HitCellID0", 1);
     tree->SetBranchAddress("HitCellID0", &HitCellID0);
+    }
 
     tree->SetBranchStatus("HitPosition_x", 1);
     tree->SetBranchStatus("HitPosition_y", 1);
@@ -197,9 +198,10 @@ int main(int const argc, char const * const * const argv) {
       if (OLD){
         tree->SetBranchStatus("HitParticle_ID", 1);
         tree->SetBranchAddress("HitParticle_ID", &pdg);
-      }
+      }else{
       tree->SetBranchStatus("HitParticle_PDG", 1);
       tree->SetBranchAddress("HitParticle_PDG", &pdg);
+      }
 
       tree->SetBranchAddress("HitPosition_x", &D_HitPosition_x);
       tree->SetBranchAddress("HitPosition_y", &D_HitPosition_y);
