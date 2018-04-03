@@ -169,7 +169,7 @@ The number of these dead cells is calculated from the occupancy plot in Figure ~
 In the current detector design, the sensors have a buffer depth of four. 
 For this value, plot (b) shows that for set (A) \num{8e-6} of all cells in all vertex detector layers are dead, which is an increase with respect to the baseline set of four.
 Nevertheless, \num{8e-6} is more than one order of magnitude below the critical limit of \num{e-4} of all cells, which was explained above.
- \begin{figure}[h]
+ \begin{figure}
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
@@ -195,7 +195,7 @@ Here in Figure~\ref{fig:PairBkg:ILC250_Occupancy_Layer0} (a), the normalized occ
 The number of dead cells for a buffer depth of four, shown in Figure~\ref{fig:PairBkg:ILC250_Occupancy_Layer0} (b), is now close to the critical limit of \num{e-4} of all cells.
 For set (A), the ratio of dead cells for this buffer depth is about \num{4e-5}.
 For sets (B) and (C), the ratio reaches about \num{8e-5} of all cells in this innermost layer.
- \begin{figure}[h]
+ \begin{figure}
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
@@ -220,19 +220,85 @@ However, even in the innermost vertex detector layer, the occupancy for all prop
 The presented results of the SiD occupancy studies for the different beam parameter sets of the ILC250 stage were factored into the ILC Change Request (CR) process for CR-0016.
 The Technical Change and Management Board in the end decided on set (A) for the new official ILC beam parameter set for a center-of-mass energy of \SI{250}{\GeV}, and hence approved the CR-0016~\cite{LCWS17_TCMBmeeting,CR-0016}.
 \\The results of further studies regarding the ILC250 stage are henceforth produced with this new official beam parameter set (A).
-\begin{itemize}
- \item Occupancy studies for ILC250 parameter sets compared with ILC500 TDR
- \item Occupancy studies for ILC250 parameter sets for different SiD designs (old L*, w/o antiDiD etc) - insert plots
-\end{itemize}
+Thus, Figure~\ref{fig:PairBkg:ILC250_Occupancy_SetA} shows the results from two further ILC250 occupancy studies.
+In Figure~\ref{fig:PairBkg:ILC250_Occupancy_SetA} (a), the SiD vertex detector occupancy is compared for the pair background arising at a center-of-mass energy of \SI{250}{\GeV} and \SI{500}{\GeV}. \todo{Describe occupancy at 250 vs 500}
+\\Figure~\ref{fig:PairBkg:ILC250_Occupancy_SetA} (b) shows the effect of different SiD variants on the vertex detector occupancy at the ILC250.
+The four geometry variants, which are compared in this plot, are combinations of the old or new L* value, with and without the SiD anti-DiD field.
+For more information about these detector variants, please refer to Section~\ref{ILC:SiD}.
+The variations on the SiD geometry do not have a significant impact on the vertex barrel occupancy.
+Nevertheless, the SiD design including the old L* value and the anti-DiD field leads to the lowest occupancy.
+The occupancy of the current design (with the new L* value and the anti-DiD field) is only marginally higher.
+Since the geometry of the vertex detector and all other subdetectors is unaltered in the studied SiD variants, the difference in the pair background occupancy must be caused by impact of the L* and the anti-DiD field themselves.
+The change in the L* value implies a change in the position of the BeamCal subdetector.
+The anti-DiD field is designed to guide the pair background particles through the outgoing beam pipe, so that the number of pair background hits in the BeamCal is reduced.
+This is an indication that the SiD BeamCal affects the vertex detector occupancy from pair background particles.
+For the clarification of the impact on the pair background occupancy, the following section(s) looks at the hit distribution in the SiD detector. \todo{section or sectionS?}
+ \begin{figure}
+ \centering
+  \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/placeholder.jpg}
+   \caption{SiD vertex barrel detector occupancy for the ILC250 and the ILC500}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_Layer_0_numcells_ILC250_Comparison_Set_A_All_SiD_designs_LEG.png}
+   \caption{SiD vertex barrel detector background occupancy for the ILC250, comparing various SiD geometry variants}
+   \end{subfigure}
+   \caption[Pair background occupancy in the SiD vertex detector for the ILC250 set (A)]{Pair background occupancy in the innermost SiD vertex detector layer, after a full bunch train (1312 bunch crossings).
+   In both figures, the occupancy is normalized by the total number of cells of the innermost vertex detector layer.
+   Figure (a) shows a comparison of the occupancies resulting from the new official ILC250 parameter set (A) and from the ILC500 baseline parameters.
+   Figure (b) shows the study of occupancy for the ILC250 parameter set (A), comparing different SiD geometry variants.
+   }
+   \label{fig:PairBkg:ILC250_Occupancy_SetA}
+ \end{figure}
 
-\subsection{Hit maps of the SiD subdetectors}
+\section{Hit maps of the SiD subdetectors}
 \label{PairBkg:hitmaps}
 \todo{Show with projection of hitmaps that there are more hits on edges of VertexBarrel detector (because of helix envelopes)}
 %TODO TH1D* histo=Layer_1->ProjectionX("ProjectionX",1,Layer_1->GetNbinsY(),"e")
 
-
-\section{Hit time distributions}
-\label{PairBkg:hittime}
+ \begin{figure}
+ \centering
+  \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/Pairs/hitmaps_particleorigins_hittime_0_10_SiVertexEndcapSiVertexBarrel_SiDNote.png}
+   \caption{Hit time: \SI[detect-all]{0}{\nano\second} - \SI[detect-all]{10}{\nano\second}}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/Pairs/hitmaps_particleorigins_hittime_30_50_SiVertexEndcapSiVertexBarrel_SiDNote.png}
+   \caption{Hit time: \SI[detect-all]{30}{\nano\second} - \SI[detect-all]{50}{\nano\second}}
+   \end{subfigure}
+   \caption[Pair background vertex maps in the SiD detector]{Map of the pair background particle vertices in the SiD detector, after one bunch crossings.
+   Only those vertices are shown, which originate from pair background particles hitting the SiD vertex detector in the given time intervals.
+   Figure (a) shows the vertices of those pairs, which hit the vertex detector up to \SI[detect-all]{10}{\nano\second} after the bunch crossing.
+   Similarly, Figure (b) shows the vertices of pairs hitting the vertex detector between \SI[detect-all]{30}{\nano\second} and \SI[detect-all]{50}{\nano\second} after the bunch crossing.
+   }
+   \label{fig:PairBkg:Origins_Map}
+ \end{figure}
+ 
+  \begin{figure}
+ \centering
+  \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/Pairs/hittime_SiVertexBarrel.png}
+   \caption{Vertex detector barrel}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/Pairs/hittime_SiVertexEndcap.png}
+   \caption{Vertex detector endcaps}
+   \end{subfigure}
+   \caption[Pair background hit time maps in the SiD vertex detector]{Map of the pair background particle hits in the SiD vertex detector as a function of the hit time, after one bunch crossings.
+   Figure (a) shows the radial position of hits in the vertex detector barrel.
+   Similarly, Figure (b) shows the radial position of hits in the vertex detector endcaps.
+   }
+   \label{fig:PairBkg:Hittime}
+ \end{figure}
 
 \begin{itemize}
  \item Time distribitution of pairs - redo for ILC250
