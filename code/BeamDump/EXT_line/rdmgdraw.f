@@ -40,11 +40,12 @@
 *
       DIMENSION DTQUEN ( MXTRCK, MAXQMG )
 *
-      CHARACTER*8 MRGNAM,NRGNAM
       CHARACTER*20 FILNAM
-      LOGICAL LFCOPE
+      LOGICAL LFCOPE, LFIRST
       SAVE LFCOPE
-      DATA LFCOPE / .FALSE. /
+      DATA LFCOPE, LFIRST / .FALSE., .TRUE. /
+*
+      SAVE NRFROM,NRTOWA
 *
 *----------------------------------------------------------------------*
 *                                                                      *
@@ -78,20 +79,20 @@
       ENTRY BXDRAW ( ICODE, MREG, NEWREG, XSCO, YSCO, ZSCO )
       IF ( .NOT. LFCOPE ) THEN
         LFCOPE = .TRUE.
-        OPEN ( UNIT = 93, FILE = "Neut_OUT", STATUS = 'UNKNOWN')
-*        OPEN ( UNIT = 93, FILE = "Neut_OUT", STATUS = 'NEW', FORM =
-*     *     'FORMATTED')
+        OPEN ( UNIT = 93, FILE = "IR_Neut_OUT",STATUS = 'UNKNOWN',FORM =
+     *     'FORMATTED')
       END IF 
-      CALL GEOR2N ( MREG,MRGNAM,IERR1 )
-      CALL GEOR2N ( NEWREG,NRGNAM,IERR2 )
-      IF(IERR1.NE.0.OR.IERR2.NE.0) STOP "Error in name conversion"
-      IF(MRGNAM.EQ."Score".AND.NRGNAM.EQ."IR") THEN
+      IF(LFIRST) THEN
+         CALL GEON2R ('Score   ',NRFROM,IERR1 )
+         CALL GEON2R ('IR      ',NRTOWA,IERR2 )
+         IF(IERR1.NE.0.OR.IERR2.NE.0) STOP "Error in name conversion"
+         LFIRST = .FALSE.
+      END IF
+      IF(MREG.EQ.NRFROM.AND.NEWREG.EQ.NRTOWA) THEN
          IF(JTRACK.EQ.8) THEN ! select neutron
-              IF(ETRACK.GT.AM(JTRACK)) THEN
-                  WRITE(93,*) XSCO, YSCO, ZSCO, CXTRCK, CYTRCK, CZTRCK, 
-     *             ETRACK-AM(JTRACK), ATRACK, WTRACK, JTRACK, KTRACK
-              ENDIF
-          ENDIF
+            WRITE(93,*) XSCO, YSCO, ZSCO, CXTRCK, CYTRCK, CZTRCK, 
+     *         ETRACK-AM(JTRACK), ATRACK, WTRACK, JTRACK, KTRACK
+         ENDIF
       ENDIF 
       RETURN
 *
