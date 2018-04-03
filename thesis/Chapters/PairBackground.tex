@@ -132,6 +132,9 @@ Furthermore, the so-called pair edge is clearly visible as the rapid decrease in
 Since the pink vertical lines in the picture represent the beam pipe, the pair edge is well contained within the beam pipe.
 Nevertheless, there are background levels observed outside the beam pipe, extending beyond the vertex detector layers.
 These levels, however, are below 5 particles per x position.
+With the track information across the five layers of the vertex detector, the vertices of particles created in the bunch collision can be reconstructed.
+By populating the innermost layers with background particles, the reconstruction efficiency inevitably declines.
+The occupancy from the pair background therefore has to be studied with respect to its impact on the detector performance.
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{Figures/Pairs/HelixEnvelope_Projection_Comparison_250GeV_parametersets_LEG.png}
@@ -145,12 +148,77 @@ These levels, however, are below 5 particles per x position.
 
 \section{Occupancy studies and buffer depth}
 \label{PairBkg:occupancy}
-Definition of occupancy and dead cells already in BDS muon chapter!
+For the vertex detector occupancy studies, the number of hits of every detector cell is counted and translated into an occupancy.
+In the following occupancy plots, it can be determined how many detector cells get a certain number of hits.
+Knowing that a detector sensor can only store up to a specific number of hits (the so-called buffer depth), the number of dead cells can then be calculated.
+A cell is defined to be dead when the buffer of its sensor is already completely filled, and no further hits can be stored.
+This is especially important as the detectors for the ILC will read out their buffers only after every bunch train (1312 bunch crossings).
+In order to guarantee that cell buffers are not filled only by background hits, a balance has to be found between a sufficient buffer depth and low background levels dependent on the design of the accelerator and the detectors.
+In SiD, a rough estimate for an acceptable occupancy for background events is that the sum of all cells with a number of hits greater than or equal to the buffer depth should not exceed \SI{0.01}{\percent} (\num{e-4} of all cells). 
+\\Figure~\ref{fig:PairBkg:ILC250_Occupancy} shows the occupancy for all vertex barrel detector layers combined after a full bunch train.
+For producing these plots, pair background simulation files for 1312 bunch crossings have been generated with \guineapig, and the number of hits were counted for each cell, summed up over the full bunch train.
+A cell size of \SI{20}{\micro\meter}\,x\,\SI{20}{\micro\meter} has been assumed for these calculations.
+Plotting the number of cells with a certain amount of hits, and normalizing these numbers by the total number of cells in all vertex detector layers, results in Figure~\ref{fig:PairBkg:ILC250_Occupancy} (a).
+It can be directly seen which percentage of all cells get hit a certain number of times.
+Comparing the results from the four different ILC250 beam parameter sets, the occupancy of set (A) is raised by a factor of 3 with respect to the baseline set (TDR).
+For set (B) and (C), the occupancy is increased by a factor of about 6.
+\\Since the readout design for the vertex detector is not yet decided, optimizations based on simulation recommendations can still be made.
+In Figure~\ref{fig:PairBkg:ILC250_Occupancy} (b), the number of dead cells are therefore plotted as a function of the assumed buffer depth of the sensors.
+The buffer depth states how many hits a sensor can store, before the according cell is blind to any further hits.
+The number of these dead cells is calculated from the occupancy plot in Figure ~\ref{fig:PairBkg:ILC250_Occupancy} (a), and depends on the buffer depth.
+In the current detector design, the sensors have a buffer depth of four. 
+For this value, plot (b) shows that for set (A) \num{8e-6} of all cells in all vertex detector layers are dead, which is an increase with respect to the baseline set of four.
+Nevertheless, \num{8e-6} is more than one order of magnitude below the critical limit of \num{e-4} of all cells, which was explained above.
+ \begin{figure}[h]
+ \centering
+  \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_All_layers_wrt_cells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD_LEG.png}
+   \caption{Normalized occupancy}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_All_layers_deadcells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD_LEG.png}
+   \caption{Ratio of dead cells}
+   \end{subfigure}
+   \caption[Pair background occupancy in the SiD vertex detector for the ILC250]{ILC250 pair background occupancy in the SiD vertex detector for all layers combined, after a full bunch train (1312 bunch crossings).
+   Figure (a) shows the occupancy, normalized by the total number of cells of all vertex detector layers.
+   Figure (b) shows the ratio of the dead cells with respect to the total number of cells.
+   In both figures, the four different beam parameter sets for the ILC250 are compared.
+   }
+   \label{fig:PairBkg:ILC250_Occupancy}
+ \end{figure}
+\\Combining the hits of all five vertex barrel detector layers does however not provide a realistic picture of the occupancy in the innermost layer, which is expected to suffer from a larger pair background occupancy than the other layers.
+Figure~\ref{fig:PairBkg:ILC250_Occupancy_Layer0} shows then consequently the normalized occupancy and the ratio of dead cells for the innermost vertex detector layer only.
+Here in Figure~\ref{fig:PairBkg:ILC250_Occupancy_Layer0} (a), the normalized occupancy in all sets is larger by almost one order of magnitude compared to Figure~\ref{fig:PairBkg:ILC250_Occupancy} (a).
+The number of dead cells for a buffer depth of four, shown in Figure~\ref{fig:PairBkg:ILC250_Occupancy_Layer0} (b), is now close to the critical limit of \num{e-4} of all cells.
+For set (A), the ratio of dead cells for this buffer depth is about \num{4e-5}.
+For sets (B) and (C), the ratio reaches about \num{8e-5} of all cells in this innermost layer.
+ \begin{figure}[h]
+ \centering
+  \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_Layer_0_numcells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD_LEG.png}
+   \caption{Normalized occupancy}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_Layer_0_deadcells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD_LEG.png}
+   \caption{Ratio of dead cells}
+   \end{subfigure}
+   \caption[Pair background occupancy in the SiD vertex detector layer 0 for the ILC250]{ILC250 pair background occupancy in the innermost SiD vertex detector layer, after a full bunch train (1312 bunch crossings).
+   Figure (a) shows the occupancy, normalized by the total number of cells of the innermost vertex detector layer.
+   Figure (b) shows the ratio of the dead cells with respect to the total number of cells.
+   In both figures, the four different beam parameter sets for the ILC250 are compared.
+   }
+   \label{fig:PairBkg:ILC250_Occupancy_Layer0}
+ \end{figure}
+
 \begin{itemize}
- \item sidloi3
  \item Occupancy studies for ILC250 parameter sets compared with ILC500 TDR
  \item Occupancy studies for ILC250 parameter sets for different SiD designs (old L*, w/o antiDiD etc) - insert plots
- \item Occupancy studies for ILC250 parameter sets in dependency of phi and z - insert plots
 \end{itemize}
 
 \subsection{Hit maps of the SiD subdetectors}
