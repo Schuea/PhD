@@ -10,10 +10,10 @@ DEFAULTS                                                              PRECISIO
 * Define the beam characteristics
 BEAM             -5.       0.0       0.0       0.0       0.0        1.NEUTRON
 OPEN             93.                                                  OLD
-Merged_with_Good_Run_files_Neut_OUT
+Neut_OUT_before_Shielding
 * What(1) = Unit number to read from
-SOURCE           93.       0.0       0.0        1.       -6.        6.
-SOURCE           -6.        6.                                         &
+SOURCE           93.       0.0       0.0        1.      -20.       20.
+SOURCE          -20.       20.                                         &
 ROT-DEFI        301.                                             -301.Transl
 ROT-DEFI        302.                                             -210.Transl2
 ROT-DEFI          3.                                             -420.Transl3
@@ -405,5 +405,5 @@ USERDUMP        100.                 0.0
 * Set the random number seed
 RANDOMIZ          1.        1.
 * Set the number of primary histories to be simulated in the run
-START         50000.                                     0.0  9999999.
+START        500000.                                     0.0  9999999.
 STOP
