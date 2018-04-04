@@ -47,11 +47,11 @@ int main(int const argc, char const * const * const argv){
   TTree* Tree = new TTree("Tree_Neutrons","TTree for EXT neutrons");
   
   Tree->Branch("X",&x,"X/F");
-  Tree->Branch("Y",&x,"Y/F");
-  Tree->Branch("Z",&x,"Z/F");
+  Tree->Branch("Y",&y,"Y/F");
+  Tree->Branch("Z",&z,"Z/F");
   Tree->Branch("CX",&cx,"CX/F");
-  Tree->Branch("CY",&cx,"CY/F");
-  Tree->Branch("CZ",&cx,"CZ/F");
+  Tree->Branch("CY",&cy,"CY/F");
+  Tree->Branch("CZ",&cz,"CZ/F");
   Tree->Branch("Ekin",&ekin,"Ekin/F");
   Tree->Branch("Time",&time,"Time/F");
   Tree->Branch("Weight",&weight,"Weight/F");
