@@ -43,7 +43,7 @@ int main(int const argc, char const * const * const argv){
   float time = 0.0;
   float weight = 0.0;
 
-	TFile* ROOTFile = new TFile(outputfilename.c_str(),"CREATE","EXT_neutrons");
+	TFile* ROOTFile = new TFile(outputfilename.c_str(),"RECREATE","EXT_neutrons");
   TTree* Tree = new TTree("Tree_Neutrons","TTree for EXT neutrons");
   
   Tree->Branch("X",&x,"X/F");
@@ -58,6 +58,7 @@ int main(int const argc, char const * const * const argv){
   
   std::ifstream inputfile(inputfilename);
   std::string line;
+  int count = 1;
   //Now start reading in:
   while (!inputfile.eof()){
     std::getline(inputfile, line);
@@ -65,19 +66,23 @@ int main(int const argc, char const * const * const argv){
     std::string col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11;
     in >> col1 >> col2 >> col3 >> col4 >> col5 >> col6 >> col7 >> col8 >> col9 >> col10 >> col11;
 
+    if (count == 1){
+      std::cout << col1 << ", " << col2 << ", " << col3 << ", " << col4 << ", " << col5 << ", " << col6 << ", " << col7 << ", " << col8 << ", " << col9 << std::endl;
+    }
     //The positions are given in cm, time in s!
     //Therefore transform units to nicer ones whilst storing in TTree:
-    x = std::atoi(col1.c_str())*10.0;//unit: mm
-    y = std::atoi(col2.c_str())*10.0;//unit: mm
-    z = std::atoi(col3.c_str())*10.0;//unit: mm
-    cx = std::atoi(col4.c_str());
-    cy = std::atoi(col5.c_str());
-    cz = std::atoi(col6.c_str());
-    ekin = std::atoi(col7.c_str());//unit: GeV
-    time = std::atoi(col8.c_str())*std::pow(1.0,9.0);//unit: ns
-    weight = std::atoi(col9.c_str());
+    x = std::atof(col1.c_str())*10.0;//unit: mm
+    y = std::atof(col2.c_str())*10.0;//unit: mm
+    z = std::atof(col3.c_str())*10.0;//unit: mm
+    cx = std::atof(col4.c_str());
+    cy = std::atof(col5.c_str());
+    cz = std::atof(col6.c_str());
+    ekin = std::atof(col7.c_str());//unit: GeV
+    time = std::atof(col8.c_str())*std::pow(1.0,9.0);//unit: ns
+    weight = std::atof(col9.c_str());
 
     Tree->Fill();
+    ++count;
   }
   inputfile.close();
   ROOTFile->Write();
