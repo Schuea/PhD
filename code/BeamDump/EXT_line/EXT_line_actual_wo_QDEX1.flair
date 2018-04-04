@@ -55,6 +55,22 @@ Run: <default>
 		Rule: +,\I\d\d\d_fort\.\U
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_25.bnn
+	Data: \I_\U.\e
+		Unit: 25
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_26.bnn
+	Data: \I_\U.\e
+		Unit: 26
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
 End
 
 # Run information
@@ -65,7 +81,7 @@ Run: EXT_line_actual_wo_QDEX1_aa
 	Last:     5
 	Status:   3
 	Pid:      0
-	StartRun: 1522867005
+	StartRun: 1522867228
 	Parent:    <default>
 
 	# USRxxx data file: EXT_line_actual_wo_QDEX1_aa_21.bnn
@@ -109,7 +125,7 @@ Run: EXT_line_actual_wo_QDEX1_ab
 	Last:     5
 	Status:   3
 	Pid:      0
-	StartRun: 1522867005
+	StartRun: 1522867228
 	Parent:    <default>
 
 	# USRxxx data file: EXT_line_actual_wo_QDEX1_ab_21.bnn
@@ -452,7 +468,7 @@ Plot: Red
 	Format: .eps
 	Type:   Geometry
 	basisu: 0.998903 -0.00330385 -0.0467045
-	basisv: -0.000130969 0.997306 -0.07335
+	basisv: -0.00013097 0.997306 -0.07335
 	boundaries: 1
 	cbcolors: 0
 	cblog: False
@@ -503,7 +519,7 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 114.163 85.6222
+	extends: 114.163 61.3332
 	labels: 1
 	layer: Lattice
 	origin: 0 5.86449 934.871
@@ -525,7 +541,7 @@ Plot: Magenta
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 744.543 558.407
+	extends: 744.543 400
 	grid: 0
 	index: 0
 	labels: 1
@@ -561,10 +577,10 @@ Plot: EXT_line_actual_wo_QDEX1_21_plot
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 5.0207631533290267E-003
+	int: 6.7898105863487780E-003
 	lw.0: 0
-	max: 2.61315392E-09
-	min: 7.45107817E-20
+	max: 2.11661466E-10
+	min: 6.02716887E-27
 	proj: Y
 	ps.0: 0
 	pt.0: 0
@@ -574,7 +590,6 @@ Plot: EXT_line_actual_wo_QDEX1_21_plot
 	x2log: False
 	x2tics: 0
 	xlog: False
-	xmin: 30000
 	xrebin: 1
 	y2log: False
 	y2tics: 0
@@ -604,15 +619,183 @@ Plot: EXT_line_actual_wo_QDEX1_22_plot
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 34109.568363641178
+	int: 1.1121889108808561E-003
 	lw.0: 0
-	max: 2.23673601E-03
-	min: 4.02012706E-13
+	max: 4.27167635E-10
+	min: 1.31353126E-13
 	proj: Y
 	ps.0: 0
 	pt.0: 0
 	swap: 0
 	title: USRBIN EXT line actual wo QDEX1 22
+	with.0: errorbars
+	x2log: False
+	x2tics: 0
+	xlog: False
+	xrebin: 1
+	y2log: False
+	y2tics: 0
+	ylabel: Energy
+	ylog: False
+	yrebin: 1
+	zlog: False
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "USRBIN EXT line actual wo QDEX1 23"
+Plot: EXT_line_actual_wo_QDEX1_23_plot
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	cbcolors: 30
+	cblog: True
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: EXT_line_actual_wo_QDEX1_23.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	grid: 0
+	hist: 2D Projection
+	index: 0
+	int: 6.6445069112498743E-008
+	lw.0: 0
+	max: 2.29467292E-12
+	min: 9.34098875E-24
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: USRBIN EXT line actual wo QDEX1 23
+	with.0: errorbars
+	x2log: False
+	x2tics: 0
+	xlog: False
+	xrebin: 1
+	y2log: False
+	y2tics: 0
+	ylabel: Energy
+	ylog: False
+	yrebin: 1
+	zlog: False
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "USRBIN EXT line actual wo QDEX1 24"
+Plot: EXT_line_actual_wo_QDEX1_24_plot
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	cbcolors: 30
+	cblog: True
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: EXT_line_actual_wo_QDEX1_24.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	grid: 0
+	hist: 2D Projection
+	index: 0
+	int: 1745.4403480618362
+	lw.0: 0
+	max: 4.60223237E-05
+	min: 1.35080116E-16
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: USRBIN EXT line actual wo QDEX1 24
+	with.0: errorbars
+	x2log: False
+	x2tics: 0
+	xlog: False
+	xrebin: 1
+	y2log: False
+	y2tics: 0
+	ylabel: Neutrons
+	ylog: False
+	yrebin: 1
+	zlog: False
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "USRBIN EXT line actual wo QDEX1 25"
+Plot: EXT_line_actual_wo_QDEX1_25_plot
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	cbcolors: 30
+	cblog: True
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: EXT_line_actual_wo_QDEX1_25.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	grid: 0
+	hist: 2D Projection
+	index: 0
+	int: 459.85089362439862
+	lw.0: 0
+	max: 8.16433894E-05
+	min: 7.81678222E-10
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: USRBIN EXT line actual wo QDEX1 25
+	with.0: errorbars
+	x2log: False
+	x2tics: 0
+	xlog: False
+	xrebin: 1
+	y2log: False
+	y2tics: 0
+	ylabel: Neutrons
+	ylog: False
+	yrebin: 1
+	zlog: False
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "USRBIN EXT line actual wo QDEX1 26"
+Plot: EXT_line_actual_wo_QDEX1_26_plot
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	cbcolors: 30
+	cblog: True
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: EXT_line_actual_wo_QDEX1_26.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	grid: 0
+	hist: 2D Projection
+	index: 0
+	int: 1.1524050934258208E-002
+	lw.0: 0
+	max: 1.46802204E-09
+	min: 4.59934952E-15
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: USRBIN EXT line actual wo QDEX1 26
 	with.0: errorbars
 	x2log: False
 	x2tics: 0
