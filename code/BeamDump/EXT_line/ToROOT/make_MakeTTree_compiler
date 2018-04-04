@@ -1,1 +1,1 @@
-g++ -o ../MakeTTree_rhulcherenkov.exe main_MakeTTree_rhulcherenkov.cc `root-config --cflags --glibs`
+g++ -o MakeTTree.exe main_MakeTTree.cc `root-config --cflags --glibs`
