@@ -87,10 +87,22 @@
             ACUT = -ONEONE
          END IF
          RNDDIR = ONEONE - COS(WHASOU(4) * PIPIPI/180.0D0)
+*  |  WHASOU(5) = xmin cut in (cm)
+         XCUTLO   = WHASOU(5)
+*  |  WHASOU(6) = xmax cut in (cm)
+         XCUTHI   = WHASOU(6)
+*  |  WHASOU(7) = ymin cut in (cm)
+         YCUTLO   = WHASOU(7)
+*  |  WHASOU(8) = ymax cut in (cm)
+         YCUTHI   = WHASOU(8)
          WRITE (LUNOUT,*)
          WRITE (LUNOUT,*) " ** rdsource: TCUT=",TCUT
          WRITE (LUNOUT,*) " ** rdsource: ACUT=",ACUT
          WRITE (LUNOUT,*) " ** rdsource: RNDDIR=",RNDDIR
+         WRITE (LUNOUT,*) " ** rdsource: XCUTLO=",XCUTLO
+         WRITE (LUNOUT,*) " ** rdsource: XCUTHI=",XCUTHI
+         WRITE (LUNOUT,*) " ** rdsource: YCUTLO=",YCUTLO
+         WRITE (LUNOUT,*) " ** rdsource: YCUTHI=",YCUTHI
          IF (TCUT .LE. AZRZRZ) TCUT = AINFNT
 
          NNN = 0
@@ -101,6 +113,14 @@
             READ (LINE,*,ERR=10) X, Y, Z, U, V, W, E, T, WG, I
 * |   Time cut
             IF (T.GE.TCUT) GO TO 10
+
+* |   X cut
+            IF (X.LT.XCUTLO) GO TO 10
+            IF (X.GT.XCUTLO) GO TO 10
+
+* |   Y cut
+            IF (Y.LT.YCUTLO) GO TO 10
+            IF (Y.GT.YCUTLO) GO TO 10
 
 * |   Angular cut
             IF (U*UBEAM + V*VBEAM + W*WBEAM .LT. ACUT) GO TO 10
@@ -114,7 +134,7 @@
             YYY(NNN) = Y
 *            ZZZ(NNN) = Z
 ***ANNES INPUT            
-            ZZZ(NNN) = 30599.5
+            ZZZ(NNN) = 30248.0
 ****
 
 *  | U = dir[nX], V = dir[nY], W = dir[nZ]
