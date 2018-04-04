@@ -176,15 +176,15 @@ XYP WindoPl3   -399.1
 RCC OuWinInl   0.0 -147.5 -380. 0.0 300. 0.0 10.
 RCC InWinInl   0.0 -147.5 -380. 0.0 300. 0.0 9.
 RPP Airbox     -425. 115. -200. 200. -774. 425.
-RPP IronShie   -475. 165. -200. 250. -774. 475.
-RPP BorConcr   -625. 315. -200. 400. -774. 525.
-RPP Concr      -825. 315. -200. 600. -774. 725.
+RPP IronShie   -475. 165. -200. 250. -825. 475.
+RPP BorConcr   -625.0 315.0 -200.0 400.0 -975.0 525.0
+RPP Concr      -825.0 315.0 -200.0 600.0 -1170.0 725.0
 RPP Airbox2    -900. 615. -200. 700. -1374. 800.
 RPP Blackbox   -901. 616. -201. 701. -1375. 801.
-XYP ScorPla1   -774.
+XYP ScorPla1   -1168.0
 XZP EXTheigh   200.
 YZP EXTwidth   -185.
-XYP ScorPla2   -775.
+XYP ScorPla2   -1170.0
 END
 Inlet1       5 +OutInl1 -InInl1 -InWatJe
 Inlet2       5 +OutInl2 -InInl2 -InWatJe
@@ -717,13 +717,11 @@ Air          5 +Airbox -OutTank -OutInl1 -OutInl2 -OutInl3 -OutInl4 -OutInl5 -Ou
                | +OutTank +Airbox -OutTaEn2 -TaEnPla2
                | +OutTank +TaEnPla1 -WindoPl3 -OutTaEn1 -OutBeaPi -OuWinInl
                | +OutTank +Airbox +WindoPl2 -OutBeaPi
-Air2         5 +Airbox2 -Concr -OutBeaPi -ScorPla1
-               | +Airbox2 +ScorPla1 +EXTheigh +EXTwidth -ScorPla2
-               | +Airbox2 +ScorPla1 -EXTheigh -ScorPla2
+Air2         5 +Airbox2 -Concr -OutBeaPi -ScorPla2
 IronShie     5 +IronShie -Airbox -OutBeaPi
 BorConcr     5 +BorConcr -IronShie -OutBeaPi
 ConcrShi     5 +Concr -BorConcr -OutBeaPi
-ScorePl1     5 +Airbox2 +ScorPla1 +EXTheigh -EXTwidth -ScorPla2
+ScorePl1     5 +OutBeaPi +ScorPla1 -ScorPla2
 EXTAir       5 +Airbox2 +ScorPla2
 END
 *GEOEND          115.      200.      425.     -425.     -200.     -775.DEBUG

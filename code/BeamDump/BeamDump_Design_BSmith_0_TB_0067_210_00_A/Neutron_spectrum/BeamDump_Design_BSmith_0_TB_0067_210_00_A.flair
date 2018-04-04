@@ -8,7 +8,7 @@ Submit: Nohup
 Notes:
 Composition of normal and boronated concrete from Paper "Application of neutron shield concrete to neutron scattering instrument TAIKAN in J-PARC" by Koichi Okuno et al.
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Run
+Page: Input
 Source: mgdraw.f
 DefMain: True
 LinkPrg: lfluka
@@ -377,16 +377,6 @@ Material: Phosphor
 End
 
 # Material
-Material: Ti-6Al4V
-	alpha: 0
-	color: #407030
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
 Material: Molybdenum
 	alpha: 0
 	color: #D03050
@@ -400,6 +390,16 @@ End
 Material: Vanadium
 	alpha: 0
 	color: #807070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: BorConc
+	alpha: 0
+	color: #4050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -427,9 +427,9 @@ Material: B2O3
 End
 
 # Material
-Material: Cs
+Material: Eu
 	alpha: 0
-	color: #901070
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -527,9 +527,9 @@ Material: CaO
 End
 
 # Material
-Material: BorConc
+Material: Ti-6Al4V
 	alpha: 0
-	color: #4050D0
+	color: #407030
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -537,9 +537,9 @@ Material: BorConc
 End
 
 # Material
-Material: Eu
+Material: Cs
 	alpha: 0
-	color: #703070
+	color: #901070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -642,7 +642,7 @@ Plot: Red
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 2069.56 1552.17
+	extends: 2069.56 1116.58
 	grid: 0
 	index: 0
 	labels: 1
@@ -674,12 +674,12 @@ Plot: Green
 	cbtics: 0
 	coord: Z-X
 	cpd: 0
-	extends: 83.4341 62.5756
+	extends: 2798.76 1511.89
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Media
-	origin: 2.12394 0 -1357.56
+	origin: -568.092 0 -983.321
 	subtype: Material
 	title: GeoViewer Green plot
 	x2log: False
@@ -700,10 +700,10 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 2182.14 1636.61
+	extends: 13.1508 7.07868
 	labels: 1
 	layer: Media
-	origin: 0 -15.5705 -1094.66
+	origin: 0 15.1981 -1169.47
 	subtype: Material
 	title: GeoViewer Blue plot
 End
@@ -722,12 +722,12 @@ Plot: Magenta
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 5638.4 4228.8
+	extends: 641.654 345.816
 	grid: 0
 	index: 0
 	labels: 1
 	layer: Media
-	origin: 0 0 0
+	origin: 44.3003 21.1347 0
 	subtype: Material
 	title: GeoViewer Magenta plot
 	x2log: 0
