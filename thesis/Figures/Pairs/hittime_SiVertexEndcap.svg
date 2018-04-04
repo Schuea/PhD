@@ -242,7 +242,9 @@
      inkscape:label="hittime_SiVertexEndcap"
      transform="matrix(1.25,0,0,-1.25,-10,462.00001)"><g
        id="g5988"
-       clip-path="url(#clipPath7244)"><g
+       clip-path="url(#clipPath7244)"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000"><g
          id="g12"><path
            inkscape:connector-curvature="0"
            id="path14"

@@ -26,7 +26,7 @@ The geometry of the simulated world is described in a lcdd file in a human-reada
 The flexible geometry description allows the simulation of particle interactions with individual detector geometries.
 To this end, the geometry description file ``sidloi3'' of the \sid detector, which was used for the simulation studies in this and in the following chapters, is based on the detector design described in Section~\ref{ILC:SiD} and in~\cite[p. 69 ff]{TDR4}.
 
-\section{Pair background envelopes}
+\section{Pair background characteristics}
 \label{PairBkg:helix}
 Analyzing the generated pair background events, it becomes apparent that the \positron\electron pairs have a low transverse momentum.
 Figure~\ref{fig:PairBkg:Momentum} shows the distribution of their longitudinal and transverse momentum for the two ILC stages at \SI{250}{\GeV} and \SI{500}{\GeV} center-of-mass energy.
@@ -96,7 +96,9 @@ In this way, it becomes apparent that for higher center-of-mass energies the wid
 At \SI{500}{\GeV}, the envelope containing \SI{99.99}{\percent} of all pair helix tracks crosses the beam pipe, extending towards the innermost layer of the SiD vertex detector, which has a radius of \SI{14}{\milli\meter}.
 For lower center-of-mass energies, the envelopes stay within the beam pipe radius.
 The pair background simulation files for this comparison plot were generated with \guineapig as well, using the beam parameters of the three different baseline ILC stages~\cite[p. 11]{TDR1}.
- 
+
+\section{Impact of the pair background studies on ILC design choices}
+\subsection{Pair background dependency on ILC beam parameters}
 As explained in Section~\ref{ILC:layout:staging}, the first ILC stage will be at \SI{250}{\GeV} instead of the originally anticipated \SI{500}{\GeV}.
 Due to this decision in 2017, efforts have been made to study a possible change in the baseline beam parameters for this stage in order to increase the luminosity from \num{8.2} to \SI{16.2e34}{\per\centi\meter\squared\per\second}~\cite{LCWS17_paper}. 
 To this end, three alternative beam parameter sets have been suggested, which vary from the original baseline parameters in the emittance and the beta function values.
@@ -146,7 +148,7 @@ The occupancy from the pair background therefore has to be studied with respect 
     \label{fig:PairBkg:Density_Projection}
 \end{figure}
 
-\section{Occupancy studies and buffer depth}
+\subsection{Occupancy studies and buffer depth}
 \label{PairBkg:occupancy}
 For the vertex detector occupancy studies, the number of hits of every detector cell is counted and translated into an occupancy.
 In the following occupancy plots, it can be determined how many detector cells get a certain number of hits.
@@ -221,7 +223,9 @@ The presented results of the SiD occupancy studies for the different beam parame
 The Technical Change and Management Board in the end decided on set (A) for the new official ILC beam parameter set for a center-of-mass energy of \SI{250}{\GeV}, and hence approved the CR-0016~\cite{LCWS17_TCMBmeeting,CR-0016}.
 \\The results of further studies regarding the ILC250 stage are henceforth produced with this new official beam parameter set (A).
 Thus, Figure~\ref{fig:PairBkg:ILC250_Occupancy_SetA} shows the results from two further ILC250 occupancy studies.
-In Figure~\ref{fig:PairBkg:ILC250_Occupancy_SetA} (a), the SiD vertex detector occupancy is compared for the pair background arising at a center-of-mass energy of \SI{250}{\GeV} and \SI{500}{\GeV}. \todo{Describe occupancy at 250 vs 500}
+In Figure~\ref{fig:PairBkg:ILC250_Occupancy_SetA} (a), the SiD vertex detector occupancies from the pair background arising at a center-of-mass energy of \SI{250}{\GeV} and \SI{500}{\GeV} are compared.
+With the new ILC250 beam parameter set, the resulting occupancies at both center-of-mass energies are very similar, with the occupancy at the ILC500 being higher on a few percent level.
+This leads to the conclusion that the vertex detector readout architecture can be designed to be suitable for both ILC stages regarding the pair background.
 \\Figure~\ref{fig:PairBkg:ILC250_Occupancy_SetA} (b) shows the effect of different SiD variants on the vertex detector occupancy at the ILC250.
 The four geometry variants, which are compared in this plot, are combinations of the old or new L* value, with and without the SiD anti-DiD field.
 For more information about these detector variants, please refer to Section~\ref{ILC:SiD}.
@@ -237,14 +241,14 @@ For the clarification of the impact on the pair background occupancy, the follow
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
-    \includegraphics[width=\textwidth]{Figures/placeholder.jpg}
-   \caption{SiD vertex barrel detector occupancy for the ILC250 and the ILC500}
+    \includegraphics[width=0.95\textwidth]{Figures/Pairs/Occupancy_Comparison_Layer_0_numcells_ILC500vsILC250.png}
+   \caption{SiD vertex detector barrel occupancy, comparing the pair background from the ILC250 and the ILC500}
    \end{subfigure}
    \hfill
     \begin{subfigure}[b]{0.49\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_Layer_0_numcells_ILC250_Comparison_Set_A_All_SiD_designs_LEG.png}
-   \caption{SiD vertex barrel detector background occupancy for the ILC250, comparing various SiD geometry variants}
+   \caption{SiD vertex detector barrel background occupancy for the ILC250, comparing various SiD geometry variants}
    \end{subfigure}
    \caption[Pair background occupancy in the SiD vertex detector for the ILC250 set (A)]{Pair background occupancy in the innermost SiD vertex detector layer, after a full bunch train (1312 bunch crossings).
    In both figures, the occupancy is normalized by the total number of cells of the innermost vertex detector layer.
@@ -256,10 +260,27 @@ For the clarification of the impact on the pair background occupancy, the follow
 
 \section{Hit maps of the SiD subdetectors}
 \label{PairBkg:hitmaps}
-\todo{Show with projection of hitmaps that there are more hits on edges of VertexBarrel detector (because of helix envelopes)}
+%TODO Show with projection of hitmaps that there are more hits on edges of VertexBarrel detector (because of helix envelopes)
 %TODO TH1D* histo=Layer_1->ProjectionX("ProjectionX",1,Layer_1->GetNbinsY(),"e")
-
- \begin{figure}
+As shown above, the \positron\electron pair background arises from beam-beam interactions at the IP.
+Being boosted in the beam direction, and swept into the outgoing beam pipe by the anti-DiD, the hits in the SiD detector are mainly restricted to the inner subdetectors.
+However, as indicated by Figure~\ref{fig:PairBkg:ILC250_Occupancy_SetA}, the SiD geometry variants have an impact on the vertex detector occupancy from the \positron\electron pairs.
+\\Figure~\ref{fig:PairBkg:Origins_Map} shows maps of the pair background vertices in the SiD detector.
+A cut was applied to only show the vertices of those pairs, which will hit the vertex detector in the given time intervals: up to \SI{10}{\nano\second} (Figure~\ref{fig:PairBkg:Origins_Map} (a)), and between \SI{20}{\nano\second} and \SI{30}{\nano\second} after the bunch crossing (Figure~\ref{fig:PairBkg:Origins_Map} (b)).
+In this way, it becomes clear whether the background particles originate at the IP only, or whether they also backscatter from other subdetectors.
+In the first \SI{10}{\nano\second}, the majority of particles, which hit the vertex detector, come from the IP.
+Also a few backscatter particles are visible, originating from the innermost detector layers, and the central subdetectors.
+A few nanoseconds later however, between \SI{20}{\nano\second} and \SI{30}{\nano\second}, particles hit the vertex detector, which were backscattered from the BeamCal positioned about \SI{3.2}{\meter} from the IP.
+These pair background particles traveled from the IP towards the BeamCal, where hit the material and backscattered back towards the vertex detector.
+\\The distance from the IP towards the BeamCal and back, which the particles have traveled, takes accordingly a certain time of the order of several \SI{10}{\nano\second}.
+This time gap is visible in Figure~\ref{fig:PairBkg:Hittime}, which shows the radial position of the hits in the vertex detector barrel and endcaps as a function of the hit time.
+First, the vertex detector is hit by \positron\electron pairs arriving directly from the IP.
+Before pairs have traveled towards the BeamCal and have backscattered, the vertex detector does not see any further hits.
+Only from around \SI{20}{\nano\second} on, particles arrive again at the vertex detector.
+Further details on this pair background timing study can be found at~\cite{SiDBkgNote}.
+\\This hit time distribution offers the possibility of reducing the background occupancy through time gates.
+Applying a trigger such that particles, which are hitting the vertex detector between \SI{10}{\nano\second} and \SI{50}{\nano\second} after the bunch crossing, for example, are dismissed, the number of pair background hits can be reduced by about \SI{12}{\percent}~\cite[p. 27]{SiDBkgNote}.
+ \begin{figure}[h]
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
@@ -269,18 +290,18 @@ For the clarification of the impact on the pair background occupancy, the follow
    \hfill
     \begin{subfigure}[b]{0.49\textwidth}
    \centering
-    \includegraphics[width=\textwidth]{Figures/Pairs/hitmaps_particleorigins_hittime_30_50_SiVertexEndcapSiVertexBarrel_SiDNote.png}
-   \caption{Hit time: \SI[detect-all]{30}{\nano\second} - \SI[detect-all]{50}{\nano\second}}
+    \includegraphics[width=\textwidth]{Figures/Pairs/hitmaps_particleorigins_hittime_20_30_SiVertexEndcapSiVertexBarrel_SiDNote.png}
+   \caption{Hit time: \SI[detect-all]{20}{\nano\second} - \SI[detect-all]{30}{\nano\second}}
    \end{subfigure}
    \caption[Pair background vertex maps in the SiD detector]{Map of the pair background particle vertices in the SiD detector, after one bunch crossings.
    Only those vertices are shown, which originate from pair background particles hitting the SiD vertex detector in the given time intervals.
    Figure (a) shows the vertices of those pairs, which hit the vertex detector up to \SI[detect-all]{10}{\nano\second} after the bunch crossing.
-   Similarly, Figure (b) shows the vertices of pairs hitting the vertex detector between \SI[detect-all]{30}{\nano\second} and \SI[detect-all]{50}{\nano\second} after the bunch crossing.
+   Similarly, Figure (b) shows the vertices of pairs hitting the vertex detector between \SI[detect-all]{20}{\nano\second} and \SI[detect-all]{30}{\nano\second} after the bunch crossing.
    }
    \label{fig:PairBkg:Origins_Map}
  \end{figure}
  
-  \begin{figure}
+  \begin{figure}[h]
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
@@ -299,7 +320,11 @@ For the clarification of the impact on the pair background occupancy, the follow
    }
    \label{fig:PairBkg:Hittime}
  \end{figure}
-
-Possible reduction of background through time gates
-
-
+ 
+\section{Conclusion}
+The pair background arises from the interaction between the electromagnetic fields of the colliding beam bunches.
+These interactions are dependent on the ILC beam parameters, which therefore affect the pair background characteristics.
+This chapter has shown that the pairs, which originate from the IP as well as backscatter from the BeamCal, populate the inner SiD subdetectors.
+Especially in the vertex detector, the impact of the beam parameters on the background becomes apparent, as the width of the pair background envelopes varies and the tracks of the pairs reaches towards the innermost vertex detector layers.
+Here, the pairs cause a significant background occupancy, which was studied for various ILC stages and beam parameter sets.
+These studies are valuable input to design decisions regarding the ILC accelerator and the SiD detector, and were already consulted for the Change Request decision of the new beam parameters for the ILC stage at a center-of-mass energy of \SI{250}{\GeV}.
