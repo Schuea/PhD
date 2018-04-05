@@ -1,0 +1,3448 @@
+#!/usr/local/flair/flair
+# FLUKA Project file
+Version: 2
+Title: BeamDump_Design_BSmith_0_TB_0067_210_00_A
+Input: BeamDump_Design_BSmith_0_TB_0067_210_00_A.inp
+Exec: DumpNeut.x
+Submit: Nohup
+Notes:
+Composition of normal and boronated concrete from Paper "Application of neutron shield concrete to neutron scattering instrument TAIKAN in J-PARC" by Koichi Okuno et al.
+Tabs: 0.1 0.32 0.56 0.81 1.0
+Page: Input
+Source: mgdraw.f
+DefMain: True
+LinkPrg: lfluka
+F77bound: True
+F77dline: False
+
+# Run information
+Run: <default>
+	Prev:     3
+	Last:     5
+	Status:   4
+	Pid:      0
+	StartRun: 1521280876
+	Family:  BeamDump_Design_BSmith_0_TB_0067_210_00_A_aa BeamDump_Design_BSmith_0_TB_0067_210_00_A_ab BeamDump_Design_BSmith_0_TB_0067_210_00_A_ac BeamDump_Design_BSmith_0_TB_0067_210_00_A_ad BeamDump_Design_BSmith_0_TB_0067_210_00_A_ae BeamDump_Design_BSmith_0_TB_0067_210_00_A_af BeamDump_Design_BSmith_0_TB_0067_210_00_A_ag
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_50.yie
+	Data: \I_\U.\e
+		Unit: 50
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_51.yie
+	Data: \I_\U.\e
+		Unit: 51
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_52.yie
+	Data: \I_\U.\e
+		Unit: 52
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_53.yie
+	Data: \I_\U.\e
+		Unit: 53
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_54.yie
+	Data: \I_\U.\e
+		Unit: 54
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_55.yie
+	Data: \I_\U.\e
+		Unit: 55
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_56.yie
+	Data: \I_\U.\e
+		Unit: 56
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_57.yie
+	Data: \I_\U.\e
+		Unit: 57
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_58.yie
+	Data: \I_\U.\e
+		Unit: 58
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_59.yie
+	Data: \I_\U.\e
+		Unit: 59
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_60.yie
+	Data: \I_\U.\e
+		Unit: 60
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_61.yie
+	Data: \I_\U.\e
+		Unit: 61
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_70.yie
+	Data: \I_\U.\e
+		Unit: 70
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_71.yie
+	Data: \I_\U.\e
+		Unit: 71
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_72.yie
+	Data: \I_\U.\e
+		Unit: 72
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_73.yie
+	Data: \I_\U.\e
+		Unit: 73
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_74.yie
+	Data: \I_\U.\e
+		Unit: 74
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_75.yie
+	Data: \I_\U.\e
+		Unit: 75
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_76.yie
+	Data: \I_\U.\e
+		Unit: 76
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_77.yie
+	Data: \I_\U.\e
+		Unit: 77
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_78.yie
+	Data: \I_\U.\e
+		Unit: 78
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_79.yie
+	Data: \I_\U.\e
+		Unit: 79
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_80.yie
+	Data: \I_\U.\e
+		Unit: 80
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_81.yie
+	Data: \I_\U.\e
+		Unit: 81
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+End
+
+# Run information
+Run: BeamDump_Design_BSmith_0_TB_0067_210_00_A_aa
+	Rnd:      2
+	Prev:     3
+	Last:     5
+	Status:   4
+	Pid:      0
+	StartRun: 1522908038
+	Parent:    <default>
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_aa_50.yie
+	Data: \I_\U.\e
+		Unit: 50
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_aa_51.yie
+	Data: \I_\U.\e
+		Unit: 51
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_aa_52.yie
+	Data: \I_\U.\e
+		Unit: 52
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_aa_53.yie
+	Data: \I_\U.\e
+		Unit: 53
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_aa_54.yie
+	Data: \I_\U.\e
+		Unit: 54
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_aa_55.yie
+	Data: \I_\U.\e
+		Unit: 55
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_aa_56.yie
+	Data: \I_\U.\e
+		Unit: 56
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_aa_57.yie
+	Data: \I_\U.\e
+		Unit: 57
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_aa_58.yie
+	Data: \I_\U.\e
+		Unit: 58
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_aa_59.yie
+	Data: \I_\U.\e
+		Unit: 59
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_aa_60.yie
+	Data: \I_\U.\e
+		Unit: 60
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_aa_61.yie
+	Data: \I_\U.\e
+		Unit: 61
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+End
+
+# Run information
+Run: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ab
+	Rnd:      3
+	Prev:     3
+	Last:     5
+	Status:   4
+	Pid:      0
+	StartRun: 1522908038
+	Parent:    <default>
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ab_50.yie
+	Data: \I_\U.\e
+		Unit: 50
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ab_51.yie
+	Data: \I_\U.\e
+		Unit: 51
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ab_52.yie
+	Data: \I_\U.\e
+		Unit: 52
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ab_53.yie
+	Data: \I_\U.\e
+		Unit: 53
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ab_54.yie
+	Data: \I_\U.\e
+		Unit: 54
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ab_55.yie
+	Data: \I_\U.\e
+		Unit: 55
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ab_56.yie
+	Data: \I_\U.\e
+		Unit: 56
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ab_57.yie
+	Data: \I_\U.\e
+		Unit: 57
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ab_58.yie
+	Data: \I_\U.\e
+		Unit: 58
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ab_59.yie
+	Data: \I_\U.\e
+		Unit: 59
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ab_60.yie
+	Data: \I_\U.\e
+		Unit: 60
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ab_61.yie
+	Data: \I_\U.\e
+		Unit: 61
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+End
+
+# Run information
+Run: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ac
+	Rnd:      4
+	Prev:     3
+	Last:     5
+	Status:   4
+	Pid:      0
+	StartRun: 1522908038
+	Parent:    <default>
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ac_50.yie
+	Data: \I_\U.\e
+		Unit: 50
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ac_51.yie
+	Data: \I_\U.\e
+		Unit: 51
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ac_52.yie
+	Data: \I_\U.\e
+		Unit: 52
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ac_53.yie
+	Data: \I_\U.\e
+		Unit: 53
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ac_54.yie
+	Data: \I_\U.\e
+		Unit: 54
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ac_55.yie
+	Data: \I_\U.\e
+		Unit: 55
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ac_56.yie
+	Data: \I_\U.\e
+		Unit: 56
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ac_57.yie
+	Data: \I_\U.\e
+		Unit: 57
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ac_58.yie
+	Data: \I_\U.\e
+		Unit: 58
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ac_59.yie
+	Data: \I_\U.\e
+		Unit: 59
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ac_60.yie
+	Data: \I_\U.\e
+		Unit: 60
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ac_61.yie
+	Data: \I_\U.\e
+		Unit: 61
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+End
+
+# Run information
+Run: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ad
+	Rnd:      5
+	Prev:     3
+	Last:     5
+	Status:   4
+	Pid:      0
+	StartRun: 1522908038
+	Parent:    <default>
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ad_50.yie
+	Data: \I_\U.\e
+		Unit: 50
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ad_51.yie
+	Data: \I_\U.\e
+		Unit: 51
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ad_52.yie
+	Data: \I_\U.\e
+		Unit: 52
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ad_53.yie
+	Data: \I_\U.\e
+		Unit: 53
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ad_54.yie
+	Data: \I_\U.\e
+		Unit: 54
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ad_55.yie
+	Data: \I_\U.\e
+		Unit: 55
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ad_56.yie
+	Data: \I_\U.\e
+		Unit: 56
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ad_57.yie
+	Data: \I_\U.\e
+		Unit: 57
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ad_58.yie
+	Data: \I_\U.\e
+		Unit: 58
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ad_59.yie
+	Data: \I_\U.\e
+		Unit: 59
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ad_60.yie
+	Data: \I_\U.\e
+		Unit: 60
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ad_61.yie
+	Data: \I_\U.\e
+		Unit: 61
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+End
+
+# Run information
+Run: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ae
+	Rnd:      6
+	Prev:     3
+	Last:     5
+	Status:   4
+	Pid:      0
+	StartRun: 1522908038
+	Parent:    <default>
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ae_50.yie
+	Data: \I_\U.\e
+		Unit: 50
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ae_51.yie
+	Data: \I_\U.\e
+		Unit: 51
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ae_52.yie
+	Data: \I_\U.\e
+		Unit: 52
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ae_53.yie
+	Data: \I_\U.\e
+		Unit: 53
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ae_54.yie
+	Data: \I_\U.\e
+		Unit: 54
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ae_55.yie
+	Data: \I_\U.\e
+		Unit: 55
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ae_56.yie
+	Data: \I_\U.\e
+		Unit: 56
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ae_57.yie
+	Data: \I_\U.\e
+		Unit: 57
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ae_58.yie
+	Data: \I_\U.\e
+		Unit: 58
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ae_59.yie
+	Data: \I_\U.\e
+		Unit: 59
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ae_60.yie
+	Data: \I_\U.\e
+		Unit: 60
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ae_61.yie
+	Data: \I_\U.\e
+		Unit: 61
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+End
+
+# Run information
+Run: BeamDump_Design_BSmith_0_TB_0067_210_00_A_af
+	Rnd:      7
+	Prev:     3
+	Last:     5
+	Status:   4
+	Pid:      0
+	StartRun: 1522908039
+	Parent:    <default>
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_af_50.yie
+	Data: \I_\U.\e
+		Unit: 50
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_af_51.yie
+	Data: \I_\U.\e
+		Unit: 51
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_af_52.yie
+	Data: \I_\U.\e
+		Unit: 52
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_af_53.yie
+	Data: \I_\U.\e
+		Unit: 53
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_af_54.yie
+	Data: \I_\U.\e
+		Unit: 54
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_af_55.yie
+	Data: \I_\U.\e
+		Unit: 55
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_af_56.yie
+	Data: \I_\U.\e
+		Unit: 56
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_af_57.yie
+	Data: \I_\U.\e
+		Unit: 57
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_af_58.yie
+	Data: \I_\U.\e
+		Unit: 58
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_af_59.yie
+	Data: \I_\U.\e
+		Unit: 59
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_af_60.yie
+	Data: \I_\U.\e
+		Unit: 60
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_af_61.yie
+	Data: \I_\U.\e
+		Unit: 61
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+End
+
+# Run information
+Run: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ag
+	Rnd:      8
+	Prev:     3
+	Last:     5
+	Status:   4
+	Pid:      0
+	StartRun: 1522908039
+	Parent:    <default>
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ag_50.yie
+	Data: \I_\U.\e
+		Unit: 50
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ag_51.yie
+	Data: \I_\U.\e
+		Unit: 51
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ag_52.yie
+	Data: \I_\U.\e
+		Unit: 52
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ag_53.yie
+	Data: \I_\U.\e
+		Unit: 53
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ag_54.yie
+	Data: \I_\U.\e
+		Unit: 54
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ag_55.yie
+	Data: \I_\U.\e
+		Unit: 55
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ag_56.yie
+	Data: \I_\U.\e
+		Unit: 56
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ag_57.yie
+	Data: \I_\U.\e
+		Unit: 57
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ag_58.yie
+	Data: \I_\U.\e
+		Unit: 58
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ag_59.yie
+	Data: \I_\U.\e
+		Unit: 59
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ag_60.yie
+	Data: \I_\U.\e
+		Unit: 60
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ag_61.yie
+	Data: \I_\U.\e
+		Unit: 61
+		Type: y
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+End
+
+# Material
+Material: 
+	alpha: 0
+	color: #101010
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Mangan1
+	alpha: 0
+	color: #303050
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: NormConc
+	alpha: 0
+	color: #A0B030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: MgO
+	alpha: 0
+	color: #305030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Chlorine
+	alpha: 0
+	color: #9050D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Sulfur
+	alpha: 0
+	color: #209010
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Al2O3
+	alpha: 0
+	color: #509070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: TiO2
+	alpha: 0
+	color: #B01070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Fe2O3
+	alpha: 0
+	color: #B0B050
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Sulfur1
+	alpha: 0
+	color: #C050D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: K2O
+	alpha: 0
+	color: #C09070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Phospho1
+	alpha: 0
+	color: #3090B0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Boron
+	alpha: 0
+	color: #201090
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Kalium
+	alpha: 0
+	color: #405030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: 316L-SS
+	alpha: 0
+	color: #109070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Phosphor
+	alpha: 0
+	color: #E05010
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Molybdenum
+	alpha: 0
+	color: #D03050
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Vanadium
+	alpha: 0
+	color: #807070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: BorConc
+	alpha: 0
+	color: #4050D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: SiO2
+	alpha: 0
+	color: #60D0B0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: B2O3
+	alpha: 0
+	color: #505030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Eu
+	alpha: 0
+	color: #703070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: SO3
+	alpha: 0
+	color: #9010D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: MnO
+	alpha: 0
+	color: #8030D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Mangan
+	alpha: 0
+	color: #D0D0B0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Molybden
+	alpha: 0
+	color: #109090
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Ti-6Al-4V
+	alpha: 0
+	color: #8030B0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: P2O5
+	alpha: 0
+	color: #105010
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Cobalt
+	alpha: 0
+	color: #E09090
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Na2O
+	alpha: 0
+	color: #301070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: CaO
+	alpha: 0
+	color: #105090
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Ti-6Al4V
+	alpha: 0
+	color: #407030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Cs
+	alpha: 0
+	color: #901070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: NeutConc
+	alpha: 0
+	color: #20D070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Chromium
+	alpha: 0
+	color: #B09010
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: CoO
+	alpha: 0
+	color: #9070D0
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Geometry Information
+Geometry:
+	Frame.bsplit: 0.5
+	Frame.tsplit: 0.5
+	Frame.vsplit: 0.5
+
+	# Layer
+	Layer: Image
+		: True
+		._visible: True
+		Image: True
+		Image._visible: True
+		Image.alpha: 112
+		Image.file: TB-0067-210-00-A_yz_view.png
+		Image.marker: 3
+		Image.marker.0: 200.476190476 193.523809524 -30.0 0.0 -325.0
+		Image.marker.1: 1185.5 193.333333333 -30.0 0.0 325.0
+		Image.marker.2: 200.476190476 307.5 -30.0 -75.0 -325.0
+		Image.marker.3: 175.457142857 245.554761905 -300.0 -450.0 0.0
+		Image.marker.4: 175.476190476 181.547619048 -300.0 0.0 0.0
+		Image.prompt: 1
+		Show._visible: True
+	End
+
+	# Layer
+	Layer: 3D
+		3D: True
+		3D._visible: True
+		3D.edgedetect: True
+		Options.errors: False
+		Options.shortcut: F4
+		Options.viewport: False
+		Show: 0
+		Show.lattice: True
+		Show.voxel: True
+		deflights: 1
+		layer: 3D
+	End
+End
+
+# Pet
+Pet: pet
+	ma: 1
+	modules: 0
+	mr: 1
+	mz: 1
+	na: 1
+	nr: 1
+	nz: 1
+	region: Inlet4
+End
+
+# Geometry plot "GeoViewer Red plot"
+Plot: Red
+	Format: .eps
+	Type:   Geometry
+	basisu: 1 0 0
+	basisv: 0 1 0
+	boundaries: 1
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	coord: X-Y
+	cpd: 0
+	extends: 2069.56 1552.17
+	grid: 0
+	index: 0
+	labels: 1
+	layer: Media
+	origin: 0 0 0
+	subtype: Material
+	title: GeoViewer Red plot
+	x2log: False
+	x2tics: 0
+	xlog: False
+	y2log: False
+	y2tics: 0
+	ylog: False
+	zlog: False
+	ztics: 0
+End
+
+# Geometry plot "GeoViewer Green plot"
+Plot: Green
+	Format: .eps
+	Type:   Geometry
+	basisu: 0 0 1
+	basisv: 1 0 0
+	boundaries: 1
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	coord: Z-X
+	cpd: 0
+	extends: 83.4341 62.5756
+	grid: 0
+	index: 0
+	labels: 1
+	layer: Media
+	origin: 2.12394 0 -1357.56
+	subtype: Material
+	title: GeoViewer Green plot
+	x2log: False
+	x2tics: 0
+	xlog: False
+	y2log: False
+	y2tics: 0
+	ylog: False
+	zlog: False
+	ztics: 0
+End
+
+# Geometry plot "GeoViewer Blue plot"
+Plot: Blue
+	Format: .eps
+	Type:   Geometry
+	basisu: 0 0 1
+	basisv: 0 1 0
+	boundaries: 1
+	coord: Z-Y
+	extends: 2182.14 1636.61
+	labels: 1
+	layer: Media
+	origin: 0 -15.5705 -1094.66
+	subtype: Material
+	title: GeoViewer Blue plot
+End
+
+# Geometry plot "GeoViewer Magenta plot"
+Plot: Magenta
+	Format: .eps
+	Type:   Geometry
+	basisu: -1 0 0
+	basisv: 0 1 0
+	boundaries: 1
+	cbcolors: 0
+	cblog: 0
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	coord: X-Y
+	cpd: 0
+	extends: 5638.4 4228.8
+	grid: 0
+	index: 0
+	labels: 1
+	layer: Media
+	origin: 0 0 0
+	subtype: Material
+	title: GeoViewer Magenta plot
+	x2log: 0
+	x2tics: 0
+	xlog: 0
+	y2log: 0
+	y2tics: 0
+	ylog: 0
+	zlog: 0
+	ztics: 0
+End
+
+# USRBIN plot "Energy deposition density in the ILC main beam dump"
+Plot: Energy_deposition
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	bymax: 4
+	bymin: -4.
+	cbcolors: 30
+	cblabel: GeV/cm3 per train
+	cblog: True
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_21.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	geopos: 0.0
+	grid: 0
+	hist: 2D Projection
+	index: 0
+	int: 377.07577929527935
+	lw.0: 0
+	max: 3.84459719E-02
+	min: 1.06463292E-14
+	norm: 1.74e10
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: Energy deposition density in the ILC main beam dump
+	with.0: errorbars
+	x2log: False
+	x2tics: 0
+	xlabel: z [cm]
+	xlog: False
+	xmax: 400
+	xmin: -700
+	xrebin: 1
+	y2log: False
+	y2tics: 0
+	ylabel: x [cm]
+	ylog: False
+	ymax: 110
+	ymin: -240
+	yrebin: 1
+	zlog: False
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "Energy deposition density in the ILC main beam dump"
+Plot: Energy_deposition1D
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	cbcolors: 30
+	cblog: 0
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_21.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	geopos: 0.0
+	grid: 0
+	hist: 1D Max
+	index: 0
+	int: 377.07577929527935
+	lw.0: 2
+	max: 3.84459719E-02
+	min: 1.06463292E-14
+	norm: 1.74e10
+	proj: Z
+	ps.0: 1
+	pt.0: 0
+	swap: 0
+	title: Energy deposition density in the ILC main beam dump
+	with.0: xyerrorbars
+	x2log: 0
+	x2tics: 0
+	xlabel: x [cm]
+	xlog: 0
+	xrebin: 1
+	y2log: 0
+	y2tics: 0
+	ylabel: GeV/cm3
+	ylog: 0
+	yrebin: 1
+	zlog: 0
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "Neutron flux in the ILC main beam dump"
+Plot: Neutron_flux
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	bymax: 0
+	bymin: -4.
+	cbcolors: 30
+	cblabel: #/cm2
+	cblog: True
+	cbmax: 1e13
+	cbmin: 1e-1
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_22.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	geopos: 0.0
+	grid: 0
+	hist: 2D Projection
+	index: 1
+	int: 490.85556833041551
+	lw.0: 0
+	max: 2.03398541E-02
+	min: 1.58825210E-12
+	norm: 1.74e10
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: Neutron flux in the ILC main beam dump
+	with.0: errorbars
+	x2log: False
+	x2tics: 0
+	xlabel: z [cm]
+	xlog: False
+	xmax: 400
+	xmin: -700
+	xrebin: 1
+	y2log: False
+	y2tics: 0
+	ylabel: x [cm]
+	ylog: False
+	ymax: 110
+	ymin: -240
+	yrebin: 1
+	zlog: False
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "Neutron flux in the ILC main beam dump"
+Plot: Neutron_flux1D
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	cbcolors: 30
+	cblog: 0
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_22.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	geopos: 0.0
+	grid: 0
+	hist: 1D Projection
+	index: 1
+	int: 8159.0123568805466
+	lw.0: 2
+	max: 2.26972683E-04
+	min: 1.55203525E-05
+	norm: 1.74e10
+	proj: Y
+	ps.0: 1
+	pt.0: 0
+	swap: 0
+	title: Neutron flux in the ILC main beam dump
+	with.0: errorbars
+	x2log: 0
+	x2tics: 0
+	xlabel: y [cm]
+	xlog: 0
+	xrebin: 1
+	y2log: 0
+	y2tics: 0
+	ylabel: #/cm2
+	ylog: 0
+	yrebin: 1
+	zlog: 0
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "Proton flux in the ILC main beam dump"
+Plot: Proton_flux
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	bymax: 4
+	bymin: -4.
+	cbcolors: 30
+	cblabel: #/cm2
+	cblog: 1
+	cbmax: 1e13
+	cbmin: 1e-1
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_31.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	geopos: 0.0
+	grid: 0
+	hist: 2D Projection
+	index: 0
+	int: 49.195990194805020
+	lw.0: 0
+	max: 2.46922136E-03
+	min: 4.74330644E-11
+	norm: 1.74e10
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: Proton flux in the ILC main beam dump
+	with.0: errorbars
+	x2log: 0
+	x2tics: 0
+	xlabel: z [cm]
+	xlog: 0
+	xmax: 400
+	xmin: -700
+	xrebin: 1
+	y2log: 0
+	y2tics: 0
+	ylabel: x [cm]
+	ylog: 0
+	ymax: 110
+	ymin: -240
+	yrebin: 1
+	zlog: 0
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "Electron flux in the ILC main beam dump"
+Plot: Electron_flux
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	bymax: 4
+	bymin: -4.
+	cbcolors: 30
+	cblabel: #/cm2
+	cblog: 1
+	cbmax: 1e13
+	cbmin: 1e-1
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_32.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	geopos: 0.0
+	grid: 0
+	hist: 2D Projection
+	index: 2
+	int: 133416.89330199381
+	lw.0: 0
+	max: 9.75854969
+	min: 2.30649388E-10
+	norm: 1.74e10
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: Electron flux in the ILC main beam dump
+	with.0: errorbars
+	x2log: 0
+	x2tics: 0
+	xlabel: z [cm]
+	xlog: 0
+	xmax: 400
+	xmin: -700
+	xrebin: 1
+	y2log: 0
+	y2tics: 0
+	ylabel: x [cm]
+	ylog: 0
+	ymax: 110
+	ymin: -240
+	yrebin: 1
+	zlog: 0
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "USRBIN BeamDump Design BSmith 0 TB 0067 210 00 A 35"
+Plot: Positron_flux
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	cbcolors: 30
+	cblog: 1
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_35.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	grid: 0
+	hist: 2D Projection
+	index: 0
+	lw.0: 0
+	proj: Z
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: USRBIN BeamDump Design BSmith 0 TB 0067 210 00 A 35
+	with.0: errorbars
+	x2log: 0
+	x2tics: 0
+	xlog: 0
+	xrebin: 1
+	y2log: 0
+	y2tics: 0
+	ylog: 0
+	yrebin: 1
+	zlog: 0
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "Photon flux in the ILC main beam dump"
+Plot: Photon_flux
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	bymax: 4
+	bymin: -4.
+	cbcolors: 30
+	cblabel: #/cm2
+	cblog: 1
+	cbmax: 1e13
+	cbmin: 1e-1
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_33.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	geopos: 0.0
+	grid: 0
+	hist: 2D Projection
+	index: 3
+	int: 1668934.5816546881
+	lw.0: 0
+	max: 80.8261032
+	min: 2.41875057E-07
+	norm: 1.74e10
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: Photon flux in the ILC main beam dump
+	with.0: errorbars
+	x2log: 0
+	x2tics: 0
+	xlabel: z [cm]
+	xlog: 0
+	xmax: 400
+	xmin: -700
+	xrebin: 1
+	y2log: 0
+	y2tics: 0
+	ylabel: x [cm]
+	ylog: 0
+	ymax: 110
+	ymin: -240
+	yrebin: 1
+	zlog: 0
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "Number of Tritium nuclei in the ILC main beam dump"
+Plot: Triton_flux
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	bymax: 4
+	bymin: -4.
+	cbcolors: 30
+	cblabel: #/cm2
+	cblog: 1
+	cbmax: 1e13
+	cbmin: 1e-1
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_34.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	grid: 0
+	hist: 2D Projection
+	index: 4
+	int: 7.8914271239949679E-002
+	lw.0: 0
+	max: 1.11692452E-05
+	min: 4.16662760E-10
+	norm: 1.74e10
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: Number of Tritium nuclei in the ILC main beam dump
+	with.0: errorbars
+	x2log: 0
+	x2tics: 0
+	xlabel: z [cm]
+	xlog: 0
+	xmax: 400
+	xmin: -700
+	xrebin: 1
+	y2log: 0
+	y2tics: 0
+	ylabel: x [cm]
+	ylog: 0
+	ymax: 110
+	ymin: -240
+	yrebin: 1
+	zlog: 0
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "Dose in the ILC main beam dump"
+Plot: Dose_total
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	bymax: 0
+	bymin: -4.
+	cbcolors: 30
+	cblabel: GeV/g
+	cblog: True
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_30.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	geopos: 0.0
+	grid: 0
+	hist: 2D Projection
+	index: 4
+	int: 365.21929246228677
+	lw.0: 0
+	max: 2.78802533E-02
+	min: 1.33245673E-15
+	norm: 1.74e10
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: Dose in the ILC main beam dump
+	with.0: errorbars
+	x2log: False
+	x2tics: 0
+	xlabel: z [cm]
+	xlog: False
+	xmax: 400
+	xmin: -700
+	xrebin: 1
+	y2log: False
+	y2tics: 0
+	ylabel: x [cm]
+	ylog: False
+	ymax: 110
+	ymin: -240
+	yrebin: 1
+	zlog: False
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "Dose from e-, e+ and photons in the ILC main beam dump"
+Plot: Dose_from_EM
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	bymax: 4
+	bymin: -4.
+	cbcolors: 30
+	cblabel: GeV/g
+	cblog: 1
+	cbmax: 1e10
+	cbmin: 1e-6
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_29.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	geopos: 0.0
+	grid: 0
+	hist: 2D Projection
+	index: 3
+	int: 364.04787676885036
+	lw.0: 0
+	max: 2.78141890E-02
+	min: 2.24803986E-12
+	norm: 1.74e10
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: Dose from e-, e+ and photons in the ILC main beam dump
+	with.0: errorbars
+	x2log: 0
+	x2tics: 0
+	xlabel: z [cm]
+	xlog: 0
+	xmax: 400
+	xmin: -700
+	xrebin: 1
+	y2log: 0
+	y2tics: 0
+	ylabel: x [cm]
+	ylog: 0
+	ymax: 110
+	ymin: -240
+	yrebin: 1
+	zlog: 0
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "Dose equivalent in the ILC main beam dump"
+Plot: Dose_equivalent
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	bymax: 4
+	bymin: -4.
+	cbcolors: 30
+	cblabel: mSv
+	cblog: 1
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_23.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	geopos: 0.0
+	grid: 0
+	hist: 2D Projection
+	index: 2
+	int: 61871743.724685937
+	lw.0: 0
+	max: 4731.84473
+	min: 1.71584276E-07
+	norm: 1.74e10*1e-9
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: Dose equivalent in the ILC main beam dump
+	with.0: errorbars
+	x2log: 0
+	x2tics: 0
+	xlabel: z [cm]
+	xlog: 0
+	xmax: 400
+	xmin: -700
+	xrebin: 1
+	y2log: 0
+	y2tics: 0
+	ylabel: x [cm]
+	ylog: 0
+	ymax: 110
+	ymin: -240
+	yrebin: 1
+	zlog: 0
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "Dose equivalent in the ILC main beam dump"
+Plot: Dose_equivalent1D
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	cbcolors: 30
+	cblog: 1
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_23.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	geopos: 0.0
+	grid: 0
+	hist: 1D Max
+	index: 2
+	int: 61871743.724685937
+	lw.0: 2
+	max: 4731.84473
+	min: 1.71584276E-07
+	norm: 1.74e10*1e-12
+	proj: Z
+	ps.0: 1
+	pt.0: 0
+	swap: 0
+	title: Dose equivalent in the ILC main beam dump
+	with.0: errorbars
+	x2log: 0
+	x2tics: 0
+	xlabel: z [cm]
+	xlog: 0
+	xrebin: 1
+	y2log: 0
+	y2tics: 0
+	ylabel: Sv
+	ylog: 0
+	yrebin: 1
+	zlog: 0
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "Dose equivalent in the ILC main beam dump - after 1 minute"
+Plot: Dose_equivalent_1minute
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	bymax: 4
+	bymin: -4.
+	cbcolors: 30
+	cblabel: mSv/s
+	cblog: 1
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_24.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	grid: 0
+	hist: 2D Projection
+	index: 0
+	int: 238474217724.67908
+	lw.0: 0
+	max: 6641641.00
+	min: 3.40698985E-17
+	norm: 1.74e10*1e-9
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: Dose equivalent in the ILC main beam dump - after 1 minute
+	with.0: errorbars
+	x2log: 0
+	x2tics: 0
+	xlabel: z [cm]
+	xlog: 0
+	xmax: 400
+	xmin: -700
+	xrebin: 1
+	y2log: 0
+	y2tics: 0
+	ylabel: x [cm]
+	ylog: 0
+	ymax: 110
+	ymin: -240
+	yrebin: 1
+	zlog: 0
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "Dose equivalent in the ILC main beam dump - after 1 hour"
+Plot: Dose_equivalent_1hour
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	bymax: 4
+	bymin: -4.
+	cbcolors: 30
+	cblabel: mSv/s
+	cblog: 1
+	cbmax: 1e10
+	cbmin: 1e-20
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_25.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	grid: 0
+	hist: 2D Projection
+	index: 4
+	int: 1320051394.2502296
+	lw.0: 0
+	max: 54262.4648
+	min: 1.79842410E-20
+	norm: 1.74e10*1e-9
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: Dose equivalent in the ILC main beam dump - after 1 hour
+	with.0: errorbars
+	x2log: 0
+	x2tics: 0
+	xlabel: z [cm]
+	xlog: 0
+	xmax: 400
+	xmin: -700
+	xrebin: 1
+	y2log: 0
+	y2tics: 0
+	ylabel: x [cm]
+	ylog: 0
+	ymax: 110
+	ymin: -240
+	yrebin: 1
+	zlog: 0
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "Dose equivalent in the ILC main beam dump - after 1 day"
+Plot: Dose_equivalent_1day
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	bymax: 4
+	bymin: -4.
+	cbcolors: 30
+	cblabel: mSv/s
+	cblog: 1
+	cbmax: 1e10
+	cbmin: 1e-20
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_26.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	grid: 0
+	hist: 2D Projection
+	index: 3
+	int: 6536878.4466615375
+	lw.0: 0
+	max: 1833.40344
+	min: 2.11831771E-22
+	norm: 1.74e10*1e-9
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: Dose equivalent in the ILC main beam dump - after 1 day
+	with.0: errorbars
+	x2log: 0
+	x2tics: 0
+	xlabel: z [cm]
+	xlog: 0
+	xmax: 400
+	xmin: -700
+	xrebin: 1
+	y2log: 0
+	y2tics: 0
+	ylabel: x [cm]
+	ylog: 0
+	ymax: 110
+	ymin: -240
+	yrebin: 1
+	zlog: 0
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "Dose equivalent in the ILC main beam dump - after 1 month"
+Plot: Dose_equivalent_1month
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	bymax: 4
+	bymin: -4.
+	cbcolors: 30
+	cblabel: mSv/s
+	cblog: 1
+	cbmax: 1e10
+	cbmin: 1e-20
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_27.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	grid: 0
+	hist: 2D Projection
+	index: 2
+	int: 248076.35416021154
+	lw.0: 0
+	max: 79.7719727
+	min: 1.70892001E-21
+	norm: 1.74e10*1e-9
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: Dose equivalent in the ILC main beam dump - after 1 month
+	with.0: errorbars
+	x2log: 0
+	x2tics: 0
+	xlabel: z [cm]
+	xlog: 0
+	xmax: 400
+	xmin: -700
+	xrebin: 1
+	y2log: 0
+	y2tics: 0
+	ylabel: x [cm]
+	ylog: 0
+	ymax: 110
+	ymin: -240
+	yrebin: 1
+	zlog: 0
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "Dose equivalent in the ILC main beam dump - after 1 year"
+Plot: Dose_equivalent_1year
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	bymax: 4
+	bymin: -4.
+	cbcolors: 30
+	cblabel: mSv/s
+	cblog: 1
+	cbmax: 1e10
+	cbmin: 1e-20
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_28.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	grid: 0
+	hist: 2D Projection
+	index: 1
+	int: 15527.005914856567
+	lw.0: 0
+	max: 5.27682972
+	min: 1.00798704E-24
+	norm: 1.74e10*1e-9
+	proj: Y
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: Dose equivalent in the ILC main beam dump - after 1 year
+	with.0: errorbars
+	x2log: 0
+	x2tics: 0
+	xlabel: z [cm]
+	xlog: 0
+	xmax: 400
+	xmin: -700
+	xrebin: 1
+	y2log: 0
+	y2tics: 0
+	ylabel: x [cm]
+	ylog: 0
+	ymax: 110
+	ymin: -240
+	yrebin: 1
+	zlog: 0
+	zrebin: 1
+	ztics: 0
+End
+
+# USRBIN plot "Dose equivalent in the ILC main beam dump - after 1 year"
+Plot: Dose_equivalent_1year1D
+	Format: .eps
+	Type:   USRBIN
+	axes: Auto
+	cbcolors: 30
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_28.bnn
+	det: 1
+	errors: 0
+	geo: -Auto-
+	grid: 0
+	hist: 1D Max
+	index: 1
+	int: 15527.005914856567
+	lw.0: 0
+	max: 5.27682972
+	min: 1.00798704E-24
+	norm: 1.74e10*1e-9
+	proj: Z
+	ps.0: 0
+	pt.0: 0
+	swap: 0
+	title: Dose equivalent in the ILC main beam dump - after 1 year
+	with.0: errorbars
+	x2log: False
+	x2tics: 0
+	xlabel: z [cm]
+	xlog: False
+	xrebin: 1
+	y2log: False
+	y2tics: 0
+	ylabel: mSv/s
+	ylog: False
+	yrebin: 1
+	zlog: False
+	zrebin: 1
+	ztics: 0
+End
+
+# RESNUCLE plot "Residual nuclei - instantanuous"
+Plot: Residual_nuclei
+	Format: .eps
+	Type:   RESNUCLE
+	cbcolors: 0
+	cblabel: Number of nuclei
+	cblog: True
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_62.rnc
+	det: 1
+	grid: 0
+	index: 0
+	lw.0: 0
+	norm: 1.74E10
+	plot: N/Z
+	ps.0: 0
+	title: Residual nuclei - instantanuous
+	with.0: errorbars
+	x2log: False
+	x2tics: 0
+	xlabel: N [Number of neutrons]
+	xlog: False
+	y2log: False
+	y2tics: 0
+	ylabel: Z [Number of protons]
+	ylog: False
+	zlog: False
+	ztics: 0
+End
+
+# RESNUCLE plot "Residual nuclei - after 1 minute"
+Plot: Residual_nuclei_1minute
+	Format: .eps
+	Type:   RESNUCLE
+	cbcolors: 0
+	cblabel: Bq/cm3
+	cblog: 1
+	cbmax: 1e10
+	cbmin: 1e-35
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_63.rnc
+	det: 1
+	grid: 0
+	index: 0
+	lw.0: 0
+	plot: N/Z
+	ps.0: 0
+	title: Residual nuclei - after 1 minute
+	with.0: errorbars
+	x2log: 0
+	x2tics: 0
+	xlabel: N [Number of neutrons]
+	xlog: 0
+	y2log: 0
+	y2tics: 0
+	ylabel: Z [Number of protons]
+	ylog: 0
+	zlog: 0
+	ztics: 0
+End
+
+# RESNUCLE plot "Residual nuclei - after 1 hour"
+Plot: Residual_nuclei_1hour
+	Format: .eps
+	Type:   RESNUCLE
+	cbcolors: 0
+	cblabel: Bq/cm3
+	cblog: 1
+	cbmax: 1e10
+	cbmin: 1e-35
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_64.rnc
+	det: 1
+	grid: 0
+	index: 1
+	lw.0: 0
+	plot: N/Z
+	ps.0: 0
+	title: Residual nuclei - after 1 hour
+	with.0: errorbars
+	x2log: 0
+	x2tics: 0
+	xlabel: N [Number of neutrons]
+	xlog: 0
+	y2log: 0
+	y2tics: 0
+	ylabel: Z [Number of protons]
+	ylog: 0
+	zlog: 0
+	ztics: 0
+End
+
+# RESNUCLE plot "Residual nuclei - after 1 day"
+Plot: Residual_nuclei_1day
+	Format: .eps
+	Type:   RESNUCLE
+	cbcolors: 0
+	cblabel: Bq/cm3
+	cblog: 1
+	cbmax: 1e10
+	cbmin: 1e-35
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_65.rnc
+	det: 1
+	grid: 0
+	index: 0
+	lw.0: 0
+	plot: N/Z
+	ps.0: 0
+	title: Residual nuclei - after 1 day
+	with.0: errorbars
+	x2log: 0
+	x2tics: 0
+	xlabel: N [Number of neutrons]
+	xlog: 0
+	y2log: 0
+	y2tics: 0
+	ylabel: Z [Number of protons]
+	ylog: 0
+	zlog: 0
+	ztics: 0
+End
+
+# RESNUCLE plot "Residual nuclei - after 1 month"
+Plot: Residual_nuclei_1month
+	Format: .eps
+	Type:   RESNUCLE
+	cbcolors: 0
+	cblabel: Bq/cm3
+	cblog: 1
+	cbmax: 1e10
+	cbmin: 1e-35
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_66.rnc
+	det: 1
+	grid: 0
+	index: 0
+	lw.0: 0
+	plot: N/Z
+	ps.0: 0
+	title: Residual nuclei - after 1 month
+	with.0: errorbars
+	x2log: 0
+	x2tics: 0
+	xlabel: N [Number of neutrons]
+	xlog: 0
+	y2log: 0
+	y2tics: 0
+	ylabel: Z [Number of protons]
+	ylog: 0
+	zlog: 0
+	ztics: 0
+End
+
+# RESNUCLE plot "Residual nuclei - after 1 year"
+Plot: Residual_nuclei_1year
+	Format: .eps
+	Type:   RESNUCLE
+	cbcolors: 0
+	cblabel: Bq/cm3
+	cblog: True
+	cbmax: 1e10
+	cbmin: 1e-35
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 1
+	cpd: 0
+	datafile: BeamDump_Design_BSmith_0_TB_0067_210_00_A_67.rnc
+	det: 1
+	grid: 0
+	index: 2
+	lw.0: 0
+	plot: N/Z
+	ps.0: 0
+	title: Residual nuclei - after 1 year
+	with.0: errorbars
+	x2log: False
+	x2tics: 0
+	xlabel: N [Number of neutrons]
+	xlog: False
+	y2log: False
+	y2tics: 0
+	ylabel: Z [Number of protons]
+	ylog: False
+	zlog: False
+	ztics: 0
+End
+
+# USR-1D plot "Neutron spectrum"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_50_plot
+	Format: .eps
+	Type:   USR-1D
+	block.0: 0
+	block.1: 0
+	block.10: 0
+	block.11: 0
+	block.2: 0
+	block.3: 0
+	block.4: 0
+	block.5: 0
+	block.6: 0
+	block.7: 0
+	block.8: 0
+	block.9: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	det.0: 0
+	det.1: 0
+	det.10: 0
+	det.11: 0
+	det.2: 0
+	det.3: 0
+	det.4: 0
+	det.5: 0
+	det.6: 0
+	det.7: 0
+	det.8: 0
+	det.9: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_50_tab.lis
+	file.1: BeamDump_Design_BSmith_0_TB_0067_210_00_A_61_tab.lis
+	file.10: BeamDump_Design_BSmith_0_TB_0067_210_00_A_52_tab.lis
+	file.11: BeamDump_Design_BSmith_0_TB_0067_210_00_A_51_tab.lis
+	file.2: BeamDump_Design_BSmith_0_TB_0067_210_00_A_60_tab.lis
+	file.3: BeamDump_Design_BSmith_0_TB_0067_210_00_A_59_tab.lis
+	file.4: BeamDump_Design_BSmith_0_TB_0067_210_00_A_58_tab.lis
+	file.5: BeamDump_Design_BSmith_0_TB_0067_210_00_A_57_tab.lis
+	file.6: BeamDump_Design_BSmith_0_TB_0067_210_00_A_56_tab.lis
+	file.7: BeamDump_Design_BSmith_0_TB_0067_210_00_A_55_tab.lis
+	file.8: BeamDump_Design_BSmith_0_TB_0067_210_00_A_54_tab.lis
+	file.9: BeamDump_Design_BSmith_0_TB_0067_210_00_A_53_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
+	key.1: 1
+	key.10: 1
+	key.11: 1
+	key.2: 1
+	key.3: 1
+	key.4: 1
+	key.5: 1
+	key.6: 1
+	key.7: 1
+	key.8: 1
+	key.9: 1
+	lc.0: red
+	lc.1: aquamarine
+	lc.10: royalblue
+	lc.11: yellow
+	lc.2: blue
+	lc.3: coral
+	lc.4: gold
+	lc.5: green
+	lc.6: magenta
+	lc.7: olive
+	lc.8: orange
+	lc.9: purple
+	lw.0: 2
+	lw.1: 1
+	lw.10: 1
+	lw.11: 1
+	lw.2: 1
+	lw.3: 1
+	lw.4: 1
+	lw.5: 1
+	lw.6: 1
+	lw.7: 1
+	lw.8: 1
+	lw.9: 1
+	name.0: all angles
+	name.1: 175-180 degrees
+	name.10: 100-110 degrees
+	name.11: 90-100 degrees
+	name.2: 170-175 degrees
+	name.3: 165-170 degrees
+	name.4: 160-165 degrees
+	name.5: 150-160 dedrees
+	name.6: 140-150 degrees
+	name.7: 130-140 degrees
+	name.8: 120-130 degrees
+	name.9: 110-120 degrees
+	ndetectors: 12
+	norm.0: 1.74e10*4*pi
+	norm.1: 1.74e10*2*pi*0.0038053
+	norm.10: 1.74e10*2*pi*0.16837196
+	norm.11: 1.74e10*2*pi*0.1736482
+	norm.2: 1.74e10*2*pi*0.0113869
+	norm.3: 1.74e10*2*pi*0.0188819
+	norm.4: 1.74e10*2*pi*0.0262332
+	norm.5: 1.74e10*2*pi*0.0736672
+	norm.6: 1.74e10*2*pi*0.09998096
+	norm.7: 1.74e10*2*pi*0.1232568
+	norm.8: 1.74e10*2*pi*0.1427876
+	norm.9: 1.74e10*2*pi*0.15797986
+	ps.0: 1
+	ps.1: 1
+	ps.10: 1
+	ps.11: 1
+	ps.2: 1
+	ps.3: 1
+	ps.4: 1
+	ps.5: 1
+	ps.6: 1
+	ps.7: 1
+	ps.8: 1
+	ps.9: 1
+	pt.0: 0
+	pt.1: 0
+	pt.10: 0
+	pt.11: 0
+	pt.2: 0
+	pt.3: 0
+	pt.4: 0
+	pt.5: 0
+	pt.6: 0
+	pt.7: 0
+	pt.8: 0
+	pt.9: 0
+	show.0: 1
+	show.1: 1
+	show.10: 1
+	show.11: 1
+	show.2: 1
+	show.3: 1
+	show.4: 1
+	show.5: 1
+	show.6: 1
+	show.7: 1
+	show.8: 1
+	show.9: 1
+	title: Neutron spectrum
+	with.0: xyerrorbars
+	with.1: xyerrorbars
+	with.10: xyerrorbars
+	with.11: xyerrorbars
+	with.2: xyerrorbars
+	with.3: xyerrorbars
+	with.4: xyerrorbars
+	with.5: xyerrorbars
+	with.6: xyerrorbars
+	with.7: xyerrorbars
+	with.8: xyerrorbars
+	with.9: xyerrorbars
+	x.0: 2
+	x2log: False
+	x2tics: 0
+	xlabel: E_kin (MeV)
+	xlog: True
+	xmax: 1000
+	xnorm.0: 1./MeV
+	xnorm.1: 1./MeV
+	xnorm.10: 1./MeV
+	xnorm.11: 1./MeV
+	xnorm.2: 1./MeV
+	xnorm.3: 1./MeV
+	xnorm.4: 1./MeV
+	xnorm.5: 1./MeV
+	xnorm.6: 1./MeV
+	xnorm.7: 1./MeV
+	xnorm.8: 1./MeV
+	xnorm.9: 1./MeV
+	y.0: 1
+	y.1: 1
+	y.10: 1
+	y.11: 1
+	y.2: 1
+	y.3: 1
+	y.4: 1
+	y.5: 1
+	y.6: 1
+	y.7: 1
+	y.8: 1
+	y.9: 1
+	y2log: False
+	y2tics: 0
+	ylabel: # neutrons
+	ylog: True
+	ymin: 100000
+	zlog: False
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 51"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_51_plot
+	Format: .eps
+	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_51_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 12
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 51
+	with.0: histerror
+	x.0: 2
+	x2log: False
+	x2tics: 0
+	xlog: True
+	xnorm.0: 1./MeV
+	y.0: 0
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 52"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_52_plot
+	Format: .eps
+	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_52_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 12
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 52
+	with.0: histerror
+	x.0: 2
+	x2log: False
+	x2tics: 0
+	xlog: True
+	y.0: 0
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 53"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_53_plot
+	Format: .eps
+	Type:   USR-1D
+	cbtics: 0
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_53_tab.lis
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 12
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 53
+	with.0: histerror
+	x.0: 2
+	x2tics: 0
+	xlog: 1
+	y.0: 0
+	y2tics: 0
+	ylog: 1
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 54"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_54_plot
+	Format: .eps
+	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_54_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 12
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 54
+	with.0: histerror
+	x.0: 2
+	x2log: False
+	x2tics: 0
+	xlog: True
+	y.0: 0
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 55"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_55_plot
+	Format: .eps
+	Type:   USR-1D
+	cbtics: 0
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_55_tab.lis
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 12
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 55
+	with.0: histerror
+	x.0: 2
+	x2tics: 0
+	xlog: 1
+	y.0: 0
+	y2tics: 0
+	ylog: 1
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 56"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_56_plot
+	Format: .eps
+	Type:   USR-1D
+	cbtics: 0
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_56_tab.lis
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 12
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 56
+	with.0: histerror
+	x.0: 2
+	x2tics: 0
+	xlog: 1
+	y.0: 0
+	y2tics: 0
+	ylog: 1
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 57"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_57_plot
+	Format: .eps
+	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_57_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 12
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 57
+	with.0: histerror
+	x.0: 2
+	x2log: False
+	x2tics: 0
+	xlog: True
+	y.0: 0
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 58"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_58_plot
+	Format: .eps
+	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_58_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 12
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 58
+	with.0: histerror
+	x.0: 2
+	x2log: False
+	x2tics: 0
+	xlog: True
+	y.0: 0
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 59"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_59_plot
+	Format: .eps
+	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_59_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 12
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 59
+	with.0: histerror
+	x.0: 2
+	x2log: False
+	x2tics: 0
+	xlog: True
+	y.0: 0
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 60"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_60_plot
+	Format: .eps
+	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_60_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 12
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 60
+	with.0: histerror
+	x.0: 2
+	x2log: False
+	x2tics: 0
+	xlog: True
+	y.0: 0
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 61"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_61_plot
+	Format: .eps
+	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_61_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 12
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 61
+	with.0: histerror
+	x.0: 2
+	x2log: False
+	x2tics: 0
+	xlog: True
+	y.0: 0
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 70"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_70_plot
+	Format: .eps
+	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_70_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 1
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 70
+	with.0: histerror
+	x.0: 2
+	x2log: False
+	x2tics: 0
+	xlog: True
+	y.0: 0
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 71"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_71_plot
+	Format: .eps
+	Type:   USR-1D
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_71_tab.lis
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 1
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 71
+	with.0: histerror
+	x.0: 2
+	xlog: 1
+	y.0: 0
+	ylog: 1
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 72"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_72_plot
+	Format: .eps
+	Type:   USR-1D
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_72_tab.lis
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 1
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 72
+	with.0: histerror
+	x.0: 2
+	xlog: 1
+	y.0: 0
+	ylog: 1
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 73"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_73_plot
+	Format: .eps
+	Type:   USR-1D
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_73_tab.lis
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 1
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 73
+	with.0: histerror
+	x.0: 2
+	xlog: 1
+	y.0: 0
+	ylog: 1
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 74"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_74_plot
+	Format: .eps
+	Type:   USR-1D
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_74_tab.lis
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 1
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 74
+	with.0: histerror
+	x.0: 2
+	xlog: 1
+	y.0: 0
+	ylog: 1
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 75"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_75_plot
+	Format: .eps
+	Type:   USR-1D
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_75_tab.lis
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 1
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 75
+	with.0: histerror
+	x.0: 2
+	xlog: 1
+	y.0: 0
+	ylog: 1
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 76"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_76_plot
+	Format: .eps
+	Type:   USR-1D
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_76_tab.lis
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 1
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 76
+	with.0: histerror
+	x.0: 2
+	xlog: 1
+	y.0: 0
+	ylog: 1
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 77"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_77_plot
+	Format: .eps
+	Type:   USR-1D
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_77_tab.lis
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 1
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 77
+	with.0: histerror
+	x.0: 2
+	xlog: 1
+	y.0: 0
+	ylog: 1
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 78"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_78_plot
+	Format: .eps
+	Type:   USR-1D
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_78_tab.lis
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 1
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 78
+	with.0: histerror
+	x.0: 2
+	xlog: 1
+	y.0: 0
+	ylog: 1
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 79"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_79_plot
+	Format: .eps
+	Type:   USR-1D
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_79_tab.lis
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 1
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 79
+	with.0: histerror
+	x.0: 2
+	xlog: 1
+	y.0: 0
+	ylog: 1
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 80"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_80_plot
+	Format: .eps
+	Type:   USR-1D
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_80_tab.lis
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 1
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 80
+	with.0: histerror
+	x.0: 2
+	xlog: 1
+	y.0: 0
+	ylog: 1
+End
+
+# USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 81"
+Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_81_plot
+	Format: .eps
+	Type:   USR-1D
+	det.0: 0
+	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_81_tab.lis
+	lc.0: red
+	lw.0: 2
+	name.0: Detector 1
+	ndetectors: 1
+	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 81
+	with.0: histerror
+	x.0: 2
+	xlog: 1
+	y.0: 0
+	ylog: 1
+End
