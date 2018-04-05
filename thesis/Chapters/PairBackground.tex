@@ -2,7 +2,7 @@
 \label{PairBkg}
 
 \begin{chapterabstract}
- At the International Linear Collider, the collisions of the two lepton beams are accompanied by the production of background particles.
+ At the International Linear Collider, the collisions of electron and positron beams are accompanied by the production of background particles.
  Unlike at hadron colliders, the main background contribution does not arise from QCD processes and underlying events, but rather from the interaction of the colliding beam's electromagnetic fields.
  The created secondary \positron\electron pairs form a significant background, the so-called pair background, for the inner detectors, and therefore need to be studied in great detail.
  This chapter discusses the effect of the ILC beam parameters on the pair background, and the impact of the \positron\electron pairs on the \sid detector.
@@ -11,15 +11,16 @@
 As discussed in Section~\ref{BeamBeam}, the pair background is a high cross section process from beam-beam interactions and the main source of background at the ILC.
 The secondary electrons and positrons show a characteristic density distribution, which reach to the inner layers of the \sid vertex and tracking detectors.
 The impact on the \sid detector is studied with respect to the timing, the hit distribution, and the arising detector occupancy.
-These impacts are, however, affected by the change in the ILC beam parameters for the ILC250 stage, which is another study done for this thesis and is explained throughout the following sections.
-The results of these studies contributed towards design choices of the accelerator and the \sid detector.
+These impacts are, however, dependent on the ILC beam parameters.
+For the proposed change in the beam parameters for the ILC stage at \SI{250}{\GeV}, the effect on the pair background has been analyzed in detail. \todo{English}
+The results of these studies, which is explained throughout the following sections, are essential for the design choices of the accelerator and the \sid detector.
 
 \section{The background generator GuineaPig}
 \label{PairBkg:GuineaPig}
 For studying the effects of the pair background, \positron\electron pairs from beam-beam interactions were generated with the Monte Carlo (MC) background event generator \guineapig~\cite{Schulte:1997nga} version 1.4.4. 
 When providing the accelerator beam parameters, the pair background events of one bunch crossing are simulated and stored in an ASCII output file.
 The parameters used for generating the pair background for this thesis are given in Appendix~\ref{Appendix:Pairs:GuineaPig}. 
-\\Since the ASCII files cannot directly serve as input to a full \geant~\cite{geant_ref,geant_ref2} detector simulation, a conversion tool was written for analysis studies in the context of this thesis, and instructions on its usage are available in~\cite{Confluence}. 
+\\Since the ASCII files cannot directly serve as input to a full \geant~\cite{geant_ref,geant_ref2} detector simulation, a conversion tool was developed for the analysis studies presented in this thesis, and instructions on its usage are available in~\cite{Confluence}. 
 The tool converts the ASCII output to one of the following common file formats: stdhep or slcio~\cite{LCIO}.
 These file formats are directly applicable with the \geant based simulation tool \slic~\cite{Graf:2006ei}, which simulates interactions of the input particles with matter.
 The geometry of the simulated world is described in a lcdd file in a human-readable format.
