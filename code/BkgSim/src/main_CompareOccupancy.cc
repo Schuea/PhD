@@ -109,10 +109,11 @@ void Plot_everything(std::vector< std::string > inputfilenames, std::string laye
 void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::string histoname, std::string x_title, std::string y_title){
   TLegend* legend;
   if(inputfilenames.size()<3) legend = new TLegend(0.62,0.75,0.8,0.86);
-  else                         legend = new TLegend(0.5,0.6267,0.8,0.86);
+  else                         legend = new TLegend(0.3,0.6267,0.8,0.86);
   legend->SetBorderSize(1);
   legend->SetFillColor(kWhite);
-  legend->SetMargin(0.2);
+  legend->SetMargin(0.1);
+  //legend->SetMargin(0.2);
   
   std::vector< TH1F* > histos;
 	for(size_t no_files = 0; no_files < inputfilenames.size(); ++ no_files){
@@ -143,8 +144,8 @@ void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::stri
     histos.at(no_histo)->SetLineWidth(2);
     histos.at(no_histo)->SetMarkerSize(0.7);
     if(no_histo == 0){
-      //name = "ILC500";
-      name = "set (TDR)";
+      name = "ILC500";
+      //name = "set (TDR)";
       histos.at(no_histo)->SetLineColor(1);
       histos.at(no_histo)->SetMarkerColor(1);
       histos.at(no_histo)->SetMarkerStyle(4);
@@ -163,8 +164,9 @@ void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::stri
         histos.at(no_histo)->SetMarkerStyle(8);
         //histos.at(no_histo)->SetMarkerStyle(26);
         //histos.at(no_histo)->SetMarkerSize(0.8);
-        //name = "ILC250";
-        name = "set (A): TDR + Emittance_x";
+        name = "ILC250";
+        //name = "set (A): TDR + Emittance_x";
+        //name = "ILC500 LumiUp";
       }
       if(no_histo == 2){
         histos.at(no_histo)->SetLineColor(3);
@@ -181,7 +183,8 @@ void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::stri
       //histos.at(no_histo)->Draw("hist,p,SAMES");
       histos.at(no_histo)->Draw("e,SAMES");
     }
-    legend->AddEntry(histos.at(no_histo),name.c_str(),"lep");
+    legend->AddEntry(histos.at(no_histo),name.c_str(),"p");
+    //legend->AddEntry(histos.at(no_histo),name.c_str(),"lep");
   }
   legend->Draw();
 }
