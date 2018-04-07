@@ -169,9 +169,18 @@ int main(int const argc, char const * const * const argv) {
   CellHits cellhits( &det );
   for (int file_iterator = 0; file_iterator < NUMBER_OF_FILES; ++file_iterator) {
     //std::cout << inputfilenames->at(file_iterator) << std::endl;
-    TFile *file = TFile::Open(inputfilenames->at(file_iterator).c_str());
-    TTree *tree = Get_TTree(file, det.getName());
-
+    TFile *file = nullptr;
+    TTree *tree = nullptr;
+    try
+    {
+      file = TFile::Open(inputfilenames->at(file_iterator).c_str());
+      tree = Get_TTree(file, det.getName());
+    }
+    catch(...)
+    {
+      std::cout << "Failed to open " << inputfilenames->at(file_iterator) << std::endl;
+      continue;
+    }
     //Set the branches
     int pdg(0);
     int HitCellID0(0);
