@@ -167,7 +167,14 @@ int main(int const argc, char const * const * const argv) {
   }
 
   CellHits cellhits( &det );
+
+  bool breakloop = false;
+  if (inputfilenames->size() < NUMBER_OF_FILES) breakloop = true;
+
   for (int file_iterator = 0; file_iterator < NUMBER_OF_FILES; ++file_iterator) {
+    if (breakloop){
+      if ( file_iterator == inputfilenames->size() ) break;
+    }
     //std::cout << inputfilenames->at(file_iterator) << std::endl;
     TFile *file = nullptr;
     TTree *tree = nullptr;
