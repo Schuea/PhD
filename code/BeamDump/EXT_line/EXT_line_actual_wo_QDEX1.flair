@@ -6,7 +6,7 @@ Input: EXT_line_actual_wo_QDEX1.inp
 Exec: IR_DumpNeut.x
 Submit: Nohup
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Input
+Page: Plot
 Source: rdmgdraw.f
 Source: rdsource.f
 DefMain: True
