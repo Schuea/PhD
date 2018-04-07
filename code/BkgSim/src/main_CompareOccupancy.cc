@@ -144,8 +144,8 @@ void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::stri
     histos.at(no_histo)->SetLineWidth(2);
     histos.at(no_histo)->SetMarkerSize(0.7);
     if(no_histo == 0){
-      name = "ILC500";
-      //name = "set (TDR)";
+      //name = "ILC500";
+      name = "set (TDR)";
       histos.at(no_histo)->SetLineColor(1);
       histos.at(no_histo)->SetMarkerColor(1);
       histos.at(no_histo)->SetMarkerStyle(4);
@@ -164,8 +164,8 @@ void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::stri
         histos.at(no_histo)->SetMarkerStyle(8);
         //histos.at(no_histo)->SetMarkerStyle(26);
         //histos.at(no_histo)->SetMarkerSize(0.8);
-        name = "ILC250";
-        //name = "set (A): TDR + Emittance_x";
+        //name = "ILC250";
+        name = "set (A): TDR + Emittance_x";
         //name = "ILC500 LumiUp";
       }
       if(no_histo == 2){
