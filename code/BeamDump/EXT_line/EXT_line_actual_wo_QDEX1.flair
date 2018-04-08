@@ -6,7 +6,7 @@ Input: EXT_line_actual_wo_QDEX1.inp
 Exec: IR_DumpNeut.x
 Submit: Nohup
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Plot
+Page: Run
 Source: rdmgdraw.f
 Source: rdsource.f
 DefMain: True
@@ -22,7 +22,7 @@ Run: <default>
 	Status:   3
 	Pid:      0
 	StartRun: 1522745054
-	Family:  EXT_line_actual_wo_QDEX1_aa EXT_line_actual_wo_QDEX1_ab
+	Family:  EXT_line_actual_wo_QDEX1_aa EXT_line_actual_wo_QDEX1_ab EXT_line_actual_wo_QDEX1_ac EXT_line_actual_wo_QDEX1_ad EXT_line_actual_wo_QDEX1_ae EXT_line_actual_wo_QDEX1_af EXT_line_actual_wo_QDEX1_ag
 
 	# USRxxx data file: EXT_line_actual_wo_QDEX1_21.bnn
 	Data: \I_\U.\e
@@ -81,7 +81,7 @@ Run: EXT_line_actual_wo_QDEX1_aa
 	Last:     5
 	Status:   3
 	Pid:      0
-	StartRun: 1522867228
+	StartRun: 1523115627
 	Parent:    <default>
 
 	# USRxxx data file: EXT_line_actual_wo_QDEX1_aa_21.bnn
@@ -115,6 +115,22 @@ Run: EXT_line_actual_wo_QDEX1_aa
 		Rule: +,\I\d\d\d_fort\.\U
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_aa_25.bnn
+	Data: \I_\U.\e
+		Unit: 25
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_aa_26.bnn
+	Data: \I_\U.\e
+		Unit: 26
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
 End
 
 # Run information
@@ -125,7 +141,7 @@ Run: EXT_line_actual_wo_QDEX1_ab
 	Last:     5
 	Status:   3
 	Pid:      0
-	StartRun: 1522867228
+	StartRun: 1523134428
 	Parent:    <default>
 
 	# USRxxx data file: EXT_line_actual_wo_QDEX1_ab_21.bnn
@@ -159,6 +175,322 @@ Run: EXT_line_actual_wo_QDEX1_ab
 		Rule: +,\I\d\d\d_fort\.\U
 		Rule: +,\I\d\d\d_ftn\.\U
 	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ab_25.bnn
+	Data: \I_\U.\e
+		Unit: 25
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ab_26.bnn
+	Data: \I_\U.\e
+		Unit: 26
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+End
+
+# Run information
+Run: EXT_line_actual_wo_QDEX1_ac
+	Rnd:      4
+	Exe:      IR_DumpNeut.x
+	Prev:     0
+	Last:     5
+	Status:   3
+	Pid:      0
+	StartRun: 1523115627
+	Parent:    <default>
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ac_21.bnn
+	Data: \I_\U.\e
+		Unit: 21
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ac_22.bnn
+	Data: \I_\U.\e
+		Unit: 22
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ac_23.bnn
+	Data: \I_\U.\e
+		Unit: 23
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ac_24.bnn
+	Data: \I_\U.\e
+		Unit: 24
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ac_25.bnn
+	Data: \I_\U.\e
+		Unit: 25
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ac_26.bnn
+	Data: \I_\U.\e
+		Unit: 26
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+End
+
+# Run information
+Run: EXT_line_actual_wo_QDEX1_ad
+	Rnd:      5
+	Exe:      IR_DumpNeut.x
+	Prev:     0
+	Last:     5
+	Status:   3
+	Pid:      0
+	StartRun: 1523115627
+	Parent:    <default>
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ad_21.bnn
+	Data: \I_\U.\e
+		Unit: 21
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ad_22.bnn
+	Data: \I_\U.\e
+		Unit: 22
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ad_23.bnn
+	Data: \I_\U.\e
+		Unit: 23
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ad_24.bnn
+	Data: \I_\U.\e
+		Unit: 24
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ad_25.bnn
+	Data: \I_\U.\e
+		Unit: 25
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ad_26.bnn
+	Data: \I_\U.\e
+		Unit: 26
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+End
+
+# Run information
+Run: EXT_line_actual_wo_QDEX1_ae
+	Rnd:      6
+	Exe:      IR_DumpNeut.x
+	Prev:     0
+	Last:     5
+	Status:   3
+	Pid:      0
+	StartRun: 1523115627
+	Parent:    <default>
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ae_21.bnn
+	Data: \I_\U.\e
+		Unit: 21
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ae_22.bnn
+	Data: \I_\U.\e
+		Unit: 22
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ae_23.bnn
+	Data: \I_\U.\e
+		Unit: 23
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ae_24.bnn
+	Data: \I_\U.\e
+		Unit: 24
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ae_25.bnn
+	Data: \I_\U.\e
+		Unit: 25
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ae_26.bnn
+	Data: \I_\U.\e
+		Unit: 26
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+End
+
+# Run information
+Run: EXT_line_actual_wo_QDEX1_af
+	Rnd:      7
+	Exe:      IR_DumpNeut.x
+	Prev:     0
+	Last:     5
+	Status:   3
+	Pid:      0
+	StartRun: 1523115627
+	Parent:    <default>
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_af_21.bnn
+	Data: \I_\U.\e
+		Unit: 21
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_af_22.bnn
+	Data: \I_\U.\e
+		Unit: 22
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_af_23.bnn
+	Data: \I_\U.\e
+		Unit: 23
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_af_24.bnn
+	Data: \I_\U.\e
+		Unit: 24
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_af_25.bnn
+	Data: \I_\U.\e
+		Unit: 25
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_af_26.bnn
+	Data: \I_\U.\e
+		Unit: 26
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+End
+
+# Run information
+Run: EXT_line_actual_wo_QDEX1_ag
+	Rnd:      8
+	Exe:      IR_DumpNeut.x
+	Prev:     0
+	Last:     5
+	Status:   3
+	Pid:      0
+	StartRun: 1523115627
+	Parent:    <default>
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ag_21.bnn
+	Data: \I_\U.\e
+		Unit: 21
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ag_22.bnn
+	Data: \I_\U.\e
+		Unit: 22
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ag_23.bnn
+	Data: \I_\U.\e
+		Unit: 23
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ag_24.bnn
+	Data: \I_\U.\e
+		Unit: 24
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ag_25.bnn
+	Data: \I_\U.\e
+		Unit: 25
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
+
+	# USRxxx data file: EXT_line_actual_wo_QDEX1_ag_26.bnn
+	Data: \I_\U.\e
+		Unit: 26
+		Type: b
+		Rule: +,\I\d\d\d_fort\.\U
+		Rule: +,\I\d\d\d_ftn\.\U
+	End
 End
 
 # Material
@@ -175,6 +507,16 @@ End
 Material: MgO
 	alpha: 0
 	color: #305030
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: BorConc
+	alpha: 0
+	color: #4050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -215,16 +557,6 @@ End
 Material: Fe2O3
 	alpha: 0
 	color: #B0B050
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: Chlorine
-	alpha: 0
-	color: #9050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -312,9 +644,9 @@ Material: B2O3
 End
 
 # Material
-Material: Eu
+Material: Cs
 	alpha: 0
-	color: #703070
+	color: #901070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -402,9 +734,9 @@ Material: CaO
 End
 
 # Material
-Material: BorConc
+Material: Chlorine
 	alpha: 0
-	color: #4050D0
+	color: #9050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -412,9 +744,9 @@ Material: BorConc
 End
 
 # Material
-Material: Cs
+Material: Eu
 	alpha: 0
-	color: #901070
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -477,7 +809,7 @@ Plot: Red
 	cbtics: 0
 	coord: U-V
 	cpd: 0
-	extends: 767.701 413.658
+	extends: 767.701 414.193
 	grid: 0
 	index: 0
 	labels: 1
@@ -503,7 +835,7 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 2.48684 1.33998
+	extends: 2.48684 1.34339
 	labels: 1
 	layer: Lattice
 	origin: 0.694901 0 30248.4
@@ -519,7 +851,7 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 114.163 61.3332
+	extends: 114.163 61.4503
 	labels: 1
 	layer: Lattice
 	origin: 0 5.86449 934.871
@@ -541,7 +873,7 @@ Plot: Magenta
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 744.543 400
+	extends: 744.543 401.268
 	grid: 0
 	index: 0
 	labels: 1
@@ -577,10 +909,11 @@ Plot: EXT_line_actual_wo_QDEX1_21_plot
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 6.7898105863487780E-003
+	int: 7.3319919513789751E-003
 	lw.0: 0
-	max: 2.11661466E-10
-	min: 6.02716887E-27
+	max: 2.40825970E-10
+	min: 2.64963876E-27
+	norm: 311745.34*1.74e10/(56*2000)
 	proj: Y
 	ps.0: 0
 	pt.0: 0
@@ -703,10 +1036,11 @@ Plot: EXT_line_actual_wo_QDEX1_24_plot
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 1745.4403480618362
+	int: 1775.2823340057018
 	lw.0: 0
-	max: 4.60223237E-05
-	min: 1.35080116E-16
+	max: 4.62578464E-05
+	min: 1.26400914E-16
+	norm: 311745.34*1.74e10/(56*2000)
 	proj: Y
 	ps.0: 0
 	pt.0: 0
@@ -745,10 +1079,10 @@ Plot: EXT_line_actual_wo_QDEX1_25_plot
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 459.85089362439862
+	int: 460.15078617550591
 	lw.0: 0
-	max: 8.16433894E-05
-	min: 7.81678222E-10
+	max: 8.27800977E-05
+	min: 1.19377164E-09
 	proj: Y
 	ps.0: 0
 	pt.0: 0
@@ -758,6 +1092,7 @@ Plot: EXT_line_actual_wo_QDEX1_25_plot
 	x2log: False
 	x2tics: 0
 	xlog: False
+	xmin: 30240
 	xrebin: 1
 	y2log: False
 	y2tics: 0
