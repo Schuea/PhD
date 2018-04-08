@@ -145,8 +145,8 @@ void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::stri
     histos.at(no_histo)->SetMarkerSize(0.7);
     if(no_histo == 0){
       //name = "ILC500";
-      //name = "set (TDR)";
-      name = "set (A): old L*, w/o antiDiD";
+      name = "set (TDR)";
+      //name = "set (A): old L*, w/o antiDiD";
       histos.at(no_histo)->SetLineColor(1);
       histos.at(no_histo)->SetMarkerColor(1);
       histos.at(no_histo)->SetMarkerStyle(4);
@@ -166,23 +166,23 @@ void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::stri
         //histos.at(no_histo)->SetMarkerStyle(26);
         //histos.at(no_histo)->SetMarkerSize(0.8);
         //name = "ILC250";
-        name = "set (A): old L*, w antiDiD";
-        //name = "set (A): TDR + Emittance_x";
+        //name = "set (A): old L*, w antiDiD";
+        name = "set (A): TDR + Emittance_x";
         //name = "ILC500 LumiUp";
       }
       if(no_histo == 2){
         histos.at(no_histo)->SetLineColor(3);
         histos.at(no_histo)->SetMarkerColor(3);
         histos.at(no_histo)->SetMarkerStyle(25);
-        name = "set (A): new L*, w/o antiDiD";
-        //name = "set (B): TDR + Emittance_x + Beta_x";
+        //name = "set (A): new L*, w/o antiDiD";
+        name = "set (B): TDR + Emittance_x + Beta_x";
       }
       if(no_histo == 3){
         histos.at(no_histo)->SetLineColor(4);
         histos.at(no_histo)->SetMarkerColor(4);
         histos.at(no_histo)->SetMarkerStyle(21);
-        name = "set (A): new L*, w antiDiD";
-        //name = "set (C): TDR + Emittance_x + Beta_x + Beta_y";
+        //name = "set (A): new L*, w antiDiD";
+        name = "set (C): TDR + Emittance_x + Beta_x + Beta_y";
       }
       //histos.at(no_histo)->Draw("hist,p,SAMES");
       histos.at(no_histo)->Draw("e,SAMES");
