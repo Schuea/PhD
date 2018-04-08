@@ -135,8 +135,9 @@ void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::stri
     name = " ";
     std::size_t found = histoname.find("cells");
     if(found != std::string::npos){//substring was found
+      histos.at(no_histo)->SetMinimum( std::pow(10.0,-6.0) );
       //histos.at(no_histo)->SetMinimum( std::pow(10.0,-9.0) );
-      histos.at(no_histo)->SetMinimum( std::pow(10.0,-12.0) );
+      //histos.at(no_histo)->SetMinimum( std::pow(10.0,-12.0) );
     }else{
       histos.at(no_histo)->SetMinimum( std::pow(10.0,-6.0) );
     }
