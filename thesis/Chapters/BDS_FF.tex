@@ -5,7 +5,7 @@
  With thorough simulations and measurements,  the characteristics of the machine background can be understood, and its effect on the detector performances evaluated.
  \\In the first part of this chapter, shielding options against muons that are created in the Beam Delivery System of the International Linear Collider are discussed.
  The simulation of the muon production was done with \mucarlo, before the occupancy in the Silicon Detector was investigated in a full detector simulation.
- \\The second part of this chapter describes measurements of the machine background done at the Accelerator Test Facility 2.
+ \\The second part of this chapter describes measurements of the machine background done at the \mbox{Accelerator Test Facility 2}.
  These measurements are then compared to a simulation of ATF2 with the accelerator simulation framework \bdsim.
 \end{chapterabstract}
 
@@ -317,82 +317,106 @@ A solution to lessen the price for the wall would be to change its design such t
 The wall would then still serve as additional shielding but does not deflect charged particles. \\An idea for future studies of the muon shielding would be to also adjust the detector specific Pacman design with respect to different materials and the possibility of magnetizing the Pacman volume.
 
 %---------------------------------------------------
-\section{Background from beam halo collimators in the final-focus system}
+\section{Background from beam halo collimators in the Final-Focus system}
 
-The Final-Focus System (FF) is -as explained in Chapter~\ref{ILC}- responsible for focussing the beam to nanometre size. The reason behind this is the need for high luminosities which can be gained by small beam sizes. Another goal of the International Linear Collider is to have clean events with as little background as possible. A solution to this is to install beam halo collimators in the FF system that cut off the halo around the beam core. As the beam halo can interact with the beam pipe and its components, a beam halo collimation system plays an important role in the reduction of background at the IP. Nevertheless, the collimator itself can be source to particle showers and rises in the background level around the collimator location. Feasibility studies are needed to investigate in the effect of a beam halo collimator.\\
-A vertical beam halo collimator was installed at the Accelerator Test Facility 2 (ATF2) at the research centre KEK in Japan. In March 2016, data of the background was taken with a Cherenkov detector in dependency of the aperture of this collimator at ATF2. This section covers the analysis of the data as well as the comparison of the data with simulations done with \bdsim. Both, the design of the vertical beam halo collimator at ATF2 and the \geant simulation tool \bdsim are explained here additionally.
-
-\subsection{Beam halo collimator}
-\label{Collimator}
-
-The vertical beam halo collimator, for which the design drawings are shown in Figure~\ref{fig:collimator}, was installed in ATF2 in the beginning of March 2016. The collimating jaws are inside a structure that is evacuated and connected to the beam pipe of the ATF2 beam line. The actual jaws are made of Copper, the rest of the components in the collimator structure are out of Stainless Steel. The jaws have a width of ?? and thickness of ??.
-%TODO: Add information about measurements of the jaws and the whole structure
-
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{Figures/ATF/ATF2_beamhalo_collimator.pdf}
-\caption[Drawing of the beam halo collimator]{A drawing of the vertical beam halo collimator built into ATF2.\cite{NuriaCollimator2015}}
-\label{fig:collimator}
-\end{figure}
-
-The two jaws can be moved individually to an arbitrary position, so that the edge of the jaw has a distance of between 2.6 and \SI{12}{\milli\metre} with respect to the centre. Therefore, the full aperture of the collimator structure can be between 5.2 and \SI{24}{\milli\metre}. The error on the position of the jaws is about \SI{0.04}{\milli\metre}.\\
-As every component in a beam line, especially for such small beam sizes, is affecting the electromagnetic field of the passing beam, the collimator is designed to minimize the effect of inducing large wakefield. The concern of wakefields induced by the collimator is addressed in \cite{NuriaCollimator2015}. This thesis chapter focusses exclusively on the effect on the background level.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{Figures/ATF/Installed_Collimator.jpg}
-\caption[Picture of the installed beam halo collimator]{A picture of the vertical beam halo collimator built into ATF2. The collimator jaws are within the evacuated structure. At the top and bottom of the structure, you can see the mover system for the two jaws.}
-\label{fig:installed_collimator}
-\end{figure}
+The Final-Focus System (FF) is responsible for focussing the ILC beam to nanometre size,  as explained in Section~\ref{ILC:layout}. 
+The reason behind this is the aim for high luminosities which can be gained by small beam sizes.
+In order to reduce the machine background arising from interactions of the beam with the Final-Focus components, beam halo collimators will be installed that cut off the halo around the beam core. 
+\\For testing the feasibility of such collimators, a vertical beam halo collimator has been installed at the \mbox{Accelerator Test Facility 2} (ATF2)~\cite{ATF} at the High Energy Accelerator Research Center Organization (KEK) in Japan~\cite{Nuria_Thesis}. 
+In March 2016, data of the background in proximity of the collimator was taken in dependency of the aperture of this collimator. 
+This section covers the analysis of the data as well as simulation studies done with \bdsim.
 
 \subsection{The Accelerator Test Facility 2}
 \label{ATF2}
 
-The Accelerator Test Facility 2 (ATF2) is an extension to the accelerator facility ATF at the research centre KEK in Japan. As can be seen in Figure~\ref{fig:ATF}, ATF consists of a linear accelerator which pre-accelerates the particles before they are accessing the dumping ring. Before the ATF2 was built, the beams were dumped after leaving the dumping ring through the short extraction line.\\ATF2 is a test bench for the FF system of the ILC and has two main goals: Focussing the low-emittance beam to \SI{37}{\nano\metre} in the vertical plane, and demonstrating the stability of the nanometre sized beam at the interaction point. So far a repeatable beam size of \SI{40}{\nano\metre} has been shown. Although the beam size goal of ATF2 seems to be too large compared to the ILC goal of \SI{9}{\nano\metre}, the ATF2 system is very close to the ILC FF. The beam size goal has to be scaled up for different lattice and beam conditions.
-
+The Accelerator Test Facility 2 (ATF2) is an extension to the accelerator facility ATF at the High Energy Accelerator Research Center Organization (KEK) in Japan~\cite{ATF}. 
+As can be seen in Figure~\ref{fig:ATF}, ATF consists of a linear accelerator, which pre-accelerates electrons to \SI{1.3}{\GeV} before they are entering the damping ring. 
+\\ATF2 is a test bench for the FF system of the ILC and has two main goals: 
+Focusing the low-emittance beam to \SI{37}{\nano\metre} in the vertical plane, and demonstrating the stability of the nanometer sized beam at the interaction point. 
+So far, a repeatable beam size of \SI{40}{\nano\metre} has been shown. 
+Although the beam size goal of ATF2 seems to be large compared to the ILC goal of \SI{9}{\nano\metre}, the ATF2 system is directly comparable to the ILC Final-Focus system. 
+The beam size goal has to be scaled up for different lattice and beam conditions.\\
 \begin{figure}
 \centering
-\includegraphics[width=0.6\textwidth]{Figures/ATF/ATF.jpg}
-\caption[ATF accelerator]{A schematic of the ATF accelerator with the ATF2 extension. The ATF consists of a linear accelerator, a beam dump, the old extraction line, and the new ATF2 extension.}%TODO: cite the source of the ATF figure!
+\includegraphics[width=0.6\textwidth]{Figures/ATF/ATF.png}
+\caption[ATF accelerator]{A schematic of the ATF accelerator with the ATF2 extension~\cite[cf. p. 65]{Nuria_Thesis}.
+ATF consists of a linear accelerator, a damping ring, the new ATF2 extension with the Final-Focys system, and a beam dump.}
 \label{fig:ATF}
 \end{figure}
-
-The vertical beam halo collimator and the Cherenkov detector, with which the background level in dependency of the collimator aperture was measured, are both located in the Final-Focus region of ATF2. The location of the collimator was chosen in such a way that the phase of the beta function is the same as at the IP. Due to that the effect of the collimation of the beam halo is then visible at the IP as desired. A schematic of the ATF2 lattice with the beam halo collimator and the Cherenkov detector is shown in Figure~\ref{fig:ATF2}. The Cherenkov detector was built and setup by a group of the Royal Holloway University of London (RHUL) because of which the detector is in the following referred to as the 'RHUL Cherenkov detector'. A more detailed description of this detector is given in Section~\ref{RHUL}.
-
+Additionally, as ATF serves as a research accelerator, the ATF collaboration allows research groups to test new accelerator and diagnostic components, to operate the accelerator themselves, and to take measurements for their research study.
+ATF therefore offers a unique opportunity for young researchers to conduct their experiments and to gain experience in operating a particle accelerator.
+\\To this end, the vertical beam halo collimator, which was proposed and designed for reducing the machine background at linear colliders, was installed in ATF2 in the beginning of March 2016 by Nura Fuster-Martinez~\cite{Nuria_Thesis}. 
+In a collaboration of Ph.D. students, valuable experience has been gained together with Nuria Fuster-Martinez in the installation and operation of diagnostic hardware for particle detection, and in the operation of the ATF beam.
+Whilst the focus of her research was lying on the construction and installation of the collimator as well as on the measurements of its general functionality, the focus for this part of the thesis at hand was lying independently on the measurements of background particles in the proximity of the collimator.
+\\The vertical beam halo collimator and the Cherenkov detector, with which the background level was measured in dependency of the collimator aperture, are both located in the FF section of ATF2. 
+A schematic of the ATF2 lattice with the beam halo collimator and the Cherenkov detector is shown in Figure~\ref{fig:ATF2}. 
+The Cherenkov detector was built and setup by a group of the Royal Holloway University of London (RHUL)~\cite{RHUL_detector_wiki}, because of which the detector is in the following referred to as the ``RHUL Cherenkov detector''.
+A more detailed description of this detector is given in Section~\ref{RHUL}.
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{Figures/ATF/ATF2schematic.pdf}
-\caption[ATF2]{A schematic of the ATF2 lattice. The beam direction is from right to left. The different magnets of the lattice are colour schemed: the bending dipole magnets are coloured in blue, the quadrupoles in red, and the sextupoles in yellow. The beam halo collimator is located before the quadrupole magnet 'QD10BFF', and the Cherenkov detector downstream between the dipole magnet 'B5FF' and the quadrupole magnet 'QD6FF'. After the interaction point (IP), the electron beam is bend in the last dipole magnet 'BDUMP' towards the beam dump. The neutral particles, like the photons, are continuing in a straight line where they can be monitored by the IPBSM Background Monitor. The Diamond Sensor (DS) can measure the shape of the beam core and the halo, before the beam is dumped.}
+\caption[ATF2 schematic]{A schematic of the ATF2 lattice~\cite{Nuria}. 
+The beam direction is from right to left. 
+The beam halo collimator is located before the quadrupole magnet 'QD10BFF', the Cherenkov detector is installed downstream between the dipole magnet 'B5FF' and the quadrupole magnet 'QD6FF'. 
+After the interaction point (IP), the electron beam is bend in the last dipole magnet 'BDUMP' towards the beam dump. 
+}
 \label{fig:ATF2}
 \end{figure}
+\\At the location of the beam halo collimator, the beam has a beam size of ??. \todo{Add info about beam size and halo}
+The beam halo is surrounding the core and reaches...
 
-\subsection{BDSIM}
-\label{BDSIM}
-\bdsim is a \geant extension toolkit for simulation of particle transport in accelerator beamlines. It was developed and is still supported by RHUL.
-The geometry of lattice parts are described in classes within the \bdsim framework. Lattices, like the ATF2 lattice, can easily be built up by the pre-defined components. A figure of the ATF2 lattice visualized with the \bdsim software is shown in Figure~\ref{fig:ATF2_BDSIM}.
+\subsection{Vertical beam halo collimator}
+\label{Collimator}
+
+The purpose of the vertical beam halo collimator is to cut off the beam halo in the vertical direction, in order to reduce the machine background at the IP.
+The design drawings of the collimator structure are shown in Figure~\ref{fig:collimator},
+The collimating jaws are inside a structure that is evacuated and connected to the beam pipe of the ATF2 beam line. 
+A picture of the installed collimator is given in Figure~\ref{fig:installed_collimator}.
+The actual jaws are made of copper, the other components of Stainless Steel. 
+The jaws have an overall length of \SI{238}{\milli\meter}, and a cross-sectional area of \mbox{\SI{24}{\milli\meter}\,x\,\SI{24}{\milli\meter}}.
+They can be moved individually to an arbitrary position inside the possible range, so that the inner edge of the jaws can have a distance of between 2.6 and \SI{12}{\milli\metre} to the centre. 
+The full aperture of the collimator structure can therefore be between 5.2 and \SI{24}{\milli\metre}. 
+The error on the position of the jaws is about \SI{10}{\micro\metre}.\\
+As every component in a beam line, especially for such small beam sizes, is affecting the electromagnetic field of the passing beam, the collimator is designed to minimize the effect of inducing wakefields~\cite{NuriaCollimator2015,Nuria_Thesis}. 
+This thesis, however, focuses exclusively on the effect on the background level, as mentioned above.
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{Figures/ATF/atf_bdsim.png} %TODO: exchange with a recent one of ATF2
-\caption[ATF2 lattice in \bdsim]{A part of the ATF2 lattice visualized with the \geant toolkit \bdsim.}
-\label{fig:ATF2_BDSIM}
+\includegraphics[width=0.8\textwidth]{Figures/ATF/ATF2_beamhalo_collimator.pdf}
+\caption[Drawing of the beam halo collimator]{A drawing of the vertical beam halo collimator installed at ATF2.~\cite{NuriaCollimator2015}}
+\label{fig:collimator}
 \end{figure}
-Accelerator descriptions from other tools such as MADX can be converted to \bdsim input. 
-
-\begin{itemize}
- \item BDSIM framework at DESY - explain
-\end{itemize}
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{Figures/ATF/Installed_Collimator.jpg}
+\caption[Picture of the installed beam halo collimator]{A picture of the vertical beam halo collimator built into ATF2. 
+The collimator jaws are within the evacuated structure. 
+At the top and bottom of the structure, the mover system for the two jaws can be seen.}
+\label{fig:installed_collimator}
+\end{figure}
 
 %---------------------------------------------------
 \subsection{Background studies}
 \subsubsection{RHUL Cherenkov detector}
 \label{RHUL}
 
-The RHUL Cherenkov detector was built by a group from the Royal Holloway University of London. It uses the Hamamatsu PMT, which was used for a laserwire sensor that was located at the same position before. The Cherenkov detector itself is using aerogel\footnote{SP15, index 1.015, 4 slices, 4 cm$^2$, 5 cm deep}. A light pipe, with a profile area of \SI{10}{\centi\metre\square} and a total length of \SI{35}{\centi\metre}, directs the light from the aerogel to the PMT.
+The RHUL Cherenkov detector was built by a group from the Royal Holloway University of London~\cite{RHUL_detector_wiki}.
+It uses the Hamamatsu PMT, which was installed before in a laserwire sensor that was located at the same position. 
+The Cherenkov detector itself is using aerogel\footnote{SP15, index 1.015, 4 slices, \SI{4}{\centi\meter\squared}, \SI{5}{\centi\meter} deep}. 
+A light pipe, with a profile area of \SI{10}{\centi\metre\squared} and a total length of \SI{35}{\centi\metre}, directs the light from the aerogel to the PMT.
+Figure~\ref{fig:RHUL_Cherenkov_Drawing} shows a schematic drawing of the detector setup.
+Pictures taken of the detector at the ATF2 beam line are shown in Figure~\ref{fig:RHUL_Cherenkov}.
+\\It is installed downstream of a dipole magnet, which deflects the beam electrons along the beam line.
+Neutral particles from particle showers, however, are not deflected and continue on a straight line.
+The entrance of the Cherenkov detector is positioned such that these neutral secondary particles can be detected.
+They are an indication of the particle showers produced by interactions between the beam and the beam line components.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{Figures/ATF/drawing_CherenkovSetup.png}
-\caption[Schematic drawing of the RHUL Cherenkov detector setup]{A perspective schematic of the RHUL Cherenkov detector setup in ATF2. The electrons of the beam core are bent in the dipole magnet, and continue through the rectangular and circular beam pipes along the ATF2 beam line. The neutral particles on the other hand, which are not deflected in the magnetic field, are continuing on a straight line through the rectangular beam pipe, and enter the RHUL Cherenkov detector through the second window in the flange. The light signals are collected by the PMT.}
+\caption[Schematic drawing of the RHUL Cherenkov detector setup]{A perspective schematic of the RHUL Cherenkov detector setup in ATF2.
+The beam electrons are bent in the dipole magnet, and continue through the rectangular and circular beam pipes along the ATF2 beam line.
+The neutral particles on the other hand, which are not deflected in the magnetic field, are continuing on a straight line through the rectangular beam pipe, and enter the RHUL Cherenkov detector through the second window in the flange. 
+The light signals are collected by the PMT.}
 \label{fig:RHUL_Cherenkov_Drawing}
 \end{figure}
 
@@ -403,20 +427,28 @@ The RHUL Cherenkov detector was built by a group from the Royal Holloway Univers
 \quad
 \includegraphics[height=0.35\textheight]{Figures/ATF/CherenkovDetector_inBeamLine2.jpg}%
 }
-\caption[Pictures of the RHUL Cherenkov detector]{Pictures of the RHUL Cherenkov detector in ATF2. The aerogel detector and the light channel is positioned behind a flange that connects a rectangular beam pipe with a circular one. The flange has two openings, one for the circular beam pipe, another one covered by a plastic window through which the photons leave the rectangular beam pipe and enter the RHUL Cherencov detector.}
+\caption[Pictures of the RHUL Cherenkov detector]{Pictures of the RHUL Cherenkov detector in ATF2. 
+The aerogel detector and the light channel is positioned behind a flange that connects a rectangular beam pipe with a circular one. 
+The flange has two openings, one for the circular beam pipe, another one covered by a plastic window through which the photons leave the rectangular beam pipe and enter the RHUL Cherencov detector.}
 \label{fig:RHUL_Cherenkov}
 \end{center}
 \end{figure}
 
 \paragraph{PMT noise measurements}
+Before measurements of the shower particles could be taken, when the beam is turned on, the PMT noise had to be measured first.
+The noise is the signal that is measurable by the PMT, when the beam is turned off.
+Figure ~\ref{fig:AverageNoise} shows the mean values of the noise measurements for different PMT voltages. 
+For every point either 500 or 1000 ADC pulses were recorded and averaged.
+The error bars represent the standard deviation on the mean value calculated by $SD=\frac{\sigma}{\sqrt{N}}$, where $\sigma$ is the RMS of the noise distribution at each point and N the number of pulses.\\
+At around \SI{800}{\volt}, the effect of dark current in the PMT becomes prominent, because of which the noise rises exponentially.
+As the data was taken only for the voltages, for which noise measurements were done, the mean value of noise is subtracted from every signal pulse appropriately. 
+Therefore the rise in noise is automatically taken into account for higher voltages.
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{Figures/ATF/AverageNoise_perVoltage_08April.pdf}
 \caption[RHUL Cherenkov detector noise]{Average PMT noise signal as a function of the voltage applied to the detector PMT. The noise was measured when the ATF beam was turned off. For each voltage, 500 or 1000 ADC pulses of noise were recorded, and the noise averaged over the number of pulses. The error bars to the mean values are the standard deviation of the mean.}
 \label{fig:AverageNoise}
 \end{figure}
-Figure ~\ref{fig:AverageNoise} shows the mean values of the noise measurements for different PMT voltages. For every point either 500 or 1000 ADC pulses were recorded and averaged. The error bars represent the standard deviation on the mean value calculated by $SD=\frac{\sigma}{\sqrt{N}}$, where $\sigma$ is the RMS of the noise distribution at each point and N the number of pulses.\\
-At around \SI{800}{\volt} the effect of dark current in the PMT starts getting prominent wherefore the noise rises exponentially. For the data shown in the following, the noise is already subtracted. As the data was taken only for these voltages, for which noise measurements were done, the mean value of noise is subtracted from every signal pulse appropriately. Therefore the rise in noise is automatically taken into account for higher voltages.
 
 \paragraph{PMT voltage calibration measurements}
 \begin{figure}
@@ -528,9 +560,24 @@ Especially significant is Figure~\ref{fig:AverageSignal_Asymmetric_5mm_101} with
 \label{fig:AverageSignal_Asymmetric_5mm_101}
 \end{figure}
 %---------------------------------------------------
-\subsection{Collimator as background source and attenuator}
+\subsection{Simulation study of the vertical beam halo collimator}
 \label{sec:BDSIM_sim}
 As the data in the figures in the two previous sections have shown, the collimator reduces the existing background level if closed to an aperture of \SI{10}{\milli\metre}. By closing the jaws further, the background level increases again. The questions where this already existing background is coming from, and how the background is increased by the jaws driven into the beam, are now addresses by the following plots showing data from \bdsim simulations of the ATF2 lattice.
+
+\subsubsection{BDSIM}
+\label{BDSIM}
+\bdsim~\cite{BDSIM} is a \geant extension toolkit for the simulation of particle transport in accelerator beam lines. 
+It was developed and is still supported by RHUL.
+The geometry of lattice parts are described in classes within the \bdsim framework. 
+Lattices, like the ATF2 lattice, can easily be built up by the pre-defined components. 
+A figure of the ATF2 lattice visualized with the \bdsim software is shown in Figure~\ref{fig:ATF2_BDSIM}.
+\\The simulation studies of ATF2, which are presented in this section were done with \bdsim version. \todo{Add version}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{Figures/ATF/atf_bdsim.png}
+\caption[ATF2 lattice in \bdsim]{A part of the ATF2 lattice visualized with the \geant toolkit \bdsim.}
+\label{fig:ATF2_BDSIM}
+\end{figure}
 
 \begin{itemize}
  \item Number of particles at ATF2 line components - done, but has to be redone
