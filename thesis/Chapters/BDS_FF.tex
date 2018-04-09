@@ -323,7 +323,7 @@ The Final-Focus System (FF) is responsible for focussing the ILC beam to nanomet
 The reason behind this is the aim for high luminosities which can be gained by small beam sizes.
 In order to reduce the machine background arising from interactions of the beam with the Final-Focus components, beam halo collimators will be installed that cut off the halo around the beam core. 
 \\For testing the feasibility of such collimators, a vertical beam halo collimator has been installed at the \mbox{Accelerator Test Facility 2} (ATF2)~\cite{ATF} at the High Energy Accelerator Research Center Organization (KEK) in Japan~\cite{Nuria_Thesis}. 
-In March 2016, data of the background in proximity of the collimator was taken in dependency of the aperture of this collimator. 
+In March 2016, data of the background in proximity of the collimator were taken in dependency of the aperture of this collimator. 
 This section covers the analysis of the data as well as simulation studies done with \bdsim.
 
 \subsection{The Accelerator Test Facility 2}
@@ -445,25 +445,36 @@ As the data was taken only for the voltages, for which noise measurements were d
 Therefore the rise in noise is automatically taken into account for higher voltages.
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Figures/ATF/AverageNoise_perVoltage_08April.pdf}
-\caption[RHUL Cherenkov detector noise]{Average PMT noise signal as a function of the voltage applied to the detector PMT. The noise was measured when the ATF beam was turned off. For each voltage, 500 or 1000 ADC pulses of noise were recorded, and the noise averaged over the number of pulses. The error bars to the mean values are the standard deviation of the mean.}
+\includegraphics[width=0.7\textwidth]{Figures/ATF/AverageNoise_perVoltage_08April.pdf}
+\caption[RHUL Cherenkov detector noise]{Average PMT noise signal as a function of the voltage applied to the detector PMT.
+The noise was measured when the ATF beam was turned off. 
+For each voltage, 500 or 1000 ADC pulses of noise were recorded, and the noise was averaged over the number of pulses. 
+The error bars to the mean values are the standard deviation of the mean.}
 \label{fig:AverageNoise}
 \end{figure}
 
 \paragraph{PMT voltage calibration measurements}
+
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Figures/ATF/VoltageNormalization_totError.pdf}
-\caption[RHUL Cherenkov detector voltage calibration]{Average PMT signal as a function of the voltage applied to the detector PMT. The signal was measured when the ATF beam was stable at a beam intensity of \num{0.15}$\pm$\num{0.02e10}. For each voltage, 500 ADC pulses were recorded, and the signal averaged over the number of pulses. The error bars to the mean values are the standard deviation of the signal distributions measured for each voltage.}
+\includegraphics[width=0.7\textwidth]{Figures/ATF/VoltageNormalization_totError.pdf}
+\caption[RHUL Cherenkov detector voltage calibration]{Average PMT signal as a function of the voltage applied to the detector PMT. 
+The signal was measured when the ATF beam was stable at a beam intensity of \num{0.15}$\pm$\num{0.02e10}. 
+For each voltage, 500 ADC pulses were recorded, and the signal was averaged over the number of pulses. 
+The error bars to the mean values are the standard deviation of the signal distributions measured for each voltage.}
 \label{fig:VoltageNormalization}
 \end{figure}
-
-In order to compare data sets that are taken at different PMT voltages, the signals have to be scaled. The rule of scaling the data is derived from the fit to the calibration measurements in Figure~\ref{fig:VoltageNormalization}. The data for this calibration is taken for stable beam conditions at a beam intensity of \num{0.15}$\pm$\num{0.02e10}, and then plotted in a log-log plot. The linearity of the data points show the behaviour of the PMT for different voltages according to Equation~\ref{eq:PMTgain}\cite{Hamamatsu}:
+In order to compare data sets that are taken at different PMT voltages, the signals have to be scaled. 
+The rule of scaling the data is derived from the fit to the calibration measurements in Figure~\ref{fig:VoltageNormalization}. 
+The data for this calibration is taken for stable beam conditions at a beam intensity of \num{0.15}$\pm$\num{0.02e10}, and then plotted in a log-log plot. 
+The linearity of the data points shows the behavior of the PMT for different voltages according to Equation~\ref{eq:PMTgain}~\cite{Hamamatsu}:
 \begin{equation}
  \mu = A \cdot V^{kn} 
  \label{eq:PMTgain}
 \end{equation}
-where \textmu is the PMT gain, V the applied voltage and n the number of anodes in the PMT. A and k are free parameters. This equation can be rewritten to:
+where $\mu$ is the PMT gain, $V$ the applied voltage and $n$ the number of anodes in the PMT. 
+$A$ and $k$ are free parameters. 
+This equation can be rewritten to:
 \begin{equation}
  signal = par_1 \cdot V^{par_2}
  \label{eq:PMTgain_simple}
@@ -473,7 +484,9 @@ After taking the logarithmic of both sides, the equation can be written as:
  & log(signal) & = & log(par_1) & + & par_2 & \cdot &log(V) \label{eq:PMTgain_log} \\
  & y & = & [1] & + & [0] & \cdot & x \label{eq:fit_function}
 \end{alignat}
-Equation~\ref{eq:PMTgain_log} proves the linearity of the graph in the log-log plot and verifies Equation~\ref{eq:PMTgain} from the literature. For the log-log plot, Equation~\ref{eq:fit_function} is the derived fit function with the fit parameters that are obtained by applying the fit to the data in Figure~\ref{fig:VoltageNormalization}. The original signal function is therefore:
+Equation~\ref{eq:PMTgain_log} proves the linearity of the graph in the log-log plot and verifies Equation~\ref{eq:PMTgain} from the literature. 
+For the log-log plot, Equation~\ref{eq:fit_function} is the derived fit function with the fit parameters that are obtained by applying the fit to the data in Figure~\ref{fig:VoltageNormalization}. 
+The original signal function is therefore:
 \begin{equation}
  signal = 10^{[1]} \cdot V^{[0]}
  \label{eq:PMTgain_simple_fitparameters}
@@ -486,83 +499,59 @@ A signal ($signal_1$) can then be scaled into a new signal ($signal_2$) accordin
 \end{align}
 
 
-\subsubsection{Collimator apertures scan - for different intensities and vacuum pressures}
+\subsubsection{Collimator apertures scan at different intensities and vacuum pressures}
 \label{aperture_scans}
-Scans of the background for different collimator apertures were done, first for symmetric positions of the lower and upper jaw around the centre, later for asymmetric positions. Additionally, a scan was done with one jaw fully extracted and the other one moving to certain positions. The last scan is referred to as the 'half aperture scan', whereas the first two scans are the 'symmetric' and the 'asymmetric' scans.\\
-Figure ~\ref{fig:AverageSignal_Aperture_BeamIntensities} shows the plot of the average detector signals for the asymmetric scan of different collimator apertures. The scans were done for five different beam intensities. It is clear that the background level rises with increase in intensity. The characteristic shape of the scan is however conserved: the background level is constant while closing the collimator from a full aperture of \SI{24}{\milli\metre} to about \SI{12}{\milli\metre}. When closing to \SI{10}{\milli\metre} the background level drops, and rises again when closing the collimator completely, i.e. to \SI{6}{\milli\metre} full aperture. This characteristic drop and rise between 12 and \SI{6}{\milli\metre} is on the one hand proof of the proper functionality of moving the collimator jaws, on the other hand leaves some questions open: where are the background particles originating that are cut away by the collimator, and does the rise in background mean that the collimator is showering the beam halo particles? Which qualities do these produced background particles have?\\
-These questions are addressed in Chapter ~\ref{sec:BDSIM_sim}, in which the effect of the collimator is simulated in a BDSIM simulation.
-\newline
-Figure~\ref{fig:AverageSignal_Aperture_VacuumPressures} shows a plot of a measurement done in the same way but for two different vacuum pressures: \SI{4.9e-7}{\pascal} and \SI{1.06e-6}{\pascal}. The graphs are directly comparable as they both show data taken for a beam intensity of \num{0.5}$\pm$\num{0.03e10}. It is clear and as expected that the background level is higher for a worse vacuum, i.e. for a higher pressure. Nevertheless, the background level is not only shifted. By closing the collimator to an aperture of \SI{10}{\milli\metre}, the background reduced to almost the same level whereas at the plateau (between 12 and \SI{24}{\milli\metre}) the background level for the smaller pressure is almost double. The collimator reduces therefore the background dramatically, especially at high background rates.
+For the measurements of the background signal in dependency of the collimator aperture, scans of the collimator apertures were done, whilst closing the collimator jaws simultaneously. 
+Figure ~\ref{fig:AverageSignal_Aperture_Symmetric} (a) shows the plot of the average detector signals at five different beam intensities. 
+It is clear that the background level rises with increased intensity. 
+The characteristic shape of the scan is however conserved: 
+the background level is constant when closing the collimator from a full aperture of \SI{24}{\milli\metre} to about \SI{15}{\milli\metre}. 
+When closing to \SI{10}{\milli\metre} the background level drops, and rises again when closing the collimator completely, i.e. to \SI{6}{\milli\metre} full aperture. 
+\\The measurements shown in Figure~\ref{fig:AverageSignal_Aperture_Symmetric} (b) were done in a similar way but for two different vacuum pressures: \SI{4.9e-7}{\pascal} and \SI{1.06e-6}{\pascal}. 
+The data were taken for a beam intensity of \num{0.5}$\pm$\num{0.03e10}. 
+The background level is higher for a higher vacuum pressure, as expected. 
+Nevertheless, the background level is not only shifted. 
+At the plateau (between 12 and \SI{24}{\milli\metre}), the background level for the higher pressure is larger by almost a factor of two.
+At an aperture of \SI{10}{\milli\metre}, however, the background is reduced to almost the same level at both pressures. 
+The collimator reduces therefore the background dramatically, especially at high background rates.
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Figures/ATF/AverageSignal_perAperture.pdf}
-\caption[RHUL Cherenkov detector signal vs. collimator aperture: different beam intensities]{Average signal as a function of the full aperture of the vertical beam halo collimator. The signal was measured for different beam intensities [\num{10e10}]: 0.21$\pm$0.02, 0.44$\pm$0.02, 0.51$\pm$0.02, 0.72$\pm$0.02 and 0.78$\pm$0.02, while the PMT voltage was constant at \SI{900}{\volt}. For each aperture, 500 ADC pulses were recorded, and the signal was averaged over the number of pulses. The error bars to the mean values are the standard deviation of the signal distributions at each point.\\For some scans, the data was not taken for all apertures. Therefore, especially the graph for the beam intensity of \num{0.21}$\pm$\num{0.02e10} is missing data points for the half millimetre steps and between 14 and \SI{24}{\milli\metre}.}
-\label{fig:AverageSignal_Aperture_BeamIntensities}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{Figures/ATF/AverageSignal_perAperture_VacuumPressures.pdf}
-\caption[RHUL Cherenkov detector signal vs. collimator aperture: different vacuum pressures]{Average signal as a function of the full aperture of the vertical beam halo collimator. The signal was measured for a beam intensity of \num{0.5}$\pm$\num{0.03e10} and a PMT voltage of \SI{900}{\volt}. The vacuum pressure was lowered from \SI{4.9e-7}{\pascal} to \SI{1.06e-6}{\pascal}. For each aperture, 500 ADC pulses were recorded, and the signal was averaged over the number of pulses. The error bars to the mean values are the standard deviation of the signal distributions at each point.}
-\label{fig:AverageSignal_Aperture_VacuumPressures}
+\begin{subfigure}[b]{0.49\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Figures/ATF/AverageSignal_perAperture.png}
+ \caption{Different beam intensities}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.49\textwidth}
+  \centering
+ \includegraphics[width=\textwidth]{Figures/ATF/AverageSignal_perAperture_VacuumPressures.png}
+ \caption{Different vacuum pressures}
+\end{subfigure}
+\caption[RHUL Cherenkov detector signal vs. collimator aperture]{
+Average signal as a function of the full aperture of the vertical beam halo collimator. 
+For Figure (a), the signal was measured for different beam intensities [\num{e10}]: 0.21$\pm$0.02, 0.44$\pm$0.02, 0.51$\pm$0.02, 0.72$\pm$0.02 and 0.78$\pm$0.02, while the PMT voltage was constant at \SI[detect-all]{900}{\volt}. 
+\\For Figure (b), the signal was measured for a beam intensity of \num{0.5}$\pm$\num{0.03e10} and a PMT voltage of \SI[detect-all]{900}{\volt}. 
+The vacuum pressure was lowered from \SI[detect-all]{4.9e-7}{\pascal} to \SI[detect-all]{1.06e-6}{\pascal}. 
+\\For each aperture, 500 ADC pulses were recorded, and the signal was averaged over the number of pulses. 
+The error bars to the mean values are the standard deviation of the signal distributions at each point.}
+\label{fig:AverageSignal_Aperture_Symmetric}
 \end{figure}
 
-\subsubsection{Test of the collimator alignment with respect to the beam position}
-\label{collimator_alignment}
-The next measurement sets are done to experimentally test whether the collimator is aligned in such a way that the beam is going through the centre between the jaws. The idea is that the background signal should be asymmetric if the beam is closer to one or the other side.\\Figure~\ref{fig:AverageSignal_HalfAperture} shows a plot of a measurement where one of the jaws was moved while the other jaw stayed in the fully extracted position. It is clear that moving the upper jaw shows the same characteristic background shape as before in the plots~\ref{fig:AverageSignal_Aperture_BeamIntensities} and \ref{fig:AverageSignal_Aperture_VacuumPressures}. But moving the lower jaw only shows no significant change in background. This leaves one with the possible conclusion that the beam is not in the centre between the two jaws but rather closer to the upper jaw. One could then say that also the background shape of the previous plots are only influenced by the upper jaw only. To confirm this conclusion, more measurements of this kind should be done to exclude a statistical fluctuation or simply a mistake in the process of data taking.
-\newline
-The next four figures show scans with asymmetric jaw positions around a certain value, i.e. 4 or \SI{5}{\milli\metre}. For each value, around which the jaws were moved, two measurements were done for the intensities of \num{0.84}$\pm$\num{0.03e10} and \num{1.01}$\pm$\num{0.03e10}. The plots are showing the background level in dependency of the position of the upper and lower jaw. As one jaw was moved in, the other one was simultaneously moved out, because of which the data line is diagonal in the diagrams. In all of the plots the drop in background level is clearly visible for a upper jaw position of \SI{5}{\milli\metre}, which follows the same behaviour as before. By closing the jaw more, the background level rises again and peaks for the minimal upper jaw position as the collimator jaw moves into the beam. All this seems to be consistent with the assumption that also here the lower jaw doesn't effect the beam in any way. Otherwise the plot would also show low background intensities for lower jaw positions of below \SI{5}{\milli\metre} which is not the case.\\
-Especially significant is Figure~\ref{fig:AverageSignal_Asymmetric_5mm_101} with an identical background behaviour as in the measurements in Section~\ref{aperture_scans}. Also here it would be easier to make meaningful statements if the measurements would have more data points for larger jaw position regions, especially for the same positions in all plots.
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{Figures/ATF/AverageSignal_perJawPosition.pdf}
-\caption[RHUL Cherenkov detector signal vs. collimator half aperture]{Average signal as a function of the position of the upper/lower jaw of the vertical beam halo collimator. The signal was measured for a beam intensity of \num{1.05}$\pm$\num{0.04e10} and a PMT voltage of \SI{800}{\volt}. First, the lower jaw was fixed to its open position (\SI{12}{\milli\metre}) and the upper jaw was moved to the positions plotted, then vice versa. For each jaw position, 500 ADC pulses were recorded, and the signal was averaged over the number of pulses. The error bars to the mean values are the standard deviation of the signal distributions at each point.}
-\label{fig:AverageSignal_HalfAperture}
-\end{figure}
-\begin{figure}
-\begin{subfigure}[b]{0.5\textwidth}
-\includegraphics[width=\textwidth]{Figures/ATF/AsymmetricScan_4mm_beamintensity084_lego.pdf}
-\end{subfigure}
-\begin{subfigure}[b]{0.5\textwidth}
-\includegraphics[width=\textwidth]{Figures/ATF/AsymmetricScan_4mm_beamintensity084_colz.pdf}
-\end{subfigure}
-\caption[RHUL Cherenkov detector signal for certain upper/lower jaw positions around \SI{4}{\milli\metre}, for a beam intensity of \num{0.84}$\pm$\num{0.03e10}]{Average signal as a function of the position of the upper and lower jaw of the vertical beam halo collimator. The signal was measured for a beam intensity of \num{0.84}$\pm$\num{0.03e10} and a PMT voltage of \SI{900}{\volt}. The jaws were moved simultaneously around \SI{4}{\milli\metre}. For each jaw position, at least 500 ADC pulses were recorded, and the signal was averaged over the number of pulses. The content of the bins were set to the appropriate average signal strength at that point.}
-\label{fig:AverageSignal_Asymmetric_4mm_084}
-\end{figure}
-\begin{figure}
-\begin{subfigure}[b]{0.5\textwidth}
-\includegraphics[width=\textwidth]{Figures/ATF/AsymmetricScan_4mm_beamintensity101_lego.pdf}
-\end{subfigure}
-\begin{subfigure}[b]{0.5\textwidth}
-\includegraphics[width=\textwidth]{Figures/ATF/AsymmetricScan_4mm_beamintensity101_colz.pdf}
-\end{subfigure}
-\caption[RHUL Cherenkov detector signal for certain upper/lower jaw positions around \SI{4}{\milli\metre}, for a beam intensity of \num{1.01}$\pm$\num{0.03e10}]{Average signal as a function of the position of the upper and lower jaw of the vertical beam halo collimator. The signal was measured for a beam intensity of \num{1.01}$\pm$\num{0.03e10} and a PMT voltage of \SI{900}{\volt}. The jaws were moved simultaneously around \SI{4}{\milli\metre}. For each jaw position, at least 500 ADC pulses were recorded, and the signal was averaged over the number of pulses. The content of the bins were set to the appropriate average signal strength at that point.}
-\label{fig:AverageSignal_Asymmetric_4mm_101}
-\end{figure}
-\begin{figure}
-\begin{subfigure}[b]{0.5\textwidth}
-\includegraphics[width=\textwidth]{Figures/ATF/AsymmetricScan_5mm_beamintensity084_lego.pdf}
-\end{subfigure}
-\begin{subfigure}[b]{0.5\textwidth}
-\includegraphics[width=\textwidth]{Figures/ATF/AsymmetricScan_5mm_beamintensity084_colz.pdf}
-\end{subfigure}
-\caption[RHUL Cherenkov detector signal for certain upper/lower jaw positions around \SI{5}{\milli\metre}, for a beam intensity of \num{0.84}$\pm$\num{0.03e10}]{Average signal as a function of the position of the upper and lower jaw of the vertical beam halo collimator. The signal was measured for a beam intensity of \num{0.84}$\pm$\num{0.03e10} and a PMT voltage of \SI{900}{\volt}. The jaws were moved simultaneously around \SI{5}{\milli\metre}. For each jaw position, at least 500 ADC pulses were recorded, and the signal was averaged over the number of pulses. The content of the bins were set to the appropriate average signal strength at that point.}
-\label{fig:AverageSignal_Asymmetric_5mm_084}
-\end{figure}
-\begin{figure}
-\begin{subfigure}[b]{0.5\textwidth}
-\includegraphics[width=\textwidth]{Figures/ATF/AsymmetricScan_5mm_beamintensity101_lego.pdf}
-\end{subfigure}
-\begin{subfigure}[b]{0.5\textwidth}
-\includegraphics[width=\textwidth]{Figures/ATF/AsymmetricScan_5mm_beamintensity101_colz.pdf}
-\end{subfigure}
-\caption[RHUL Cherenkov detector signal for certain upper/lower jaw positions around \SI{5}{\milli\metre}, for a beam intensity of \num{1.01}$\pm$\num{0.03e10}]{Average signal as a function of the position of the upper and lower jaw of the vertical beam halo collimator. The signal was measured for a beam intensity of \num{1.01}$\pm$\num{0.03e10} and a PMT voltage of \SI{900}{\volt}. The jaws were moved simultaneously around \SI{5}{\milli\metre}. For each jaw position, at least 500 ADC pulses were recorded, and the signal was averaged over the number of pulses. The content of the bins were set to the appropriate average signal strength at that point.}
-\label{fig:AverageSignal_Asymmetric_5mm_101}
-\end{figure}
+The drop in the measurable background level for a collimator aperture between 15 and \SI{10}{\milli\metre} is on the one hand proof of principle for the collimator.
+On the other hand, however, the measured rise in the background level leaves some questions open: 
+where are the background particles originating that are cut away by the collimator, and does the rise in background mean that the collimator is showering the beam halo particles? 
+Which qualities do these produced background particles have? \todo{Edit questions}
+\\These questions are addressed in Section~\ref{sec:BDSIM_sim}, in which the effect of the collimator is simulated with \bdsim.
+
 %---------------------------------------------------
 \subsection{Simulation study of the vertical beam halo collimator}
 \label{sec:BDSIM_sim}
-As the data in the figures in the two previous sections have shown, the collimator reduces the existing background level if closed to an aperture of \SI{10}{\milli\metre}. By closing the jaws further, the background level increases again. The questions where this already existing background is coming from, and how the background is increased by the jaws driven into the beam, are now addresses by the following plots showing data from \bdsim simulations of the ATF2 lattice.
+As the data in Figure~\ref{fig:AverageSignal_Aperture_Symmetric} in the previous Section have shown, the collimator reduces the existing background level if closed to an aperture of \SI{10}{\milli\metre}. 
+By closing the jaws further, the background level increases again.
+To address open questions, simulations of the ATF2 lattice including the beam halo collimator were done using \bdsim.
+The geometry model of the ATF2 accelerator lattice (in its state in the year 2015) already exists as a feature of \bdsim.
+A realistic model of the vertical beam halo collimator, however, had to be added.
 
 \subsubsection{BDSIM}
 \label{BDSIM}
@@ -586,5 +575,6 @@ A figure of the ATF2 lattice visualized with the \bdsim software is shown in Fig
 
 \subsection{Effect on background level at IP}
 \label{collimator_bkg_IP}
-We have seen that the background level around the collimator area is dramatically affected by the movement of the collimator jaws. However, the actual effect of the collimator on the background level at the interaction point might be different, and is now discussed.
+We have seen that the background level around the collimator area is dramatically affected by the movement of the collimator jaws. 
+However, the actual aim of the vertical beam halo collimator is to reduce the machine background at the IP.
 
