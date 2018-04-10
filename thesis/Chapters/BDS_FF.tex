@@ -362,8 +362,7 @@ After the interaction point (IP), the electron beam is bend in the last dipole m
 }
 \label{fig:ATF2}
 \end{figure}
-\\At the location of the beam halo collimator, the beam has a beam size of ??. \todo{Add info about beam size and halo}
-The beam halo is surrounding the core and reaches...
+\\At the location of the beam halo collimator, the beam core has a size of $\sigma_x$ = \SI{0.16}{\milli\meter} and $\sigma_y$ = \SI{0.28}{\milli\meter}.
 
 \subsection{Vertical beam halo collimator}
 \label{Collimator}
@@ -437,7 +436,7 @@ The flange has two openings, one for the circular beam pipe, another one covered
 \paragraph{PMT noise measurements}
 Before measurements of the shower particles could be taken, when the beam is turned on, the PMT noise had to be measured first.
 The noise is the signal that is measurable by the PMT, when the beam is turned off.
-Figure ~\ref{fig:AverageNoise} shows the mean values of the noise measurements for different PMT voltages. 
+Figure ~\ref{fig:AverageNoise_VoltageNormalization} (a) shows the mean values of the noise measurements for different PMT voltages. 
 For every point either 500 or 1000 ADC pulses were recorded and averaged.
 The error bars represent the standard deviation on the mean value calculated by $SD=\frac{\sigma}{\sqrt{N}}$, where $\sigma$ is the RMS of the noise distribution at each point and N the number of pulses.\\
 At around \SI{800}{\volt}, the effect of dark current in the PMT becomes prominent, because of which the noise rises exponentially.
@@ -445,27 +444,34 @@ As the data was taken only for the voltages, for which noise measurements were d
 Therefore the rise in noise is automatically taken into account for higher voltages.
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{Figures/ATF/AverageNoise_perVoltage_08April.pdf}
-\caption[RHUL Cherenkov detector noise]{Average PMT noise signal as a function of the voltage applied to the detector PMT.
+\begin{subfigure}[b]{0.49\textwidth}
+ \centering
+\includegraphics[width=\textwidth]{Figures/ATF/AverageNoise_perVoltage_08April.pdf}
+\caption{RHUL Cherenkov detector noise}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.49\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{Figures/ATF/VoltageNormalization_totError.pdf}
+\caption{RHUL Cherenkov detector voltage calibration}
+\end{subfigure}
+\caption[RHUL Cherenkov detector calibrations]{
+Calibration measurements with the RHUL Cherenkov detector.
+\\Figure (a) shows the average PMT noise signal as a function of the voltage applied to the detector PMT.
 The noise was measured when the ATF beam was turned off. 
 For each voltage, 500 or 1000 ADC pulses of noise were recorded, and the noise was averaged over the number of pulses. 
-The error bars to the mean values are the standard deviation of the mean.}
-\label{fig:AverageNoise}
+The error bars to the mean values are the standard deviation of the mean.
+\\Figure (b) shows the Average PMT signal as a function of the voltage applied to the detector PMT. 
+The signal was measured when the ATF beam was stable at a beam intensity of \num{0.15}$\pm$\num{0.02e10}. 
+For each voltage, 500 ADC pulses were recorded, and the signal was averaged over the number of pulses. 
+The error bars to the mean values are the standard deviation of the signal distributions measured for each voltage.}
+\label{fig:AverageNoise_VoltageNormalization}
 \end{figure}
 
 \paragraph{PMT voltage calibration measurements}
 
-\begin{figure}
-\centering
-\includegraphics[width=0.7\textwidth]{Figures/ATF/VoltageNormalization_totError.pdf}
-\caption[RHUL Cherenkov detector voltage calibration]{Average PMT signal as a function of the voltage applied to the detector PMT. 
-The signal was measured when the ATF beam was stable at a beam intensity of \num{0.15}$\pm$\num{0.02e10}. 
-For each voltage, 500 ADC pulses were recorded, and the signal was averaged over the number of pulses. 
-The error bars to the mean values are the standard deviation of the signal distributions measured for each voltage.}
-\label{fig:VoltageNormalization}
-\end{figure}
 In order to compare data sets that are taken at different PMT voltages, the signals have to be scaled. 
-The rule of scaling the data is derived from the fit to the calibration measurements in Figure~\ref{fig:VoltageNormalization}. 
+The rule of scaling the data is derived from the fit to the calibration measurements in Figure~\ref{fig:AverageNoise_VoltageNormalization} (b). 
 The data for this calibration is taken for stable beam conditions at a beam intensity of \num{0.15}$\pm$\num{0.02e10}, and then plotted in a log-log plot. 
 The linearity of the data points shows the behavior of the PMT for different voltages according to Equation~\ref{eq:PMTgain}~\cite{Hamamatsu}:
 \begin{equation}
@@ -555,17 +561,80 @@ A realistic model of the vertical beam halo collimator, however, had to be added
 
 \subsubsection{BDSIM}
 \label{BDSIM}
-\bdsim~\cite{BDSIM} is a \geant extension toolkit for the simulation of particle transport in accelerator beam lines. 
-It was developed and is still supported by RHUL.
+\bdsim~\cite{BDSIM} is a \geant extension toolkit for the simulation of particle transport in accelerator beam lines, but also for the simulation of the interaction between the beam particles and the accelerator material. 
+It is developed and supported by RHUL.
 The geometry of lattice parts are described in classes within the \bdsim framework. 
 Lattices, like the ATF2 lattice, can easily be built up by the pre-defined components. 
 A figure of the ATF2 lattice visualized with the \bdsim software is shown in Figure~\ref{fig:ATF2_BDSIM}.
-\\The simulation studies of ATF2, which are presented in this section were done with \bdsim version. \todo{Add version}
+\\The simulation studies of ATF2, which are presented in this section were done with \bdsim version 0.95.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.7\textwidth]{Figures/ATF/atf_bdsim.png}
 \caption[ATF2 lattice in \bdsim]{A part of the ATF2 lattice visualized with the \geant toolkit \bdsim.}
 \label{fig:ATF2_BDSIM}
+\end{figure}
+
+\subsubsection{Modelling the vertical beam halo collimator}
+The vertical beam halo collimator was modeled in GDML~\cite{GDML,GDML_web} format according to its technical design drawings.
+Figure~\ref{fig:Collimator_model} shows a visualization of this model, as well as a view of the collimator structure inside the ATF2 lattice.
+In Figure~\ref{fig:Collimator_model} (a), the collimator jaws can be seen, which can be set to an arbitrary y-position inside the structure.
+With this new feature, \bdsim simulations with different collimator settings were done.
+\begin{figure}[!h]
+\centering
+\begin{subfigure}[b]{0.49\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Figures/ATF/Collimator_model.pdf}
+ \caption{Geometry visualization}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.49\textwidth}
+  \centering
+ \includegraphics[width=\textwidth]{Figures/ATF/Collimator_in_ATF2.pdf}
+ \caption{Collimator model in the ATF2 beam line}
+\end{subfigure}
+\caption[Model of the vertical beam halo collimator used in the \bdsim simulation]{Model of the vertical beam halo collimator, used in the \bdsim simulation of the ATF2 beam lattice.
+}
+\label{fig:Collimator_model}
+\end{figure}
+
+\subsubsection{Simulation results}
+In order to validate the \bdsim simulation, comparisons of the beam parameter development along the beam line have been made between \bdsim and MADX~\cite{MADX}.
+MADX is a simulation tool for the simulation of beam dynamics at particle accelerators.
+For this validation, the beam size of the ATF2 beam core was plotted along the beam line, using \bdsim and MADX.
+As shown in Figure~\ref{fig:MADX}, both simulations of the ATF2 beam dynamics are in good agreement.
+At the start of the ATF2 beam line, the beam core has a size of $\sigma^{Core}_x$ = \SI{51.9}{\micro\meter} and $\sigma^{Core}_y$ = \SI{15.4}{\micro\meter}.
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{Figures/ATF/pybdsim_sigma_gmadNuria.png}
+\caption[Comparison of the ATF2 beam size development in \bdsim and MADX]{Comparison of the ATF2 beam size ($\sigma_x$ and $\sigma_y$) development along the beam line (S [m]) using \bdsim and MADX.}
+\label{fig:MADX}
+\end{figure}
+\\For the \bdsim simulation of the background particles, the primary particle beam was then set to be the ATF2 beam halo, excluding the beam core.
+The beam halo is defined to stretch from $3\sigma^{Core}_x$ to $5\sigma^{Core}_x$, and from $3\sigma^{Core}_y$ to $10\sigma^{Core}_y$.
+In \bdsim, the beam halo is modeled accordingly, assuming a Gaussian distribution with an energy spread of \SI{0.08}{\percent}.
+
+\todo{``retrieved'' the right word in Fig description?}
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.49\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Figures/ATF/TracksPerModel_firstPart.png}
+ \caption{Upstream ATF2 components}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.49\textwidth}
+  \centering
+ \includegraphics[width=\textwidth]{Figures/ATF/TracksPerModel_secondPart.png}
+ \caption{Downstream ATF2 components}
+\end{subfigure}
+\caption[Number of secondary particles created in the ATF2 components]{Number of secondary particles created in the ATF2 components directly upstream (a) and downstream (b) of the vertical beam halo collimator (COLLBY).
+The x-axes show the component names in the ATF2 lattice.
+Components starting with the letter ``L'' are drift lengths, components containing the word ``COLL'' are collimators.
+All other names belong to magnet components.
+\\The results for the ``Open Vertical Collimator'' are gained with fully retrieved collimator jaws.
+The ``Closed Vertical Collimator'' has an aperture of \SI[detect-all]{4}{\milli\meter}.
+}
+\label{fig:Collimator_model}
 \end{figure}
 
 \begin{itemize}
