@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.63"
-     inkscape:cx="394.62297"
-     inkscape:cy="356.15217"
+     inkscape:zoom="0.90028971"
+     inkscape:cx="590.19247"
+     inkscape:cy="419.64423"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -54,6 +54,14 @@
   </sodipodi:namedview>
   <defs
      id="defs4">
+    <inkscape:path-effect
+       is_visible="true"
+       id="path-effect4466"
+       effect="spiro" />
+    <inkscape:path-effect
+       is_visible="true"
+       id="path-effect4395"
+       effect="spiro" />
     <inkscape:perspective
        sodipodi:type="inkscape:persp3d"
        inkscape:vp_x="-119.54121 : 469.56579 : 1"
@@ -274,7 +282,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -284,7 +292,9 @@
      id="layer1"
      transform="translate(119.84697,-428.6232)">
     <g
-       id="g5315">
+       id="g4486"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200">
       <g
          transform="translate(0,-2)"
          id="g4630">
@@ -642,43 +652,43 @@
          id="g5257"
          sodipodi:type="inkscape:box3d">
         <path
-           points="37.505969,904.30796 193.73825,854.7709 -1.4115068,751.67264 -102.49403,764.30796 "
-           d="m -102.49403,764.30796 139.999999,140 L 193.73825,854.7709 -1.4115068,751.67264 Z"
+           points="37.505969,857.65635 193.73825,808.11929 -1.4115068,705.02103 -102.49403,717.65635 "
+           d="m -102.49403,717.65635 139.999999,140 L 193.73825,808.11929 -1.4115068,705.02103 Z"
            inkscape:box3dsidetype="13"
            style="fill:#056a07;fill-opacity:1;stroke:#000000;stroke-opacity:1"
            id="path5267"
            sodipodi:type="inkscape:box3dside" />
         <path
-           points="-102.49403,764.30796 -1.4115068,751.67264 -1.4115068,604.89888 -102.49403,600.26098 "
-           d="m -102.49403,600.26098 0,164.04698 101.0825232,-12.63532 0,-146.77376 z"
+           points="-102.49403,717.65635 -1.4115068,705.02103 -1.4115068,558.24727 -102.49403,553.60937 "
+           d="m -102.49403,553.60937 0,164.04698 101.0825232,-12.63532 0,-146.77376 z"
            inkscape:box3dsidetype="6"
            style="fill:#056a07;fill-opacity:1;stroke:#000000;stroke-opacity:1"
            id="path5259"
            sodipodi:type="inkscape:box3dside" />
         <path
-           points="193.73825,589.18776 193.73825,854.7709 -1.4115068,751.67264 -1.4115068,604.89888 "
-           d="m -1.4115068,604.89888 195.1497568,-15.71112 0,265.58314 L -1.4115068,751.67264 Z"
+           points="193.73825,542.53614 193.73825,808.11929 -1.4115068,705.02103 -1.4115068,558.24727 "
+           d="m -1.4115068,558.24727 195.1497568,-15.71113 0,265.58315 L -1.4115068,705.02103 Z"
            inkscape:box3dsidetype="11"
            style="fill:#056a07;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
            id="path5269"
            sodipodi:type="inkscape:box3dside" />
         <path
-           points="37.505969,576.21401 193.73825,589.18776 -1.4115068,604.89888 -102.49403,600.26098 "
-           d="M -102.49403,600.26098 37.505969,576.21401 193.73825,589.18776 -1.4115068,604.89888 Z"
+           points="37.505969,529.5624 193.73825,542.53614 -1.4115068,558.24727 -102.49403,553.60937 "
+           d="M -102.49403,553.60937 37.505969,529.5624 193.73825,542.53614 -1.4115068,558.24727 Z"
            inkscape:box3dsidetype="5"
            style="opacity:0.81999966;fill:#056a07;fill-opacity:1;stroke:#000000;stroke-opacity:1"
            id="path5261"
            sodipodi:type="inkscape:box3dside" />
         <path
-           points="37.505969,904.30796 193.73825,854.7709 193.73825,589.18776 37.505969,576.21401 "
-           d="m 37.505969,576.21401 0,328.09395 156.232281,-49.53706 0,-265.58314 z"
+           points="37.505969,857.65635 193.73825,808.11929 193.73825,542.53614 37.505969,529.5624 "
+           d="m 37.505969,529.5624 0,328.09395 156.232281,-49.53706 0,-265.58315 z"
            inkscape:box3dsidetype="14"
            style="opacity:1;fill:#056a07;fill-opacity:1;stroke:#000000;stroke-opacity:1"
            id="path5265"
            sodipodi:type="inkscape:box3dside" />
         <path
-           points="37.505969,576.21401 37.505969,904.30796 -102.49403,764.30796 -102.49403,600.26098 "
-           d="m -102.49403,600.26098 139.999999,-24.04697 0,328.09395 -139.999999,-140 z"
+           points="37.505969,529.5624 37.505969,857.65635 -102.49403,717.65635 -102.49403,553.60937 "
+           d="m -102.49403,553.60937 139.999999,-24.04697 0,328.09395 -139.999999,-140 z"
            inkscape:box3dsidetype="3"
            style="fill:#056a07;fill-opacity:1;stroke:#000000;stroke-opacity:1"
            id="path5263"
@@ -711,6 +721,41 @@
              id="rect4587" /></flowRegion><flowPara
            id="flowPara4589">e<flowSpan
    id="flowSpan4591"
-   style="font-size:64.99999762%;baseline-shift:super">-</flowSpan></flowPara></flowRoot>    </g>
+   style="font-size:64.99999762%;baseline-shift:super">-</flowSpan></flowPara></flowRoot>      <g
+         transform="matrix(-0.73923554,0.67344696,-0.67344696,-0.73923554,1426.342,594.10046)"
+         id="g4468">
+        <path
+           inkscape:connector-curvature="0"
+           inkscape:original-d="m 572.19433,555.92381 100.83333,0 z"
+           inkscape:path-effect="#path-effect4395"
+           id="path4393"
+           d="m 572.19433,555.92381 100.83333,0 -100.83333,0 z"
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.09567451;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           inkscape:connector-curvature="0"
+           inkscape:original-d="m 690.21382,555.22973 -30,0 z"
+           inkscape:path-effect="#path-effect4466"
+           id="path4464"
+           d="m 690.21382,555.22973 -30,0 30,0 z"
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1Lstart)" />
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+         x="581.51947"
+         y="511.51083"
+         id="text4472"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           x="581.51947"
+           y="511.51083"
+           id="tspan4476"
+           style="fill:#000000;fill-opacity:1;stroke:#8284f2;stroke-opacity:1">Cherenkov </tspan><tspan
+           id="tspan4480"
+           sodipodi:role="line"
+           x="581.51947"
+           y="561.5108"
+           style="fill:#000000;fill-opacity:1;stroke:#8284f2;stroke-opacity:1">detector face</tspan></text>
+    </g>
   </g>
 </svg>
