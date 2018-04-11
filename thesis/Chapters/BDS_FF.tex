@@ -123,7 +123,7 @@ For a lower beam energy of \SI{125}{\GeV} (\SI{250}{\GeV} center-of-mass energy)
 With the two different shielding scenarios, the muon rate is again reduced significantly to a minimum of about 0.03 per bunch crossing.
 %------------------
 %\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-%\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 %\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 %-----------------
 \begin{table}[htbp]
@@ -322,7 +322,7 @@ The wall would then still serve as additional shielding but does not deflect cha
 The Final-Focus System (FF) is responsible for focussing the ILC beam to nanometre size,  as explained in Section~\ref{ILC:layout}. 
 The reason behind this is the aim for high luminosities which can be gained by small beam sizes.
 In order to reduce the machine background arising from interactions of the beam with the Final-Focus components, beam halo collimators will be installed that cut off the halo around the beam core. 
-\\For testing the feasibility of such collimators, a vertical beam halo collimator has been installed at the \mbox{Accelerator Test Facility 2} (ATF2)~\cite{ATF} at the High Energy Accelerator Research Center Organization (KEK) in Japan~\cite{Nuria_Thesis}. 
+\\For testing the feasibility of such collimators for future linear colliders such as the ILC, a vertical beam halo collimator has been installed at the \mbox{Accelerator Test Facility 2} (ATF2)~\cite{ATF} at the High Energy Accelerator Research Center Organization (KEK) in Japan~\cite{Nuria_Thesis}. 
 In March 2016, data of the background in proximity of the collimator were taken in dependency of the aperture of this collimator. 
 This section covers the analysis of the data as well as simulation studies done with \bdsim.
 
@@ -338,9 +338,9 @@ Although the beam size goal of ATF2 seems to be large compared to the ILC goal o
 The beam size goal has to be scaled up for different lattice and beam conditions.\\
 \begin{figure}
 \centering
-\includegraphics[width=0.6\textwidth]{Figures/ATF/ATF.png}
+\includegraphics[width=\textwidth]{Figures/ATF/ATF.png}
 \caption[ATF accelerator]{A schematic of the ATF accelerator with the ATF2 extension~\cite[cf. p. 65]{Nuria_Thesis}.
-ATF consists of a linear accelerator, a damping ring, the new ATF2 extension with the Final-Focys system, and a beam dump.}
+ATF consists of a linear accelerator, a damping ring, the new ATF2 extension with the Final-Focus system, and a beam dump.}
 \label{fig:ATF}
 \end{figure}
 Additionally, as ATF serves as a research accelerator, the ATF collaboration allows research groups to test new accelerator and diagnostic components, to operate the accelerator themselves, and to take measurements for their research study.
@@ -362,13 +362,12 @@ After the interaction point (IP), the electron beam is bend in the last dipole m
 }
 \label{fig:ATF2}
 \end{figure}
-\\At the location of the beam halo collimator, the beam core has a size of $\sigma_x$ = \SI{0.16}{\milli\meter} and $\sigma_y$ = \SI{0.28}{\milli\meter}.
 
 \subsection{Vertical beam halo collimator}
 \label{Collimator}
 
 The purpose of the vertical beam halo collimator is to cut off the beam halo in the vertical direction, in order to reduce the machine background at the IP.
-The design drawings of the collimator structure are shown in Figure~\ref{fig:collimator},
+The design drawings of the collimator structure are shown in Figure~\ref{fig:collimator}.
 The collimating jaws are inside a structure that is evacuated and connected to the beam pipe of the ATF2 beam line. 
 A picture of the installed collimator is given in Figure~\ref{fig:installed_collimator}.
 The actual jaws are made of copper, the other components of Stainless Steel. 
@@ -446,7 +445,7 @@ Therefore the rise in noise is automatically taken into account for higher volta
 \centering
 \begin{subfigure}[b]{0.49\textwidth}
  \centering
-\includegraphics[width=\textwidth]{Figures/ATF/AverageNoise_perVoltage_08April.pdf}
+\includegraphics[width=0.99\textwidth]{Figures/ATF/AverageNoise_perVoltage_08April.pdf}
 \caption{RHUL Cherenkov detector noise}
 \end{subfigure}
 \hfill
@@ -564,7 +563,8 @@ A realistic model of the vertical beam halo collimator, however, had to be added
 \bdsim~\cite{BDSIM} is a \geant extension toolkit for the simulation of particle transport in accelerator beam lines, but also for the simulation of the interaction between the beam particles and the accelerator material. 
 It is developed and supported by RHUL.
 The geometry of lattice parts are described in classes within the \bdsim framework. 
-Lattices, like the ATF2 lattice, can easily be built up by the pre-defined components. 
+Particle accelerator lattices, like the ATF2 lattice, can easily be built up by the pre-defined components. 
+The magnets and other beam line components available within \bdsim are simplified versions of common components used in particle accelerators. 
 A figure of the ATF2 lattice visualized with the \bdsim software is shown in Figure~\ref{fig:ATF2_BDSIM}.
 \\The simulation studies of ATF2, which are presented in this section were done with \bdsim version 0.95.
 \begin{figure}[!h]
@@ -589,7 +589,7 @@ With this new feature, \bdsim simulations with different collimator settings wer
 \hfill
 \begin{subfigure}[b]{0.49\textwidth}
   \centering
- \includegraphics[width=\textwidth]{Figures/ATF/Collimator_in_ATF2.pdf}
+ \includegraphics[width=0.9\textwidth]{Figures/ATF/Collimator_in_ATF2.png}
  \caption{Collimator model in the ATF2 beam line}
 \end{subfigure}
 \caption[Model of the vertical beam halo collimator used in the \bdsim simulation]{Model of the vertical beam halo collimator, used in the \bdsim simulation of the ATF2 beam lattice.
@@ -609,10 +609,26 @@ At the start of the ATF2 beam line, the beam core has a size of $\sigma^{Core}_x
 \caption[Comparison of the ATF2 beam size development in \bdsim and MADX]{Comparison of the ATF2 beam size ($\sigma_x$ and $\sigma_y$) development along the beam line (S [m]) using \bdsim and MADX.}
 \label{fig:MADX}
 \end{figure}
-\\For the \bdsim simulation of the background particles, the primary particle beam was then set to be the ATF2 beam halo, excluding the beam core.
-The beam halo is defined to stretch from $3\sigma^{Core}_x$ to $5\sigma^{Core}_x$, and from $3\sigma^{Core}_y$ to $10\sigma^{Core}_y$.
-In \bdsim, the beam halo is modeled accordingly, assuming a Gaussian distribution with an energy spread of \SI{0.08}{\percent}.
 
+For the \bdsim simulation of the background particles, the primary particle beam was then set to be the ATF2 beam halo, excluding the beam core.
+The beam halo is defined to stretch from $3 \sigma^{Core}_x$ to $5 \sigma^{Core}_x$, and from $3 \sigma^{Core}_y$ to $10 \sigma^{Core}_y$.
+In \bdsim, the beam halo is modeled accordingly, assuming a Gaussian distribution with an energy spread of \SI{0.08}{\percent}.
+At the location of the beam halo collimator, the beam core has a size of $\sigma^{Core}_x$ = \SI{0.16}{\milli\meter} and $\sigma^{Core}_y$ = \SI{0.28}{\milli\meter}.
+\\Several \bdsim simulations runs were done for different apertures of the vertical beam halo collimator.
+The results were analyzed regarding the observable number of secondary particles created at the various ATF2 beam line components.
+For a beam halo population of \num{2e6} primary particles, the number of secondary particles in the proximity of the beam halo collimator can be seen in Figure~\ref{fig:ParticlesPerModel}.
+The number of particles are given in bar charts for the two collimator apertures: \SI{24}{\milli\meter} (open collimator) and \SI{4}{\milli\meter} (closed collimator).
+In the direct proximity of the collimator, the number of secondary particles is larger in the case of a closed collimator, because of particle showers caused by the intersection of the beam halo with the collimator jaws.
+Further downstream of the collimator, however, the number of secondaries is smaller in every beam line component.
+\\At the location of the RHUL Cherenkov detector, which is indicated in Figure~\ref{fig:ParticlesPerModel} (b), the number of occurring secondary particles is lower by over one order of magnitude.
+This indicates that the observation of differences in the background suppression by the vertical beam halo collimator is challenging at this location.
+\\Nevertheless, further studies have been conducted to find the origin of the particles that would hit the RHUL Cherenkov detector.
+To this end, cuts have been applied to the particle positions, such that only particles with x and y-positions within a window that matches the front face of the RHUL Cherenkov detector are registered.
+The result is shown in Figure~\ref{fig:RHUL_Cherenkov_Sampler}.
+The largest contribution are the primary beam particles.
+Almost all other contributions are several orders of magnitude smaller.
+The respective components are all located downstream of the collimator and upstream of the Cherenkov detector.
+There is no significant difference in the number of particles between the two studied collimator apertures.
 \todo{``retrieved'' the right word in Fig description?}
 \begin{figure}
 \centering
@@ -627,23 +643,50 @@ In \bdsim, the beam halo is modeled accordingly, assuming a Gaussian distributio
  \includegraphics[width=\textwidth]{Figures/ATF/TracksPerModel_secondPart.png}
  \caption{Downstream ATF2 components}
 \end{subfigure}
-\caption[Number of secondary particles created in the ATF2 components]{Number of secondary particles created in the ATF2 components directly upstream (a) and downstream (b) of the vertical beam halo collimator (COLLBY).
+\caption[Number of secondary particles created in the ATF2 components]{Number of secondary particles observed in the ATF2 components directly upstream (a) and downstream (b) of the vertical beam halo collimator (COLLBY).
 The x-axes show the component names in the ATF2 lattice.
 Components starting with the letter ``L'' are drift lengths, components containing the word ``COLL'' are collimators.
 All other names belong to magnet components.
 \\The results for the ``Open Vertical Collimator'' are gained with fully retrieved collimator jaws.
 The ``Closed Vertical Collimator'' has an aperture of \SI[detect-all]{4}{\milli\meter}.
 }
-\label{fig:Collimator_model}
+\label{fig:ParticlesPerModel}
 \end{figure}
 
-\begin{itemize}
- \item Number of particles at ATF2 line components - done, but has to be redone
- \item Number of particles at ATF2 IP - done, but has to be redone
-\end{itemize}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.6\textwidth]{Figures/ATF/RHUL_Cherenkov_Sampler1.png}
+\caption[Number of particles at the RHUL Cherenkov detector]{Number of secondary particles arriving at the location of the RHUL Cherenkov detector in the case of an open (aperture of \SI[detect-all]{24}{\milli\meter}) and closed (aperture of \SI[detect-all]{4}{\milli\meter}) vertical beam halo collimator.}
+\label{fig:RHUL_Cherenkov_Sampler}
+\end{figure}
 
-\subsection{Effect on background level at IP}
+\subsection{Conclusion on the studies concerning the background levels in proximity of the vertical beam halo collimator}
+The presented \bdsim simulation studies of the ATF2 lattice and the effect of the vertical beam halo collimator does not yield the desired results comparable to the measured data, which were discussed in Section~\ref{aperture_scans}.
+Figure~\ref{fig:ParticlesPerModel} shows that the level of secondary particles at the location of the RHUL Cherenkov detector is low in comparison to the direct proximity of the vertical beam halo collimator.
+After discussions with \bdsim developers, it was concluded that the geometry models of the ATF2 beam line and its components are not mature enough for precision studies of the background in dependency of the collimator aperture.
+In order to improve the model, measurements of all component apertures along the ATF2 line had to be taken and implemented.
+The exact apertures are needed for a realistic simulation of the interaction of the beam halo with the beam line material.
+Additionally, the magnetic fields around the beam line magnets, which also affect the secondary particles, have to be modeled outside the beam line.
+So far, the implemented field maps do only describe the magnetic field around the beam axis.
+\\Overall, the analysis tool, which was written to gain the presented simulation results, is capable of showing the origin of the background particles and the background level at all components along the beam line.
+The beam halo collimator model, which was created for this simulation study, was provided to the \bdsim developers for its implementation into the ATF2 lattice, which is part of the available examples given in the \bdsim framework.
+\\For future studies, the background levels should be measured at locations closer to the beam halo collimator, where higher background levels are expected.
+The effect of the collimator aperture is therefore easier to observe due to higher statistics and fewer influencing components between the collimator and the background detector.
+Together with an improved \bdsim model of ATF2, various background studies could be conducted regarding the impact of accelerator components and accelerator running schemes.
+
+\subsection{Effect on the background level at IP}
 \label{collimator_bkg_IP}
-We have seen that the background level around the collimator area is dramatically affected by the movement of the collimator jaws. 
+In Section~\ref{aperture_scans}, it was shown that the background level measured with the RHUL Cherenkov detector is affected by the movement of the collimator jaws.
 However, the actual aim of the vertical beam halo collimator is to reduce the machine background at the IP.
-
+Figure~\ref{fig:IP_background} shows measurements of background photons at the ATF2 IP in dependency of the vertical beam halo aperture.
+For all measured beam intensities, the background photon level could be reduced by closing the collimator jaws more than \SI{6}{\milli\meter} half aperture, which corresponds to a full aperture of \SI{12}{\milli\meter}.
+This and further results concerning studies of the beam halo collimator~\cite{Nuria_Thesis} are proof of principle for the vertical beam halo collimator.
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.6\textwidth]{Figures/ATF/IP_background_Nuria_Thesis_p212IP_background_Nuria_Thesis_p212.pdf}
+\caption[Number of background particles at the ATF2 IP]{Number of photons measured at the ATF2 IP in dependency of the vertical beam halo collimator aperture~\cite[p. 212]{Nuria_Thesis}.
+The collimator aperture is given as the half aperture, which is the distance between the center axis and one collimator jaw.
+The photons were measured behind the ATF2 IP, where the beam electrons are deflected by the last bending magnet of the beam line lattice.
+\\The measurements were done for three beam intensities (\num{0.7e10}, \num{0.8e10}, and \num{1.0e10}).}
+\label{fig:IP_background}
+\end{figure}
