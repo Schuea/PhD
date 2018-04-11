@@ -1,6 +1,7 @@
 import hep.io.stdhep.StdhepBeginRun;
 import hep.io.stdhep.StdhepEndRun;
 import hep.io.stdhep.StdhepEvent;
+import hep.io.stdhep.StdhepExtendedEvent;
 import hep.io.stdhep.StdhepWriter;
 
 import java.io.BufferedReader;
@@ -218,6 +219,14 @@ public class NeutronsToStdhep {
 		int[] _jda = new int[2 * _nmax];
 		double[] _p = new double[5 * _nmax];
 		double[] _v = new double[4 * _nmax];
+		//Arrays for StdhepExtendedEvent values:
+		double[] _w = new double[_nmax];
+		double[] _alphaqed = new double[_nmax];
+    double[] _alphaqcd = new double[_nmax];
+    double[] _scale = new double[_nmax];
+    double[] _spin = new double[3 * _nmax];//Check if correct
+    int[] _color = new double[3 * _nmax];//Check if correct
+    int[] _idrup = new int[_nmax];
 				
 		//Dummy values:
 		int nevtreq = 1;
@@ -295,6 +304,7 @@ public class NeutronsToStdhep {
 					_v[1 + 4 * _n] = p.getPosition()[1]; // y
 					_v[2 + 4 * _n] = p.getPosition()[2]; // z
 					_v[3 + 4 * _n] = p.getTime(); // creation time
+					_w[_n] = p.getWeight(); // weight
 				
 					//Increment the number of particles in this event
 					_n++;
@@ -303,12 +313,15 @@ public class NeutronsToStdhep {
 					//System.out.println(_m);
 				} 
 			}
+
+      //StdhepEvent(int nevhep, int nhep, int[] isthep, int[] idhep, int[] jmohep, int[] jdahep, double[] phep, double[] vhep)
+      //StdhepExtendedEvent(int nevhep, int nhep, int[] isthep, int[] idhep, int[] jmohep, int[] jdahep, double[] phep, double[] vhep, 
+      //double eventweight, double alphaqed, double alphaqcd, double[] scale, double[] spin, int[] colorflow, int idrup)
 			
 			try{
 				System.out.println("\n _eventnum = " + _eventnum + ", _n = " + _n + "\n");
 				//Write out the (last) arrays to the (last) stdhep event:
-				StdhepEvent event = new StdhepEvent(_eventnum, _n, _fst, _id,
-						_jmo, _jda, _p, _v);
+				StdhepExtendedEvent event = new StdhepExtendedEvent(_eventnum, _n, _fst, _id,	_jmo, _jda, _p, _v, _w, _alphaqed, _alphaqcd, _scale, _spin, _color, _idrup);
 				//Write out the (last) stdhep event into the (last) stdhep file:
 				w.writeRecord(event);
 				w.writeRecord(new StdhepEndRun(nevtreq, nevtgen, nevtwrt, stdecom,
@@ -431,9 +444,9 @@ class Particle{
 
 		//Default values for particle mass, pdg, charge and state of simulation:
 		GeneratorStatus = 1; //These particles are all generated.
-		pdg = 13; //PDG Monte Carlo numbering scheme
-		mass = 0.1056583745; //muon mass in 
-		charge = -1;
+		pdg = 2112; //PDG Monte Carlo numbering scheme
+		mass = 0.9395654133; //neutron mass in 
+		charge = 0;
 		
 	}
 	/* Initialise the particle by calculating the momentum, p_T and theta.
@@ -445,12 +458,9 @@ class Particle{
 		mom = new double[3];
 		mom = calculateMom(mom_tot,cos);
 
-		boolean positronline = true;//CHANGE HERE WETHER IT IS THE POSITRON LINE OR NOT
+		boolean positronline = false;//CHANGE HERE WETHER IT IS THE POSITRON LINE OR NOT
 		if (positronline) {
 			ChangeToPositronBeam();	
-		}
-		if (chargesign > 0) {
-			ChangeToPosMuon();
 		}
 	}
 	private double[] calculateMom(double mom_tot, double[] cos){
@@ -464,11 +474,6 @@ class Particle{
 	private double calculateEnergy(double mom_tot){
 		double E = Math.sqrt( Math.pow(mom_tot,2) + Math.pow(mass,2) );
 		return E;
-	}
-	//Switch PDG number, energy value to correspondent values
-	public void ChangeToPosMuon(){
-		pdg *= -1;
-		energy *= -1.0D;
 	}
 	//Switch sign of x coordinate and momenta //TODO: Check if that's correct for cos!
 	public void ChangeToPositronBeam(){
@@ -509,10 +514,10 @@ class Particle{
 	//private double[] beta;
 	private double[] pos;
 	private double energy;
-	private int pdg = 13; //PDG number of an muon
-	private double chargesign; //muon charge
+	private int pdg = 2112; //PDG number of an neutron
 	private int charge; 
-	private double mass = 0.1056583745; //muon mass
+	private double mass = 0.9395654133; //neutron mass
 	private double time;
+	private double weight;
 	private int GeneratorStatus;
 }
