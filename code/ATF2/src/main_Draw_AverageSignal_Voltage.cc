@@ -94,6 +94,7 @@ int main(int const argc, char const * const * const argv) {
 
   //Plot the TGraphErrors for the different intensities onto the same canvas:
   TCanvas* canvas = new TCanvas();
+  canvas->SetGrid();
   canvas->SetLogy();
   canvas->SetLogx();
   AverageSignal_Voltage->GetXaxis()->SetMoreLogLabels(1);
