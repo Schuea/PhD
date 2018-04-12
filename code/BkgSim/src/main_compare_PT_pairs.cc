@@ -157,6 +157,7 @@ int main(int const argc, char const * const * const argv) {
     for (long long int i = 0; i < entries; ++i) {
       tree->GetEntry(i);
       if ( particle_pdg != 11 && particle_pdg != -11) continue;
+      //if ( particle_pdg != 2112) continue;
       Hits_P_T_250->Fill(sqrt(mom_x*mom_x+mom_y*mom_y),weight);
       Hits_P_z_250->Fill(abs(mom_z),weight);
     }
@@ -187,6 +188,7 @@ int main(int const argc, char const * const * const argv) {
     for (long long int i = 0; i < entries; ++i) {
       tree->GetEntry(i);
       if ( particle_pdg != 11 && particle_pdg != -11) continue;
+      //if ( particle_pdg != 2112) continue;
       Hits_P_T_500->Fill(sqrt(mom_x*mom_x+mom_y*mom_y),weight);
       Hits_P_z_500->Fill(abs(mom_z),weight);
     }
