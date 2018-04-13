@@ -270,13 +270,7 @@ The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cu
  The densities of particles in the geometry can also be scored with \fluka, which is then given as the number of particles per \si{\centi\meter\cubed}.
  As an example, Figure~\ref{fig:BeamDumps:Electrons} shows the density distribution of electrons in the xz plane for the two ILC beam dump designs.
  Since the primary beam also consists of electrons, the beam path is also visible coming from negative z along the beam pipe.
- Inside the water vessel, the beam is stopped and dissipated, and particle showers start forming. The electrons are boosted in the beam direction, because of which electrons outside the beam dump are mainly observed around and behind the vessel. 
- \\This looks quite different for the neutron density distributions (Figure~\ref{fig:BeamDumps:Neutrons}).
- The primary electron beam undergoes the electromagnetic particle showers in the beam dump, which is desired in order to absorb the beam power.
- The produced secondary particles from the particle showers, however, interact with the beam dump material and the water via ionization and photonuclear processes.
- The products from these processes are neutrons in connection with the radioactive nuclei discussed in Section~\ref{BeamDumps:sim_surrounding:Dose}.
- Due to this way of production, the neutrons can be found under every solid angle, hence also in the backward direction. \todo{English?!}
- 
+ Inside the water vessel, the beam is stopped and dissipated, and particle showers start forming. The electrons are boosted in the beam direction, because of which electrons outside the beam dump are mainly observed around and behind the vessel.  
 \begin{figure}[!h]
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
@@ -295,7 +289,11 @@ The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cu
    The color scale shows the dose in number of particles per \si{\centi\meter\cubed} per bunch.}
    \label{fig:BeamDumps:Electrons}
 \end{figure} 
-
+ \\This looks quite different for the neutron density distributions (Figure~\ref{fig:BeamDumps:Neutrons}).
+ The primary electron beam undergoes the electromagnetic particle showers in the beam dump, which is desired in order to absorb the beam power.
+ The produced secondary particles from the particle showers, however, interact with the beam dump material and the water via ionization and photonuclear processes.
+ The products from these processes are neutrons in connection with the radioactive nuclei discussed in Section~\ref{BeamDumps:sim_surrounding:Dose}.
+ Due to this way of production, the neutrons can be found under every solid angle, hence also in the backward direction. \todo{English?!}
 \begin{figure}[!h]
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
@@ -310,12 +308,34 @@ The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cu
    \caption{\designtwo}
    \end{subfigure}
    \caption[Neutron flux in the ILC main beam dump]{\fluka result of the neutron flux from one beam bunch in the ILC beam dump \designone (a) and \designtwo (b) and their surrounding.
-   The view is in the xz plane of the beam dump.
+   The view is in the xz-plane of the beam dump.
    The color scale shows the dose in number of particles per \si{\centi\meter\cubed} per bunch.}
    \label{fig:BeamDumps:Neutrons}
 \end{figure} 
-
-Neutron spatial distributions
+By adding an imaginary scoring plane upstream of the beam dump vessel as indicated in Figure~\ref{fig:BeamDumps:NeutronScoring} (a), the neutrons escaping the beam dump in the direction of the extraction line can be scored.
+\fluka then recorded the kinetic energy of the neutrons crossing this scoring plane under various angles to the z-axis.
+The energy spectrum can be seen in Figure~\ref{fig:BeamDumps:NeutronScoring} (b).
+The spectra range from ?? to ??, and indicate the number of neutrons under different angles. 
+\begin{figure}[hbp]
+\centering
+  \begin{subfigure}[b]{0.4\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Bird_view_BeamDump_Tomb_ScoringPlane.png}
+   \caption{Neutron scoring plane}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.59\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Bird_view_BeamDump_Tomb_ScoringPlane.png}
+   \caption{Neutron energy distribution}
+   \end{subfigure}
+\caption[Neutron scoring plane in the main beam dump hall]{Scoring neutrons escaping the beam dump vessel in the direction of the extraction line.
+\\Figure (a) shows the position of the scoring plane in \fluka in the xz-view of the beam dump hall.
+At the boundary of the scoring plane, the neutron energy spectrum is recorded.
+\\Figure (b) shows the energy spectra of the neutrons which are produced in the beam dump Design 1, and which cross the scoring plane indicated in Figure (a).
+The different graphs stand for different crossing angles of the neutrons.}
+\label{fig:BeamDumps:NeutronScoring}
+\end{figure}
 
 \section{Simulation studies of extraction line}
 \label{BeamDumps:sim_EXT}
@@ -325,7 +345,7 @@ As mentioned before, the extraction line lattice consists of magnets and collima
 \\The first device of the extraction line lattice is the focusing quadrupole QDEX1, closest to the IP.
 Like the last quadrupole QD0 of the final-focus system, QDEX1 is also an integrated part of the two detector experiments.
 Since the neutrons escaping the extraction line shall be input to a full detector simulation, the \fluka model of the EXT line therefore does not include QDEX1.
-The model rather ends at \SI{9.3}{\meter} from the IP, which will then be the starting point of the escaping neutrons for the following \geant simulation of the SiD detector.
+The model rather ends at \SI{9.3}{\meter} from the IP, which will then be the starting point of the escaping neutrons for the following \geant simulation of the \sid detector.
 The component of the \fluka model closest to the IP is the cryostat containing QFEX2A, the only other superconducting magnet of the EXT lattice next to QDEX1.
 The cryostat is followed by 13 quadrupole models, which prepare the spent beams for diagnostic measurements and which shall prevent any beam loss~\cites[p. 139 ff]{TDR32}{EXT_design, EXT_design2}.
 The following eight dipole magnets are part of the energy diagnostic section.
@@ -364,10 +384,7 @@ The magnets are simulated without their respective magnetic field maps, since th
    \label{fig:BeamDumps:EXT}
 \end{figure} 
 
-\begin{itemize}
- \item Extraction line lattice - explain components
- \item Simulation of neutrons through EXT - not done yet
-\end{itemize}
+Simulation of neutrons through EXT
 
 \section{SiD Occupancy study from beam dump neutrons}
 \label{BeamDumps:SiDocc}
