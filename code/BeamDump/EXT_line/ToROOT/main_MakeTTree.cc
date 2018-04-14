@@ -1,4 +1,5 @@
 #include "TFile.h"
+#include "TH1F.h"
 #include "TTree.h"
 #include "TBranch.h"
 #include "TObject.h"
@@ -56,6 +57,22 @@ int main(int const argc, char const * const * const argv){
   Tree->Branch("Time",&time,"Time/F");
   Tree->Branch("Weight",&weight,"Weight/F");
   
+  TH1F* X_histo  = new TH1F("X_histo","X_histo",100,-2000,6000);
+  TH1F* Y_histo  = new TH1F("Y_histo","Y_histo",100,-2000,2000);
+  TH1F* CX_histo  = new TH1F("CX_histo","CX_histo",100,-1,1);
+  TH1F* CXlow_histo  = new TH1F("CXlow_histo","CXlow_histo",100,-0.05,0.05);
+  TH1F* CX_histo_ex  = new TH1F("CX_histo_ex","CX_histo_ex",100,-1,1);
+  TH1F* CY_histo  = new TH1F("CY_histo","CY_histo",100,-1,1);
+  TH1F* CY_histo_ex  = new TH1F("CY_histo_ex","CY_histo_ex",100,-1,1);
+  TH1F* CYlow_histo  = new TH1F("CYlow_histo","CYlow_histo",100,-0.05,0.05);
+  TH1F* CZ_histo  = new TH1F("CZ_histo","CZ_histo",100,-1,1);
+  TH1F* CZlow_histo  = new TH1F("CZlow_histo","CZlow_histo",100,-1,-0.9995);
+  TH1F* E_histo  = new TH1F("E_histo","E_histo",100,0,0.06);
+  TH1F* Elow_histo  = new TH1F("Elow_histo","Elow_histo",100,0,0.005);
+  TH1F* Elowlow_histo  = new TH1F("Elowlow_histo","Elowlow_histo",100,0,0.00000005);
+  TH1F* T_histo  = new TH1F("T_histo","T_histo",100,0,0.012);
+  TH1F* Tlow_histo  = new TH1F("Tlow_histo","Tlow_histo",100,0,0.00003);
+
   std::ifstream inputfile(inputfilename);
   std::string line;
   int count = 1;
@@ -83,7 +100,24 @@ int main(int const argc, char const * const * const argv){
 
     Tree->Fill();
     ++count;
+
+    X_histo->Fill(x, weight);
+    Y_histo->Fill(y, weight);
+    CX_histo->Fill(cx, weight);
+    if(cx < -0.01 || cx > 0.022) CX_histo_ex->Fill(cx, weight);
+    CXlow_histo->Fill(cx, weight);
+    CY_histo->Fill(cy, weight);
+    if(cy > 0.006 || cy < -0.006) CY_histo_ex->Fill(cy, weight);
+    CYlow_histo->Fill(cy, weight);
+    CZ_histo->Fill(cz, weight);
+    CZlow_histo->Fill(cz, weight);
+    E_histo->Fill(ekin, weight);
+    Elow_histo->Fill(ekin, weight);
+    Elowlow_histo->Fill(ekin, weight);
+    T_histo->Fill(time, weight);
+    Tlow_histo->Fill(time, weight);
   }
+
   inputfile.close();
   ROOTFile->Write();
   ROOTFile->Close();
