@@ -14,6 +14,7 @@ using namespace std;
   double const Y_low  = -2000;
   double const Y_high = 2000;
   double const CX_low1  =-0.01; 
+  //double const CX_high1 =0.01;
   double const CX_high1 =0.022;
   double const CX_low2  = -1; 
   double const CX_high2 =  1;
@@ -31,7 +32,7 @@ using namespace std;
   //double const E_high = 0.006;
   double const E_high = 0.06;
   double const T_low  = 0;
-  double const T_high = 0.000012;
+  double const T_high = 0.00012;
   //double const T_high = 0.0012;
   TF1 fit_X ("X", "pol5"  ,X_low,  X_high);
   TF1 fit_Y ("Y", "pol4"  ,Y_low,  Y_high);
@@ -42,18 +43,22 @@ using namespace std;
   TF1 fit_CZ1("CZ1","pol1",CZ_low1, CZ_high1);
   TF1 fit_CZ2("CZ2","expo",CZ_low2, CZ_high2);
   TF1 fit_CZ3("CZ3","expo",CZ_low3, CZ_high3);
-  TF1 fit_E ("E", "pol1"  ,E_low,  E_high);
+  TF1 fit_E ("E", "pol0"  ,E_low,  E_high);
   TF1 fit_T ("T", "gaus(0) + gaus(3)"  ,T_low,  T_high);
 
   double const X_ymax = 1.5;
   double const Y_ymax = 1.8;
   double const CX_ymax1 = 4;
-  double const CX_ymax2 = 0.4;
+  double const CX_ymax2 = 4;
+  //double const CX_ymax2 = 0.4;
   double const CY_ymax1 = 6;
-  double const CY_ymax2 = 0.4;
+  double const CY_ymax2 = 6;
+  //double const CY_ymax2 = 0.4;
   double const CZ_ymax1 = 3;
-  double const CZ_ymax2 = 1;
-  double const CZ_ymax3 = 0.6;
+  double const CZ_ymax2 = 3;
+  double const CZ_ymax3 = 3;
+  //double const CZ_ymax2 = 1;
+  //double const CZ_ymax3 = 0.6;
   double const E_ymax = 0.6;
   double const T_ymax = 35;
 
@@ -93,11 +98,11 @@ int main()
   fit_CX1.SetParameter(6, 6.69334e+10 );
 
   fit_CX2.SetParameter(0, 1.45563e+00);
-  fit_CX2.SetParameter(1,0);
+  fit_CX2.SetParameter(1,0.01);
   //fit_CX2.SetParameter(1,-1.02674e-02);
   fit_CX2.SetParameter(2, 4.71313e-02);
   fit_CX2.SetParameter(3, 2.53096e-01);
-  fit_CX2.SetParameter(4,0);
+  fit_CX2.SetParameter(4,0.01);
   //fit_CX2.SetParameter(4,-2.53408e-02);
   fit_CX2.SetParameter(5, 1.89370e-01);
 
@@ -120,7 +125,6 @@ int main()
   fit_CZ3.SetParameter(1,-1.36575e+01);
   
   fit_E.SetParameter(0,0.0659346);
-  fit_E.SetParameter(1,0.0835921);
 
   fit_T.SetParameter(0,3.40000e+01);
   fit_T.SetParameter(1,2.18000e-06);
