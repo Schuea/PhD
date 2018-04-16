@@ -189,9 +189,9 @@ The reason for that is the larger material density in \designtwo in form of the 
    \\Figures (c) and (d) show the maximum values of the energy deposition as a projection on the z axis.}
    \label{fig:BeamDumps:Energy}
 \end{figure}
-\\Subfigures (c) and (d) show the projection of maximum values of the deposited energy onto the z axis.
+\\Subfigures~\ref{fig:BeamDumps:Energy}(c) and (d) show the projection of maximum values of the deposited energy onto the z axis.
 The overall distribution of the deposited energy over z is smooth, with a maximum shortly before the vessel center.
-Nevertheless, the distribution has several sharp peaks which can be identified to be at locations with large material density. \todo{English?!}
+Nevertheless, the distribution has several sharp peaks which can be identified at locations with large material density.
 For \designone, the first sharp peak at z\,$\approx$\,\SI{-230}{\centi\meter} corresponds to the front side of the vortex tube, the back side of the same tube is also visible through the second peak at z\,$\approx$\,\SI{110}{\centi\meter}.
 The third peak at z\,$\approx$\,\SI{220}{\centi\meter} is caused by the beam hitting the first copper plates in the end of the vessel.
 \\Accordingly, the sharp peaks in Figure~\ref{fig:BeamDumps:Energy} (d) for \designtwo also correspond to locations with a higher material density.
@@ -293,7 +293,9 @@ The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cu
  The primary electron beam undergoes the electromagnetic particle showers in the beam dump, which is desired in order to absorb the beam power.
  The produced secondary particles from the particle showers, however, interact with the beam dump material and the water via ionization and photonuclear processes.
  The products from these processes are neutrons in connection with the radioactive nuclei discussed in Section~\ref{BeamDumps:sim_surrounding:Dose}.
- Due to this way of production, the neutrons can be found under every solid angle, hence also in the backward direction. \todo{English?!}
+ Due to the way the neutrons are produced, they can be found under every solid angle, hence also in the backward direction.
+ Since the neutron flux outside the vessel does not show a significant difference between \designone and \designtwo, the following results are shown for \designone only.
+ They are however valid for both designs.
 \begin{figure}[!h]
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
@@ -312,14 +314,21 @@ The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cu
    The color scale shows the dose in number of particles per \si{\centi\meter\cubed} per bunch.}
    \label{fig:BeamDumps:Neutrons}
 \end{figure} 
-By adding an imaginary scoring plane upstream of the beam dump vessel as indicated in Figure~\ref{fig:BeamDumps:NeutronScoring} (a), the neutrons escaping the beam dump in the direction of the extraction line can be scored.
+\\By adding an imaginary scoring plane upstream of the beam dump vessel as indicated in Figure~\ref{fig:BeamDumps:NeutronScoring} (a), the neutrons escaping the beam dump in the direction of the extraction line can be scored.
 \fluka then recorded the kinetic energy of the neutrons crossing this scoring plane under various angles to the z-axis.
 The energy spectra can be seen in Figure~\ref{fig:BeamDumps:NeutronScoring} (b).
 The spectra range from about \SI{1}{\meV} to \SI{500}{\MeV}, and indicate the number of neutrons under different angles. 
 The graph ``0 - 45 degrees'' shows the energy spectrum for all neutrons crossing the boundary in the direction of the extraction line (the negative z-direction) under an angle of up to \SI{45}{\degree}.
 The energy spectrum of the neutrons that cross the boundary under an angle between \SI{45}{\degree} and \SI{90}{\degree} to the negative z-direction is also displayed in Figure~\ref{fig:BeamDumps:NeutronScoring} (b).
 The combination of both spectra is shown by the red graph, indicated with ``all angles'' in the figure legend.
-\\
+The first peak in the meV range represents the thermal neutron energy peak.
+At the eV range, resonance peaks from resonant elastic scattering of neutrons with a compound nucleus are visible.
+These resonance peaks are element specific, so that the peaks indicate which materials the neutrons have interacted with. \todo{Point to literature}
+%at about \SI{230}{\eV} corresponds to the resonance of copper.
+Finally in the MeV range, the so-called evaporation or fission peak of fast neutrons is visible.
+\\All these neutrons point in the direction of the extraction line and hence in the direction of the interaction region and the detectors.
+As can be seen in Section~\ref{BeamDumps:sim_EXT}, the neutrons do not reach the detectors freely.
+Due to shielding walls and extraction line components, the number of neutrons is decimated.
 \begin{figure}[hbp]
 \centering
   \begin{subfigure}[b]{0.4\textwidth}
@@ -336,12 +345,13 @@ The combination of both spectra is shown by the red graph, indicated with ``all 
 \caption[Neutron scoring plane in the main beam dump hall]{Scoring neutrons escaping the beam dump vessel in the direction of the extraction line.
 \\Figure (a) shows the position of the scoring plane in \fluka in the xz-view of the beam dump hall.
 At the boundary of the scoring plane, the neutron energy spectrum is recorded.
-\\Figure (b) shows the energy spectra of the neutrons which are produced in the beam dump Design 1, and which cross the scoring plane indicated in Figure (a).
+\\Figure (b) shows the energy spectra of the neutrons, which are produced in the beam dump \designone from one ILC beam bunch, and which cross the scoring plane indicated in Figure (a).
 The different graphs stand for different crossing angles to the z-axis.
 The red graph (``all angles'') is the combination of the other two graphs (``0 - 45 degrees'' and ``45 - 90 degrees'').}
 \label{fig:BeamDumps:NeutronScoring}
 \end{figure}
 
+\clearpage
 \section{Simulation studies of extraction line}
 \label{BeamDumps:sim_EXT}
 
@@ -389,14 +399,39 @@ The magnets are simulated without their respective magnetic field maps, since th
    \label{fig:BeamDumps:EXT}
 \end{figure} 
 
-Simulation of neutrons through EXT
+The neutrons, which reach the extraction line passed the beam dump shielding walls, are tracked through the extraction line geometry described above.
+The resulting neutron density in the tunnel is shown in Figure~\ref{fig:BeamDumps:NeutronEnergy_dis_EXT} (a) in a view of the xz-plane.
+Close to the beam dump hall, at around z = \SI{300}{\meter}, the neutron density reaches over \num{e4} neutrons per \si{\centi\meter\cubed}.
+This density sinks to about one neutron per \si{\centi\meter\cubed} close to the interaction region at z = \SI{10}{\meter}.
+The beam line components shield the neutron flux such that the density between about \SI{-200}{\centi\meter} and \SI{200}{\centi\meter} in x is reduced to about \SI{0.1}{\per\centi\meter\cubed}.
+\\The resulting deposited energy is shown in the xz-plane in Figure~\ref{fig:BeamDumps:NeutronEnergy_dis_EXT} (b).
+Due to the high density of neutrons close to the beam hall, the energy density reaches here up to 
+\num{e2} - \SI{e3}{\MeV\per\centi\meter\cubed}.
+Also according to the neutron density distribution, the deposited energy close to the interaction region drops to about \num{0.1} - \SI{1}{\keV\per\centi\meter\cubed}.
+\begin{figure}[hbp]
+\centering
+  \begin{subfigure}[b]{\textwidth}
+   \centering
+\includegraphics[width=0.99\textwidth]{Figures/BeamDump/Neutron_dis_in_full_EXT_tunnel.png}
+\caption{Neutron density distribution}
+   \end{subfigure}\\
+    \begin{subfigure}[b]{\textwidth}
+   \centering
+\includegraphics[width=0.99\textwidth]{Figures/BeamDump/Energy_dis_in_full_EXT_tunnel.png}
+\caption{Deposited energy distribution}
+\end{subfigure}
+\caption[Spatial distribution of the neutron density and the deposited energy in the ILC extraction line tunnel]{
+Figure (a) shows the spatial distribution of the neutrons in the ILC extraction line tunnel simulated with \fluka.
+The color scale shows the number of neutrons per unit area, normalized to the rate resulting from one ILC beam bunch dumped in the water vessel.
+\\Figure (b) shows the spatial distribution of the deposited energy in the ILC extraction line tunnel simulated with \fluka.
+The color scale shows the deposited energy in \si{\GeV} per unit area, normalized to the results from one ILC beam bunch dumped in the water vessel.}
+\label{fig:BeamDumps:NeutronEnergy_dis_EXT}
+\end{figure}
+
 
 \section{SiD Occupancy study from beam dump neutrons}
 \label{BeamDumps:SiDocc}
 
-\begin{itemize}
- \item Occupancy study of neutrons in SiD - not done yet
-\end{itemize}
 
 \section{Alternative beam dump designs}
 A gas dump (TESLA layout) requires a dump length of at least \SI{1}{\kilo\meter}.
