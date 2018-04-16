@@ -86,9 +86,9 @@ LAM-BIAS         0.0     -0.02    COPPER    PHOTON
 USRBIN           10.    ENERGY      -21.      190.      190.    51900.Energy
 USRBIN         -190.     -190.   -50700.      100.      100.      500. &
 SCORE        NEUTRON    ENERGY    TRITON   DOSE-EQ
-*AUXSCORE      USRBIN  ALL-PART              DoseEq                    AMB74
-*USRBIN           10.   DOSE-EQ      -23.      190.      190.    51900.DoseEq
-*USRBIN         -190.     -190.   -51900.      100.      100.      500. &
+AUXSCORE      USRBIN  ALL-PART              DoseEq                    AMB74
+USRBIN           10.   DOSE-EQ      -23.      190.      190.    51900.DoseEq
+USRBIN         -190.     -190.   -50700.      100.      100.      500. &
 #if ACTIV_STUDY 
 *DCYSCORE          1.                       DoseEq1                    USRBIN
 *DCYSCORE          2.                       DoseEq2                    USRBIN
