@@ -274,10 +274,10 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 1122.28 604.088
+	extends: 1171.34 630.496
 	labels: 1
 	layer: Media
-	origin: 0 -682.426 -50563
+	origin: 0 107.814 -50696.6
 	subtype: Material
 	title: GeoViewer Blue plot
 End

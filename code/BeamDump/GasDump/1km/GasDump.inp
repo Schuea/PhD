@@ -1,5 +1,5 @@
 #define ACTIV_STUDY 
-*#undef ACTIV_STUDY 
+#undef ACTIV_STUDY 
 TITLE
 GasDump
 GLOBAL                                          1.
@@ -19,8 +19,8 @@ RADDECAY          1.                                  100010
 #endif  
 GEOBEGIN                                                              COMBNAME
     0    0          GasDump
-RPP Airbox     -200. 200. -200. 200. -52000. 52000.
-RPP BlackBox   -201. 201. -201. 201. -52001. 52001.
+RPP Airbox     -200.0 200.0 -200.0 200.0 -50700.0 52000.0
+RPP BlackBox   -201.0 201.0 -201.0 201.0 -50775.0 52001.0
 ZCC InTank     0.0 .01017619145298 75.
 ZCC OutTank    0.0 .01017619145298 130.
 XYP EndPla1    -50060.
@@ -30,6 +30,8 @@ XYP EndPla4    50500.
 ZCC InBeaPi    0.0 0.0 15.
 ZCC OutBeaPi   0.0 0.0 17.
 XYP WindowPl   -50060.1
+RPP EXT        -200.0 200.0 -200.0 200.0 -50750.0 -50701.0
+RPP ScorePl    -200.0 200.0 -200.0 200.0 -50701.0 -50700.0
 END
 BeaPipe      5 +Airbox +EndPla1 +OutBeaPi -InBeaPi
 BeaPiVa      5 +Airbox +WindowPl +InBeaPi
@@ -42,7 +44,9 @@ Gas          5 +InTank +EndPla3 -EndPla2
 Air          5 +Airbox -OutTank
                | +Airbox +OutTank +EndPla1 -OutBeaPi
                | +Airbox +OutTank -EndPla4
-Blackbod     5 +BlackBox -Airbox
+Blackbod     5 +BlackBox -Airbox -EXT -ScorePl
+EXTAir       5 +EXT
+Score        5 +ScorePl -Airbox -EXT
 END
 GEOEND
 MATERIAL         15.                1.82                           0.0Phosphor
@@ -71,6 +75,8 @@ ASSIGNMA      COPPER      Tank
 ASSIGNMA    NITROGEN       Gas
 ASSIGNMA         AIR       Air
 ASSIGNMA    BLCKHOLE  Blackbod
+ASSIGNMA         AIR    EXTAir
+ASSIGNMA      VACUUM     Score
 PHOTONUC          1.                        VACUUM  @LASTMAT        1.
 PHYSICS           3.                                                  EVAPORAT
 PHYSICS           1.                                                  COALESCE
@@ -78,7 +84,7 @@ PHYSICS        1000.     1000.     1000.     1000.     1000.     1000.PEATHRES
 LAM-BIAS         0.0     -0.02  NITROGEN    PHOTON
 LAM-BIAS         0.0     -0.02    COPPER    PHOTON
 USRBIN           10.    ENERGY      -21.      190.      190.    51900.Energy
-USRBIN         -190.     -190.   -51900.      100.      100.      500. &
+USRBIN         -190.     -190.   -50700.      100.      100.      500. &
 SCORE        NEUTRON    ENERGY    TRITON   DOSE-EQ
 *AUXSCORE      USRBIN  ALL-PART              DoseEq                    AMB74
 *USRBIN           10.   DOSE-EQ      -23.      190.      190.    51900.DoseEq
@@ -117,9 +123,15 @@ SCORE        NEUTRON    ENERGY    TRITON   DOSE-EQ
 *RESNUCLE          3.      -67.                      @ALLREGS          Resnuclei6
 #else  
 USRBIN           10.   NEUTRON      -22.      190.      190.    51900.Neutron
-USRBIN         -190.     -190.   -51900.      100.      100.      500. &
-USRBIN           10.    TRITON      -34.      190.      190.    51900.Triton
-USRBIN         -190.     -190.   -51900.      100.      100.      500. &
+USRBIN         -190.     -190.   -50700.      100.      100.      500. &
+*USRBIN           10.    TRITON      -34.      190.      190.    51900.Triton
+*USRBIN         -190.     -190.   -51900.      100.      100.      500. &
+USRYIELD       2399.   NEUTRON      -97.     Score    EXTAir          NeutEXTall
+USRYIELD          1.    1.E-14      100.      180.    1.E-14        3. &
+USRYIELD       2399.   NEUTRON      -98.     Score    EXTAir          NeutEX1
+USRYIELD          1.    1.E-14      100.      135.       90.        3. &
+USRYIELD       2399.   NEUTRON      -99.     Score    EXTAir          NeutEX2
+USRYIELD          1.    1.E-14      100.      180.      135.        3. &
 #endif  
 DISCARD        MUONS
 #if ACTIV_STUDY 
@@ -127,12 +139,12 @@ EMFCUT        -0.001     1.E-4    1.E-05  NITROGEN  NITROGEN        1.PROD-CUT
 EMFCUT        -0.001     1.E-4    1.E-05    COPPER    COPPER        1.PROD-CUT
 EMFCUT        -0.001     1.E-4             BeaPipe      Tank        1.
 #else  
-EMFCUT        -0.002     0.002            NITROGEN  NITROGEN        1.PROD-CUT
-EMFCUT        -0.002     0.002              COPPER    COPPER        1.PROD-CUT
+EMFCUT        -0.002     0.002    1.E-05  NITROGEN  NITROGEN        1.PROD-CUT
+EMFCUT        -0.002     0.002    1.E-05    COPPER    COPPER        1.PROD-CUT
 EMFCUT        -0.002     0.002             BeaPipe      Tank        1.
 #endif  
 * Set the random number seed
 RANDOMIZ          1.        1.
 * Set the number of primary histories to be simulated in the run
-START          1000.                                     0.0  9999999.
+START          2000.                                     0.0  9999999.
 STOP
