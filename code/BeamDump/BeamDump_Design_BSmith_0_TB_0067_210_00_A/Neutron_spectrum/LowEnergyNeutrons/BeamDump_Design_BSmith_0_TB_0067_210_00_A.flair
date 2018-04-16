@@ -16,8 +16,8 @@ F77dline: False
 
 # Run information
 Run: <default>
-	Prev:     0
-	Last:     2
+	Prev:     2
+	Last:     5
 	Status:   3
 	Pid:      0
 	StartRun: 1521280876
@@ -139,11 +139,11 @@ End
 # Run information
 Run: BeamDump_Design_BSmith_0_TB_0067_210_00_A_aa
 	Rnd:      2
-	Prev:     0
-	Last:     2
+	Prev:     2
+	Last:     5
 	Status:   3
 	Pid:      0
-	StartRun: 1522753079
+	StartRun: 1523379768
 	Parent:    <default>
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_aa_50.yie
@@ -262,11 +262,11 @@ End
 # Run information
 Run: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ab
 	Rnd:      3
-	Prev:     0
-	Last:     2
+	Prev:     2
+	Last:     5
 	Status:   3
 	Pid:      0
-	StartRun: 1522753079
+	StartRun: 1523379768
 	Parent:    <default>
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ab_50.yie
@@ -369,11 +369,11 @@ End
 # Run information
 Run: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ac
 	Rnd:      4
-	Prev:     0
-	Last:     2
+	Prev:     2
+	Last:     5
 	Status:   3
 	Pid:      0
-	StartRun: 1522753079
+	StartRun: 1523379768
 	Parent:    <default>
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ac_50.yie
@@ -476,11 +476,11 @@ End
 # Run information
 Run: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ad
 	Rnd:      5
-	Prev:     0
-	Last:     2
+	Prev:     2
+	Last:     5
 	Status:   3
 	Pid:      0
-	StartRun: 1522753079
+	StartRun: 1523379768
 	Parent:    <default>
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ad_50.yie
@@ -583,11 +583,11 @@ End
 # Run information
 Run: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ae
 	Rnd:      6
-	Prev:     0
-	Last:     2
+	Prev:     2
+	Last:     5
 	Status:   3
 	Pid:      0
-	StartRun: 1522753079
+	StartRun: 1523379768
 	Parent:    <default>
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_ae_50.yie
@@ -690,11 +690,11 @@ End
 # Run information
 Run: BeamDump_Design_BSmith_0_TB_0067_210_00_A_af
 	Rnd:      7
-	Prev:     0
-	Last:     2
+	Prev:     2
+	Last:     5
 	Status:   3
 	Pid:      0
-	StartRun: 1522753079
+	StartRun: 1523379768
 	Parent:    <default>
 
 	# USRxxx data file: BeamDump_Design_BSmith_0_TB_0067_210_00_A_af_50.yie
@@ -2485,6 +2485,8 @@ Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_50_plot
 	Format: .eps
 	Type:   USR-1D
 	block.0: 0
+	block.1: 0
+	block.2: 0
 	cbcolors: 0
 	cblog: False
 	cbpalette: FLUKA
@@ -2492,34 +2494,60 @@ Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_50_plot
 	cbtics: 0
 	cpd: 0
 	det.0: 0
+	det.1: 0
+	det.2: 0
 	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_50_tab.lis
+	file.1: BeamDump_Design_BSmith_0_TB_0067_210_00_A_63_tab.lis
+	file.2: BeamDump_Design_BSmith_0_TB_0067_210_00_A_62_tab.lis
 	grid: 0
 	index: 0
 	key.0: 1
+	key.1: 1
+	key.2: 1
 	lc.0: red
+	lc.1: steelblue
+	lc.2: skyblue
 	lw.0: 2
+	lw.1: 1
+	lw.2: 1
 	name.0: all angles
-	ndetectors: 1
+	name.1:   0 - 45 degrees
+	name.2: 45 - 90 degrees
+	ndetectors: 3
 	norm.0: 1.74e10*4*pi
+	norm.1: 1.74e10*2*pi*0.29289
+	norm.2: 1.74e10*2*pi*0.70710678
 	ps.0: 1
+	ps.1: 1
+	ps.2: 1
 	pt.0: 0
+	pt.1: 5
+	pt.2: 7
 	show.0: 1
+	show.1: 1
+	show.2: 1
 	title: Neutron spectrum
 	with.0: xyerrorbars
+	with.1: xyerrorbars
+	with.2: xyerrorbars
 	x.0: 2
 	x2log: False
 	x2tics: 0
-	xlabel: E_kin (MeV)
+	xlabel: E_{kin} (MeV)
 	xlog: True
 	xmax: 1000
-	xmin: 1e-9
+	xmin: 1e-10
 	xnorm.0: 1./MeV
+	xnorm.1: 1./MeV
+	xnorm.2: 1./MeV
 	y.0: 1
+	y.1: 1
+	y.2: 1
 	y2log: False
 	y2tics: 0
-	ylabel: # neutrons
+	ylabel: Number of neutrons
 	ylog: True
-	ymin: 10000
+	ymin: 1000
 	zlog: False
 	ztics: 0
 End
@@ -2763,108 +2791,222 @@ End
 Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_51_plot
 	Format: .eps
 	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
 	det.0: 0
 	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_51_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
 	lc.0: red
 	lw.0: 2
 	name.0: Detector 1
 	ndetectors: 1
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
 	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 51
 	with.0: histerror
 	x.0: 2
-	xlog: 1
+	x2log: False
+	x2tics: 0
+	xlog: True
 	y.0: 0
-	ylog: 1
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
 End
 
 # USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 52"
 Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_52_plot
 	Format: .eps
 	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
 	det.0: 0
 	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_52_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
 	lc.0: red
 	lw.0: 2
 	name.0: Detector 1
 	ndetectors: 1
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
 	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 52
 	with.0: histerror
 	x.0: 2
-	xlog: 1
+	x2log: False
+	x2tics: 0
+	xlog: True
 	y.0: 0
-	ylog: 1
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
 End
 
 # USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 53"
 Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_53_plot
 	Format: .eps
 	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
 	det.0: 0
 	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_53_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
 	lc.0: red
 	lw.0: 2
 	name.0: Detector 1
 	ndetectors: 1
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
 	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 53
 	with.0: histerror
 	x.0: 2
-	xlog: 1
+	x2log: False
+	x2tics: 0
+	xlog: True
 	y.0: 0
-	ylog: 1
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
 End
 
 # USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 54"
 Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_54_plot
 	Format: .eps
 	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
 	det.0: 0
 	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_54_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
 	lc.0: red
 	lw.0: 2
 	name.0: Detector 1
 	ndetectors: 1
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
 	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 54
 	with.0: histerror
 	x.0: 2
-	xlog: 1
+	x2log: False
+	x2tics: 0
+	xlog: True
 	y.0: 0
-	ylog: 1
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
 End
 
 # USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 55"
 Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_55_plot
 	Format: .eps
 	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
 	det.0: 0
 	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_55_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
 	lc.0: red
 	lw.0: 2
 	name.0: Detector 1
 	ndetectors: 1
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
 	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 55
 	with.0: histerror
 	x.0: 2
-	xlog: 1
+	x2log: False
+	x2tics: 0
+	xlog: True
 	y.0: 0
-	ylog: 1
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
 End
 
 # USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 56"
 Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_56_plot
 	Format: .eps
 	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
 	det.0: 0
 	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_56_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
 	lc.0: red
 	lw.0: 2
 	name.0: Detector 1
 	ndetectors: 1
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
 	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 56
 	with.0: histerror
 	x.0: 2
-	xlog: 1
+	x2log: False
+	x2tics: 0
+	xlog: True
 	y.0: 0
-	ylog: 1
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
 End
 
 # USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 57"
@@ -2889,54 +3031,111 @@ End
 Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_58_plot
 	Format: .eps
 	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
 	det.0: 0
 	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_58_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
 	lc.0: red
 	lw.0: 2
 	name.0: Detector 1
 	ndetectors: 1
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
 	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 58
 	with.0: histerror
 	x.0: 2
-	xlog: 1
+	x2log: False
+	x2tics: 0
+	xlog: True
 	y.0: 0
-	ylog: 1
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
 End
 
 # USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 59"
 Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_59_plot
 	Format: .eps
 	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
 	det.0: 0
 	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_59_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
 	lc.0: red
 	lw.0: 2
 	name.0: Detector 1
 	ndetectors: 1
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
 	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 59
 	with.0: histerror
 	x.0: 2
-	xlog: 1
+	x2log: False
+	x2tics: 0
+	xlog: True
 	y.0: 0
-	ylog: 1
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
 End
 
 # USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 60"
 Plot: BeamDump_Design_BSmith_0_TB_0067_210_00_A_60_plot
 	Format: .eps
 	Type:   USR-1D
+	block.0: 0
+	cbcolors: 0
+	cblog: False
+	cbpalette: FLUKA
+	cbround: 0
+	cbtics: 0
+	cpd: 0
 	det.0: 0
 	file.0: BeamDump_Design_BSmith_0_TB_0067_210_00_A_60_tab.lis
+	grid: 0
+	index: 0
+	key.0: 1
 	lc.0: red
 	lw.0: 2
 	name.0: Detector 1
 	ndetectors: 1
+	ps.0: 1
+	pt.0: 0
+	show.0: 1
 	title: USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 60
 	with.0: histerror
 	x.0: 2
-	xlog: 1
+	x2log: False
+	x2tics: 0
+	xlog: True
 	y.0: 0
-	ylog: 1
+	y2log: False
+	y2tics: 0
+	ylog: True
+	zlog: False
+	ztics: 0
 End
 
 # USR-1D plot "USR-1D BeamDump Design BSmith 0 TB 0067 210 00 A 61"

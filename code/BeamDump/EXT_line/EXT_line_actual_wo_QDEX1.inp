@@ -10,7 +10,7 @@ DEFAULTS                                                              PRECISIO
 * Define the beam characteristics
 BEAM             -5.       0.0       0.0       0.0       0.0        1.NEUTRON
 OPEN             93.                                                  OLD
-Merged_56Neut_OUT_files_weight2000_7April2018
+Merged_70Neut_OUT_files_weight2000_9April2018
 * What(1) = Unit number to read from
 SOURCE           93.       0.0       0.0        1.      -20.       20.
 SOURCE          -20.       20.                                         &

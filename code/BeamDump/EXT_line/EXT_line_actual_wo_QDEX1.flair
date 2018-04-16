@@ -6,7 +6,7 @@ Input: EXT_line_actual_wo_QDEX1.inp
 Exec: IR_DumpNeut.x
 Submit: Nohup
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Run
+Page: Plot
 Source: rdmgdraw.f
 Source: rdsource.f
 DefMain: True
@@ -17,8 +17,8 @@ F77dline: False
 # Run information
 Run: <default>
 	Exe:      IR_DumpNeut.x
-	Prev:     0
-	Last:     5
+	Prev:     50
+	Last:     60
 	Status:   3
 	Pid:      0
 	StartRun: 1522745054
@@ -77,11 +77,11 @@ End
 Run: EXT_line_actual_wo_QDEX1_aa
 	Rnd:      2
 	Exe:      IR_DumpNeut.x
-	Prev:     0
-	Last:     5
+	Prev:     58
+	Last:     60
 	Status:   3
 	Pid:      0
-	StartRun: 1523115627
+	StartRun: 1523594885
 	Parent:    <default>
 
 	# USRxxx data file: EXT_line_actual_wo_QDEX1_aa_21.bnn
@@ -137,11 +137,11 @@ End
 Run: EXT_line_actual_wo_QDEX1_ab
 	Rnd:      3
 	Exe:      IR_DumpNeut.x
-	Prev:     0
-	Last:     5
+	Prev:     50
+	Last:     60
 	Status:   3
 	Pid:      0
-	StartRun: 1523134428
+	StartRun: 1523562890
 	Parent:    <default>
 
 	# USRxxx data file: EXT_line_actual_wo_QDEX1_ab_21.bnn
@@ -197,11 +197,11 @@ End
 Run: EXT_line_actual_wo_QDEX1_ac
 	Rnd:      4
 	Exe:      IR_DumpNeut.x
-	Prev:     0
-	Last:     5
+	Prev:     59
+	Last:     60
 	Status:   3
 	Pid:      0
-	StartRun: 1523115627
+	StartRun: 1523602386
 	Parent:    <default>
 
 	# USRxxx data file: EXT_line_actual_wo_QDEX1_ac_21.bnn
@@ -257,11 +257,11 @@ End
 Run: EXT_line_actual_wo_QDEX1_ad
 	Rnd:      5
 	Exe:      IR_DumpNeut.x
-	Prev:     0
-	Last:     5
+	Prev:     50
+	Last:     60
 	Status:   3
 	Pid:      0
-	StartRun: 1523115627
+	StartRun: 1523562913
 	Parent:    <default>
 
 	# USRxxx data file: EXT_line_actual_wo_QDEX1_ad_21.bnn
@@ -317,11 +317,11 @@ End
 Run: EXT_line_actual_wo_QDEX1_ae
 	Rnd:      6
 	Exe:      IR_DumpNeut.x
-	Prev:     0
-	Last:     5
+	Prev:     58
+	Last:     60
 	Status:   3
 	Pid:      0
-	StartRun: 1523115627
+	StartRun: 1523631114
 	Parent:    <default>
 
 	# USRxxx data file: EXT_line_actual_wo_QDEX1_ae_21.bnn
@@ -377,11 +377,11 @@ End
 Run: EXT_line_actual_wo_QDEX1_af
 	Rnd:      7
 	Exe:      IR_DumpNeut.x
-	Prev:     0
-	Last:     5
+	Prev:     59
+	Last:     60
 	Status:   3
 	Pid:      0
-	StartRun: 1523115627
+	StartRun: 1523631125
 	Parent:    <default>
 
 	# USRxxx data file: EXT_line_actual_wo_QDEX1_af_21.bnn
@@ -437,11 +437,11 @@ End
 Run: EXT_line_actual_wo_QDEX1_ag
 	Rnd:      8
 	Exe:      IR_DumpNeut.x
-	Prev:     0
-	Last:     5
+	Prev:     50
+	Last:     60
 	Status:   3
 	Pid:      0
-	StartRun: 1523115627
+	StartRun: 1523562943
 	Parent:    <default>
 
 	# USRxxx data file: EXT_line_actual_wo_QDEX1_ag_21.bnn
@@ -514,16 +514,6 @@ Material: MgO
 End
 
 # Material
-Material: BorConc
-	alpha: 0
-	color: #4050D0
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
 Material: Sulfur
 	alpha: 0
 	color: #209010
@@ -557,6 +547,16 @@ End
 Material: Fe2O3
 	alpha: 0
 	color: #B0B050
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Chlorine
+	alpha: 0
+	color: #9050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -644,9 +644,9 @@ Material: B2O3
 End
 
 # Material
-Material: Cs
+Material: Eu
 	alpha: 0
-	color: #901070
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -734,9 +734,9 @@ Material: CaO
 End
 
 # Material
-Material: Chlorine
+Material: BorConc
 	alpha: 0
-	color: #9050D0
+	color: #4050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -744,9 +744,9 @@ Material: Chlorine
 End
 
 # Material
-Material: Eu
+Material: Cs
 	alpha: 0
-	color: #703070
+	color: #901070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -891,13 +891,16 @@ Plot: Magenta
 	ztics: 0
 End
 
-# USRBIN plot "USRBIN EXT line actual wo QDEX1 21"
+# USRBIN plot "Energy distribution in the ILC EXT line tunnel"
 Plot: EXT_line_actual_wo_QDEX1_21_plot
 	Format: .eps
 	Type:   USRBIN
 	axes: Auto
 	cbcolors: 30
+	cblabel: Energy [MeV]
 	cblog: True
+	cbmax: 5e3
+	cbmin: 1e-6
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 1
@@ -909,24 +912,27 @@ Plot: EXT_line_actual_wo_QDEX1_21_plot
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 7.3319919513789751E-003
+	int: 7.3088066485137698E-003
 	lw.0: 0
-	max: 2.40825970E-10
-	min: 2.64963876E-27
-	norm: 311745.34*1.74e10/(56*2000)
+	max: 2.17570684E-10
+	min: 2.78532734E-26
+	norm: 1000*34120.58167*1.74e10/(70*2000)
 	proj: Y
 	ps.0: 0
 	pt.0: 0
 	swap: 0
-	title: USRBIN EXT line actual wo QDEX1 21
+	title: Energy distribution in the ILC EXT line tunnel
 	with.0: errorbars
 	x2log: False
 	x2tics: 0
+	xlabel: z [cm]
 	xlog: False
+	xmax: 30000
+	xmin: 930
 	xrebin: 1
 	y2log: False
 	y2tics: 0
-	ylabel: Energy
+	ylabel: x [cm]
 	ylog: False
 	yrebin: 1
 	zlog: False
@@ -934,13 +940,16 @@ Plot: EXT_line_actual_wo_QDEX1_21_plot
 	ztics: 0
 End
 
-# USRBIN plot "USRBIN EXT line actual wo QDEX1 22"
+# USRBIN plot "Energy distribution in the ILC EXT line tunnel"
 Plot: EXT_line_actual_wo_QDEX1_22_plot
 	Format: .eps
 	Type:   USRBIN
 	axes: Auto
 	cbcolors: 30
+	cblabel: Energy [MeV]
 	cblog: True
+	cbmax: 5e3
+	cbmin: 1e-6
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 1
@@ -952,23 +961,26 @@ Plot: EXT_line_actual_wo_QDEX1_22_plot
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 1.1121889108808561E-003
+	int: 1.1152609553246630E-003
 	lw.0: 0
-	max: 4.27167635E-10
-	min: 1.31353126E-13
+	max: 4.52625909E-10
+	min: 4.65795479E-13
+	norm: 1000*34120.58167*1.74e10/(70*2000)
 	proj: Y
 	ps.0: 0
 	pt.0: 0
 	swap: 0
-	title: USRBIN EXT line actual wo QDEX1 22
+	title: Energy distribution in the ILC EXT line tunnel
 	with.0: errorbars
 	x2log: False
 	x2tics: 0
+	xlabel: z [cm]
 	xlog: False
+	xmin: 30000
 	xrebin: 1
 	y2log: False
 	y2tics: 0
-	ylabel: Energy
+	ylabel: x [cm]
 	ylog: False
 	yrebin: 1
 	zlog: False
@@ -976,13 +988,16 @@ Plot: EXT_line_actual_wo_QDEX1_22_plot
 	ztics: 0
 End
 
-# USRBIN plot "USRBIN EXT line actual wo QDEX1 23"
+# USRBIN plot "Energy distribution in the ILC EXT line tunnel"
 Plot: EXT_line_actual_wo_QDEX1_23_plot
 	Format: .eps
 	Type:   USRBIN
 	axes: Auto
 	cbcolors: 30
+	cblabel: Energy [MeV]
 	cblog: True
+	cbmax: 5e3
+	cbmin: 1e-6
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 1
@@ -994,23 +1009,26 @@ Plot: EXT_line_actual_wo_QDEX1_23_plot
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 6.6445069112498743E-008
+	int: 1.0075410809391069E-007
 	lw.0: 0
-	max: 2.29467292E-12
-	min: 9.34098875E-24
+	max: 1.08845197E-13
+	min: 4.15990114E-26
+	norm: 1000*34120.58167*1.74e10/(70*2000)
 	proj: Y
 	ps.0: 0
 	pt.0: 0
 	swap: 0
-	title: USRBIN EXT line actual wo QDEX1 23
+	title: Energy distribution in the ILC EXT line tunnel
 	with.0: errorbars
 	x2log: False
 	x2tics: 0
+	xlabel: z [cm]
 	xlog: False
+	xmax: 1500
 	xrebin: 1
 	y2log: False
 	y2tics: 0
-	ylabel: Energy
+	ylabel: x [cm]
 	ylog: False
 	yrebin: 1
 	zlog: False
@@ -1018,13 +1036,16 @@ Plot: EXT_line_actual_wo_QDEX1_23_plot
 	ztics: 0
 End
 
-# USRBIN plot "USRBIN EXT line actual wo QDEX1 24"
+# USRBIN plot "Neutrons in the ILC EXT line tunnel"
 Plot: EXT_line_actual_wo_QDEX1_24_plot
 	Format: .eps
 	Type:   USRBIN
 	axes: Auto
 	cbcolors: 30
+	cblabel: Number of neutrons
 	cblog: True
+	cbmax: 5e4
+	cbmin: 1e-3
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 1
@@ -1036,24 +1057,27 @@ Plot: EXT_line_actual_wo_QDEX1_24_plot
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 1775.2823340057018
+	int: 1774.8891211601817
 	lw.0: 0
-	max: 4.62578464E-05
-	min: 1.26400914E-16
-	norm: 311745.34*1.74e10/(56*2000)
+	max: 4.57022288E-05
+	min: 1.28019691E-15
+	norm: 34120.58167*1.74e10/(70*2000)
 	proj: Y
 	ps.0: 0
 	pt.0: 0
 	swap: 0
-	title: USRBIN EXT line actual wo QDEX1 24
+	title: Neutrons in the ILC EXT line tunnel
 	with.0: errorbars
 	x2log: False
 	x2tics: 0
+	xlabel: z [cm]
 	xlog: False
+	xmax: 30000
+	xmin: 930
 	xrebin: 1
 	y2log: False
 	y2tics: 0
-	ylabel: Neutrons
+	ylabel: x [cm]
 	ylog: False
 	yrebin: 1
 	zlog: False
@@ -1061,13 +1085,16 @@ Plot: EXT_line_actual_wo_QDEX1_24_plot
 	ztics: 0
 End
 
-# USRBIN plot "USRBIN EXT line actual wo QDEX1 25"
+# USRBIN plot "Neutrons in the ILC EXT line tunnel"
 Plot: EXT_line_actual_wo_QDEX1_25_plot
 	Format: .eps
 	Type:   USRBIN
 	axes: Auto
 	cbcolors: 30
+	cblabel: Number of neutrons
 	cblog: True
+	cbmax: 5e4
+	cbmin: 1e-3
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 1
@@ -1079,24 +1106,26 @@ Plot: EXT_line_actual_wo_QDEX1_25_plot
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 460.15078617550591
+	int: 460.17981900318296
 	lw.0: 0
-	max: 8.27800977E-05
-	min: 1.19377164E-09
+	max: 8.18517001E-05
+	min: 1.25583699E-09
+	norm: 34120.58167*1.74e10/(70*2000)
 	proj: Y
 	ps.0: 0
 	pt.0: 0
 	swap: 0
-	title: USRBIN EXT line actual wo QDEX1 25
+	title: Neutrons in the ILC EXT line tunnel
 	with.0: errorbars
 	x2log: False
 	x2tics: 0
+	xlabel: z [cm]
 	xlog: False
-	xmin: 30240
+	xmin: 30000
 	xrebin: 1
 	y2log: False
 	y2tics: 0
-	ylabel: Neutrons
+	ylabel: x [cm]
 	ylog: False
 	yrebin: 1
 	zlog: False
@@ -1104,13 +1133,16 @@ Plot: EXT_line_actual_wo_QDEX1_25_plot
 	ztics: 0
 End
 
-# USRBIN plot "USRBIN EXT line actual wo QDEX1 26"
+# USRBIN plot "Neutrons in the ILC EXT line tunnel"
 Plot: EXT_line_actual_wo_QDEX1_26_plot
 	Format: .eps
 	Type:   USRBIN
 	axes: Auto
 	cbcolors: 30
+	cblabel: Number of neutrons
 	cblog: True
+	cbmax: 5e4
+	cbmin: 1e-3
 	cbpalette: FLUKA
 	cbround: 0
 	cbtics: 1
@@ -1122,23 +1154,26 @@ Plot: EXT_line_actual_wo_QDEX1_26_plot
 	grid: 0
 	hist: 2D Projection
 	index: 0
-	int: 1.1524050934258208E-002
+	int: 1.1779451188834889E-002
 	lw.0: 0
-	max: 1.46802204E-09
-	min: 4.59934952E-15
+	max: 3.44472090E-10
+	min: 4.59957088E-17
+	norm: 34120.58167*1.74e10/(70*2000)
 	proj: Y
 	ps.0: 0
 	pt.0: 0
 	swap: 0
-	title: USRBIN EXT line actual wo QDEX1 26
+	title: Neutrons in the ILC EXT line tunnel
 	with.0: errorbars
 	x2log: False
 	x2tics: 0
+	xlabel: z [cm]
 	xlog: False
+	xmax: 1500
 	xrebin: 1
 	y2log: False
 	y2tics: 0
-	ylabel: Neutrons
+	ylabel: x [cm]
 	ylog: False
 	yrebin: 1
 	zlog: False
