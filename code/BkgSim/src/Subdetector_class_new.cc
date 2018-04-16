@@ -17,10 +17,11 @@ Subdetector::Subdetector(string const subdetector_config_file){
     cerr << "Error opening subdetector config file: " << subdetector_config_file << endl;
     exit(2);
   }
-  char variable[256], value[256];
+  int const maxlinesize=512;
+  char variable[maxlinesize], value[maxlinesize];
   while(!file.eof()){
-    file.getline(variable, 256, '=');
-    file.getline(value, 256);
+    file.getline(variable, maxlinesize, '=');
+    file.getline(value, maxlinesize);
     if(string(variable) == "name") setName(string(value));
     if(string(variable) == "numberOfLayers") setNumberOfLayers(stoi(string(value)));
     if(string(variable) == "startBitLayer") setStartBitLayer(stoi(string(value)));
@@ -88,7 +89,7 @@ Subdetector::Subdetector(string const subdetector_config_file){
         }
         if(string(value) == "circle-barrel"){//SiVertex+TrackerBarrel
           _rLayer.push_back( getRMax().at(Layer) );
-          _area.push_back( 2*M_PI*getRMin().at(Layer)*2*getLength().at(Layer) );
+          _area.push_back( 2*M_PI*getRMin().at(Layer)*getLength().at(Layer) );
           _numberOfCells.push_back( (long long int)(getArea().back()/getCellSizeArea()) );
         }
         if(string(value) == "circle-endcap"){//LumiCal,BeamCal,SiVertex+TrackerEndcap

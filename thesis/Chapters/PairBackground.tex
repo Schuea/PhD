@@ -102,7 +102,7 @@ For the ILC stage at \SI{500}{\GeV}, the pair background was generated with \gui
 The density distribution of all the tracks shows a characteristic bell shape, with the highest density along the z-axis.
 This is true, since the helix tracks originate at the IP, and their radii are small in comparison to their pitches due to the particles' momentum distribution.
 The red solid lines represent the outline of the beam pipe inside the \sid detector.
-Up to \SI{6.2}{\centi\meter} from the IP in the z-direction, where the beam pipe increases in width, the beam pipe radius is \SI{1.2}{\centi\meter}. \todo{English}
+Up to \SI{6.2}{\centi\meter} from the IP in the z-direction, where the beam pipe increases in width, the beam pipe radius is \SI{1.2}{\centi\meter}.
 This is the point of closest approach to the pair background envelope.
 Here, the pair helix tracks reach beyond the beam pipe.
 \\As the bell shaped envelope is fully symmetrical in the positive and negative z-direction, as well as in the xz and yz-plane, the chosen view of the pair background envelopes will always be of the xz-plane in the positive z-direction.
@@ -134,8 +134,9 @@ At \SI{500}{\GeV}, the envelope containing \SI{99.99}{\percent} of all pair heli
 For lower center-of-mass energies, the envelopes stay well within the beam pipe radius.
 The pair background simulation files for this comparison plot were generated with \guineapig as well, using the beam parameters of the three different baseline ILC stages~\cite[p. 11]{TDR1}.
 
-\section{Impact of the pair background studies on ILC design choices}
-\subsection{Pair background dependency on ILC beam parameters}
+\section{Pair background dependency on ILC beam parameters}
+\subsection{Pair background envelopes}
+\label{PairBkg:envelopes}
 As explained in Section~\ref{ILC:layout:staging}, the first ILC stage will be at \SI{250}{\GeV} instead of the originally anticipated \SI{500}{\GeV}.
 Due to this decision in 2017, efforts have been made to study a possible change in the baseline beam parameters for this stage in order to increase the luminosity from \num{8.2} to \SI{16.2e34}{\per\centi\meter\squared\per\second}~\cite{LCWS17_paper}. 
 To this end, three alternative beam parameter sets have been suggested, which vary from the original baseline parameters in the emittance and the beta function values.
@@ -219,16 +220,16 @@ The occupancy from the pair background therefore has to be studied with respect 
     \label{fig:PairBkg:Density_Projection}
 \end{figure}
 
-\subsection{Occupancy studies and buffer depth}
+\subsection{\sid vertex detector occupancy studies and buffer depth}
 \label{PairBkg:occupancy}
-For the vertex detector occupancy studies, the number of hits of every detector cell is counted and translated into an occupancy.
+For the occupancy studies, the number of hits of every detector cell is counted and translated into an occupancy.
 In the following occupancy plots, the number of cells receiving a certain number of hits can be determined.
 Knowing that a detector sensor can only store up to a specific number of hits (the so-called buffer depth), the number of ``dead'' cells can then be calculated.
 A cell is defined to be dead when the buffer of its sensor is already completely filled, and no further hits can be stored.
 This is especially important as the detectors for the ILC will read out their buffers only after every bunch train (\num{1312} bunch crossings).
 In order to guarantee that cell buffers are not filled only by background hits, a balance has to be found between a sufficient buffer depth and low background levels, depending on the design of the accelerator and the detectors.
-In \sid, a guideline for an acceptable occupancy for background events is that the sum of all cells with a number of hits greater than or equal to the buffer depth should not exceed \SI{0.01}{\percent} (\num{e-4} of all cells). 
-\\The occupancy for all vertex detector layers combined after a full bunch train are shown for the barrel in Figure~\ref{fig:PairBkg:ILC250_Occupancy} (a) and for the endcaps in Figure~\ref{fig:PairBkg:ILC250_Occupancy} (c).
+In \sid, a guideline for an acceptable occupancy for background events is that the sum of all cells with a number of hits greater than or equal to the buffer depth should not exceed \SI{0.01}{\percent} (\num{e-4} of all cells).\\
+The occupancy for all vertex detector layers combined after a full bunch train are shown for the barrel in Figure~\ref{fig:PairBkg:ILC250_Occupancy} (a) and for the endcaps in Figure~\ref{fig:PairBkg:ILC250_Occupancy} (c).
 For producing these plots, pair background simulation files for \num{1312} bunch crossings have been generated with \guineapig, and the number of hits were counted for each cell, summed up over the full bunch train.
 A cell size of \SI{20}{\micro\meter}\,x\,\SI{20}{\micro\meter} has been assumed for these calculations.
 Plotting the number of cells with a certain amount of hits, and normalizing these numbers by the total number of cells in all vertex detector layers, results in Figure~\ref{fig:PairBkg:ILC250_Occupancy} (a) and (c).
@@ -256,25 +257,25 @@ The ratio for set (A) is still below the critical limit with about \num{4.2e-5}.
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
-    \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_All_layers_wrt_cells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD_LEG.png}
-   \caption{Vertex detector \textbf{barrel}, normalized occupancy}
+    \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_All_layers_wrt_cells_ILC250_ALL_SETS_SiVertexBarrel_corrected_Barrel_size.png}
+   \caption{\sid vertex detector \textbf{barrel}, normalized occupancy}
    \end{subfigure}
    \hfill
     \begin{subfigure}[b]{0.49\textwidth}
    \centering
-    \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_All_layers_deadcells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD_LEG.png}
-   \caption{Vertex detector \textbf{barrel}, ratio of dead cells}
+    \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_All_layers_deadcells_ILC250_ALL_SETS_SiVertexBarrel_corrected_Barrel_size.png}
+   \caption{\sid vertex detector \textbf{barrel}, ratio of dead cells}
    \end{subfigure}\\
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_All_layers_wrt_cells_ILC250_ALL_SETS_5T_w_antiDiD_SiVertexEndcap.png}
-   \caption{Vertex detector \textbf{endcaps}, normalized occupancy}
+   \caption{\sid vertex detector \textbf{endcaps}, normalized occupancy}
    \end{subfigure}
    \hfill
     \begin{subfigure}[b]{0.49\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_All_layers_deadcells_ILC250_ALL_SETS_5T_w_antiDiD_SiVertexEndcap.png}
-   \caption{Vertex detector \textbf{endcaps}, ratio of dead cells}
+   \caption{\sid vertex detector \textbf{endcaps}, ratio of dead cells}
    \end{subfigure}
    \caption[Pair background occupancy in the \sid vertex detector for the ILC250]{ILC250 pair background occupancy in the \textbf{\sid vertex detector for all layers} combined, after a full bunch train (\num{1312} bunch crossings).
    Figure (a) shows the occupancy in the vertex detector barrel, normalized by the total number of cells of all vertex detector barrel layers.
@@ -289,25 +290,25 @@ The ratio for set (A) is still below the critical limit with about \num{4.2e-5}.
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
-    \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_Layer_0_numcells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD_LEG.png}
-   \caption{Vertex detector \textbf{barrel}, normalized occupancy}
+    \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_Layer_0_numcells_ILC250_ALL_SETS_SiVertexBarrel_corrected_Barrel_size.png}
+   \caption{\sid vertex detector \textbf{barrel}, normalized occupancy}
    \end{subfigure}
    \hfill
     \begin{subfigure}[b]{0.49\textwidth}
    \centering
-    \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_Layer_0_deadcells_ILC250_Comparison_ALL_SETS_5T_w_antiDiD_LEG.png}
-   \caption{Vertex detector \textbf{barrel}, ratio of dead cells}
+    \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_Layer_0_deadcells_ILC250_ALL_SETS_SiVertexBarrel_corrected_Barrel_size.png}
+   \caption{\sid vertex detector \textbf{barrel}, ratio of dead cells}
    \end{subfigure}\\
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_Layer_0_numcells_ILC250_ALL_SETS_5T_w_antiDiD_SiVertexEndcap.png}
-   \caption{Vertex detector \textbf{endcaps}, normalized occupancy}
+   \caption{\sid vertex detector \textbf{endcaps}, normalized occupancy}
    \end{subfigure}
    \hfill
     \begin{subfigure}[b]{0.49\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_Layer_0_deadcells_ILC250_ALL_SETS_5T_w_antiDiD_SiVertexEndcap.png}
-   \caption{Vertex detector \textbf{endcaps}, ratio of dead cells}
+   \caption{\sid vertex detector \textbf{endcaps}, ratio of dead cells}
    \end{subfigure}
    \caption[Pair background occupancy in the \sid vertex detector layer 0 for the ILC250]{ILC250 pair background occupancy in the \textbf{innermost \sid vertex detector layer}, after a full bunch train (\num{1312} bunch crossings).
    Figure (a) shows the occupancy in the innermost vertex detector barrel layer, normalized by the total number of cells of this layer.
@@ -344,11 +345,11 @@ For a buffer depth of four, the ratios of dead cells caused by the pair backgrou
 \hline\hline
 & Layer & Baseline set (TDR) & Set (A) & Set (B) & Set (C)\\
 \hline
-& 0 & \num{1.819e-05} &\num{4.260e-05} &\num{8.122e-05} &\num{7.326e-05}  \\
-& 1 & \num{3.586e-06} &\num{1.124e-05} &\num{2.195e-05} &\num{2.042e-05}  \\
-& 2 & \num{1.453e-06} &\num{5.361e-06} &\num{1.182e-05} &\num{1.032e-05}  \\
-& 3 & \num{8.789e-07} &\num{2.274e-06} &\num{5.068e-06} &\num{5.131e-06} \\
-\multirow{-5}{*}{\rotatebox[origin=c]{90}{\parbox[c]{1.9cm}{\cellcolor{white}\centering \sid vertex barrel}}} & 4 & \num{5.853e-07} &\num{1.756e-06} &\num{4.286e-06} &\num{3.709e-06} \\
+& 0 & \num{3.638e-05} &\num{8.521e-05} &\num{1.624e-04} &\num{1.465e-04} \\
+& 1 & \num{7.173e-06} &\num{2.249e-05} &\num{4.391e-05} &\num{4.084e-05} \\
+& 2 & \num{2.905e-06} &\num{1.072e-05} &\num{2.363e-05} &\num{2.063e-05} \\
+& 3 & \num{1.758e-06} &\num{4.547e-06} &\num{1.014e-05} &\num{1.026e-05} \\
+\multirow{-5}{*}{\rotatebox[origin=c]{90}{\parbox[c]{1.9cm}{\cellcolor{white}\centering \sid vertex barrel}}} & 4 & \num{1.171e-06} &\num{3.512e-06} &\num{8.572e-06} &\num{7.419e-06} \\
 \hline
 & 0 & \num{1.378e-05} &\num{4.295e-05} &\num{8.885e-05} &\num{8.637e-05} \\
 & 1 & \num{1.442e-05} &\num{4.704e-05} &\num{9.601e-05} &\num{8.943e-05} \\
@@ -358,13 +359,56 @@ For a buffer depth of four, the ratios of dead cells caused by the pair backgrou
 \end{tabularx}
 \end{table}
 
-Overall, the increase in the beam-beam interaction does lead to a rise in the \sid vertex detector occupancy.
+\subsection{Pair background occupancy in further \sid subdetectors}
+\label{PairBkg:further_subdetectors}
+
+With its five layers, it is crucial for the vertex detector that the pair background does not populate any of its layers in such a way that its performance regarding the vertex reconstruction is compromised. 
+But also in the other \sid subdetectors that are hit by the \positron\electron pairs, the occupancy should not exceed the critical acceptance limit of \num{e-4} for a given buffer depth.
+\\The ratio of dead cells as a function of the assumed buffer depth is plotted for the \sid tracker as well as the ECAL and HCAL endcaps in Figure~\ref{fig:PairBkg:ILC250_Occupancy_Inner_detectors}.
+For both the tracker barrel and endcaps (Figure~\ref{fig:PairBkg:ILC250_Occupancy_Inner_detectors} (a) and (b)), the number of dead cells stays for all ILC250 parameter sets well below \num{e-5} of all cells for a buffer depth of four.
+\\In the ECAL endcaps, only up to three hits per cell are observed because of which the ratio of dead cells are calculated up to a buffer depth of three, as can be seen in Figure~\ref{fig:PairBkg:ILC250_Occupancy_Inner_detectors} (c).
+Similarly in the HCAL endcaps (Figure~\ref{fig:PairBkg:ILC250_Occupancy_Inner_detectors} (d)), the ratio of dead cells is calculated for an assumed buffer depth of up to two only.
+The pair background particles do not affect the calorimeter endcap performance.
+\begin{figure}
+ \centering
+   \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/Pairs/Appendix/Occupancy_Comparison_All_layers_deadcells_ILC250_ALL_SETS_SiTrackerBarrel_corrected_Barrel_size.png}
+   \caption{\sid tracker barrel}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/Pairs/Appendix/Occupancy_Comparison_All_layers_deadcells_ILC250_ALL_SETS_SiTrackerEndcap.png}
+   \caption{\sid tracker endcap}
+   \end{subfigure}\\
+    \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/Pairs/Appendix/Occupancy_Comparison_All_layers_deadcells_ILC250_ALL_SETS_ECALEndcap.png}
+   \caption{\sid ECAL endcap}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/Pairs/Appendix/Occupancy_Comparison_All_layers_deadcells_ILC250_ALL_SETS_HCALEndcap.png}
+   \caption{\sid HCAL endcap}
+   \end{subfigure}
+   \caption[Pair background occupancy in various inner \sid subdetectors for the ILC250]{ILC250 pair background occupancy in various inner \sid subdetectors after a full bunch train (1312 bunch crossings).
+   The figures show the ratio of the dead cells in the individual subdetectors for all layers combined, with respect to the total number of cells in this subdetector.
+   }
+   \label{fig:PairBkg:ILC250_Occupancy_Inner_detectors}
+\end{figure}
+\\The results for further subdetectors can be found in Figure~\ref{fig:PairBkg:ILC250_Occupancy_Further_detectors} in the Appendix.
+
+\subsection{Impact of the pair background studies on ILC design choices}
+As shown in Sections~\ref{PairBkg:envelopes} and~\ref{PairBkg:occupancy}, the increase in the beam-beam interaction due to the reduction of the beam emittance for the new proposed ILC250 beam parameter schemes does lead to a rise in the \sid vertex detector occupancy.
 However, even in the innermost vertex detector layer, the occupancy for all proposed beam parameter sets for the ILC250 stage is below the critical acceptance limit of \num{e-4} for every feasible buffer depth of the detector sensor design.
-The presented results of the \sid occupancy studies for the different beam parameter sets of the ILC250 stage were factored into the ILC Change Request (CR) process for CR-0016.
+Also in further \sid subdetectors that are populated by the pair background, the ratio of dead cells for a buffer depth of four does not reach the acceptance limit, which was shown in Section~\ref{PairBkg:further_subdetectors}.
+\\The presented results of the \sid occupancy studies for the different beam parameter sets of the ILC250 stage were factored into the ILC Change Request (CR) process for CR-0016.
 The Technical Change and Management Board in the end decided on set (A) for the new official ILC beam parameter set for a center-of-mass energy of \SI{250}{\GeV}, and hence approved the CR-0016~\cite{LCWS17_TCMBmeeting,CR-0016}.
 The results of further studies regarding the ILC250 stage are henceforth produced with this new official beam parameter set (A).
 
-\subsection{Dependency of the pair background occupancy on detector design choices}
+\section{Dependency of the pair background occupancy on detector design choices}
 Figure~\ref{fig:PairBkg:ILC250_Occupancy_SetA} shows the result from another ILC250 occupancy study, using the ILC250 parameter scheme (A).
 After having studied the impact of the beam parameters, the effect of different \sid variants on the vertex detector occupancy was also examined.
 The four geometry variants, which are compared in this plot, are combinations of the old or new L* value, with and without the \sid anti-DiD field.
@@ -381,16 +425,16 @@ For the clarification of the impact on the pair background occupancy, the follow
  \centering
    \begin{subfigure}[b]{0.49\textwidth}
    \centering
-    \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_Layer_0_numcells_ILC250_Comparison_Set_A_All_SiD_designs_LEG.png}
-       \caption{\sid vertex \textbf{barrel}}
+    \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_Layer_0_numcells_ILC250_SetA_All_SiD_designs_SiVertexBarrel_corrected_Barrel_size.png}
+       \caption{\sid vertex detector \textbf{barrel}}
    \end{subfigure}
    \hfill
     \begin{subfigure}[b]{0.49\textwidth}
    \centering
     \includegraphics[width=0.945\textwidth]{Figures/Pairs/Occupancy_Comparison_Layer_0_numcells_ILC250_Comparison_Set_A_All_SiD_designs_SiVertexEndcap.png}
-       \caption{\sid vertex \textbf{endcap}}
+       \caption{\sid vertex detector \textbf{endcap}}
    \end{subfigure}
-   \caption[Pair background occupancy in the \sid vertex detector for the ILC250 set (A) for different \sid geometry variants]{Pair background occupancy for the ILC250 parameter set (A) in the innermost \sid vertex detector layer after a full bunch train (\num{1312} bunch crossings).
+   \caption[Pair background occupancy in the \sid vertex detector for the ILC250 set (A) for different \sid geometry variants]{Pair background occupancy for the ILC250 parameter set (A) in the \textbf{innermost \sid vertex detector layer} after a full bunch train (\num{1312} bunch crossings).
    Figures (a) and (b) show the occupancy normalized by the total number of cells of the innermost vertex detector layer for the barrel and the endcap respectively.
    Different \sid geometry variants are compared regarding their effect on the pair background occupancy.
    }
@@ -439,18 +483,18 @@ By applying a trigger such that those particles are dismissed, which are hitting
    \label{fig:PairBkg:Origins_Map}
  \end{figure}
  
-  \begin{figure}[h]
+  \begin{figure}[htbp]
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/Pairs/hittime_SiVertexBarrel.png}
-   \caption{Vertex detector \textbf{barrel}}
+   \caption{\sid vertex detector \textbf{barrel}}
    \end{subfigure}
    \hfill
     \begin{subfigure}[b]{0.49\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/Pairs/hittime_SiVertexEndcap.png}
-   \caption{Vertex detector \textbf{endcaps}}
+   \caption{\sid vertex detector \textbf{endcaps}}
    \end{subfigure}
    \caption[Pair background hit time maps in the \sid vertex detector]{Map of the pair background particle hits in the \sid vertex detector as a function of the hit time after one bunch crossings.
    Figures (a) and (b) show the radial position of hits in the vertex detector barrel and endcaps respectively.
@@ -471,7 +515,7 @@ For the \sid detector, this leads to the positive implication that the vertex de
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
-    \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_Layer_0_deadcells_ILC500vsILC250.png}
+    \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_Layer_0_deadcells_ILC500vsILC250_SiVertexBarrel_corrected_Barrel_size.png}
    \caption{\sid vertex detector \textbf{barrel}}
    \end{subfigure}
    \hfill
@@ -492,12 +536,13 @@ The ``Lumi Up'' stage, which is listed in Table~\ref{tab:ILC_parameters}, is an 
 The luminosity of this stage is doubled with respect to the ILC500 stage by approximately doubling the number of bunches per train to \num{2625}.
 Figure~\ref{fig:PairBkg:ILC500-ILC500LumiUp_Occupancy} shows the resulting pair background occupancy in the innermost layer of the vertex detector barrel and endcaps.
 The number of dead cells for a given buffer depth is doubled in both subdetectors for the ``Lumi Up'' stage.
+\todo{Over critical limit -> time to exchange sensors}
 The number of beam bunches therefore also has a direct impact on the pair background and the \sid occupancy.
   \begin{figure}
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
-    \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_Layer_0_deadcells_ILC500_LumiUp.png}
+    \includegraphics[width=\textwidth]{Figures/Pairs/Occupancy_Comparison_Layer_0_deadcells_ILC500vsLumiUp_SiVertexBarrel_corrected_Barrel_size.png}
    \caption{\sid vertex detector \textbf{barrel}}
    \end{subfigure}
    \hfill
