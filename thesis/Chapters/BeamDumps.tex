@@ -323,7 +323,7 @@ The energy spectrum of the neutrons that cross the boundary under an angle betwe
 The combination of both spectra is shown by the red graph, indicated with ``all angles'' in the figure legend.
 The first peak in the meV range represents the thermal neutron energy peak.
 At the eV range, resonance peaks from resonant elastic scattering of neutrons with a compound nucleus are visible.
-These resonance peaks are element specific, so that the peaks indicate which materials the neutrons have interacted with. \todo{Point to literature}
+These resonance peaks are element specific, so that the peaks indicate which materials the neutrons have interacted with. \todo{Point to literature} %See email from Vasilis on 16.April ~12Uhr
 %at about \SI{230}{\eV} corresponds to the resonance of copper.
 Finally in the MeV range, the so-called evaporation or fission peak of fast neutrons is visible.
 \\All these neutrons point in the direction of the extraction line and hence in the direction of the interaction region and the detectors.
@@ -352,7 +352,7 @@ The red graph (``all angles'') is the combination of the other two graphs (``0 -
 \end{figure}
 
 \clearpage
-\section{Simulation studies of extraction line}
+\section{Simulation studies of the extraction line}
 \label{BeamDumps:sim_EXT}
 
 The neutrons, which are created in the ILC beam dumps and directed towards the interaction region, are not freely traveling through the extraction line.
@@ -399,39 +399,77 @@ The magnets are simulated without their respective magnetic field maps, since th
    \label{fig:BeamDumps:EXT}
 \end{figure} 
 
-The neutrons, which reach the extraction line passed the beam dump shielding walls, are tracked through the extraction line geometry described above.
+The neutrons, which reach the extraction line past the beam dump shielding walls, are tracked through the extraction line geometry described above.
 The resulting neutron density in the tunnel is shown in Figure~\ref{fig:BeamDumps:NeutronEnergy_dis_EXT} (a) in a view of the xz-plane.
 Close to the beam dump hall, at around z = \SI{300}{\meter}, the neutron density reaches over \num{e4} neutrons per \si{\centi\meter\cubed}.
-This density sinks to about one neutron per \si{\centi\meter\cubed} close to the interaction region at z = \SI{10}{\meter}.
-The beam line components shield the neutron flux such that the density between about \SI{-200}{\centi\meter} and \SI{200}{\centi\meter} in x is reduced to about \SI{0.1}{\per\centi\meter\cubed}.
+This density sinks to about one neutron per \si{\centi\meter\cubed} close to the interaction region at z = \SI{9.3}{\meter}.
+The beam line components shield the neutron flux such that the neutron density between about \SI{-200}{\centi\meter} and \SI{200}{\centi\meter} in x is reduced to about \SI{0.1}{\per\centi\meter\cubed}.
 \\The resulting deposited energy is shown in the xz-plane in Figure~\ref{fig:BeamDumps:NeutronEnergy_dis_EXT} (b).
 Due to the high density of neutrons close to the beam hall, the energy density reaches here up to 
 \num{e2} - \SI{e3}{\MeV\per\centi\meter\cubed}.
 Also according to the neutron density distribution, the deposited energy close to the interaction region drops to about \num{0.1} - \SI{1}{\keV\per\centi\meter\cubed}.
+\\Here, at z = \SI{9.3}{\meter}, another imaginary scoring plane is placed in the \fluka simulation, to score the neutrons crossing the boundary between the extraction line and the interaction region.
+These neutrons can directly be used in a \geant simulation of the \sid detector.
+The results are presented in the following Section~\ref{BeamDumps:SiDocc}.
 \begin{figure}[hbp]
 \centering
   \begin{subfigure}[b]{\textwidth}
    \centering
-\includegraphics[width=0.9\textwidth]{Figures/BeamDump/Neutron_dis_in_full_EXT_tunnel.png}
+\includegraphics[width=0.88\textwidth]{Figures/BeamDump/Neutron_dis_in_full_EXT_tunnel.png}
 \caption{Neutron density distribution}
    \end{subfigure}\\
     \begin{subfigure}[b]{\textwidth}
    \centering
-\includegraphics[width=0.9\textwidth]{Figures/BeamDump/Energy_dis_in_full_EXT_tunnel.png}
+\includegraphics[width=0.88\textwidth]{Figures/BeamDump/Energy_dis_in_full_EXT_tunnel.png}
 \caption{Deposited energy distribution}
 \end{subfigure}
 \caption[Spatial distribution of the neutron density and the deposited energy in the ILC extraction line tunnel]{
 Figure (a) shows the spatial distribution of the neutrons in the ILC extraction line tunnel simulated with \fluka.
 The color scale shows the number of neutrons per unit area, normalized to the rate resulting from one ILC beam bunch dumped in the water vessel.
 \\Figure (b) shows the spatial distribution of the deposited energy in the ILC extraction line tunnel simulated with \fluka.
-The color scale shows the deposited energy in \si{\GeV} per unit area, normalized to the results from one ILC beam bunch dumped in the water vessel.}
+The color scale shows the deposited energy in \si{\MeV} per unit area, normalized to the results from one ILC beam bunch dumped in the water vessel.}
 \label{fig:BeamDumps:NeutronEnergy_dis_EXT}
 \end{figure}
 
 
 \section{SiD Occupancy study from beam dump neutrons}
 \label{BeamDumps:SiDocc}
-
+The scored neutron four-vectors at z = \SI{9.3}{\meter} of the extraction line tunnel are converted into stdhep format, and used as input to a full detector simulation of \sid.
+For one original ILC beam bunch, which was dumped in the main beam dump, approximately \num{5.9e6} neutrons reach the end of the EXT tunnel.
+Of these neutrons, about \num{1.67e6} enter the \sid detector and leave hits in the outer endcap layers.
+Their momentum distributions are shown in Figure~\ref{fig:BeamDumps:NeutronMom}.
+The momenta in x and y (P\textsubscript{x} and P\textsubscript{y}) reach about 40 - \SI{50}{\MeV}.
+The distribution for P\textsubscript{y} is symmetric around 0, P\textsubscript{x} is however shifted to positive values.
+This is due to geometry of the extraction line tunnel and the neutron spatial distribution at the exit of the tunnel.
+The neutrons originate in the beam dump hall around the beam pipe axis, i.e. around (0,0) in the xy-plane.
+Due to the shape of the extraction tunnel, neutrons with momenta directed in the negative x-direction are absorbed by the tunnel wall along the extraction line.
+Additionally, the extraction line components shield the neutron flux around the beam line axis, cutting away further neutrons that are pointed in the negative x-direction.
+Since the beam line axis is vertically in the center of the tunnel, which reaches from \SI{-2}{\meter} to \SI{2}{\meter}, the y-distribution of the neutron momenta is symmetrical around \SI{0}{\MeV}.
+\\The P\textsubscript{z} distribution reaches from 0 to \SI{60}{\MeV}, with more particles at higher energies.
+The low P\textsubscript{z} neutrons have missed the detector or have been absorbed in the non-active calorimeter layers.
+\begin{figure}[h]
+ \centering
+  \begin{subfigure}[b]{0.32\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/neutrons_Px.png}
+   \caption{Momentum in x}
+   \end{subfigure}
+   \hfill
+   \begin{subfigure}[b]{0.32\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/neutrons_Py.png}
+   \caption{Momentum in y}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/neutrons_Pz.png}
+   \caption{Momentum in z}
+   \end{subfigure}
+   \caption[Beam dump neutron momenta in \sid]{Momentum distribution of neutrons from one extraction line side in \sid.
+   The momentum distributions in x, y, and z are given in Figures (a), (b), and (c) respectively.}
+   \label{fig:BeamDumps:NeutronMom}
+\end{figure} 
 
 \section{Alternative beam dump designs}
 A gas dump (TESLA layout) requires a dump length of at least \SI{1}{\kilo\meter}.
