@@ -323,8 +323,9 @@ The energy spectrum of the neutrons that cross the boundary under an angle betwe
 The combination of both spectra is shown by the red graph, indicated with ``all angles'' in the figure legend.
 The first peak in the meV range represents the thermal neutron energy peak.
 At the eV range, resonance peaks from resonant elastic scattering of neutrons with a compound nucleus are visible.
-These resonance peaks are element specific, so that the peaks indicate which materials the neutrons have interacted with. \todo{Point to literature} %See email from Vasilis on 16.April ~12Uhr
-%at about \SI{230}{\eV} corresponds to the resonance of copper.
+These resonance peaks are element specific, so that the peaks indicate which materials the neutrons have interacted with.
+%See email from Vasilis on 16.April ~12Uhr
+The peaks visible in the plot mainly originate from elastic neutron scattering processes with iron and copper atoms, which leads to resonances in the neutron cross section at around \num{e-2} to \SI{e-1}{\MeV}~\cite{neutron_resonances,neutron_resonances2}.
 Finally in the MeV range, the so-called evaporation or fission peak of fast neutrons is visible.
 \\All these neutrons point in the direction of the extraction line and hence in the direction of the interaction region and the detectors.
 As can be seen in Section~\ref{BeamDumps:sim_EXT}, the neutrons do not reach the detectors freely.
@@ -446,7 +447,7 @@ Due to the shape of the extraction tunnel, neutrons with momenta directed in the
 Additionally, the extraction line components shield the neutron flux around the beam line axis, cutting away further neutrons that are pointed in the negative x-direction.
 Since the beam line axis is vertically in the center of the tunnel, which reaches from \SI{-2}{\meter} to \SI{2}{\meter}, the y-distribution of the neutron momenta is symmetrical around \SI{0}{\MeV}.
 \\The P\textsubscript{z} distribution reaches from 0 to \SI{60}{\MeV}, with more particles at higher energies.
-The low P\textsubscript{z} neutrons have missed the detector or have been absorbed in the non-active calorimeter layers.
+The low P\textsubscript{z} neutrons have missed the detector or have been absorbed in the non-active calorimeter layers and the Pacman shielding (see Section~\ref{ILC:SiD}).
 \begin{figure}[h]
  \centering
   \begin{subfigure}[b]{0.32\textwidth}
@@ -470,8 +471,178 @@ The low P\textsubscript{z} neutrons have missed the detector or have been absorb
    The momentum distributions in x, y, and z are given in Figures (a), (b), and (c) respectively.}
    \label{fig:BeamDumps:NeutronMom}
 \end{figure} 
+Figure~\ref{fig:BeamDumps:NeutronMissedMaps} shows the positions in the xy-, zx-, and zy-plane, where neutrons that have not left hits in the \sid detector have been absorbed.
+The Pacman shielding, which is located behind the endcaps of the \sid muon system (stretching in z from about \SI{5.8}{\meter} to \SI{9.2}{\meter} from the IP), is clearly visible in all three Figures~\ref{fig:BeamDumps:NeutronMissedMaps} (a), (b), and (c).
+Here, up to \num{e3} neutrons per unit area are absorbed in the boronated concrete of the Pacman shielding.
+But also in the outermost non-active layers of the \sid muon system a significant amount of neutrons are stopped.
+\begin{figure}[h]
+ \centering
+  \begin{subfigure}[b]{0.32\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/neutrons_EndpointMap_xy.png}
+   \caption{xy-view}
+   \end{subfigure}
+   \hfill
+   \begin{subfigure}[b]{0.32\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/neutrons_EndpointMap_zx.png}
+   \caption{zx-view}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/neutrons_EndpointMap_zy.png}
+   \caption{zy-view}
+   \end{subfigure}
+   \caption[Beam dump neutrons absorbed without leaving hit in \sid]{Maps of the positions in the simulated world, where the beam dump neutrons that have not left any hits in \sid have been absorbed.
+   The views of the xy-plane, zx-plane, and zy-plane are given in Figures (a), (b), and (c) respectively.
+   The color scale shows the number of neutron endpoint positions per \SI[detect-all]{20}{\centi\meter}\,x\,\SI[detect-all]{20}{\centi\meter}.}
+   \label{fig:BeamDumps:NeutronMissedMaps}
+\end{figure} 
 
-\section{Alternative beam dump designs}
-A gas dump (TESLA layout) requires a dump length of at least \SI{1}{\kilo\meter}.
-Although more suitable with respect to the irradiation, the cost for the tunnel is a clear disadvantage.
+The spatial distributions of the neutrons, which do hit the active layers of the \sid detector, is best be seen in a event display of the \sid detector.
+Figure~\ref{fig:BeamDumps:NeutronEventDisplays} shows the WIRED4 event displays in various views.
+The hits are mainly restricted to the outer layers of the muon system.
+Their spatial distribution is determined by the shape of the extraction line tunnel.
+In Figure~\ref{fig:BeamDumps:NeutronEventDisplays} (b), also hits in the \sid BeamCal are visible.
+\begin{figure}[h]
+ \centering
+  \begin{subfigure}[b]{0.32\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Event_display_neutrons_in_SiD_xy_inverted.png}
+   \caption{xy-view}
+   \end{subfigure}
+   \hfill
+   \begin{subfigure}[b]{0.32\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Event_display_neutrons_in_SiD_xz_inverted_Label.png}
+   \caption{zx-view}
+   \end{subfigure}
+   \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Event_display_neutrons_in_SiD_3D_inverted.png}
+   \caption{3D-view}
+   \end{subfigure}
+   \caption[Event displays of the beam dump neutron hits in \sid]{Event displays created with WIRED4 of the \sid hits from ILC beam dump neutrons.
+   The views of the xy-plane, zx-plane, and a 3D-view are given in Figures (a), (b), and (c) respectively.}
+   \label{fig:BeamDumps:NeutronEventDisplays}
+\end{figure} 
+From one ILC bunch dumped in the main beam dump, the number of hits in the \sid subdetectors from the resulting neutrons from one of the extraction line tunnels are given in a bar chart in Figure~\ref{fig:BeamDumps:HitsPerSubdetector}.
+As already expected from the event displays in Figure~\ref{fig:BeamDumps:NeutronEventDisplays}, the \sid muon endcaps gain the most hits with about \num{1.5e4}.
+About two orders of magnitude less hits are counted in the muon barrel and the BeamCal.
+Also the LumiCal subdetector is hit about \num{20} times by neutrons from one beam dump.
+All other inner \sid subdetectors are shielded by the outer subdetectors and the Pacman shielding, and are not hit.
+\begin{figure}[hbp]
+\centering
+\includegraphics[width=0.6\textwidth]{Figures/BeamDump/Hits_in_SiD_subdetectors.png}
+\caption[Number of hits in the \sid subdetectors of the ILC main beam dump neutrons]{Bar chart of the number of hits in the individual \sid subdetector from neutrons coming from one ILC main beam dump, after a beam bunch has been dumped.}
+\label{fig:BeamDumps:HitsPerSubdetector}
+\end{figure}
+By counting the number of hits per cell in the BeamCal and the muon barrel and endcaps, the number of dead cells are calculated for the assumed buffer depths in the subdetectors.
+This was done in the same way as described in Sections~\ref{PairBkg:occupancy} and~\ref{BDS_Muons:sidocc}.
+Figure~\ref{fig:BeamDumps:NeutronOcc} shows the ratio of dead cells as a function of the assumed buffer depth in the \sid muon system and the \sid BeamCal.
+Since the muon endcaps collect the most neutron hits, the ratio of dead cells were calculated for up to a buffer depth of five.
+In the muon barrel, however, all hit cells are hit only one time, because of which only the first bin is filled in this plot (Figure~\ref{fig:BeamDumps:NeutronOcc} (a)).
+Similarly for the BeamCal, the cells are hit up to two times.
+\\Although these studies are done for neutrons from one ILC bunch only and the occupancy would rise for a bunch train worth of neutrons accordingly, the actual number of hits in the subdetectors would depend on the deposited neutron energy.
+Since the energy threshold of sensors is commonly at ??, ... \todo{What is the energy threshold for the SiD sensors?}
+\begin{figure}[h]
+ \centering
+  \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Occupancy_Comparison_All_layers_deadcells_BeamDump_Neutrons_MuonSystem.png}
+   \caption{\sid muon system}
+   \end{subfigure}
+   \hfill
+   \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Occupancy_Comparison_All_layers_deadcells_BeamDump_Neutrons_BeamCal.png}
+   \caption{\sid BeamCal}
+   \end{subfigure}
+   \caption[Neutron occupancy in the \sid muon system and BeamCal]{Ratio of dead cells in the \sid muon barrel and muon endcap (Figure (a)) and in the \sid BeamCal (Figure (b)) in all layers combined.
+   The ratio is calculated by computing the number of dead cells for a given buffer depth, and normalizing them by the total number of cells in the respective subdetector.}
+   \label{fig:BeamDumps:NeutronOcc}
+\end{figure} 
+
+\clearpage
+\section{Alternative beam dump design}
+The previous sections have shown that the current ILC main beam dump designs are based on a water vessel.
+Due to the high material density, the ILC beam bunches are stopped over a distance of about \SI{12}{\meter}.
+This leads to a large energy dissipation in the beam dump and its surrounding.
+The resulting high dose rates from the irradiation limits the time the maintenance staff will be allowed to be in the proximity of the beam dumps.
+There are, however, other beam dump designs, which do not lead to restricting dose rates of the dumps surrounding.
+\\In the following paragraphs, results from a \fluka study are presented concerning the effect of using a gaseous beam dump for the ILC beam.
+Such gas dumps have been studied before in the context of the TESLA accelerator~\cite{TESLA_acc, TESLA_beamdump_studies}.
+A vessel filled with noble gas requires a dump length of at least \SI{1}{\kilo\meter} in order to dissipate and absorb the beam energy.
+
+\subsection{Deposited energy and dose equivalent}
+In the \fluka model of this simple gaseous beam dump, a copper vessel with a length of \SI{1}{\kilo\meter} and a diameter of \SI{150}{\centi\meter} has been assumed.
+The vessel has a wall thickness of \SI{55}{\centi\meter}, in order to act as shielding simultaneously, and is filled with nitrogen gas.
+Figure~\ref{fig:BeamDumps:GasDump} shows the deposited energy and the resulting instantaneous dose equivalent from one ILC beam bunch, which has the same characteristics as before in Section~\ref{BeamDumps:sim_surrounding}.
+From the plots, it becomes apparent that the maximum deposited energy reaches \SI{e8}{\GeV\per\centi\meter\cubed} as well as in the water beam dumps before (see Section~\ref{BeamDumps:sim_surrounding:Energy}).
+This is, however, restricted to the back wall of the vessel.
+In the surrounding, no observable energy is deposited.
+\\The maximum dose equivalent in the gaseous dump is smaller by over one order of magnitude compared to the results for the water vessels (see Section~\ref{BeamDumps:sim_surrounding:Dose}).
+Again, the dose is restricted to the gas vessel.
+In the direct surrounding, a dose equivalent level of about \SI{e-4}{\milli\sievert\per\centi\meter\cubed} is reached, which is a difference of two to three orders of magnitude compared to the water beam dump.
+\begin{figure}[h]
+ \centering
+  \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Gasdump/Energy.png}
+   \caption{Deposited energy}
+   \end{subfigure}
+   \hfill
+   \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Gasdump/Dose_eq.png}
+   \caption{Instantaneous dose equivalent}
+   \end{subfigure}\\
+    \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Gasdump/Energy_zoom.png}
+   \caption{Deposited energy, zoom on vessel end}
+   \end{subfigure}
+   \hfill
+   \begin{subfigure}[b]{0.49\textwidth}
+   \centering
+    \includegraphics[width=\textwidth]{Figures/BeamDump/Gasdump/Dose_eq_zoom.png}
+   \caption{Instantaneous dose equivalent, zoom on vessel end}
+   \end{subfigure}
+   \caption[Deposited energy and dose equivalent in a gaseous beam dump]{
+   \fluka simulation results of a gaseous beam dump vessel.
+   \\Figures (a) and (c) show the deposited energy per ILC bunch in the xz-plane.
+   The color scale indicates the energy in \si{\GeV\per\centi\meter\cubed}.
+   \\Figures (b) and (d) show the resulting dose equivalent in the xz-plane.
+   The color scale indicates the dose equivalent in \si{\milli\sievert\per\centi\meter\cubed}.}
+   \label{fig:BeamDumps:GasDump}
+\end{figure} 
+
+\subsection{Neutron flux}
+In addition, a scoring plane has been added to the \fluka model of the gaseous beam dump in a similar way and position as in Section~\ref{BeamDumps:sim_surrounding:Particle}.
+The aim was to score neutrons, which are created in the vessel and are directed in the direction of the extraction line.
+\\In this gas vessel design, however, there is no observable flux of neutrons, which travel back towards the interaction region.
+
 \section{Conclusion and outlook}
+This chapter has presented several studies concerning the ILC main beam dumps.
+In the two designs that were studied, the ILC beam is dumped into a \SI{12}{\meter} long water vessel.
+Both vessel designs, which had been developed for the currently foreseen ILC main beam dumps, contain sophisticated vortex flow systems for dissipating the deposited energy of the beam bunches.
+Additional copper plates in the end of the vessels present enough radiation lengths to fully absorb the beam.
+The high material densities, however, have been identified with the presented \fluka simulations of the dump designs to lead to high levels of deposited energy inside and outside of the beam dump.
+In the water but also in the vessel and shielding materials, radioactive nuclei are produced, which activate the water and the surrounding.
+Activation studies have shown that the resulting dose rates after one year of cooling time still reach up to \SI{10}{\milli\sievert\per\second} in the surrounding of the dumps, which represents a large risk for maintenance personnel and demands a restriction of their duration of stay.
+\\Furthermore, particle fluxes have been studied, especially the neutron flux that originates in the water vessel and reaches back towards the extraction line.
+A second \fluka simulation of the neutrons traveling through the extraction line towards the interaction region yielded the four-vectors of the \num{5.9e6} neutrons arriving at the \sid detector.
+In a full \geant detector simulation, the hits of the neutrons in the \sid subdetectors have been 
+counted, and the arising occupancy has been shown.
+Due to the neutron momenta and their spatial distribution, the hits are contained within the outermost layers of the \sid muon system and the BeamCal.
+
+The results of the activation study but also of the neutron background study suggest to consider a different approach for the ILC main beam dumps.
+In a last \fluka simulation, a model of a gaseous beam dump has been studied with respect to the deposited energy, the dose equivalent, and the arising neutron flux.
+In all three matters, the gaseous beam dump design yields results that are several orders of magnitude smaller than the water dump designs.
+The beam energy is dissipated throughout the length of the gas dump, and then fully absorbed at the end of the \SI{1}{\kilo\meter} long vessel.
+This leads to a spatial restriction of the irradiation to the gas volume and the vessel back wall as well.
+In addition, no measurable neutron flux at the entrance to the beam dump hall was observed in the \fluka simulation.
+\\Overall, a gaseous dump seems to be more suitable with respect to the irradiation and the radiation safety.
+Due to the required length of the vessel, in order to fully dissipate and absorb the beam power, the cost for the necessary tunnel is a clear disadvantage of this approach.
