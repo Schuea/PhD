@@ -96,15 +96,15 @@ Additional \SI{9}{\xzero} are placed in the end of the vessel in form of water c
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/BeamDump/TB-0067-210-00-A_yz_view.png}
-   \caption{Technical drawing, yz view}
+   \caption{Technical drawing, yz-view}
    \end{subfigure}
    \hfill
     \begin{subfigure}[b]{0.49\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/BeamDump/Design1_geometry_3Dinside.png}
-   \caption{\fluka model, 3D view}
+   \caption{\fluka model, 3D-view}
    \end{subfigure}
-   \caption[ILC main beam dump design 1]{Figure (a) shows the yz view of the beam dump \designone from the technical drawing.
+   \caption[ILC main beam dump design 1]{Figure (a) shows the yz-view of the beam dump \designone from the technical drawing.
    The \fluka model constructed within \flair is shown in Figure (b).}
    \label{fig:BeamDumps:design1}
  \end{figure}
@@ -124,15 +124,15 @@ The copper plates, however, are also in this design placed in the end of the ves
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/BeamDump/Design2_geometry_3Dinside3.png}
-   \caption{\fluka model, yz view}
+   \caption{\fluka model, yz-view}
    \end{subfigure}
    \hfill
     \begin{subfigure}[b]{0.49\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/BeamDump/Design2_geometry_3Dinside1.png}
-   \caption{\fluka model, 3D view}
+   \caption{\fluka model, 3D-view}
    \end{subfigure}
-   \caption[ILC main beam dump design 2]{Figure (a) shows the yz view of the \fluka model of the beam dump \designtwo, the 3D view is shown in Figure (b).}
+   \caption[ILC main beam dump design 2]{Figure (a) shows the yz-view of the \fluka model of the beam dump \designtwo, the 3D-view is shown in Figure (b).}
    \label{fig:BeamDumps:design2}
  \end{figure}
 
@@ -152,7 +152,7 @@ The following sections present then furthermore the expected dose rate and the p
 In \fluka, various physics quantities can be measured as spatial densities or as double differential distributions in so-called scoring cards.
 The measured data can then be plotted with \flair.
 \\In this subsection, the measured energy deposition per volume is presented in the beam dump surrounding.
-Figure~\ref{fig:BeamDumps:Energy} (a) and (b) show the results in the xz plane of the geometry.
+Figure~\ref{fig:BeamDumps:Energy} (a) and (b) show the results in the xz-plane of the geometry.
 For such two dimensional plots, \flair gives the option to superimpose the outlines of the geometry model in the correct plane.
 In this way, the spatial distribution of the scored physics quantity can directly be associated with the material allocation of the geometry.
 The comparison between Figure (a) and (b) shows that the energy deposited in \designone is well contained within the iron shielding wall.
@@ -164,28 +164,28 @@ The reason for that is the larger material density in \designtwo in form of the 
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/BeamDump/Energy_deposition_xz_Design1.pdf}
-   \caption{\designone, xz plane}
+   \caption{\designone, xz-plane}
    \end{subfigure}
    \hfill
     \begin{subfigure}[b]{0.49\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/BeamDump/Energy_deposition_xz_Design2.pdf}
-   \caption{\designtwo, xz plane}
+   \caption{\designtwo, xz-plane}
    \end{subfigure}\\ \vspace*{0.3cm}
      \begin{subfigure}[b]{0.485\textwidth}
    \centering
     \includegraphics[height=0.245\textheight]{Figures/BeamDump/Energy_deposition_1DMax_z_Design1_2.png}
-   \caption{\designone, z projection}
+   \caption{\designone, z-projection}
    \end{subfigure}
    \hfill
     \begin{subfigure}[b]{0.485\textwidth}
    \centering
     \includegraphics[height=0.248\textheight]{Figures/BeamDump/Energy_deposition_1DMax_z_Design2.png}
-   \caption{\designtwo, z projection}
+   \caption{\designtwo, z-projection}
    \end{subfigure}
    \caption[Energy deposition in the ILC main beam dump]{\fluka result of the energy deposition density of one beam bunch in the ILC beam dump \designone (a) and \designtwo (b).
-   The view is in the xz plane of the beam dump surrounding including the shielding walls.
-   The color scale shows the deposited energy in \si{\GeV\per\centi\meter\cubed} per bunch.
+   The view is in the xz-plane of the beam dump surrounding including the shielding walls.
+   The color scale shows the deposited energy in \si[detect-all]{\GeV\per\centi\meter\cubed} per bunch.
    \\Figures (c) and (d) show the maximum values of the energy deposition as a projection on the z axis.}
    \label{fig:BeamDumps:Energy}
 \end{figure}
@@ -197,12 +197,12 @@ The third peak at z\,$\approx$\,\SI{220}{\centi\meter} is caused by the beam hit
 \\Accordingly, the sharp peaks in Figure~\ref{fig:BeamDumps:Energy} (d) for \designtwo also correspond to locations with a higher material density.
 The first two peaks at z\,$\approx$\,\SI{-100}{\centi\meter} and z\,$\approx$\,0 represent the high water pressure sections with their titanium tubes.
 The last peak at z\,$\approx$\,\SI{120}{\centi\meter} originates from the first copper plates, which in this design are located closer to the vessel center.
-\\The absolute value for the maximum energy deposited per bunch is between $\sim$\num{6.7e8} and \SI{1.1e9}{\GeV\per\centi\meter\cubed}, with the higher value for \designtwo.
+\\The absolute value for the maximum energy deposited per bunch is between $\sim$\SI{6.7e8}{\GeV\per\centi\meter\cubed} and \SI{1.1e9}{\GeV\per\centi\meter\cubed}, with the higher value for \designtwo.
  
 \subsection{Dose}
 \label{BeamDumps:sim_surrounding:Dose} 
 From the deposited energy, \fluka can calculate the instantaneous dose equivalent of the beam dumps and their surrounding.
-Figure~\ref{fig:BeamDumps:Dose} (a) and (b) show the \fluka results of the spatial distribution of the dose from one bunch in the xz plane, (c) and (d) show the projection of the maximum values onto the z axis, equivalent to the energy deposition plots before.
+Figure~\ref{fig:BeamDumps:Dose} (a) and (b) show the \fluka results of the spatial distribution of the dose from one bunch in the xz-plane, (c) and (d) show the projection of the maximum values onto the z axis, equivalent to the energy deposition plots before.
 \\The distributions are comparable for both beam dump designs, the projection plots also again show sharp peaks at the locations of high material density.
 The maximum dose equivalent from one bunch reaches about 82 - \SI{105}{\sievert}, with the higher value again for \designtwo.
 \begin{figure}[h]
@@ -210,30 +210,30 @@ The maximum dose equivalent from one bunch reaches about 82 - \SI{105}{\sievert}
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/BeamDump/Dose_equivalent_total_Design1.pdf}
-   \caption{\designone, xz plane}
+   \caption{\designone, xz-plane}
    \end{subfigure}
    \hfill
     \begin{subfigure}[b]{0.49\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/BeamDump/Dose_equivalent_total_Design2.pdf}
-   \caption{\designtwo, xz plane}
+   \caption{\designtwo, xz-plane}
    \end{subfigure}\\ \vspace*{0.3cm}
      \begin{subfigure}[b]{0.485\textwidth}
    \centering
     \includegraphics[height=0.24\textheight]{Figures/BeamDump/Dose_equivalent_total_1DMax_z_Design1.png}
-   \caption{\designone, z projection}
+   \caption{\designone, z-projection}
    \end{subfigure}
    \hfill
     \begin{subfigure}[b]{0.485\textwidth}
    \centering
     \includegraphics[height=0.24\textheight]{Figures/BeamDump/Dose_equivalent_total_1DMax_z_Design2.png}
-   \caption{\designtwo, z projection}
+   \caption{\designtwo, z-projection}
    \end{subfigure}
    \caption[Dose equivalent in the ILC main beam dump]{\fluka result of the dose equivalent from one beam bunch in the ILC beam dump \designone (a) and \designtwo (b) and their surrounding.
-   The view is in the xz plane of the beam dump surrounding including the shielding walls.
-   The color scale shows the dose in \si{\milli\sievert} per bunch.
+   The view is in the xz-plane of the beam dump surrounding including the shielding walls.
+   The color scale shows the dose in \si[detect-all]{\milli\sievert} per bunch.
    \\Figures (c) and (d) show the maximum values of the dose as a projection on the z axis.
-   The dose equivalent is here given in \si{\sievert}.}
+   The dose equivalent is here given in \si[detect-all]{\sievert}.}
    \label{fig:BeamDumps:Dose}
 \end{figure}
 
@@ -261,14 +261,14 @@ The main contributors are \textsuperscript{3}H (tritium), \textsuperscript{49}V,
 \includegraphics[width=0.6\textwidth]{Figures/BeamDump/Corrected_residualnuclei_plots/ResidualNuclei_Design2_5_correct_scale.pdf}
 \caption[Residual nuclei in the ILC main beam dump after one year]{Chart of residual nuclei in the beam dump vessel and its surrounding after a cooling time of one year.
 The axes show the number of protons (Z) and the number of neutrons (N) of the nuclei, from which the according element can be derived.
-The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cubed} of the respective nuclei.}
+The color scale indicates the radioactivity in \si[detect-all]{\becquerel\per\centi\meter\cubed} of the respective nuclei.}
 \label{fig:BeamDumps:ResidualNuclei}
 \end{figure}
  
 \subsection{Particle fluxes}
 \label{BeamDumps:sim_surrounding:Particle}  
  The densities of particles in the geometry can also be scored with \fluka, which is then given as the number of particles per \si{\centi\meter\cubed}.
- As an example, Figure~\ref{fig:BeamDumps:Electrons} shows the density distribution of electrons in the xz plane for the two ILC beam dump designs.
+ As an example, Figure~\ref{fig:BeamDumps:Electrons} shows the density distribution of electrons in the xz-plane for the two ILC beam dump designs.
  Since the primary beam also consists of electrons, the beam path is also visible coming from negative z along the beam pipe.
  Inside the water vessel, the beam is stopped and dissipated, and particle showers start forming. The electrons are boosted in the beam direction, because of which electrons outside the beam dump are mainly observed around and behind the vessel.  
 \begin{figure}[!h]
@@ -285,8 +285,8 @@ The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cu
    \caption{\designtwo}
    \end{subfigure}
    \caption[Electron flux in the ILC main beam dump]{\fluka result of the electron flux from one beam bunch in the ILC beam dump \designone (a) and \designtwo (b) and their surrounding.
-   The view is in the xz plane of the beam dump.
-   The color scale shows the dose in number of particles per \si{\centi\meter\cubed} per bunch.}
+   The view is in the xz-plane of the beam dump.
+   The color scale shows the dose in number of particles per \si[detect-all]{\centi\meter\cubed} per bunch.}
    \label{fig:BeamDumps:Electrons}
 \end{figure} 
  \\This looks quite different for the neutron density distributions (Figure~\ref{fig:BeamDumps:Neutrons}).
@@ -311,7 +311,7 @@ The color scale indicates the radioactivity in \si{\becquerel\per\centi\meter\cu
    \end{subfigure}
    \caption[Neutron flux in the ILC main beam dump]{\fluka result of the neutron flux from one beam bunch in the ILC beam dump \designone (a) and \designtwo (b) and their surrounding.
    The view is in the xz-plane of the beam dump.
-   The color scale shows the dose in number of particles per \si{\centi\meter\cubed} per bunch.}
+   The color scale shows the dose in number of particles per \si[detect-all]{\centi\meter\cubed} per bunch.}
    \label{fig:BeamDumps:Neutrons}
 \end{figure} 
 \\By adding an imaginary scoring plane upstream of the beam dump vessel as indicated in Figure~\ref{fig:BeamDumps:NeutronScoring} (a), the neutrons escaping the beam dump in the direction of the extraction line can be scored.
@@ -392,10 +392,10 @@ The magnets are simulated without their respective magnetic field maps, since th
     \begin{subfigure}[b]{0.35\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/BeamDump/EXT_line_2.png}
-   \caption{3D view of the dipole magnets}
+   \caption{3D-view of the dipole magnets}
    \end{subfigure}
    \caption[\fluka model of the ILC extraction line]{Pictures of the ILC extraction line, modeled within \flair.
-   The full model is shown in a xz view in Figure (a).
+   The full model is shown in a xz-view in Figure (a).
    Figures (b) and (c) show closeup views of the magnet section in the beginning of the extraction line.}
    \label{fig:BeamDumps:EXT}
 \end{figure} 
@@ -428,7 +428,7 @@ The results are presented in the following Section~\ref{BeamDumps:SiDocc}.
 Figure (a) shows the spatial distribution of the neutrons in the ILC extraction line tunnel simulated with \fluka.
 The color scale shows the number of neutrons per unit area, normalized to the rate resulting from one ILC beam bunch dumped in the water vessel.
 \\Figure (b) shows the spatial distribution of the deposited energy in the ILC extraction line tunnel simulated with \fluka.
-The color scale shows the deposited energy in \si{\MeV} per unit area, normalized to the results from one ILC beam bunch dumped in the water vessel.}
+The color scale shows the deposited energy in \si[detect-all]{\MeV} per unit area, normalized to the results from one ILC beam bunch dumped in the water vessel.}
 \label{fig:BeamDumps:NeutronEnergy_dis_EXT}
 \end{figure}
 
@@ -505,7 +505,7 @@ Figure~\ref{fig:BeamDumps:NeutronEventDisplays} shows the WIRED4 event displays 
 The hits are mainly restricted to the outer layers of the muon system.
 Their spatial distribution is determined by the shape of the extraction line tunnel.
 In Figure~\ref{fig:BeamDumps:NeutronEventDisplays} (b), also hits in the \sid BeamCal are visible.
-\begin{figure}[h]
+\begin{figure}
  \centering
   \begin{subfigure}[b]{0.32\textwidth}
    \centering
@@ -547,7 +547,7 @@ In the muon barrel, however, all hit cells are hit only one time, because of whi
 Similarly for the BeamCal, the cells are hit up to two times.
 \\Although these studies are done for neutrons from one ILC bunch only and the occupancy would rise for a bunch train worth of neutrons accordingly, the actual number of hits in the subdetectors would depend on the deposited neutron energy.
 Since the energy threshold of sensors is commonly at ??, ... \todo{What is the energy threshold for the SiD sensors?}
-\begin{figure}[h]
+\begin{figure}[!h]
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
@@ -565,7 +565,7 @@ Since the energy threshold of sensors is commonly at ??, ... \todo{What is the e
    \label{fig:BeamDumps:NeutronOcc}
 \end{figure} 
 
-\clearpage
+
 \section{Alternative beam dump design}
 The previous sections have shown that the current ILC main beam dump designs are based on a water vessel.
 Due to the high material density, the ILC beam bunches are stopped over a distance of about \SI{12}{\meter}.
@@ -613,9 +613,9 @@ In the direct surrounding, a dose equivalent level of about \SI{e-4}{\milli\siev
    \caption[Deposited energy and dose equivalent in a gaseous beam dump]{
    \fluka simulation results of a gaseous beam dump vessel.
    \\Figures (a) and (c) show the deposited energy per ILC bunch in the xz-plane.
-   The color scale indicates the energy in \si{\GeV\per\centi\meter\cubed}.
+   The color scale indicates the energy in \si[detect-all]{\GeV\per\centi\meter\cubed}.
    \\Figures (b) and (d) show the resulting dose equivalent in the xz-plane.
-   The color scale indicates the dose equivalent in \si{\milli\sievert\per\centi\meter\cubed}.}
+   The color scale indicates the dose equivalent in \si[detect-all]{\milli\sievert\per\centi\meter\cubed}.}
    \label{fig:BeamDumps:GasDump}
 \end{figure} 
 
