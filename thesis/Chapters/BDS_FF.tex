@@ -239,7 +239,7 @@ As explained in the previous chapter, occupancy plots show how many detector cel
 By respecting the rule that the sum of all cells with a number of hits greater than or equal to the buffer depth should not exceed \SI{0.01}{\percent} (\num{e-4} of all cells), a statement can be made whether given occupancy levels are acceptable.
 By optimizing the design of the detectors and the accelerator, a balance can be found between a sufficient buffer depth of the detector sensors and low background levels arising from the accelerator.
 \\Figure~\ref{fig:BDS_Muons:HcalBarrel} shows the occupancy and the number of dead cells~\footnote{A cell is defined to be dead when the buffer of its sensor is already completely filled, and no further hits can be stored. Further details can be found in Chapter~\ref{PairBkg:occupancy}.} in the HCAL barrel, normalized to its total number of cells.
-In the current detector design, the HCAL cells have a size of \SI{1}{\centi\meter}\,x\,\SI{1}{\centi\meter}.
+In the current detector design, the HCAL cells have a size of \SI{1}{\centi\meter}$\times$\SI{1}{\centi\meter}.
 As a result, a maximum of three hits per cell is observed, because of which the x-axis range in Figure~\ref{fig:BDS_Muons:HcalBarrel} (b) also reaches to three only.
 Here, the number of dead cells is shown as a function of the assumed buffer depth.
 In the theoretical case of a buffer depth of one, about \num{e-4} of all cells would have a full buffer (with one hit) for the ``5 spoilers'' case in the ILC500.
@@ -265,7 +265,7 @@ Since none of the cells are hit by more than three muons, the occupancy in the H
    \label{fig:BDS_Muons:HcalBarrel}
  \end{figure}
 \\For the \sid tracker endcaps, however, the number of hits per cell reaches a maximum of 30 (see Figure~\ref{fig:BDS_Muons:SiTrackerEndcap}).
-As for the \sid tracker, a cell size of \SI{50}{\micro\meter}\,x\,\SI{50}{\micro\meter} was assumed, this is at first not to be expected.
+As for the \sid tracker, a cell size of \SI{50}{\micro\meter}$\times$\SI{50}{\micro\meter} was assumed, this is at first not to be expected.
 The total number of hits in the tracker is smaller than in the HCAL, and yet the number of hits per cell reaches a much larger value.
 The reason for this is that low energy (of the order of several hundred MeV) muons spiral in the magnetic field of the detector solenoid magnet, and by doing so hit the active layer of the tracker endcap several times.
 An example of a loop performed by such a muon is depicted in Figure~\ref{fig:BDS_Muons:loop}.
@@ -377,7 +377,7 @@ The design drawings of the collimator structure are shown in Figure~\ref{fig:col
 The collimating jaws are inside a structure that is evacuated and connected to the beam pipe of the ATF2 beam line. 
 A picture of the installed collimator is given in Figure~\ref{fig:installed_collimator}.
 The actual jaws are made of copper, the other components of stainless steel. 
-The jaws have an overall length of \SI{238}{\milli\meter}, and a cross-sectional area of \mbox{\SI{24}{\milli\meter}\,x\,\SI{24}{\milli\meter}}.
+The jaws have an overall length of \SI{238}{\milli\meter}, and a cross-sectional area of \mbox{\SI{24}{\milli\meter}$\times$\SI{24}{\milli\meter}}.
 They can be moved individually to an arbitrary position inside the possible range, so that the inner edge of the jaws can have a distance of between 2.6 and \SI{12}{\milli\metre} to the center. 
 The full aperture of the collimator structure can therefore be between 5.2 and \SI{24}{\milli\metre}. 
 The error on the position of the jaws is about \SI{10}{\micro\metre}.\\
@@ -561,7 +561,7 @@ To address open questions, simulations of the ATF2 lattice including the beam ha
 The geometry model of the ATF2 accelerator lattice (in its state in the year 2015) already exists as a feature of \bdsim.
 However, a realistic model of the vertical beam halo collimator had to be added.
 
-\subsubsection{BDSIM}
+\subsubsection{\bdsim}
 \label{BDSIM}
 \bdsim~\cite{BDSIM} is a \geant extension toolkit for the simulation of particle transport in accelerator beam lines, but also for the simulation of the interaction between the beam particles and the accelerator material. 
 It is developed and supported by RHUL.
