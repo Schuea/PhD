@@ -12,7 +12,7 @@ When the electron was experimentally discovered in 1897 by J.J. Thomson, it was 
 This sparked the interest of many physicists in the early \nth{20} century to perform experiments probing atoms.
 One of them was Ernest Rutherford, who fired alpha particles\footnote{An alpha particle is the nuclei of a Helium atom. Ernest Rutherford obtained them from decays of uranium and other radioactive elements.} through a thin gold foil, and thereby found that atoms are mostly empty with a positively charged nucleus that is only a fraction of the size of the atom itself~\cite{GoldFoil}.
 This discovery was a crucial step towards the modern atomic model.\\
-Closer to our current understanding of the atomic model is the Bohr model, developed by Niels Bohr in 1914.~\cite[p. 15]{Griffiths}
+Much closer to our current understanding of the atomic model is the Bohr model, developed by Niels Bohr in 1914.~\cite[p. 15]{Griffiths}
 It asserts that electrons orbit the positively charged nucleus on stable shells with distinct radii.
 The shells correspond to discrete energies, such that an electron switching from one shell to a shell with a larger radius would have to absorb energy, or emit energy respectively.
 This energy quantum is absorbed or emitted in the form of light, or more precisely, in the form of a photon.
@@ -84,7 +84,7 @@ Among the leptons are the electron and its heavier brothers, the muon and the ta
 In their respective generation, each of them has a neutrino, respectively named the electron-neutrino, muon-neutrino, and tau-neutrino.
 They are electrically neutral particles.\\
 Additionally, every particle has an antiparticle, so there are actually not only six leptons but twelve.
-The SM does in general not remark the antiparticles, because the physics of particles and antiparticles is the same.
+The SM does in general not remark the antiparticles, because it assumes that the physics of particles and antiparticles is the same.
 The only difference between them is the sign of their internal quantum numbers:
 The electron's antiparticle is the positron, which has the same mass and spin as the electron, but has a positive charge of +1, and a negative lepton number $L_e$ of -\,1.
 The antiparticles of the muon ($\upmu$\textsuperscript{-}) and the tau ($\uptau$\textsuperscript{-}) hence are $\upmu$\textsuperscript{+} and $\uptau$\textsuperscript{+}, respectively.
@@ -99,12 +99,12 @@ Every quark has one of three colors (red, green, and blue), every antiquark has 
 Thus, there are overall 36 different quarks and antiquarks.
 Due to the law of confinement, there can only be color-neutral particles.
 Quarks are therefore not free, but hadronize and form a bound state together with other quarks.
-These bound quark states, called hadrons, consist of either two, three, or five quarks.
+These bound quark states, called hadrons, consist of either severl quarks.
 A particle with a quark of a specific color and an antiquark of the corresponding anti-color is called a meson.
 Together, the color and anti-color of the quarks make the meson color-neutral.
 A baryon, which is a particle with three quarks, can only be color-neutral when it carries three quarks with three different colors (or anti-colors), so red\textendash green\textendash blue or anti-red\textendash anti-green\textendash anti-blue, any other combination is not possible.
-Finally, the penta-quarks are bound states of five quarks, where three of them form a color triplet like a baryon, and the remaining two form a color-anticolor pair like a meson.\\
-In everyday nature, the only observable hadrons are the protons and neutrons due to their constituents.
+%Finally, the penta-quarks are bound states of five quarks, where three of them form a color triplet like a baryon, and the remaining two form a color-anticolor pair like a meson.
+\\In everyday nature, the only observable hadrons are the protons and neutrons due to their constituents.
 They are baryons, hence are built from three quarks:
 protons contain two up-quarks and one down-quark, giving the proton its positive electric charge of +1.
 Neutrons on the other hand are formed by one up-quark and two down-quarks, resulting in an electrically neutral particle. 
@@ -244,7 +244,7 @@ The cross section $\sigma$ for the occurring interaction can be thought of as an
 It is therefore the fraction of the number of interactions (per unit time) over the number of incident particles (per unit time per unit area).
 The unit of cross sections in particle physics is barn (``b''), which is equivalent to \SI{e-28}{\meter\squared}.
 
-\todo{Why is e+e- cross section falling, and pp cross section rising?}
+%TODO: Why is e+e- cross section falling, and pp cross section rising?}
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.4\textwidth}
@@ -274,7 +274,12 @@ The background processes will now be explained in detail in the following.
 A significant background source for the particle detectors arises from the electromagnetic fields created by the highly focused beam bunches.
 Before collision, the particle beams are focused down to a small beam size, which enhances the electromagnetic field around the bunches.
 This causes the beam particles to emit photons in the forward direction, the so-called beamstrahlung.
-\\For a lepton beam with N beam particles per bunch and with the beam dimensions $\sigma_{x,y,z}$, one can calculate the average energy $E_{\gamma}$ of the beamstrahlung photons~\cite{Beamstrahlung_CLIC}: \todo{Check page number}
+\\The beamstrahlung can be expressed through the beamstrahlung parameter $\Upsilon$, which is for Gaussian lepton beams with N beam particles per bunch and with the beam dimensions $\sigma_{x,y,z}$~\cite{PairBkg_cross_section, AndreSailer}:
+\begin{equation}
+ \Upsilon=\frac{5}{6}\frac{\gamma N r_e \lambda_e}{(\sigma_x+\sigma_y)\sigma_z}
+\end{equation}
+with $r_e$ being the classical electron radius ($r_e = \frac{e^2}{4\pi \epsilon_0 m_e}$), the electron mass $m_e$, and $\lambda_e=\frac{1}{m_e}$.
+\\From that, one can calculate the average energy $E_{\gamma}$ of the beamstrahlung photons~\cite{Beamstrahlung_CLIC}: \todo{Check page number}
 \begin{equation}
  E_{\gamma} \propto \frac{N}{(\sigma_x+\sigma_y)\sigma_z}
  \label{eq:pair_energy}
@@ -300,9 +305,9 @@ Such interactions are then called beam-beam interactions, since they arise from 
 \label{fig:Pair_production} 
 \end{figure}
 \\One possible outcome is the production of an electron-positron pair through three different physics processes, which are depicted in Figure~\ref{fig:Feynman:pair_production}.
-In all three cases a ``secondary'' $e^+e^-$ pair is produced, either through the interaction between a beamstrahlung photon and a virtual photon emitted by a primary beam particle (Figure~\ref{fig:Feynman:pair_production} (a)),
-or through the interaction of two beamstrahlung photons (Figure~\ref{fig:Feynman:pair_production} (b)),
-or lastly through the interaction of two virtual photons being emitted from particles of the two opposite beams (Figure~\ref{fig:Feynman:pair_production} (c)).
+In all three cases a ``secondary'' $e^+e^-$ pair is produced, either through the interaction between a beamstrahlung photon and a virtual photon emitted by a primary beam particle (Bethe-Heiter process, Figure~\ref{fig:Feynman:pair_production} (a)),
+or through the interaction of two beamstrahlung photons (Breit-Wheeler process, Figure~\ref{fig:Feynman:pair_production} (b)),
+or lastly through the interaction of two virtual photons being emitted from particles of the two opposite beams (Landau-Lifschitz process, Figure~\ref{fig:Feynman:pair_production} (c)).
 \begin{figure}[h]
 \begin{subfigure}[b]{0.33\textwidth}
 \includegraphics[width=\textwidth]{Figures/Bethe-Heitler.pdf}
@@ -320,12 +325,29 @@ or lastly through the interaction of two virtual photons being emitted from part
 \label{fig:Feynman:pair_production}
 \end{figure}
 
+For the three processes, the effective total cross section for a single final-state particles can be written as~\cite{PairBkg_cross_section}:
+\begin{align}
+ \sigma_{BH} &= 15.4\frac{\alpha^2 r_e^2}{\gamma^2}K  \left(\frac{\gamma m_e}{p^*}\right)^{5/3}(\tau_0^{1/3}-\tau_0^{-1/3})\left[log\left(\frac{p^*\tau_0}{2\gamma m_e}\right)+0.21\right]\\
+ \sigma_{BW} &= 4.9\frac{\alpha^2 r_e^2}{\gamma^2}K^2  \left(\frac{\gamma m_e}{p^*}\right)^{4/3}  log(1/\tau_0)\\
+ \sigma_{LL} &= 5.09\frac{\alpha^2 r_e^2}{\gamma^2} \left(\frac{\gamma m_e}{p^*}\right)^2 log(1/\tau_0) \left[log\left(\frac{p^*\tau_0}{2\gamma m_e}\right) log\left(\frac{p^*}{2\gamma m_e\tau_0}\right) + 3 log\left(\frac{p^*}{2\gamma m_e}\right) + 4.44\right]
+\end{align}
+with the variables being:
+the Lorentz factor $\gamma$, 
+the fine-structure constant $\alpha$, 
+the minimal rquired transverse momentum $p^*$,
+and the tangent $\tau_0=tan(\theta_0/2)$ with the minimal angle $\theta_0$ of the produced particle.
+\\The $K$ factor represents the dependence on the beam parameters and the beamstrahlung parameter $\Upsilon$:
+\begin{equation}
+ K=\frac{\sigma_z}{\gamma\lambda_e}\Upsilon^{2/3}
+\end{equation}
+
+
 The produced $e^+e^-$ pairs are low $p_T$ particles, which means that they have a small momentum in the transverse beam direction.
 The reason for that is the fact that the beamstrahlung photons are already boosted in the forward direction, i.e. in the beam direction.
 The momentum of the secondary electrons and positrons also has a large contribution in the forward direction, and only small contributions in the transverse plane.
 Further characterizations can be found in Chapter~\ref{PairBkg} about the Monte Carlo simulation of this so-called pair background.
-\todo{Cross section}
-\todo{Check Andre Sailers thesis}
+
+%TODO: Check Andre Sailers thesis: https://edoc.hu-berlin.de/bitstream/handle/18452/17305/sailer.pdf?sequence=1
 
 \subsubsection{Bhabha scattering and $\gamma\gamma\rightarrow$ hadrons}
 \label{BeamBeam:bhabha_gammagamma}

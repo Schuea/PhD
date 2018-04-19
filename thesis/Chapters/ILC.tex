@@ -12,7 +12,7 @@ Its proposed layout, the possible construction sites, the detectors, and the phy
 The International Linear Collider (ILC) is a proposed linear \positron\electron collider with a center-of-mass energy of \SI{250}{\GeV}, extendable to 350-\SI{500}{\GeV} and possibly even \SI{1}{\TeV}.
 Its high luminosity and its state of the art technologies for the detectors and the machine will make the ILC an unprecedented precision machine, complementary to the currently existing high-energy physics accelerators, such as the Large Hadron Collider (LHC) at CERN.
 The designs of the collider and the detector concepts are a result of over twenty years of research at over 300 science laboratories and universities all over the world~\cite{TDR1}.
-The ILC project is therefore an international project, as its name already suggests.
+The ILC project is therefore truly an international project.
 
 \section{The ILC layout}
 \label{ILC:layout}
@@ -34,7 +34,7 @@ Figure~\ref{fig:ILC_Layout} shows the schematic layout of the ILC.
 \label{fig:ILC_Layout}
 \end{figure}
 The electrons are produced by a GaAs photocathode in a DC electron gun~\cite[p. 13]{TDR32}.
-By shining a circularly polarized laser on the electron beam, a beam polarization of at least \SI{80}{\percent} is achived, i.e. more than \SI{80}{\percent} of all electrons have the same hadedness\footnote{For a left-handed particle, its spin and its momentum are antiparallel, pointing in opposite directions, and vice versa for a right-handed particle.}~\cite[p. 81]{TDR32}:
+By shining a circularly polarized laser on the electron beam, a beam polarization of at least \SI{80}{\percent} is achived, i.e. more than \SI{80}{\percent} of all electrons have the same handedness\footnote{For a left-handed particle, its spin and its momentum are antiparallel, pointing in opposite directions, and vice versa for a right-handed particle.}~\cite[p. 81]{TDR32}:
 \begin{equation}
  P_e = \frac{N_L-N_R}{N_L+N_R} > 0.8
 \end{equation}
@@ -110,7 +110,7 @@ They have a length of \SI{5}{\kilo\meter} each, and use \SI{1.3}{\giga\hertz} su
 A picture of one of these cavities is shown in Figure~\ref{fig:Tesla_Cavity}. 
 Since cavities of the same design are already in use for the European XFEL (X-Ray Free-Electron Laser) at Deutsches Elektronen-Synchrotron (DESY) in Hamburg, their high performance has already been demonstrated~\cite{XFEL}.
 The gradient distribution of the cavities used at the European XFEL is shown in Figure~\ref{fig:XFEL_cav}.
-The average of the maximum gradient reachable is about \SI{35}{\mega\volt\per\meter}, which is higher than the ILC requirements.
+The average of the maximum gradient reachable per cavity module is about \SI{35}{\mega\volt\per\meter}, which is higher than the ILC requirements.
 This is especially remarkable, as the cavity specifications for the European XFEL are lower than for the ILC.
 Another key point is that the production of the cavities is an industrialized process.
 The high gradients are therefore not demonstrated in a laboratory environment only, but the gradients are also achieved in a more automated procedure.
@@ -206,7 +206,7 @@ ICFA's official statement declares that the ``[...] International Linear Collide
 Therefore, ICFA considers the ILC a key science project complementary to the LHC and its upgrade.
 ICFA welcomes the efforts by the Linear Collider Collaboration on cost reductions for the ILC [...]''~\cite{ICFA_Statement}.\\
 The total costs for realizing the ILC includes the manpower, the costs for the construction of the so-called conventional facilities, such as the underground tunnels and the surface buildings, and the costs for the production and assembling of the accelerator and detector components.
-When breaking the total costs down into the subsystems, then the conventional facilities together with the production of the RF systems for the accelerator make up almost \SI{75}{\percent} of the total costs~\cite[p. 20f]{TDR1}.
+When breaking the total costs down into the subsystems, then the conventional facilities together with the production of the RF modules for the main linacs make up almost \SI{75}{\percent} of the total costs~\cite[p. 20f]{TDR1}.
 These estimations are based on cost inquiries with several industrial companies, as well as on experiences collected at other accelerator projects, such as the European XFEL which uses the same design for the RF cavities as planned for the ILC.\\
 Regarding the ILC layout, several options are under discussion which are shown in Figure~\ref{fig:Staging}.
 These options would yield a cost reduction of up to \SI{34}{\percent}~\cite{Cost_reduction}, resulting in about \SI{66}{\percent} of the initial costs for the \SI{500}{\GeV} machine by reducing the length of the tunnel (options A, B, and C), or by additionally reducing the number of RF cavities (options A', B' and C').
@@ -393,7 +393,8 @@ However, the decay width $\Gamma(h\rightarrow ZZ^*)$ can be gained through the r
 \begin{equation}
  \Gamma(h\rightarrow ZZ^*)\propto g^2_{hZZ} \propto \sigma(e^+e^-\rightarrow Zh)
 \end{equation}
-with the Higgsstrahlung production cross section, and the Higgs coupling $g_{hZZ}$ to the Z boson. \todo{How is the partial decay width calculated through this equation exactly?}
+with the Higgsstrahlung production cross section, and the Higgs coupling $g_{hZZ}$ to the Z boson. 
+%TODO: How is the partial decay width calculated through this equation exactly?
 \\Finally, by combining the branching ratio with the partial decay width, the total Higgs width is determined in a model independent way without theoretical assumptions, since both the branching ratio and the partial width were measured independently of the Higgs decay channels.
 
 \paragraph{Higgs couplings}
@@ -495,7 +496,7 @@ Therefore, charged particles are reconstructed from tracks in the tracker device
 The electromagnetic calorimeter (ECAL) is used for photons, and the electromagnetic (ECAL) and hadronic calorimeter (HCAL) together for other neutral particles~\cite{PFA}.
 \\Table~\ref{tab:KeyParametersSiD} lists the key parameters and measurements of the SiD subdetector systems together with the technologies for the individual sub-systems.
 Additionally, Figure~\ref{fig:SiD} shows a visualization of the SiD detector and its subdetectors, which will be explained in the following paragraphs.
-A more detailed description can be found in~\cite{TDR4}. \todo{Readout timing, pixel sizes}
+A more detailed description can be found in~\cite{TDR4}.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{Figures/SiD_new.jpg}
@@ -541,15 +542,32 @@ The requirements for the vertex detector performance are very demanding:
 The spatial resolution with less than \SI{5}{\micro\meter} allows very precise tracking, whilst the impact parameter resolution is aimed for about \SI{3}{\micro\meter} for the verification of the primary vertex, as well as of the secondary vertex of a bottom quark (b-tagging) and even of a charm quark (c-tagging).
 The latter is very challenging due to the short flight distance of the charm quark of only a few microns before it hadronizes.
 Additionally, a very small material budget of about \SI{0.1}{\xzero} is foreseen for the vertex detector in order to limit particle showers and multiple scattering in this subdetector~\cite{SiD_Update}.
-The final decision on the sensor technology is not made yet, which allows the detector to have the most recent state-of-the-art technology.
-The currently foreseen technology candidates are various designs based on silicon diode pixels, such as Monolithic Active Pixels (MAPS), Chronopix, Vertically Integrated (``3D'') chips, as well as High Voltage CMOS sensors. 
-\todo{Find a reference to point to these technologies}
-\begin{figure}[h]
+To achieve this minimal material budget, sensor technologies are considered that foresee the implementation of the sensor buffers on the chips directly to minimize the used material. 
+For a comparison to the CMS pixel detector, Figure~\ref{fig:CMS} shows the material budget of the original and the upgraded detector.
+The material budget is significantly reduced for the upgrade for $\eta$\footnote{$\eta$ is the pseudorapidity, which is commonly used in LHC experiments to express the angle relative to the beam axis: $\eta=-ln[tan(\theta/2)]$} above one.
+In the high-$\eta$ ranges, the material budget reaches \SI{0.7}{\xzero}.
+The \sid vertex detector is aimed for a material budget, which is seven times lower.
+\\The final decision on the \sid sensor technology and the required pixel sizes is not made yet, which allows the detector to have the most recent state-of-the-art technology.
+For simulation studies, a pixel size of \SI{20}{\micro\meter}$\times$\SI{20}{\micro\meter} is used.
+The currently foreseen technology candidates are various designs based on silicon diode pixels, such as Monolithic Active Pixels (MAPS), Chronopix, Vertically Integrated (``3D'') chips, as well as High Voltage CMOS sensors~\cite{Silicon_Sensors}. 
+\begin{figure}[!h]
 \centering
-\includegraphics[width=0.4\textwidth]{Figures/SiD_VXD_3D.png}
+ \begin{minipage}[t]{0.49\textwidth}
+ \centering
+\includegraphics[width=\textwidth]{Figures/SiD_VXD_3D.png}
 \caption[Visualization of the SiD vertex detector]{Visualization of the SiD vertex detector~\cite{SiD_Update2}.}
 \label{fig:SiD_VXD}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.49\textwidth}
+\centering
+\includegraphics[width=\textwidth]{Figures/CMS_Pixeldetector_materialbudget.png}
+\caption[Material budget of the CMS pixel detector]{Material budget of the original and the upgraded CMS pixel detector expressed in radiation lengths as a function of $\eta$~\cite{CMS_pixeldetector}.}
+\label{fig:CMS}
+\end{minipage}
 \end{figure}
+
+
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{Figures/SiD_Tracker.png}
@@ -562,7 +580,7 @@ The drawing includes the vertex detector in the center.}
 Outside the vertex detector is the Silicon Tracker, which can be seen in Figure~\ref{fig:SiD_tracker}.
 For its five barrel layers and four endcap layers, silicon strip sensors are planned that will use so-called KPiX ASIC readout chips.
 These KPiX chips have a buffer depth of four in the current design, which means that up to four hits per sensor can be stored on the chip's buffer.
-Any further hit can not be recorded and is lost.
+Any further hit can not be recorded and is lost, which is explained again in more detail below.
 That makes thorough simulations of the expected backgrounds reaching the detector very important.
 The sensors can still be adapted with respect to design and technology used, so that the detector will be optimized as best as possible.
 
@@ -614,6 +632,20 @@ The inner layer of Pacman is made of iron, the outer layer of boronated concrete
 The thickness is about \SI{3.4}{\meter}~\cite{SiD_Geo}.
 Its use can be seen in the simulation of the machine backgrounds in Chapters~\ref{BDS_Muons:SiD} and \ref{BeamDumps:SiDocc}.
 
+\paragraph{Detector readout architecture}
+As mentioned above, the readout architecture for the \sid detector foresees a buffer depth of four in the current design.
+The number of available buffers is an important issue for the performance of the detector, and is therefore topic of the \sid simulation studies with respect to the background occupancies.
+As explained in Section~\ref{PairBkg:occupancy} in more detail, the detector occupancy is the fraction of hits per detector cell, which is calculated by counting the hits in the individual cells.
+If the number of hits per cell exceeds the number of available buffers (the buffer depth), the cell cannot store any further hits.
+A refined detector optimization is therefore crucial with respect to the occurring background rates.
+\\Table~\ref{tab:ILC_parameters} lists the ILC beam parameters in the different ILC stages.
+The ILC will deliver beam trains, which contain 1312 beam bunches in the first stage, at a rate of \SI{5}{\hertz}.
+Each of the bunches is separated by \SI{554}{\nano\second}, resulting in a total train duration of \SI{0.72}{\milli\second}.
+The time gap of \SI{199}{\milli\second} between successive trains is used for reading out the analog signals of the detector buffers, and for their digital processing.
+The motivation of the ILC experiment is to record all measured events without rejecting any of them by the use of triggers, as explained in Section~\ref{ILC:physicsmotivation}.
+\\Due to this, the detector background occupancy has to be below a critical acceptance limit.
+For the optimization of the detector readout design and its buffer depth, detailed occupancy studies are needed.
+In all of the background simulation studies presented in the following chapters, the \sid occupancy has been evaluated with respect to the critical acceptance limit.
 
 \paragraph{SiD detector variants}
 Since the publication of the Technical Design Report about the design details of the ILC accelerator, the detectors, and the facilities, there have been official changes to the design.
