@@ -142,7 +142,7 @@ For the \fluka simulation of the ILC beam being dumped into the water tanks of \
 The beam bunches, which are considered un-collided and un-disrupted for this simulation study, have a bunch population of \num{1.74e10} electrons, and a beam energy of \SI{500}{\GeV}.
 One beam pulse has \num{2450} bunches and a duration of \SI{896.7}{\micro\second}.
 At the location of the main beam dump, the bunches have a size of $\sigma_x = $\,\SI{2.4}{\milli\meter} and $\sigma_y = $\,\SI{0.22}{\milli\meter}.
-\\In the \fluka model, the origin of the world coordinate system is set to the center axis of the beam pipe in x and y, and to the middle of the water vessel in z.
+\\In the \fluka model, the origin of the coordinate system is set to the center axis of the beam pipe in x and y, and to the middle of the water vessel in z.
 The beam bunches therefore start at a negative z-position of \SI{-10}{\meter} along the beam pipe center axis.
 This becomes clear in Figure~\ref{fig:BeamDumps:Energy}, which shows the first \fluka result, the deposited energy per bunch.
 The following sections present the expected dose rate and the particle densities.
@@ -494,7 +494,7 @@ But also in the outermost non-active layers of the \sid muon system a significan
     \includegraphics[width=\textwidth]{Figures/BeamDump/neutrons_EndpointMap_zy.png}
    \caption{zy-view}
    \end{subfigure}
-   \caption[Beam dump neutrons absorbed without leaving hit in \sid]{Maps of the positions in the simulated world, where the beam dump neutrons that have not left any hits in \sid have been absorbed.
+   \caption[Beam dump neutrons absorbed without leaving hit in \sid]{Maps of the positions in the simulated geometry model, where the beam dump neutrons that have not left any hits in \sid have been absorbed.
    The views of the xy-plane, zx-plane, and zy-plane are given in Figures (a), (b), and (c) respectively.
    The color scale shows the number of neutron endpoint positions per \SI[detect-all]{20}{\centi\meter}$\times$\SI[detect-all]{20}{\centi\meter}.}
    \label{fig:BeamDumps:NeutronMissedMaps}
@@ -545,8 +545,9 @@ Figure~\ref{fig:BeamDumps:NeutronOcc} shows the ratio of dead cells as a functio
 Since the muon endcaps collect the most neutron hits, the ratio of dead cells were calculated for up to a buffer depth of five.
 In the muon barrel, however, all hit cells are hit only one time, because of which only the first bin is filled in this plot (Figure~\ref{fig:BeamDumps:NeutronOcc} (a)).
 Similarly for the BeamCal, the cells are hit up to two times.
-\\Although these studies are done for neutrons from one ILC bunch only and the occupancy would rise for a bunch-train-worth of neutrons accordingly, the actual number of hits in the subdetectors would depend on the deposited neutron energy.
-Since the energy threshold of sensors is commonly at ??, ... \todo{What is the energy threshold for the SiD sensors?}
+\\Although these studies are done for neutrons from one ILC bunch only and the occupancy would rise for a bunch-train-worth of neutrons accordingly, the actual number of hits in the scintillating active layers of the muon system would depend on the scintillator material and the noise threshold of the readout SiPMs (silicon photomultipliers).
+Rather than increasing the detector occupancy, the neutron background will more importantly affect the subdetectors with respect to the radiation damage it causes.
+The expected radiation damage in the BeamCal, for example, is considered to be \SI{1}{\mega\gray\per\year}~\cite[p. 134]{TDR4}, because of which the BeamCal will designed to use radiation hard materials.
 \begin{figure}[!h]
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
