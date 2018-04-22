@@ -191,7 +191,7 @@ At the same time, the luminosity is inversely proportional to the product of the
 By choosing the beam sizes to be $\sigma_x\gg\sigma_y$, the product is small leading to large luminosities, while the sum is large leading to a diminished background rate.
 
 \paragraph{Interaction region and beam dumps}
-The Interaction Region (IR) houses the two detectors for the ILC: the Silicon Detector (SiD) and the International Large Detector (ILD), which are in a so-called ``push-pull'' system.
+The Interaction Region (IR) houses the two detectors for the ILC: the Silicon Detector (\sid) and the International Large Detector (ILD), which are in a so-called ``push-pull'' system.
 The detectors and the push-pull system are explained in more detail in Section~\ref{ILC:detectors}.\\
 Finally, after collision the spent beams are guided through the extraction line towards the main beam dumps, where they are dumped.
 The current designs for the main beam dumps are based on a water tank, using high-pressure water with velocity flow systems.
@@ -480,39 +480,39 @@ All these requirements are fulfilled in the design of the two ILC experiments.
 The so-called push-pull system makes this possible by allowing the detectors to switch position after a certain amount of data-taking time.
 The whole detector together with the last quadrupole magnet of the accelerator Final-Focus system will be pulled out of the beam line, and the other detector takes its place.
 The whole process is designed to take from several hours up to 1-2 days, but involves some challenges especially for the magnets, the cryogenics, and the detector and machine alignment~\cite[p. 28-29]{TDR1}.
-The two detectors, the Silicon Detector (SiD) and the International Large Detector (ILD), will be explained in detail in the following sections.
-The focus will lie on SiD, since all the background studies presented in this thesis were done in the context of the SiD detector.
+The two detectors, the Silicon Detector (\sid) and the International Large Detector (ILD), will be explained in detail in the following sections.
+The focus will lie on \sid, since all the background studies presented in this thesis were done in the context of the \sid detector.
 
 \subsection{The Silicon Detector}
 \label{ILC:SiD}
-The SiD is designed to be a robust, compact detector.
+The \sid is designed to be a robust, compact detector.
 Its vertex and tracker system, as well as the electromagnetic calorimeter (ECAL) are purely based on silicon sensors.
 The silicon design, in comparison to other designs for the vertex and tracking detectors, is more robust regarding the beam background and timing~\cite[cf. p. 57ff]{TDR4}.
 \\Being designed to be compact, the measurements for the full detector are \SI{14}{m} in height and \SI{11}{m} in length.
-To compensate the small radius, the magnetic field of the superconducting solenoid magnet is \SI{5}{T}, so that SiD is hermetic and contains the full particle showers.
+To compensate the small radius, the magnetic field of the superconducting solenoid magnet is \SI{5}{T}, so that \sid is hermetic and contains the full particle showers.
 The detector is optimized for Particle Flow Algorithms (PFA), in order to improve on the jet energy reconstruction capability.
 PFA is a reconstruction method that reconstructs each particle of the final state individually and uses the different subdetectors for a specific purpose.
 Therefore, charged particles are reconstructed from tracks in the tracker device.
 The electromagnetic calorimeter (ECAL) is used for photons, and the electromagnetic (ECAL) and hadronic calorimeter (HCAL) together for other neutral particles~\cite{PFA}.
-\\Table~\ref{tab:KeyParametersSiD} lists the key parameters and measurements of the SiD subdetector systems together with the technologies for the individual sub-systems.
-Additionally, Figure~\ref{fig:SiD} shows a visualization of the SiD detector and its subdetectors, which will be explained in the following paragraphs.
+\\Table~\ref{tab:KeyParametersSiD} lists the key parameters and measurements of the \sid subdetector systems together with the technologies for the individual sub-systems.
+Additionally, Figure~\ref{fig:SiD} shows a visualization of the \sid detector and its subdetectors, which will be explained in the following paragraphs.
 A more detailed description can be found in~\cite{TDR4}.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{Figures/SiD_new.jpg}
-\caption[Visualization of the SiD detector]{The SiD detector consists of the vertex and tracking detectors (red), the electromagnetic calorimeter (ECAL) (green), the hadronic calorimeter (HCAL) (purple) and the muon system (gray).
+\caption[Visualization of the \sid detector]{The \sid detector consists of the vertex and tracking detectors (red), the electromagnetic calorimeter (ECAL) (green), the hadronic calorimeter (HCAL) (purple) and the muon system (gray).
 All subdetectors except the muon system are inside the solenoid magnet.
 Outside the muon endcaps is the detector specific background shielding, called ``Pacman'' with an inner (light gray) and an outer (beige) layer~\cite{SiD_Geo}.}
 \label{fig:SiD}
 \end{figure}
 
 \begin{table}[h!]
-\caption[Key parameters of the baseline SiD design]{Key parameters and technologies foreseen for the baseline SiD design. All dimensions are given in cm~\cite{SiD_Geo}.}
+\caption[Key parameters of the baseline \sid design]{Key parameters and technologies foreseen for the baseline \sid design. All dimensions are given in cm~\cite{SiD_Geo}.}
 \label{tab:KeyParametersSiD}
 \centering
 \begin{tabularx}{0.81\textwidth}{l|llll}
 \hline\hline
-SiD Barrel & Technology & Inner radius & Outer radius & z extent\\
+\sid Barrel & Technology & Inner radius & Outer radius & z extent\\
 \hline
 Vertex detector & Silicon pixels & 1.4 & 6.0 & $\pm 6.3$ \\
 Tracker & Silicon strips & 21.5 & 121.5 & $\pm 150.3$ \\
@@ -521,7 +521,7 @@ HCAL & SiPM-steel & 140.3 & 256.8 & $\pm 295.0$ \\
 Solenoid & 5 T SC & 260.4 & 342.9 & $\pm 295.0$ \\
 Muon System & Scintillator-steel & 345.4 & 605.4 & $\pm 416.0$ \\
 \hline
-SiD Endcap & Technology & Inner z & Outer z & Outer radius\\
+\sid Endcap & Technology & Inner z & Outer z & Outer radius\\
 \hline
 Vertex detector & Silicon pixels & 7.3 & 83.4 & 7.1 \\
 Tracker & Silicon strips & 77.0 & 164.3 & 125.5 \\
@@ -534,29 +534,55 @@ BeamCal & Semiconductor-W & 326.5 & 344 & 14.0 \\
 \end{tabularx}
 \end{table}
 
-\newpage
 \paragraph{Vertex detector}
 The vertex detector, shown in Figure~\ref{fig:SiD_VXD}, will be the inner most subdetector with the measurements of a soda can.
 With its five layers for the barrel and the endcaps, it will be able to do very precise measurements.
 The requirements for the vertex detector performance are very demanding:
-The spatial resolution with less than \SI{5}{\micro\meter} allows very precise tracking, whilst the impact parameter resolution is aimed for about \SI{3}{\micro\meter} for the verification of the primary vertex, as well as of the secondary vertex of a bottom quark (b-tagging) and even of a charm quark (c-tagging).
+The spatial resolution with less than \SI{5}{\micro\meter} allows very precise tracking, whilst the impact parameter resolution is aimed for about \SI{3}{\micro\meter} for the verification of the primary vertex (see Figure~\ref{fig:vertex_res}), as well as of the secondary vertex of a bottom quark (b-tagging) and even of a charm quark (c-tagging).
 The latter is very challenging due to the short flight distance of the charm quark of only a few microns before it hadronizes.
-Additionally, a very small material budget of about \SI{0.1}{\xzero} is foreseen for the vertex detector in order to limit particle showers and multiple scattering in this subdetector~\cite{SiD_Update}.
+Figure~\ref{fig:tagging} shows the flavor tagging efficiency and the correspnding purity in charm jet and light quark samples.
+For a b-tagging efficiency of \SI{90}{\percent}, for example, mis-identified charm quarks are tagged as background with an efficiency of \SI{40}{\percent}. \todo{Maybe better in SiDLOI p.99}
+\\Additionally, a very small material budget of about \SI{0.1}{\percent\xzero} per layer is foreseen for the vertex detector in order to limit particle showers and multiple scattering in this subdetector~\cite{SiD_Update,SiD_material_budget}.
 To achieve this minimal material budget, sensor technologies are considered that foresee the implementation of the sensor buffers on the chips directly to minimize the used material. 
 For a comparison to the CMS pixel detector, Figure~\ref{fig:CMS} shows the material budget of the original and the upgraded detector.
 The material budget is significantly reduced for the upgrade for $\eta$\footnote{$\eta$ is the pseudorapidity, which is commonly used in LHC experiments to express the angle relative to the beam axis: $\eta=-ln[tan(\theta/2)]$} above one.
 In the high-$\eta$ ranges, the material budget reaches \SI{0.7}{\xzero}.
-The \sid vertex detector is aimed for a material budget, which is seven times lower.
+The \sid vertex detector material budget, which is shown in Figure~\ref{fig:SiD_material_budget}, reaches only \SI{0.04}{\xzero} up to the very forward regions. \todo{What are bumps in material budget? With which geometry was plot made?}
 \\The final decision on the \sid sensor technology and the required pixel sizes is not made yet, which allows the detector to have the most recent state-of-the-art technology.
 For simulation studies, a pixel size of \SI{20}{\micro\meter}$\times$\SI{20}{\micro\meter} is used.
 The currently foreseen technology candidates are various designs based on silicon diode pixels, such as Monolithic Active Pixels (MAPS), Chronopix, Vertically Integrated (``3D'') chips, as well as High Voltage CMOS sensors~\cites[p. 70 ff]{TDR4}[p. 319 ff]{spieler}. 
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth]{Figures/SiD_VXD_3D.png}
+\caption[Visualization of the \sid vertex detector]{Visualization of the \sid vertex detector~\cite{SiD_Update2}.}
+\label{fig:SiD_VXD}
+\end{figure}
+
 \begin{figure}[!h]
 \centering
  \begin{minipage}[t]{0.49\textwidth}
  \centering
-\includegraphics[width=\textwidth]{Figures/SiD_VXD_3D.png}
-\caption[Visualization of the SiD vertex detector]{Visualization of the SiD vertex detector~\cite{SiD_Update2}.}
-\label{fig:SiD_VXD}
+\includegraphics[width=\textwidth]{Figures/Vertex_resolution.pdf}
+\caption[\sid vertex resolution]{Positions of reconstructed primary vertices in simulated processes of the Z boson decaying to light quarks~\cite[p. 148]{TDR4}.}
+\label{fig:vertex_res}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.49\textwidth}
+\centering
+\includegraphics[width=0.95\textwidth]{Figures/flavor_tagging_eff.pdf}
+\caption[Flavor tagging efficiency in \sid]{Mis-identification efficiency as a function of the b-tagging efficiency in \sid~\cite[p. 148]{TDR4}.
+The green and red graphs shows mis-identified charm jets and light quark jets respectively.}
+\label{fig:tagging}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+ \begin{minipage}[t]{0.49\textwidth}
+ \centering
+\includegraphics[width=\textwidth]{Figures/SiD_material_budget.png}
+\caption[Material budget of the \sid vertex and tracker detector]{Material budget of the \sid vertex and tracker detector expressed in radiation lengths as a function of the angle to the beam axis~\cite[cf. p. 51]{Marcels_general_SiD_slides}.}
+\label{fig:SiD_material_budget}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.49\textwidth}
@@ -571,14 +597,14 @@ The currently foreseen technology candidates are various designs based on silico
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{Figures/SiD_Tracker.png}
-\caption[Drawing of the SiD tracking detector]{The SiD tracking detector layout~\cite{SiD_Update2}.
+\caption[Drawing of the \sid tracking detector]{The \sid tracking detector layout~\cite{SiD_Update2}.
 The drawing includes the vertex detector in the center.}
 \label{fig:SiD_tracker}
 \end{figure}
 
 \paragraph{Tracking detector}
 Outside the vertex detector is the Silicon Tracker, which can be seen in Figure~\ref{fig:SiD_tracker}.
-For its five barrel layers and four endcap layers, silicon strip sensors are planned that will use so-called KPiX ASIC readout chips.
+For its five barrel layers and four endcap layers, \num{0.05}$\times$\SI{100}{\milli\meter\squared} sized silicon strip sensors are planned that will use so-called KPiX ASIC readout chips.
 These KPiX chips have a buffer depth of four in the current design, which means that up to four hits per sensor can be stored on the chip's buffer.
 Any further hit can not be recorded and is lost, which is explained again in more detail below.
 That makes thorough simulations of the expected backgrounds reaching the detector very important.
@@ -588,12 +614,12 @@ The sensors can still be adapted with respect to design and technology used, so 
 The electromagnetic calorimeter (ECAL) will be using KPiX chips as well, as it is also based on silicon sensors.
 The ECAL with its 30 layers is designed to be a granular imaging calorimeter with a pixel size of \SI{3.5}{\milli\meter}$\times$\SI{3.5}{\milli\meter}, meaning that electromagnetic particle showers developing in the tungsten layers between the sensitive silicon layers can not only be measured in width and length, but rather their shower particles can be tracked individually.
 \\The same will be true for the highly segmented hadronic calorimeter (HCAL) with a pixel size of \SI{1}{\centi\meter}$\times$\SI{1}{\centi\meter}.
-With all subdetectors mentioned so far being inside the \SI{5}{\tesla} solenoid field of the SiD solenoid magnet, particle tracking is therefore possible not only in the tracking subdetectors, but even in the calorimeters.
+With all subdetectors mentioned so far being inside the \SI{5}{\tesla} solenoid field of the \sid solenoid magnet, particle tracking is therefore possible not only in the tracking subdetectors, but even in the calorimeters.
 The 40 active layers of the HCAL will contain scintillators and silicon photomultipliers (SiPM) measuring particle showers that are developing in the steel layers in between.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{Figures/SiD_PFA.png}
-\caption[Visualization of the granulat SiD subdetectors]{Simulation of a physics event in the SiD detector~\cite{SiD_Update2}.
+\caption[Visualization of the granulat \sid subdetectors]{Simulation of a physics event in the \sid detector~\cite{SiD_Update2}.
 The particle showers, which start to develop in the ECAL, are easily distinguishable thanks to the highly granular calorimeters.}
 \label{fig:SiD_PFA}
 \end{figure}
@@ -603,12 +629,12 @@ The muon chamber, which is the only subdetector outside the solenoid magnet, wil
 Its purpose is not only to identify muons being produced in the beam collisions, but also to record the tail of hadronic showers that have started in the HCAL.
 
 \paragraph{Forward system}
-The forward systems of SiD make the detector hermetic, i.e. the detector is a closed system which can catch particles under almost all solid angles.
+The forward systems of \sid make the detector hermetic, i.e. the detector is a closed system which can catch particles under almost all solid angles.
 The forward region covers a polar angle $\theta > $ \SI{3}{\milli\radian}.
 Boosted particles with high momentum along the beam direction that go under an angle $\theta < $ \SI{3}{\milli\radian} will therefore escape the detector.
 These losses are unavoidable since detector components cannot be built inside the beam pipe and the detector is not designed for physics that require measurements of these small-angle particles.
 The forward system consists of the Luminosity Calorimeter (LumiCal) and the Beam Calorimeter (BeamCal).
-Apart from making SiD hermetic, the LumiCal will measure the luminosity integrated over time, whilst the BeamCal will give an indication of the instantaneous luminosity by measuring the \positron \electron pair background from beam-beam interactions, which is explained in Section~\ref{BeamBeam:pairs}.
+Apart from making \sid hermetic, the LumiCal will measure the luminosity integrated over time, whilst the BeamCal will give an indication of the instantaneous luminosity by measuring the \positron \electron pair background from beam-beam interactions, which is explained in Section~\ref{BeamBeam:pairs}.
 Since the pair background is directly dependent on the beam qualities, the BeamCal measurements will indicate variations in the beam parameters.
 Like the ECAL, both, the LumiCal and the BeamCal, are sampling calorimeters using tungsten layers for the particle shower development and semiconductors for the sensitive layers.
 As the forward region is highly affected by high-energy particles that are typically boosted in the forward direction, the sensors have to be specifically designed to withstand radiation damage.
@@ -618,7 +644,7 @@ This large occupancy is accounted for in the readout technology~\cite[p. 133ff]{
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.7\textwidth]{Figures/SiD_Forward.png}
-\caption[Drawing of the SiD forward detectors]{Layout drawing of the SiD forward detectors~\cite[p. 134]{TDR4}.
+\caption[Drawing of the \sid forward detectors]{Layout drawing of the \sid forward detectors~\cite[p. 134]{TDR4}.
 All dimensions are given in mm.}
 \label{fig:SiD_Forward}
 \end{figure}
@@ -647,20 +673,20 @@ The motivation of the ILC experiment is to record all measured events without re
 For the optimization of the detector readout design and its buffer depth, detailed occupancy studies are needed.
 In all of the background simulation studies presented in the following chapters, the \sid occupancy has been evaluated with respect to the critical acceptance limit.
 
-\paragraph{SiD detector variants}
+\paragraph{\sid detector variants}
 Since the publication of the Technical Design Report about the design details of the ILC accelerator, the detectors, and the facilities, there have been official changes to the design.
 The changes regarding the overall accelerator and facility design are suggested as Change Requests (CR), and are reviewed and approved by a Technical Change and Management Board~\cite{TCMB}. 
 Some of the Change Requests affect the detector designs directly, such as the change of L*, the distance between the interaction point (IP) and the last quadrupole magnet (QD0) of the Final-Focus system.
 But there are also changes to the detector concepts, that are made internally by the detector groups.\\
-There are major SiD detector design variants that are subject of discussions and simulation studies:
+There are major \sid detector design variants that are subject of discussions and simulation studies:
 \begin{itemize}
  \item \underline{Change of L*}\\
  As the focal length of the last quadrupole magnet (QD0) of the Final-Focus system, which focuses the beam onto the IP, is smaller than the detector length, both detector concepts have their own QD0 magnets.
  These magnets are part of the detector's push-pull system.
  The official Change Request CR-002~\cite{CR-002} decided on a common L* for both detector concepts.
- Before, the distance (L*) between the IP and QD0 was different for SiD and ILD, as L* is dependent on the size of the detector.
+ Before, the distance (L*) between the IP and QD0 was different for \sid and ILD, as L* is dependent on the size of the detector.
  Since the diverging L* values mean different beam operation conditions, CR-002 dictated a change of the detector designs in such a way that L* is the same for both detectors, in order to facilitate the beam operation.
- For SiD, the dictated change of L* from 3.5 to \SI{4.1}{\meter} implied in practice that the BeamCal had to be repositioned, since it is attached to the QD0 support structure. 
+ For \sid, the dictated change of L* from 3.5 to \SI{4.1}{\meter} implied in practice that the BeamCal had to be repositioned, since it is attached to the QD0 support structure. 
  The BeamCal moved from a former distance to the IP of 2.95 to \SI{3.265}{\meter}~\cite{SiDBkgNote}.
  \item \underline{Design variants of the inner region of the BeamCal}\\
  The BeamCal surrounds the ingoing and outgoing beam pipe.
@@ -684,14 +710,14 @@ There are major SiD detector design variants that are subject of discussions and
     \includegraphics[width=0.6\textwidth]{Figures/beamcal_circle.png}
    \caption{Circle cutout}
    \end{subfigure}
-   \caption[Design variants of the SiD BeamCal]{Three different design variants of the inner region of the SiD BeamCal.
+   \caption[Design variants of the \sid BeamCal]{Three different design variants of the inner region of the \sid BeamCal.
    From (a) to (c), the instrumentation of the inner region decreases with an increasing fraction of material cut out.}
    \label{fig:BeamCal}
  \end{figure}
  \item \underline{Anti-DiD Field}\\
  The BeamCal is expected to have an occupancy of \SI{100}{\percent} due to boosted particles as well as background particles such as the \positron\electron pairs from beam-beam interactions, as explained before.
  In order to suppress hits from these \positron\electron pairs, it was proposed to include an additional magnet in the detector design, the so-called anti-DiD (Detector Integrated Dipole) magnet~\cite{antiDiD}.
- The dipole windings of the anti-DiD are directly mounted around the SiD solenoid magnet.
+ The dipole windings of the anti-DiD are directly mounted around the \sid solenoid magnet.
  Its magnetic field has a value of \SI{600}{\gauss}, and causes locally the deflection of the pair background in the region of the BeamCal~\cite[p. 118]{TDR4}.
  The pairs are swept into the outgoing beam pipe, which reduces the BeamCal occupancy.
 \end{itemize}
@@ -703,9 +729,9 @@ There are major SiD detector design variants that are subject of discussions and
 \caption[Schematic drawing of the ILD detector]{The ILD detector consists of the vertex detector (pink), the time projection chamber (TPC) (yellow), the electromagnetic calorimeter (ECAL) (blue), the hadronic calorimeter (HCAL) (green) and the muon system (gray). All subdetectors except the muon system are inside the solenoid magnet.\cite[p. 34]{TDR1}}
 \label{fig:ILD}
 \end{figure}
-Like the SiD detector, ILD is a multi-purpose particle detector that is optimized for PFA.
+Like the \sid detector, ILD is a multi-purpose particle detector that is optimized for PFA.
 Its vertex detector is also based on silicon sensors, whereas the tracker is a combination of both, a silicon strip and pixel detector, and a time projection chamber (TPC).
-Also similar to SiD, the calorimeters are within the solenoid magnet, which is surrounded only by the muon system.
+Also similar to \sid, the calorimeters are within the solenoid magnet, which is surrounded only by the muon system.
 The magnetic field of the superconducting solenoid magnet is \SI{3.5}{T}.
-Because of having a big gaseous volume, the full detector is bigger than SiD, namely \SI{16}{m} in height and \SI{14}{m} in length.
+Because of having a big gaseous volume, the full detector is bigger than \sid, namely \SI{16}{m} in height and \SI{14}{m} in length.
 Figure~\ref{fig:ILD} shows all the subdetectors mentioned above in two schematics of the ILD detector.
