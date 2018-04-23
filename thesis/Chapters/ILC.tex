@@ -293,9 +293,12 @@ Due to the nature of composite particles, event displays at the LHC are dominate
 At the ILC, the event displays are clean, and the tracks from the final state particles of the physics event can be distinguished easily.
 \begin{figure}
 \centering
-\includegraphics[width=0.6\textwidth]{Figures/Cleanliness.png}
-\caption[Clean environment at the ILC]{Comparison of the event displays of a Higgs event at the  LHC and at the ILC~\cite[based on p. 4]{ILCPhysics_Thomson}.
-At the LHC, underlying events and pileup events populate the detector, whilst at the ILC the hits are mainly from the final state particles of the physics interaction of interest.
+\includegraphics[width=0.3\textwidth]{Figures/ATLAS_event_display.png}
+\includegraphics[width=0.3\textwidth]{Figures/ILD_event_display.png}
+\caption[Clean environment at the ILC]{Comparison of the event displays of a Higgs event at the  LHC and at the ILC.
+The left figure shows an event of a Higgs boson decaying to two \positron\electron pairs at the LHC~\cite{ATLAS_event_display}.
+On the right, an event display of a Zh$\rightarrow$\positron\electron h event at the ILC is shown~\cite{ILD_event_display}.
+\\At the LHC, underlying events and pileup events populate the detector, whilst at the ILC the hits are mainly from the final state particles of the physics interaction of interest.
 }
 \label{fig:Cleanliness}
 \end{figure}
@@ -457,16 +460,58 @@ The first stage at \SI{250}{\GeV} has the capability to make a prominent progres
 The later stages will complete this picture: 
 precision measurements of the top quark, further Higgs measurements, and BSM searches will be accessible at \SI{350}{\GeV}, \SI{500}{\GeV}, and possibly \SI{1}{\TeV}.
 \\The ILC350 will enable a threshold scan of $t\bar{t}$ production in order to measure the top quark mass and its total decay width to unprecedented accuracy.
-The Higgs coupling to the top can be derived from precision cross section measurements of these processes.
-Since the top quark is the heaviest known elementary particle, it is expected to have the strongest coupling in the Higgs sector.
-Therefore, its mass and its coupling to the Higgs boson are important quantities in many particle physics theories, and will be measured in a model independent manner as described in the section above.
+This will be the first time that the top quark qualities are measured at a \positron\electron collider. 
+To this end, the top quark mass measurements are aimed at a precision of around 40 - \SI{75}{\MeV}, with a statistical presicion of about \SI{13}{\MeV}~\cite[p. 24]{ILC_Discovery}.
+The most recent value for the total uncertainty from direct top quark measurements is \SI{600}{\MeV}, given in the Review of Particle Physics (2017)~\cite{PDG2017}.
+Figure~\ref{fig:Top_cross} shows the cross section of the top quark pair production at the $t\bar{t}$ threshold.
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{Figures/Top_mass.pdf}
+\caption[Top quark pair production cross section]{Top quark pair production cross section at the ILC350 after one year at the design luminosity~\cite[p. 15]{ILCPhysics}.}
+\label{fig:Top_cross}
+\end{figure}
 \\At a center-of-mass energy of \SI{500}{\GeV}, further improvements in the precision measurements of the Higgs boson properties can be achieved.
 As has been shown in Figure~\ref{fig:Higgs_couplings}, the Higgs coupling precisions will be reduced by a factor of two.
+The Higgs coupling to the top can be derived from precision cross section measurements of $t\bar{t}H$ processes.
+Since the top quark is the heaviest known elementary particle, it is expected to have the strongest coupling in the Higgs sector.
+Therefore, its mass and its coupling to the Higgs boson are important quantities in many particle physics theories, and will be measured in a model independent manner as described in the section above.
+The full ILC program will yield a precision of the Higgs coupling to the top quark of about \SI{2}{\percent} in model independent analyses~\cite{ttH_coupling}.
 Only with such precisions, can deviations from Standard Model predictions be discovered, which has implications for new physics beyond the Standard Model.
-Additionally, measuring the Higgs self-coupling in multi-Higgs production processes is another goal of the ILC500.
+Additionally, measuring the Higgs self-coupling in double Higgs production processes is another goal of the ILC500.
+In the processes \positron +\electron$\rightarrow$ZHH and \positron +\electron$\rightarrow$ $\nu\bar{\nu}$HH (see Figure~\ref{fig:DoubleHiggsFeynman}), the Higgs self-coupling can be measured to a accuracy of \SI{16}{\percent} at the ILC stages at \SI{500}{\GeV} and \SI{1}{\TeV}~\cite{ttH_coupling}.
+\begin{figure}
+\centering
+ \begin{minipage}[t]{0.55\textwidth}
+\centering
+\raisebox{0.5\height}{\includegraphics[width=\textwidth]{Figures/DoubleHiggs_Feynman.pdf}}
+\caption[Feynman diagrams of double Higgs production processes]{Feynman diagrams of the processes \positron +\electron$\rightarrow$ZHH and \positron +\electron$\rightarrow$ $\nu\bar{\nu}$HH, with the subsequent decay of the Higgs boson to bottom quarks~\cite{ttH_coupling}.}
+\label{fig:DoubleHiggsFeynman}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.44\textwidth}
+\centering
+\includegraphics[width=\textwidth]{Figures/DoubleHiggs.pdf}
+\caption[Double Higgs production cross sections]{Double Higgs production cross sections at the ILC normalized to the Standard Model cross section for different values of $\lambda$~\cite[p. 23]{ILC_Discovery}.}
+\label{fig:DoubleHiggs}
+\end{minipage}
+\end{figure}
+With these processes, the precision on the cross sections can indicate deviations from the Standard Model.
+For higher and lower values for $\lambda$\footnote{$\lambda$ is a coefficient in the Higgs potential~\cite[p. 174]{PDG}.} compared to its Standard Model prediction, deviations from the Standard Model cross section can be observed, as shown in Figure~\ref{fig:DoubleHiggs}.
+For the case that $\lambda = 2\lambda_{SM}$, the cross section for \positron + \electron $\rightarrow$ ZHH at the ILC500 is increased by about \SI{60}{\percent}.
 \\In all stages, the discovery potential in precision measurements is considerably improved.
 This includes searches for dark matter, supersymmetry (SUSY), and further beyond the Standard Model theories.
-An overview of the physics motivation for higher ILC stages can be found in~\cite{PhysicsCase}.
+Figure~\ref{fig:MSSM_higgs_coupling} shows the predicted MSSM\footnote{The Minimal Supersymmetric Standard Model (MSSM) is a supersymmetry model that considers the minimum amount of particle states in addition to the Standard Model, in order to realize the SUSY phenomenology~\cite{MSSM}.} Higgs coupling deviations from Standard Model couplings.
+For the bottom quark and the tau, the deviation is about \SI{3}{\percent}.
+As shown in Figure~\ref{fig:Higgs_couplings} (b), the achievable HL-LHC coupling precision in these channels, however, ranges between 2 and \SI{7}{\percent}.
+The aimed-for ILC precisions of between 0.5 and \SI{2}{\percent} for the coupling to the bottom quark and the tau will allow to distinguish the MSSM model from the Standard Model.
+\begin{figure}
+\centering
+\includegraphics[width=0.45\textwidth]{Figures/MSSM_higgs_coupling.pdf}
+\caption[Predicted MSSM deviations from SM Higgs couplings]{Predicted MSSM deviations from Standard Model Higgs couplings~\cite[p. 12]{ILCPhysics}.
+The error bars represent the uncertainties expected from model independent analyses of the given ILC data set.}
+\label{fig:MSSM_higgs_coupling}
+\end{figure}
+\\A complete overview of the physics motivation for the various ILC stages can be found in~\cite{PhysicsCase}.
 
 \section{The experiments}
 \label{ILC:detectors}
@@ -540,9 +585,9 @@ With its five layers for the barrel and the endcaps, it will be able to do very 
 The requirements for the vertex detector performance are very demanding:
 The spatial resolution with less than \SI{5}{\micro\meter} allows very precise tracking, whilst the impact parameter resolution is aimed for about \SI{3}{\micro\meter} for the verification of the primary vertex (see Figure~\ref{fig:vertex_res}), as well as of the secondary vertex of a bottom quark (b-tagging) and even of a charm quark (c-tagging).
 The latter is very challenging due to the short flight distance of the charm quark of only a few microns before it hadronizes.
-Figure~\ref{fig:tagging} shows the flavor tagging efficiency and the correspnding purity in charm jet and light quark samples.
-For a b-tagging efficiency of \SI{90}{\percent}, for example, mis-identified charm quarks are tagged as background with an efficiency of \SI{40}{\percent}. \todo{Maybe better in SiDLOI p.99}
-\\Additionally, a very small material budget of about \SI{0.1}{\percent\xzero} per layer is foreseen for the vertex detector in order to limit particle showers and multiple scattering in this subdetector~\cite{SiD_Update,SiD_material_budget}.
+Figure~\ref{fig:tagging} shows the flavor tagging efficiency and the corresponding purity in di-jet samples.
+Depending on the physics analysis, a working point can be chosen from the plot in order to find the correct balance between high statistics and low backgrounds.
+\\Additionally, a very small material budget of about \SI{0.1}{\percent\xzero} per layer is foreseen for the vertex detector in order to limit particle showers and multiple scattering in this subdetector~\cite{SiD_Update,Marcels_general_SiD_slides}.
 To achieve this minimal material budget, sensor technologies are considered that foresee the implementation of the sensor buffers on the chips directly to minimize the used material. 
 For a comparison to the CMS pixel detector, Figure~\ref{fig:CMS} shows the material budget of the original and the upgraded detector.
 The material budget is significantly reduced for the upgrade for $\eta$\footnote{$\eta$ is the pseudorapidity, which is commonly used in LHC experiments to express the angle relative to the beam axis: $\eta=-ln[tan(\theta/2)]$} above one.
@@ -570,8 +615,8 @@ The currently foreseen technology candidates are various designs based on silico
 \begin{minipage}[t]{0.49\textwidth}
 \centering
 \includegraphics[width=0.95\textwidth]{Figures/flavor_tagging_eff.pdf}
-\caption[Flavor tagging efficiency in \sid]{Mis-identification efficiency as a function of the b-tagging efficiency in \sid~\cite[p. 148]{TDR4}.
-The green and red graphs shows mis-identified charm jets and light quark jets respectively.}
+\caption[Flavor tagging efficiency in \sid]{Purity as a function of the flavor tagging efficiency in \sid for di-jet samples~\cite[p. 99]{LOI}.
+The curves show the relation for b-tagging, c-tagging, and c-tagging with bottom quark background only.}
 \label{fig:tagging}
 \end{minipage}
 \end{figure}
