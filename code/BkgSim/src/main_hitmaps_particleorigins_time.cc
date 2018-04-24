@@ -13,10 +13,9 @@
 #include <sstream>
 #include <vector>
 
-#include "ConfigReaderAnalysis.h"
 #include "UsefulFunctions.h"
-#include "CellHits_class.h"
-#include "GeneralFunctions_SiDBkgSim.h"
+#include "CellHits_class_new.h"
+#include "GeneralFunctions_SiDBkgSim_new.h"
 #include "Time_class.h"
 
 #include "Style.h"
@@ -124,14 +123,14 @@ int main(int const argc, char const * const * const argv) {
 								exit(1);
 				}
 
-				std::vector<Subdetector*> * SubDetectors = new std::vector<Subdetector*>();
-				std::string* subdetector_name = new std::string("");
-				SetupSubDetectorsVector(SubDetectors, subdetector_name, argument_subdetectors);
-				std::string subdetectornames = (*subdetector_name);
-				std::vector<float> range_array;
+        double weight = 1.0;
+        //weight = (double)(1.0/double(NUMBER_OF_FILES));
+				std::string subdetectornames = argument_subdetectors.at(0);
+				//std::vector<float> range_array;
 
-				range_array = SubDetectors->at(0)->GetROOTHisto_binning3D(); //SOMETHING HARD CODED!!
-				float rmax = 1.5*sqrt(pow(range_array[5], 2) + pow(range_array[8], 2));//Make the plot a big bigger than the data
+				//range_array = SubDetectors->at(0)->GetROOTHisto_binning3D(); //SOMETHING HARD CODED!!
+				float rmax = 225; 
+				//float rmax = 1.5*sqrt(pow(range_array[5], 2) + pow(range_array[8], 2));//Make the plot a big bigger than the data
 				float rmin = 0.;
 				float rrange = rmax - rmin;
 				float zmax = 3500;
@@ -143,53 +142,53 @@ int main(int const argc, char const * const * const argv) {
 				//Make histogram for storing the information
 				std::vector< TH2D* > histo_vector;
 				std::string const title1 = "Time < 10ns, Particle origins for those hitting "
-								+ subdetectornames + ";z [mm];r [mm];# of origins";
-				TH2D* histo1 = new TH2D("histo1", title1.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
+								+ subdetectornames + ";z [mm];r [mm];Number of origins";
+				TH2D* histo1 = new TH2D("0ns-10ns", title1.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 												axis_vector[4], axis_vector[5]);
 				histo_vector.push_back(histo1);
 				std::string const title2 = "10ns <= Time < 20ns, Particle origins for those hitting "
-								+ subdetectornames + ";z [mm];r [mm];# of origins";
-				TH2D* histo2 = new TH2D("histo2", title2.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
+								+ subdetectornames + ";z [mm];r [mm];Number of origins";
+				TH2D* histo2 = new TH2D("10ns-20ns", title2.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 												axis_vector[4], axis_vector[5]);
 				histo_vector.push_back(histo2);
 				std::string const title2_2 = "10ns <= Time < 11ns, Particle origins for those hitting "
-								+ subdetectornames + ";z [mm];r [mm];# of origins";
-				TH2D* histo2_2 = new TH2D("histo2_2", title2_2.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
+								+ subdetectornames + ";z [mm];r [mm];Number of origins";
+				TH2D* histo2_2 = new TH2D("10ns-11ns", title2_2.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 												axis_vector[4], axis_vector[5]);
 				histo_vector.push_back(histo2_2);
 				std::string const title2_3 = "11ns <= Time < 13ns, Particle origins for those hitting "
-								+ subdetectornames + ";z [mm];r [mm];# of origins";
-				TH2D* histo2_3 = new TH2D("histo2_3", title2_3.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
+								+ subdetectornames + ";z [mm];r [mm];Number of origins";
+				TH2D* histo2_3 = new TH2D("11ns-13ns", title2_3.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 												axis_vector[4], axis_vector[5]);
 				histo_vector.push_back(histo2_3);
 				std::string const title2_4 = "13ns <= Time < 20ns, Particle origins for those hitting "
-								+ subdetectornames + ";z [mm];r [mm];# of origins";
-				TH2D* histo2_4 = new TH2D("histo2_4", title2_4.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
+								+ subdetectornames + ";z [mm];r [mm];Number of origins";
+				TH2D* histo2_4 = new TH2D("13ns-20ns", title2_4.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 												axis_vector[4], axis_vector[5]);
 				histo_vector.push_back(histo2_4);
 				std::string const title3 = "20ns <= Time < 30ns, Particle origins for those hitting "
-								+ subdetectornames + ";z [mm];r [mm];# of origins";
-				TH2D* histo3 = new TH2D("histo3", title3.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
+								+ subdetectornames + ";z [mm];r [mm];Number of origins";
+				TH2D* histo3 = new TH2D("20ns-30ns", title3.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 												axis_vector[4], axis_vector[5]);
 				histo_vector.push_back(histo3);
 				std::string const title3_2 = "20ns <= Time < 23ns, Particle origins for those hitting "
-								+ subdetectornames + ";z [mm];r [mm];# of origins";
-				TH2D* histo3_2 = new TH2D("histo3_2", title3_2.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
+								+ subdetectornames + ";z [mm];r [mm];Number of origins";
+				TH2D* histo3_2 = new TH2D("20ns-23ns", title3_2.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 												axis_vector[4], axis_vector[5]);
 				histo_vector.push_back(histo3_2);
 				std::string const title3_3 = "23ns <= Time < 30ns, Particle origins for those hitting "
-								+ subdetectornames + ";z [mm];r [mm];# of origins";
-				TH2D* histo3_3 = new TH2D("histo3_3", title3_3.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
+								+ subdetectornames + ";z [mm];r [mm];Number of origins";
+				TH2D* histo3_3 = new TH2D("23ns-30ns", title3_3.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 												axis_vector[4], axis_vector[5]);
 				histo_vector.push_back(histo3_3);
 				std::string const title4 = "30ns <= Time < 50ns, Particle origins for those hitting "
-								+ subdetectornames + ";z [mm];r [mm];# of origins";
-				TH2D* histo4 = new TH2D("histo4", title4.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
+								+ subdetectornames + ";z [mm];r [mm];Number of origins";
+				TH2D* histo4 = new TH2D("30ns-50ns", title4.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 												axis_vector[4], axis_vector[5]);
 				histo_vector.push_back(histo4);
 				std::string const title5 = "50ns <= Time < 1000ns, Particle origins for those hitting "
-								+ subdetectornames + ";z [mm];r [mm];# of origins";
-				TH2D* histo5 = new TH2D("histo5", title5.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
+								+ subdetectornames + ";z [mm];r [mm];Number of origins";
+				TH2D* histo5 = new TH2D("50ns-1000ns", title5.c_str(), axis_vector[0], axis_vector[1], axis_vector[2], axis_vector[3],
 												axis_vector[4], axis_vector[5]);
 				histo_vector.push_back(histo5);
 
@@ -199,12 +198,14 @@ int main(int const argc, char const * const * const argv) {
 
 				std::stringstream subdetector_names;
 
-				for (size_t subdetector_iterator = 0; subdetector_iterator < SubDetectors->size(); ++subdetector_iterator) {
-								subdetector_names << SubDetectors->at(subdetector_iterator)->GetName();
+				for (size_t subdetector_iterator = 0; subdetector_iterator < argument_subdetectors.size(); ++subdetector_iterator) {
 
+                Subdetector det( argument_subdetectors.at(subdetector_iterator) );
+				        subdetector_names<< det.getName();
+                std::cout << det.getName() << std::endl;
 								for (int file_iterator = 0; file_iterator < NUMBER_OF_FILES; ++file_iterator) {
 												TFile *file = TFile::Open(inputfilenames->at(file_iterator).c_str());
-												TTree *tree = Get_TTree(file, SubDetectors->at(subdetector_iterator)->GetName());
+												TTree *tree = Get_TTree(file, det.getName());
 
 												//Set the branches
 												float actualtime = 0.0;
@@ -215,7 +216,6 @@ int main(int const argc, char const * const * const argv) {
 												float momentum_x = 0.0;
 												float momentum_y = 0.0;
 												float momentum_z = 0.0;
-												bool CreatedInSimulation_Status = false;
 
 												tree->SetBranchStatus("*", 0);
 
@@ -249,7 +249,6 @@ int main(int const argc, char const * const * const argv) {
 																tree->SetBranchStatus("HitMomentum_x", 1);
 																tree->SetBranchStatus("HitMomentum_y", 1);
 																tree->SetBranchStatus("HitMomentum_z", 1);
-																tree->SetBranchStatus("HitParticle_CreatedInSimulation_Status", 1);
 																tree->SetBranchAddress("HitTime", &actualtime);
 																tree->SetBranchAddress("HitParticleCreationTime", &creationtime);
 																tree->SetBranchAddress("HitParticleVertex_x", &vertex_x);
@@ -258,7 +257,6 @@ int main(int const argc, char const * const * const argv) {
 																tree->SetBranchAddress("HitMomentum_x", &momentum_x);
 																tree->SetBranchAddress("HitMomentum_y", &momentum_y);
 																tree->SetBranchAddress("HitMomentum_z", &momentum_z);
-																tree->SetBranchAddress("HitParticle_CreatedInSimulation_Status", &CreatedInSimulation_Status);
 												} else {
 																std::cerr << "The given TTree name does not match any TTree in the inputfile!" << std::endl;
 																std::terminate();
@@ -283,20 +281,20 @@ int main(int const argc, char const * const * const argv) {
 												for (long long int i = 0; i < entries; ++i) {
 																tree->GetEntry(i);
 																vertex = { vertex_x, vertex_y, vertex_z };
-																if (*time < 10.0) histo1->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
+																if (*time < 10.0) histo1->Fill(vertex[2], sqrt(pow(vertex[0], 2.0) + pow(vertex[1], 2.0)),weight);
 																else if (*time >= 10.0 && *time < 20.0){
-																				histo2->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
-																				if (*time >= 10.0 && *time < 11.0) histo2_2->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
-																				if (*time >= 11.0 && *time < 13.0) histo2_3->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
-																				if (*time >= 13.0 && *time < 20.0) histo2_4->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
+																				histo2->Fill(vertex[2], sqrt(pow(vertex[0], 2.0) + pow(vertex[1], 2.0)),weight);
+																				if (*time >= 10.0 && *time < 11.0) histo2_2->Fill(vertex[2], sqrt(pow(vertex[0], 2.0) + pow(vertex[1], 2.0)),weight);
+																				if (*time >= 11.0 && *time < 13.0) histo2_3->Fill(vertex[2], sqrt(pow(vertex[0], 2.0) + pow(vertex[1], 2.0)),weight);
+																				if (*time >= 13.0 && *time < 20.0) histo2_4->Fill(vertex[2], sqrt(pow(vertex[0], 2.0) + pow(vertex[1], 2.0)),weight);
 																}
 																else if (*time >= 20.0 && *time < 30.0){
-																				histo3->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
-																				if (*time >= 20.0 && *time < 23.0) histo3_2->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
-																				if (*time >= 23.0 && *time < 30.0) histo3_3->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
+																				histo3->Fill(vertex[2], sqrt(pow(vertex[0], 2.0) + pow(vertex[1], 2.0)),weight);
+																				if (*time >= 20.0 && *time < 23.0) histo3_2->Fill(vertex[2], sqrt(pow(vertex[0], 2.0) + pow(vertex[1], 2.0)),weight);
+																				if (*time >= 23.0 && *time < 30.0) histo3_3->Fill(vertex[2], sqrt(pow(vertex[0], 2.0) + pow(vertex[1], 2.0)),weight);
 																}
-																else if (*time >= 30.0 && *time < 50.0) histo4->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
-																else if (*time >= 50.0 && *time < 1000.0) histo5->Fill(vertex[2], sqrt(pow(vertex[0], 2) + pow(vertex[1], 2)));
+																else if (*time >= 30.0 && *time < 50.0)   histo4->Fill(vertex[2], sqrt(pow(vertex[0], 2.0) + pow(vertex[1], 2.0)),weight);
+																else if (*time >= 50.0 && *time < 1000.0) histo5->Fill(vertex[2], sqrt(pow(vertex[0], 2.0) + pow(vertex[1], 2.0)),weight);
 												}
 												file->Close();
 								}
@@ -335,6 +333,8 @@ void Print_Origin_histo(TCanvas* canvas, TH2D* const histo, std::string const se
 
 				std::string histoname(histo->GetName());
 
-				canvas->Print(("output/hitmaps_particleorigins_"+set_time+"time_"+histoname+"_"+subdetectornames+".pdf").c_str());
-				canvas->Print(("output/hitmaps_particleorigins_"+set_time+"time_"+histoname+"_"+subdetectornames+".cxx").c_str());
+				canvas->Print(("output/hitmaps_particleorigins_"+set_time+"time_"+histoname+"_"+subdetectornames+"_oldLStar.pdf").c_str());
+				canvas->Print(("output/hitmaps_particleorigins_"+set_time+"time_"+histoname+"_"+subdetectornames+"_oldLStar.cxx").c_str());
+				//canvas->Print(("output/hitmaps_particleorigins_"+set_time+"time_"+histoname+"_"+subdetectornames+"_newLStar.pdf").c_str());
+				//canvas->Print(("output/hitmaps_particleorigins_"+set_time+"time_"+histoname+"_"+subdetectornames+"_newLStar.cxx").c_str());
 }

@@ -10,7 +10,7 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include -g -Wall -Wextra -pthread -O2 -std=c++
 CXXFLAGS +=  $(shell root-config --glibs)
 
 # Executables produced by this Makefile
-RUN = ../NewOccupancyPlotter ../NewOccupancyPlotter_Phi ../CompareOccupancies  ../NewFullBufferMapsPlotter ../HelixPlotter ../HelixEnvelopePlotter ../HelixEnvelopeComparison ../CompareEnvelopeProjections ../ComparePT
+RUN = ../NewOccupancyPlotter ../NewOccupancyPlotter_Phi ../CompareOccupancies  ../NewFullBufferMapsPlotter ../HelixPlotter ../HelixEnvelopePlotter ../HelixEnvelopeComparison ../CompareEnvelopeProjections ../ComparePT ../ParticleOriginsTimePlotter
 
 #RUN = ../NewOccupancyPlotter ../OccupancyPlotter ../ParticleCountPlotter ../FullBufferMapsPlotter ../FullBufferHistoPlotter ../ParticleOriginsTimePlotter ../HittimePlotter ../ggHadrons_HittimePlotter ../ggHadrons_pairs_HittimePlotter ../ggHadrons_pairs_PT_Plotter ../MomentumTimePlotter ../LatePrimariesCalculater ../HelixPlotter ../HelixEnvelopePlotter ../CompareEnvelopeProjections
 
@@ -28,7 +28,7 @@ MAIN_HITMAPSFULLBUFFER_NEW = ../objects/main_hitmaps_fullbuffers_new.o
 #MAIN_PARTICLECOUNTER = ../objects/main_particlecounter.o
 #MAIN_HITMAPSFULLBUFFER = ../objects/main_hitmaps_fullbuffers.o
 #MAIN_DEADCELLS_LAYER = ../objects/main_histo_deadcells_perlayer_fullbuffers.o
-#MAIN_HITMAPSORIGINSTIME = ../objects/main_hitmaps_particleorigins_time.o
+MAIN_HITMAPSORIGINSTIME = ../objects/main_hitmaps_particleorigins_time.o
 #MAIN_HITTIME= ../objects/main_hittime_distribution.o
 #MAIN_HITTIME_GGHADRONS = ../objects/main_hittime_distribution_gg-hadrons.o
 #MAIN_HITTIME_GGHADRONS_PAIRS = ../objects/main_compare_hittime_gg-hadrons_pairs.o
@@ -133,8 +133,8 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 #../FullBufferHistoPlotter : $(MAIN_DEADCELLS_LAYER) $(OBJECTS)
 #	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
-#../ParticleOriginsTimePlotter : $(MAIN_HITMAPSORIGINSTIME) $(OBJECTS)
-#	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
+../ParticleOriginsTimePlotter : $(MAIN_HITMAPSORIGINSTIME) $(OBJECTS)
+	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
 
 #../HittimePlotter : $(MAIN_HITTIME) $(OBJECTS)
 #	@$(CXX) -lpthread $^ -o $@ $(INCLUDES) $(CXXFLAGS)
@@ -199,8 +199,8 @@ Test : ../objects/test.o ../objects/gtest.a $(OBJECTS)
 #../objects/main_histo_deadcells_perlayer_fullbuffers.o : ../src/main_histo_deadcells_perlayer_fullbuffers.cc
 #	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
-#../objects/main_hitmaps_particleorigins_time.o : ../src/main_hitmaps_particleorigins_time.cc
-#	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
+../objects/main_hitmaps_particleorigins_time.o : ../src/main_hitmaps_particleorigins_time.cc
+	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
 
 #../objects/main_hittime_distribution.o : ../src/main_hittime_distribution.cc
 #	@$(CXX) $(CPPFLAGS)  $(INCLUDES) -c $< -o $@
