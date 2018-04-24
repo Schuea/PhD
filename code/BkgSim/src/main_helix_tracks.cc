@@ -124,7 +124,8 @@ int main(int const argc, char const * const * const argv) {
 	TTree *outputtree = new TTree("Helix_Tracks","Helix_Tracks");
 
 	//Make histogram for storing the information
-	float const zmin = 0.0;
+	float const zmin = -300.0;
+	//float const zmin = 0.0;
 	float const zmax = 300.0;
 	int const zbin = 800;
 	//int const zbin = 10000;
@@ -135,10 +136,10 @@ int main(int const argc, char const * const * const argv) {
 	float const xmax = 29;
 	int const xbin = 200;
 
-	std::string const title_x = "Pairs spiraling in the magnetic field;z [mm];x [mm];# of particles per (0.375mm x 0.29mm)";
-	//std::string const title_x = "Pairs spiraling in the magnetic field;z [mm];x [mm];# of particles per (0.03mm x 0.58mm)";
-	std::string const title_y = "Pairs spiraling in the magnetic field;z [mm];y [mm];# of particles per (0.375mm x 0.29mm)";
-	//std::string const title_y = "Pairs spiraling in the magnetic field;z [mm];y [mm];# of particles per (0.03mm x 0.58mm)";
+	//std::string const title_x = "Pairs spiraling in the magnetic field;z [mm];x [mm];# of particles per (0.375mm x 0.29mm)";
+	std::string const title_x = "Pairs spiraling in the magnetic field;z [mm];x [mm];# of particles per (0.75mm x 0.58mm)";
+	//std::string const title_y = "Pairs spiraling in the magnetic field;z [mm];y [mm];# of particles per (0.375mm x 0.29mm)";
+	std::string const title_y = "Pairs spiraling in the magnetic field;z [mm];y [mm];# of particles per (0.75mm x 0.58mm)";
 	TH2D* histo_x = new TH2D("Helix_tracks_xz", title_x.c_str(), zbin,zmin,zmax, xbin, xmin, xmax);
 	TH2D* histo_y = new TH2D("Helix_tracks_yz", title_y.c_str(), zbin,zmin,zmax, ybin, ymin, ymax);
 	//TTree for outputfile -> store new x, y and z positions of the helixes in there 
@@ -250,7 +251,7 @@ int main(int const argc, char const * const * const argv) {
 						) ) {
 					particle_went_outside_beampipe = true;
 				}
-				z = step*(zmax-zmin)/zbin;
+				z = step*(zmax-zmin)/zbin +zmin;
 				helix_positions = nullptr;
 			}
 			histo_x->FillN(zbin, z_array, x_array, w_array,1);//number of entries in arrays, array for x, array for y, array for weights (if NULL then weight=1),step size through arrays
@@ -327,24 +328,43 @@ int main(int const argc, char const * const * const argv) {
 	std::cout << "-----------------" << std::endl;
 
 
-	TLine *line = new TLine(0,12,62.5,12);
-	TLine *nline = new TLine(0,-12,62.5,-12);
+	//TLine *line = new TLine(0,12,62.5,12);
+	//TLine *nline = new TLine(0,-12,62.5,-12);
+	//TLine *line2 = new TLine(62.5,12,205,20.13);
+	//TLine *nline2 = new TLine(62.5,-12,205,-20.13);
+	//TLine *line3 = new TLine(205,20.13,300,28.99);
+	//TLine *nline3 = new TLine(205,-20.13,300,-28.99);
+	TLine *line = new TLine(-62.5,12,62.5,12);
+	TLine *nline = new TLine(-62.5,-12,62.5,-12);
 	TLine *line2 = new TLine(62.5,12,205,20.13);
 	TLine *nline2 = new TLine(62.5,-12,205,-20.13);
-	TLine *line3 = new TLine(205,20.13,300,28.99);
-	TLine *nline3 = new TLine(205,-20.13,300,-28.99);
+	TLine *line3 = new TLine(-62.5,12,-205,20.13);
+	TLine *nline3 = new TLine(-62.5,-12,-205,-20.13);
+	TLine *line4 = new TLine(205,20.13,300,28.99);
+	TLine *nline4 = new TLine(205,-20.13,300,-28.99);
+	TLine *line5 = new TLine(-205,20.13,-300,28.99);
+	TLine *nline5 = new TLine(-205,-20.13,-300,-28.99);
 	line->SetLineColor(2);
 	nline->SetLineColor(2);
 	line2->SetLineColor(2);
 	nline2->SetLineColor(2);
 	line3->SetLineColor(2);
 	nline3->SetLineColor(2);
-	line->SetLineWidth(6);
+	line4->SetLineColor(2);
+	nline4->SetLineColor(2);
+	line5->SetLineColor(2);
+	nline5->SetLineColor(2);
+	
+  line->SetLineWidth(6);
 	nline->SetLineWidth(6);
 	line2->SetLineWidth(6);
 	nline2->SetLineWidth(6);
 	line3->SetLineWidth(6);
 	nline3->SetLineWidth(6);
+	line4->SetLineWidth(6);
+	nline4->SetLineWidth(6);
+	line5->SetLineWidth(6);
+	nline5->SetLineWidth(6);
 
 
 	gStyle->SetOptStat(0);
@@ -374,6 +394,10 @@ int main(int const argc, char const * const * const argv) {
 	nline2->Draw();
 	line3->Draw();
 	nline3->Draw();
+	line4->Draw();
+	nline4->Draw();
+	line5->Draw();
+	nline5->Draw();
 
 	std::string histoname_x(histo_x->GetName());
 
@@ -387,6 +411,10 @@ int main(int const argc, char const * const * const argv) {
 	nline2->Draw();
 	line3->Draw();
 	nline3->Draw();
+	line4->Draw();
+	nline4->Draw();
+	line5->Draw();
+	nline5->Draw();
 
 	std::string histoname_y(histo_y->GetName());
 
