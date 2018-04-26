@@ -196,6 +196,7 @@ int main(int const argc, char const * const * const argv) {
     double HitPosition_x;
     double HitPosition_y;
     double HitPosition_z;
+    float hittime(-999.0);
 
     tree->SetBranchStatus("*", 0);
     if (OLD){
@@ -222,6 +223,9 @@ int main(int const argc, char const * const * const argv) {
       tree->SetBranchAddress("HitPosition_x", &D_HitPosition_x);
       tree->SetBranchAddress("HitPosition_y", &D_HitPosition_y);
       tree->SetBranchAddress("HitPosition_z", &D_HitPosition_z);
+
+      tree->SetBranchStatus("HitTime", 1);
+      tree->SetBranchAddress("HitTime", &hittime);
     }
     else if (Calo){
       tree->SetBranchStatus("HitMotherParticle_PDG", 1);
@@ -230,6 +234,9 @@ int main(int const argc, char const * const * const argv) {
       tree->SetBranchAddress("HitPosition_x", &F_HitPosition_x);
       tree->SetBranchAddress("HitPosition_y", &F_HitPosition_y);
       tree->SetBranchAddress("HitPosition_z", &F_HitPosition_z);
+      
+      tree->SetBranchStatus("HitContrTime", 1);
+      tree->SetBranchAddress("HitContrTime", &hittime);
     }
     else{
       std::cerr << "This subdetector name was not recognized!" << std::endl; 
@@ -244,6 +251,7 @@ int main(int const argc, char const * const * const argv) {
     long long int const entries = tree->GetEntries();
     for (long long int i = 0; i < entries; ++i) {
       tree->GetEntry(i);
+      if (hittime > 11.0) continue;//Time gate!
       if (Silicon){
         HitPosition_x = D_HitPosition_x;
         HitPosition_y = D_HitPosition_y;

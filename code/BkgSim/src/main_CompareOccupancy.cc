@@ -61,7 +61,7 @@ int main(int const argc, char const * const * const argv){
   Plot_everything( inputfilenames, "All_layers", outputfilename);
   //for(int layer = 0; layer < det.getNumberOfLayers(); ++layer){
   //for(int layer = 0; layer < 1; ++layer){
-    int layer = 10;
+    int layer = 0;
     std::ostringstream num;
     num << "Layer_" << layer;
     Plot_everything( inputfilenames, num.str(), outputfilename);
@@ -110,7 +110,9 @@ void Plot_everything(std::vector< std::string > inputfilenames, std::string laye
 void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::string histoname, std::string x_title, std::string y_title){
   TLegend* legend;
   if(inputfilenames.size()<3) legend = new TLegend(0.62,0.75,0.8,0.86);
-  else                         legend = new TLegend(0.3,0.6267,0.8,0.86);
+  else                         legend = new TLegend(0.55,0.7,0.8,0.86);
+  //else                         legend = new TLegend(0.62,0.7,0.8,0.86);
+  //else                         legend = new TLegend(0.3,0.6267,0.8,0.86);
   legend->SetBorderSize(1);
   legend->SetFillColor(kWhite);
   legend->SetMargin(0.1);
@@ -146,8 +148,9 @@ void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::stri
     histos.at(no_histo)->SetLineWidth(2);
     histos.at(no_histo)->SetMarkerSize(0.7);
     if(no_histo == 0){
-      name = "BeamCal";
-      //name = "ILC500";
+      //name = "BeamCal";
+      name = "ILC250, time gate";
+      //name = "ILC500 LumiUp";
       //name = "set (TDR)";
       //name = "set (A): old L*, w/o antiDiD";
       histos.at(no_histo)->SetLineColor(1);
@@ -158,6 +161,25 @@ void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::stri
       histos.at(no_histo)->GetXaxis()->SetTitle( x_title.c_str() );
       histos.at(no_histo)->GetYaxis()->SetTitle( y_title.c_str() );
       histos.at(no_histo)->Draw("e");
+
+      if( histos.at(no_histo)->GetMaximum() > 0.0001)
+      {
+        TLine * line = new TLine(1,0.0001,histos.at(no_histo)->GetNbinsX()+1,0.0001);
+        line->SetLineColor(kMagenta);
+        line->SetLineWidth(3);
+        line->SetLineStyle(9);
+        line->Draw();
+      }
+
+      if(histos.at(no_histo)->GetNbinsX() > 4)
+      {
+        TLine * line = new TLine(4.5,histos.at(no_histo)->GetMinimum(),4.5,histos.at(no_histo)->GetMaximum());
+        line->SetLineColor(kMagenta);
+        line->SetLineWidth(3);
+        line->SetLineStyle(9);
+        line->Draw();
+      }
+
     }
     else{
       if(no_histo == 1){
@@ -169,7 +191,9 @@ void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::stri
         //histos.at(no_histo)->SetMarkerStyle(26);
         //histos.at(no_histo)->SetMarkerSize(0.8);
         //name = "MuonBarrel";
-        //name = "ILC250";
+        name = "ILC500, time gate";
+        //name = "ILC500 LumiUp, time gate";
+        //name = "ILC250, time gate";
         //name = "set (A): old L*, w antiDiD";
         //name = "set (A): TDR + Emittance_x";
         //name = "ILC500 LumiUp";
@@ -180,6 +204,7 @@ void Plot_Comparison_histos(std::vector< std::string > inputfilenames, std::stri
         histos.at(no_histo)->SetMarkerStyle(25);
         //name = "set (A): new L*, w/o antiDiD";
         //name = "set (B): TDR + Emittance_x + Beta_x";
+        name = "ILC500 LumiUp, time gate";
       }
       if(no_histo == 3){
         histos.at(no_histo)->SetLineColor(4);

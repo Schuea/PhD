@@ -19,7 +19,7 @@ int main() {
 				const char *detectors[12] = {"EcalBarrel","EcalEndcap","HcalBarrel","HcalEndcap","MuonBarrel","MuonEndcap","LumiCal","BeamCal","SiVertexBarrel","SiVertexEndcap","SiTrackerBarrel","SiTrackerEndcap"};
 
         //ILC500: 5spoilers
-				TH1F *h1 = new TH1F("Hits","Number of hits in SiD per train - 5 spoilers vs. 5 spoilers+wall ",n,0,n);
+				TH1F *h1 = new TH1F("Hits","",n,0,n);
 				h1->GetYaxis()->SetTitle("Number of hits");
 				h1->SetLineColor(kPink-1);
 				h1->SetMarkerColor(kPink-1);
@@ -43,7 +43,7 @@ int main() {
 				h1->SetStats(0);
 
         //ILC500: 5spoilers + wall
-        TH1F *h2 = new TH1F("Hits2","Number of hits in SiD per train - 5 spoilers vs. 5 spoilers+wall",n,0,n);
+        TH1F *h2 = new TH1F("Hits2","",n,0,n);
 				h2->GetYaxis()->SetTitle("Number of hits");
 				h2->SetLineColor(kPink-1);
 				h2->SetLineWidth(1);
@@ -68,7 +68,7 @@ int main() {
 				h2->SetStats(0);
 
         //ILC250: 5spoilers
-        TH1F *h3 = new TH1F("Hits3","Number of hits in SiD per train - 5 spoilers vs. 5 spoilers+wall ",n,0,n);
+        TH1F *h3 = new TH1F("Hits3","",n,0,n);
 				h3->GetYaxis()->SetTitle("Number of hits");
 				h3->SetLineColor(kCyan+3);
 				h3->SetMarkerColor(kCyan+3);
@@ -91,7 +91,7 @@ int main() {
 				h3->SetStats(0);
 
         //ILC250: 5spoilers + wall
-        TH1F *h4 = new TH1F("Hits4","Number of hits in SiD per train - 5 spoilers vs. 5 spoilers+wall",n,0,n);
+        TH1F *h4 = new TH1F("Hits4","",n,0,n);
 				h4->GetYaxis()->SetTitle("Number of hits");
 				h4->SetLineColor(kCyan+3);
 				h4->SetLineWidth(1);
@@ -121,37 +121,62 @@ int main() {
 					h3->GetXaxis()->SetBinLabel(i,detectors[i-1]);
 					h4->GetXaxis()->SetBinLabel(i,detectors[i-1]);
 				}
-				h1->GetXaxis()->SetLabelSize(0.045);
+				h1->GetXaxis()->LabelsOption("v");
+				h1->GetXaxis()->SetLabelSize(0.055);
 				h1->GetYaxis()->SetLabelSize(0.05);
 				h1->GetYaxis()->SetTitleSize(0.05);
-				h1->GetYaxis()->SetTitleOffset(0.95);
+				h1->GetYaxis()->SetTitleOffset(1.1);
 				
-        h2->GetXaxis()->SetLabelSize(0.045);
+				h2->GetXaxis()->LabelsOption("v");
+        h2->GetXaxis()->SetLabelSize(0.055);
 				h2->GetYaxis()->SetLabelSize(0.05);
 				h2->GetYaxis()->SetTitleSize(0.05);
-				h2->GetYaxis()->SetTitleOffset(0.95);
+				h2->GetYaxis()->SetTitleOffset(1.1);
 				
-        h3->GetXaxis()->SetLabelSize(0.045);
+				h3->GetXaxis()->LabelsOption("v");
+        h3->GetXaxis()->SetLabelSize(0.055);
 				h3->GetYaxis()->SetLabelSize(0.05);
 				h3->GetYaxis()->SetTitleSize(0.05);
-				h3->GetYaxis()->SetTitleOffset(0.95);
+				h3->GetYaxis()->SetTitleOffset(1.1);
 				
-        h4->GetXaxis()->SetLabelSize(0.045);
+				h4->GetXaxis()->LabelsOption("v");
+        h4->GetXaxis()->SetLabelSize(0.055);
 				h4->GetYaxis()->SetLabelSize(0.05);
 				h4->GetYaxis()->SetTitleSize(0.05);
-				h4->GetYaxis()->SetTitleOffset(0.95);
+				h4->GetYaxis()->SetTitleOffset(1.1);
+
+        h1->SetMinimum(0.08);
+        h1->SetMaximum(3.0*pow(10.0,5.0));
+        h2->SetMinimum(0.08);
+        h2->SetMaximum(3.0*pow(10.0,5.0));
+        h3->SetMinimum(0.08);
+        h3->SetMaximum(3.0*pow(10.0,5.0));
+        h4->SetMinimum(0.08);
+        h4->SetMaximum(3.0*pow(10.0,5.0));
 				
-				TCanvas *canvas = new TCanvas();
+				TCanvas *canvas = new TCanvas("","",1500,1300);
+				canvas->SetTopMargin(0.01);
+				canvas->SetRightMargin(0.01);
+				canvas->SetBottomMargin(0.3);
 				canvas->SetGrid();
 				canvas->SetLogy();
 
 				h1->Draw();
-				h3->Draw("SAME");
 				h2->Draw("SAME");
         TH1F *h2_ = (TH1F*)h2->Clone();
 				h2_->SetFillStyle(3004);
 				h2_->SetFillColor(kPink-1);
 				h2_->Draw("SAME");
+
+        TLegend *leg = new TLegend(0.6,0.83,0.98,0.98);
+        leg->AddEntry(h1,"ILC500, 5 spoilers","f");
+        leg->AddEntry(h2_,"ILC500, 5 spoilers + wall","f");
+        leg->Draw();
+
+				canvas->Print("output/Hits_in_SiD_subdetectors_MuonSpoilerStudy_ILC500.pdf");
+				canvas->Print("output/Hits_in_SiD_subdetectors_MuonSpoilerStudy_ILC500.cxx");
+ 
+				h3->Draw();
 				h4->Draw("SAME");
         TH1F *h3_ = (TH1F*)h3->Clone();
 				h3_->SetFillColorAlpha(kCyan+3,0.0);
@@ -163,16 +188,15 @@ int main() {
 				h4_->Draw("SAME");
 
 
-        TLegend *leg = new TLegend(0.6,0.7,0.9,0.9);
-        leg->AddEntry(h1,"ILC500, 5 spoilers","f");
-        leg->AddEntry(h2_,"ILC500, 5 spoilers + wall","f");
-        leg->AddEntry(h3,"ILC250, 5 spoilers","f");
-        leg->AddEntry(h4_,"ILC250, 5 spoilers + wall","f");
-        leg->Draw();
+        TLegend *leg2 = new TLegend(0.6,0.83,0.98,0.98);
+        leg2->AddEntry(h3,"ILC250, 5 spoilers","f");
+        leg2->AddEntry(h4_,"ILC250, 5 spoilers + wall","f");
+        leg2->Draw();
 
-				canvas->Print("output/Hits_in_SiD_subdetectors_MuonSpoilerStudy.pdf");
-				canvas->Print("output/Hits_in_SiD_subdetectors_MuonSpoilerStudy.cxx");
+				canvas->Print("output/Hits_in_SiD_subdetectors_MuonSpoilerStudy_ILC250.pdf");
+				canvas->Print("output/Hits_in_SiD_subdetectors_MuonSpoilerStudy_ILC250.cxx");
     
+   
         return 0;
 }
 
