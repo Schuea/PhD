@@ -245,7 +245,7 @@ The comparison of the dose rate as a function of the cooling time for the two de
 \\Even after one minute of cooling time the area in which a dose is measurable is reduced to the beam dump vessel and the direct surroundings.
 Over the duration of one year the dose is decreasing by at least two orders of magnitude.
 Nevertheless, the maximum dose rate after one year is about \SI{0.1}{\milli\sievert\per\second} for \designone, and \SI{10}{\milli\sievert\per\second} for \designtwo.
-For a given legal dose limit of \SI{50}{\milli\sievert} per year for workers whose work involves radiation activities, maintenance personnel would be allowed to work on the beam dump vessel for a very restricted time only.
+For a given legal dose limit of \SI{20}{\milli\sievert} per year for workers whose work involves radiation activities~\cite{Strahlenschutz}, maintenance personnel would be allowed to work on the beam dump vessel for a very restricted time only.
 \\The residual nuclei, which are the cause for the high dose rates, are shown in Figure~\ref{fig:BeamDumps:ResidualNuclei}.
 The main contributors are \textsuperscript{3}H (tritium), \textsuperscript{49}V, \textsuperscript{54}Mn, \textsuperscript{55}Fe, \textsuperscript{56}Co, \textsuperscript{57}Co, \textsuperscript{58}Co, and \textsuperscript{60}Co, with a half-life between $\sim$1 and 13 years.
 
@@ -477,23 +477,26 @@ Here, up to \num{e3} neutrons per unit area are absorbed in the boronated concre
 But also in the outermost non-active layers of the \sid muon system a significant amount of neutrons are stopped.
 \begin{figure}[h]
  \centering
-  \begin{subfigure}[b]{0.32\textwidth}
+  \begin{subfigure}[b]{0.45\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/BeamDump/neutrons_EndpointMap_xy.png}
    \caption{xy-view}
    \end{subfigure}
    \hfill
-   \begin{subfigure}[b]{0.32\textwidth}
+   \begin{subfigure}[b]{0.45\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/BeamDump/neutrons_EndpointMap_zx.png}
    \caption{zx-view}
-   \end{subfigure}
-   \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
+   \end{subfigure}\\
+    \begin{subfigure}[b]{0.45\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/BeamDump/neutrons_EndpointMap_zy.png}
    \caption{zy-view}
    \end{subfigure}
+   \hfill
+   \begin{minipage}{0.45\textwidth}
+   \hfill
+    \end{minipage}
    \caption[Beam dump neutrons absorbed without leaving hit in \sid]{Maps of the positions in the simulated geometry model, where the beam dump neutrons that have not left any hits in \sid have been absorbed.
    The views of the xy-plane, zx-plane, and zy-plane are given in Figures (a), (b), and (c) respectively.
    The color scale shows the number of neutron endpoint positions per \SI[detect-all]{20}{\centi\meter}$\times$\SI[detect-all]{20}{\centi\meter}.}
@@ -507,19 +510,18 @@ Their spatial distribution is determined by the shape of the extraction line tun
 In Figure~\ref{fig:BeamDumps:NeutronEventDisplays} (b), hits in the \sid BeamCal are also visible.
 \begin{figure}
  \centering
-  \begin{subfigure}[b]{0.32\textwidth}
+  \begin{subfigure}[b]{0.4\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/BeamDump/Event_display_neutrons_in_SiD_xy_inverted.png}
    \caption{xy-view}
    \end{subfigure}
    \hfill
-   \begin{subfigure}[b]{0.32\textwidth}
+   \begin{subfigure}[b]{0.4\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/BeamDump/Event_display_neutrons_in_SiD_xz_inverted_Label.png}
    \caption{zx-view}
-   \end{subfigure}
-   \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
+   \end{subfigure}\\
+    \begin{subfigure}[b]{0.4\textwidth}
    \centering
     \includegraphics[width=\textwidth]{Figures/BeamDump/Event_display_neutrons_in_SiD_3D_inverted.png}
    \caption{3D-view}
@@ -533,11 +535,25 @@ As already expected from the event displays in Figure~\ref{fig:BeamDumps:Neutron
 About two orders of magnitude less hits are counted in the muon barrel and the BeamCal.
 Also the LumiCal subdetector is hit about \num{20} times by neutrons from one beam dump.
 All other inner \sid subdetectors are shielded by the outer subdetectors and the Pacman shielding, and are not hit.
+\\Figure~\ref{fig:BeamDumps:HitTime} shows the time of the hits in the \sid muon system and the BeamCal with respect to the time of their creation, which is the time of the ILC beam being dumped in the main beam dump.
+Due to its high energy, the time of the beam arriving at the main beam dump can be approximated as the time of the bunch crossing.
+Using this approximation, the neutrons arrive at the \sid detector up to \SI{100}{\micro\second} after the bunch crossing.
+Since every bunch is seperated by \SI{554}{\nano\second} (see Section~\ref{ILC:SiD:readout}), the neutrons coincide with the next 180 ILC bunches.
 \begin{figure}[hbp]
 \centering
-\includegraphics[width=0.6\textwidth]{Figures/BeamDump/Hits_in_SiD_subdetectors.png}
+\begin{minipage}[t]{0.49\textwidth}
+\centering
+ \includegraphics[width=\textwidth]{Figures/BeamDump/Hits_in_SiD_subdetectors.png}
 \caption[Number of hits in the \sid subdetectors of the ILC main beam dump neutrons]{Bar chart of the number of hits in the individual \sid subdetector from neutrons coming from one ILC main beam dump, after a beam bunch has been dumped.}
 \label{fig:BeamDumps:HitsPerSubdetector}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.49\textwidth}
+\centering
+ \includegraphics[width=\textwidth]{Figures/BeamDump/neutrons_hittime.pdf}
+\caption[Neutron hit time in the \sid subdetectors]{Hit time distribution in the \sid subdetectors that are hit by neutrons coming from one ILC main beam dump, after a beam bunch has been dumped.}
+\label{fig:BeamDumps:HitTime}
+\end{minipage}
 \end{figure}
 By counting the number of hits per cell in the BeamCal and the muon barrel and endcaps, the number of dead cells are calculated for the assumed buffer depths in the subdetectors.
 This was done in the same way as described in Sections~\ref{PairBkg:occupancy} and~\ref{BDS_Muons:sidocc}.
@@ -546,8 +562,11 @@ Since the muon endcaps collect the most neutron hits, the fraction of dead cells
 In the muon barrel, however, all hit cells are hit only one time, because of which only the first bin is filled in this plot (Figure~\ref{fig:BeamDumps:NeutronOcc} (a)).
 Similarly for the BeamCal, the cells are hit up to two times.
 \\Although these studies are done for neutrons from one ILC bunch only and the occupancy would rise for a bunch-train-worth of neutrons accordingly, the actual number of hits in the scintillating active layers of the muon system would depend on the scintillator material and the noise threshold of the readout SiPMs (silicon photomultipliers).
-Rather than increasing the detector occupancy, the neutron background will more importantly affect the subdetectors with respect to the radiation damage it causes.
-The expected radiation damage in the BeamCal, for example, is considered to be \SI{1}{\mega\gray\per\year}~\cite[p. 134]{TDR4}, because of which the BeamCal will designed to use radiation hard materials.
+\\Rather than increasing the detector occupancy, the neutron background will more importantly affect the subdetectors with respect to the radiation damage it causes.
+From the presented \geant simulation, it was calculated that the neutron flux for the outermost layer of the muon endcaps is about 530 neutrons\si{\per\meter\squared\per\second}.
+For the BeamCal, the flux is about 4 neutrons\si{\per\centi\meter\squared\per\second}.
+The expected neutron flux in the BeamCal from secondary photons, which excite giant nuclear dipole resonances~\cite{GDR} and hence cause the emission of neutrons, is considered to be \num{5e13} neutrons\si{\per\centi\meter\squared\per\year}~\cite[p. 134]{TDR4}, which is about \num{1.6e6} neutrons\si{\per\centi\meter\squared\per\second}.
+Due to this, the BeamCal will be designed to use radiation hard materials regardless of the additional neutron flux from the main beam dumps.
 \begin{figure}[!h]
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
@@ -566,7 +585,7 @@ The expected radiation damage in the BeamCal, for example, is considered to be \
    \label{fig:BeamDumps:NeutronOcc}
 \end{figure} 
 
-
+\clearpage
 \section{Alternative beam dump design}
 The previous sections have shown that the current ILC main beam dump designs are based on a water vessel.
 Due to the high material density, the ILC beam bunches are stopped over a distance of about \SI{12}{\meter}.
@@ -647,3 +666,6 @@ This leads to a spatial restriction of the irradiation to the gas volume and the
 In addition, no measurable neutron flux at the entrance to the beam dump hall was observed in the \fluka simulation.
 \\Overall, a gaseous dump seems to be more suitable with respect to the irradiation and the radiation safety.
 Due to the required length of the vessel, in order to fully dissipate and absorb the beam power, the cost for the necessary tunnel is a clear disadvantage of this approach.
+For calculating the construction cost of the ILC main linac tunnel, an estimation of \num{22000}\,\euro\,per one meter of tunnel length has been used~\cite{TunnelCost}.
+Using this estimation, the cost for the two required gaseous beam dump tunnels (each is \SI{1}{\kilo\meter} long) would be in total \num{44}\,million\.\euro.
+Even if this is a large cost addition, the gaseous beam dumps would save the expenses of costly radiation safety measures for the water dump surrounding.

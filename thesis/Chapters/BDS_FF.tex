@@ -1,17 +1,14 @@
-\chapter{Machine background from the Beam Delivery and Final-Focus systems}
-\label{machine_bkg}
+\chapter{Muon background from the Beam Delivery System}
+\label{BDS_Muons}
 
 \begin{chapterabstract}
  Particles produced in beam interactions with the accelerator components present another source of background for particle detectors.
- With thorough simulations and measurements,  the characteristics of the machine background can be understood, and its effect on the detector performances evaluated.
- \\In the first part of this chapter, shielding options against muons that are created in the Beam Delivery System of the International Linear Collider are discussed.
+ With thorough simulations and measurements, the characteristics of the machine background can be understood, and its effect on the detector performances evaluated.
+ \\In the first part of this chapter, the arising detector background from muons that are created in the Beam Delivery System of the International Linear Collider is explained.
+ In the second part, different shielding options are discussed with respect to their effectiveness to prevent the muons from reaching the detector experiments.
  The simulation of the muon production was done with \mucarlo, before the occupancy in the Silicon Detector was investigated in a full detector simulation.
- \\The second part of this chapter describes measurements of the machine background done at the Accelerator Test Facility 2.
- These measurements are then compared to a simulation of ATF2 with the accelerator simulation framework \bdsim.
 \end{chapterabstract}
 
-\section{Muon background from the Beam Delivery System}
-\label{BDS_Muons}
 After the beam acceleration in the main linacs of the ILC, the Beam Delivery System (BDS) is the part of the accelerator that prepares the beams for collision.
 As described in Section~\ref{ILC:layout:details}, it contains numerous subsystems and components for beam collimation and focusing. 
 Depending on the aperture of the collimators, some fraction of the beam halo hits the collimator material, which has the desired effect of collimating the beam, but also the undesired effect of producing background particles.
@@ -22,6 +19,8 @@ The beam particle intensity in the core follows a $\frac{1}{r}$ distribution, an
 \\From interactions between the beam halo and the material of the collimators along the beam line, muons are produced predominantly via the Bethe-Heitler process (see Figure~\ref{fig:BDS_Muons:Muon_production} (a)).
 Beamstrahlung photons interact with the nuclei of the machine component material, and pair-produce muons.
 A production contribution on a few percent level comes additionally from direct annihilation of positrons with atomic electrons~\cite{MuonBkg_1TeV}.
+Due to this, there are more muons created in the positron beam line than the electron beam line.
+The number of created muons is listed in Table~\ref{tab:BDS_Muons_muon_numbers}.
 The Feynman diagram for the annihilation process is shown in Figure~\ref{fig:BDS_Muons:Muon_production} (b).
 The muons are boosted in the beam direction, and are traveling towards the interaction region.\\
 \begin{wrapfigure}{r}{0.4\textwidth}
@@ -45,14 +44,14 @@ The shielding scenarios that are under discussion foresee a combination of the t
  \item ``5 spoilers'':\\
  In the first scenario, five cylindrical spoilers out of magnetized iron are installed at different locations along the BDS: \SI{1358.5}{\metre}, \SI{1234.5}{\metre}, \SI{1145.5}{\metre}, \SI{975.5}{\metre}, and \SI{802.5}{\metre} from the interaction point (IP), where these locations indicate the midpoint of the spoiler.
  \\The spoilers have a radius of \SI{70}{\centi\meter}, and a length of about \SI{5}{\meter}.
- Their magnetic field ranges from about \SI{19}{\kilo\gauss} in the center of the spoiler to about \SI{10}{\kilo\gauss} at the outer edge~\cite{MuonShielding,Lewis}.
+ Their magnetic field ranges from about \SI{1.9}{\tesla} in the center of the spoiler to about \SI{1}{\tesla} at the outer edge~\cite{MuonShielding,Lewis}.
  An illustration of one of these spoilers is given in Figure~\ref{fig:BDS_Muons:shielding_options} (a).
  As indicated by the muon tracks through the spoiler, the magnetic field of the cylindrical spoilers is such that either positively or negatively charged muons are deflected away from the beam path into the tunnel walls.
  \item ``5 spoiler + wall'':\\
  In the second scenario, the same five spoilers are located at the same positions as before.
  But an additional magnetized shielding wall is placed about \SI{400}{\meter} from the interaction point.
  \\The wall is about \SI{5}{\meter} wide and long, and fills out the complete tunnel height.
- Its magnetic field strength is about \SI{16}{\kilo\gauss}~\cite{MuonShielding,Lewis}.
+ Its magnetic field strength is about \SI{1.6}{\tesla}~\cite{MuonShielding,Lewis}.
  Figure~\ref{fig:BDS_Muons:shielding_options} (b) shows an illustration of the wall inside the BDS tunnel.
 \end{itemize}
 The motivation for the study presented in this section is to investigate the effect of the muons on the \sid detector.
@@ -78,7 +77,7 @@ Arguments against the wall were brought forward regarding costs and safety issue
    \label{fig:BDS_Muons:shielding_options}
  \end{figure}
 
-\subsection{\mucarlo}
+\section{\mucarlo}
 \label{BDS_Muons:MUCARLO}
 The interactions between the ILC beam and the machine components in the BDS were simulated with a Monte Carlo tool called \mucarlo~\cite{Mucarlo,MuonBkg_05TeV,MuonBkg_1TeV}.
 Since the presented study is done for two different ILC stages, at \SI{250}{\GeV} and at \SI{500}{\GeV}, the beam parameters of the respective stage were used accordingly.
@@ -109,11 +108,12 @@ The general design of these collimators can be found in \cite{BDS_coll_design}.
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{Figures/BDS_muons/BDS_Tunnel_Spoilers+Wall_edited.png}
-\caption[Muon tracks in the Beam Delivery Systems]{Visualization of the muon tracks in the ILC Beam Delivery System (BDS)~\cite{Lewis}.
+\caption[Muon tracks in the Beam Delivery Systems]{Visualization of the muon tracks in the ILC Beam Delivery System (BDS) in the electron beam line~\cite{Lewis}.
 The picture shows the xz-plane of the BDS tunnel with the beam line components (spoilers and collimators), which serve as muon sources.
 In this particular example, the muons origin from the electron beam hitting the primary collimator spoiler SP4.
 The locations of the muon shielding components (the magnetized spoilers and wall) are also indicated.
-The green/red thin lines represent the tracks of the muons.}
+The green/red thin lines represent the tracks of the muons.
+\\The general layout of the tunnel model is the same for the electron and the positron beam line, but mirrored at the z = 0 plane.}
 \label{fig:BDS_Muons:tracks}
 \end{figure}
 Adding up all muons from the different sources on the electron and the positron beam line side, the total number of muons can be calculated that would reach a detector with a radius of \SI{6.5}{\meter} at the interaction region.
@@ -131,14 +131,15 @@ With the two different shielding scenarios, the muon rate is again reduced signi
 \caption[\mucarlo muon rates]{Muon rates per bunch crossing for the two shielding scenarios, gained from \mucarlo simulations~\cite{Lewis}.}
 \label{tab:BDS_Muons_muon_numbers}
 \centering
-\begin{tabularx}{0.56\textwidth}{l|C{3cm}|C{3cm}}
+\begin{tabularx}{0.8\textwidth}{l|C{1.4cm}C{1.4cm}C{1.4cm}|C{1.4cm}C{1.4cm}C{1.4cm}}
 \hline\hline
-\textbf{Scenario} & \multicolumn{2}{>{\centering}p{6cm}}{\textbf{Muons per bunch crossing in a detector with 6.5\,m radius}}\\
-& ILC500 & ILC250\\
+\textbf{Scenario} & \multicolumn{6}{>{\centering}p{10cm}}{\textbf{Muons per bunch crossing in a detector with 6.5\,m radius}}\\
+& \multicolumn{3}{>{\centering}p{5cm}}{ILC500} & \multicolumn{3}{>{\centering}p{5cm}}{ILC250}\\
+& electron line & positron line & total & electron line & positron line & total\\
 \hline
- No Spoilers & 130 & 38\\
- 5 spoilers& 4.3 & 1.3\\
- 5 spoilers + wall & 0.6 &  0.03\\
+ No Spoilers & 71.6 & 58.5 & 130.1 & 21,1 & 17,2 & 38.3\\
+ 5 spoilers& 2.3 & 2 & 4.3 & 0.73 & 0.57 & 1.3\\
+ 5 spoilers + wall & 0.34 & 0.26 & 0.6 & 0.016 & 0.014 & 0.03\\
 \hline\hline
 \end{tabularx}
 \end{table}
@@ -147,7 +148,7 @@ These four-vectors can therefore be used as input to a full detector simulation.
 \\An additional study was done using a \geant simulation of the BDS tunnel in order to cross check the \mucarlo results and to thereby verify the \mucarlo simulation.
 The outcome of that study was that both simulations are in good agreement~\cite{Glens_muon_talk}.
 
-\subsection{Effect of muons on the \sid performance}
+\section{Effect of muons on the \sid performance}
 \label{BDS_Muons:SiD}
 Since the \sid detector only reads out the hits after every bunch train (1312 bunch crossings), the detector occupancy for the muons has to be studied for a muon rate per train.
 As in the previous chapter, the full detector simulation was done using \slic.
@@ -155,23 +156,23 @@ The geometry input file that was used contained the most recent sidloi3 geometry
 For details on these detector characteristics, please refer to Section~\ref{ILC:SiD}.
 After a file-format conversion, the \mucarlo output files containing the four-vectors of the muons for the different shielding scenarios and center-of-mass energies served as the particle source input to \slic.
 
-\subsubsection{Muon hit distribution}
+\subsection{Muon hit distribution}
 For visualizing the hit distribution in the \sid detector, event displays (see Figure~\ref{fig:BDS_Muons:wired4}) were made using WIRED4~\cite{Wired4}.
  \begin{figure}[htbp]
+ \captionsetup[subfigure]{justification=centering}
  \centering
-  \begin{subfigure}[b]{0.31\textwidth}
+  \begin{subfigure}[b]{0.4\textwidth}
    \centering
    \includegraphics[width=\textwidth]{Figures/BDS_muons/Event_display_ILC250_p_spoilers_wall_inverted.png}
    \caption{3D view, 5 spoilers + wall,\\ILC250}
-   \end{subfigure}
-   \hfill
-   \begin{subfigure}[b]{0.31\textwidth}
+   \end{subfigure}\\
+   \begin{subfigure}[b]{0.4\textwidth}
    \centering
     \includegraphics[width=0.9\textwidth]{Figures/BDS_muons/muons_positron_5spoilers_wall_515_xyview_croped_inverted.png}
    \caption{xy-view, 5 spoilers + wall,\\ILC500}
    \end{subfigure}
    \hfill
-    \begin{subfigure}[b]{0.31\textwidth}
+    \begin{subfigure}[b]{0.4\textwidth}
    \centering
     \includegraphics[width=0.9\textwidth]{Figures/BDS_muons/muons_positron_5spoilers_2961_xyview_croped_inverted.png}
    \caption{xy-view, 5 spoilers,\\ILC500}
@@ -213,8 +214,17 @@ Accordingly, the vertex detector (as the smallest and innermost detector) is hit
 Deducing from the hit distributions, the \sid detector will overall suffer from less hits in the ILC250 stage with respect to the ILC500, but adding the magnetized wall to the shielding will yield even smaller hit counts for both center-of-mass energies.
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.7\textwidth]{Figures/BDS_muons/Hits_in_SiD_subdetectors_MuonSpoilerStudy.pdf}
-\caption[Number of muon hits in the \sid subdetectors]{Total number of hits in the various \sid subdetectors for both shielding scenarios and both ILC stages.
+\begin{subfigure}[t]{0.49\textwidth}
+\centering
+ \includegraphics[width=\textwidth]{Figures/BDS_muons/Hits_in_SiD_subdetectors_MuonSpoilerStudy_ILC250.pdf}
+ \caption{ILC250}
+\end{subfigure}
+\begin{subfigure}[t]{0.49\textwidth}
+\centering
+ \includegraphics[width=\textwidth]{Figures/BDS_muons/Hits_in_SiD_subdetectors_MuonSpoilerStudy_ILC500.pdf}
+  \caption{ILC500}
+\end{subfigure}
+\caption[Number of muon hits in the \sid subdetectors]{Total number of hits in the various \sid subdetectors for both shielding scenarios in the ILC250 stage (a) and ILC500 stage (b).
 The number of hits come from muons from a full bunch train.}
 \label{fig:BDS_Muons:hits}
 \end{figure}
@@ -230,7 +240,7 @@ The number of hits are normalized to hits from a full bunch train for all cases.
 \label{fig:BDS_Muons:hittime}
 \end{figure}
 
-\subsubsection{\sid occupancy}
+\subsection{\sid occupancy}
 \label{BDS_Muons:sidocc}
 The next step is to look at the occupancy of the detector arising from these muon hits.
 As in Chapter~\ref{PairBkg:occupancy}, the number of hits are counted for every cell in the subdetectors, which can be directly translated into a detector occupancy.
@@ -302,7 +312,7 @@ Plots of the occupancy for the remaining \sid subdetectors can be found in Appen
 \label{fig:BDS_Muons:loop}
 \end{figure}
 
-\subsection{Conclusion}
+\section{Conclusion}
 This section presented a study of the effect of the muons from the BDS on the \sid occupancy for two different shielding options.
 For the first option, five magnetized spoilers would be installed at different locations along the beam line.
 For the second option, a magnetized wall would be placed between these spoiler locations and the interaction region, as an additional shielding device.
@@ -316,407 +326,6 @@ However, it still does not exceed \num{e-7}.
 However, the wall serves as a tertiary containment device against muons and other machine background particles.
 The decision might be to keep the wall anyway for the protection of personnel and maintenance staff, depending on the restrictions imposed by radiation safety regulations.
 A solution to lessen the price for the wall would be to change its design such that its thickness is reduced and it is not magnetized.
-The wall would then still serve as additional shielding but does not deflect charged particles. \\An idea for future studies of the muon shielding would be to also adjust the detector specific Pacman design with respect to different materials and the possibility of magnetizing the Pacman volume.
+The wall would then still serve as additional shielding but does not deflect charged particles. \\The next step for the studies of the muon shielding would be to also adjust the detector specific Pacman design with respect to different materials and the possibility of magnetizing the Pacman volume.
 
 %---------------------------------------------------
-\section{Beam halo collimators in the Final-Focus system}
-
-The Final-Focus (FF) system is responsible for focusing the ILC beam to nanometer size, as explained in Section~\ref{ILC:layout}. 
-By decreasing the beam size, the aim of reaching high luminosities can be achieved.
-%The reason behind this is the aim \todo{requirement?} for high luminosities, which can be gained by small beam sizes.
-In order to reduce the machine background arising from interactions of the beam with the Final-Focus components, beam halo collimators will be installed that cut off the halo around the beam core. 
-\\For testing the feasibility of such collimators for future linear colliders such as the ILC, a vertical beam halo collimator has been installed at the \mbox{Accelerator Test Facility 2} (ATF2)~\cite{ATF} at the High Energy Accelerator Research Center Organization (KEK) in Japan~\cite{Nuria_Thesis}. 
-In March 2016, data of the background in the proximity of the collimator were taken in dependency of the aperture of this collimator. 
-This section covers the analysis of the data as well as simulation studies done with \bdsim.
-
-\subsection{The Accelerator Test Facility 2}
-\label{ATF2}
-
-The Accelerator Test Facility 2 (ATF2) is an extension to the accelerator facility ATF at the High Energy Accelerator Research Center Organization (KEK) in Japan~\cite{ATF}. 
-As can be seen in Figure~\ref{fig:ATF}, ATF consists of a linear accelerator, which pre-accelerates electrons to \SI{1.3}{\GeV} before they enter the damping ring. 
-\\ATF2 is a test bench for the FF system of the ILC and has two main goals: 
-\begin{enumerate}
- \item Focusing the low-emittance beam to \SI{37}{\nano\metre} in the vertical plane
- \item Demonstrating the stability of the nanometer sized beam at the interaction point
-\end{enumerate}
-So far, focusing the beam to a size of \SI{40}{\nano\metre} has been shown to be repeatable. 
-Although the beam size goal of ATF2 seems to be large compared to the ILC goal of \SI{9}{\nano\metre}, the ATF2 system is directly comparable to the ILC Final-Focus system. 
-The beam size goal has to be scaled up for different lattice and beam conditions.\\
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{Figures/ATF/ATF.png}
-\caption[ATF accelerator]{A schematic of the ATF accelerator with the ATF2 extension~\cite[cf. p. 65]{Nuria_Thesis}.
-ATF consists of a linear accelerator, a damping ring, the new ATF2 extension with the Final-Focus system, and a beam dump.}
-\label{fig:ATF}
-\end{figure}
-Additionally, as the ATF serves as a research accelerator, the ATF collaboration allows research groups to test new accelerator and diagnostic components, to operate the accelerator themselves, and to take measurements for their research.
-ATF therefore offers a unique opportunity for young researchers to conduct their experiments and to gain experience in operating a particle accelerator.
-\\To this end, the vertical beam halo collimator, which was proposed and designed for reducing the machine background at linear colliders, was installed in ATF2 in the beginning of March 2016 by Nuria Fuster-Martinez~\cite{Nuria_Thesis}. 
-In a collaboration of Ph.D. students, valuable experience was gained working together with Nuria Fuster-Martinez in the installation and operation of diagnostic hardware for particle detection, and in the operation of the ATF beam.
-Whilst the focus of her research was the construction and installation of the collimator, as well as the measurements of its general functionality, the focus for this part of the thesis at hand was independent measurements of background particles in the proximity of the collimator.
-\\The vertical beam halo collimator and the Cherenkov detector, with which the background level was measured in dependency of the collimator aperture, are both located in the FF section of ATF2. 
-A schematic of the ATF2 lattice with the collimator and the Cherenkov detector is shown in Figure~\ref{fig:ATF2}. 
-The Cherenkov detector was built and setup by a group from the Royal Holloway University of London (RHUL)~\cite{RHUL_detector_wiki}, because of which the detector is in the following sections referred to as the ``RHUL Cherenkov detector''.
-A more detailed description of this detector is given in Section~\ref{RHUL}.
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{Figures/ATF/ATF2schematic.pdf}
-\caption[ATF2 schematic]{A schematic of the ATF2 lattice~\cite{Nuria}. 
-The beam direction is from right to left. 
-The beam halo collimator is located before the quadrupole magnet `QD10BFF', the Cherenkov detector is installed downstream between the dipole magnet `B5FF' and the quadrupole magnet `QD6FF'. 
-After the interaction point (IP), the electron beam is bent in the last dipole magnet `BDUMP' towards the beam dump. 
-}
-\label{fig:ATF2}
-\end{figure}
-
-\subsection{Vertical beam halo collimator}
-\label{Collimator}
-
-The purpose of the vertical beam halo collimator is to cut off the beam halo in the vertical direction, in order to reduce the machine background at the IP.
-The design drawings of the collimator structure are shown in Figure~\ref{fig:collimator}.
-The collimating jaws are inside a structure that is evacuated and connected to the beam pipe of the ATF2 beam line. 
-A picture of the installed collimator is given in Figure~\ref{fig:installed_collimator}.
-The actual jaws are made of copper, the other components of stainless steel. 
-The jaws have an overall length of \SI{238}{\milli\meter}, and a cross-sectional area of \mbox{\SI{24}{\milli\meter}$\times$\SI{24}{\milli\meter}}.
-They can be moved individually to an arbitrary position inside the possible range, so that the inner edge of the jaws can have a distance of between 2.6 and \SI{12}{\milli\metre} to the center. 
-The full aperture of the collimator structure can therefore be between 5.2 and \SI{24}{\milli\metre}. 
-The error on the position of the jaws is about \SI{10}{\micro\metre}.\\
-As every component in a beam line, especially for such small beam sizes, is affecting the electromagnetic field of the passing beam, the collimator is designed to minimize the effect of inducing wakefields~\cite{NuriaCollimator2015,Nuria_Thesis}. 
-This thesis, however, focuses exclusively on the effect on the background level, as mentioned above.
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{Figures/ATF/ATF2_beamhalo_collimator.pdf}
-\caption[Drawing of the beam halo collimator]{A drawing of the vertical beam halo collimator installed at ATF2.~\cite{NuriaCollimator2015}}
-\label{fig:collimator}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{Figures/ATF/Installed_Collimator.jpg}
-\caption[Picture of the installed beam halo collimator]{A picture of the vertical beam halo collimator built into ATF2. 
-The collimator jaws are within the evacuated structure. 
-At the top and bottom of the structure, the mover system for the two jaws can be seen.}
-\label{fig:installed_collimator}
-\end{figure}
-
-%---------------------------------------------------
-\subsection{Background studies}
-\subsubsection{RHUL Cherenkov detector}
-\label{RHUL}
-
-The RHUL Cherenkov detector~\cite{RHUL_detector_wiki} uses the Hamamatsu photomultiplier tube (PMT), which was previously installed in a laserwire sensor that was located at the same position in the ATF2 beam line. 
-The Cherenkov detector itself is using aerogel\footnote{SP15, index 1.015, 4 slices, \SI{4}{\centi\meter\squared}, \SI{5}{\centi\meter} deep} as its radiator medium. 
-A light-guiding pipe, with a profile area of \SI{10}{\centi\metre\squared} and a total length of \SI{35}{\centi\metre}, directs the light from the aerogel to the PMT.
-Figure~\ref{fig:RHUL_Cherenkov_Drawing} shows a schematic drawing of the detector setup.
-Pictures taken of the detector at the ATF2 beam line are shown in Figure~\ref{fig:RHUL_Cherenkov}.
-\\It is installed downstream of a dipole magnet, which deflects the beam electrons along the beam line.
-Photons from particle showers, however, are not deflected and continue along a straight line.
-The entrance of the Cherenkov detector is positioned such that these neutral secondary particles can be detected.
-The beam electrons are deflected past the detector.
-The detected photons are an indication of the particle showers produced by interactions between the beam and the beam line components.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{Figures/ATF/drawing_CherenkovSetup.png}
-\caption[Schematic drawing of the RHUL Cherenkov detector setup]{A perspective schematic of the RHUL Cherenkov detector setup in ATF2.
-The beam electrons are bent in the dipole magnet, and continue through the rectangular beam pipe along the ATF2 beam line, and past the RHUL Cherenkov detector face.
-The neutral particles on the other hand, which are not deflected in the magnetic field, continue along a straight line through the rectangular beam pipe, and enter the RHUL Cherenkov detector through the second window in the flange. 
-The light signals are collected by the PMT.}
-\label{fig:RHUL_Cherenkov_Drawing}
-\end{figure}
-
-\begin{figure}
-\begin{center}
-\resizebox{.9\textwidth}{!}{%
-\includegraphics[height=0.35\textheight]{Figures/ATF/CherenkovDetector_inBeamLine1.png}%
-\quad
-\includegraphics[height=0.35\textheight]{Figures/ATF/CherenkovDetector_inBeamLine2.jpg}%
-}
-\caption[Pictures of the RHUL Cherenkov detector]{Pictures of the RHUL Cherenkov detector in ATF2. 
-The aerogel detector and the light channel are positioned behind a flange that connects the rectangular beam pipe with a circular one. 
-The flange has two openings, one for the circular beam pipe, another one covered by a plastic window through which the photons leave the rectangular beam pipe and enter the RHUL Cherencov detector.}
-\label{fig:RHUL_Cherenkov}
-\end{center}
-\end{figure}
-
-\paragraph{PMT noise measurements}
-Before measurements of the shower particles could be taken, the PMT noise had to be measured.
-The noise is the signal that is measurable by the PMT, when the beam is turned off.
-Figure~\ref{fig:AverageNoise_VoltageNormalization} (a) shows the mean values of the noise measurements for different PMT voltages. 
-For every point either 500 or 1000 ADC pulses were recorded and averaged.
-The error bars represent the standard deviation on the mean value calculated with \mbox{$SD=\frac{\sigma}{\sqrt{N}}$}, where $\sigma$ is the RMS of the noise distribution at each point and N the number of pulses.\\
-At around \SI{800}{\volt}, the effect of dark current in the PMT becomes prominent, because of which the noise rises exponentially. 
-Some of the possible causes of dark current are:
-the thermionic emission of electrons from the photocathode and the dynodes, leakage current between the anodes and cathodes, and ionization current from residual gases inside the PMT~\cite[p. 67]{Hamamatsu}.
-\\As the data was taken only for the voltages for which noise measurements were done, the mean value of noise is subtracted from every signal pulse appropriately. 
-Therefore, the rise in noise is automatically taken into account for higher voltages.
-\begin{figure}
-\centering
-\begin{subfigure}[b]{0.49\textwidth}
- \centering
-\includegraphics[width=0.99\textwidth]{Figures/ATF/AverageNoise_perVoltage_08April.pdf}
-\caption{RHUL Cherenkov detector noise}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.49\textwidth}
-  \centering
-  \includegraphics[width=\textwidth]{Figures/ATF/VoltageNormalization_totError.pdf}
-\caption{RHUL Cherenkov detector voltage calibration}
-\end{subfigure}
-\caption[RHUL Cherenkov detector calibrations]{
-Calibration measurements with the RHUL Cherenkov detector.
-\\Figure (a) shows the average PMT noise signal as a function of the voltage applied to the detector PMT.
-The noise was measured when the ATF beam was turned off. 
-For each voltage, 500 or 1000 ADC pulses of noise were recorded, and the noise was averaged over the number of pulses. 
-\\Figure (b) shows the average PMT signal as a function of the voltage applied to the detector PMT. 
-The signal was measured when the ATF beam was stable at a beam intensity of \num[detect-all]{0.15}$\pm$\num[detect-all]{0.02e10}. 
-For each voltage, 500 ADC pulses were recorded, and the signal was averaged over the number of pulses.}
-\label{fig:AverageNoise_VoltageNormalization}
-\end{figure}
-
-\paragraph{PMT voltage calibration measurements}
-
-In order to compare data sets that are taken at different PMT voltages, the signals have to be scaled. 
-The rule of scaling the data is derived from the fit to the calibration measurements in Figure~\ref{fig:AverageNoise_VoltageNormalization} (b). 
-The data for this calibration is taken for stable beam conditions at a beam intensity of \num{0.15}$\pm$\num{0.02e10}, and then plotted in a double logarithmic plot. 
-The linearity of the data points shows the behavior of the PMT for different voltages according to Equation~\ref{eq:PMTgain}~\cite{Hamamatsu}:
-\begin{equation}
- \mu = A \cdot V^{kn} 
- \label{eq:PMTgain}
-\end{equation}
-where $\mu$ is the PMT gain, $V$ the applied voltage, and $n$ the number of anodes in the PMT. 
-$A$ and $k$ are free parameters. 
-This equation can be rewritten as:
-\begin{equation}
- signal = par_1 \cdot V^{par_2}
- \label{eq:PMTgain_simple}
-\end{equation}
-After taking the logarithmic of both sides, the equation can be written as:
-\begin{alignat}{4}
- & log(signal) & = & log(par_1) & + & par_2 & \cdot &log(V) \label{eq:PMTgain_log} \\
- & y & = & \{1\} & + & \{0\} & \cdot & x \label{eq:fit_function}
-\end{alignat}
-Equation~\ref{eq:PMTgain_log} proves the linearity of the graph in the double logarithmic plot and verifies Equation~\ref{eq:PMTgain} from the literature. 
-For the log-log plot, Equation~\ref{eq:fit_function} is the derived fit function with the fit parameters that are obtained by applying the fit to the data in Figure~\ref{fig:AverageNoise_VoltageNormalization} (b). 
-The original signal function is therefore:
-\begin{equation}
- signal = 10^{\{1\}} \cdot V^{\{0\}}
- \label{eq:PMTgain_simple_fitparameters}
-\end{equation}
-with $log(par_1)$ being the fit parameter $\{1\}$, and $par_2$ being the fit parameter $\{0\}$.\\
-A signal ($signal_1$) can then be scaled into a new signal ($signal_2$) according to the voltages by doing:
-\begin{align}
- \frac{signal_1}{signal_2} & = \frac{10^{\{1\}}\cdot V_1^{\{0\}}}{10^{\{1\}}\cdot V_2^{\{0\}}} \\
- signal_2 & = signal_1 \cdot \left( \frac{V_2}{V_1} \right) ^{\{0\}}
-\end{align}
-
-
-\subsubsection{Collimator apertures scan at different intensities and vacuum pressures}
-\label{aperture_scans}
-For the measurements of the background signal in dependency of the collimator aperture, scans of the collimator apertures were done, whilst closing the collimator jaws simultaneously. 
-Figure ~\ref{fig:AverageSignal_Aperture_Symmetric} (a) shows the plot of the average detector signals at five different beam intensities. 
-It is clear that the background level rises with increasing intensity. 
-The characteristic shape of the scan is however conserved: 
-the background level is constant when closing the collimator from a full aperture of \SI{24}{\milli\metre} to about \SI{15}{\milli\metre}. 
-When closing to \SI{10}{\milli\metre} the background level drops, and rises again when closing the collimator completely, i.e. to \SI{6}{\milli\metre} full aperture. 
-\\The measurements shown in Figure~\ref{fig:AverageSignal_Aperture_Symmetric} (b) were done in a similar way but for two different vacuum pressures: \SI{4.9e-7}{\pascal} and \SI{1.06e-6}{\pascal}. 
-The data were taken for a beam intensity of \num{0.5}$\pm$\num{0.03e10}. 
-The background level is higher for a higher vacuum pressure, as expected. 
-Nevertheless, the background level is not only shifted. 
-At the plateau (between 12 and \SI{24}{\milli\metre}), the background level for the higher pressure is larger by almost a factor of two.
-At an aperture of \SI{10}{\milli\metre}, however, the background is reduced to almost the same level at both pressures. 
-The collimator therefore reduces the background dramatically, especially at high background rates.
-
-\begin{figure}
-\centering
-\begin{subfigure}[b]{0.49\textwidth}
- \centering
- \includegraphics[width=\textwidth]{Figures/ATF/AverageSignal_perAperture.png}
- \caption{Different beam intensities}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.49\textwidth}
-  \centering
- \includegraphics[width=\textwidth]{Figures/ATF/AverageSignal_perAperture_VacuumPressures.png}
- \caption{Different vacuum pressures}
-\end{subfigure}
-\caption[RHUL Cherenkov detector signal vs. collimator aperture]{
-Average signal as a function of the full aperture of the vertical beam halo collimator. 
-For Figure (a), the signal was measured for different beam intensities [\num[detect-all]{e10}]: 0.21$\pm$0.02, 0.44$\pm$0.02, 0.51$\pm$0.02, 0.72$\pm$0.02 and 0.78$\pm$0.02. 
-\\For Figure (b), the signal was measured for a beam intensity of \num[detect-all]{0.5}$\pm$\num[detect-all]{0.03e10}. 
-The vacuum pressure was lowered from \SI[detect-all]{4.9e-7}{\pascal} to \SI[detect-all]{1.06e-6}{\pascal}. 
-\\For each aperture, 500 ADC pulses were recorded, and the signal was averaged over the number of pulses.}
-\label{fig:AverageSignal_Aperture_Symmetric}
-\end{figure}
-
-The drop in the measurable background level for a collimator aperture between 15 and \SI{10}{\milli\metre} is on the one hand proof of principle for the collimator.
-On the other hand, the measured rise in the background level leaves some questions open about the origin of the background particles and the effect of the collimator aperture on particle showers.
-\\These questions are addressed in Section~\ref{sec:BDSIM_sim}, in which the effect of the collimator is simulated with \bdsim.
-
-%---------------------------------------------------
-\subsection{Simulation study of the vertical beam halo collimator}
-\label{sec:BDSIM_sim}
-As the data in Figure~\ref{fig:AverageSignal_Aperture_Symmetric} in the previous section have shown, the collimator reduces the existing background level if closed to a full aperture of \SI{10}{\milli\metre}. 
-By closing the jaws further, the background level increases again.
-To address open questions, simulations of the ATF2 lattice including the beam halo collimator were done using \bdsim.
-The geometry model of the ATF2 accelerator lattice (in its state in the year 2015) already exists as a feature of \bdsim.
-However, a realistic model of the vertical beam halo collimator had to be added.
-
-\subsubsection{\bdsim}
-\label{BDSIM}
-\bdsim~\cite{BDSIM} is a \geant extension toolkit for the simulation of particle transport in accelerator beam lines, but also for the simulation of the interaction between the beam particles and the accelerator material. 
-It is developed and supported by RHUL.
-The geometry of lattice parts are described in classes within the \bdsim framework. 
-Particle accelerator lattices, such as the ATF2 lattice, can easily be built up with the pre-defined components. 
-The magnets and other beam line components available within \bdsim are simplified versions of common components used in particle accelerators. 
-The ATF2 lattice is visualized with the \bdsim software in Figure~\ref{fig:ATF2_BDSIM}.
-\\The simulation studies of ATF2, which are presented in this section were done with \bdsim version 0.95.
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.7\textwidth]{Figures/ATF/atf_bdsim.png}
-\caption[ATF2 lattice in \bdsim]{A part of the ATF2 lattice visualized with the \geant toolkit \bdsim.}
-\label{fig:ATF2_BDSIM}
-\end{figure}
-
-\subsubsection{Modeling the vertical beam halo collimator}
-The vertical beam halo collimator was modeled in GDML~\cite{GDML,GDML_web} format according to its technical design drawings.
-Figure~\ref{fig:Collimator_model} shows a visualization of this model, as well as a view of the collimator structure inside the ATF2 lattice.
-In Figure~\ref{fig:Collimator_model} (a), the collimator jaws can be seen, which can be set to an arbitrary y-position inside the structure.
-With this new feature, \bdsim simulations with different collimator settings were done.
-\begin{figure}[!h]
-\centering
-\begin{subfigure}[b]{0.49\textwidth}
- \centering
- \includegraphics[width=\textwidth]{Figures/ATF/Collimator_model.pdf}
- \caption{Geometry visualization}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.49\textwidth}
-  \centering
- \includegraphics[width=0.9\textwidth]{Figures/ATF/Collimator_in_ATF2.png}
- \caption{Collimator model in the ATF2 beam line}
-\end{subfigure}
-\caption[Model of the vertical beam halo collimator used in the \bdsim simulation]{Model of the vertical beam halo collimator, used in the \bdsim simulation of the ATF2 beam line lattice.
-}
-\label{fig:Collimator_model}
-\end{figure}
-
-\subsubsection{Simulation results}
-In order to validate the \bdsim simulation, comparisons of the beam parameter development along the beam line have been made for \bdsim and MADX~\cite{MADX}.
-MADX is a simulation tool for the simulation of beam dynamics at particle accelerators.
-For this validation, the beam size of the ATF2 beam core was plotted along the beam line for \bdsim and MADX.
-As shown in Figure~\ref{fig:MADX}, both simulations of the ATF2 beam dynamics are in good agreement.
-At the start of the ATF2 beam line, the beam core has a size of $\sigma^{Core}_x$ = \SI{51.9}{\micro\meter} and $\sigma^{Core}_y$ = \SI{15.4}{\micro\meter}.
-At the location of the beam halo collimator ($S$ = \SI{9}{\meter}), the beam core has a size of $\sigma^{Core}_x$ = \SI{0.16}{\milli\meter} and $\sigma^{Core}_y$ = \SI{0.28}{\milli\meter}.
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.7\textwidth]{Figures/ATF/pybdsim_sigma_gmadNuria.png}
-\caption[Comparison of the ATF2 beam size development in \bdsim and MADX]{Comparison of the ATF2 beam size ($\sigma_x$ and $\sigma_y$) development along the beam line (S [m]) using \bdsim and MADX.}
-\label{fig:MADX}
-\end{figure}
-
-For the \bdsim simulation of the background particles, the primary particle beam was then set to be the ATF2 beam halo, excluding the beam core.
-The beam halo is defined to stretch from $3 \sigma^{Core}_x$ to $5 \sigma^{Core}_x$, and from $3 \sigma^{Core}_y$ to $10 \sigma^{Core}_y$.
-In \bdsim, the beam halo is modeled accordingly, assuming a Gaussian distribution.
-The beam particles have an energy of \SI{1.3}{\GeV} with an energy spread of \SI{0.08}{\percent}.
-\\Several \bdsim simulation runs were done for different apertures of the vertical beam halo collimator.
-The results were analyzed regarding the observable number of secondary particles created at the various ATF2 beam line components.
-For a beam halo population of \num{2e6} primary particles, the number of secondary particles in the proximity of the beam halo collimator can be seen in Figure~\ref{fig:ParticlesPerModel}.
-The number of particles are given in bar charts for the two collimator apertures: \SI{24}{\milli\meter} (open collimator) and \SI{4}{\milli\meter} (closed collimator).
-In the direct proximity of the collimator, the number of secondary particles is larger in the case of a closed collimator due to particle showers caused by the intersection of the beam halo with the collimator jaws.
-\\This is shown in Figure~\ref{fig:Particles_Collimator}.
-The number of primary and secondary particles are plotted at the exit of the beam halo collimator for different collimator half apertures.
-On the upper plots, the x- and y-positions of the primary beam particles are plotted.
-For an open collimator, the beam is un-disrupted in both planes.
-When closing the collimator, the cut-off of the beam halo is visible in the top right plot.
-Primary particles are now, however, also spread in both the x- and y-direction.
-The lower two plots show the positions of the secondary particles.
-Again for an open collimator, the level of secondary shower particles is low.
-For smaller collimator apertures, particle showers are created due to the intersection of the beam halo with the collimator jaws.
-The background level rises by several orders of magnitude.
-\\Figures~\ref{fig:ParticlesPerModel} (a) and (b) show furthermore that the number of secondaries further downstream of the collimator is smaller in every beam line component for a closed collimator compared to an open collimator, although more secondaries are produced in the direct proximity of the collimator.
-The cut off beam halo, therefore, reduces the showers in downstream beam line components.
-\\At the location of the RHUL Cherenkov detector, which is indicated in Figure~\ref{fig:ParticlesPerModel} (b), the number of occurring secondary particles is lower by over one order of magnitude in both cases compared to the components close to the collimator.
-This indicates that the observation of differences in the background suppression by the vertical beam halo collimator is challenging at this location.
-
-\begin{figure}
-\centering
-\begin{subfigure}[b]{0.49\textwidth}
- \centering
- \includegraphics[width=\textwidth]{Figures/ATF/TracksPerModel_firstPart.png}
- \caption{Upstream ATF2 components}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.49\textwidth}
-  \centering
- \includegraphics[width=\textwidth]{Figures/ATF/TracksPerModel_secondPart.png}
- \caption{Downstream ATF2 components}
-\end{subfigure}
-\caption[Number of secondary particles created in the ATF2 components]{Number of secondary particles observed in the ATF2 components directly upstream (a) and downstream (b) of the vertical beam halo collimator (COLLBY).
-The x-axes show the component names in the ATF2 lattice.
-Components starting with the letter ``L'' are drift lengths, components containing the word ``COLL'' are collimators.
-All other names belong to magnet components.
-\\The results for the ``Open Vertical Collimator'' are gained with fully retracted collimator jaws.
-The ``Closed Vertical Collimator'' has a full aperture of \SI[detect-all]{4}{\milli\meter}.
-}
-\label{fig:ParticlesPerModel}
-\end{figure}
-
-\begin{figure}[!h]
-\centering
-\includegraphics[width=\textwidth]{Figures/ATF/Collimator_secondaries_Nuria_Thesis.png}
-\caption[Number of particles at the beam halo collimator]{Number of primary and secondary particles arriving at the exit of the vertical beam halo collimator~\cite[cf. p. 152]{Nuria_Thesis}.
-The upper plots show the number of primary particles in the x- and y-direction for different collimator half apertures.
-A half aperture of \SI[detect-all]{12}{\milli\meter} corresponds to a completely open collimator (with a full aperture of \SI[detect-all]{24}{\milli\meter}).
-\\The lower plots show the number of secondary particles in the x- and y-direction for the same collimator apertures.}
-\label{fig:Particles_Collimator}
-\end{figure}
-
-Further studies have been conducted to find the origin of the particles that would hit the RHUL Cherenkov detector.
-To this end, cuts have been applied to the particle positions, such that only particles with x- and y-positions within a window that matches the front face of the RHUL Cherenkov detector are registered.
-The result is shown in Figure~\ref{fig:RHUL_Cherenkov_Sampler}.
-The largest contribution are the primary beam particles.
-Almost all other contributions are several orders of magnitude smaller.
-The respective components are all located downstream of the beam halo collimator and upstream of the Cherenkov detector.
-The number of observed shower particles coming directly from the beam halo collimator (COLLBY) is smaller for the closed collimator than for the open collimator by a few percent.
-Overall, there is no significant difference in the number of particles between the two studied collimator apertures.
-
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.6\textwidth]{Figures/ATF/RHUL_Cherenkov_Sampler1.png}
-\caption[Number of particles at the RHUL Cherenkov detector]{Number of secondary particles arriving at the location of the RHUL Cherenkov detector in the case of an open (aperture of \SI[detect-all]{24}{\milli\meter}) and closed (aperture of \SI[detect-all]{4}{\milli\meter}) vertical beam halo collimator (COLLBY).
-The x-axis shows the component names in the ATF2 lattice.
-Components starting with the letter ``L'' are drift lengths, components containing the word ``COLL'' are collimators.
-All other names belong to magnet components.}
-\label{fig:RHUL_Cherenkov_Sampler}
-\end{figure}
-
-\subsection{Conclusion on the studies concerning the background levels in the proximity of the vertical beam halo collimator}
-The presented \bdsim simulation studies of the ATF2 lattice and the effect of the vertical beam halo collimator does not yield the desired results comparable to the measured data, which were discussed in Section~\ref{aperture_scans}.
-Figure~\ref{fig:ParticlesPerModel} shows that the level of secondary particles at the location of the RHUL Cherenkov detector is low in comparison to the direct proximity of the vertical beam halo collimator.
-After discussions with \bdsim developers, it was concluded that the geometry models of the ATF2 beam line and its components are not mature enough for precision studies of the background in dependency of the collimator aperture.
-In order to improve the model, more accurate measurements of all component apertures along the ATF2 line had to be taken and implemented.
-The exact apertures are needed for a realistic simulation of the interaction of the beam halo with the beam line material.
-Additionally, the magnetic fields around the beam line magnets, which also affect the secondary particles, have to be modeled outside the beam line.
-So far, the implemented field maps only describe the magnetic field around the beam axis.
-\\Overall, the analysis tool, which was written to gain the presented simulation results, is capable of showing the origin of the background particles and the background level at all components along the beam line.
-The beam halo collimator model, which was created for this simulation study, was provided to the \bdsim developers for its implementation into the ATF2 lattice, which is part of the available examples given in the \bdsim framework.
-\\For future studies, the background levels should be measured at locations closer to the beam halo collimator, where higher background levels are expected.
-The effect of the collimator aperture is therefore easier to observe due to higher statistics and fewer influencing components between the collimator and the background detector.
-Together with an improved \bdsim model of ATF2, various background studies could be conducted regarding the impact of accelerator components and accelerator running schemes.
-
-\subsection{Effect on the background level at IP}
-\label{collimator_bkg_IP}
-In Section~\ref{aperture_scans}, it was shown that the background level measured with the RHUL Cherenkov detector is affected by the movement of the collimator jaws.
-However, the actual aim of the vertical beam halo collimator is to reduce the machine background at the IP.
-Figure~\ref{fig:IP_background} shows measurements of background photons at the ATF2 IP in dependency of the vertical beam halo aperture.
-For all measured beam intensities, the background photon level was reduced by closing the collimator to a half aperture smaller than \SI{6}{\milli\meter}, which corresponds to a full aperture of \SI{12}{\milli\meter}.
-This and further results concerning studies of the beam halo collimator~\cite{Nuria_Thesis} are a proof of principle for the vertical beam halo collimator.
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.7\textwidth]{Figures/ATF/IP_background_Nuria_Thesis_p212.pdf}
-\caption[Number of background particles at the ATF2 IP]{Number of photons measured at the ATF2 IP in dependency of the vertical beam halo collimator aperture~\cite[p. 212]{Nuria_Thesis}.
-The collimator aperture is given as the half aperture, which is the distance between the center axis and one collimator jaw.
-The photons were measured behind the ATF2 IP, where the beam electrons are deflected by the last bending magnet of the beam line lattice.
-\\The measurements were done for three beam intensities (\num[detect-all]{0.7e10}, \num[detect-all]{0.8e10}, and \num[detect-all]{1.0e10}).}
-\label{fig:IP_background}
-\end{figure}

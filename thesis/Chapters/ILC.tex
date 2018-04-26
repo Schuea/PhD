@@ -190,14 +190,21 @@ As shown in Equation~\ref{eq:pair_number}, the number of background particles fr
 At the same time, the luminosity is inversely proportional to the product of the beam sizes, $\sigma_x\cdot\sigma_y$, as shown in Equation~\ref{eq:luminosity} in Chapter~\ref{AccPhysics:Linear-Circular}.
 By choosing the beam sizes to be $\sigma_x\gg\sigma_y$, the product is small leading to large luminosities, while the sum is large leading to a diminished background rate.
 
-\paragraph{Interaction region and beam dumps}
+\paragraph{Interaction Region and beam dumps}
 The Interaction Region (IR) houses the two detectors for the ILC: the Silicon Detector (\sid) and the International Large Detector (ILD), which are in a so-called ``push-pull'' system.
-The detectors and the push-pull system are explained in more detail in Section~\ref{ILC:detectors}.\\
-Finally, after collision the spent beams are guided through the extraction line towards the main beam dumps, where they are dumped.
+The detectors are explained in more detail in Section~\ref{ILC:detectors}.
+The layout of the IR hall and the two detectors is shown in Figure~\ref{fig:ILC_IRhall}.
+\\After collision the spent beams are guided through the extraction line towards the main beam dumps, where they are dumped.
 The current designs for the main beam dumps are based on a water tank, using high-pressure water with velocity flow systems.
 Since the water tanks are designed to be sufficient for all energy and luminosity stages, they are supposed to withhold a particle beam with a beam power of \SI{14}{\mega\watt} for the \SI{1}{\TeV} operation~\cite[p. 18]{TDR32}.
 This leads to high irradiation of the beam dump surrounding and dangerous conditions for maintenance staff.
 In Chapter~\ref{BeamDumps}, which talks about the simulation of the main beam dumps done for this thesis, more details are given for the current beam dump designs.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\textwidth]{Figures/IR_hall.pdf}
+\caption[ILC Interaction Region]{Hall of the ILC Interaction Region with the two detectors in the ``push-pull'' system~\cite[p. 29]{TDR1}.}
+\label{fig:ILC_IRhall}
+\end{figure}
 
 \subsection{Staging}
 \label{ILC:layout:staging}
@@ -530,7 +537,7 @@ The focus will lie on \sid, since all the background studies presented in this t
 
 \subsection{The Silicon Detector}
 \label{ILC:SiD}
-The \sid is designed to be a robust, compact detector.
+The \sid is designed to be a robust, compact multi-purpose detector.
 Its vertex and tracker system, as well as the electromagnetic calorimeter (ECAL) are purely based on silicon sensors.
 The silicon design, in comparison to other designs for the vertex and tracking detectors, is more robust regarding the beam background and timing~\cite[cf. p. 57ff]{TDR4}.
 \\Being designed to be compact, the measurements for the full detector are \SI{14}{m} in height and \SI{11}{m} in length.
@@ -578,6 +585,12 @@ BeamCal & Semiconductor-W & 326.5 & 344 & 14.0 \\
 \hline\hline
 \end{tabularx}
 \end{table}
+
+\subsubsection{\sid subdetectors}
+\label{ILC:SiD:subdetectors}
+\sid is a multi-purpose detector aimed for providing unprecedented precision measurements of physics events.
+In order to achieve the strict \sid requirements, the individual subdetectors have to be optimized with respect to their explicit tasks and specifications.
+The following paragraphs give a more detailed overview of all \sid subdetectors.
 
 \paragraph{Vertex detector}
 The vertex detector, shown in Figure~\ref{fig:SiD_VXD}, will be the inner most subdetector with the measurements of a soda can.
@@ -688,7 +701,7 @@ With this flux of particles hitting the forward system, the BeamCal is expected 
 This large occupancy is accounted for in the readout technology~\cite[p. 133ff]{TDR4}.
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.7\textwidth]{Figures/SiD_Forward.png}
+\includegraphics[width=\textwidth]{Figures/SiD_Forward.png}
 \caption[Drawing of the \sid forward detectors]{Layout drawing of the \sid forward detectors~\cite[p. 134]{TDR4}.
 All dimensions are given in mm.}
 \label{fig:SiD_Forward}
@@ -703,22 +716,8 @@ The inner layer of Pacman is made of iron, the outer layer of boronated concrete
 The thickness is about \SI{3.4}{\meter}~\cite{SiD_Geo}.
 Its use can be seen in the simulation of the machine backgrounds in Chapters~\ref{BDS_Muons:SiD} and \ref{BeamDumps:SiDocc}.
 
-\paragraph{Detector readout architecture}
-As mentioned above, the readout architecture for the \sid detector foresees a buffer depth of four in the current design.
-The number of available buffers is an important issue for the performance of the detector, and is therefore topic of the \sid simulation studies with respect to the background occupancies.
-As explained in Section~\ref{PairBkg:occupancy} in more detail, the detector occupancy is the fraction of hits per detector cell, which is calculated by counting the hits in the individual cells.
-If the number of hits per cell exceeds the number of available buffers (the buffer depth), the cell cannot store any further hits.
-A refined detector optimization is therefore crucial with respect to the occurring background rates.
-\\Table~\ref{tab:ILC_parameters} lists the ILC beam parameters in the different ILC stages.
-The ILC will deliver beam trains, which contain 1312 beam bunches in the first stage, at a rate of \SI{5}{\hertz}.
-Each of the bunches is separated by \SI{554}{\nano\second}, resulting in a total train duration of \SI{0.72}{\milli\second}.
-The time gap of \SI{199}{\milli\second} between successive trains is used for reading out the analog signals of the detector buffers, and for their digital processing.
-The motivation of the ILC experiment is to record all measured events without rejecting any of them by the use of triggers, as explained in Section~\ref{ILC:physicsmotivation}.
-\\Due to this, the detector background occupancy has to be below a critical acceptance limit.
-For the optimization of the detector readout design and its buffer depth, detailed occupancy studies are needed.
-In all of the background simulation studies presented in the following chapters, the \sid occupancy has been evaluated with respect to the critical acceptance limit.
-
-\paragraph{\sid detector variants}
+\subsubsection{\sid detector variants}
+\label{ILC:SiD:variants}
 Since the publication of the Technical Design Report about the design details of the ILC accelerator, the detectors, and the facilities, there have been official changes to the design.
 The changes regarding the overall accelerator and facility design are suggested as Change Requests (CR), and are reviewed and approved by a Technical Change and Management Board~\cite{TCMB}. 
 Some of the Change Requests affect the detector designs directly, such as the change of L*, the distance between the interaction point (IP) and the last quadrupole magnet (QD0) of the Final-Focus system.
@@ -763,9 +762,30 @@ There are major \sid detector design variants that are subject of discussions an
  The BeamCal is expected to have an occupancy of \SI{100}{\percent} due to boosted particles as well as background particles such as the \positron\electron pairs from beam-beam interactions, as explained before.
  In order to suppress hits from these \positron\electron pairs, it was proposed to include an additional magnet in the detector design, the so-called anti-DiD (Detector Integrated Dipole) magnet~\cite{antiDiD}.
  The dipole windings of the anti-DiD are directly mounted around the \sid solenoid magnet.
- Its magnetic field has a value of \SI{600}{\gauss}, and causes locally the deflection of the pair background in the region of the BeamCal~\cite[p. 118]{TDR4}.
+ Its magnetic field has a value of \SI{60}{\milli\tesla}, and causes locally the deflection of the pair background in the region of the BeamCal~\cite[p. 118]{TDR4}.
  The pairs are swept into the outgoing beam pipe, which reduces the BeamCal occupancy.
 \end{itemize}
+
+\subsubsection{Detector readout architecture}
+\label{ILC:SiD:readout}
+As mentioned above, the readout architecture for the \sid detector foresees a buffer depth of four in the current design.
+The number of available buffers is an important issue for the performance of the detector, and is therefore topic of the \sid simulation studies with respect to the background occupancies.
+As explained in Section~\ref{PairBkg:occupancy} in more detail, the detector occupancy is the fraction of hits per detector cell, which is calculated by counting the hits in the individual cells.
+If the number of hits per cell exceeds the number of available buffers (the buffer depth), the cell cannot store any further hits.
+The buffer depth is in principle a free choice in the detector development phase.
+The more buffers a sensor has, the more hits can be stored.
+This does however not come for free, since sensors with a large number of buffers, or with dynamically allocatable buffers, have a higher power consumption.
+The additional electric circuits that are required to meet the higher demand, and with it the supplementary cooling, lead to a larger material budget, which is not desirable for the vertex detector.
+A compromise has to be made between necessary buffers and a manageable material budget, and a refined detector optimization is therefore crucial with respect to the occurring background rates.
+\\Table~\ref{tab:ILC_parameters} lists the ILC beam parameters in the different ILC stages.
+The ILC will deliver beam trains, which contain 1312 beam bunches in the first stage, at a rate of \SI{5}{\hertz}.
+Each of the bunches is separated by \SI{554}{\nano\second}, resulting in a total train duration of \SI{0.72}{\milli\second}.
+The time gap of \SI{199}{\milli\second} between successive trains is used for reading out the analog signals of the detector buffers, and for their digital processing.
+The motivation of the ILC experiment is to record all measured events without rejecting any of them by the use of triggers, as explained in Section~\ref{ILC:physicsmotivation}.
+\\Due to this, the detector background occupancy has to be below a critical acceptance limit.
+For the optimization of the detector readout design and its buffer depth, detailed occupancy studies are needed.
+In all of the background simulation studies presented in the following chapters, the \sid occupancy has been evaluated with respect to the critical acceptance limit.
+
 
 \subsection{The International Large Detector} 
 \begin{figure}[h]

@@ -86,6 +86,7 @@ BCOR5mm]{scrbook}
 \usepackage{setspace}
 \usepackage{textcomp}
 \usepackage{siunitx}
+\usepackage{eurosym} %For the EURO symbold
 \usepackage{bm}
 \usepackage{upgreek}
 %\usepackage[]{units}
@@ -95,7 +96,6 @@ BCOR5mm]{scrbook}
 \setcounter{secnumdepth}{3}
 
 \usepackage{float}%for figures in minipages
-
 \usepackage{wrapfig}%for wrapping text around figures
 
 \usepackage{todonotes} %Added by Phill so that todo lists can be added
@@ -188,7 +188,7 @@ BCOR5mm]{scrbook}
 \selectlanguage{english}
 \tableofcontents         %%% create a TOC
 \listoffigures
-%\listoftodos
+\listoftodos
 
 \mainmatter              %%% now the thesis really starts
 \include{Chapters/Introduction}          %%% include all chapters in order
@@ -198,6 +198,7 @@ BCOR5mm]{scrbook}
 %\include{Chapters/BackgroundTools}
 \include{Chapters/PairBackground}
 \include{Chapters/BDS_FF}
+\include{Chapters/ATF}
 \include{Chapters/BeamDumps}
 %\include{Chapters/ILCscenarios}
 \include{Chapters/Results}
@@ -222,4 +223,6 @@ BCOR5mm]{scrbook}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %TODO:Occupancy plots: Change 'number' to 'fraction' on y-axis labels
 %TODO:Change 'ratio' to 'fraction' in the text
+%TODO:cite before full stop
+%TODO:Subfigure-Bennenung im Text einheitlich: 3 (a) und nicht 3a
 %TODO:Write acknowledgements
