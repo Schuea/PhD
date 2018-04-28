@@ -135,7 +135,7 @@ With the two different shielding scenarios, the muon rate is again reduced signi
 \hline\hline
 \textbf{Scenario} & \multicolumn{6}{>{\centering}p{10cm}}{\textbf{Muons per bunch crossing in a detector with 6.5\,m radius}}\\
 & \multicolumn{3}{>{\centering}p{5cm}}{ILC500} & \multicolumn{3}{>{\centering}p{5cm}}{ILC250}\\
-& electron line & positron line & total & electron line & positron line & total\\
+& positron line & electron line & total & positron line & electron line & total\\
 \hline
  No Spoilers & 71.6 & 58.5 & 130.1 & 21,1 & 17,2 & 38.3\\
  5 spoilers& 2.3 & 2 & 4.3 & 0.73 & 0.57 & 1.3\\
@@ -269,9 +269,10 @@ Since none of the cells are hit by more than three muons, the occupancy in the H
     \includegraphics[width=\textwidth]{Figures/BDS_muons/Occupancy_Comparison_All_layers_deadcells_HcalBarrel.png}
    \caption{Normalized number of dead cells}
    \end{subfigure}
-   \caption[\sid HCAL barrel occupancy from BDS muons]{Subfigure (a) shows the muon occupancy in the \sid HCAL barrel after a full bunch train, whilst subfigure (b) shows the number of dead cells resulting from this occupancy.
+   \caption[\sid HCAL barrel occupancy from BDS muons]{Subfigure (a) shows the muon occupancy in the \sid HCAL barrel after a full bunch train, whilst subfigure (b) shows the fraction of dead cells resulting from this occupancy.
    Both histograms are normalized by the total number of cells in the HCAL barrel.
-   The first bin of subfigure (a) contains the total number of cells, because of which the value of this bin is 1 for all cases.}
+   The first bin of Subfigure (a) contains the total number of cells, because of which the value of this bin is 1 for all cases.
+   \\The dashed pink lines in Subfigure (b) indicate the the buffer depth of four for the current sensor design, and the guideline of \num{e-4} for a critical acceptance limit.}
    \label{fig:BDS_Muons:HcalBarrel}
  \end{figure}
 \\For the \sid tracker endcaps, however, the number of hits per cell reaches a maximum of 30 (see Figure~\ref{fig:BDS_Muons:SiTrackerEndcap}).
@@ -299,9 +300,10 @@ Plots of the occupancy for the remaining \sid subdetectors can be found in Appen
     \includegraphics[width=\textwidth]{Figures/BDS_muons/Occupancy_Comparison_All_layers_deadcells_SiTrackerEndcap.png}
    \caption{Normalized number of dead cells}
    \end{subfigure}
-   \caption[\sid tracker endcap occupancy from BDS muons]{Subfigure (a) shows the muon occupancy in one of the \sid tracker endcaps after a full bunch train, whilst subfigure (b) shows the number of dead cells resulting from this occupancy.
+   \caption[\sid tracker endcap occupancy from BDS muons]{Subfigure (a) shows the muon occupancy in one of the \sid tracker endcaps after a full bunch train, whilst subfigure (b) shows the fraction of dead cells resulting from this occupancy.
    Both histograms are normalized by the total number of cells in the tracker endcap.
-   The first bin of subfigure (a) contains the total number of cells, because of which the value of this bin is 1 for all cases.}
+   The first bin of Subfigure (a) contains the total number of cells, because of which the value of this bin is 1 for all cases.
+   \\The dashed pink lines in Subfigure (b) indicate the the buffer depth of four for the current sensor design, and the guideline of \num{e-4} for a critical acceptance limit.}
    \label{fig:BDS_Muons:SiTrackerEndcap}
  \end{figure}
  
@@ -327,5 +329,6 @@ However, the wall serves as a tertiary containment device against muons and othe
 The decision might be to keep the wall anyway for the protection of personnel and maintenance staff, depending on the restrictions imposed by radiation safety regulations.
 A solution to lessen the price for the wall would be to change its design such that its thickness is reduced and it is not magnetized.
 The wall would then still serve as additional shielding but does not deflect charged particles. \\The next step for the studies of the muon shielding would be to also adjust the detector specific Pacman design with respect to different materials and the possibility of magnetizing the Pacman volume.
-
-%---------------------------------------------------
+\\Additionally, the timing of the muons give reason to study possible time gates in the individual subdetectors.
+Since the muons hit the muon system first and then penetrate the inner subdetector, there are distinct hit times.
+Specific time gates for each subdetector could be decided on in order to reduce the background occupancy.

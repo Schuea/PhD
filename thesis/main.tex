@@ -94,6 +94,7 @@ BCOR5mm]{scrbook}
 \usepackage[super]{nth} %e.g. for 20th century -> \nth{20} century
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
+\widowpenalties=3 10000 10000 150 %For avoiding single words or lines on the next page
 
 \usepackage{float}%for figures in minipages
 \usepackage{wrapfig}%for wrapping text around figures
@@ -188,7 +189,7 @@ BCOR5mm]{scrbook}
 \selectlanguage{english}
 \tableofcontents         %%% create a TOC
 \listoffigures
-\listoftodos
+%\listoftodos
 
 \mainmatter              %%% now the thesis really starts
 \include{Chapters/Introduction}          %%% include all chapters in order
