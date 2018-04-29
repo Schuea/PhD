@@ -102,8 +102,8 @@ BCOR5mm]{scrbook}
 \usepackage{todonotes} %Added by Phill so that todo lists can be added
 \setlength{\marginparwidth}{2cm} %This stops the todo notes from overflowing the page
 
-\setlength{\parskip}{\baselineskip}%
-\setlength{\parindent}{0pt}%
+%\setlength{\parskip}{\baselineskip}%
+\setlength{\parindent}{8mm}%
 
 \newcommand{\myparagraph}[1]{\thesubsubsection\ \alph{paragraph}{#1}\mbox{}\newline}
 \newcommand{\redcomment}[1]{\ding{110}\ding{43}\textcolor{red}{#1}}
@@ -189,7 +189,7 @@ BCOR5mm]{scrbook}
 \selectlanguage{english}
 \tableofcontents         %%% create a TOC
 \listoffigures
-%\listoftodos
+\listoftodos
 
 \mainmatter              %%% now the thesis really starts
 \include{Chapters/Introduction}          %%% include all chapters in order

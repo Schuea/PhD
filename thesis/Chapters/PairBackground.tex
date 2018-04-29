@@ -5,9 +5,14 @@
  At the International Linear Collider, the collisions of electron and positron beams are accompanied by the production of background particles.
  Unlike at hadron colliders, the main background contribution does not arise from QCD processes and underlying events, but rather from the interaction of the colliding beam's electromagnetic fields.
  The secondary \positron\electron pairs form a significant background, the so-called pair background, for the inner detectors, and therefore need to be studied in great detail with respect to the detector arising occupancy.
- This chapter discusses the effect of the ILC beam parameters on the pair background, and the impact of the \positron\electron pairs on the \sid detector.
+ \\This chapter discusses first the Monte Carlo event generator in Section~\ref{PairBkg:GuineaPig}, with which the pair background processes have been generated.
+ Afterwards, the characteristics of these background particles are explained in Section~\ref{PairBkg:helix}, followed by several sections on their dependency on ILC running schemes and \sid detector variants.
+ Thus, Section~\ref{PairBkg:envelopes} presents the dependency on the ILC beam parameters, and Section~\ref{PairBkg:ILCstages} the dependency on the ILC collision energy and the luminosity.
+ \\In all sections, the pair background dependencies are analyzed with respect to its impact on the \sid detector performance.
+ Even the detector design itself and its readout architecture have an effect on the pair background occupancy, as shown in Sections~\ref{PairBkg:SiD_design} and~\ref{PairBkg:hitmaps}.
 \end{chapterabstract}
-
+\vspace*{0.5cm}\newline
+\noindent
 The pair background is produced by high cross section processes that are caused by beam-beam interactions.
 The production processes are described in Section~\ref{BeamBeam}.
 The secondary electrons and positrons show a characteristic energy and density distribution, which extends to the inner barrel layers and the forward detectors of \sid.
@@ -494,6 +499,7 @@ The Technical Change and Management Board in the end decided on set (A) for the 
 The results of further studies regarding the ILC250 stage are henceforth produced with this new official beam parameter set (A).
 
 \section{Dependency of the pair background occupancy on detector design choices}
+\label{PairBkg:SiD_design}
 Figure~\ref{fig:PairBkg:ILC250_Occupancy_SetA} shows the result from another ILC250 occupancy study, using the ILC250 parameter scheme (A).
 After having studied the impact of the beam parameters, the effect of different \sid variants on the vertex detector occupancy was also examined.
 The four geometry variants, which are compared in this plot, are combinations of the old or new L* value, with and without the \sid anti-DiD field.
@@ -612,6 +618,7 @@ By applying a trigger such that those particles are dismissed, which are hitting
  
  
 \section{Comparing the pair background occupancy of different ILC stages}
+\label{PairBkg:ILCstages}
 As it has been clarified in the previous sections, the pair background envelopes and the arising vertex detector occupancy are dependent on several factors:
 the ILC beam parameters, the center-of-mass energy, and the \sid geometry regarding the BeamCal and the anti-DiD field.
 \\However, due to the interplay of several of these factors, the dependencies are also not obvious in certain cases, as can be seen in Figure~\ref{fig:PairBkg:ILC500-ILC250_Occupancy}.
@@ -741,17 +748,20 @@ The pair background arises from the interaction between the electromagnetic fiel
 These interactions are dependent on the ILC beam parameters, which therefore affect the pair background characteristics.
 This chapter has also shown that the pairs, which originate from the IP as well as backscatter from the BeamCal, populate the inner \sid subdetectors.
 Especially in the vertex detector, it is crucial to investigate the impact of the beam parameters in great detail.
-As the width of the pair background envelopes varies and the tracks of the pairs reaches towards the innermost vertex detector layers, the occupancy is directly affected by the change in the beam parameters.
-The presented studies have shown that the occupancy from the pair background does not only depend on the beam parameters, but also on the center-of-mass energy, the number of beam bunches per train, and the \sid detector geometry.
+As the width of the pair background envelopes varies and the tracks of the pairs reaches towards the innermost vertex detector layers, the occupancy is directly affected by the change in the beam parameters, as explained in Section~\ref{PairBkg:envelopes}.
+The presented studies have shown that the occupancy from the pair background does not only depend on the beam parameters, but also on the center-of-mass energy and the number of beam bunches per train (Section~\ref{PairBkg:ILCstages}), as well as on the \sid detector geometry (Section~\ref{PairBkg:SiD_design}).
 These findings are a valuable input to design decisions regarding the ILC accelerator and the \sid detector, and were already consulted for the Change Request decision of the new beam parameters for the ILC stage at a center-of-mass energy of \SI{250}{\GeV}.
-\\With a buffer depth of four in the current \sid detector design, the detector occupancies for the ILC500 and the new parameter set of the ILC250 are comparable.
+
+In Section~\ref{PairBkg:ILCstages}, it was shown that with a buffer depth of four in the current \sid detector readout design, the detector occupancies for the ILC500 and the new parameter set of the ILC250 are comparable.
 For the ILC500 ``LumiUp'', however, the occupancy is increased significantly, because of which the number of buffers has to be raised to eight in order to yield similar detector performances.
 According to these results, the \sid vertex detector has to be upgraded as well, when the ILC is upgraded to the ``LumiUp'' stage.
-\\However, the pair background timing study has indicated that time gates can reduce the number of hits in the vertex detector by about \SI{12}{\percent}.
-This has the effect that the pair background occupancy in the vertex detector is reduced by about \SI{25}{\percent} to \SI{36}{\percent}.
+
+However, the pair background timing study (in Section~\ref{PairBkg:hitmaps}) has indicated that time gates can reduce the number of hits in the vertex detector by about \SI{12}{\percent}.
+This has the effect that the pair background occupancy in the vertex detector is reduced by about \SI{25}{\percent} to \SI{36}{\percent}, as then shown in Section~\ref{PairBkg:ILCstages}.
 For both the ILC250 and the ILC500 stage, that leads to the effect that the occupancy of the \sid vertex detector barrel is reduced to below the critical occupancy limit for a buffer depth of four.
 Also for the ILC500 ``LumiUp'' stage, the fraction of dead cells for a buffer depth of four is still above the critical limit, but could be reduced significantly by applying the time gate.
 Already a buffer depth of six would bring the occupancy below the limit.
-\\Overall, it has been demonstrated that the pair background occupancy in the \sid detector is dependent on the ILC running scheme as well as on the \sid detector geometry.
+
+Overall, it has been demonstrated that the pair background occupancy in the \sid detector is dependent on the ILC running scheme as well as on the \sid detector geometry.
 By changing the \sid readout architecture design such that six buffers are used instead of four, and that a time gate is applied that rejects hits after \SI{10}{\nano\second}, the detector performance in all subdetectors will be comparable throughout all studied ILC stages.
 An upgrade of the vertex detector for the ILC500 ``LumiUp'' stage would not be necessary with respect to the pair background occupancy.

@@ -3,12 +3,13 @@
 
 \begin{chapterabstract}
  Particles produced in beam interactions with the accelerator components present another source of background for particle detectors.
- With thorough simulations and measurements, the characteristics of the machine background can be understood, and its effect on the detector performances evaluated.
+ With thorough simulations, the characteristics of the machine background can be understood, and its effect on the detector performances evaluated.
  \\In the first part of this chapter, the arising detector background from muons that are created in the Beam Delivery System of the International Linear Collider is explained.
  In the second part, different shielding options are discussed with respect to their effectiveness to prevent the muons from reaching the detector experiments.
- The simulation of the muon production was done with \mucarlo, before the occupancy in the Silicon Detector was investigated in a full detector simulation.
+ The simulation of the muon production was done with \mucarlo (Section~\ref{BDS_Muons:MUCARLO}), before the occupancy in \sid was investigated in a full detector simulation presented in Section~\ref{BDS_Muons:SiD}.
 \end{chapterabstract}
-
+\vspace*{0.5cm}\newline
+\noindent
 After the beam acceleration in the main linacs of the ILC, the Beam Delivery System (BDS) is the part of the accelerator that prepares the beams for collision.
 As described in Section~\ref{ILC:layout:details}, it contains numerous subsystems and components for beam collimation and focusing. 
 Depending on the aperture of the collimators, some fraction of the beam halo hits the collimator material, which has the desired effect of collimating the beam, but also the undesired effect of producing background particles.
@@ -157,6 +158,7 @@ For details on these detector characteristics, please refer to Section~\ref{ILC:
 After a file-format conversion, the \mucarlo output files containing the four-vectors of the muons for the different shielding scenarios and center-of-mass energies served as the particle source input to \slic.
 
 \subsection{Muon hit distribution}
+\label{BDS_Muons:hit_time_dis}
 For visualizing the hit distribution in the \sid detector, event displays (see Figure~\ref{fig:BDS_Muons:wired4}) were made using WIRED4~\cite{Wired4}.
  \begin{figure}[htbp]
  \captionsetup[subfigure]{justification=centering}
@@ -318,17 +320,21 @@ Plots of the occupancy for the remaining \sid subdetectors can be found in Appen
 This section presented a study of the effect of the muons from the BDS on the \sid occupancy for two different shielding options.
 For the first option, five magnetized spoilers would be installed at different locations along the beam line.
 For the second option, a magnetized wall would be placed between these spoiler locations and the interaction region, as an additional shielding device.
-The comparison of the occupancy in these two cases revealed that the magnetized wall reduces the occupancy by a significant amount.
+
+In Section~\ref{BDS_Muons:sidocc}, the comparison of the occupancy in these two cases revealed that the magnetized wall reduces the occupancy by a significant amount.
 Nevertheless, the occupancy level is in both cases far from the critical limit of \num{e-4}, which is especially important in the tracking systems of the \sid detector.
 For these subdetectors, a minimal background occupancy is crucial to guarantee a high performance in the track reconstruction of physics events.
-For a center-of-mass energy of \SI{250}{\GeV} in the first ILC stage, the \sid tracker endcap occupancy for an assumed buffer depth of four is about \num{4e-9} for the minimal shielding option without the wall.
+For the first ILC stage, the \sid tracker endcap occupancy for an assumed buffer depth of four is about \num{4e-9} for the minimal shielding option without the wall.
 Since in the next ILC stage at a center-of-mass energy of \SI{500}{\GeV}, the number of muons reaching the detector is larger by a factor of three, also the occupancy for the same buffer depth is increased by about a factor of three for the ``5 spoilers'' case.
 However, it still does not exceed \num{e-7}.
-\\Overall, the magnetized wall does not seem to be necessary in order to limit the muon occupancy in \sid, for both studied center-of-mass energies.
+\\The total number of muons produced in the BDS in both of the studied ILC stages is listed in Table~\ref{tab:BDS_Muons_muon_numbers}.
+
+Overall, the magnetized wall does not seem to be necessary in order to limit the muon occupancy in \sid, for both studied center-of-mass energies.
 However, the wall serves as a tertiary containment device against muons and other machine background particles.
 The decision might be to keep the wall anyway for the protection of personnel and maintenance staff, depending on the restrictions imposed by radiation safety regulations.
 A solution to lessen the price for the wall would be to change its design such that its thickness is reduced and it is not magnetized.
 The wall would then still serve as additional shielding but does not deflect charged particles. \\The next step for the studies of the muon shielding would be to also adjust the detector specific Pacman design with respect to different materials and the possibility of magnetizing the Pacman volume.
-\\Additionally, the timing of the muons give reason to study possible time gates in the individual subdetectors.
-Since the muons hit the muon system first and then penetrate the inner subdetector, there are distinct hit times.
-Specific time gates for each subdetector could be decided on in order to reduce the background occupancy.
+
+Additionally, the timing of the muons (discussed in Section~\ref{BDS_Muons:hit_time_dis}) gives reason to study possible time gates in the individual subdetectors.
+Since the muons hit the muon system first and then penetrate the inner subdetectors, there are distinct hit times.
+Specific time gates for each subdetector could be decided on, in order to reduce the background occupancy.

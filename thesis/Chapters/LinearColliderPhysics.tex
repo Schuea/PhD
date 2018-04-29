@@ -4,11 +4,11 @@
 \begin{chapterabstract}
 Since the invention of the first particle accelerators in the late 1920s, many different forms of accelerators were invented and developed over the years. 
 Even though they may differ in shape and form, they all rely on the same principles. 
-After a brief introduction of these principles of accelerator physics, there will be a description of the two classes of particle accelerators that are mainly used for high-energy physics nowadays: linear and circular accelerators. 
-By looking at their advantages and disadvantages, the differences between them will be highlighted.
+After a brief introduction of the principles of accelerator physics in Sections~\ref{AccPhysics:Principles} -~\ref{AccPhysics:Bunching}, there will be a description of the two classes of particle accelerators that are mainly used for high-energy physics nowadays: linear and circular accelerators. 
+By looking at their advantages and disadvantages, the differences between them will be highlighted in Section~\ref{AccPhysics:Linear-Circular}.
 \end{chapterabstract}
-\newline
-
+\vspace*{0.5cm}\newline 
+\noindent
 After Ernest Rutherford had demonstrated the nuclear reactions of nitrogen with alpha particles from radioactive decays in 1919, he recognized the need for other more controlled sources of accelerated particles~\cite{Rutherford}.
 In the following years, physicists endeavored to develop necessary devices, and found that the key principle in particle acceleration lies in electrostatics~\cite[p. 3f]{Livingston}.
 
@@ -20,14 +20,16 @@ In a time independent electric field $\vec{E}$ with potential $U$, the particle 
  \Delta E = q \int \vec{E}d\vec{r} = qU
 \end{equation}
 The particle's charge, expressed in the elementary charge $e$, is simply multiplied by the electric potential difference in Volts in order to calculate the gain or loss of the particle's kinetic energy. 
-Out of convenience, the unit for energy in particle physics is therefore ``electronvolt'' (eV).\\
+Out of convenience, the unit for energy in particle physics is therefore ``electronvolt'' (eV).
+
 By this logic, a particle is accelerated to higher energies by applying higher and higher electrostatic fields. 
 This was done in the beginning of particle accelerators by increasing the voltage applied to a capacitor and passing the charged particle through the field. 
 Unfortunately, there are limits to the amount of voltage that can be applied before an electric breakdown.
 The solution seems simple: putting several capacitors in a row.
 But again, this can not be done with electrostatic capacitors since the field gradient between two different capacitors is directed in the opposite direction.
 A particle traveling from one capacitor to the next would then lose kinetic energy again in the gap between two capacitors.
-A solution was quickly found by using time dependent electric fields, which change their field  orientation periodically.\\
+A solution was quickly found by using time dependent electric fields, which change their field  orientation periodically.
+
 In simple terms, these are the key principles of linear particle accelerators.
 Better accelerating structures such as drift tubes and later on superconducting radio frequency (RF) cavities were developed over the years.
 The first linear accelerator using normal conducting drift tubes of increasing lengths was built and demonstrated by Rolf Wider\o e in 1928~\cite[p. 6]{Wilson}.
@@ -40,7 +42,7 @@ Due to the increase in the particles' energy, the tubes need to have increasing 
 \caption[Schematic layout of a Wider\o e linac]{Schematic layout of a linear accelerator with drift tubes of increasing lengths after the design by Rolf Wider\o e~\cite[p. 40]{Hinterberger}.}
 \label{fig:Wideroe_Linac}
 \end{figure}
-\\
+
 Nowadays, particle accelerators all over the world mainly use RF cavities instead of drift tubes.
 High-power RF cavities are made of superconducting material, since its electric resistance is minimal.
 Unlike before, the acceleration takes place inside the cavities, and all cavity cells are of the same length and shape.
@@ -68,7 +70,7 @@ Its shape is called ``TESLA-style'', and its accelerating gradient exceeds \SI{3
 The RF field direction inside a cell is oscillating with the RF frequency, and neighboring cavity cells show opposite field directions (see Figure~\ref{fig:Cavities} (b)).
 The frequency is then tuned such that the beam always experiences an accelerating RF phase.
 In comparison to the drift tubes explained above, the matching of the particles to the wanted accelerating RF phase is therefore done here by time dependent frequencies, whilst for the drift tube structures it is done purely by the change in the geometry of the tubes.
-\\
+
 The development of the linear accelerating structures remains a significant factor for modern particle accelerators.
 Nevertheless, also the advance in the research efforts for other accelerator designs has an essential impact:
 The drift tube linac (short for linear accelerator) was not the only accelerator concept developed by Rolf Wider\o e, he even more importantly invented the very first accelerating structures using magnetic fields.
@@ -90,7 +92,8 @@ qvB\vec{e_r} &= \frac{mv^2}{r}\vec{e_r} \nonumber \\
 Since the momentum $p$ of the charged particle rises over time during the acceleration, the radius $r$ of its circular path increases if the magnetic field $B$ is constant.
 The accelerator hence has to be built accordingly, taking the increase in the radius into account, or needs to use magnets with variable field strengths.
 The latter is done in synchrotron machines, a type of circular accelerator combining the principles of all particle accelerators mentioned above: acceleration in RF cavities, variation of the RF frequency, and variable magnetic field strengths.
-In this way, the particles are traveling along a stationary orbit, passing through the same bending dipole magnets and cavities over and over again until the desired beam energy is reached.\\
+In this way, the particles are traveling along a stationary orbit, passing through the same bending dipole magnets and cavities over and over again until the desired beam energy is reached.
+
 To insure the stability of the orbit, additional quadrupole magnets focus the beam horizontally and vertically onto the ideal particle orbit.
 However, as the focal length of these quadrupole magnets depends on the particle momentum, off-momentum particles due to the natural spread in the particle energy cause the quadrupoles to introduce so-called chromatic aberrations.
 Therefore, also sextupole and possibly octupole magnets are needed, which then correct orbital fluctuations.
@@ -144,7 +147,7 @@ A beam of positively charged particles going into the page would be focused in t
 \caption[Schematic drawings of a quadrupole magnet]{Schematic drawings of the cross section of an ideal quadrupole magnet (a), and of the magnetic field lines in the center of such a quadrupole magnet (b).}
 \label{fig:Quadrupole}
 \end{figure}
-\\
+
 Due to the fact that there are focusing and defocusing quadrupoles, so-called FODO structures are commonly used in particle accelerators.
 FODO is an alternating structure made out of focusing quadrupole magnets (``F'') and defocusing ones (``D''), with drift paths (``O'') in between (see Figure~\ref{fig:FODO}). 
 The naming only refers to one of the planes (either horizontally or vertically), since a quadrupole focuses horizontally whilst it defocuses vertically or vice versa.
@@ -176,7 +179,8 @@ The amplitude is also shown as the maximum extent in x in the so-called phase-sp
 The phase-space is spanned by x and x', where x can stand for the x and y-direction). 
 x represents the position of the particle, and x' represents the change in position along the particle trajectory $s$, so that x'$=\frac{d\rm{x}}{ds}$.
 The beam emittance $\epsilon$ can be defined in terms of the phase-space ellipse more accurately than it was done above.
-$\epsilon$ is hence defined as the area (divided by $\pi$) of the phase-space ellipse.\\
+$\epsilon$ is hence defined as the area (divided by $\pi$) of the phase-space ellipse.
+
 The ellipse drawn in the phase-space illustrates the qualities of the particle beam.
 Since the particles' spread in position and momentum varies along the beam line, the shape of the ellipse changes constantly, but the area of the ellipse stays the same for energy-conserving systems.
 The normalized emittance $\epsilon^*$, which was explained above, is the quantity which is adiabatically invariant under energy change.
@@ -187,11 +191,11 @@ The normalized emittance $\epsilon^*$, which was explained above, is the quantit
 \\The variables $\alpha$ and $\gamma$ are defined here as: $\alpha = -\frac12\beta'$ and $\gamma = \frac{1+\alpha^2}{\beta}$~\cite[cf. p. 283ff]{Wangler}.}
 \label{fig:PhaseSpaceEllipse}
 \end{figure}
-\\
+
 The actual transverse size of the beam is not yet fully defined by the spatial amplitude of the betatron oscillations~\cite[cf. p. 108ff]{Conte}.
 The deviation from the ideal particle trajectory due to the momentum spread has to be taken into account, which is defined by the dispersion function $\eta$.
 Like $\epsilon$ and $\beta$, it is dependent on the position along the beam trajectory, and can be defined as $\eta = \frac{dx}{d\delta}$, with the fractional deviation from the ideal particle momentum $p_0$: $\delta = \Delta p/p_0$.
-\\
+
 With this knowledge, the overall beam size can be calculated by using the betatron oscillation amplitude as well as the spread in the particle momentum distribution for all particles:
 \begin{align}
  \sigma&=\sqrt{\sigma^2_{betatron}+\sigma^2_{dispersion}}\\
@@ -204,7 +208,8 @@ With this knowledge, the overall beam size can be calculated by using the betatr
 Apart from the transverse beam dynamics, there are also effects in the longitudinal direction, concerning the movement of the particles along the beam trajectory.
 As mentioned above, both modern accelerator concepts, linear accelerators as well as synchrotrons, use  RF cavities in order to accelerate the particles.
 Due to the nature of these accelerating structures, there is a certain phase of the RF frequency that can accelerate the particles in an optimal way.
-In order to provide this ideal acceleration to all beam particles, the beam has to be bunched.\\
+In order to provide this ideal acceleration to all beam particles, the beam has to be bunched.
+
 In circular accelerators, this bunching happens naturally due to the choice of the RF frequency and the timing of the beam arriving at the accelerating cavities.
 The RF frequency is chosen such that the particles with the ideal momentum $p_0$ arrive at the cavity at the synchronous phase $\psi_s$, which is off the crest of the RF wave.
 Depending on the system,  $\psi_s$ is then appointed to be either on the rising or the falling edge of the accelerating RF wave, or at the zero crossing.
@@ -247,7 +252,8 @@ Over a set of several cavities, bunches are formed.
 \caption[Velocity bunching]{Velocity bunching: The beam arrives at the RF cavity such that the bunch head experiences a decelerating RF phase, whilst the bunch tail experiences an accelerating force.}
 \label{fig:Velocity_bunching}
 \end{figure}
-\\After the pre-acceleration, the now relativistic bunches can be further compressed to the desired bunch length by so-called bunch compressors, which use ``magnetic compression''.
+
+After the pre-acceleration, the now relativistic bunches can be further compressed to the desired bunch length by so-called bunch compressors, which use ``magnetic compression''.
 There are several methods used, which all in principle are based on the idea of shortening the bunch by exploiting the momentum spread of the beam particles~\cite[cf. p. 378ff]{Wiedemann}.
 One of the methods uses the same idea as explained above for circular accelerators.
 It is illustrated in Figure~\ref{fig:Magnetic_compression}.
@@ -272,11 +278,11 @@ Illustration based on~\cite[p. 75]{Bunching}.}
 \label{AccPhysics:Linear-Circular}
 These transverse and longitudinal beam dynamics, described in the sections above, are of course valid for circular as well as linear accelerators.
 In both machines, the acceleration with RF cavities, for instance, is accompanied by beam deflections and corrections with the help of magnets.
-Naturally, the beam line of a circular accelerator contains on average more bending magnets than a linear accelerator.\\
-Currently, the world's largest circular particle collider is the Large Hadron Collider (LHC) at CERN in Switzerland, a synchrotron with a circumference of about \SI{27}{\kilo\meter}.
+Naturally, the beam line of a circular accelerator contains on average more bending magnets than a linear accelerator.
+
+Currently, the world's largest circular particle collider is the Large Hadron Collider (LHC) at CERN, a synchrotron with a circumference of about \SI{27}{\kilo\meter}.
 The design collision energy of the two colliding proton beams is \SI{14}{\TeV}, and its nominal peak luminosity \lumi is \SI{e34}{\centi\meter^{-2}\second^{-1}}~\cite[p. 3]{LHC_Paper}.
 The collision energy $\sqrt{s}$, or often called center-of-mass energy $E_{cm}$, between two relativistic beams is calculated as shown in Section~\ref{Production_modes}.
-
 
 The luminosity of a particle collider is proportional to the rate of collisions that can occur, and it is defined as:
 \begin{align}
@@ -300,12 +306,14 @@ Since the LHC detectors only measure events from inelastic scattering, the LHC e
 Every second about 780 million events are occurring at the LHC.
 With its high luminosity and high collision energy, the possible physics processes from the hadron collisions cover wide energy ranges, because of which it is a so-called ``discovery machine''.
 New particles, first seen for example as resonance peaks in the measured mass spectra, can be discovered easier than at accelerators with smaller collision energy due to the large phase-space.
-This was the case in 2012 for instance, when the LHC experiments found a peak at an invariant mass of about \SI{126}{\GeV}, shortly after recognized as the very first measurement of a Higgs boson~\cite{Higgs,Higgs2}.\\
+This was the case in 2012 for instance, when the LHC experiments found a peak at an invariant mass of about \SI{126}{\GeV}, shortly after recognized as the very first measurement of a Higgs boson~\cite{Higgs,Higgs2}.
 %The reason why large synchrotron rings need pre-accelerators is that the range for changing the magnet's field strength is limited.
+
 Why these so-called ``discovery machines'' are hadron and not lepton colliders, and why they are circular and not linear, is to be explained with the physical qualities of the colliding particles.
 Hadrons are by definition composite particles, the actual colliding particles in a collision are therefore their partons, the constituents of the hadrons.
 The energy that the single partons have follows a certain probability function, leading to the fact that the collision energy in hadron colliders can cover a large range.
-This so-called deep inelastic scattering is explained in more detail in Chapter~\ref{StandardModel}.\\
+This so-called deep inelastic scattering is explained in more detail in Chapter~\ref{StandardModel}.
+
 In contrast to that, a collision of leptons as elementary particles is the interaction of exactly these leptons at exactly their given energy.
 This is one of the reasons why lepton colliders are called ``precision machines''.
 Nevertheless, discoveries of new particles have also happened at lepton machines, such as the discovery of the charm quark in 1974~\cite{charm} and the tau lepton in 1975~\cite{tau} at the \positron\electron collider SPEAR~\cite{SPEAR}.
@@ -317,7 +325,8 @@ One advantage of circular accelerators was already mentioned, namely the possibi
 This is not possible in linear colliders, since the beams are not reused but dumped after every collision.
 The full collision energy has to be gained in a single go.
 The only way to increase the collision energy of a linear collider is to make the accelerating line longer, or to use accelerating structures with higher gradients.
-So, why do linear colliders exist at all?\\
+So, why do linear colliders exist at all?
+
 The answer lies in the synchrotron radiation, radiation in the form of photons being emitted by deflected charged particles.
 Every deflection in a magnetic field yields an energy loss in the form of this synchrotron light, and the smaller the radius of the accelerator's bending magnets, the more energy loss the beam suffers from.
 The synchrotron radiation power is given as~\cite[p. 33]{Wille}:
@@ -346,11 +355,11 @@ The synchrotron radiation also causes damage to the particle detectors as well a
 The only way to prevent the sensitive devices from the radiation damage is to use shielding materials and to build up shielding walls where needed.
 %Additionally, due to the influence of the synchrotron radiation on the beam energy, the uncertainties on the physics measurements of the detector experiments increase because the measurements rely on the knowledge of the beam energy.
 Additionally, the constant, but fluctuating beam energy loss increases the uncertainties on the physics measurements, as the measurements rely on a precise knowledge of the beam energy.
-\\
+
 Overall, synchrotron radiation is a critical issue for circular accelerators, and is always aimed to be minimized by using beam particles with high masses and by building accelerator rings with large radii.
 
 Concluding, a circular hadron collider lends itself to be a particle accelerator in the high-energy frontier, whereas a linear lepton collider is destined to be a collider in the precision frontier.
-\\
+
 Nevertheless, there have also been circular lepton colliders in the past, such as the Large Electron-Positron Collider (LEP) at CERN before the LHC was built into the same tunnel.
 LEP was in use from 1989 until 2000, and accelerated electrons and positrons to a center-of-mass energy of up to \SI{209}{\GeV}~\cite{LEP}.
 At such energies, the loss due to synchrotron radiation can be calculated as above, and is with \SI{3.79}{\GeV} per turn still tolerable.

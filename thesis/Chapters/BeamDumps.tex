@@ -3,13 +3,18 @@
 
 \begin{chapterabstract}
  After every beam collision, the beams of a linear collider are dumped into the main beam dumps.
- For the International Linear Collider, the main beam dump design is based on a water tank, which is tailored to absorb the beam power over a length of about \textit{\SI[detect-all]{12}{\meter}}.
- The first part of this chapter is focused on the irradiation of the water tank and its surroundings, as well as on the neutrons that are produced due to the interaction of the beam particles with the water molecules.
- The second part of this chapter discusses those neutrons which are directed backwards and reach the interaction region.
- They present an additional background for the experiments.
- In the end, suggestions for alternative beam dump designs are given.
+ For the International Linear Collider, the main beam dump design is based on a water tank, which is tailored to absorb the beam power over a length of about \SI[detect-all]{12}{\meter}.
+ \\Section~\ref{BeamDumps:fluka} describe the simulation tools \fluka and \flair, which were used for the simulation of the main beam dumps.
+ The two studied beam dump designs are presented in Section~\ref{BeamDumps:designs}.
+ Section~\ref{BeamDumps:sim_surrounding} is focused on the irradiation of the water tank and its surroundings, as well as on the neutrons that are produced due to the interaction of the beam particles with the water molecules.
+ \\The second part of this chapter discusses those neutrons which are directed towards the ILC extraction line.
+ The simulation of the neutrons traveling through the extraction line is discussed in Section~\ref{BeamDumps:sim_EXT}.
+ The neutrons reaching the interaction region present an additional background for the experiments.
+ Their effect on the \sid detector is shown in Section~\ref{BeamDumps:SiDocc}.
+ \\In the end, a suggestion for an alternative beam dump design is given in Section~\ref{BeamDumps:Alternative}.
 \end{chapterabstract}
-
+\vspace*{0.5cm}\newline
+\noindent
 The spent \positron\electron beams are directed through the extraction line (EXT) of the ILC towards the main beam dumps. 
 As can be seen in Figure~\ref{fig:BeamDumps:IP_to_Dump}, the beam dump halls are about \SI{300}{\meter} away from the interaction point (IP) in a direct line of sight.
 The extraction lines have the task of transporting the highly disrupted beams to the dumps, because of which their quadrupole magnets have a large acceptance for offsets in the beam orbit as well as in the beam momentum of up to \SI{60}{\percent}~\cite[p. 139]{TDR32}.
@@ -612,6 +617,7 @@ Due to this, the BeamCal will be designed to use radiation hard materials regard
 
 \clearpage
 \section{Alternative beam dump design}
+\label{BeamDumps:Alternative}
 The current ILC main beam dump designs are based on a water vessel.
 The previous sections have shown that due to the high material density, the ILC beam bunches are stopped over a distance of about \SI{12}{\meter}.
 This leads to a large energy dissipation in the beam dump and its surroundings.
@@ -671,25 +677,26 @@ The aim was to score neutrons, which are created in the vessel and are directed 
 
 \section{Conclusion and outlook}
 This chapter has presented several studies concerning the ILC main beam dumps.
-In the two designs that were studied, the ILC beam is dumped into a \SI{12}{\meter} long water vessel.
+The two studied designs that were described in Section~\ref{BeamDumps:designs} are based on a \SI{12}{\meter} long water vessel.
 Both vessel designs, which had been developed for the currently foreseen ILC main beam dumps, contain sophisticated vortex flow systems for dissipating the deposited energy of the beam bunches.
 Additional copper plates in the end of the vessels present enough radiation lengths to fully absorb the beam.
-The high material densities, however, have been identified with the presented \fluka simulations of the dump designs to lead to high levels of deposited energy inside and outside of the beam dump.
+The high material densities, however, have been identified with the presented \fluka simulations of the dump designs (Section~\ref{BeamDumps:sim_surrounding}) to lead to high levels of deposited energy inside and outside of the beam dump.
 In the water but also in the vessel and shielding materials, radioactive nuclei are produced, which activate the water and the surroundings.
-Activation studies have shown that the resulting dose rates after one year of cooling time still reach up to \SI{10}{\milli\sievert\per\second} in the surroundings of the dumps, which represents a large risk for maintenance personnel and demands a restriction of their duration of stay.
-\\Furthermore, particle fluxes have been studied, especially the neutron flux that originates in the water vessel and reaches back towards the extraction line.
-A second \fluka simulation of the neutrons traveling through the extraction line towards the interaction region yielded the four-vectors of the \num{5.9e6} neutrons arriving at the \sid detector.
-In a full \geant detector simulation, the hits of the neutrons in the \sid subdetectors have been 
-counted, and the arising occupancy has been shown.
+Activation studies in Section~\ref{BeamDumps:sim_surrounding:Dose} have shown that the resulting dose rates after one year of cooling time still reach up to \SI{10}{\milli\sievert\per\second} in the surroundings of the dumps, which represents a large risk for maintenance personnel and demands a restriction of their duration of stay.
+
+Furthermore, particle fluxes have been studied in Section~\ref{BeamDumps:sim_surrounding:Particle}, especially the neutron flux that originates in the water vessel and reaches back towards the extraction line.
+Section~\ref{BeamDumps:sim_EXT} presented a second \fluka simulation of the neutrons traveling through the extraction line towards the interaction region, which yielded the four-vectors of the \num{5.9e6} neutrons arriving at the \sid detector.
+\\In a full \geant detector simulation, the hits of the neutrons in the \sid subdetectors have been counted, and the arising occupancy has been shown (Section~\ref{BeamDumps:SiDocc}).
 Due to the neutron momenta and their spatial distribution, the hits are contained within the outermost layers of the \sid muon system and the BeamCal.
 
 The results of the activation study but also of the neutron background study suggest to consider a different approach for the ILC main beam dumps.
-In an additional \fluka simulation, a model of a gaseous beam dump has been studied with respect to the deposited energy, the dose equivalent, and the arising neutron flux.
+In an additional \fluka simulation explained in Section~\ref{BeamDumps:Alternative}, a model of a gaseous beam dump has been studied with respect to the deposited energy, the dose equivalent, and the arising neutron flux.
 In all three matters, the gaseous beam dump design yields results that are several orders of magnitude better than the water dump designs.
-The beam energy is dissipated throughout the length of the gas dump, and then fully absorbed at the end of the \SI{1}{\kilo\meter} long vessel.
+The beam energy is dissipated throughout the length of the gas dump, and is then fully absorbed at the end of the \SI{1}{\kilo\meter} long vessel.
 This leads to a spatial restriction of the irradiation to the gas volume and the vessel back wall.
 In addition, no measurable neutron flux at the entrance to the beam dump hall was observed in the \fluka simulation.
-\\Overall, a gaseous dump seems to be more suitable with respect to the irradiation and the radiation safety.
+
+Overall, a gaseous dump seems to be more suitable with respect to the irradiation and the radiation safety.
 Due to the required length of the vessel, in order to fully dissipate and absorb the beam power, the cost for the necessary tunnel is a clear disadvantage of this approach.
 For calculating the construction cost of the ILC main linac tunnel, an estimation of \num{22000}\,\euro\,per one meter of tunnel length has been used~\cite{TunnelCost}.
 Using this estimation, the cost for the two required gaseous beam dump tunnels (each is \SI{1}{\kilo\meter} long) would be in total \num{44}\,million\.\euro.
