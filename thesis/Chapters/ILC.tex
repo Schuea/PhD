@@ -2,9 +2,9 @@
 \label{ILC}
 \begin{chapterabstract}
 For answering the fundamental questions of mankind, it is necessary to understand the world in great detail.
-In order to confirm theories in particle physics, or to disprove them, it is often important to be able to measure the qualities of particles or their interactions to high accuracy.
+In order to confirm theories in particle physics, or to disprove them, it is often important to be able to measure the properties of particles or their interactions to high accuracy.
 For measurements in high-energy particle colliders, such precisions can only be reached in lepton colliders.
-The following sections will present a new design for such a collider on the precision frontier: the International Linear Collider (ILC). 
+This chapter will present a new design for a collider at the precision frontier: the International Linear Collider (ILC). 
 The physics motivation (Section~\ref{ILC:physicsmotivation}), the proposed layout (Section~\ref{ILC:layout}), the possible construction site (Section~\ref{ILC:site}), and the detectors (Section~\ref{ILC:detectors}) for such a capable accelerator will be explained.
 \end{chapterabstract}
 \vspace*{0.5cm}\newline
@@ -14,21 +14,23 @@ It is a machine at the energy frontier, aimed at discovering new particles at hi
 As explained in Section~\ref{AccPhysics:Linear-Circular}, both hadron and lepton colliders have advantages and disadvantages.
 In the end, it depends on the physics goals of the future collider experiment, in order to make a decision on the collider layout.
 
-The last lepton collider for high-energy physics experiments was the Large Electron-Positron Collider (LEP), which was running from 1989 until 2000~\cite{LEP}, as mentioned in Section~\ref{AccPhysics:Linear-Circular}. 
+The last lepton collider for high-energy physics experiments was the Large Electron-Positron Collider (LEP) with a center-of-mass energy of \SI{209}{\GeV}~\cite{LEP}.
+It was running from 1989 until 2000, as mentioned in Section~\ref{AccPhysics:Linear-Circular}. 
 A new lepton collider at higher collision energies was therefore envisioned, that would be complementary to the LHC, aiming rather for much needed precision than for searching for new particles at high energies.
-\\The International Linear Collider (ILC) was hence proposed, which intends to find new particles and new physics in highest precision measurements.
+\\The International Linear Collider (ILC) was hence proposed, which intends to find new particles and new physics in highest precision measurements at center-of-mass energies between \SI{250}{\GeV} and \SI{1}{\TeV}.
 In the following section, it is motivated through its physics goals.
 
 \section{Physics motivation}
 \label{ILC:physicsmotivation}
 
 The ILC is often called the future Higgs factory, which will measure the qualities of the Higgs boson with much higher precision than has been done so far.
-Additionally, the different stages of the ILC will also measure the top quark qualities, and will have access to Beyond Standard Model (BSM) physics.
-Since the first ILC stage will run at a center-of-mass energy of \SI{250}{\GeV}, this section will focus more on the measurements of the Higgs boson than of the top quark and the BSM physics.
+The full ILC program includes also measuring the top quark qualities, and Beyond Standard Model (BSM) searches.
+Since the first ILC stage will run at a center-of-mass energy of \SI{250}{\GeV}, this section will focus more on the measurements of the Higgs boson.
+In Section~\ref{Physics_later_stages}, a brief overview of further physics goals is given.
  
-\subsection{How to get there}
+\subsection{How to reach unprecedented precisions}
 \label{Physics_Motivation}
-To reach the precision the ILC promises, it must achieve four different objectives.
+To reach the precision the ILC promises, it must achieve four different objectives, which are pointed out in its Technical Design Report\footnote{The four volumes of the ILC TDR were published in 2013, and contain apart from an executive summary~\cite{TDR1} also all details about the physics goal~\cite{TDR2}, the layout~\cite{TDR31,TDR32}, and the detector experiments~\cite{TDR4}.} (TDR)~\cite[p. 2ff]{TDR2}. 
 These objectives are all linked so that one is dependent on the others.
 In the following section, these four objectives of the ILC are explained in comparison to the LHC.
 
@@ -88,7 +90,7 @@ However, it will be possible at the ILC, because the detector concepts foresee s
 %charm hadron lifetime: 80microns, bottom hadron lifetime: 400microns
 
 \subsection{ILC as a Higgs factory}
-The ILC250 stage will be a so-called Higgs factory, tuned to a center-of-mass energy of \SI{250}{\GeV}, where the cross section $\sigma$ for Higgs production is at its maximum.
+The ILC250 stage will be a so-called Higgs factory, tuned to a center-of-mass energy of \SI{250}{\GeV}, where the cross section for Higgs production is at its maximum.
 Due to the large luminosity and the capability for precision measurements, as has been shown in the section above, the individual Higgs boson qualities can be measured to a percent accuracy in a completely model independent way.
 These Higgs boson properties include the Higgs mass, its couplings to Standard Model particles, as well as its total decay width.
 In contrast, for the LHC experiments, global fits to all Higgs signals together with theoretical assumptions of its decay width is the only way to gain the Higgs couplings.
@@ -103,14 +105,17 @@ The production cross sections for these processes as a function of the center-of
 The dominant process at energies between 200 and \SI{450}{\GeV} is the Higgsstrahlung process, replaced by the WW fusion process above \SI{450}{\GeV}.
 The ZZ fusion cross section contributes the least, with less than \SI{10}{fb}.
 It is suppressed, since the couplings of the neutral current are smaller than the charged current couplings.\\
-As te cross section of the Higgsstrahlung process peaks at \SI{250}{\GeV}, the ILC250 stage will mainly use this production mode for the precision measurements of the Higgs boson qualities.
+As the cross section of the Higgsstrahlung process peaks at \SI{250}{\GeV}, the ILC250 stage will mainly use this production mode for the precision measurements of the Higgs boson qualities.
 At \SI{250}{\GeV}, the ILC will provide an even more precise measurement of the Higgsstrahlung cross section and hence of the branching ratios of the various decay modes of the Higgs boson than at a center-of-mass energy of \SI{500}{\GeV}~\cite[p. 14]{PhysicsCase}.
 This is true despite the lower luminosity at \SI{250}{\GeV}, due to the larger cross section and the smaller background occupancy of the detectors (see Chapter~\ref{PairBkg:occupancy}).
 \begin{figure}
 \centering
 \includegraphics[width=0.5\textwidth]{Figures/HiggsProductionCrossSection.png}
-\caption[Cross section for the Higgs production modes at ILC]{Cross sections for the Higgs production modes at the ILC, with beam polarization of 80\,\% for the electron and 30\,\% the positron beam~\cite[p. 13]{PhysicsCase}.
-The three main processes are ZZ fusion, WW fusion, and Higgsstrahlung.}
+\caption[Cross section for the Higgs production modes at ILC]{Cross sections for the Higgs production modes at the ILC, beam polarization of \SI[detect-all]{80}{\percent} for the electron and \SI[detect-all]{30}{\percent} the positron beam~\cite[p. 13]{PhysicsCase}.
+These are the design beam polarization values for the ILC beams (see Section~\ref{ILC:layout:details}).
+\\The three main processes are ZZ fusion, WW fusion, and Higgsstrahlung.
+The black line (``SM all f$\bar{\mathrm{f}}$h'') represents all Standard Model processes producing a fermion-antifermion pair and a Higgs boson.  
+}
 \label{fig:HiggsProduction}
 \end{figure}
 
@@ -124,7 +129,7 @@ This so-called recoil method to identify the Higgs independently of its decay ch
 The high precision of the Higgs measurements will furthermore be a result of the high luminosity of the ILC and of the peak cross section of the Higgsstrahlung mode.
 
 \paragraph{Higgs mass}
-To gain the recoil mass of the Higgs boson, the difference in the four-momenta between the Z boson decay particles and the initial state particles has to be calculated~\cite[p. 7]{ILCPhysics}:
+To gain the recoil mass $m_{recoil}$ of the Higgs boson, the difference in the four-momenta between the Z boson decay particles and the initial state particles has to be calculated~\cite[p. 7]{ILCPhysics}:
 \begin{equation}
  m_{recoil}^2=(P_{ini}-(P_{f+}+P_{f-}))^2
 \end{equation}
@@ -214,6 +219,7 @@ The combined knowledge reduces the relative precision from a few percent to belo
  \end{figure}
  
 \subsection{Physics at later ILC stages}
+\label{Physics_later_stages}
 The ILC physics program has an excellent discovery potential for new physics.
 The first stage at \SI{250}{\GeV} has the capability to make a prominent progress in the Higgs sector by measuring the Higgs branching ratios to highest precisions.
 The later stages will complete this picture: 
@@ -285,16 +291,23 @@ Once such a WIMP candidate was found, its mass could be determined with an accur
 
 \section{The ILC layout}
 \label{ILC:layout}
-To meet the physics goals discussed in the section above, the ILC is proposed to be a \positron\electron collider.
-By choosing it to be a linear collider, it is extendable.
-With an initial center-of-mass energy of \SI{250}{\GeV} for its first stage, the ILC can be upgraded to 350-\SI{500}{\GeV} and possibly even \SI{1}{\TeV}.
-
-It is envisioned to have a high luminosity and state-of-the-art technologies for the detectors and the machine, which will make the ILC an unprecedented precision machine.
-The designs of the collider and the detector concepts, which will be explained in the following sections, are a result of over twenty years of research at over 300 science laboratories and universities all over the world~\cite{TDR1}.
+The ILC is envisioned to be a \positron\electron collider with a high luminosity and state-of-the-art technologies for the detectors and the machine.
+This will allow the ILC to meet its physics goals, which have been discussed in the section above, and to reach unprecedented precisions.
+\\The following sections will explain the designs of the collider and the detector concepts, which are the result of over twenty years of research at over 300 science laboratories and universities all over the world~\cite{TDR1}.
 The ILC project is therefore truly an international project.
 
+Figure~\ref{fig:ILC_Layout} shows the schematic layout of the ILC.
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{Figures/ILC_layout_edited.png}
+\caption[Schematic layout of the ILC]{Schematic layout of the ILC~\cite[based on p. 9]{TDR1}}
+\label{fig:ILC_Layout}
+\end{figure}
+By choosing it to be a linear collider, it is extendable in length allowing to upgrade the accelerator to higher center-of-mass energies.
+With an initial center-of-mass energy of \SI{250}{\GeV} for its first stage, the ILC is proposed to be upgraded to 350-\SI{500}{\GeV} and possibly even \SI{1}{\TeV}.
+
 The ILC was originally designed to collide electron and positron beams with a center-of-mass energy of \SI{500}{\GeV} in the first stage of operation.
-The layout, as well as research results and physics motivations of this \SI{500}{\GeV} machine were summarized in great detail in the Technical Design Report (TDR) in 2013~\cite{TDR}.
+The layout of this \SI{500}{\GeV} machine is summarized in great detail in the Technical Design Report (TDR)~\cite{TDR}.
 Because of political developments and the request in 2017 to reduce the initial construction cost, the first stage collision energy was reduced to \SI{250}{\GeV}.
 As it is in the nature of linear accelerators that the beam energy is linearly proportional to the accelerator length, the basic layout of the ILC as stated in the TDR is still the same for the new so-called ILC250.
 However, the changes that were made to the layout are given in this section, together with an overview of the generation, preparation and collision of the particle beams in this linear collider concept.
@@ -303,15 +316,9 @@ However, the changes that were made to the layout are given in this section, tog
 \subsection{From beam generation to collision}
 \label{ILC:layout:details}
 \paragraph{Beam sources}
-Figure~\ref{fig:ILC_Layout} shows the schematic layout of the ILC.
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{Figures/ILC_layout_edited.png}
-\caption[Schematic layout of the ILC]{Schematic layout of the ILC~\cite[based on p. 9]{TDR1}}
-\label{fig:ILC_Layout}
-\end{figure}
 The electrons are produced by a GaAs photocathode in a DC electron gun~\cite[p. 13]{TDR32}.
-By shining a circularly polarized laser on the electron beam, a beam polarization of at least \SI{80}{\percent} is achived, i.e. more than \SI{80}{\percent} of all electrons have the same handedness\footnote{For a left-handed particle, its spin and its momentum are antiparallel, pointing in opposite directions, and vice versa for a right-handed particle.}~\cite[p. 81]{TDR32}:
+By shining a circularly polarized laser on the electron beam, a beam polarization $P_e$ of at least \SI{80}{\percent}\footnote{This is a design choice of the ILC. For the positron beam an opposite polarization of \SI{30}{\percent} is envisioned (see below).} is achieved, i.e. more than \SI{80}{\percent} of all electrons have the same handedness\footnote{For a left-handed particle, its spin and its momentum are antiparallel, pointing in opposite directions, and vice versa for a right-handed particle.}.
+In the following equation, the number of electrons that are left-handed ($N_L$) instead of right-handed ($N_R$) is more than \SI{80}{\percent} of all electrons ($N_L+N_R$)~\cite[p. 81]{TDR32}: \todo{English}
 \begin{equation}
  P_e = \frac{N_L-N_R}{N_L+N_R} > 0.8
 \end{equation}
@@ -366,7 +373,8 @@ After this amount of turns, an equilibrium emittance is reached, and the high qu
 After passing the damping rings, the electron and positron beams are compressed in bunch length by a two-stage compressor system, using ``magnetic compression''.
 Here, the bunch length is reduced from several millimeters to \SI{300}{\micro\meter}.
 In both compressor systems, RF cavities are used together with wigglers, which compact the beam momentum by exploiting the momentum spread within the beam bunch.
-As discussed in Section~\ref{AccPhysics:Bunching}, the RF frequency and the timing is chosen such that the bunch tail experiences an accelerating phase in the RF cavity, whilst the bunch head experiences a decelerating phase.
+In the process of bunch compression, the beam bunches will be accelerated from \SI{5}{\GeV} to \SI{15}{\GeV}.
+\\As discussed in Section~\ref{AccPhysics:Bunching}, the RF frequency and the timing is chosen such that the bunch tail experiences an accelerating phase in the RF cavity, whilst the bunch head experiences a decelerating phase.
 The low-momentum particles of the bunch head will therefore be deflected more in the wiggler, whilst the high-momentum particles of the tail are deflected less.
 At the end of the compressor system, the particles of the bunch tail and head will have gotten closer, leading to a shortened beam bunch. 
 The usage of two separate systems relaxes the requirements a single system would need to fulfill, and allows more flexibility in the operation, e.g. to reduce the beam length below \SI{300}{\micro\meter}~\cite[p. 124]{TDR32}.
@@ -382,7 +390,7 @@ The yield, which is shown as the line graphs, is defined as the fraction of cavi
 \end{figure}
 \paragraph{Main linacs}
 Subsequent to bunch compressors, the bunches are injected into the main linear accelerator structures (main linacs).
-The two main linacs are designed to accelerate the beams to the final beam energy of \SI{125}{\GeV}, leading to a center-of-mass energy of \SI{250}{\GeV}.
+The two main linacs are designed to accelerate the beams from \SI{15}{\GeV} to the final beam energy of \SI{125}{\GeV}, leading to a center-of-mass energy of \SI{250}{\GeV}.
 They have a length of \SI{5}{\kilo\meter} each, and use \SI{1.3}{\giga\hertz} superconducting RF cavities with an average accelerating gradient of \SI{31.5}{\mega\volt\per\meter}~\cite{Walker}.
 A picture of one of these cavities is shown in Figure~\ref{fig:Tesla_Cavity}. 
 Since cavities of the same design are already in use for the European XFEL (X-Ray Free-Electron Laser) at Deutsches Elektronen-Synchrotron (DESY) in Hamburg, their high performance has already been demonstrated~\cite{XFEL}.
@@ -407,18 +415,20 @@ The Beam Delivery System (BDS), which has an overall length of about \SI{4.4}{\k
 In the BDS, the beams are focused to nanometer size by the Final-Focus (FF) system, which is a crucial part of the ILC program.
 Only with nanometer-sized bunches can the ILC can reach luminosities comparable to or beyond the Large Hadron Collider (LHC) at CERN, since the total production cross section for \positron \electron colliders is several orders of magnitude smaller than for proton-proton colliders, such as the LHC, at their respective collision energies (see Figure~\ref{fig:Cross_sections}).
 To demonstrate the feasibility of nanometer-scale beams, a test facility was built that is a small scale prototype of the FF system for the ILC: the Accelerator Test Facility (ATF2), which will be presented in more detail in Section~\ref{ATF2}.
-The BDS system not only contains the FF system, but also various feedback diagnostics and beam-halo collimators for removing the halo of particles around the beam core in order to reduce the beam background at the IP. 
+\\The BDS system not only contains the FF system, but also various feedback diagnostics and beam-halo collimators for removing the halo of particles around the beam core in order to reduce the beam background at the IP. 
 The sub-system layout for the sophisticated BDS is shown in Figure~\ref{fig:BDS}.
 Additionally, shielding systems are installed at various locations along the BDS line, again in order to keep the background level at the IP as low as possible.
 Chapter~\ref{BDS_Muons} will talk about muon shielding options that are considered for the ILC.
+\\The background studies done for this thesis are focused on background sources close to the IP.
+All of these background particles originate therefore in the ``Final-Focus region'', containing the BDS, the FF system, the IP, and the beam dumps (which will be explained below).
 
 \paragraph{Beam collision}
-After the Final-Focus system, the beams are then finally brought into collision with a crossing angle of \SI{14}{\milli\radian} at the IP.\cite[p. 9-10]{TDR1}
+After the Final-Focus system, the beams are then finally brought into collision with a crossing angle $\theta_C$ of \SI{14}{\milli\radian} at the IP.\cite[p. 9-10]{TDR1}
 With so-called crab cavities, the bunches are rotated horizontally so that effective head-on collisions are possible.
 This is illustrated in Figure~\ref{fig:Crab_crossing}.
 The crab cavities are also superconducting RF cavities, but designed for a RF frequency of \SI{3.9}{\giga\hertz} and an accelerating gradient of \SI{5}{\mega\volt\per\meter}~\cite[p. 154]{TDR32}.
 The RF phase is modeled in such a way that only the head and the tail of the beam bunch experience acceleration, but in opposite directions.
-The voltage needed to rotate a bunch with energy $E_{bunch}$ can be calculated as follows~\cite{Crab_cavities}:
+The voltage $V_{crab}$ needed to rotate a bunch with energy $E_{bunch}$ can be calculated as follows~\cite{Crab_cavities}:
 \begin{equation}
  V_{crab}=\frac{cE_{bunch}\theta_C}{2\omega R}
 \end{equation}
@@ -435,6 +445,7 @@ For the ILC, it was calculated that the crab cavities should be located \SI{13.4
 
 \paragraph{Beam parameters}
 Table~\ref{tab:ILC_parameters} shows the beam parameters for the baseline design at \SI{250}{\GeV} center-of-mass energy, and for the energy and the luminosity upgrade stages.
+These beam parameters and the according machine parameters from~\cites[p. 11]{TDR1}{CR-0016} were used for the simulation studies of the \positron\electron pair background in Chapter~\ref{PairBkg}.
 %\multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Baseline 500}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Lumi Upgrade}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{TeV Upgrade}} & {\centering\textbf{LHC 25ns}} \\ 
 \begin{table}[h]
 \caption{Beam parameters for different phases in the ILC operation scenario (ILC250, ILC500, Luminosity Upgrade, TeV Upgrade)~\cites[p. 11]{TDR1}{CR-0016} in comparison to LHC Run 2 beam parameters~\cites[p. 3ff]{LHC_TDR}{LHC_Parameters}.}
@@ -455,10 +466,11 @@ q$_b$ &{\small Bunch charge}&{\small(\si{\nano\coulomb})}  & 3.2 & 3.2  & 3.2  &
 $\sigma_x^*$ &{\small Horiz. beam size at IP}&{\small(\si{\nano\metre})} & 515.5 & 474  & 474  &  481 & \num{16700}\\
 $\sigma_y^*$ &{\small Vert. beam size at IP}&{\small(\si{\nano\metre})} & 7.7 & 5.9 &  5.9  &  2.8 & \num{16700}\\
 $\sigma_z$ &{\small Longit. beam size}&{\small(\si{\milli\metre})} & 0.3 & 0.3  &  0.3  &  0.25 & 0.755\\
-L &{\small Luminosity}&{\small(\si{\per\centi\metre\squared\per\second})} & 1.35$\cdot10^{34}$ & 1.8$\cdot10^{34}$ & 3.6$\cdot10^{34}$ &3.6$\cdot10^{34}$ & 1.0$\cdot10^{34}$\\
+\lumi &{\small Luminosity}&{\small(\si{\per\centi\metre\squared\per\second})} & 1.35$\cdot10^{34}$ & 1.8$\cdot10^{34}$ & 3.6$\cdot10^{34}$ &3.6$\cdot10^{34}$ & 1.0$\cdot10^{34}$\\
 \hline\hline
 \end{tabularx}
 \end{table}
+
 For all ILC running scenarios, the beam sizes are several orders of magnitude smaller than for the LHC Run 2, which is the reason for the comparable luminosities as mentioned above.
 Despite the number of bunches per pulse and the bunch population being smaller, the LHC luminosity can be exceeded.
 It is striking that the beam sizes in the horizontal and vertical plane are symmetric for the LHC, whereas they are different for the ILC.

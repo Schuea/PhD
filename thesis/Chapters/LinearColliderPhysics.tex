@@ -286,13 +286,14 @@ The collision energy $\sqrt{s}$, or often called center-of-mass energy $E_{cm}$,
 
 The luminosity of a particle collider is proportional to the rate of collisions that can occur, and it is defined as:
 \begin{align}
- \mathcal{L}&=\frac{N_1N_2 \cdot n_b \cdot f}{2\pi \cdot \sqrt{\sigma^2_{x,1}+\sigma^2_{x,2}} \sqrt{\sigma^2_{y,1}+\sigma^2_{y,2}}}\\
+ \mathcal{L}&=\frac{N_1N_2 \cdot n_b \cdot f_{rep}}{2\pi \cdot \sqrt{\sigma^2_{x,1}+\sigma^2_{x,2}} \sqrt{\sigma^2_{y,1}+\sigma^2_{y,2}}}\\
  \intertext{If the bunch sizes $\sigma_x$ and $\sigma_y$ of the opposite beams are equal:}
- &=\frac{N_1N_2 \cdot n_b \cdot f}{4\pi \cdot \sigma_x \sigma_y}
+ &=\frac{N_1N_2 \cdot n_b \cdot f_{rep}}{4\pi \cdot \sigma_x \sigma_y}
  \label{eq:luminosity}
 \end{align}
 $N_{1,2}$ is the number of particles per bunch, which is usually similar for both beams, so that $N_1\approx N_2$.
-$n_{b}\cdot f$ is the collision frequency, i.e. the number of bunches $n_{b}$ colliding per second.
+$f_{rep}$ is the beam pulse repitition frequency.
+Together with $n_b$, $n_{b}\cdot f_{rep}$ is the collision frequency, i.e. the number of bunches $n_{b}$ colliding per second.
 $\sigma_{x,y}$ is the beam size in the horizontal and the vertical plane.
 Table~\ref{tab:ILC_parameters} in Chapter~\ref{ILC} lists these parameters and their values for the LHC in comparison to the International Linear Collider (ILC).
 In order to translate the luminosity into an event rate, the luminosity value has to be divided by the cross section $\sigma_p$ of the physics process that is of interest.
