@@ -1,4 +1,4 @@
-\chapter{\positron\electron pair background}
+\chapter{\texorpdfstring{\positron\electron pair background}{Electron-positron pair background}}
 \label{PairBkg}
 
 \begin{chapterabstract}
@@ -64,9 +64,9 @@ As will be discussed in the following sections, the simulation of the pair backg
 \section{Characteristics of the fermion pair processes}
 \label{PairBkg:helix}
 By analyzing the generated pair background events, it becomes apparent that the \positron\electron pairs have a low transverse momentum.
-Figure~\ref{fig:PairBkg:Momentum} shows the distribution of their longitudinal and transverse momentum for the two ILC stages at \SI{250}{\GeV} and \SI{500}{\GeV} center-of-mass energy.
+Figure~\ref{fig:PairBkgMomentum} shows the distribution of their longitudinal and transverse momentum for the two ILC stages at \SI{250}{\GeV} and \SI{500}{\GeV} center-of-mass energy.
 The longitudinal momentum of the \positron\electron pairs reaches roughly \SI{80}{\percent} of the beam energy, whilst the transverse momentum extends to only \SI{0.8}{\GeV} for the ILC250, and \SI{1.6}{\GeV} for the ILC500.
- \begin{figure}
+\begin{figure}
  \centering
   \begin{subfigure}[b]{0.49\textwidth}
    \centering
@@ -79,9 +79,9 @@ The longitudinal momentum of the \positron\electron pairs reaches roughly \SI{80
     \includegraphics[width=\textwidth]{Figures/Pairs/250_500_pairs_comparison_PT.png}
    \caption{Transverse momentum}
    \end{subfigure}
-   \caption[Pair background momentum distributions]{Comparison of the pair background momentum distributions for the ILC at \SI[detect-all]{250}{\GeV} and \SI[detect-all]{250}{\GeV} center-of-mass energy, with the longitudinal momentum shown in Figure (a) and the transverse momentum in Figure (b).}
-   \label{fig:PairBkg:Momentum}
- \end{figure}
+   \caption[Plots of pair background longitudinal and transverse momentum distributions]{Comparison of the simulated pair background momentum distributions for the ILC at \SI[detect-all]{250}{\GeV} and \SI[detect-all]{250}{\GeV} center-of-mass energy, with the longitudinal momentum shown in Figure (a) and the transverse momentum in Figure (b).}
+   \label{fig:PairBkgMomentum}
+\end{figure}
 \\Due to their low transverse momentum, the pairs are deflected on narrow helical tracks in the magnetic field of the detector solenoid magnet.
 For the tracking of the helices, it was decided not to use a \geant simulation, since it would deliver only the vertices and the endpoints of the particle tracks.
 Additional points along the tracks can only be stored when adding active layers in the simulation model.
@@ -183,6 +183,9 @@ Charged particles are deflected on circular paths, when the Lorentz force and th
 In the subsequent \geant simulation of the pairs hitting the \sid vertex detector this value was confirmed. 
 
 \section{Pair background dependency on ILC beam parameters}
+After having introduced the pair background characteristics, this section will analyze its dependency on the choice of the ILC beam parameters.
+To this end, Section~\ref{PairBkg:envelopes} presents the new proposed beam parameter schemes for the ILC250 stage.
+The resulting occupancy in the \sid vertex detector and further subdetectors is then discussed in Sections~\ref{PairBkg:occupancy} and~\ref{PairBkg:further_subdetectors} respectively.
 \subsection{Pair background envelopes}
 \label{PairBkg:envelopes}
 As explained in Section~\ref{ILC:layout:staging}, the first ILC stage will be at \SI{250}{\GeV}.
@@ -278,7 +281,7 @@ Taking into account that a detector sensor can only store up to a specific numbe
 A cell is defined to be dead when the buffer of its sensor is already completely filled, and no further hits can be stored.
 This is especially important as the detectors for the ILC will read out their buffers only after every bunch train (\num{1312} bunch crossings).
 In order to guarantee that cell buffers are not filled only by background hits, a balance has to be found between a sufficient buffer depth and low background levels, depending on the design of the accelerator and the detectors.
-In \sid, a guideline for an acceptable occupancy for background events is that the sum of all cells with a number of hits greater than or equal to the buffer depth should not exceed \SI{0.01}{\percent} (\num{e-4} of all cells).\\
+As explained in Section~\ref{ILC:SiD:readout}, the \sid guideline for an acceptable occupancy for background events is that the sum of all cells with a number of hits greater than or equal to the buffer depth should not exceed \num{e-4} of all cells.\\
 The occupancy for all vertex detector layers combined after a full bunch train are shown for the barrel in Figure~\ref{fig:PairBkg:ILC250_Occupancy} (a) and for the endcaps in Figure~\ref{fig:PairBkg:ILC250_Occupancy} (b).
 For producing these plots, the number of hits were counted for each cell, summed up over the full bunch train.
 A cell size of \SI{20}{\micro\meter}$\times$\SI{20}{\micro\meter} has been assumed for these calculations.
