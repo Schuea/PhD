@@ -105,10 +105,10 @@ The need for higher order correction magnets can also be derived from the expans
   &= \frac{1}{r} &&+ kx &&+ \frac{1}{2!}mx^2 &&+ \frac{1}{3!}ox^3 &+ ... \label{eq:field_components}\\
   &\rightarrow \textnormal{dipole} &&+ \textnormal{quadrupole} &&+ \textnormal{sextupole} &&+ \textnormal{octupole} &+ ...\nonumber
 \end{alignat}
-and equivalently from $B_x(y)$.
+and equivalently for $B_x(y)$.
 \\Equation~\ref{eq:field_components} shows the connection between the radius and the magnetic field in the dipole component (using Equation~\ref{eq:MagField_Radius}).
 In the quadrupole, sextupole and octupole components, factors for the magnet strength are introduced.
-According to the Maxwell equation $\vec{\nabla}\cdot\vec{B} = \frac{\partial B_y}{\partial x} -\frac{\partial B_x}{\partial y} = 0$, the Lorentz force on a particle in a quadrupole magnet, has therefore to be written as (cf. \cite[p. 372]{VacuumElectronics}):
+According to the Maxwell equation $\vec{\nabla}\cdot\vec{B} = \frac{\partial B_y}{\partial x} -\frac{\partial B_x}{\partial y} = 0$, the Lorentz force on a particle in a quadrupole magnet, has therefore to be written as~\cite[cf. p. 372]{VacuumElectronics}:
 \begin{multicols}{2}
 \noindent 
 \begin{align}
@@ -144,7 +144,7 @@ At any given point, the direction of the magnetic field (B) and the resulting Lo
 A beam of positively charged particles going into the page would be focused in the y-direction and defocused in x.}
 \label{fig:Quadrupole:field_lines}
 \end{subfigure}
-\caption[Schematic drawings of a quadrupole magnet]{Schematic drawings of the cross section of an ideal quadrupole magnet (a), and of the magnetic field lines in the center of such a quadrupole magnet (b).}
+\caption[Schematic drawings of a quadrupole magnet with magnetic field lines]{Schematic drawings of the cross section of an ideal quadrupole magnet (a), and of the magnetic field lines in the center of such a quadrupole magnet (b).}
 \label{fig:Quadrupole}
 \end{figure}
 
@@ -156,7 +156,7 @@ Hence, several of these structures, which act like optical lenses, are needed to
 \begin{figure}
 \centering
 \includegraphics[width=0.5\textwidth]{Figures/FODO.png}
-\caption[Schematic of FODO structure]{Schematics of a FODO structure in the horizontal and vertical plane. The particles are focused and defocused by the quadrupoles that act as lenses~\cite[p. 65]{Hinterberger}.}
+\caption[Schematic of a FODO structure]{Schematics of a FODO structure in the horizontal and vertical plane. The particles are focused and defocused by the quadrupoles that act as lenses~\cite[p. 65]{Hinterberger}.}
 \label{fig:FODO}
 \end{figure}
 Due to the restoring force, particles that were deflected by the focusing magnets start to perform betatron oscillations around the ideal particle trajectory.
@@ -171,12 +171,12 @@ In order to minimize the beam size at the IP, the beta function is tailored such
 \item Like the beta function, the transverse emittance $\epsilon$ is defined in the horizontal and vertical plane.
 In simple terms, $\epsilon$ is a direct measure of the convergence of the beam with respect to its spread in space and in transverse momentum.
 A small emittance therefore means that the beam particles are confined to a small space, with a narrow transverse momentum distribution.
-It also has the units of length, and is often given as the normalized emittance $\epsilon^* = \epsilon\beta\gamma$, with $\beta=\frac{v}{c}$ the relativistic Lorentz factor $\gamma=\frac{1}{\sqrt{1-\beta^2}}$.
+It also has the units of length, and is often given as the normalized emittance $\epsilon^* = \epsilon\beta\gamma$, with $\beta=\frac{v}{c}$ and the relativistic Lorentz factor $\gamma=\frac{1}{\sqrt{1-\beta^2}}$.
 \end{itemize}
 Together, the spatial amplitude of the betatron oscillations can be written as $\sqrt{\epsilon\beta}$.
-Since the amplitude of these oscillations counts towards the size of the beam, its contribution to the beam size can then be written as $\sigma_{betatron} = \sqrt{\epsilon\beta}$.
-The amplitude is also shown as the maximum extent in x in the so-called phase-space ellipse, shown in Figure~\ref{fig:PhaseSpaceEllipse}.
-The phase-space is spanned by x and x', where x can stand for the x and y-direction). 
+Since the amplitude of these oscillations counts towards the size of the beam, its contribution to the beam size can then be written as $\sigma_{\mathrm{betatron}} = \sqrt{\epsilon\beta}$.
+The amplitude is also shown as the maximum extent in x in the phase-space ellipse, shown in Figure~\ref{fig:PhaseSpaceEllipse}.
+The phase-space is spanned by x and x', where x can stand for the x and y-direction. 
 x represents the position of the particle, and x' represents the change in position along the particle trajectory $s$, so that x'$=\frac{d\rm{x}}{ds}$.
 The beam emittance $\epsilon$ can be defined in terms of the phase-space ellipse more accurately than it was done above.
 $\epsilon$ is hence defined as the area (divided by $\pi$) of the phase-space ellipse.
@@ -186,8 +186,8 @@ Since the particles' spread in position and momentum varies along the beam line,
 The normalized emittance $\epsilon^*$, which was explained above, is the quantity which is adiabatically invariant under energy change.
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.5\textwidth]{Figures/PhaseSpaceEllipse_w_AxisTitles.png}
-\caption[Phase space ellipse]{Phase space ellipse~\cite[based on p. 158]{Wiedemann}
+\includegraphics[width=0.6\textwidth]{Figures/PhaseSpaceEllipse_w_AxisTitles.png}
+\caption[Schematic of a phase space ellipse]{Phase space ellipse~\cite[based on p. 158]{Wiedemann}
 \\The variables $\alpha$ and $\gamma$ are defined here as: $\alpha = -\frac12\beta'$ and $\gamma = \frac{1+\alpha^2}{\beta}$~\cite[cf. p. 283ff]{Wangler}.}
 \label{fig:PhaseSpaceEllipse}
 \end{figure}
@@ -195,10 +195,9 @@ The normalized emittance $\epsilon^*$, which was explained above, is the quantit
 The actual transverse size of the beam is not yet fully defined by the spatial amplitude of the betatron oscillations~\cite[cf. p. 108ff]{Conte}.
 The deviation from the ideal particle trajectory due to the momentum spread has to be taken into account, which is defined by the dispersion function $\eta$.
 Like $\epsilon$ and $\beta$, it is dependent on the position along the beam trajectory, and can be defined as $\eta = \frac{dx}{d\delta}$, with the fractional deviation from the ideal particle momentum $p_0$: $\delta = \Delta p/p_0$.
-
-With this knowledge, the overall beam size can be calculated by using the betatron oscillation amplitude as well as the spread in the particle momentum distribution for all particles:
+\\With this knowledge, the overall beam size can be calculated by using the betatron oscillation amplitude as well as the spread in the particle momentum distribution for all particles:
 \begin{align}
- \sigma&=\sqrt{\sigma^2_{betatron}+\sigma^2_{dispersion}}\\
+ \sigma&=\sqrt{\sigma^2_{\mathrm{betatron}}+\sigma^2_{\mathrm{dispersion}}}\\
  &=\sqrt{\epsilon\cdot\beta+\left(\eta\frac{\Delta p}{p_0}\right)^2}
 \end{align}
 
@@ -215,7 +214,7 @@ The RF frequency is chosen such that the particles with the ideal momentum $p_0$
 Depending on the system,  $\psi_s$ is then appointed to be either on the rising or the falling edge of the accelerating RF wave, or at the zero crossing.
 In a circular accelerator, such as a storage ring, the particles are to be constantly accelerated and longitudinally focused at the same time.
 $\psi_s$ is therefore off-crest on the falling edge of the RF wave.
-For relativistic particles traveling at the speed of light, their orbit along the storage ring depends on the difference of their momentum $\Delta p$ to the ideal momentum $p_0$.
+For relativistic particles traveling close to the speed of light, their orbit along the storage ring depends on the difference of their momentum $\Delta p$ to the ideal momentum $p_0$.
 Particles with a smaller momentum travel on an orbit that is smaller than the ideal orbit.
 This is due to the fact that the radius of the particle's path in a magnetic dipole field depends on the momentum of the particle, which is shown in Equation~\ref{eq:MagField_Radius}.
 These particles on a smaller orbit will arrive at the next accelerating cavity earlier than the ideal particles (which arrive at the synchronous phase $\psi_s$), and will therefore experience a larger field which accelerates the particles to higher energies.
@@ -233,9 +232,9 @@ This effect is called ``phase focusing''.
 \centering
  \includegraphics[width=0.9\textwidth]{Figures/RFphase.png}
 \end{subfigure}
-\caption[Phase focusing]{Relativistic charged particles with the ideal momentum ($\Delta p/p = 0$) travel on the ideal orbit of the accelerator, and arrive at the next accelerating RF structure at the RF phase $\psi_s$, the so-called ``synchronous phase''. 
+\caption[Illustrations explaining ``phase focusing'']{Relativistic charged particles with the ideal momentum ($\Delta p/p = 0$) travel on the ideal orbit of the accelerator, and arrive at the next accelerating RF structure at the RF phase $\psi_s$, the so-called ``synchronous phase''. 
 Particles with a smaller momentum ($\Delta p/p < 0$) travel on a shorter orbit, and will arrive earlier than the ideal particles.
-These particles will therefore be accelerated more, whilst particles with larger momentum will be accelerated less respectively.
+These particles will therefore be accelerated more, whilst particles with a larger momentum will be accelerated less respectively.
 Illustrations based on~\cite{Anke}.}
 \label{fig:RFPhase}
 \end{figure}
@@ -248,8 +247,8 @@ Particles arriving at the cavity at a phase with negative voltage will be decele
 Over a set of several cavities, bunches are formed.
 \begin{figure}
 \centering
-\includegraphics[width=0.4\textwidth]{Figures/Velocity_bunching.png}
-\caption[Velocity bunching]{Velocity bunching: The beam arrives at the RF cavity such that the bunch head experiences a decelerating RF phase, whilst the bunch tail experiences an accelerating force.}
+\includegraphics[width=0.5\textwidth]{Figures/Velocity_bunching.png}
+\caption[Illustration explaining ``velocity bunching'']{Velocity bunching: The beam arrives at the RF cavity such that the bunch head experiences a decelerating RF phase, whilst the bunch tail experiences an accelerating force.}
 \label{fig:Velocity_bunching}
 \end{figure}
 
@@ -257,7 +256,7 @@ After the pre-acceleration, the now relativistic bunches can be further compress
 There are several methods used, which all in principle are based on the idea of shortening the bunch by exploiting the momentum spread of the beam particles~\cite[cf. p. 378ff]{Wiedemann}.
 One of the methods uses the same idea as explained above for circular accelerators.
 It is illustrated in Figure~\ref{fig:Magnetic_compression}.
-By sending the bunches through a chicane with bending magnets, the particles' orbit though the chicane depends on their relativistic momentum.
+By sending the bunches through a chicane\footnote{A chicane is a deviation from the original direction of the beam line using bending magnets. Chicanes are used for certain processes, such as energy or particle filtering.} with bending magnets, the particles' orbit though the chicane depends on their relativistic momentum.
 Before the chicane, the still elongated bunches are passed through an RF cavity such that the bunch heads experience a decelerating RF phase, whilst the tails experience an accelerating phase.
 The synchronous phase $\psi_s$ is hence designed to be at the zero crossing of the RF wave.
 In the chicane, the high-momentum particles of the tail are deflected less, and will travel on a shorter orbit than the low-momentum particles.
@@ -266,8 +265,8 @@ Another method of ``magnetic compression'' is explained in Section~\ref{ILC:layo
 %To still guarantee the particle to be accelerated by the same RF phase, the RF frequency is varied over the length of the linear collider.
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.7\textwidth]{Figures/Magnetic_Compression.png}
-\caption[Magnetic compression]{Magnetic compression: After passing through an RF cavity, the particles in the bunch head have a lower momentum compared to the particles of the bunch tail.
+\includegraphics[width=0.95\textwidth]{Figures/Magnetic_Compression.png}
+\caption[Illustration explaining ``magnetic compression'' in a chicane]{Magnetic compression: After passing through an RF cavity, the particles in the bunch head have a lower momentum compared to the particles of the bunch tail.
 This causes the particles of the bunch to travel along different orbits in the chicane depending on their momentum.
 Since the tail particles have a higher momentum, they travel on a shorter orbit and will arrive at the end of the chicane at a similar time as the bunch head particles.
 Illustration based on~\cite[p. 75]{Bunching}.}
@@ -276,15 +275,14 @@ Illustration based on~\cite[p. 75]{Bunching}.}
 
 \section{Linear colliders in comparison to circular colliders}
 \label{AccPhysics:Linear-Circular}
-These transverse and longitudinal beam dynamics, described in the sections above, are of course valid for circular as well as linear accelerators.
+These transverse and longitudinal beam dynamics described in the sections above are of course valid for circular as well as linear accelerators.
 In both machines, the acceleration with RF cavities, for instance, is accompanied by beam deflections and corrections with the help of magnets.
 Naturally, the beam line of a circular accelerator contains on average more bending magnets than a linear accelerator.
 
-Currently, the world's largest circular particle collider is the Large Hadron Collider (LHC) at CERN, a synchrotron with a circumference of about \SI{27}{\kilo\meter}.
+Currently, the world's largest circular particle collider is the Large Hadron Collider (LHC) at CERN, a synchrotron with a circumference of approximately \SI{27}{\kilo\meter}.
 The design collision energy of the two colliding proton beams is \SI{14}{\TeV}, and its nominal peak luminosity \lumi is \SI{e34}{\centi\meter^{-2}\second^{-1}}~\cite[p. 3]{LHC_Paper}.
 The collision energy $\sqrt{s}$, or often called center-of-mass energy $E_{cm}$, between two relativistic beams is calculated as shown in Section~\ref{Production_modes}.
-
-The luminosity of a particle collider is proportional to the rate of collisions that can occur, and it is defined as:
+\\The luminosity of a particle collider is proportional to the rate of collisions that can occur, and it is defined as:
 \begin{align}
  \mathcal{L}&=\frac{N_1N_2 \cdot n_b \cdot f_{rep}}{2\pi \cdot \sqrt{\sigma^2_{x,1}+\sigma^2_{x,2}} \sqrt{\sigma^2_{y,1}+\sigma^2_{y,2}}}\\
  \intertext{If the bunch sizes $\sigma_x$ and $\sigma_y$ of the opposite beams are equal:}
@@ -296,24 +294,24 @@ $f_{rep}$ is the beam pulse repitition frequency.
 Together with $n_b$, the collision frequency is then $n_{b}\cdot f_{rep}$, i.e. the number of bunches $n_{b}$ colliding per second.
 $\sigma_{x,y}$ is the beam size in the horizontal and the vertical plane.
 Table~\ref{tab:ILC_parameters} in Chapter~\ref{ILC} lists these parameters and their values for the LHC in comparison to the International Linear Collider (ILC).
-In order to translate the luminosity into an event rate, the luminosity value has to be divided by the cross section $\sigma_p$ of the physics process that is of interest.
+In order to translate the luminosity into an event rate $\dot{N}$, the luminosity value has to be multiplied by the cross section $\sigma_{\mathrm{process}}$ of the physics process that is of interest.
 Since the LHC detectors only measure events from inelastic scattering, the LHC event rate can be calculated by taking only the cross section for inelastic proton-proton scattering into account, which is measured to be approximately \SI{78}{\milli\barn}~\cite{inelXSection}.
 \begin{align}
- \dot{N}&=\mathcal{L}\cdot\sigma_{inelastic}\\
+ \dot{N}&=\mathcal{L}\cdot\sigma_{\mathrm{inelastic}}\\
  &=10^{34} \textrm{cm}^{-2}s^{-1} \cdot 78\textrm{\,mb}\\
  &=7.8\times 10^8 s^{-1}
 \end{align}
 %https://www.lhc-closer.es/taking_a_closer_look_at_lhc/0.cross_section
 Every second about 780 million events are occurring at the LHC.
 With its high luminosity and high collision energy, the possible physics processes from the hadron collisions cover wide energy ranges, because of which it is a so-called ``discovery machine''.
-New particles, first seen for example as resonance peaks in the measured mass spectra, can be discovered easier than at accelerators with smaller collision energy due to the large phase-space.
-This was the case in 2012 for instance, when the LHC experiments found a peak at an invariant mass of about \SI{126}{\GeV}, shortly after recognized as the very first measurement of a Higgs boson~\cite{Higgs,Higgs2}.
+New particles, often seen as resonance peaks in the measured mass spectra, can be discovered more easily than at accelerators with smaller collision energy due to the large phase-space.
+This was the case in 2012 for instance, when the LHC experiments found a peak at an invariant mass of about \SI{126}{\GeV}, shortly thereafter recognized as the very first measurement of a Higgs boson~\cite{Higgs,Higgs2}.
 %The reason why large synchrotron rings need pre-accelerators is that the range for changing the magnet's field strength is limited.
 
-Why these so-called ``discovery machines'' are hadron and not lepton colliders, and why they are circular and not linear, is to be explained with the physical qualities of the colliding particles.
+Why these ``discovery machines'' are hadron and not lepton colliders, and why they are circular and not linear, is to be explained with the physical qualities of the colliding particles.
 Hadrons are by definition composite particles, the actual colliding particles in a collision are therefore their partons, the constituents of the hadrons.
 The energy that the single partons have follows a certain probability function, leading to the fact that the collision energy in hadron colliders can cover a large range.
-This so-called deep inelastic scattering is explained in more detail in Chapter~\ref{StandardModel}.
+This so-called deep inelastic scattering is explained in more detail in Section~\ref{StandardModel}.
 
 In contrast to that, a collision of leptons as elementary particles is the interaction of exactly these leptons at exactly their given energy.
 This is one of the reasons why lepton colliders are called ``precision machines''.
@@ -342,10 +340,10 @@ $T$ is the time duration per turn, in which the particle beam is bend in the dip
  &=\frac{e^2}{3\epsilon_0(m_0c^2)^4}\frac{E^4}{R} \label{eq:Eloss_synchrotron_radiation}
 \end{align}
 In order to counteract the loss, the beam has to be accelerated by at least $\Delta E$ for every turn.
-Equation~\ref{eq:Eloss_synchrotron_radiation} also implies that a circular accelerator with high beam energies either has to have accelerating cavities with extremely high gradients and strong dipole magnets, or that its radius has be so large that it can compensate for the factor $E^4$.
+Equation~\ref{eq:Eloss_synchrotron_radiation} also implies that a circular accelerator with high beam energies either has to have accelerating cavities with extremely high gradients and strong dipole magnets, or that its radius has to be so large that it can compensate for the factor $E^4$.
 Having a closer look at the equation, it now becomes clear why the LHC is a hadron collider:
 Due to the factor $m_0^{-4}$, the synchrotron radiation is much lower for particles with higher masses.
-When comparing the LHC one time with \SI{6.5}{\TeV} beams of protons and another time with electrons, then it can be calculated directly that an ``Electron-LHC'' would lose about 1.14\,$\cdot\,10^{13}$ times as much energy from synchrotron radiation than the existing LHC, simply because of the electron-proton mass ratio:
+When comparing two versions of LHC: one version with \SI{6.5}{\TeV} beams of protons, and one version with electrons, then it can be calculated directly that an ``Electron-LHC'' would lose about 1.14\,$\cdot\,10^{13}$ times as much energy from synchrotron radiation than the existing LHC, simply because of the electron-proton mass ratio: \todo{English}
 \begin{align*}
  \frac{\Delta E_e}{\Delta E_p} &=\frac{m_p^4}{m_e^4}\\
  &= \frac{7.75\cdot10^{11} \textnormal{MeV}^4}{6.82\cdot10^{-2} \textnormal{MeV}^4}\\
@@ -355,12 +353,10 @@ Constant beam energy loss is not the only way in which synchrotron radiation aff
 The synchrotron radiation also causes damage to the particle detectors as well as to the diagnostic devices along the accelerator ring.
 The only way to prevent the sensitive devices from the radiation damage is to use shielding materials and to build up shielding walls where needed.
 %Additionally, due to the influence of the synchrotron radiation on the beam energy, the uncertainties on the physics measurements of the detector experiments increase because the measurements rely on the knowledge of the beam energy.
-Additionally, the constant, but fluctuating beam energy loss increases the uncertainties on the physics measurements, as the measurements rely on a precise knowledge of the beam energy.
-
+Additionally, the constant (but fluctuating) beam energy loss increases the uncertainties on the physics measurements, as the measurements rely on a precise knowledge of the beam energy.
+\newpage
 Overall, synchrotron radiation is a critical issue for circular accelerators, and is always aimed to be minimized by using beam particles with high masses and by building accelerator rings with large radii.
-
-Concluding, a circular hadron collider lends itself to be a particle accelerator in the high-energy frontier, whereas a linear lepton collider is destined to be a collider in the precision frontier.
-
+\\Concluding, a circular hadron collider lends itself to be a particle accelerator in the high-energy frontier, whereas a linear lepton collider is destined to be a collider in the precision frontier.
 Nevertheless, there have also been circular lepton colliders in the past, such as the Large Electron-Positron Collider (LEP) at CERN before the LHC was built into the same tunnel.
 LEP was in use from 1989 until 2000, and accelerated electrons and positrons to a center-of-mass energy of up to \SI{209}{\GeV}~\cite{LEP}.
 At such energies, the loss due to synchrotron radiation can be calculated as above, and is with \SI{3.79}{\GeV} per turn still tolerable.
@@ -370,11 +366,11 @@ Although it was a circular collider, it was still possible to collide leptons at
 In the end, the deciding factor when considering the design for a future collider is not only the physics goal, but also the cost for the accelerator.
 For the overall expected cost, there is a rough rule of thumb formulated by Burton Richter in 1979~\cite[p. 87ff]{Richter}.
 Based on cost estimates of previous accelerators, the cost of circular accelerators tends to grow quadratically with the nominal center-of-mass energy, whilst it grows linearly with the energy for linear colliders.
-Strictly speaking, the proportional cost growth for linear colliders is true considering only the accelerating structures, since the achievable energy is increasing linearly with the length of the accelerator.
+\\Strictly speaking, the proportional cost growth for linear colliders is true considering only the accelerating structures, since the achievable energy is increasing linearly with the length of the accelerator.
 But there is more to a linear collider than just the accelerating structure: damping rings, focusing systems and beam dumps are only a few examples of what a linear collider layout contains as well.
 These elements, which add inevitable basic costs, are explained in more detail in Chapter~\ref{ILC:layout}.
-Apart from the basic costs, the increase in costs when reaching to higher center-of-mass energies is therefore larger for circular than for linear colliders.
-The center-of-mass energy, from which on this relation is true, was found to be about \SI{200}{\GeV} for circular machines with normal conducting accelerating structures, and about \SI{350}{\GeV} with superconducting accelerating structures, as illustrated in Figure~\ref{fig:Costs}.
+Apart from the basic costs, the increase in costs when reaching higher center-of-mass energies is therefore larger for circular than for linear colliders.
+The center-of-mass energy, from which on this relation is true, \todo{English} was found to be about \SI{200}{\GeV} for circular machines with normal conducting accelerating structures, and about \SI{350}{\GeV} with superconducting accelerating structures, as illustrated in Figure~\ref{fig:Costs}.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.55\textwidth]{Figures/Collider_costs.png}
