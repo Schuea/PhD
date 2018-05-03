@@ -48,6 +48,7 @@ BCOR5mm]{scrbook}
 %\usepackage{mathdots/mathdots}
 
 \usepackage{fancybox} %%% more types of boxes 
+\usepackage{afterpage} %For forcing a figure to be on the next page
 
 \usepackage{graphicx}       %%% CUSTOMIZATION: include all pictures
 %\usepackage[draft]{graphicx} %%% choose draft option for faster compiling without pictures
@@ -206,7 +207,7 @@ BCOR5mm]{scrbook}
 \include{Chapters/Conclusion}
 
 \cleardoublepage
-\include{Misc/nomenclature}
+%\include{Misc/nomenclature}
 \appendix
 \include{Appendix/appendix}
 
@@ -214,7 +215,7 @@ BCOR5mm]{scrbook}
 \cleardoublepage
 %\include{Misc/notation}            %%% list of all Your used notation
 \include{Misc/bibliography}        %%% list of all Your used sources
-%\include{Misc/acknowledgements}
+\include{Misc/acknowledgements}
 
 
 \backmatter                                    %%% put here whatever You choose
@@ -222,10 +223,6 @@ BCOR5mm]{scrbook}
 \end{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%TODO:Change 'ratio' to 'fraction' in the text
-%TODO:cite before full stop
-%TODO:Subfigure-Bennenung im Text einheitlich: 3 (a) und nicht 3a
 %TODO:Make short captions more useful
-%TODO:interaction point
 %TODO:Remove the todo list
 %TODO:Write acknowledgements
