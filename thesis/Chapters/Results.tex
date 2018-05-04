@@ -1,4 +1,4 @@
-\chapter{Results: prospects, requirements and limits for the International Linear Collider}
+\chapter{Results: prospects, requirements, and limits for the International Linear Collider}
 \label{Results}
 Detailed studies of different background sources for the International Linear Collider have been presented in Chapters~\ref{PairBkg} -~\ref{BeamDumps}.
 They cover the \positron\electron pair background from beam-beam interactions, the machine background from the interaction of the beam with the beam line components, and the neutron background from the ILC main beam dumps.
@@ -16,34 +16,38 @@ Achieving the ILC goal of measuring particle properties and their interactions w
 This in turn depends on clean environments for the detectors.
 A balance has to be found between accelerator design and detector design optimizations, in order to minimize the detector background.
 The \sid guideline for an acceptable background limit is that no more than \num{e-4} of all cells in the individual subdetectors shall be filled up with background hits above the buffer depth of the sensors.
-This guideline was used throughout the chapters in order to make recommendations on acceptable background levels from the respective background sources, based on the detailed simulation studies that have been done for this thesis.
+Any cell that reaches its buffer depth is declared a ``dead'' cell, as it can no longer record new hits until the buffers are read out. 
+\\This guideline was used throughout the chapters in order to make recommendations on acceptable background levels from the respective background sources, based on the detailed simulation studies that have been done for this thesis.
 
 \section{Impact of the ILC running scheme on the background level}
 
 As Chapter~\ref{PairBkg} has shown, the pair background is dependent on certain factors, such as the ILC center-of-mass energy, the number of bunches per train, and the beam parameters themselves.
 These dependencies result in requirements and limits that can be formulated for the International Linear Collider.
 The pair background studies done for the newly proposed beam parameters for the ILC250 stage showed the effect of changes in the parameter sets on the pair background envelopes and the arising occupancy in \sid.
-Three new sets ((A), (B), and (C)) had been suggested, for which the horizontal beam emittance is reduced in comparison to the original baseline parameter set.
-For sets (B) and (C), the beta function values had additionally been changed.
-In the \sid vertex detector, for which a minimal background level is crucial, the pair background occupancy for sets (B) and (C) exceeded the critical acceptance limit.
-In the innermost vertex detector barrel layer, set (A) exceeds this limit as well.
+Three new sets ((A), (B), and (C)) had been suggested, for which the horizontal beam emittance is reduced by a factor of two in comparison to the original baseline parameter set.
+For sets (B) and (C), the beta function values had additionally been changed (as shown in Table~\ref{tab:ILC250_sets}).
+In the \sid vertex detector, for which a minimal background level is crucial, the pair background occupancy for sets (B) and (C) exceeded the critical acceptance limit in the various vertex detector layers by up to a factor of two.
+In the innermost vertex detector barrel layer, set (A) exceeds this limit as well, but only by approximately \SI{10}{\percent}.
 In all other layers and \sid subdetectors, the occupancy for set (A) stays below the critical limit.
+The full set of occupancy results can be found in Table~\ref{tab:ILC250_results}.
 The results of this study have already been input to the ILC design decision made for the Change Request CR-0016.
 Set (A) has been chosen for the new official parameter set of the ILC250 stage.
-\\When upgrading the ILC to later stages, such as the ILC500 and the ILC500 ``LumiUp'', the pair background occupancy rises, pushing the fraction of dead cells in the \sid vertex detector above the critical limit.
+\\When upgrading the ILC to later stages, such as the ILC500 and the ILC500 ``LumiUp'', the pair background occupancy rises, pushing the fraction of dead cells in the \sid vertex detector above the critical limit by up to \SI{240}{\percent}, as shown in Table~\ref{tab:TimeGate_results}.
 
 Regarding the machine background, the ILC center-of-mass energy, as well as the beam intensity and the beam pipe vacuum pressure have been found to affect the machine background level directly.
 The specific effects are described below, together with suggestions on accelerator design optimizations.
 
 \paragraph{Possible accelerator design optimizations to constrain the background levels}
 
-As mentioned above, design choices regarding the beam parameters effect the beam induced backgrounds.
+As mentioned above, design choices regarding the beam parameters affect the beam induced backgrounds.
 Studying the effects on the pair background occupancies in \sid allowed to make recommendations on the design decision, such as selecting the ILC250 beam parameter set (A) as the new official parameter scheme for the first ILC stage.
 
 The machine background is dependent on the ILC accelerator conditions as well, as has been shown in Chapters~\ref{BDS_Muons} and~\ref{machine_bkg}.
 The number of muons from the Beam Delivery System rises by a factor of three when upgrading the ILC from a center-of-mass energy of \SI{250}{\GeV} to \SI{500}{\GeV}, as has been shown in Chapter~\ref{BDS_Muons}.
+For both shielding options under discussion, the fraction of dead cells for a buffer depth of four is reduced to below \num{2e-8} of all cells in the \sid tracker.
+In all other subdetectors, the occupancies are negligible.
 Although the minimal shielding option for the muons was found to be sufficient for limiting the \sid detector occupancy, the additional shielding wall serves as a tertiary containment device, which is required due to radiation safety regulations.
-\\The measurements of the machine background at the Accelerator Test Facility 2 (ATF2) presented in Chapter~\ref{machine_bkg} have shown that the machine background is directly dependent on the beam intensity and the beam pipe vacuum pressure.
+\\The measurements of the machine background at the Accelerator Test Facility 2 (ATF2), presented in Chapter~\ref{machine_bkg}, have shown that the machine background is linearly dependent on the beam intensity and the beam pipe vacuum pressure.
 The vertical beam halo collimator, which has been tested at ATF2 regarding its functionality, has proven itself to reduce the background level at the interaction point regardless of the beam intensity or vacuum pressure conditions.
 The measurements taken in the proximity of the collimator showed a background reduction of up to about \SI{50}{\percent}, when closing the collimator.
 
@@ -51,11 +55,13 @@ Chapter~\ref{BeamDumps} discussed the current ILC main beam dump designs.
 Since they are based on a water vessel, the beam power can be sufficiently absorbed over a short length.
 This, however, implies that the beam energy has to be dissipated effectively with the help of high-pressure water flow vortices.
 Locations of high material densities lead to a high concentration of deposited energy, and to high dose rates due to the irradiation of the water and the surrounding materials. 
-Even after one month of beam time and then a cooling time of one year, the dose rate in the proximity of the beam dump reaches about \SI{10}{\milli\sievert\per\second} for one of the two proposed dump designs, which tightly restricts the duration of stay for the maintenance personnel.
+Even after one month of beam time and then a cooling period of one year, the dose rate in the proximity of the beam dump reaches about \SI{10}{\milli\sievert\per\second} for one of the two proposed dump designs, which tightly restricts the duration of stay for the maintenance personnel.
+The maintenance personnel would only be allowed to work in the proximity of the beam dump vessel for up to about 30 minutes before the yearly legal dose limit is reached.
 Additionally, the beam dumps represent another source of background for the detectors at the interaction region.
 Neutrons from photonuclear interactions between the secondary particles of the developing particle showers and the water molecules can be found at every solid angle, and hence also in the backward direction towards the IP.
 A simulation of the neutrons traveling back through the extraction line tunnel revealed that about \num{5.9e6} neutrons arrive at the interaction region.
-\\A proposed solution to both of these issues is to use a gaseous beam dump instead of a water beam dump, which would decrease the expected dose rate by several orders of magnitude.
+The hits of the neutrons that reach to the \sid detector are restricted to the outermost layers of the muon system and the BeamCal.
+\\A proposed solution to both of these issues is to use a gaseous beam dump instead of a water beam dump, which would decrease the expected dose by 2-3 orders of magnitude.
 The gaseous dumps do not create a neutron background for the detectors.
 The clear disadvantage of these dumps is, however, their sheer length required for fully dissipating the ILC beam power.
 For two \SI{1}{\kilo\meter} long dump vessels, the construction cost for the dump tunnels was roughly estimated to be about 44\,million\,\euro.
@@ -70,19 +76,20 @@ The detectors can therefore influence the background levels themselves through v
 \paragraph{Possible \sid design optimizations to constrain the background levels}
 
 The detector specific anti-DiD field, for example, sweeps the pair background particles through the outgoing beam pipe, and therefore reduces the number of pairs hitting the \sid BeamCal.
-This in turn also reduces the overall pair background occupancy also in the inner subdetectors.
+This in turn also reduces the overall pair background occupancy in the inner subdetectors by up to \SI{30}{\percent}, as described in Figure~\ref{fig:PairBkg:ILC250_Occupancy_SetA}.
 
 In addition, the detectors have their own shielding device, Pacman, which is installed on the outside of the muon system.
-The detector simulation of the beam dump neutrons arriving at the \sid detector, which has been discussed in Chapter~\ref{BeamDumps}, has proven Pacman to shield the incoming neutrons from hitting the inner subdetectors.
+The detector simulation of the beam dump neutrons arriving at the \sid detector, which has been discussed in Chapter~\ref{BeamDumps}, has proven that Pacman shields the incoming neutrons from hitting the inner subdetectors effectively.
 A proposal made in Chapter~\ref{BDS_Muons} suggests to magnetize Pacman in order to effectively shield also the muons coming from the Beam Delivery System.
 
 Studies of the timing of the individual background sources have shown that time gates can reduce the detector occupancy significantly.
 In Chapter~\ref{PairBkg}, the direct effect of applying a time gate to the \sid vertex detector has been discussed.
 The number of hits from the pair background can be reduced by \SI{12}{\percent}, when rejecting all hits later than \SI{10}{\nano\second} after the bunch crossing.
-This leads also to a decrease in the vertex barrel occupancy such that the occupancy for a buffer depth of four is below the critical acceptance limit for the ILC stages at \SI{250}{\GeV} and \SI{500}{\GeV}. 
-Even when upgrading the ILC to the ILC500 ``LumiUp'' stage, the critical occupancy limit is not exceeded by far.
+This leads to a decrease in the vertex barrel occupancy such that the occupancy for a buffer depth of four is below the critical acceptance limit for the ILC stages at \SI{250}{\GeV} and \SI{500}{\GeV}. 
+Even when upgrading the ILC to the ILC500 ``LumiUp'' stage, the occupancy is only \SI{150}{\percent} of the critical occupancy (compared to \SI{240}{\percent} without time gates).
 Already increasing the buffer depth by two would bring the occupancy below the critical limit in this ILC stage as well.
-Apart from that, also the hit time distribution of the muons from the Beam Delivery System show distinct ranges for the individual \sid subdetectors.
+This would have the effect that the detector performance in all \sid subdetectors will be comparable throughout all studied ILC stages.
+\\Apart from that, also the hit time distribution of the muons from the Beam Delivery System show distinct ranges for the individual \sid subdetectors, as shown in Chapter~\ref{BDS_Muons}.
 
 With a complete study encompassing all background sources, individual time gates could be applied to the different \sid subdetectors in order to effectively attenuate the background occupancy.
 All in all, the detectors have the potential to optimize their designs with respect to reducing the background levels further.
