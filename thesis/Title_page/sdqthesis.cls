@@ -86,19 +86,20 @@
 % Logos
 \newcommand{\thegrouplogo}{sdqlogo}
 \newcommand{\grouplogo}[1]{\renewcommand{\thegrouplogo}{#1}}
-\newcommand{\printgrouplogo}{\includegraphics[height=1.5cm]{logos/\thegrouplogo}}
+\newcommand{\printgrouplogo}{\includegraphics[height=1.7cm]{logos/\thegrouplogo}}
 \newcommand{\nogrouplogo}{\renewcommand{\printgrouplogo}{}}
 
 \titlehead{%
-
 % KIT logo german/english
 \iflanguage{ngerman}
 {\includegraphics[height=1.4cm]{logos/kitlogo_de_cmyk}}
 {\includegraphics[height=1.4cm]{logos/kitlogo_de_cmyk}}
-\hfill
-%IEKP-KA/2015-01
+\hspace*{9.5cm}
+%ETP-KA/2018-13
 %\hfill
 \printgrouplogo
+\vspace*{0.1cm}
+\\ETP-KA/2018-13
 \ThisCenterWallPaper{1}{title-background.pdf}
 }
 	

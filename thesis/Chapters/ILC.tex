@@ -469,7 +469,7 @@ Table~\ref{tab:ILC_parameters} shows the beam parameters for the baseline design
 These beam parameters and the according machine parameters from~\cites[p. 11]{TDR1}{CR-0016} were used for the simulation studies of the \positron\electron pair background in Chapter~\ref{PairBkg}.
 %\multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Baseline 500}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{Lumi Upgrade}} & \multicolumn{1}{>{\centering}p{1.5cm}}{\textbf{TeV Upgrade}} & {\centering\textbf{LHC 25ns}} \\ 
 \begin{table}[h]
-\caption{Beam parameters for different phases in the ILC operation scenario (ILC250, ILC500, Luminosity Upgrade, TeV Upgrade)~\cites[p. 11]{TDR1}{CR-0016} in comparison to LHC Run 2 beam parameters~\cites[p. 3ff]{LHC_TDR}{LHC_Parameters}.}
+\caption{Baseline beam parameters for different phases in the ILC operation scenario (ILC250, ILC500, Luminosity Upgrade, TeV Upgrade)~\cites[p. 11]{TDR1}{CR-0016} in comparison to LHC Run 2 beam parameters~\cites[p. 3ff]{LHC_TDR}{LHC_Parameters}.}
 \label{tab:ILC_parameters}
 \centering
 \begin{tabularx}{0.99\textwidth}{lll|rrrrg}
@@ -633,12 +633,15 @@ PFA is a method that reconstructs each particle of the final state individually 
 Therefore, charged particles are reconstructed from tracks in the tracker device.
 The electromagnetic calorimeter (ECAL) is used for photons, and the electromagnetic (ECAL) and hadronic calorimeter (HCAL) together for other neutral particles~\cite{PFA}.
 
-Table~\ref{tab:KeyParametersSiD} lists the key parameters and measurements of the \sid subdetector systems together with the technologies for the individual sub-systems. \todo{Table: Scintillator-steel, explain}
+Table~\ref{tab:KeyParametersSiD} lists the key parameters and measurements of the \sid subdetector systems together with the technologies for the individual sub-systems.
 Additionally, Figure~\ref{fig:SiD} shows a visualization of the \sid detector and its subdetectors, which will be explained in the following paragraphs.
 A more detailed description can be found in~\cite{TDR4}.
 
 \begin{table}[h!]
-\caption[Key parameters of the baseline \sid design]{Key parameters and technologies foreseen for the baseline \sid design. All dimensions are given in cm~\cite{SiD_Geo}.}
+\caption[Key parameters of the baseline \sid design]{Key parameters and technologies foreseen for the baseline \sid design.
+All dimensions are given in cm~\cite{SiD_Geo}.
+\\The column ``Technology'' states the detector readout technology and the material of the absorbing layer for the calorimeter systems, e.g. tungsten (W).
+For the solenoid magnet, superconducting coils are foreseen, creating a magnetic field of \SI{5}{\tesla}.}
 \label{tab:KeyParametersSiD}
 \centering
 \begin{tabularx}{0.81\textwidth}{l|llll}
@@ -658,7 +661,7 @@ Vertex detector & Silicon pixels & 7.3 & 83.4 & 7.1 \\
 Tracker & Silicon strips & 77.0 & 164.3 & 125.5 \\
 ECAL & Silicon pixel-W & 165.7 & 180.0 & 126.5 \\
 HCAL & SiPM-steel & 180.5 & 300.0 & 140.3 \\
-Muon System & Scintillator/steel & 300.0 & 560.0 & 605.4 \\
+Muon System & Scintillator-steel & 300.0 & 560.0 & 605.4 \\
 LumiCal & Silicon-W & 155.7 & 169.55 &  20.0 \\
 BeamCal & Semiconductor-W & 326.5 & 344 & 14.0 \\
 \hline\hline
@@ -680,14 +683,13 @@ The radius of the innermost layer of the vertex detector barrel is only \SI{14}{
 \\Figure~\ref{fig:tagging} shows the flavor tagging efficiency and the corresponding purity in di-jet samples.
 Depending on the physics analysis, a working point can be chosen from the plot in order to find the correct balance between high statistics and low backgrounds.
 The expected flavor tagging efficiencies at the ILC are \SI{96}{\percent} and \SI{35}{\percent} for b-tagging and c-tagging respectively~\cite[p. 54]{TDR2}.
-\begin{figure}[h!]
+\begin{figure}[t!]
 \centering
-\includegraphics[width=0.6\textwidth]{Figures/SiD_VXD_3D.png}
+\includegraphics[width=0.5\textwidth]{Figures/SiD_VXD_3D.png}
 \caption[Visualization of the \sid vertex detector]{Visualization of the \sid vertex detector~\cite{SiD_Update2}.}
 \label{fig:SiD_VXD}
 \end{figure}
-
-\begin{figure}[!h]
+\begin{figure}[h!]
 \centering
  \begin{minipage}[t]{0.44\textwidth}
  \centering
@@ -704,6 +706,7 @@ The curves show the relation for b-tagging, c-tagging, and c-tagging with bottom
 \label{fig:tagging}
 \end{minipage}
 \end{figure}
+\FloatBarrier
 
 Additionally, a very small material budget of about \SI{0.1}{\percent\xzero} per layer is foreseen for the vertex detector in order to limit particle showers and multiple scattering in this subdetector~\cite{SiD_Update,Marcels_general_SiD_slides}.
 To achieve this minimal material budget, sensor technologies are considered that foresee the implementation of the sensor buffers on the chips directly to minimize the used material. 
