@@ -5,7 +5,7 @@ Title: EXTline
 Input: EXT_line_actual.inp
 Submit: Nohup
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Geometry
+Page: Run
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -14,11 +14,10 @@ F77dline: False
 # Run information
 Run: <default>
 	Prev:     0
-	Last:     1
-	Status:   3
+	Last:     2
+	Status:   4
 	Pid:      0
-	StartRun: 1521911447
-	Family:  EXT_line_actual_aa EXT_line_actual_ab EXT_line_actual_ac
+	StartRun: 1528283903
 
 	# USRxxx data file: EXT_line_actual_21.bnn
 	Data: \I_\U.\e
@@ -31,63 +30,6 @@ Run: <default>
 	# USRxxx data file: EXT_line_actual_22.bnn
 	Data: \I_\U.\e
 		Unit: 22
-		Type: b
-		Rule: +,\I\d\d\d_fort\.\U
-		Rule: +,\I\d\d\d_ftn\.\U
-	End
-End
-
-# Run information
-Run: EXT_line_actual_aa
-	Rnd:      2
-	Prev:     0
-	Last:     1
-	Status:   3
-	Pid:      0
-	StartRun: 1522485427
-	Parent:    <default>
-
-	# USRxxx data file: EXT_line_actual_aa_0.bnn
-	Data: \I_\U.\e
-		Unit: 0
-		Type: b
-		Rule: +,\I\d\d\d_fort\.\U
-		Rule: +,\I\d\d\d_ftn\.\U
-	End
-End
-
-# Run information
-Run: EXT_line_actual_ab
-	Rnd:      3
-	Prev:     0
-	Last:     1
-	Status:   3
-	Pid:      0
-	StartRun: 1522485427
-	Parent:    <default>
-
-	# USRxxx data file: EXT_line_actual_ab_0.bnn
-	Data: \I_\U.\e
-		Unit: 0
-		Type: b
-		Rule: +,\I\d\d\d_fort\.\U
-		Rule: +,\I\d\d\d_ftn\.\U
-	End
-End
-
-# Run information
-Run: EXT_line_actual_ac
-	Rnd:      4
-	Prev:     0
-	Last:     1
-	Status:   3
-	Pid:      0
-	StartRun: 1522485427
-	Parent:    <default>
-
-	# USRxxx data file: EXT_line_actual_ac_0.bnn
-	Data: \I_\U.\e
-		Unit: 0
 		Type: b
 		Rule: +,\I\d\d\d_fort\.\U
 		Rule: +,\I\d\d\d_ftn\.\U
@@ -148,16 +90,6 @@ End
 Material: Fe2O3
 	alpha: 0
 	color: #B0B050
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: Chlorine
-	alpha: 0
-	color: #9050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -245,9 +177,9 @@ Material: B2O3
 End
 
 # Material
-Material: Cs
+Material: Eu
 	alpha: 0
-	color: #901070
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -335,9 +267,9 @@ Material: CaO
 End
 
 # Material
-Material: Phosphor
+Material: Chlorine
 	alpha: 0
-	color: #E05010
+	color: #9050D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -345,9 +277,19 @@ Material: Phosphor
 End
 
 # Material
-Material: Eu
+Material: Cs
 	alpha: 0
-	color: #703070
+	color: #901070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
+Material: Phosphor
+	alpha: 0
+	color: #E05010
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -395,7 +337,7 @@ Plot: Red
 	cbtics: 0
 	coord: U-V
 	cpd: 0
-	extends: 526.665 283.781
+	extends: 526.665 394.999
 	grid: 0
 	index: 0
 	labels: 1
@@ -421,7 +363,7 @@ Plot: Green
 	basisv: 1 0 0
 	boundaries: 1
 	coord: Z-X
-	extends: 3450.58 1859.27
+	extends: 3450.58 2587.93
 	labels: 1
 	layer: Lattice
 	origin: -73.832 0 -375.402
@@ -437,7 +379,7 @@ Plot: Blue
 	basisv: 0 1 0
 	boundaries: 1
 	coord: Z-Y
-	extends: 440.307 236.552
+	extends: 440.307 330.23
 	labels: 1
 	layer: Lattice
 	origin: 0 -151.453 280.673
@@ -453,7 +395,7 @@ Plot: Magenta
 	basisv: 0 1 0
 	boundaries: 1
 	coord: U-V
-	extends: 771.33 414.391
+	extends: 771.33 578.498
 	labels: 1
 	layer: Media
 	origin: 95.7613 47.7254 1750

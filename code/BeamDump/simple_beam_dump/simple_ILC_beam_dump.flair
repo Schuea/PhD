@@ -5,7 +5,7 @@ Title: simple_ILC_beam_dump
 Input: simple_ILC_beam_dump.inp
 Submit: *Default
 Tabs: 0.1 0.32 0.56 0.81 1.0
-Page: Input
+Page: Run
 DefMain: True
 LinkPrg: lfluka
 F77bound: True
@@ -13,11 +13,11 @@ F77dline: False
 
 # Run information
 Run: <default>
-	Prev:     5
-	Last:     8
+	Prev:     0
+	Last:     2
 	Status:   3
 	Pid:      0
-	StartRun: 1497964882
+	StartRun: 1528283776
 
 	# USRxxx data file: simple_ILC_beam_dump_21.bnn
 	Data: \I_\U.\e
@@ -145,9 +145,9 @@ Material: MgO
 End
 
 # Material
-Material: Sulfur
+Material: Stainles
 	alpha: 0
-	color: #209010
+	color: #40D0D0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -155,9 +155,9 @@ Material: Sulfur
 End
 
 # Material
-Material: Stainles
+Material: Sulfur
 	alpha: 0
-	color: #40D0D0
+	color: #209010
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -195,9 +195,9 @@ Material: Fe2O3
 End
 
 # Material
-Material: Na2O
+Material: POTASSIU
 	alpha: 0
-	color: #301070
+	color: #70B0B0
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -255,6 +255,16 @@ Material: Chlorine
 End
 
 # Material
+Material: Cs
+	alpha: 0
+	color: #901070
+	fuzz: 0.0
+	ior: 1.0
+	shine: 10.0
+	specular: 0.0
+End
+
+# Material
 Material: SiO2
 	alpha: 0
 	color: #60D0B0
@@ -288,16 +298,6 @@ End
 Material: SO3
 	alpha: 0
 	color: #9010D0
-	fuzz: 0.0
-	ior: 1.0
-	shine: 10.0
-	specular: 0.0
-End
-
-# Material
-Material: Eu
-	alpha: 0
-	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -345,9 +345,9 @@ Material: Cobalt
 End
 
 # Material
-Material: POTASSIU
+Material: Na2O
 	alpha: 0
-	color: #70B0B0
+	color: #301070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -375,9 +375,9 @@ Material: Phosphor
 End
 
 # Material
-Material: Cs
+Material: Eu
 	alpha: 0
-	color: #901070
+	color: #703070
 	fuzz: 0.0
 	ior: 1.0
 	shine: 10.0
@@ -598,7 +598,7 @@ Plot: Red
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 1540.7 811.83
+	extends: 1540.7 1155.53
 	grid: 0
 	index: 0
 	labels: 1
@@ -632,7 +632,7 @@ Plot: Green
 	cbtics: 0
 	coord: Z-X
 	cpd: 0
-	extends: 1341.62 708.293
+	extends: 1341.62 1006.21
 	grid: 0
 	index: 0
 	labels: 1
@@ -668,7 +668,7 @@ Plot: Blue
 	cbtics: 0
 	coord: Z-Y
 	cpd: 0
-	extends: 2218.61 1164.77
+	extends: 2218.61 1663.96
 	grid: 0
 	index: 0
 	labels: 1
@@ -701,7 +701,7 @@ Plot: Magenta
 	cbtics: 0
 	coord: X-Y
 	cpd: 0
-	extends: 1283.92 675.357
+	extends: 1283.92 962.94
 	grid: 0
 	index: 0
 	labels: 1
